@@ -1,0 +1,87 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Macros</title>
+Description = all keywords + extra text
+<meta name="Description" content="Macros for automation tips and tricks" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Macros
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="macros, visual, studio, automation, keyboard shortcuts" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2013-02-11" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>Macros</h1>
+	<p>
+		Date created: 2013-02-11
+		<br />
+		Date modified: 2013-02-11
+	</p>
+
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<!-- ================================================================== -->
+	<h2>Intro</h2>
+
+	<!-- ================================================================== -->
+	<h2>Samples used by HolisticWare team</h2>
+
+	<h3>HTML Encoding in HTML source and other text editors</h3>
+	
+	<ul>
+		<li>
+			Purpose:
+			Used for code snippets and samples when pasting xml code (xml, axml, xhtml, xaml, ...).
+			<br />
+			Macro will replace selected text with html encoded text.
+		</li>
+		<li>
+			Keyboard shortcut: 
+			(Ctrl + Alt + Left Window, H)
+		</li>
+		<li>
+			Macro Code:
+			<pre class="hw_code">
+Imports System
+Imports EnvDTE
+Imports EnvDTE80
+Imports EnvDTE90
+Imports EnvDTE90a
+Imports EnvDTE100
+Imports System.Diagnostics
+
+Public Module HtmlEncode
+
+	Sub EncodeHtml()
+			DTE.ActiveDocument.Selection.Text = _
+					System.Web.HttpUtility.HtmlEncode(DTE.ActiveDocument.Selection.Text)
+	End Sub
+						
+End Module
+			</pre>
+		</li>
+	</ul>
+	<p>
+	</p>
+
+	<pre class="hw_code">
+	</pre>
+	<!-- ================================================================== -->
+	<h2>
+		<a id="unique_in_this_document">Further reading</a>
+	</h2>
+</body>
+</html>

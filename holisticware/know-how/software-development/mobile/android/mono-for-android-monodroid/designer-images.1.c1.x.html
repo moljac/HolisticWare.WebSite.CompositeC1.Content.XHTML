@@ -1,0 +1,45 @@
+Double extensions (more than 1 '.'
+
+drawable/Composite-S.72x72.png
+
+        <ImageView
+            android:src="@drawable/Composite-S.72x72"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageViewCompositeC1"
+            android:layout_weight="0.5" />
+
+
+MonoDevelop
+
+C:\Program Files\Android\android-sdk-windows\platform-tools\aapt.exe package -f -M 
+	C:\Users\moljac\AppData\Local\Temp\ilqw5slw.22v\AndroidManifest.xml 
+	-J C:\Users\moljac\AppData\Local\Temp\ilqw5slw.22v 
+	-F C:\Users\moljac\AppData\Local\Temp\ilqw5slw.22v\resources.apk.bk 
+	-S D:\SRC\HolisticWare\HolisticWare.CompositeC1.Ch1rp3r\HolisticWare.CompositeC1.Ch1rp3r.EXE_M4A\obj\Debug\res 
+	-I "C:\Program Files\Android\android-sdk-windows\platforms\android-8\android.jar" 
+
+res\drawable\composite-s.72x72.png: Invalid file name: must contain only [a-z0-9_.]
+
+Resources\layout\main.axml(2): error : 
+	No resource found that matches the given name (at 'src' with value '@drawable/composite-s.72x72').
+
+	The command exited with code 1.			
+			
+	EXE_M4A\Resources\layout\main.axml(0,0): 
+	
+	Error: No resource found that matches the given name 
+	(at 'src' with value '@android:drawable/composite-s.72x72').
+
+
+   
+   
+Renamed and changed axml
+
+drawable/Composite-S_72x72.png
+
+           android:src="@drawable/Composite-S_72x72"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageViewCompositeC1"
+            android:layout_weight="0.5" />

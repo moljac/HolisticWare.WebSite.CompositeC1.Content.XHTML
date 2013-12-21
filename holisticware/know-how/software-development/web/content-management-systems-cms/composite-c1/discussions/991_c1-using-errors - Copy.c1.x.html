@@ -1,0 +1,407 @@
+﻿<!--
+C1 generated!!
+<title>Using C1</title>
+<meta name="Description" content="Using Composite C1, Errors, Troubleshooting, Tips & Tricks" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="Using, composite C1, Errors, Troubleshooting, Tips, Tricks" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-04-18" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Using composite C1, Errors, Troubleshooting, Tips &amp; Tricks</a></h1>
+	<!-- ================================================================== -->
+
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+
+
+
+	<!-- ================================================================== -->
+	<hr />
+	<a id="Exception-paste-XHTML-in-content">
+		<h2><a id="">
+		2011-04-24 Exception when pasting XHTML in Content Editor in Source View Mode
+		</a></h2>
+	</a>
+
+	<p>
+		Pasting following XHTML code:
+	</p>
+
+	<pre class="hw_code">
+&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+	&lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
+	&lt;title&gt;C1 Composite Sample error&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+	</pre>
+	<p>
+	Causes exception in:
+	</p>
+
+	<pre class="hw_code">
+	\Website_v2.1\Composite\services\WysiwygEditor\XhtmlTransformations.asmx
+	line 234
+
+		[WebMethod]
+		public XhtmlTransformationResult StructuredContentToTinyContent(string htmlFragment)
+		{
+			try
+			{
+				string warnings = "";
+				string XhtmlPassSsltPath = Server.MapPath("..\\..\\transformations\\WysiwygEditor_StructuredContentToTinyContent.xsl");
+
+				string html = WrapInnerBody(htmlFragment);
+
+				XDocument xml = MarkupTransformationServices.TidyXml(html);
+
+				IEnumerable&lt;XElement&gt; functionRoots = xml.Descendants(Namespaces.Function10 + "function").Where(f =&gt; f.Ancestors(Namespaces.Function10 + "function").Count() == 0);
+				foreach (var functionElement in functionRoots.ToList())
+				{
+					functionElement.ReplaceWith(GetImageTagForFunctionCall(functionElement));
+				}
+
+				IEnumerable&lt;XElement&gt; dataFieldReferences = xml.Descendants(Namespaces.DynamicData10 + "fieldreference");
+				foreach (var referenceElement in dataFieldReferences.ToList())
+				{
+					referenceElement.ReplaceWith(GetImageTagForDynamicDataFieldReference(referenceElement));
+				}
+
+				Dictionary&lt;string, string&gt; xsltParameters = new Dictionary&lt;string, string&gt;();
+				xsltParameters.Add("requestapppath", UrlUtils.PublicRootPath);
+
+				XDocument structuredResult = MarkupTransformationServices.RepairXhtmlAndTransform(xml.ToString(), XhtmlPassSsltPath, xsltParameters, out warnings);
+
+				string bodyInnerXhtml = MarkupTransformationServices.OutputBodyDescendants(structuredResult);
+
+				XhtmlTransformationResult result = new XhtmlTransformationResult();
+				result.Warnings = warnings;
+				result.XhtmlFragment = bodyInnerXhtml.Replace("\xA0", _nbspNumeric).Replace(_nbsp, _nbspNumeric);
+
+				return result;
+			}
+			catch (Exception ex)
+			{
+				LoggingService.LogError("XhtmlTransformation", ex.ToString());
+				// exception thrown here
+				throw;
+			}
+		}
+
+
+System.Xml.XmlException was unhandled by user code
+  Message=Unexpected XML declaration. The XML declaration must be the first node in the document, 
+  and no white space characters are allowed to appear before it. 
+  Line 8, position 3.
+  Source=System.Xml
+  LineNumber=8
+  LinePosition=3
+  SourceUri=""
+  StackTrace:
+	   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+	   at System.Xml.XmlTextReaderImpl.Throw(String res, String arg)
+	   at System.Xml.XmlTextReaderImpl.ParsePI(StringBuilder piInDtdStringBuilder)
+	   at System.Xml.XmlTextReaderImpl.ParsePI()
+	   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+	   at System.Xml.XmlTextReaderImpl.Read()
+	   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r)
+	   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r, LoadOptions o)
+	   at System.Xml.Linq.XDocument.Load(XmlReader reader, LoadOptions options)
+	   at System.Xml.Linq.XDocument.Parse(String text, LoadOptions options)
+	   at System.Xml.Linq.XDocument.Parse(String text)
+	   at Composite.Core.WebClient.Services.WysiwygEditor.MarkupTransformationServices.TidyXml(String xmlMarkup)
+	   at Composite.Services.XhtmlTransformations.StructuredContentToTinyContent(String htmlFragment) in path\Website_v2.1\Composite\services\WysiwygEditor\XhtmlTransformations.asmx:line 234
+  InnerException: 	
+  </pre>
+	<p>
+		Stepping further with debugger got C1 console altert error: &quot;Error in source 
+		code: Unknown error&quot;
+	</p>
+
+	<blockquote>
+	Note: switching from Source View to Visual purges html (removes) 
+	<code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;</code>
+	</blockquote>
+
+	<p>
+	Pasting following code in Source view of the Content page and saving does not throw exception
+	</p>
+	<pre class="hw_code">
+&lt;!--
+C1 generated!!
+&lt;title&gt;Title max 65 char all keywords&lt;/title&gt;
+&lt;meta name="Description" content="Description all keywords" /&gt;
+--&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+	&lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;	
+</pre>	
+
+	<p>
+		Or adding whitespace in the firs line of code (space or tab before 
+		<code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;</code>
+	</p>
+
+	<pre class="hw_code">
+  &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+	&lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
+	&lt;title&gt;C1 Composite Sample error&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;	
+	</pre>
+	<p>
+	Does not throw an Exception but alert comes up in C1 console
+	</p>
+	<blockquote>
+	Unexpected xml declaration. Xml declaration must be first node in the document and no 
+	whitespace characters are allowed to appear before it. Line 1 position 4.
+	</blockquote>
+
+	
+	<!-- ================================================================== -->
+	<hr />
+	<h2><a id="">
+	<a id="Exception-C1-console-no-network">
+		2011-04-24 C1 Console (Start Composite) without network
+	</a>
+	</a></h2>
+
+	<p>
+	Error if network is absent.
+	Opening C1 Console through:
+	http://localhost:3984/Composite/default.aspx + Start Composite
+	</p>
+	<pre class="hw_code">
+	Website_v2.1\Composite\controls\ScriptLoaderControl.ascx.cs
+	line=192 
+	line_content: System.Threading.Tasks.Task task = System.Threading.Tasks.Task.Factory.StartNew(() =&gt; loaded = System.Xml.Linq.XDocument.Load(uri));
+	</pre>
+
+	<p>
+	Exception data:
+	</p>
+	<pre class="hw_code">
+	System.Net.WebException was unhandled by user code
+	  Message=The remote name could not be resolved: 'c1console.composite.net'
+	  Source=System
+	  StackTrace:
+		   at System.Net.HttpWebRequest.GetResponse()
+		   at System.Xml.XmlDownloadManager.GetNonFileStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+		   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+		   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+		   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+		   at System.Xml.XmlReader.Create(String inputUri, XmlReaderSettings settings, XmlParserContext inputContext)
+		   at System.Xml.XmlReader.Create(String inputUri, XmlReaderSettings settings)
+		   at System.Xml.Linq.XDocument.Load(String uri, LoadOptions options)
+		   at System.Xml.Linq.XDocument.Load(String uri)
+		   at ScriptLoaderControl.&lt;&gt;c__DisplayClass1.&lt;_HasServerToServerConnection&gt;b__0() in d:\SRC\HolisticWare\HolisticWare_Web_CMS_C1\Website_v2.1\Composite\controls\ScriptLoaderControl.ascx.cs:line 192
+		   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+		   at System.Threading.Tasks.Task.InnerInvoke()
+		   at System.Threading.Tasks.Task.Execute()
+	  InnerException: 
+	</pre>
+	<p>
+	Code:
+	</p>
+	<pre class="hw_code">
+	private bool _HasServerToServerConnection()
+	{
+		bool result = false;
+		try
+		{
+			string uri = ConfigurationManager.AppSettings["Composite.StartPage.Url"];
+
+			XDocument loaded = null;
+		
+			// Exception occurs in line below!!
+			System.Threading.Tasks.Task task = System.Threading.Tasks.Task.Factory.StartNew(() =&gt; loaded = System.Xml.Linq.XDocument.Load(uri));
+
+			task.Wait(2500);
+			if (task.IsCompleted)
+			{
+				XElement titleElement = loaded.Descendants(Composite.Core.Xml.Namespaces.Xhtml + "title").FirstOrDefault();
+				result = (titleElement != null &amp;&amp; titleElement.Value == "Start");
+			}
+		}
+		catch (Exception) { }
+		return result;
+	}
+	</pre>
+
+	
+	<!-- ================================================================== -->
+	<hr />
+	<h2><a id="">
+		<a id="C1-precompilation">
+		[2011-03-03] C1 Composite deployment as precompiled website
+		</a>
+	</a></h2>
+
+	<p>
+	The directory '/XXX/App_GlobalResources/' is not allowed because the application is precompiled&#8230;
+	</p>
+	<p>
+		Problem
+
+		You get this error when running your application:
+	</p>
+
+	<pre class="hw_code">
+Server Error in ‘XXX’ Application.
+
+The directory '/website/App_GlobalResources/' is not allowed because the application is precompiled.
+
+Description: An unhandled exception occurred during the execution of the current web request. 
+Please review the stack trace for more information about the error and where it originated in the code.
+
+Exception Details: System.Web.HttpException: The directory '/website/App_GlobalResources/' is not 
+allowed because the application is precompiled.
+
+This error can occur when running an application deployed and installed by the MSI Deployment Installer.  
+The MSI Deployment Installer creates a PrecompiledApp.config file that causes this error at run-time.
+	</pre>
+
+	<h3><a id="">Solution</a></h3>
+
+	<ol>
+		<li>Delete the PrecompiledApp.config file and re-start your application.</li>
+	</ol>
+
+	<pre class="hw_code">
+	See Also
+
+Part VII:  Troubleshooting Applications
+
+Application Won’t Run
+
+Application Runs But No Data is Displayed
+
+Application Error Messages
+
+	</pre>
+
+
+	<!-- ================================================================== -->
+	<hr />
+	<h2><a id="">
+		<a id="C1-deploying">
+		2011-02-27 C1 Composite deployment
+		</a>
+	</a></h2>
+
+	<p>
+	After deploying C1 composite on IIS7 some user right issues caused errors.
+	</p>
+
+	<h3><a id="">Test from remote machine</a></h3>
+
+	<pre class="hw_code">
+Server Error in '/' Application.
+
+Runtime Error
+
+Description: An application error occurred on the server. The current custom error settings for this 
+application prevent the details of the application error from being viewed remotely (for security reasons). 
+It could, however, be viewed by browsers running on the local server machine. 
+
+Details: To enable the details of this specific error message to be viewable on remote machines, 
+please create a &lt;customErrors&gt; tag within a "web.config" configuration file located in the root 
+directory of the current web application. This &lt;customErrors&gt; tag should then have its 
+"mode" attribute set to "Off".
+
+&lt;!-- Web.Config Configuration File --&gt;
+
+&lt;configuration&gt;
+	&lt;system.web&gt;
+		&lt;customErrors mode="Off"/&gt;
+	&lt;/system.web&gt;
+&lt;/configuration&gt;
+
+Notes: The current error page you are seeing can be replaced by a custom error page by 
+modifying the "defaultRedirect" attribute of the application's &lt;customErrors&gt; configuration 
+tag to point to a custom error page URL.
+
+
+&lt;!-- Web.Config Configuration File --&gt;
+
+&lt;configuration&gt;
+	&lt;system.web&gt;
+		&lt;customErrors mode="RemoteOnly" defaultRedirect="mycustompage.htm"/&gt;
+	&lt;/system.web&gt;
+&lt;/configuration&gt;
+	</pre>
+
+
+	<h3><a id="">Test on loacl machine</a></h3>
+
+	<p>
+	test on local machine (windows server itself
+	</p>
+
+	<pre class="hw_code">
+Server Error in '/' Application.
+
+Configuration Error
+
+Description: An error occurred during the processing of a configuration file required to service this request. 
+Please review the specific error details below and modify your configuration file appropriately. 
+
+Parser Error Message: Unrecognized attribute 'targetFramework'. Note that attribute names are case-sensitive.
+
+Source Error: 
+
+Line 6:  			&lt;error statusCode="404" redirect="Renderers/FileNotFoundHandler.ashx"/&gt;
+Line 7:  		&lt;/customErrors&gt;
+Line 8:  		&lt;compilation debug="true" targetFramework="4.0"&gt;
+Line 9:  			&lt;assemblies&gt;
+Line 10: 				&lt;add assembly="System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/&gt;
+
+Source File: path_to_directory\web.config    Line: 8 
+
+Version Information: Microsoft .NET Framework Version:2.0.50727.4206; ASP.NET Version:2.0.50727.4209
+	</pre>
+	<p>
+	Check 
+		Web Site + Basic Setting
+	</p>
+	<p>
+	Solution
+		Application pools + web site + dbl click + change framework version
+	</p>		
+		
+	<pre class="hw_code">
+Server Error in '/' Application.
+
+Access to the path 
+'website\App_Data\Composite\ApplicationState\SerializedWorkflows\a4806a7b-de25-417c-b67a-f0285e56c459.bin' is denied.
+	</pre>	
+
+	<p>
+	Filesystem ()directory where site resides
+		security + add rights for "network service"
+	IIS7 edit permissions
+		security + add rights for "network service"
+	</p>	
+
+
+</body>
+</html>

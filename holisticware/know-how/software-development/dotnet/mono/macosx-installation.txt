@@ -1,0 +1,12 @@
+Soft symlinks are installed in /usr/bin because /usr/bin is in the environment's PATH. 
+These symlinks point back to the mono framework directory.  Run this command to see a 
+list of what was installed in /usr/bin
+
+\ls -las /usr/bin/ | grep -i mono
+
+
+Mono is installed to:
+/Library/Frameworks/Mono.framework
+
+To run executables from the Terminal:
+mono myprogram.exe 

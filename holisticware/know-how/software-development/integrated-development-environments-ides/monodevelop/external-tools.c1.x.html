@@ -1,0 +1,93 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>External Tools</title>
+Description = all keywords + extra text
+<meta name="Description" content="External Tools in MonoDevelop - integration, tips n tricks, HowTos" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: external-tools
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="external, tools, monodevelop, integration" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2012-02-29" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">External Tools</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<h2><a id="">Sample</a></h2>
+	<p>
+		MonoDevelop [External] Tools are like Visual Studio External Tools. 
+		<br />
+		Integration of UI WYSIWYG Designer tools for Android:
+		<br />
+		DroidDraw:
+		<br />
+		<img
+			alt="MonoDevelop External Tools - DroidDraw integration"
+			title="MonoDevelop External Tools - DroidDraw integration"
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/monodevelop/monodevelop-external-tools-droiddraw.png"
+			height="465" width="706"
+		/>
+		<br />
+		Eclipse:
+		<br />
+		<img
+			alt="MonoDevelop External Tools - Eclipse integration"
+			title="MonoDevelop External Tools - Eclipse integration"
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/monodevelop/monodevelop-external-tools-eclipse.png"
+			height="465" width="706"
+		/>
+	</p>
+	<p>
+		Only Difference are files where settings are stored:
+	</p>
+	<pre class="hw_code">
+%USERPROFILE%\AppData\Roaming\MonoDevelop-2.8\Config\MonoDevelop-tools.xml
+	</pre>
+	<p>
+		Resulting in:
+	</p>
+	<pre class="hw_code">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;Tools version=&quot;2.0&quot;&gt;
+	&lt;ExternalTool 
+		menuCommand=&quot;Mono4Android DroidDraw&quot; 
+		command=&quot;c:\bin\android\droiddraw\droiddraw.exe&quot; 
+		arguments=&quot;${FilePath}&quot; 
+		initialDirectory=&quot;${FileDir}&quot; 
+		promptForArguments=&quot;False&quot; 
+		useOutputPad=&quot;True&quot; 
+		saveCurrentFile=&quot;True&quot; 
+	/&gt;
+	&lt;ExternalTool 
+		menuCommand=&quot;Mono4Android Eclipse&quot; 
+		command=&quot;c:\bin\eclipse\eclipse.exe&quot; 
+		arguments=&quot;--launcher.openFile ${FilePath}&quot; 
+		initialDirectory=&quot;${FileDir}&quot; 
+		promptForArguments=&quot;False&quot; 
+		useOutputPad=&quot;True&quot; 
+		saveCurrentFile=&quot;False&quot; 
+	/&gt;
+&lt;/Tools&gt;	
+</pre>
+
+	<h2><a id="">TODOs</a></h2>
+	<ul>
+		<li>
+			WriteUp - MacOSX
+		</li>
+	</ul>
+</body>
+</html>

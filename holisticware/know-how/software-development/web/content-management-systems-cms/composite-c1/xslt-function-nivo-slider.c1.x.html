@@ -1,0 +1,270 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>XSLT function - Nivo Slider</title>
+Description = all keywords + extra text
+<meta name="Description" content="XSLT function - Nivo Slider - Hands on - step by step" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: xslt-function-nivo-slider
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="XSLT, function, Nivo Slider" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">XSLT function - Nivo Slider</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+
+
+	<!-- ================================================================================================ -->
+	<h2><a id="">Creating new XSLT function</a></h2>
+	<p>
+	Create new Composite C1 XSLT function. 
+	<br />
+	Functions perspective/tab/view/whatever + XSLT Functions + Right Click + Add new XSLT Function
+	<br />
+	Enter name and namespace! + OK
+	</p>
+	<p>
+	Original:
+	</p>
+	<pre class="hw_code">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+  xmlns:in=&quot;http://www.composite.net/ns/transformation/input/1.0&quot;
+  xmlns:lang=&quot;http://www.composite.net/ns/localization/1.0&quot;
+  xmlns:f=&quot;http://www.composite.net/ns/function/1.0&quot;
+  xmlns=&quot;http://www.w3.org/1999/xhtml&quot;
+  exclude-result-prefixes=&quot;xsl in lang f&quot;&gt;
+
+  &lt;xsl:template match=&quot;/&quot;&gt;
+	&lt;html&gt;
+	  &lt;head&gt;
+		&lt;!-- markup placed here will be shown in the head section of the rendered page --&gt;
+	  &lt;/head&gt;
+
+	  &lt;body&gt;
+		&lt;!-- markup placed here will be the output of this rendering --&gt;
+		&lt;div&gt;
+		  Value of input parameter 'TestParam': 
+		  &lt;xsl:value-of select=&quot;/in:inputs/in:param[@name='Input parameter name']&quot; /&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+		  Value of function call 'TestCall': 
+		  &lt;xsl:value-of select=&quot;/in:inputs/in:result[@name='Function call local name']&quot; /&gt;
+		&lt;/div&gt;
+	  &lt;/body&gt;
+	&lt;/html&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+	</pre>
+	<p>
+	Open up Nivo Slider page with html/jQuery sample:
+	<a href="http://nivo.dev7studios.com/support/jquery-plugin-usage/">
+	Nivo Slider jQuery usage on http://nivo.dev7studios.com/support/jquery-plugin-usage/
+	</a>
+	<br />
+	Paste code into XSLT function.
+	<br />
+	Note: For the performance sake (PageSpeed, yslow):
+	<br />
+	In the head tag put css first then javascript if needed). The css from the page is in 
+	nivo-slider.holisticware.css
+	<br />
+	rest of the javascript put at the end before closing body tag...
+	<br />
+	Note: in original js comments authors of Nivo Slider are using Ampersand (replace it or encode)
+	otherwise Composite C1 XSLT editor will scream!
+	<br />
+	Modified version:
+	</p>
+	<pre class="hw_code">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+  xmlns:in=&quot;http://www.composite.net/ns/transformation/input/1.0&quot;
+  xmlns:lang=&quot;http://www.composite.net/ns/localization/1.0&quot;
+  xmlns:f=&quot;http://www.composite.net/ns/function/1.0&quot;
+  xmlns=&quot;http://www.w3.org/1999/xhtml&quot;
+  exclude-result-prefixes=&quot;xsl in lang f&quot;&gt;
+
+  &lt;xsl:template match=&quot;/&quot;&gt;
+	&lt;html&gt;
+	  &lt;head&gt;
+		&lt;!-- markup placed here will be shown in the head section of the rendered page --&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;/HolisticWare/nivo-slider/nivo-slider.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;/HolisticWare/nivo-slider/nivo-slider.holisticware.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;
+	  &lt;/head&gt;
+
+	  &lt;body&gt;
+		&lt;!-- markup placed here will be the output of this rendering --&gt;
+		&lt;div id=&quot;slider&quot; class=&quot;nivoSlider&quot;&gt;
+		  &lt;img src=&quot;/mm/splash01.jpg&quot; alt=&quot;&quot; /&gt;
+		  &lt;img src=&quot;/mm/splash01.png&quot; alt=&quot;&quot; /&gt;
+		  &lt;a href=&quot;http://dev7studios.com&quot;&gt;&lt;img src=&quot;/mm/splash02.jpg&quot; alt=&quot;&quot; title=&quot;#htmlcaption&quot; /&gt;&lt;/a&gt;
+		  &lt;img src=&quot;/mm/splash02.png&quot; alt=&quot;&quot; title=&quot;This is an example of a caption&quot; /&gt;
+		  &lt;img src=&quot;/mm/splash03.jpg&quot; alt=&quot;&quot; /&gt;
+		  &lt;img src=&quot;/mm/splash03.png&quot; alt=&quot;&quot; /&gt;
+		  &lt;img src=&quot;/mm/splash04.jpg&quot; alt=&quot;&quot; /&gt;
+		  &lt;img src=&quot;/mm/splash04.png&quot; alt=&quot;&quot; /&gt;
+		  &lt;img src=&quot;/mm/splash05.jpg&quot; alt=&quot;&quot; /&gt;
+		  &lt;img src=&quot;/mm/splash05.png&quot; alt=&quot;&quot; /&gt;
+		  &lt;img src=&quot;/mm/splash06.jpg&quot; alt=&quot;&quot; /&gt;
+		  &lt;img src=&quot;/mm/splash06.png&quot; alt=&quot;&quot; /&gt;
+		&lt;/div&gt;
+		&lt;div id=&quot;htmlcaption&quot; class=&quot;nivo-html-caption&quot;&gt;
+			&lt;strong&gt;This&lt;/strong&gt; is an example of a &lt;em&gt;HTML&lt;/em&gt; caption with &lt;a href=&quot;#&quot;&gt;a link&lt;/a&gt;.
+		&lt;/div&gt;
+		
+		
+		&lt;div&gt;
+		  Value of input parameter 'TestParam': 
+		  &lt;xsl:value-of select=&quot;/in:inputs/in:param[@name='Input parameter name']&quot; /&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+		  Value of function call 'TestCall': 
+		  &lt;xsl:value-of select=&quot;/in:inputs/in:result[@name='Function call local name']&quot; /&gt;
+		&lt;/div&gt;
+		
+		&lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;/HolisticWare/nivo-slider/jquery.nivo.slider.pack.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+		&lt;script type=&quot;text/javascript&quot;&gt;
+		$(window).load(function() {
+			$('#slider').nivoSlider({
+				effect: 'random', // Specify sets like: 'fold,fade,sliceDown'
+				slices: 15, // For slice animations
+				boxCols: 8, // For box animations
+				boxRows: 4, // For box animations
+				animSpeed: 500, // Slide transition speed
+				pauseTime: 3000, // How long each slide will show
+				startSlide: 0, // Set starting Slide (0 index)
+				directionNav: true, // Next and Prev navigation
+				directionNavHide: true, // Only show on hover
+				controlNav: true, // 1,2,3... navigation
+				controlNavThumbs: false, // Use thumbnails for Control Nav
+				controlNavThumbsFromRel: false, // Use image rel for thumbs
+				controlNavThumbsSearch: '.jpg', // Replace this with...
+				controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
+				keyboardNav: true, // Use left and right arrows
+				pauseOnHover: true, // Stop animation while hovering
+				manualAdvance: false, // Force manual transitions
+				captionOpacity: 0.8, // Universal caption opacity
+				prevText: 'Prev', // Prev directionNav text
+				nextText: 'Next', // Next directionNav text
+				beforeChange: function(){}, // Triggers before a slide transition
+				afterChange: function(){}, // Triggers after a slide transition
+				slideshowEnd: function(){}, // Triggers after all slides have been shown
+				lastSlide: function(){}, // Triggers when last slide is shown
+				afterLoad: function(){} // Triggers when slider has loaded
+			});
+		});
+		&lt;/script&gt;
+	  &lt;/body&gt;
+	&lt;/html&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+	</pre>
+
+	<!-- ================================================================================================ -->
+	<h2><a id="">Extending markup - Adding themes</a></h2>
+	<p>
+	Original code from 
+	<a href="http://nivo.dev7studios.com/demos/">
+	Nivo slider demos on http://nivo.dev7studios.com/demos/
+	</a>
+	</p>
+	<pre class="hw_code">
+&lt;div class=&quot;slider-wrapper theme-default&quot;&gt;
+	&lt;div class=&quot;ribbon&quot;&gt;
+	&lt;/div&gt;
+	&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/nemo83.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat; 
+		width: 700px; height: 300px; position: relative;' 
+		id=&quot;nivoslider-125&quot; class=&quot;nivoSlider&quot;
+		&gt;
+		&lt;img style=&quot;display: none;&quot; alt=&quot;&quot; src=&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/nemo83.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;&gt;
+		&lt;img style=&quot;display: none;&quot; title=&quot;#nivoslider-125-caption-0&quot; alt=&quot;&quot; src=&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;&gt;
+		&lt;img style=&quot;display: none;&quot; alt=&quot;&quot; src=&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/walle12.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;&gt;
+		&lt;div style=&quot;display: block; opacity: 0.537857;&quot; class=&quot;nivo-caption&quot;&gt;&lt;p&gt;You can add captions too…&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div style=&quot;display: none;&quot; class=&quot;nivo-directionNav&quot;&gt;
+			&lt;a class=&quot;nivo-prevNav&quot;&gt;Prev&lt;/a&gt;
+			&lt;a class=&quot;nivo-nextNav&quot;&gt;Next&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;nivo-controlNav&quot;&gt;
+			&lt;a class=&quot;nivo-control&quot; rel=&quot;0&quot;&gt;1&lt;/a&gt;
+			&lt;a class=&quot;nivo-control active&quot; rel=&quot;1&quot;&gt;2&lt;/a&gt;
+			&lt;a class=&quot;nivo-control&quot; rel=&quot;2&quot;&gt;3&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat 0px 0px; left: 0px; top: 0px; width: 36.38px; height: 31px; overflow: hidden; opacity: 0.413417;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -88px 0px; left: 88px; top: 0px; width: 0px; height: 0px; overflow: hidden; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -176px 0px; left: 176px; top: 0px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -264px 0px; left: 264px; top: 0px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -352px 0px; left: 352px; top: 0px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -440px 0px; left: 440px; top: 0px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -528px 0px; left: 528px; top: 0px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -616px 0px; left: 616px; top: 0px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat 0px -75px; left: 0px; top: 75px; width: 0px; height: 0px; overflow: hidden; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -88px -75px; left: 88px; top: 75px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -176px -75px; left: 176px; top: 75px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -264px -75px; left: 264px; top: 75px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -352px -75px; left: 352px; top: 75px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -440px -75px; left: 440px; top: 75px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -528px -75px; left: 528px; top: 75px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -616px -75px; left: 616px; top: 75px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat 0px -150px; left: 0px; top: 150px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -88px -150px; left: 88px; top: 150px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -176px -150px; left: 176px; top: 150px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -264px -150px; left: 264px; top: 150px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -352px -150px; left: 352px; top: 150px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -440px -150px; left: 440px; top: 150px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -528px -150px; left: 528px; top: 150px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -616px -150px; left: 616px; top: 150px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat 0px -225px; left: 0px; top: 225px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -88px -225px; left: 88px; top: 225px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -176px -225px; left: 176px; top: 225px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -264px -225px; left: 264px; top: 225px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -352px -225px; left: 352px; top: 225px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -440px -225px; left: 440px; top: 225px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -528px -225px; left: 528px; top: 225px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;&lt;/div&gt;&lt;div style='background: url(&quot;http://nivo.dev7studios.com/wp-content/plugins/nivo-slider-pro/timthumb.php?src=http://nivo.dev7studios.com/wp-content/uploads/2011/08/slider65.png&amp;amp;h=300&amp;amp;w=700&amp;amp;zc=1&amp;amp;q=100&quot;) no-repeat -616px -225px; left: 616px; top: 225px; width: 0px; height: 0px; opacity: 0;' class=&quot;nivo-box&quot;&gt;
+		&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;nivoslider-125-caption-0&quot; class=&quot;nivo-html-caption&quot;&gt;You can add captions too…&lt;/div&gt;
+&lt;p&gt;&lt;script type=&quot;text/javascript&quot;&gt;
+jQuery(window).load(function(){
+	jQuery(&quot;#nivoslider-125&quot;).nivoSlider({
+		effect:&quot;random&quot;,
+		slices:15,
+		boxCols:8,
+		boxRows:4,
+		animSpeed:500,
+		pauseTime:3000,
+		startSlide:0,
+		directionNav:true,
+		directionNavHide:true,
+		controlNav:true,
+		controlNavThumbs:false,
+		controlNavThumbsFromRel:true,
+		keyboardNav:true,
+		pauseOnHover:true,
+		manualAdvance:false
+	});
+});
+&lt;/script&gt;
+&lt;/p&gt;
+	</pre>
+	<p>
+	Sample Nivo Slider:
+	</p>
+	<f:function name="HolisticWare.Media.NivoSlider" xmlns:f="http://www.composite.net/ns/function/1.0" />
+
+
+	<!-- ================================================================================================ -->
+	<h2><a id="">Refactoring Function - Adding parameters to make it more friendly</a></h2>
+	<p>
+	TODO: comes soon (Parameters, extracting jQuery javascript for faster loads...
+	<br />
+	Need to look at it to see what can be done...
+	<br />	
+	</p>
+
+	<!-- ================================================================================================ -->
+	<h2><a id="">Nicer UX (css)</a></h2>
+	<p>
+	TODO: comes soon!
+	</p>
+
+
+	<!-- ================================================================================================ -->
+	<h2><a id="">C1 Package</a></h2>
+	<p>
+		<a href="~/mm/Know-How/Development/Web/CMS/Composite-C1/HolisticWare.Media.NivoSlider.zip">
+		Nivo Slider Package (HolisticWare.Media.NivoSlider.zip)
+		</a>
+	</p>
+</body>
+</html>

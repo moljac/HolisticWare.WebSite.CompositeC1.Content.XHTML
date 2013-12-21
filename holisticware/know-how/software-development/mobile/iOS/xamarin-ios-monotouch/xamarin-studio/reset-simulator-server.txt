@@ -1,0 +1,13 @@
+
+
+Delete directories
+	~/Library/Application Support/iPhone Simulator
+	~/Library/Chches/Xamarin/msbt
+
+on iOS Application page	Fill 
+	Application name, 
+	Identifier and 
+	Version 
+	
+[http://screencast.com/t/ujmgiVbMONyn](http://screencast.com/t/ujmgiVbMONyn)	
+[http://screencast.com/t/lnUFMBrc](http://screencast.com/t/lnUFMBrc)

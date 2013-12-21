@@ -1,0 +1,2 @@
+http://stackoverflow.com/questions/1336370/positioning-mkmapview-to-show-multiple-annotations-at-once
+http://brianreiter.org/2012/03/02/size-an-mkmapview-to-fit-its-annotations-in-ios-without-futzing-with-coordinate-systems/

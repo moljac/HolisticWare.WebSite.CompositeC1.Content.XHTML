@@ -1,0 +1,17 @@
+By convention, you can generally assume that static members are thread safe and 
+instance members are not (unless those instance methods are exposed from static 
+methods, e.g. System.Reflection), but that's by no means guaranteed and may be 
+violated.
+
+In general, you need to read the documentation to determine which members are 
+threadsafe and which are not.
+
+
+Concurrent collections
+
+http://msdn.microsoft.com/en-us/library/dd287108.aspx
+
+
+
+Of course, you could always just use List<T> + `lock`, unless/until profiling 
+demonstrates that you're spending too much time acquiring locks...

@@ -1,0 +1,42 @@
+risk estimation
+	methodologies
+		NIST 800-30
+		Octave
+		Grundschutz
+		ISO 27005:2008
+		BS 7799:3-2006
+		Mehari
+
+steps
+	environment characterization
+		scope
+		component list
+		connections
+	threat identification
+		questionnaire
+			know-how
+			single point of failure
+			requirement identification
+			administration
+				number of users
+				type of users
+			logging
+				log write access (deletion)
+			purpose
+			process (steps) - documented?
+			security
+				hardening?
+				backup/restore policy
+					access rights
+				update policy
+				physical access
+				services
+					network access
+				problem causality (chaining - problem in one leading to other!)
+				services, apps, roles
+					test
+					unused
+	vulnerability identification
+	implemented control analysis
+	risk calculation
+	result documentation

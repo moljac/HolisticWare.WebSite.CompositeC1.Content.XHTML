@@ -1,0 +1,130 @@
+Have there been any discussions around running the MonoDevelop policy tool
+from the command line?
+
+It is an excellent tool and a it would be nice to apply consistent code
+formatting and
+other policies  across a project automatically where not all people use
+MonoDevelop
+as the main developer UI.
+
+Perhaps something in the lines of
+
+  mdtool applypolicy file.cs # apply default policy to file.cs
+
+  mdtool applypolicy -r dir # recursively apply default policy to all
+files in directory dir
+
+  mdtool applypolicy -f policyfile file.cs # apply policy from file
+policyfile
+
+  mdtool applypolicy -p Mono file.cs # apply the stock or custom policy
+labeled 'Mono'
+
+If not and someone cares to point me to the right direction (what modules
+to look into,
+any concerns that you foresee etc) I might look into this myself.
+
+
+
+After looking around a bit in code, the solution looks to be pleasantly
+simple
+(for the default policy):
+
+---
+
+using Mono.Addins;
+using MonoDevelop.CSharp.Formatting;
+using MonoDevelop.Projects.Policies;
+using NUnit.Framework;
+
+namespace TestFormatter
+{
+  class MainClass
+  {
+    public static void Main (string[] args)
+    {
+      Mono.Addins.AddinManager.Initialize ();
+
+      var input = "class Test {}";
+
+      var formatter = new CSharpFormatter ();
+      // CSharpFormatter.MimeType is internal
+      var mimeTypeChain = new string[] { "text/x-csharp" };
+      var policies = PolicyService.DefaultPolicies;
+      var result = formatter.FormatText (policies, mimeTypeChain,
+                    input, 0, input.Length);
+
+      Assert.AreEqual (result, "class Test\n{\n}");
+
+    }
+  }
+}
+
+---
+
+However, this results in
+
+---
+
+ [ERROR] FATAL UNHANDLED EXCEPTION:
+ System.Reflection.TargetInvocationException: Exception has been
+ thrown by the target of an invocation. --->
+ System.TypeInitializationException: An exception was thrown by
+ the type initializer for
+ MonoDevelop.CSharp.Formatting.CSharpFormattingPolicy --->
+ System.InvalidOperationException: This PolicyContainer can't be
+ modified
+
+---
+
+It's a bit hard to debug as the debugger does not catch the exception, so I
+didn't dig into it too deeply.
+Does anyone have any idea what's causing this from the first glance?
+
+But generally, wouldn't having `mdtool applypolicy -p Mono -r .` in the git
+pre-commit hook be
+really nice for cleaning up code automagically? I personally miss this a
+lot, MonoDevelop's
+policies are much more powerful than e.g. NArrange (although I've not used
+the latter).
+
+(See e.g. https://metacpan.org/module/Code::TidyAll::Git::Precommit ).
+
+As for general usefulness, there are a number of people who are looking for
+this:
+
+ *
+http://haacked.com/archive/2011/05/22/an-obsessive-compulsive-guide-to-source-code-formatting.aspx
+ *
+http://stackoverflow.com/questions/30101/is-there-an-automatic-code-formatter-for-c
+
+And the issue has been raised in mono-devel list already back in 2008:
+
+ * http://lists.ximian.com/pipermail/mono-devel-list/2008-August/028863.html
+
+So, besides being useful for the wider world, I guess this would also help
+in keeping both Mono and Monodevelop code clean.
+
+Best,
+MS
+
+
+
+
+
+
+Nice, sounds useful. It would be great to see this in a pull request
+so we can include it in MD 
+
+The trick is to register an IApplication instead of trying to
+initialize Mono.Addins directly, like this:
+https://github.com/mono/monodevelop/blob/master/main/src/core/MonoDevelop.Core/MonoDevelop.Core.addin.xml#L207
+https://github.com/mono/monodevelop/blob/master/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/BuildTool.cs
+
+However, maybe a better name for the application would be
+"format-file" instead of "applypolicy?"?
+
+
+
+
+

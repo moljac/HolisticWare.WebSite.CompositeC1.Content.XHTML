@@ -1,0 +1,52 @@
+http://blog.adduplex.com/2012/02/trial-is-as-native-to-windows-phone-as. 
+html 
+
+http://www.hanselman.com/blog/FromConceptToCodeIn6HoursShippingMyFirstWi 
+ndowsPhoneApp.aspx 
+
+http://invokeit.wordpress.com/2011/09/20/free-trial-and-paid-apps/ 
+
+http://invokeit.wordpress.com/2011/09/21/direct-free-trial-app-users-to- 
+buy-paid-app/ 
+
+When my wife (Katka) and I published our first app we went with the 
+trial model. It didn’t do very well. In hindsight it was probably for 
+several reasons, but my wife’s second app ‘Photo Location’- a no trial 
+paid app - did much better. So, we’ve since gone for the free with ads + 
+paid model. Our experience has been that the free with ads + paid model 
+allows you to monetize on two fronts, and reaches two market segments: 
+users that aren’t interested in paid apps, and those that are. I feel 
+that the choice to go with either approach also depends on the nature of 
+the app and the market you’re targeting. In my view horizontal markets 
+with lots of players are more suited to the free with ads + paid model, 
+while more niche apps may do better with the trial model. From what I’ve 
+seen so far, I prefer the free with ads+paid model. beauty of Microsoft 
+pubCenter ads is that it's impression based, so there is no need to 
+receive a tap to earn revenue. It's also just recently been made 
+available for Swiss apps too. 
+
+adding to Daniel's comment. the ePCM is okay for adjusts between 
+impressions and clicks. i have an app that just does tons of 
+impressions. does okay in terms of payout. ePCM for US is roughly 0.40 
+or so. Clicks would boast that value up. You can also look at adDuplex 
+that specialises in ad exchange. i think i am right now in favour of 
+pubCenter with adDuplex fallback. 
+
+to developing trial apps is your marketplace Icon. Since your app only 
+shows up in the "paid" area, I have made it so mine have a "banner" 
+across them that says "Free Try" so users know that, although it shows 
+up as for-pay, you can try it for free, w/o having to tap in to the 
+details of the app to find that out. I would, however, be interested in 
+hearing from somebody who's done what I'm doing, and then converted to 
+two separate apps - one entirely "free" and one that's pay only - and 
+compare the results... Anybody have such a tale? posted a short article 
+on how to use T4 to generate the WMAppManifest.xml file, enabling the 
+paid + free with ads scenarios that we've been talking about, without 
+needing to maintain two copies of the file or project. 
+http://linkd.in/Id7ZgS 
+
+
+
+
+
+

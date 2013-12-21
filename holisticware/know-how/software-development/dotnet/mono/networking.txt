@@ -1,0 +1,81 @@
+Networking
+
+
+The code below works on Windows. However, when running on mono 2.10.5 on 
+Gentoo Linux, the listener throws the exception: 
+  System.Net.Sockets.SocketException: The requested address is not valid 
+in this context
+
+Listening on the address IPAddress.Any instead of the loopback address 
+makes the listener run without exception. However, when the client is 
+started, no connection is created (the server eventually times out).
+
+Can anybody explain why I can't create a local connection on mono?
+
+Thanks
+
+Ole
+
+Basically my listener looks like this:
+
+     var listener = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
+
+     listener.Start();
+
+     TcpClient client = listener.AcceptTcpClient();
+
+The client:
+
+      var remoteEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
+
+      var client = new TcpClient(AddressFamily.InterNetwork);
+
+      client.Connect(remoteEP);
+
+
+	  
+	  
+Please show us the output of /sbin/ifconfig and the contents of
+/etc/hosts.
+
+
+
+Contents of /etc/hosts and output from ifconfig is shown below. I guess 
+that the problem is that ifconfig does not show the loopback interface. 
+Thus, this is a Linux problem and not a mono problem.
+Thanks
+Ole
+
+# cat /etc/hosts
+# /etc/hosts: Local Host Database
+#
+# This file describes a number of aliases-to-address mappings for the for
+# local hosts that share this file.
+#
+# In the presence of the domain name service or NIS, this file may not be
+# consulted at all; see /etc/host.conf for the resolution order.
+#
+# IPv4 and IPv6 localhost aliases
+127.0.0.1       localhost
+::1             localhost
+
+
+# ifconfig
+eth0      Link encap:Ethernet  HWaddr 00:01:c0:07:df:cc
+           inet addr:192.168.1.222  Bcast:192.168.1.255  Mask:255.255.255.0
+           UP BROADCAST MULTICAST  MTU:1500  Metric:1
+           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+           collisions:0 txqueuelen:1000
+           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+           Interrupt:40 Base address:0xc000
+eth1      Link encap:Ethernet  HWaddr 00:01:c0:07:df:cd
+           inet addr:192.168.253.243  Bcast:192.168.253.255 
+  Mask:255.255.255.0
+           inet6 addr: fe80::201:c0ff:fe07:dfcd/64 Scope:Link
+           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+           RX packets:426 errors:0 dropped:0 overruns:0 frame:0
+           TX packets:104 errors:0 dropped:0 overruns:0 carrier:0
+           collisions:0 txqueuelen:1000
+           RX bytes:40464 (39.5 KiB)  TX bytes:16344 (15.9 KiB)
+           Interrupt:41 Base address:0xe000

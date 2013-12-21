@@ -1,0 +1,65 @@
+Guys,
+good evening... 
+
+Like, im running the Mono 2.10.8, with mod_mono 2.10...
+
+But idk, somehow, some permissions or code error, idk im getting 503 server
+error...
+
+here we go...
+
+My mod_mono.conf:
+
+<code>
+<IfModule mod_mono.c>
+MonoServerPath /opt/mono-2.10/bin/mod-mono-server (tried 2, 4 and nothing)
+
+    AddType application/x-asp-net .aspx
+    AddType application/x-asp-net .asmx
+    AddType application/x-asp-net .ashx
+    AddType application/x-asp-net .asax
+    AddType application/x-asp-net .ascx
+    AddType application/x-asp-net .soap
+    AddType application/x-asp-net .rem
+    AddType application/x-asp-net .axd
+    AddType application/x-asp-net .cs
+    AddType application/x-asp-net .config
+    AddType application/x-asp-net .Config
+    AddType application/x-asp-net .dll
+    DirectoryIndex index.aspx
+    DirectoryIndex Default.aspx
+    DirectoryIndex default.aspx
+</IfModule>
+</code>
+
+And when I run 
+
+<code>
+su nobody -s /opt/mono/bin/mod-mono-server2  ( nobody is the httpd default
+user, that works for php, py, java, etc... ) 
+</code>
+
+im getting this:
+
+<code>
+mod-mono-server2
+Listening on: /tmp/mod_mono_server
+Root directory: /usr/local/apache/conf
+Hit Return to stop the server.
+</code>
+
+Idk if with this everything is fine...
+
+Ive tried to upgrade to 2.11.4, 3.0.2, downgrade to 2.6.2 and nothing...
+same error...
+
+Anyone can pls, gimme a hand? Im pretty lost...
+
+The permissions is setted 0644 for files and 0755 for directories... 
+My aspx test page is a simple helloworld, without codebehind... And, as far
+as i could see, apache cant even call my page, there´s some problems before
+it call my page... idk what to do...
+
+can u guys pls help?
+
+Thanks a lot.

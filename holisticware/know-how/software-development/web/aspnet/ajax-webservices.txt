@@ -1,0 +1,62 @@
+http://stackoverflow.com/questions/11088294/asp-net-asmx-web-service-returning-xml-instead-of-json
+
+ASP.NET web service erroneously returns XML instead of JSON
+asmx web service returning xml instead of json in .net 4.0
+http://williamsportwebdeveloper.com/cgi/wp/?p=494
+http://encosia.com/using-jquery-to-consume-aspnet-json-web-services/
+http://forums.asp.net/t/1054378.aspx
+http://jqueryplugins.info/2012/02/asp-net-web-service-returning-xml-instead-of-json/
+
+
+How are you calling your web service?
+
+If you go to /YourService.asmx/js - does it generate a JavaScript proxy?
+
+
+
+
+I call using jQuery.ajax. I have tried GET and POST, setting accepts:’application/json’, dataType:’json’. 
+And all combinations.  The service does not seem to honor  accepts-header, but always returns xml. 
+All-in-all, ScriptService/ScriptMethod attributes do not seem to have any effect. 
+Service description has methods only when WebMethod attribute is used.
+
+ 
+
+Url points to the service as in ‘/MyService.asmx/Hello?name=Bob’. Adding /js to the path produces error.
+
+
+
+
+Can you check if .asmx is mapped to ScriptHandlerFactory in your web.config?
+
+<add path=".asmx" 
+	verb="" 
+	type="System.Web.Script.Services.ScriptHandlerFactory, System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" 
+	validate="False" 
+	/>
+
+
+
+
+ono rules, mistakes were mine:
+
+1) I called with $.ajax( { ..., type:"POST", ...} ), but gave the
+   method arguments GET-style, as url query string ("?name=bob")
+   => arguments have to be given as $.ajax(..., data:"{ name:\"bob\" }"
+   Also contentType:"application/json" has to be set,
+   whereas dataType:"json" seems to be optional in my setup
+
+2) I did not have a properly configured Web.config file in the
+   applications root directory; therefore, the handlers/factories
+   required for properly processing ScriptMethod queries were not
+   registered.
+   => Easiest way of creating a properly configured Web.config is
+   to go to application root and to issue "mconfig --target=web af AJAX".
+   Easy enough!
+
+3) The minimal attribute set required for ScriptMethods are
+   [WebService]  for the service class
+   [WebMethod] and [ScriptMethod] for the method.
+
+And thanks Mike and Edgar for your ideas!
+

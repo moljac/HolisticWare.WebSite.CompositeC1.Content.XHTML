@@ -1,0 +1,16 @@
+Re: [MonoDevelop] Adding own component to toolbox
+
+
+add a System.ComponentModel.ToolboxItemAttribute to your class like so:
+
+using System.ComponentModel;
+
+
+[ToolboxItem]
+public class  UniversalComboBoxGTKSharp : Gtk.ComboBox {
+}
+
+On 04/09/12 14:43, blazi23 wrote:
+> Hello everyone!
+>
+> I start to learn MonoDevelop and I will try to use it with NHibernate, but my first problem is I can't add my own toolbox item to the list. I would like to use it in UI Designer instead of manually typing it in *.cs.

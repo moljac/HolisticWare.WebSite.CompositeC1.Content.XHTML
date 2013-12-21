@@ -1,0 +1,275 @@
+blob storages 
+
+as usual "it depends", but most of the time, I store all images in a 
+distinct URL (tree) from the pages. This allows the clients to setup 
+diferent caching for the images (since they rarely change relative to 
+the rate that "Data" changes. 
+
+This can make a significant different in performance, especially if 
+images are used many 
+
+Yes, "it depends"; but I have never been let down by storing images on 
+the file system, then storing the URL in the database. If we are simply 
+talking about images that will be used only by the system/application, 
+then this is a no-brainer; use the file system. If we are talking about 
+a combination of application images as well as user content images, then 
+I would still recommend using the file system; but there are issues that 
+will need to be addressed. I will admit that this is "learned" behavior 
+based on the terrible performance of blobbing binary data in to and out 
+of previous versions of various database engines. 
+
+There are a couple of things you need to think about ahead of time, 
+depending on your specific environment, if you are planning on using the 
+file system. 
+
+1. Separate System/Application Images from User Content Images. I would 
+recommend storing images uploaded by users in a location (e.g. virtual 
+directory) separate from your /images sub-folder used by the 
+application. 
+
+2. Are You Using a Web-Farm? If you are using a web-farm, you will need 
+to either design your software to retrieve/upload images to a single 
+server or create a method to mirror image repositories on all servers. 
+
+3. Can Users/Admins Edit Images Outside the Application? If images can 
+be renamed, deleted, or added by users outside the application, then the 
+URL stored in your database is at risk for becoming stale. You will have 
+to come up with a server task or service to keep things sync'd up. 
+
+So, even though storing user content images in a database would solve 
+for these problems, I still lean towards using the file system for 
+storing images (or any binary content files). 
+
+Regarding Farm and upload.....lazy synchronization may be better than 
+full replication. Just make sure the full UNC (incuding primary server) 
+is stored. Then any server can retrieve it over the file share, and 
+cache it locally. 
+
+This minimizes duplication, and with a decent caching design gives great 
+perfroamcne. 
+
+• I'd store them on disk. This enables CDN a lot more easily and since 
+images are often regularly accessed, removes the I/O associated to 
+reading images near-constantly from the DB and relegates it to the file 
+system (which handles it very efficiently). Also it allows you to easily 
+view/troubleshoot images, versus trying to decipher a binary blob/image 
+type in SQL. Finally, lower connection times to the DB = better, and NOT 
+reading in images means lower. 
+
+Filesystem; reads off a filesystem are far less expensive than out of a 
+DB. If you need to sync user supplied images across a server farm, you 
+might want to check out DFS. 
+
+am currently moving all pictures I manage to a database system for the 
+following reason : 1) I found too much bandwidth squatting lately 2) 
+many have copyright issue 3) I find there is much more control and 
+interesting features can be added to the display process 
+
+Azure BlobStorage... 
+
+@Franck I wouldn't move to a DB to prevent copyright theft. or 
+Interesting features :-) not sure how doing so helps you with point 1 
+tho.... a bit curious on that one. 
+
+Point 2 however, your better off handling copyright using rewrite rules 
+and some clever scripting. For eg, I have mod_rewrite implemented on one 
+of my *nix boxes, and if the image is used in the local network nothing 
+is done to it, if the image is downloaded by a remote client however a 
+script is run which merges a watermark into the image using image magik, 
+and also uses stenography to hide a small text file inside that I can 
+later retrieve. 
+
+Point 3.... see "Image Magik" :-) 
+
+back on topic now..... 
+
+unless you have someone taking notes in shorthand to hide the text, I 
+thing the term you were looking for was steganography.... 
+My client recently abandoned a product/project that stored images in the 
+database and reverted to storing all images in the file system. They 
+needed to make files (scanned images and photos of process steps) more 
+easily accessible to multiple enterprise automation products and found 
+the bandwidth and resource burden very high in duplicating these image 
+files. (Doncha wish someone would find a better, lossless way to 
+compress images?) 
+
+As @Carl pointed out above, the UNC is stored in the database. Using 
+this approach, a new image or document can be linked to some external, 
+integrated services simply by passing the link information and the new 
+UNC. The file is stored once. The UNC is passed from application to 
+application like a Frisbee at a Grateful Dead concert, and our storage 
+burdens are simplified. 
+
+Hi, If you save it in file system You do not have a heavy DB but you 
+should be aware of the backup issue, and if you save the images in DB 
+you would face a heavy Database. So it is so hard to choose one of them, 
+THANKS to Microsoft, I choose new solution which support prior issues: 
+
+Use File Stream of SQL 2008/2012 
+
+Should you need any more information, please do not hesitate to send me 
+your message 
+
+always stored my images in the file system, for the same reasons listed 
+above, but I work wiht web apps, not client deployed apps. Omid did 
+mention a useful feature of SQL Serverm and there is a new one in SQL 
+Server 2012 called 
+FileTables(http://msdn.microsoft.com/en-us/library/ff929144.aspx). 
+Depending on your needs, this might be a useful feature for you. 
+
+found the FILESTREAM mechanism in SQL Server awkward. It goes to great 
+lengths to hide the actual storage location from you. The new FileTables 
+mechanism does a much better job of merging file system and database for 
+my application. I can make changes (e.g. create, delete, move) to either 
+the database or file system and they reflect in the other and I still 
+have referential integrity for additional information I store in the 
+database about the files and can access the file data either with file 
+operations or SQL. I wouldn't use it for a web site with a small number 
+of static files but if there are large numbers of files with plenty of 
+updates then it is worth looking at. 
+
+Another consideration - will your site run on a web farm? Will need to 
+consider a common location; DB will work or shared location. 
+
+It depends on overall application size, and how often images are 
+uploaded to server. Along with this at time of image (or any other file) 
+upload I would strongly recommend to check content of the file rather 
+than just checking file extension (to prevent malicious script 
+uploading). I have posted my experience almost 1 and half year ago at 
+below url. Might be useful. 
+
+http://www.dotnetexpertguide.com/2011/05/validate-uploaded-image-content 
+-in.html 
+
+ose for the images? Are we talking product type images? or images taken 
+by speed cameras? images of people going in and out of secure areas of a 
+nuclear facility? 
+
+And why aren't anybody here looking at some of the largely fundamental 
+aspects, of access and performance? 
+
+I see a lot of reasons for storing it in the DB - I also see a lot of 
+reasons for storing it in the file system too. All have a "depends" 
+proclamation, which is natural I suppose. 
+
+Some mention caching methods, content distribution networks etc. These 
+methods diffuses the dependency on the "location" to perform in a 
+certain manner, because ultimately they are the ones that's serving up 
+the "goods". 
+
+Lets look at reasons for storing anything in a database to start 
+with....The ACID principle. When storing "data", be it images or text 
+etc, if the ACID principle "HAS" to apply, then a database it is. 
+
+Can a file system offer all of these properties up? well, with enough 
+investment of SAN replication technologies, sure - does Reymon has this 
+available? 
+
+So, to help out Reymon with something real world I'd ask Reymon what the 
+purpose of the images are and what makes it such a "hard" decision? 
+
+of images, it becomes an issue. Last year I was developing a SatNav app 
+and used an app to download tiles to eventually populate tile server. 
+Downloading was easy however getting rid of them was nightmare. 
+
+With DB at least you can just delete the whole db and start again :) A 
+few / handful, keep in FS, large quantities and you will thank yourself 
+eventually 
+
+• Also, depending on the database you are using, or the settings you 
+use, you may be storing the files on disk anyway. In that case you are 
+adding incidental complexity. What is the simplest thing you can do that 
+is as loosely coupled as possible? 
+
+http://msdn.microsoft.com/en-us/library/gg471497.aspx 
+
+Lots of other considerations too. For instance: + is it 3+ tiered? 
+Issues with direct Urls either way as well as uploading to the App tier 
+(the unseen tier behind the 2nd - Web - tier which is mostly 
+inaccessible w/o an reverse proxy) + how MANY files? Issues with file 
+systems breaking down with 10000 files in 1 folder... then folder 
+management issues. + are the files for menus? Most of the time for these 
+types, you would use embedded resources (re: Silverlight anyhow) 
+
+For one project, scanning/storing EoB's [explanation of benifits] by the 
+thousands per day per person... there were just too many files, even 
+with a file server... and plenty of times @ Brian's comment about "good" 
+data applied... when we converted to using blob's we never EVER had that 
+issue again, much easier to manage. 
+
+Another few points: + if you're blobbing, you typically would use an 
+Asynchronous HTTP Handler Class [IHttpAsyncHandler] ASHX ex: 
+[http://msdn.microsoft.com/en-us/library/ms227433%28v=VS.100%29.aspx] 
+with an asynchronous access for de-blobbing without blocking. So your 
+URL would be something like: 
+http://someplace/someapp/imagedeblob.ashx?fileId=42 
+
+so you would setup caching at 3 levels to avoid rehitting the DB: * 
+caching at the DB level is automatic, you really don't HAVE to do 
+anything - yet can tweak this as well 
+
+* caching specified in the ASHX; the next request for file id 42 would 
+be served directly from the IIS server because you've specified a how 
+long to cache it for in the response from the ASHX: 
+
+httpContext.Response.Cache.SetCacheability(HttpCacheability.Public); 
+httpContext.Response.Cache.SetMaxAge(new TimeSpan(0, 30, 0)); // 30 min 
+timeout 
+
+* if you require even more caching, you can cache out of the DB to a 
+temp-file with a slightly longer lifetime so as long as the IIS server 
+app isn't reset you will be able to reference the cached version of the 
+file... assuming it isn't changing. 
+
++ if you're also doing more than 1 file-type, like DOC, RTF, TXT, GIF, 
+JPG, PNG, PDF, DOCX for instance, you might want to save the mime-type 
+on the way in as well as the [unique?] filename, so it's really easy to 
+recompose the filename back out to the server: 
+httpContext.Response.ContentType = dbBlobbedFile.ContentType; 
+httpContext.Response.AppendHeader("content-disposition", "attachment; 
+filename=" + dbBlobbedFile.Name); 
+
+I must say, if it's a 3 tier system, you surely must beware of using the 
+Web tier for a massive collection of files. 
+
+Storing images for Web App - If you're referring to images to be 
+displayed as part of the Web Page front end/design then the file system 
+is best suited (version controlled, easier to manage, etc). Say you're 
+displaying drawings/pictures of parts for an web-based product ordering 
+system (online store), I would store the reference (logical/physical 
+file system path) to any images regarding the products in the database, 
+and then store the images on disk. 
+
+Not sure what would be specific cases where you *should* store pictures 
+in the database. Security and legacy/record tracking of images might be 
+some good reasons but I don't see why a file system couldn't be used, 
+unless a *secure* file system is definitely not available. 
+
+Just to add my two cents here, we have a public facing web site that 
+needed to be managed internally which included uploading new photos. Due 
+to the security of having the administration form on the web site vs in 
+house, I choose to store the images in our SQL Server database. This was 
+a first for me because we've always just stored the URL. It's much 
+faster, easier and less code in my opinion. But in this case, it seemed 
+more appropriate to store the image in the database vs allowing file 
+system access into our internal network. 
+
+It works, but either a) I'm not good enough with the technology yet or 
+b) by nature it's just more work to store and retrieve binary objects. I 
+prefer to just store the URL when possible and copy the images to the 
+file system. Good luck! 
+
+Russ, there is additional server overhead, but have you considered using 
+MongoDB GridFS for storing binary documents? 
+
+http://stackoverflow.com/questions/4988436/mongodb-gridfs-with-c-how-to- 
+store-files-such-as-images 
+
+If you are storing products images (millions) for the big web site - use 
+farm of the separate images servers. Simple ASP.NET application which 
+generates on a fly reqired size will do the job. Of course images should 
+be stored in a file system. Pluse there should be some kind of 
+syncrinization between servers on a farm. The latest MS DFSR will do the 
+job especially Readonly setting. To get rid off the cookies you should 
+even purchase a separate domain name for the images farm... 
+

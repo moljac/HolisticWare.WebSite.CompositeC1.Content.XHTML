@@ -1,0 +1,358 @@
+<!--
+C1 generated!!
+url: troubleshooting
+Title = all keywords, max 65 char
+<title>troubleshooting</title>
+Description = all keywords + extra text
+<meta name="Description" content="Mono For Android Troubleshooting" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="mono, android, troubleshooting" />
+		<f:param name="AuthorsAdditional" value="" />
+		<f:param name="Date" value="2011-04-18" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Troubleshooting	</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<h2>Debugging/troubleshooting problems</h2>
+
+	<pre>
+Are you able to install it? If not, within Visual Studio enable Tools > Options > Mono for Android > [X] Extension debug logging (writes monodroid.log to your desktop).
+
+Attempt to install your app, and then attach monodroid.log to an email.
+
+If using MonoDevelop/Windows, please provide:
+
+	%LOCALAPPDATA%\MonoDevelop-3.0\Logs\AndroidTools-DATE.log
+
+If using MonoDevelop/OS X, please provide:
+
+	$HOME/Library/Logs/MonoDevelop-3.0/AndroidTools-DATE.log
+
+If your app is installing but crashes, please provide the contents of the Android Debug Log:
+
+	http://docs.xamarin.com/android/advanced_topics/android_debug_log
+
+	</pre>
+
+
+	<h2><a id="">Aresgen: Object reference not set to an instance of an object</a></h2>
+	<ul>
+		<li>
+			Error:
+			<p>
+Error	1	System.NullReferenceException: Object reference not set to an instance of an object.	
+<Path>\TestsXMonoAndroidApplication1\aresgen	
+TestsXMonoAndroidApplication1
+			<pre class="hwcode">
+C:\Program Files\MSBuild\Novell\aresgen.exe -o="Resources\Resource.Designer.cs" 
+	--package="TestsXMonoAndroidApplication1.TestsXMonoAndroidApplication1" 
+	--sdk-dir="C:\Program Files\Android\android-sdk-windows" 
+	--java-sdk-dir="C:\Program Files\Java\jdk1.6.0_26" 
+	--sdk-platform="8" --namespace="TestsXMonoAndroidApplication1" 
+	--resource:layout\activitylayout1.axml,Layout\ActivityLayout1.axml 
+	--resource:layout\holisticwarelayoutwithactivity1.axml,Layout\HolisticWareLayoutWithActivity1.axml 
+	--resource:layout\main.axml,Layout\Main.axml 
+	--resource:values\strings.xml,Values\Strings.xml 
+	--resource:drawable\icon.png,Drawable\Icon.png 
+	-v -S "D:\SRC\Core_2011\TestsXMonoAndroidApplication1\obj\Debug\res"  (TaskId:30)
+aresgen : error 1: System.NullReferenceException: Object reference not set to an instance of an object.
+		at MonoDroid.Utils.ProcessRocks.<ReadStandardOutput>c__Iterator1.MoveNext() (TaskId:30)
+	Creating directory: C:\Users\moljac\AppData\Local\Temp\lhhzbrzw.20m (TaskId:30)
+	Running command: C:\Program Files\Android\android-sdk-windows\platform-tools\aapt "package" 
+	"-M" "C:\Users\moljac\AppData\Local\Temp\lhhzbrzw.20m\AndroidManifest.xml" 
+	"-J" "C:\Users\moljac\AppData\Local\Temp\lhhzbrzw.20m" 
+	"-F" "C:\Users\moljac\AppData\Local\Temp\lhhzbrzw.20m\resources.apk" 
+	"-S" "D:\SRC\Core_2011\TestsXMonoAndroidApplication1\obj\Debug\res" 
+	"-I" "C:\Program Files\Android\android-sdk-windows\platforms\android-8\android.jar" (TaskId:30)
+	Removing directory: C:\Users\moljac\AppData\Local\Temp\lhhzbrzw.20m (TaskId:30)
+		at MonoDroid.Tools.Aresgen.Package.CreatePackage(String aapt, Context context, String dir) (TaskId:30)
+		at MonoDroid.Tools.Aresgen.Package.GetResources(Context context) (TaskId:30)
+		at MonoDroid.Tools.Aresgen.App.Main(String[] args) (TaskId:30)
+	The command exited with code 1. (TaskId:30)
+Done executing task "AndroidResgen" -- FAILED. (TaskId:30)
+Done building target "_UpdateAndroidResgen" in project "TestsXMonoAndroidApplication1.csproj" -- FAILED.: (TargetId:12)
+		</pre>
+		</p>
+			</li>
+			<li>
+				Cause:
+				<p>
+				Referencing Resource not available! 
+				Example for Button:
+					android:text="@string/Button2"
+				instead of
+					android:text="Button2"
+				</p>
+			</li>
+			<li>
+				Workaround:
+				<p>
+				</p>
+			</li>
+		</ul>
+
+	<h2><a id="">Unhandled exception in button_ok_Click:Task</a></h2>
+
+
+
+	<h2><a id="">Error deploying platform: The minimum Android version is higher than this device supports.</a></h2>
+
+	<p>
+	Project + Properties + Minimum Android Target: Set to Version of the VD (VM)
+	</p>
+
+
+
+	<h2><a id="">
+	Unhandled exception in Install.
+	</a></h2>
+
+
+
+	<h2><a id="">
+	Unhandled exception in Install.
+	</a></h2>
+	<ul>
+		<li>
+		Log:
+		<pre  class="hw_code">
+		Arguments: -s emulator-5554 install "Testapp\bin\Debug\Testapp-Signed.apk"
+		Appending Java path: C:\Program Files\Java\jdk1.6.0_25\bin
+		[STDOUT] 	pkg: /data/local/tmp/Testapp-Signed.apk
+		[STDOUT] 
+		[STDOUT] Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE]
+		[STDOUT] 
+		[STDERR] 572 KB/s (463999 bytes in 0.791s)
+		</pre>
+		</li>
+		<li>
+		MessageBox:
+		<pre  class="hw_code">
+			MonoDroid.InstallFailedException: pgk:/data/local/tmp/packagename.apk
+		Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE]
+
+		at MonoDroid.Adb.Install(Device device, String package)
+		at Novell.MonoDroid.Deployment.Install(Device device, MonoDroidFlavorProject project, String packageFile, String packageName, Boolean force, CancellationToken token)
+		</pre>
+		</li>
+		<li>
+		Solution:<br />
+		Android DEvice Emulator :: Settings :: Applications :: Manage applications :: ApplicationName :: uninstall
+		</li>
+		<li>
+		</li>
+		<li>
+		</li>
+		<li>
+		</li>
+	</ul>
+
+
+
+
+
+	<h2><a id="">
+	Error	3	The RPC server is unavailable.
+	</a></h2>
+	<ul>
+		<li>
+		Log:
+		<pre  class="hw_code">
+Microsoft (R) Build Engine Version 4.0.30319.1
+[Microsoft .NET Framework, Version 4.0.30319.225]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+Build started 6/9/2011 2:06:25 PM.
+Project "D:\SRC\HolisticWare\HolisticWare_Inkunabula\HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd\HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd.csproj" on node 1 (SignAndroidPackage target(s)).
+_GenerateAndroidAssetsDir:
+Skipping target "_GenerateAndroidAssetsDir" because it has no outputs.
+_ResolveMonoAndroidSdks:
+  Looking for Android SDK..
+	Key HKCU\SOFTWARE\Android SDK Tools\Path not found.
+	Key HKLM\SOFTWARE\Android SDK Tools\Path found:
+	  Path contains adb.exe in \platform-tools (C:\Program Files\Android\android-sdk-windows).
+  Looking for Java SDK..
+	Key HKLM\SOFTWARE\JavaSoft\Java Development Kit\CurrentVersion found: 1.6.
+	Key HKLM\SOFTWARE\JavaSoft\Java Development Kit\1.6\JavaHome found:
+	  Path contains jarsigner.exe in \bin (C:\Program Files\Java\jdk1.6.0_25).
+  MonoAndroid Tools: C:\Program Files\MSBuild\Novell\
+  MonoAndroid Framework: C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v2.2\;C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\
+  Android SDK: C:\Program Files\Android\android-sdk-windows\
+  Java SDK: C:\Program Files\Java\jdk1.6.0_25\
+_ValidateAndroidPackageProperties:
+  GetAndroidPackageName Task
+	ManifestFile: 
+	AssemblyName: HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd
+	PackageName: HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd
+_UpdateAndroidResgen:
+Skipping target "_UpdateAndroidResgen" because all output files are up-to-date with respect to the input files.
+Project "D:\SRC\HolisticWare\HolisticWare_Inkunabula\HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd\HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd.csproj" (1) is building "D:\SRC\Core_2011\Core.DLL_023_BL_ClnMob_MDrd_netfx3\Core.DLL_023_BL_ClnMob_MDrd_netfx3.csproj" (2) on node 1 (default targets).
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+Skipping target "CoreCompile" because all output files are up-to-date with respect to the input files.
+CopyFilesToOutputDirectory:
+  Core.DLL_023_BL_ClnMob_MDrd_netfx3 -> D:\SRC\Core_2011\Core.DLL_023_BL_ClnMob_MDrd_netfx3\bin\Debug\Core.DLL_BL_023ClnMob_MDrd_netfx3.dll
+_ResolveMonoAndroidSdks:
+  Looking for Android SDK..
+	Key HKCU\SOFTWARE\Android SDK Tools\Path not found.
+	Key HKLM\SOFTWARE\Android SDK Tools\Path found:
+	  Path contains adb.exe in \platform-tools (C:\Program Files\Android\android-sdk-windows).
+  Looking for Java SDK..
+	Key HKLM\SOFTWARE\JavaSoft\Java Development Kit\CurrentVersion found: 1.6.
+	Key HKLM\SOFTWARE\JavaSoft\Java Development Kit\1.6\JavaHome found:
+	  Path contains jarsigner.exe in \bin (C:\Program Files\Java\jdk1.6.0_25).
+  MonoAndroid Tools: C:\Program Files\MSBuild\Novell\
+  MonoAndroid Framework: C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v2.2\;C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\
+  Android SDK: C:\Program Files\Android\android-sdk-windows\
+  Java SDK: C:\Program Files\Java\jdk1.6.0_25\
+_ValidateAndroidPackageProperties:
+  GetAndroidPackageName Task
+	ManifestFile: 
+	AssemblyName: Core.DLL_BL_023ClnMob_MDrd_netfx3
+	PackageName: Core.DLL_BL_023ClnMob_MDrd_netfx3
+_ConvertDebuggingFiles:
+Skipping target "_ConvertDebuggingFiles" because all output files are up-to-date with respect to the input files.
+Done Building Project "D:\SRC\Core_2011\Core.DLL_023_BL_ClnMob_MDrd_netfx3\Core.DLL_023_BL_ClnMob_MDrd_netfx3.csproj" (default targets).
+Project "D:\SRC\HolisticWare\HolisticWare_Inkunabula\HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd\HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd.csproj" (1) is building "D:\SRC\HolisticWare\HolisticWare_Inkunabula\HolisticWare.Inkunabula.DLL_023_BL_ClnMob_MDrd_netfx35\HolisticWare.Inkunabula.DLL_023_BL_ClnMob_MDrd_netfx35.csproj" (3) on node 1 (default targets).
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+Skipping target "CoreCompile" because all output files are up-to-date with respect to the input files.
+CopyFilesToOutputDirectory:
+  HolisticWare.Inkunabula.DLL_023_BL_ClnMob_MDrd_netfx35 -> D:\SRC\HolisticWare\HolisticWare_Inkunabula\HolisticWare.Inkunabula.DLL_023_BL_ClnMob_MDrd_netfx35\bin\Debug\HolisticWare.Inkunabula.DLL_023_BL_ClnMob_MDrd_netfx35.dll
+_ResolveMonoAndroidSdks:
+  Looking for Android SDK..
+	Key HKCU\SOFTWARE\Android SDK Tools\Path not found.
+	Key HKLM\SOFTWARE\Android SDK Tools\Path found:
+	  Path contains adb.exe in \platform-tools (C:\Program Files\Android\android-sdk-windows).
+  Looking for Java SDK..
+	Key HKLM\SOFTWARE\JavaSoft\Java Development Kit\CurrentVersion found: 1.6.
+	Key HKLM\SOFTWARE\JavaSoft\Java Development Kit\1.6\JavaHome found:
+	  Path contains jarsigner.exe in \bin (C:\Program Files\Java\jdk1.6.0_25).
+  MonoAndroid Tools: C:\Program Files\MSBuild\Novell\
+  MonoAndroid Framework: C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v2.2\;C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\
+  Android SDK: C:\Program Files\Android\android-sdk-windows\
+  Java SDK: C:\Program Files\Java\jdk1.6.0_25\
+_ValidateAndroidPackageProperties:
+  GetAndroidPackageName Task
+	ManifestFile: 
+	AssemblyName: HolisticWare.Inkunabula.DLL_023_BL_ClnMob_MDrd_netfx35
+	PackageName: HolisticWare.Inkunabula.DLL_023_BL_ClnMob_MDrd_netfx35
+_ConvertDebuggingFiles:
+Skipping target "_ConvertDebuggingFiles" because all output files are up-to-date with respect to the input files.
+Done Building Project "D:\SRC\HolisticWare\HolisticWare_Inkunabula\HolisticWare.Inkunabula.DLL_023_BL_ClnMob_MDrd_netfx35\HolisticWare.Inkunabula.DLL_023_BL_ClnMob_MDrd_netfx35.csproj" (default targets).
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+Skipping target "CoreCompile" because all output files are up-to-date with respect to the input files.
+CopyFilesToOutputDirectory:
+  HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd -> D:\SRC\HolisticWare\HolisticWare_Inkunabula\HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd\bin\Debug\HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd.dll
+_ConvertDebuggingFiles:
+Skipping target "_ConvertDebuggingFiles" because all output files are up-to-date with respect to the input files.
+_CompileAndroidPackage:
+Skipping target "_CompileAndroidPackage" because all output files are up-to-date with respect to the input files.
+SignAndroidPackage:
+Skipping target "SignAndroidPackage" because all output files are up-to-date with respect to the input files.
+Done Building Project "D:\SRC\HolisticWare\HolisticWare_Inkunabula\HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd\HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd.csproj" (SignAndroidPackage target(s)).
+
+Build succeeded.
+	0 Warning(s)
+	0 Error(s)
+
+Time Elapsed 00:00:01.76
+
+
+
+------ Deploy started: Project: HolisticWare.Inkunabula.EXE_722_ClntMob_WP7, Configuration: Debug Any CPU ------
+Deploying D:\SRC\HolisticWare\HolisticWare_Inkunabula\HolisticWare.Inkunabula.EXE_722_ClntMob_WP7\Bin\Debug\HolisticWare.Inkunabula.EXE_722_ClntMob_WP7.xap...
+Deployment of application to device failed.
+The RPC server is unavailable.
+========== Deploy: 1 succeeded, 1 failed, 0 skipped ==========
+
+Deployment Summary
+------------------
+00:09.820 - Failed  - Debug Any CPU - HolisticWare.Inkunabula.EXE_722_ClntMob_WP7\HolisticWare.Inkunabula.EXE_722_ClntMob_WP7.csproj
+
+Total build time: 00:09.864
+
+========== Deployed: 0 succeeded or up-to-date, 1 failed, 29 skipped ==========
+		</pre>
+		</li>
+		<li>
+		MessageBox:
+		<pre  class="hw_code">
+		</pre>
+		</li>
+		<li>
+		Solution:<br />
+		Restart Server see scripts:
+		<a>
+		adb_restart.bat
+		</a>
+		</li>
+		<li>
+		</li>
+		<li>
+		</li>
+		<li>
+		</li>
+	</ul>
+
+
+
+
+
+</body>
+</html>
+<!--
+Unhandled exception in Install.  See exception for details.<br/>
+<br/>
+<br/>
+-- Starting Process - 2011.08.20 16:18:56 --
+Executable: C:\Program Files\Android\android-sdk-windows\platform-tools\adb.exe
+Arguments: -s emulator-5554 install "D:\SRC\Core_2011\TestsXMonoAndroidApplication1\bin\Debug\TestsXMonoAndroidApplication1.TestsXMonoAndroidApplication1-Signed.apk"
+Appending Java path: C:\Program Files\Java\jdk1.6.0_26\bin
+[STDOUT] 	pkg: /data/local/tmp/TestsXMonoAndroidApplication1.TestsXMonoAndroidApplication1-Signed.apk
+[STDOUT] 
+[STDOUT] Failure [INSTALL_FAILED_UPDATE_INCOMPATIBLE]
+[STDOUT] 
+[STDERR] 109 KB/s (205515717 bytes in 1835.056s)<br/>
+<br/>
+<br/>
+MonoDroid.InstallFailedException<br/>
+pkg: /data/local/tmp/TestXMonoAndroidApplication1.TestsXMonoAndroidApplication1-Signed.apk<br/>
+<br/>
+Fialure [INSTALL_FILED_UPDATE_INCOMPATIBLE]<br/>
+at MonoDroid.Adb.Install(Device device, String package)<br/>
+at Novell.MonoDroidVS.DeploymentTasks.Install(Device device, MonoDroidFlavorProject project, String packageFile, String packageName, Boolean force, CancelationToken token)<br/>
+<br/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Unhandled exception in Install.  See exception for details.<br/>
+MonoDroid.InstallFailedException<br/>
+pkg: /data/local/tmp/TestXMonoAndroidApplication1.TestsXMonoAndroidApplication1-Signed.apk<br/>
+No space left on device<br/>
+<br/>
+at MonoDroid.Adb.Install(Device device, String package)<br/>
+at Novell.MonoDroidVS.DeploymentTasks.Install(Device device, MonoDroidFlavorProject project, String packageFile, String packageName, Boolean force, CancelationToken token)<br/>
+-->

@@ -1,0 +1,57 @@
+I installed the 4.2.8 update yesterday.  After the update was finished, my
+Mono For Android install was no longer activated.  I downloaded my license
+file and put it in the below locations, but Visual Studio and MonoDevelop
+both still say I'm using the evaluation version and ask me to activate it
+when I try to deploy to my device.  I'd rather not recycle a workstation and
+reactivate if it's possible (I might not have any recycles left.)  Any help
+would be greatly appreciated.
+
+I wasn't sure where the license file was supposed to go, but I tried both of
+the following locations:
+C:\Documents and Settings\thomas.replogle\Local Settings\Application
+Data\Xamarin\Mono for Android\License
+C:\Documents and Settings\All Users\Application Data\Mono for
+Android\License
+
+
+license underneath Environment.GetFolderPath (Environment.SpecialFolder.CommonApplicationData), 
+which I believe should be:
+
+	%ProgramData%\Mono for Android\License\monoandroid.licx.
+
+On Windows 8 (my easily accessible Windows box), this is:
+
+	C:\ProgramData\Mono for Android\License\monoandroid.licx
+
+Based on the paths you're providing, I suspect you're on XP, so it looks like the 
+filename should be:
+
+	C:\Documents and Settings\All Users\Application Data\Mono for Android\License\monoandroid.licx
+
+Is your license named monoandroid.licx in the correct directory?
+
+
+
+Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData))
+in LINQPad just to make sure I was using the correct folder.  It returned
+"C:\Documents and Settings\All Users\Application Data" which is the
+directory I'm using.
+
+My license filename is monoandroid.licx.
+
+Here is the full path I'm using:
+C:\Documents and Settings\All Users\Application Data\Mono for
+Android\License\monoandroid.licx
+
+Side note: I've also tried the following path, but it didn't work either.
+C:\Documents and Settings\thomas.replogle\Application Data\Mono for
+Android\License\monoandroid.licx
+
+
+ recycled one of my activations on my Xamarin Store account, deleted my
+local license files, and then tried to reactivate my local install. 
+However, nothing happens when I press the "Activate" button in the
+activation window (the one where you fill in your name, activation code,
+company name, and phone number.)  The mouse cursor changes to an hourglass
+for a few seconds, then back to an arrow, and the activation window just
+stays there.  Mono for Android is still showing as not activated.

@@ -1,0 +1,66 @@
+Apache config virtual servers 
+
+
+Virtual web server is used to host Mono 3.2 MVC3 application in Apache.
+Typing http://www.hostedsite.com  in browser allows to use mono application.
+
+How to add second mono application which runs if http://www.hostedsite.com/admin  is typed to browser
+In tried config below but server returns 404 error.
+
+How to fix is so that two mono applications can hosted in virtual server ?
+
+Andrus.
+
+
+Main application config which works:
+
+   <VirtualHost *:80>
+     ServerName www.hostedsite.com
+     DocumentRoot /var/www/html/www.hostedsite.com
+     MonoServerPath www.hostedsite.com "/opt/mono-3.2/bin/mod-mono-45est"
+     MonoApplications www.hostedsite.com "/:/var/www/html/www.hostedsite.com"
+
+     <Location "/">
+       Allow from all
+       Order allow,deny
+       MonoSetServerAlias www.hostedsite.com
+       SetHandler mono
+       SetOutputFilter DEFLATE
+       SetEnvIfNoCase Request_URI "\.(?:gif|jpe?g|png)$" no-gzip dont-vary
+     </Location>
+     <IfModule mod_deflate.c>
+       AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript
+     </IfModule>
+   </VirtualHost>
+
+Second application config which returns 404 error in browser for second application:
+
+<VirtualHost *:80>
+MonoAutoApplication disabled
+MonoServerPath www.hostedsite.com-admin "/opt/mono-3.2/bin/mod-mono-45est"
+Alias /admin "/var/www/html/www.hostedsite.com-admin"
+AddMonoApplications admin "/admin:/var/www/html/www.hostedsite.com-admin"
+
+MonoApplications www.hostedsite.com-admin "/www.hostedsite.com/admin:/var/www/html/www.hostedsite.com-admin"
+
+ <Location "/admin">
+   Allow from all
+   Order allow,deny
+MonoSetServerAlias www.hostedsite.com-admin
+   SetHandler mono
+   SetOutputFilter DEFLATE
+   SetEnvIfNoCase Request_URI "\.(?:gif|jpe?g|png)$" no-gzip dont-vary
+ </Location>
+</VirtualHost> 
+
+
+
+
+
+
+
+
+
+See here: http://www.mono-project.com/Mod_mono#More_on_Applications. You only need one VirtualHost section for www.hostedsite.com, and its MonoApplications setting should be modified to have both applications in it, separated by a comma. Something like this:
+
+MonoApplications www.hostedsite.com "/:/var/www/html/www.hostedsite.com,/admin/:/var/www/html/www.hostedsite.com-admin"

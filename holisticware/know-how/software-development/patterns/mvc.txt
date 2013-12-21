@@ -1,0 +1,113 @@
+﻿MVC or n-tier? Which one would you prefer for an enterprise lever application and why? 
+
+a big fan of n-tier, but an ASP MVC can certainly do without. So kind of depends on 
+where you're going to host the ASP application. If it's close (relative term I suppose)
+to your datastore/database then you probably don't need to add the extra web service
+layer (which may end up on the same machine). Regardless if you code to an interface
+(repository pattern) then your data access could be easily changed to use a web service
+layer if you need to in the future. Another thing to think consider, if in the future
+you wanted to build other front-ends (Silverlight, WPF, etc.) building the web
+services now may be a better long-term choice. 
+
+MVC or n-tier? Am I missing something but, MVC isn't a user interface oriented pattern?...
+MVC can be and is often used with n-tier implementations. Can you clarify the question? 
+
+
+Recently, I've come across a person who is highly motivated to use MVC and I think
+ knows MVC only(I myself am a great fan of MVC.) and we have a product developed using 
+ n-tier architecture. So the person comments that n-tier is obsolete and shouldn't be
+  used anymore. Which made me have the say of people around me. I am very well aware of
+   the difference of mvc and n-tier but wanted to discuss both of them in detail and find
+    out which one should used depending on what factors. 
+
+
+
+
+The comment that he believes that n-tier applications are obsolete is some what 
+troublesome. If the application you're building or planning to build is small or for
+internal use and it's to be deployed onto one server than implementing a 1-teir 
+application is perfectly good but the application architecture should still be layered 
+into ui-business-data access.
+ 
+N-teir apps in my experience are designed so that you can take advantage of flexible 
+deployment of your application layers onto one or more servers. For example, the UI layer 
+is deployed onto a public facing server and it communicates with the business layer on a 
+secure server that lives behind your firewall.
+ 
+If you are in the position to green or red light the option make sure he's not just using 
+the mvc.net technology just for the thrill because if used incorrectly it will cause you 
+great pain and embarasment later. As I said, the statement that n-teir applications are 
+obsolete is dangerously incorrect. 
+
+
+
+That person's comments lead me to believe they have a very shallow understanding of 
+architectural design. It's certainly not an either/or decision. Asking them to back up 
+their assertions with logical explanations should solve the problem for you as it seems 
+they will be unable to. You could point them to this:
+ http://genehughson.wordpress.com/2012/01/09/layered-architectures-sculpting-the-big-ball-of-mud/ 
+ and ask how an MVC-only solution would handle those same issues (and YAGNI is a 
+ non-starter). 
+
+
+
+
+
+
+I think its not an 'OR' question, MVC and n-tier are not comparable to each other.
+ 
+One way to look at it is to know the difference between the 'Architecture' and 'Design'. 
+Now because n-tier is more of an architecture and MVC is more of Design (Architectural 
+Design Pattern) so they both work at different levels.
+ 
+For example currently I am working on a system which is Multi-tier (Backend services, 
+Mobile Front end, Web Frontend, Database layer etc). And parallely in the same project 
+for Front end (Mobile and web) we are using MVC. 
+
+
+
+
+
+MVC Presentation framework.... n-tier (Presentation framework.... BLL..DAL ..Services ..etc)
+
+
+In my opinion you MVC maintains a separation of concerns a lot cleaner then an 
+N-tier architecture. I think that is the reason you see MS have a huge bias 
+On MVC over web forms 
+
+
+
+
+
+
+
+http://jeffreypalermo.com/blog/how-to-access-controller-methods-from-a-view-in-asp-net-mvc/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3a%20jeffreypalermo%20%28Jeffrey%20Palermo%20%28.com%29%29
+http://stackoverflow.com/questions/1417168/asp-net-mvc-access-controller-instance-from-view
+
+
+
+http://msdn.microsoft.com/en-us/library/ff650511.aspx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

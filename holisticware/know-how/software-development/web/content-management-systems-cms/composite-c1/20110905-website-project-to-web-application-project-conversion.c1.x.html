@@ -1,0 +1,359 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Composite C1 Website [project] to Web Application Project Conversion/Transformation</title>
+Description = all keywords + extra text
+<meta name="Description" content="Composite C1 Website [project] to Web Application Project conversion/transformation howto (hands on lab)" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: composite-c1-website-to-web-application-project-conversion-transformation
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Layout.SplashImage" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<f:param name="UriImage" value="/mm/splashes/20110606/splash07.jpg" />
+	</f:function>
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+			<!--
+	Keywords = 
+	-->
+			<f:param name="KeywordsAdditional" value="composite, c1, website, web application. project, conversion" />
+			<f:param name="AuthorsAdditional" value="Keywords" />
+			<f:param name="Date" value="2011-04-18" />
+			<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Composite C1 Website project to Web Application Project Conversion</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<p>
+		Date Created: 2011-04-18
+		<br />
+		Date Modified: 2013-01-20
+	</p>
+
+	<!-- ================================================================== -->
+	<h2><a id="A1">Definitions</a></h2>
+
+	<ul>
+		<li>
+			WAP = Web Application Project
+		</li>
+		<li>
+			WS[P] = Web Site [Project]
+		</li>
+	</ul>
+	<!-- ================================================================== -->
+	<h2><a id="">Motivation</a></h2>
+	<p>
+		There are several reasons for HolisticWare team's need to convert Composite 
+		C1 Visual Studio Web Site project (WSP) to Web Application project (WAP):
+	</p>
+	<ul>
+		<li>
+			XDT: Xml Document Transforms
+			<br />
+			XDT is not available (without a hacks) in Web Site [Projects]. Web site is actually
+			not a project, because it has no project file (.csproj).
+		</li>
+		<li>
+			Inability to share code as links (add code files as links)
+			<br />
+			In order to reuse code from other projects and libraries feature of Visual Studio:
+			(Add existing item > Open (As Link is not available)
+			<br />
+			Thus the use of great tools like Visual Studio project linker is impossible and the team
+			needs it because of its dedication to code reuse and multitargeting.
+		</li>
+		<li>
+			Unit testing
+			<br />
+			Do to the fact that team develops and customizes Composite C1 for it's own use and for
+			our customers, to assure reasonable Quality, team does Unit Testing. With WSP team has 
+			found some difficulties extending Unit tests from our other projects to Composite C1.
+		</li>
+		<li>
+			Advantages of WSP are not needed
+			<br />
+			Advantages such as rapid updates (adding new pages to site) and ease of maintenance are
+			not crucial for the team, because this functionality is embedded in the primary function
+			of any decent CMS system. Ad Composite C1 is excellent CMS.
+		</li>
+	</ul>
+
+	<!-- ================================================================== -->
+	<h2><a id="">Conversion</a></h2>
+	<p>
+	References:
+	</p>
+	<ul>
+		<li>
+		<a href="">
+		</a>
+		</li>
+	</ul>
+	<p>
+	Steps:
+	</p>
+	<ol>
+		<li>
+			Create WAP (Solution + Add new project + Web Application project)
+		</li>
+		<li>
+			Copy stuff from \Bin folder into \libs (or whatever You name it)
+		</li>
+		<li>
+			Add references to WAP from \libs folder
+		</li>
+		<li>
+			Compile/Build to check everything is still OK.
+		</li>
+		<li>
+			Copy all files from WSP to WAP:
+			<ul>
+				<li>
+					either on Filesystem and then do "Include in project" or
+				</li>
+				<li>
+					Copy + Paste in Visual Studio Explorer (HolisticWare team).
+				</li>
+			</ul>		
+			Directories and files selected and copied:
+			<pre class="hw_code">
+			App_Data
+			Composite
+			Frontend
+			Renderers
+			default.aspx
+			Global.asax
+			Web.Config
+			</pre>
+		</li>
+		<li>
+			Convert to Web Application
+			<br />
+			WAP (Context Menu AKA Rich click +/ Convert to Web Application
+			<br />
+			This step generates code behind files needed by WAP.
+			<br />
+			Composite C1 team has done tremendous job in making this step easy and (writing on 2013-01-10)
+			with version 4 beta of Composite C1 this step has no isues.
+			<br />
+			Historical stuff:
+			<ol>
+				<li>
+					2013-01 v.4 beta => no issues
+				</li>
+				<li>
+					2013-01 v.3.x beta => some issues
+				</li>
+			</ol> 
+
+			Process with some tips and tricks how to fix possible issues in conversion:
+			<ol>
+				<li>
+					fix missing Page directives in aspx pages!
+					<pre class="hw_code">
+					&lt;%@ Page  %&gt;
+					</pre>
+					Visual Studio cannot perform conversion with message:
+					<pre class="hw_code">
+					Build has been canceled.
+					Unable to convert to Web Application format because the page directive is 
+					missing in the file XXXX
+					</pre>
+					<br />
+					This used to be an error in numerous pages in original Composite C1 WSP, but
+					with each build errors fixed.
+					<br />
+					Offending files (aspx) are in following directories:
+					<pre class="hw_code">
+					Composite\
+					Composite\content\
+					</pre>
+
+					And concrete files are (might be +/- few more/less):
+
+					<pre class="hw_code">
+					'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositecharmap\charmap.aspx'.
+					'Composite\content\misc\editors\codemirroreditor\codemirroreditor.aspx'.
+					'Composite\content\misc\defaultstart\defaultstart.aspx'.
+					'Composite\content\misc\audioloader\audio.aspx'.
+					'Composite\content\flow\FlowUiCompletedDialog.aspx'.
+					'Composite\content\flow\FlowUiCompleted.aspx'.
+					'Composite\content\dialogs\wysiwygeditor\wysiwygeditordialog.aspx'.
+					'Composite\content\dialogs\wysiwygeditor\mozsecuritynote\mozsecuritynote.aspx'.
+					'Composite\content\dialogs\wysiwygeditor\errors\contenterror.aspx'.
+					'Composite\content\dialogs\webservices\error.aspx'.
+					'Composite\content\dialogs\util\comparestrings\comparestrings.aspx'.
+					'Composite\content\dialogs\treeselector\treeselector.aspx'.
+					'Composite\content\dialogs\treeselector\special\imageselector.aspx'.
+					'Composite\content\dialogs\translations\translations.aspx'.
+					'Composite\content\dialogs\systemtrees\detailedpaste.aspx'.
+					'Composite\content\dialogs\standard\standard.aspx'.
+					'Composite\content\dialogs\save\saveall.aspx'.
+					'Composite\content\dialogs\postback\postbackdialog.aspx'.
+					'Composite\content\dialogs\options\options.aspx'.
+					'Composite\content\dialogs\multiselector\multiselectordialog.aspx'.
+					'Composite\content\dialogs\imageeditor\scaleimage\scaleimage.aspx'.
+					'Composite\content\dialogs\about\about.aspx'.
+					'Composite\compile.aspx'.
+					'Composite\blank.aspx'.
+					'Composite\app.aspx'.
+					'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositecharmap\charmap.aspx'.
+					'Composite\content\misc\editors\codemirroreditor\codemirroreditor.aspx'.
+					'Composite\content\misc\defaultstart\defaultstart.aspx'.
+					'Composite\content\misc\audioloader\audio.aspx'.
+					'Composite\content\flow\FlowUiCompletedDialog.aspx'.
+					'Composite\content\flow\FlowUiCompleted.aspx'.
+					'Composite\content\dialogs\wysiwygeditor\wysiwygeditordialog.aspx'.
+					'Composite\content\dialogs\wysiwygeditor\mozsecuritynote\mozsecuritynote.aspx'.
+					'Composite\content\dialogs\wysiwygeditor\errors\contenterror.aspx'.
+					'Composite\content\dialogs\webservices\error.aspx'.
+					'Composite\content\dialogs\util\comparestrings\comparestrings.aspx'.
+					'Composite\content\dialogs\treeselector\treeselector.aspx'.
+					'Composite\content\dialogs\treeselector\special\imageselector.aspx'.
+					'Composite\content\dialogs\translations\translations.aspx'.
+					'Composite\content\dialogs\systemtrees\detailedpaste.aspx'.
+					'Composite\content\dialogs\standard\standard.aspx'.
+					'Composite\content\dialogs\save\saveall.aspx'.
+					'Composite\content\dialogs\postback\postbackdialog.aspx'.
+					'Composite\content\dialogs\options\options.aspx'.
+					'Composite\content\dialogs\multiselector\multiselectordialog.aspx'.
+					'Composite\content\dialogs\imageeditor\scaleimage\scaleimage.aspx'.
+					'Composite\content\dialogs\about\about.aspx'.
+					'Composite\compile.aspx'.
+					'Composite\blank.aspx'.
+					'Composite\updated.aspx'.
+					'Composite\unsupported.aspx'.
+					'Composite\unknownbrowser.aspx'.
+					'Composite\postback.aspx'.
+					'Composite\dead.aspx'.
+					'Composite\content\views\systemview\systemview.aspx'.
+					'Composite\content\views\start\start.aspx'.
+					'Composite\content\views\seoassist\seoassist.aspx'.
+					'Composite\content\views\help\help.aspx'.
+					'Composite\content\views\generic\generic.aspx'.
+					'Composite\content\views\explorer\explorer.aspx'.
+					'Composite\content\views\editors\permissioneditor\permissioneditor.aspx'.
+					'Composite\content\views\editors\imageeditor\imageeditor.aspx'.
+					'Composite\content\views\dev\viewsource\viewsource.aspx'.
+					'Composite\content\views\dev\systemlog\systemlogoutput.aspx'.
+					'Composite\content\views\dev\systemlog\systemlog.aspx'.
+					'Composite\content\views\dev\icons\files\republicrender.aspx'.
+					'Composite\content\views\dev\icons\files\republic.aspx'.
+					'Composite\content\views\dev\icons\files\harmonyrender.aspx'.
+					'Composite\content\views\dev\icons\files\harmony.aspx'.
+					'Composite\content\views\dev\developer\developer.aspx'.
+					'Composite\content\views\browser\browser.aspx'.
+					'Composite\content\misc\viewers\sourcecodeviewer\viewsourcecontent.aspx'.
+					'Composite\content\misc\stage\stagedeck.aspx'.
+					'Composite\content\misc\preview\stop.aspx'.
+					'Composite\content\misc\preview\error.aspx'.
+					'Composite\content\misc\editors\visualeditor\tinymce.aspx'.
+					'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositeword\word.aspx'.
+					'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\table.aspx'.
+					'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\row.aspx'.
+					'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\merge.aspx'.
+					'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\cell.aspx'.
+					'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositelink\link.aspx'.
+					'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositeimage\image.aspx'.
+					'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositecharmap\charmap.aspx'.
+					'Composite\content\misc\editors\codemirroreditor\codemirroreditor.aspx'.
+					'Composite\content\misc\defaultstart\defaultstart.aspx'.
+					'Composite\content\misc\audioloader\audio.aspx'.
+					'Composite\content\flow\FlowUiCompletedDialog.aspx'.
+					'Composite\content\flow\FlowUiCompleted.aspx'.
+					'Composite\content\dialogs\wysiwygeditor\wysiwygeditordialog.aspx'.
+					'Composite\content\dialogs\wysiwygeditor\mozsecuritynote\mozsecuritynote.aspx'.
+					'Composite\content\dialogs\wysiwygeditor\errors\contenterror.aspx'.
+					'Composite\content\dialogs\webservices\error.aspx'.
+					'Composite\content\dialogs\util\comparestrings\comparestrings.aspx'.
+					'Composite\content\dialogs\treeselector\treeselector.aspx'.
+					'Composite\content\dialogs\treeselector\special\imageselector.aspx'.
+					'Composite\content\dialogs\translations\translations.aspx'.
+					'Composite\content\dialogs\systemtrees\detailedpaste.aspx'.
+					'Composite\content\dialogs\standard\standard.aspx'.
+					'Composite\content\dialogs\save\saveall.aspx'.
+					'Composite\content\dialogs\postback\postbackdialog.aspx'.
+					'Composite\content\dialogs\options\options.aspx'.
+					'Composite\content\dialogs\multiselector\multiselectordialog.aspx'.
+					'Composite\content\dialogs\imageeditor\scaleimage\scaleimage.aspx'.
+					'Composite\content\dialogs\about\about.aspx'.
+					'Composite\compile.aspx'.
+					'Composite\blank.aspx'.
+					'Composite\app.aspx'.
+					</pre>
+
+					Solution:
+					<br />
+
+					Add Page directive to each of those files (at the beginning) to WAP or even better
+					to WSP 
+					<br />
+					(Composite C1 guys did it and nothing broke and with v.4 users can transform Website 
+					to Webapp on the fly)
+					<br />
+					WARNING!!!
+					<br />
+					Take care of tag order in files (xml tag comes before Page tag!
+					<pre class="hw_code">
+					&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+					&lt;%@ Page %&gt;
+					</pre>
+					And not:
+					<pre class="hw_code">
+					&lt;%@ Page %&gt;
+					&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+					</pre>
+				</li>
+				<li>
+					If change was performed on WSP repeat steps 5. and 6.
+					<br />
+					Else/otherwise if change was performed on WAP repeat step 6.
+				</li>
+				<li>
+					Old issue (not needed anymore):
+					<br />
+					Exclude from project automatically generated code behind page: 
+					<pre class="hw_code">
+					WebApplication1\Composite\content\views\showelementinformation\Default.aspx.design.cs
+					</pre>
+				</li>
+			</ol> 
+		</li>
+		<li>
+			Build
+		</li>
+		<li>
+			Run
+		</li>
+	</ol>
+
+
+	<!-- ================================================================== -->
+	<h2><a id="A2">TODOs (future plans)</a></h2>
+	<p>
+		Although HolisticWare team has written batch script for transformation/conversion this
+		script is not needed anymore.
+		Team is working on VS macro that could do this automagically.
+	</p>
+	<p>
+		Team's 2 cents solution with 2.1.1 WSP and WAP. Solution was not initialized (no Startup page
+		type chosen, no password).
+		<br />
+		<a href="~/mm/Know-How/Development/Web/CMS/Composite-C1/cc1-211-WSP2WAP.zip">
+		Solution with WSP and WAP.		
+		</a>
+		<br />
+		Username: Admin
+		<br />
+		Password: 123456
+	</p>
+
+</body>
+</html>

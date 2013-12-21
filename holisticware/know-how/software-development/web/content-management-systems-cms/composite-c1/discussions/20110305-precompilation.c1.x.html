@@ -1,0 +1,73 @@
+﻿<!--
+C1 generated!!
+<title>Composite C1 deploying precompiled website</title>
+<meta name="Description" content="Composite C1 deploying precompiled website" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="Composite, C1, deploying, precompiled, website" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-04-18" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Composite C1 deploying precompiled website</a></h1>
+	<!-- ================================================================== -->
+
+	<h2><a id="">
+		<a id="C1-precompilation">
+		[2011-03-03] C1 Composite deployment as precompiled website
+		</a>
+	</a></h2>
+
+	<p>
+	The directory '/XXX/App_GlobalResources/' is not allowed because the application is precompiled&#8230;
+	</p>
+	<p>
+		Problem
+
+		You get this error when running your application:
+	</p>
+
+	<pre class="hw_code">
+Server Error in ‘XXX’ Application.
+
+The directory '/website/App_GlobalResources/' is not allowed because the application is precompiled.
+
+Description: An unhandled exception occurred during the execution of the current web request. 
+Please review the stack trace for more information about the error and where it originated in the code.
+
+Exception Details: System.Web.HttpException: The directory '/website/App_GlobalResources/' is not 
+allowed because the application is precompiled.
+
+This error can occur when running an application deployed and installed by the MSI Deployment Installer.  
+The MSI Deployment Installer creates a PrecompiledApp.config file that causes this error at run-time.
+	</pre>
+
+	<h3><a id="">Solution</a></h3>
+
+	<ol>
+		<li>Delete the PrecompiledApp.config file and re-start your application.</li>
+	</ol>
+
+	<pre class="hw_code">
+	See Also
+
+Part VII:  Troubleshooting Applications
+
+Application Won’t Run
+
+Application Runs But No Data is Displayed
+
+Application Error Messages
+
+	</pre>
+
+
+
+
+</body>
+</html>

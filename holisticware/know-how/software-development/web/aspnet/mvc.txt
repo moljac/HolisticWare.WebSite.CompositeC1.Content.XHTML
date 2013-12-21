@@ -1,0 +1,487 @@
+http://www.codeproject.com/Articles/560798/ASP-NET-MVC-controller-dependency-injection-for-be
+
+
+http://www.informit.com/articles/article.aspx?p=1554970
+http://stackoverflow.com/questions/7046161/returning-xml-or-json-depending-on-the-http-request
+http://stackoverflow.com/questions/7890683/routing-for-json-and-xml
+http://omaralzabir.com/create_rest_api_using_asp_net_mvc_that_speaks_both_json_and_plain_xml/
+http://www.codeproject.com/Articles/233572/Build-truly-RESTful-API-and-website-using-same-ASP
+
+
+
+
+web service upload image
+http://www.codeproject.com/Questions/163276/upload-image-to-web-service-using-c
+http://forums.asp.net/t/1667411.aspx/1
+
+http://www.codeproject.com/Articles/147797/Webpart-Portlet-development-in-ASP-NET-MVC-Framewo
+http://blogs.msdn.com/b/nunos/archive/2010/02/16/quick-tips-about-asp-net-mvc-webpart-framework.aspx
+
+http://mvcwebpart.codeplex.com/
+http://stackoverflow.com/questions/5381623/web-parts-in-asp-net-mvc
+
+
+
+
+
+
+http://odetocode.com/blogs/scott/archive/2009/10/29/mvc-or-web-forms-a-dying-question.aspx
+
+
+
+
+
+
+
+
+
+
+Web Forms + Ajax is a perfect fit for the many small to medium commercial web applications 
+that we develop whereas sharepoint is either overkill or the client has committed to another cms.
+
+I have no issue with mvc (its "back to the future" using techniques from the asp pre .net
+days) but i suspect its attractiveness to a lot of developers is that they can avoid the 
+learning curve associated with web forms.
+
+
+
+
+ disagree. Comparing Web Forms and ASP.NET MVC to Sharepoint just doesn't work. It's like 
+ comparing an operating system with a programming language. They are there for two different 
+ purposes.
+
+I truly hate Webforms. They give me crappy control of the output code (1998-style HTML), 
+it's difficult to handle once you're doing something that's just plain basic in the framework. 
+And the fact that you must wrap your entire page in a form-tag and always have that viewstate 
+there. It's dreadful if you're into web standards and all that. And I am.
+WebForms simply abstracts away too much of what makes web development different from desktop 
+development. You're supposed to know stuff about how to send and get data, how to store data 
+across pages etc. It's just plain messy. In my opinion, WebForms is a true Web 1.0-way of 
+thinking development due to all the silly restrictions all those opportinities give you.
+
+
+This is what makes ASP.NET MVC so great: You have *complete* control of all output code, it's 
+easy to do testing because you are the one that's always in control of all code (no gridviews 
+or fileupload-controls here!). It's made up the way a web framework is supposed to work, it 
+doesn't abstract away everything with an enormous ViewState to control the flow of your pages.
+
+
+
+
+
+second Arve's opinion about why he prefers MVC. To me it has nothing to do with "avoid[ing] 
+the learning curve associated with web forms" as Mike put it. I used WebForms for many, many 
+years and am so glad to be free of the many hacks that developers that care about standards 
+have to put up with when using it.
+
+More to the point of the article, I completely agree with Scott's take on the matter. In fact 
+I'm already seeing this happening as I hire new employees and consultants - there is already 
+a large swing toward SharePoint development amongst the WebForms community.
+
+
+
+
+
+
+
+
+
+
+'m agree. I think it's time to let go WebForms and focus on MVC. WebForms was thought so the 
+VB6 developers can use the .Net Framework to develop Web apps without to have to learn or get 
+used to a new environment...
+
+But, it's just my opinion.
+
+@Cyril - I think it's going to get a lot of use, but I also think it's going to lose developers 
+to other web frameworks and platforms. It just doesn't have the momentum anymore.
+
+
+
+
+
+
+
+
+
+
+
+gree that SharePoint is the ultimate platform.
+
+But, developing for it is fundamentally different from MVC and WebForms, so the assumption 
+that people will take whatever they were going to develop in WebForms and now develop that 
+in SharePoint, is too simplistic a statement. Today, if they were to attempt to build what 
+would be a typical WebForms app in SharePoint, they'd probably still have to create a database, 
+because SharePoint's lists have too many limitations. Then, because they aren't using 
+SharePoint's lists, they'd have to create CRUD pages on top of the database tables, and then 
+manually work up validation, business logic (can't use Workflow anymore), and so on...and so 
+they'd be developing a WebForms app inside SharePoint. In the future (SP 2010) maybe enough 
+of the typical LOB app's needs will be covered by the platform, and so developers will be able 
+to use the platform exclusively. Don't know/we'll see.
+
+I guess the point I'm making, is that you embed an assumption above in your dichotomy(? big 
+word alert)--you have developers who like frameworks and developers who like platforms. The 
+assumption is that frameworks and platforms are roughly equally good choices at getting the 
+job done. What I'm saying is that developers who like platforms, in order to solve real 
+problems, have to learn both the platform (SharePoint) and the framework (ASP.NET), and 
+would be better off just learning to be effective with the framework and skipping the platform. 
+There's a small sweet spot where the platform does exactly what you need and saves you time, 
+but I'm going to invoke my very own Pedro's Improved Pareto principle, in which I replace 
+the 80/20 rule with 8/2. 8% of what you need is done with 2% of the effort, the other 92% is 
+left as an exercise for the reader.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+This is a very interesting post. Let me preface what I am about to say with "I am a SharePoint 
+guy". I also respect your work and your status in the community. I hope this post doesn't sound 
+disrespectful.
+
+I feel like this is one of the most common misconceptions about SharePoint...
+
+"Anything else you can think of? Check."
+
+It is a fallacy to assume that SharePoint is the all encompassing solution that makes standard 
+ASP.NET technologies obsolete. SharePoint is an amazing platform the transcends any standard 
+definition like "Intranet" or "Workflow" or "Business Intelligence". It is all of these things 
+and so much more.
+
+However, as a previous poster pointed out, it is most certainly not an operating system. I don't 
+really think that the words "SharePoint" belong in a comparison between WebForms and MVC.
+
+As to the question of which ASP.NET framework is better, I really think that the fundamental 
+advantage of MVC is the ability to properly do test driven development given the decoupling 
+of the UI from the other layers. WebForms are nearly impossible to test in an automated fashion. 
+I really think that it is high time for Microsoft developers to enter the world of "best practices" 
+when it comes to ASP.NET as a web technology. Whether or not MVC is the proper platfrom is less 
+of a question as simply saying that WeForms is no longer an option as it makes writing flexible 
+and maintainable code very very difficult.
+
+I really really hope this post isn't overly harsh, but I feel like it might be. I know I am going 
+to regret hitting the "Comment" button here in a few seconds.
+
+Thank you for this post. I feel like it has brought out some excellent thoughts on ASP.NET and 
+SharePoint.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+yself I am not a fan of MVC at all. It represents a lot of new work and effort on my part for 
+little to no benefit. For the smug developers who are so full of themselves that they must use 
+overcomplicated tools to accomplish simple jobs go ahead and knock yourself out. I'll be finished 
+with my simple small to medium size web site in half the time it takes you to finish your MVC 
+concoction and delivering practical value to the business instead of being a procrastinating 
+code artist.
+
+
+
+
+
+
+
+
+
+
+
+'m confused. What has sharepoint to do with the mix? Isn't it primarily for intranet purposes?
+I think the real question for an MS dev is WebForms vs. MVC vs. Silverlight. If at all possible, 
+I vote for silverlight. Javascript is powerful and all, but I just don't think the cleanness 
+and productivity of having C# everywhere combined with a UI rendering engine that is easy to 
+use and looks the same on all browsers can be beat.
+
+
+
+
+
+
+
+
+
+
+
+@Brad - People are already creating Internet sites with SharePoint. In 2010 they explicitly 
+market and license it for use on public facing web sites!
+
+
+
+
+
+
+
+
+
+
+
+
+
+@Scott: MOSS has been running public sites for years (marketed and licensed as such). We were 
+at the launch event in 2006 with a high-profile public site. There are some rough edges in its 
+CMS/blogging capabilities that have been refined in 2010. For a sample of public sites running 
+MOSS today (there are more under NDA) see http://www.wssdemo.com/Pages/websites.aspx. In a 
+perfect world, SharePoint would absorb capabilities in Sitecore and Community Server for a 
+well-rounded approach to external sites/communities. 2010 CMS enhancements are catalogued here: 
+sharepoint.microsoft.com/.../Post.aspx?ID=270.
+
+
+
+
+
+
+
+
+
+
+@Mike: Really? A learning curve for WebForms? I think the problem is that it is so easy for 
+anyone to do it (poorly). MVC == back to the future asp days? I don't recall many using an 
+MVC pattern in asp, though I'm sure some did. I would think those days were more equatable 
+with a Spaghetti Western. Anyway, thanks for the laugh! :)
+
+
+
+
+
+
+
+
+
+I have been reading on MVC and I created some pet projects with it and I am very pleased 
+with the shift from WebForms. 
+
+However, I have a bit of a limitation that holds me back with WebForms and I was wondering if 
+you could help me with it.
+
+I work for a Web CMS company as a Consultant, therefore all websites (public sites, intranets, 
+extranets, you name it) are based on the CMS software from my company (which should remain 
+nameless).
+
+One of the features that the sales guys like to pitch about our software is its "friendly" urls. 
+Baiscally all data is stored and structured within the CMS like a file system. Then when you 
+point your browser to http://mywebsite.com/about the CMS will return the contents from the item 
+stored under the root with the name "about". 
+
+Each item also has a (interchangeable) template registration which is the physical location of 
+the file that is going to display the contents of it (an .aspx page). Just like the "Views" on MVC.
+
+So, to handle the friendly URLs I have to add a HTTP Handler as follows:
+<add verb="*" path="*" type="Cms.ASPDelivery.HttpRequestHandlerFactory, CmsDelivery" />
+
+That will take care of the friendly URLs and will do the mapping between contents and views. 
+
+In an architectural way you could see that just like MVC. The data is stored in the CMS, the 
+presentation is independent of the data, and the handler will be the Controller.
+
+But when it comes down to coding in itself, it is the same old Webforms spagetti. Do you see 
+any way that I could use both MVC and my CMS' Http Handler?
+
+
+
+
+
+
+
+
+
+t doesn't sound like you'd be able to rip out the CMS and place your own controller in place, 
+but I'm not clear on the exact architecture of the CMS. 
+
+Since the CMS is basically delivering a model to the .aspx page, I'm wondering if you could write 
+your page like an MVC view. That is to avoid code-behind and server controls and use HTML helpers 
+and jQuery instead.
+
+
+
+
+
+
+
+
+It does my head in all the people who think you cant acheive SOC, IOC, or testability without 
+asp.mvc framework.
+
+Ever heard of the MVP pattern? 
+Web Software Factory by MS patterns & practices?
+n-tier/n-layer design...
+
+Just because you dont know how to extend and use webforms corrrectly doesnt make it a bad 
+platform.
+
+The only benefit is see of asp.net MVC is if you want more control over mark up. 
+Which for me i dont care for anymore, after 12 years in the webspace im bored with html, 
+Silverlight is where im moving too.. again making webforms vs MVC a dead argument.
+
+
+
+
+
+
+
+noticed everyone ignored David Robbins' post. his experience is mine as well. I understand 
+that some people have very basic needs and therefore, out-of-the-box Sharepoint works with 
+minor adjustments. However, the reality is, that it is much less flexible than almost every 
+other framework out there. If I could get a hold of Excel Services outside of Sharepoint, 
+I'd never look at Sharepoint again. My development team spent many months creating our own 
+internal web portal applications using Sharepoint as the framework and ended up abandoning 
+it for a simple open source ASP.Net portal. Although lacking a features like a farm architecture 
+is a huge loss, the productivity gain was immense. A good example of MVC versus Web Forms is 
+trying to build a dashboard where the page loads and then each db widget loads AND DISPLAYS 
+independently. In the normal web forms update panel pipeline this requires a huge amount of 
+shenanigans and bs if you even CAN get this to work. 
+The bottom line is it all depends on your needs.
+
+
+
+If I am paid by lines of code I will choose asp.net MVC; if I am paid by number of functins 
+I will stick with Webforms. And if you don't care about making money, then you should just 
+retire and spending your time with your family.
+
+
+
+
+
+If MVC is the future, then why is Microsoft continuing to reiterate and re-reiterate that, 
+for the record, Webforms is absolutely not going away?
+
+If MVC truly was the wave of the future, wouldn't it be in Microsoft's best interest to 
+phase out Webforms and get Webform developers up to speed on MVC? And isn't Sharepoint 
+built on Webforms? 
+
+As it stands now, it just seems this whole Webforms/MVC/Sharepoint debate is all about 
+religion. Or politics. Change the names to Democrat, Republican and Independent and you've 
+got the same kinds of arguments, with each party not hearing what the other is saying.
+
+IMHO, each advocate of the above has legitimate reasons to support their preferred 
+platform/framework. 
+
+
+
+
+
+
+In my opinion, the question is becoming blurred with a lot of the cool features of 
+MVC making their way into Webforms. ASP.NET 4.0 added URL Routing, reduced ViewState, 
+and greater control of the HTML mark-up produced by many ASP.NET controls, now the 
+next version of Webforms will incorporate many more MVC features into Webforms. 
+http://bit.ly/dNhBd8
+
+
+
+
+
+
+
+
+
+
+
+How to achieve dynamic generation of views in MVC ?
+Well, Let's suppose I have + 100 forms in my application. It would very tedious task to 
+design each and every form when there are minor changes in forms (i.e 90% controls are 
+same in each form). So I want a approach ,which generate controls from XMl/Database and 
+render in View. So, now there should be only one view/form, but controls should load 
+from XMl/Database.
+You have 12 minutes
+
+
+look at reusing the partial views and models associated with them, this will ease the 
+complexity and later maintenance.
+
+
+
+
+The problem you have is that this is a 2 stage process. It's a classic chicken and 
+egg scenario. 
+
+At the point where your running code to generate the forms, your currently already 
+in the pipeline that needs the code to compile to be ready. 
+
+What do I mean by this? Consider the following (and yes I am using PHP for the example, 
+it's easier to describe) 
+
+If you wanted to use a PHP script to generate PHP scripts it cannot be done, because 
+at the point where your running your PHP interpreter to run the code to create the 
+code, your request already has an execution context that was created before those 
+scripts came into existence, and thus knows nothing of those scripts ever existing. 
+The result if you tried to execute them would be at the simplest, the web-server 
+would return them as plain text, at the worst some kind of server exception. 
+
+(and yes I have tried this in the past....) 
+
+The closest I was EVER able to come, was to use PHP to write a perl script, that 
+perl script was then added to the output as an IMG tag, which when rendered caused 
+the browser to make a second request to the perl script automatically, this perl 
+script then wrote a PHP script and then issued a HTTP redirect to the newly written 
+script. 
+
+Of course this can (and often will) go horribly wrong, Iv'e seen Chrome attempt to 
+turn itself inside out making sense of such redirects, and older browsers... well 
+let's just say "The same effects as a low yield nuclear device" :-) 
+
+Now that's not to say that it's an impossible task, but it's most definitely a task 
+where you absolutely have to think outside the box and the traditional web pipeline. 
+
+2 solutions spring to my mind: 
+
+1) - Using the standard web pipeline 
+
+You could retrieve the object from your backing store, then using reflection and 
+output injection in your controller, you could reflect over the properties available, 
+then use those to inject tags directly into your controllers output. 
+
+Remember in MVC there's no law says you have to return a view from disk, there are a 
+multitude of possible return types. 
+
+2) - Working outside the web pipeline (and my recommended method) 
+
+Create a small windows service (Use something like topshelf to make it easy), this 
+service will sit running in the background monitoring your database. 
+
+When it detects a change in the database, it will write an html partial view into 
+your MVC app's shared views directory. 
+
+All you then have to do is place some logic in your controller that decides which 
+partial view to use. 
+
+This also maintains your separation of concerns model and still allows your 
+designer to mostly still have control over your UI output.
+3 days ago• Like
+ 
+Follow David
+David Haney • This should not be hard. Create a custom HtmlHelper extension that 
+reads the data from your database and outputs it as MvcHtmlString type in your Views. 
+Then you could do @Html.RenderMyControl("someDBkeyorsomething")
+
+
+
+

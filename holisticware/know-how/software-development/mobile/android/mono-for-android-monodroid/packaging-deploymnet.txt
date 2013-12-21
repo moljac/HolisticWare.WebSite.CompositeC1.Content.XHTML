@@ -1,0 +1,35 @@
+
+Configuration Manager for your solution (in Visual Studio) and make sure 
+"Deploy" is checked for Release.
+
+
+
+notice that the assemblies that are copied are not the same size. They've been _linked_ 
+to remove "unused" code (as determined by the linker):
+
+	http://docs.xamarin.com/android/advanced_topics/linking
+
+Using Reflection is a well-known way to confuse the linker. 
+
+Furthermore, the linking process will remove assemblies that your app "isn't using" 
+(again, as determined by the linker, which is befuddled by Reflection).
+
+I would suggest trying to link only SDK assemblies, instead of linking both SDK & User 
+assemblies. This will cause all _your_ assemblies to be preserved, unlinked, in your 
+.apk.
+
+
+
+
+e adverse, is msbuild.  To build an APK for release just do something like this at 
+the command line: 
+
+msbuild /p:Configuration="Release" /target:"PackageForAndroid" HelloWorld.csproj
+
+
+
+By default, Debug builds include all ABIs, as this makes it easier to 
+"just create the package and deploy ~anywhere".
+
+If this is a Debug build, try disabling the shared runtime; that should cause the 
+$(AndroidSupportedAbis) MSBuild property to be obeyed.

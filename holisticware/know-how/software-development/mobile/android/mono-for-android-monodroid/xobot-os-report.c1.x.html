@@ -1,0 +1,174 @@
+xobot-os-report
+
+Cannot compile android project.
+
+Environment:
+	MacOSX
+	
+	Eclipse 
+	Eclipse Java EE IDE for Web Developers.
+	
+	
+	Version: Juno Release
+	Build id: 20120614-1722
+	
+Steps:
+	loaded
+
+Building android
+
+Multiple problems have occurred
+An interal error occurred during : "Build Project"
+
+Build Project :
+An internal error occurred during: "Build Project".
+Java heap space
+
+Building Workspace:
+An internal error occurred during: "Building Workspace".
+Java heap space
+
+
+log:
+[10:10:49] Starting build
+[10:10:52] Converting 2812 files (must parse 2812).
+[10:10:52] Parsing 2812 compilation units.
+[10:13:09] Conversion finished successfully at Fri Jul 20 10:13:07 CEST 2012 (141 seconds).
+
+
+
+Event
+Error
+Message=An internal error occurred during: "Build Project".
+StackTrace=
+java.lang.OutOfMemoryError: Java heap space
+     at org.eclipse.jdt.core.dom.ASTConverter.convertType(ASTConverter.java:3123)
+     at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:785)
+     at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:454)
+     at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:183)
+     at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2656)
+     at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1219)
+     at org.eclipse.jdt.core.dom.CompilationUnitResolver.resolve(CompilationUnitResolver.java:885)
+     at org.eclipse.jdt.core.dom.CompilationUnitResolver.resolve(CompilationUnitResolver.java:581)
+     at org.eclipse.jdt.core.dom.ASTParser.createASTs(ASTParser.java:894)
+     at sharpen.xobotos.XobotBuilder.stage1_parse(XobotBuilder.java:377)
+     at sharpen.xobotos.XobotBuilder.run(XobotBuilder.java:147)
+     at sharpen.xobotos.XobotBuilder.run(XobotBuilder.java:232)
+     at sharpen.xobotos.builder.SharpenBuilder.build(SharpenBuilder.java:156)
+     at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+     at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+     at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+     at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+     at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+     at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+     at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+     at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+     at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+     at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+     at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:432)
+     at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:305)
+     at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+     at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+
+
+
+Message=An internal error occurred during: "Building Workspace".
+Stack=
+java.lang.OutOfMemoryError: Java heap space
+
+
+
+
+
+
+
+!SESSION 2012-07-20 10:05:41.241 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_31
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.platform.ide
+Command-line arguments:  -product org.eclipse.platform.ide -data /Users/moljac/Documents/workspace/../runtime-EclipseApplication -dev file:/Users/moljac/Documents/workspace/.metadata/.plugins/org.eclipse.pde.core/Eclipse Application/dev.properties -os macosx -ws cocoa -arch x86 -consoleLog
+
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-07-20 10:05:45.718
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+No binding table for org.eclipse.ui.contexts.dialog
+
+
+!ENTRY org.eclipse.core.net 1 0 2012-07-20 10:05:51.180
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+Jul 20, 2012 10:07:13 AM sharpen.xobotos.XobotLogger setLogFile
+INFO: Added logfile /Users/moljac/Documents/workspace/XobotOS/android/logfile.txt
+Jul 20, 2012 10:07:16 AM sharpen.core.Sharpen Log
+INFO: Starting build
+Jul 20, 2012 10:07:18 AM sharpen.core.Sharpen Log
+INFO: Converting 2812 files (must parse 2812).
+Jul 20, 2012 10:07:18 AM sharpen.core.Sharpen Log
+INFO: Parsing 2812 compilation units.
+Exception in thread "[Timer] - Main Queue Handler" java.lang.OutOfMemoryError: Java heap space
+at java.util.Arrays.copyOfRange(Arrays.java:3209)
+at java.lang.String.<init>(String.java:215)
+at java.lang.StringBuffer.toString(StringBuffer.java:585)
+at org.eclipse.equinox.internal.util.impl.tpt.threadpool.ThreadPoolFactoryImpl.execute0(ThreadPoolFactoryImpl.java:94)
+at org.eclipse.equinox.internal.util.impl.tpt.timer.TimerImpl.run(TimerImpl.java:110)
+at java.lang.Thread.run(Thread.java:680)
+java.lang.OutOfMemoryError: Java heap space
+at java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:45)
+at java.lang.StringBuffer.<init>(StringBuffer.java:91)
+at org.eclipse.osgi.util.NLS.internalBind(NLS.java:168)
+at org.eclipse.osgi.util.NLS.bind(NLS.java:91)
+at org.eclipse.core.internal.jobs.Worker.handleException(Worker.java:43)
+at org.eclipse.core.internal.jobs.Worker.run(Worker.java:64)
+Jul 20, 2012 10:09:40 AM sharpen.core.Sharpen Log
+SEVERE: Conversion finished successfully at Fri Jul 20 10:09:38 CEST 2012 (145 seconds).
+Jul 20, 2012 10:10:46 AM sharpen.xobotos.XobotLogger setLogFile
+INFO: Added logfile /Users/moljac/Documents/workspace/XobotOS/android/logfile.txt
+Jul 20, 2012 10:10:49 AM sharpen.core.Sharpen Log
+INFO: Starting build
+Jul 20, 2012 10:10:52 AM sharpen.core.Sharpen Log
+INFO: Converting 2812 files (must parse 2812).
+Jul 20, 2012 10:10:52 AM sharpen.core.Sharpen Log
+INFO: Parsing 2812 compilation units.
+Jul 20, 2012 10:13:09 AM sharpen.core.Sharpen Log
+SEVERE: Conversion finished successfully at Fri Jul 20 10:13:07 CEST 2012 (141 seconds).
+
+
+!ENTRY org.eclipse.core.jobs 4 2 2012-07-20 10:50:28.248
+!MESSAGE An internal error occurred during: "Building Workspace".
+!STACK 0
+java.lang.OutOfMemoryError: Java heap space
+
+
+!ENTRY org.eclipse.core.jobs 4 2 2012-07-20 10:50:28.250
+!MESSAGE An internal error occurred during: "Build Project".
+!STACK 0
+java.lang.OutOfMemoryError: Java heap space
+at org.eclipse.jdt.core.dom.ASTConverter.convertType(ASTConverter.java:3123)
+at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:785)
+at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:454)
+at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:183)
+at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2656)
+at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1219)
+at org.eclipse.jdt.core.dom.CompilationUnitResolver.resolve(CompilationUnitResolver.java:885)
+at org.eclipse.jdt.core.dom.CompilationUnitResolver.resolve(CompilationUnitResolver.java:581)
+at org.eclipse.jdt.core.dom.ASTParser.createASTs(ASTParser.java:894)
+at sharpen.xobotos.XobotBuilder.stage1_parse(XobotBuilder.java:377)
+at sharpen.xobotos.XobotBuilder.run(XobotBuilder.java:147)
+at sharpen.xobotos.XobotBuilder.run(XobotBuilder.java:232)
+at sharpen.xobotos.builder.SharpenBuilder.build(SharpenBuilder.java:156)
+at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:432)
+at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:305)
+at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

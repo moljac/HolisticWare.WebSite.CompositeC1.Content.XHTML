@@ -1,0 +1,46 @@
+> What happens when I build a ASP.NET MVC project? I mean how does MonoDevelop
+> create a build command? I have successfully built with xbuild
+> /property:Configuration=Release MySolution.sln. Is this what MonoDevelop do?
+
+MonoDevelop currently build most project types using its internal
+build engine, unless you enable the experimental xbuild engine. For
+more details, see
+http://mjhutchinson.com/journal/2012/08/19/state_msbuild_support_monodevelop
+
+> Also and more important, what happens when I use the Deploy to Web
+> functionality? What command is used by MonoDevelop? I have gone crazy over
+
+This is currently done with MD's internal deployment infrastructure.
+Essentially, it copies the project's content and output files to a
+directory. It deploys to ssh by mounting the remote directory using
+sshfs and copying the files to the mounted directory.
+
+
+> mdtool, xbuild and google and can't find a suitable solution to this.
+> And one last thing. Apparently my Web.Config.Release and Web.Config.Debug
+> transformations are not used at all. Is this a matter of improving the
+> .csproj files to apply the appropriate transformations for ASP.NET projects?
+
+Correct, these transformations are not currently supported.
+
+Unfortunately, adding full support for the MS compile/deploy features
+is quite a lot of work. Ideally, we would enable the xbuild engine for
+Web projects, and improve complete Mono's implementation of
+Microsoft.WebApplication.targets (would need to *cleanly* reverse
+engineered the MS version). Mono's Microsoft.WebApplication.targets
+does not support many of the publishing/deployment features that the
+MS version does - you can see Mono's are very bare-bones
+(https://github.com/mono/mono/blob/master/mcs/tools/xbuild/xbuild/Microsoft.WebApplication.targets)
+and we don't have an implementation of
+Microsoft.Web.Publishing.targets at all.
+
+> If so, can I help with anything to get this done?
+
+Sure, we really need contributors for MD's & Mono's ASP.NET support.
+You could start out by building MD/Mono from source, then try
+implementing the features you care about (but make sure you read
+http://www.mono-project.com/Contributing#Important_Rules). And feel
+free to ask here and on the mono-devel-list if you need pointers 
+
+
+

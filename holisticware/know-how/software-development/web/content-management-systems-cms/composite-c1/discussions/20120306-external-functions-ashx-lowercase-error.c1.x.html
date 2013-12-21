@@ -1,0 +1,102 @@
+<!--
+C1 generated!!
+<title>2012-03-07 External Functions ashx - lowercase url - excption</title>
+<meta name="Description" content="2012-03-07 External Functions ashx - lowercase url - excption" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="Composite, C1, External, Functions, ashx, lowercase, url, excption " />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-05-05" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">2012-03-07 External Functions ashx - lowercase url - exception</a></h1>
+	<!-- ================================================================== -->
+
+	<h2><a id="">Problem</a></h2>
+	<p>
+		One way for using "remote" API in Composite C1 is with external functions (ashx).
+		While testing this feature following url works:
+	</p>
+	<pre class="hw_code">
+		http://localhost/api-holisticware/HolisticWare.Tools.ashx
+	</pre>
+	<p>
+		while following (lowercase) raises exception:
+	</p>
+	<pre class="hw_code">
+		http://localhost/api-holisticware/holisticware.tools.ashx
+	</pre>
+	<p>
+		Cuases exception:
+	</p>
+	<pre class="hw_code">
+Server Error in '/' Application.
+--------------------------------------------------------------------------------
+
+The Function named 'holisticware.news' is not known. 
+Description: An unhandled exception occurred during the execution of the current web request. 
+Please review the stack trace for more information about the error and where it originated in the code. 
+
+Exception Details: System.ArgumentException: The Function named 'holisticware.news' is not known.
+
+Source Error: 
+
+
+Line 142:            if (_functionByNameDictionary.TryGetValue(functionName, out function) == false)
+Line 143:            {
+Line 144:                throw new ArgumentException(string.Format("The {0} named '{1}' is not known.", this.FunctionType, functionName));
+Line 145:            }
+Line 146:
+ 
+
+Source File: D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\Functions\Foundation\MetaFunctionContainer.cs    Line: 144 
+
+Stack Trace: 
+
+
+[ArgumentException: The Function named 'holisticware.news' is not known.]
+   Composite.Functions.Foundation.MetaFunctionContainer.GetFunction(String functionName) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\Functions\Foundation\MetaFunctionContainer.cs:144
+   Composite.Functions.Foundation.MetaFunctionProviderRegistryImpl.GetFunction(String name) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\Functions\Foundation\MetaFunctionProviderRegistryImpl.cs:135
+   Composite.Functions.Foundation.MetaFunctionProviderRegistry.GetFunction(String name) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\Functions\Foundation\MetaFunctionProviderRegistry.cs:93
+   Composite.Functions.FunctionFacade.GetFunction(String name) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\Functions\FunctionFacade.cs:61
+   ExecuteC1FunctionHttpHandler.ProcessRequest(HttpContext context) in d:\SRC\cms-composite-c1\c1-wsp-wap\3.1\WebApplicationEmpty1\App_Code\HolisticWare\ExecuteC1FunctionHttpHandler.cs:34
+   System.Web.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute() +872
+   System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously) +120
+
+ 
+
+
+--------------------------------------------------------------------------------
+Version Information: Microsoft .NET Framework Version:4.0.30319; ASP.NET Version:4.0.30319.547 
+	</pre>
+	<p>
+		In code (MetaFunctionContainer.cs):
+	</p>
+	<pre class="hw_code">
+	public IMetaFunction GetFunction(string functionName)
+	{
+		IMetaFunction function;
+
+		if (_functionByNameDictionary.TryGetValue(functionName, out function) == false)
+		{
+			throw new ArgumentException(string.Format("The {0} named '{1}' is not known.", this.FunctionType, functionName));
+		}
+
+		return function;
+	}
+	</pre>
+
+	<h3><a id="">Suggestion</a></h3>
+	<p>
+		It is the matter of standpoint whether this is a bug or not. 
+		<br />
+		A suggestion: Core of Composite C1 should look for Functions with case
+		insensitive name?!
+	</p>
+</body>
+</html>

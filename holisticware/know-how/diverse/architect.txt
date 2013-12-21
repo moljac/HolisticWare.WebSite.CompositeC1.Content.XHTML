@@ -1,0 +1,55 @@
+http://blogs.tedneward.com/2007/09/20/Hard+Questions+About+Architects.as 
+px 
+
+say C#, JS or HTML is irrelevant. I would rather separate cosmetics and 
+mechanics. 
+
+software development to be interesting for three core reasons: 1. 
+Variety. Designing a db schema, creating a rich object model, 
+implementing complex business logic, creating a web service, and 
+building a complex highly interactive UI are just a few of the roles 
+I'll play any given day. DBAs, DAs, SAs, UI/UX designers, product and 
+project managers all have variety in their roles too. But not as much as 
+a full stack developer. C#, .NET, JavaScript, CSS, HTML5, SQL, MVC, & 
+jQuery offer a heady cocktail of tech that make each day interesting. 
+2. Autonomy. Devs have near total control over both the finished product 
+and their methods in many shops. Full-stack developers hold the only 
+skill set capable of building a complete software product in their spare 
+time. 3. Power. With UI skills I can control how the business logic, db, 
+and web services I've designed and created are perceived and utilized by 
+the end user. This hard work isn't appreciated nearly as much if the UI 
+is confusing, clunky, or unattractive. I've always been naturally 
+interested in the UI because from a user's standpoint it *IS* the app. 
+
+thing." Or, as most would agree, the customer is the thing. It is not a 
+good idea to minimize the "front end" of any application doing business. 
+Javascript is ubiquitous. It is the one true cross-platform development 
+tool that allows you to reach the largest possible number of 
+customer/users. It is no accident that all of the popular methodologies 
+are appearing as javascript components. We have databases (MongoDB) 
+server platforms (node.js) MVC (knockout.js) etc. (and all open source) 
+It might just mean we have made a mistake to have isolated front end 
+development as a thing different from development in general. 
+
+
+
+resisted getting involved in JavaScript and JQuery development for quite a while, for one reason: these technologies create a serious temptation to shift the execution of business rules and processes away from a Services layer into the User Experience layer. In fact, quite a few of the tutorials available for learning JavaScript and JQuery concentrate on how easy it is to accomplish just this very thing. This is anathema to many developers and I am not surprised that JavaScript and JQuery prompt such a strong negative reaction. Moving business rules into the User Experience layer violates at least two fundamental principles: Separation of Concerns, and Loose Coupling. Red Flags everywhere! What is even worse is that the tight coupling is not at all obvious. A maintenance nightmare is practically guaranteed.
+ 
+But, modern day browsers incorporate the idea of a Document Object Model (DOM). In particular, JQuery has been developed to make it easy to manipulate elements in the DOM that is on the page the browser is presenting. The amount of time and effort involved in providing animations, expand/collapse, or selecting and deselecting can be dramatically reduced by leveraging JavaScript and JQuery. And, all of this can be accomplished without any round-trip to the server. This is a two-fer: less demand on the server while gaining a much richer user experience.
+ 
+But this requires a certain amount of discipline. Developers have to resist the temptation to move business rules into JavaScript, or at least minimize it (validating data entry is probably the most common exception).
+ 
+It also means that developers have to take CSS, JavaScript, JQuery and the DOM seriously, and to look at them as valid expressions of classes and objects. This is not trivial, especially since IDE's like Visual Studio do not (at present) provide the deep and extremely useful compile-time feedback for web pages that is extensively available for back-end development. This forces all of us into doing a lot of execution-time testing on the UI to make sure that the code on the page is doing what it is supposed to do.
+ 
+For the past couple of months I have been working on two .NET MVC applications that use JavaScript and JQuery sparingly. The .NET MVC model builds pages dynamically at run time. It is almost impossible to tell at compile-time whether or not I have done something in the code for the Views that is incompatible with the script that is on a dynamically generate page. I have to put a lot more time and effort into run-time testing than I would need for a traditional back-end solution. But, as far as I am concerned, the benefits to the user exceed the added cost in test time.
+ 
+What I have learned from this work is that the most important Integration Point is the structure of the DOM. If the JavaScript code is developed based on a "contract" for the DOM structure and the MVC View code is faithful in producing DOMs that conform to the structure, most of the tests will be successful. 
+
+
+
+
+
+
+would think what concern Joshua is the maintainability of codes when using "too much" client side stuffs. The key factor of balancing is the UI (User Interaction) design -- what rich user experience you have to provide.
+ 
+To some extreme, take Google Docs as example, business rules and UI candies are very mixed. Not necessarily thinking of layers or tiers for separation of concerns and loose coupling, let's consider distributed computing. 

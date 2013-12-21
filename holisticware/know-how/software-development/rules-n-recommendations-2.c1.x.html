@@ -1,0 +1,59 @@
+Nomenclature
+	Model 		<=>		Busines logic
+	Document	<=>		
+	View, Form, Window, Page, , Activity, UIViewController
+	Widget, Control (User and Custom), UIView, Activity
+	Present
+
+
+Patterns
+
+
+> 1. Is it bad/good style to have a public class that implements global variables?
+
+How do you define "global variable"? 
+
+`public static` fields are Very Bad?, unless they're `readonly`. This is because there's no way 
+to prevent modification of the field from anything else in your process.
+
+`public static` properties are (generally) fine, and are common in the Base Class Library.
+
+Best, though, is to keep things `internal` or `private` unless they _really_ need to be public.
+
+> My program readys a DB connection right at the start which is queried by multiple different 
+GTK windows.
+
+This is a case where `internal` should normally be preferred over `public`, unless another 
+assembly in your app needs access to the value.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Be carefull about this way of working with DB. You must free the connections as fast 
+as you can and I'm not sure you can do like this way. 
+
+What happen if you dispose the connection ? That would be the usual way of freeing 
+the queue (or thru the 'using' blocks).
+
+/Gabriel
+
+
+
+
+Use SI units - forget Imperial
+
+http://mars.jpl.nasa.gov/msp98/news/mco990930.html
+
+a) add if someone pays enough
+

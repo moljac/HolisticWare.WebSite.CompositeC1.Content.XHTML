@@ -1,0 +1,78 @@
+Render subpages
+
+want to publish the content of sub pages in the parent page. How can I do that
+ in a function which is called from the Page Layout? My XSLT-knowledge is limited. 
+ 
+ 
+ 
+render" sub-pages' content in the parent page, do you?
+
+If yes, then
+
+1. Create some function which will return page elements with its Content, 
+for example let create C# inline function named My.GetSubPagesWithContentsXml 
+with next source code:
+
+using System;
+using System.Linq;
+using Composite.Data;
+using Composite.Data.Types;
+using System.Xml.Linq;
+using System.Collections.Generic;
+
+namespace My
+{
+	public static class InlineMethodFunction
+	{
+		public static List<XElement>  GetSubPagesWithContentsXml()
+		{
+			List<XElement> result = new List<XElement>();
+			using (DataConnection conn = new DataConnection())
+			{
+				var childPages = conn.SitemapNavigator.GetPageNodeById(SitemapNavigator.CurrentPageId).ChildPages;
+				foreach (var page in childPages)
+				{
+					var content = conn.Get<IPagePlaceholderContent>().Where(p => p.PageId == page.Id && p.PlaceHolderId == "content").FirstOrDefault();
+					if (content != null)
+					{
+						result.Add(new XElement("Page", new XAttribute("Title", page.Title), new XAttribute("Content", content.Content)));
+					}
+				}
+			}
+			return result;
+		}
+	}
+}
+
+
+
+2. Create XSLT function, for example My.GetSubPages. On the Functions call tab 
+add Function call to the function created in step 1: My/GetSubPagesWithContentsXml 
+and add another function call to the Composite/Xslt/Extentions/MarkupParser
+3. The Template tab should be like this:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" 
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+xmlns:in="http://www.composite.net/ns/transformation/input/1.0" 
+xmlns:lang="http://www.composite.net/ns/localization/1.0" 
+xmlns:f="http://www.composite.net/ns/function/1.0" 
+xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:mp="#MarkupParserExtensions" 
+exclude-result-prefixes="xsl in lang f mp">
+	<xsl:template match="/">
+		<html>
+			<head>
+				<!-- markup placed here will be shown in the head section of the rendered page --></head>
+			<body lang="en-us" xml:lang="en-us">
+				<xsl:for-each select="/in:inputs/in:result[@name='GetSubPagesWithContentsXml']/Page">
+					<h2><a id="">
+						<xsl:value-of select="@Title" />
+					</a></h2>
+					<xsl:copy-of select="mp:ParseXhtmlBodyFragment(@Content)" />
+				</xsl:for-each>
+			</body>
+		</html>
+	</xsl:template>
+</xsl:stylesheet>
+4. Now you can insert this function created in step 2 into Page Layout and it will render sub page contents...

@@ -1,0 +1,233 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Solution Files</title>
+Description = all keywords + extra text
+<meta name="Description" content="Solution Files, Project references" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: solution-files
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="c1, content, template," />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Solution Files</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<!-- =============================================================================================== -->
+	<h2><a id="">Empty Solution File</a></h2>
+
+	<p>
+	Modified empty Solution file template:
+	</p>
+	<pre class="hw_code">
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# -----------------------------------------------------------------------------
+# Projects 01
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# Projects 02
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# Projects 03
+# -----------------------------------------------------------------------------
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
+	</pre>
+
+	<!-- =============================================================================================== -->
+	<h2><a id="">Solution File parts for insertion into complex Solutions</a></h2>
+	<p>
+		It is recommended to manually reorder projects in .sln file, because adding new project in
+		Visual Studio adds project at the end (before Global section).
+	</p>
+
+	<h3><a id="">Core</a></h3>
+
+	<pre class="hw_code">
+# HolisticWare lazy bums - Visual Studio code snippet for adding projects to solution
+# without Add +/ Existing Project +/ Browse to project file
+#
+# Update this file each time original Solution has changed!
+#
+# insert this code 
+#	into Solution sln file before Global tag
+#	modify paths - try to keep paths relative so other teammates wouldn't have to change this
+
+# Core_2011 Begin
+# =================================================================================================
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_000_DOC", "Core.DLL_000_DOC\Core.DLL_000_DOC.csproj", "{2025C032-163B-40D2-A637-6F9329529D5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_001_DOC_ProjectStructure", "Core.DLL_001_DOC_ProjectStructure\Core.DLL_001_DOC_ProjectStructure.csproj", "{9F1E70CF-1827-43F6-9985-7E728007F2D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_002_Scripting", "Core.DLL_002_Scripting\Core.DLL_002_Scripting.csproj", "{1122A27C-8B73-420A-B628-368CC84FFBF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_011_DOC_mClnt_WP7", "Core.DLL_011_DOC_mClnt_WP7\Core.DLL_011_DOC_mClnt_WP7.csproj", "{8B2D1F0D-3C26-4BDA-A678-B6ACACC12424}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_013_DOC_mClnt_M4A", "Core.DLL_013_DOC_mClnt_M4A\Core.DLL_013_DOC_mClnt_M4A.csproj", "{438B3687-E101-483E-8357-A7DAF24041B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_071_DOC_Srvr_aspnet20", "Core.DLL_071_DOC_Srvr_aspnet20\Core.DLL_071_DOC_Srvr_aspnet20.csproj", "{001B3C6B-4F5E-4958-B4D1-9C9C6A283ACA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_121_BL_XML_XSLT_XSD_POCOs", "Core.DLL_121_BL_XML_XSLT_XSD_POCOs\Core.DLL_121_BL_XML_XSLT_XSD_POCOs.csproj", "{67929E5E-15EB-49E0-B7D1-7393F38C7F05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_211_BL_mClnt_WP7_SL4_netfx4", "Core.DLL_211_BL_mClnt_WP7_SL4_netfx4\Core.DLL_211_BL_mClnt_WP7_SL4_netfx4.csproj", "{4FDAB527-C64B-4FBB-910E-AF070ABD9453}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_213_BL_mClnt_M4A_mono26", "Core.DLL_213_BL_mClnt_M4A_mono26\Core.DLL_213_BL_mClnt_M4A_mono26.csproj", "{213E6B11-6AA9-4DE6-BAE8-1FED6FC8D3A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_231_BL_rClnt_SL3", "Core.DLL_231_BL_rClnt_SL3\Core.DLL_231_BL_rClnt_SL3.csproj", "{D5DD7349-66EA-4814-83C4-6958E4088DA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_235_BL_wClnt_aspnet20_js", "Core.DLL_235_BL_wClnt_aspnet20_js\Core.DLL_235_BL_wClnt_aspnet20_js.csproj", "{DB015873-BA1F-462B-8F99-E1140872FA39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_251_BL_dClnt_netfx2", "Core.DLL_251_BL_dClnt_netfx2\Core.DLL_251_BL_dClnt_netfx2.csproj", "{6E8447DC-E94E-4BAA-B4F9-C8EE9D688174}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_252_BL_dClnt_netfx3", "Core.DLL_252_BL_dClnt_netfx3\Core.DLL_252_BL_dClnt_netfx3.csproj", "{5F812625-7B80-4E9F-82B7-9B1329DE93AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_253_BL_dClnt_netfx3_libs_utill", "Core.DLL_253_BL_dClnt_netfx3_libs_util\Core.DLL_253_BL_dClnt_netfx3_libs_utill.csproj", "{93A56E4F-4DA8-4970-8AC1-24C32136E6E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_271_BL_Srvr_aspnet20_netfx2", "Core.DLL_271_BL_Srvr_aspnet20_netfx2\Core.DLL_271_BL_Srvr_aspnet20_netfx2.csproj", "{EF0E4AC6-D4AC-4BEE-B183-ABC1B543F391}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_272_BL_Srvr_aspnet20_netfx3", "Core.DLL_272_BL_Srvr_aspnet20_netfx3\Core.DLL_272_BL_Srvr_aspnet20_netfx3.csproj", "{7B17DFC3-7F32-4121-B23D-5198865DDDB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_273_BL_Srvr_aspnet20_netfx3_libs_utill", "Core.DLL_273_BL_Srvr_aspnet20_netfx3_libs_util\Core.DLL_273_BL_Srvr_aspnet20_netfx3_libs_utill.csproj", "{E5913654-1BA3-4549-8A53-6C8622980C54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreCompositeC1.DLL_282_BL_Srvr_aspnet35_netfx4_HolisticWare", "CoreCompositeC1.DLL_282_BL_Srvr_aspnet35_netfx4_HolisticWare\CoreCompositeC1.DLL_282_BL_Srvr_aspnet35_netfx4_HolisticWare.csproj", "{E9CE6CFE-5410-4329-98F7-905870BA0F43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_511_PL_mClnt_WP7_SL4_netfx4", "Core.DLL_511_PL_mClnt_WP7_SL4_netfx4\Core.DLL_511_PL_mClnt_WP7_SL4_netfx4.csproj", "{9C3FBA6B-D882-4902-97D0-9279CE86444D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_513_PL_mClnt_M4A_netfx2", "Core.DLL_513_PL_mClnt_M4A_netfx2\Core.DLL_513_PL_mClnt_M4A_netfx2.csproj", "{E1B7DFAB-F73B-4BF6-8343-9DD416B3F71A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_531_PL_rClnt_SL3", "Core.DLL_531_PL_rClnt_SL3\Core.DLL_531_PL_rClnt_SL3.csproj", "{C931FE14-9B5E-4D11-B5FB-AA63F2A3AE4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_551_PL_dClnt_WF_netfx2", "Core.DLL_551_PL_dClnt_WF_netfx2\Core.DLL_551_PL_dClnt_WF_netfx2.csproj", "{E94492D9-4346-42BE-AA11-475F45B082EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_553_PL_dClnt_WPF_netfx3", "Core.DLL_553_PL_dClnt_WPF_netfx3\Core.DLL_553_PL_dClnt_WPF_netfx3.csproj", "{4F7E25DF-F929-4AE0-B98E-308E929C1656}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_571_PL_Srvr_aspnet20", "Core.DLL_571_PL_Srvr_aspnet20\Core.DLL_571_PL_Srvr_aspnet20.csproj", "{C1DCB419-3ADA-486E-89C5-B8AF9B99FC8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_579_PL_Srvr_aspnet30", "Core.DLL_579_PL_Srvr_aspnet30\Core.DLL_579_PL_Srvr_aspnet30.csproj", "{61EEF460-DAF0-43D8-A812-2045CB111352}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_901_Xtras_Documentation", "Core.DLL_901_Xtras_Documentation\Core.DLL_901_Xtras_Documentation.csproj", "{64D1DC23-C474-4316-AB0E-5DF3801E9F11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_911_Xtras_Deployment", "Core.DLL_911_Xtras_Deployment\Core.DLL_911_Xtras_Deployment.csproj", "{2AB9D5F8-C91A-41EF-8E50-BCE4E5ABDE38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_921_Xtras_Images", "Core.DLL_921_Xtras_Images\Core.DLL_921_Xtras_Images.csproj", "{5C313559-8FB9-42CF-9729-FE372D8C853E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.DLL_941_Xtras_Setup", "Core.DLL_941_Xtras_Setup\Core.DLL_941_Xtras_Setup.csproj", "{04DEF552-C9FF-4A9B-930E-4A03FA190E35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.EXE_951_Xtras_IDE", "Core.EXE_951_Xtras_IDE\Core.EXE_951_Xtras_IDE.csproj", "{E1EE8116-EE88-4BE3-B187-5F9605F87FBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsMS.Core.DLL_251_BL_dClnt_netfx2", "TestsMS.Core.DLL_251_BL_dClnt_netfx2\TestsMS.Core.DLL_251_BL_dClnt_netfx2.csproj", "{CFEA8632-9BE2-4882-B9F4-6DCAC75AD50B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsNUnit.Core.DLL_211_BL_mClnt_WP7_SL4_netfx4", "TestsNUnit.Core.DLL_211_BL_mClnt_WP7_SL4_netfx4\TestsNUnit.Core.DLL_211_BL_mClnt_WP7_SL4_netfx4.csproj", "{2820C281-796D-43B8-BB14-24DCF600826A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsNUnit.Core.DLL_251_BL_dClnt_netfx2", "TestsNUnit.Core.DLL_251_BL_dClnt_netfx2\TestsNUnit.Core.DLL_251_BL_dClnt_netfx2.csproj", "{BC603C15-11C7-477E-8C93-5850AC8F18C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsNUnit.Core.DLL_551_PL_dClnt_WF_netfx2", "TestsNUnit.Core.DLL_551_PL_dClnt_WF_netfx2\TestsNUnit.Core.DLL_551_PL_dClnt_WF_netfx2.csproj", "{9F9E837B-1A24-4F90-A795-E5015094343D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXConsoleApplication1", "TestsXConsoleApplication1\TestsXConsoleApplication1.csproj", "{81486327-8ACA-40A1-AB8B-4E91FB494A2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXWpfApplication1", "TestsXWpfApplication1\TestsXWpfApplication1.csproj", "{8330D8BA-5AE4-48FF-AED3-715F785B35F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXWindowsFormsApplication1", "TestsXWindowsFormsApplication1\TestsXWindowsFormsApplication1.csproj", "{ED5DEB14-2310-4164-8A76-9C42B55FD18F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXWebApplication1", "TestsXWebApplication1\TestsXWebApplication1.csproj", "{BA86278C-F485-460C-904A-4B1375BF8E75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXMonoAndroidApplication1", "TestsXMonoAndroidApplication1\TestsXMonoAndroidApplication1.csproj", "{48FD814A-B64D-438D-A0E4-A790A9CB7E0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXReportsApplication1", "TestsXReportsApplication1\TestsXReportsApplication1.csproj", "{767202B9-1860-4DFB-A34B-B68CBF7E1262}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXSilverlightApplication1", "TestsXSilverlightApplication1\TestsXSilverlightApplication1.csproj", "{0383E6C9-FEBC-4D85-B944-E4AA969ADDFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXSilverlightNavigationApplication1", "TestsXSilverlightNavigationApplication1\TestsXSilverlightNavigationApplication1.csproj", "{C3D3C944-B221-455E-8908-6AA1CAC55E3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXWindowsPhoneApplication1", "TestsXWindowsPhoneApplication1\TestsXWindowsPhoneApplication1.csproj", "{244262E2-4819-4644-90B6-7C669193A8AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXWindowsPhoneDataBoundApplication1", "TestsXWindowsPhoneDataBoundApplication1\TestsXWindowsPhoneDataBoundApplication1.csproj", "{8346DB39-E48A-45CF-BFBC-AD91DB7FF868}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXWindowsPhonePanoramaApplication1", "TestsXWindowsPhonePanoramaApplication1\TestsXWindowsPhonePanoramaApplication1.csproj", "{6E78E321-711E-4303-810B-1456E45CC432}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXWindowsPhonePivotApplication1", "TestsXWindowsPhonePivotApplication1\TestsXWindowsPhonePivotApplication1.csproj", "{B0E2FCBE-D32A-466C-8FCC-1692C49F22B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsXWcfService1", "TestsXWcfService1\TestsXWcfService1.csproj", "{80CF6D00-06D6-453D-B6D9-5B89B8A809AD}"
+EndProject
+# =================================================================================================
+# Core_2011 End
+	</pre>
+
+	<h3><a id="">Mobile Samples</a></h3>
+
+	<pre class="hw_code">
+	</pre>
+
+
+	<h2><a id="">Debugging and Deploying</a></h2>
+	<ol>
+		<li>
+			Problem:
+			<br />
+			Hitting F5 causes deployment of other projects
+			<br />
+			(for example Opening Device List in Mono For Android to choose deployment
+			device: emulator or physical device).
+			<ul>
+				<li>
+					triggered Deploy Action
+				</li>
+				<li>
+					Multiple Startup Options ?!?!
+				</li>
+			</ul>
+		</li>
+		<li>
+			Solution:
+			<ul>
+				<li>
+					Disable Deployment in Configuration Manager
+					<br />
+					Configuration Manager/Build and Deploy checkboxes
+					<br />
+					Uncheck Deploy
+					<br />
+					Not feasible, because it must be done for each change of Startup Project!
+					Change both Startup Project and Enable Deployment for Startup Project and
+					disable Deployment for previous Startup Project
+					<br />
+					Switching Active Configurations
+				</li>
+				<li>
+					Change Options:
+					<br />
+					Tools/Options/Projects and Solutions/Build And Run/
+					<br />
+					"Only build startup projects and dependencies on Run" = true
+					<br />
+					Check "Only build startup projects and dependencies on Run".                   
+					<br />
+					Applies to Deploy too!
+					<br />
+					Use Mixed Platforms configuration - only refrenced by Startup Project
+					will be built, deployed and debugged when pressing F5! 
+				</li>
+			</ul>
+		</li>
+	</ol>
+ </body>
+</html>

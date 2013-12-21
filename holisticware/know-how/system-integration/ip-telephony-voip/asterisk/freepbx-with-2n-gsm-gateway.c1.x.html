@@ -1,0 +1,449 @@
+<!--
+C1 generated!!
+<title>Asterisk (FreePBX) with 2N GSM gateway</title>
+<meta name="Description" content="Asterisk with 2N GSM gateway, FreePBX and its derivatives Elastix, TrixBox" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function xmlns:f="http://www.composite.net/ns/function/1.0" name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords">
+		<f:param name="KeywordsAdditional" value="Asterisk, FreePBX, 2N, GSM, gateway">
+		</f:param>
+		<f:param name="AuthorsAdditional" value="mcvjetko">
+		</f:param>
+		<f:param name="Date" value="2011-02-20">
+		</f:param>
+		<f:param name="Language" value="en">
+		</f:param>
+	</f:function>
+	<h1><a id="">Asterisk (FreePBX) with 2N GSM gateway</a></h1>
+	<!-- ================================================================== -->
+
+	<p>
+	This is how-to for setting up FreePBX and its derivatives (Elastix, TrixBox)
+	with 2N gateways..
+	Setting up 2N VoiceBlue can be quite difficult due to few facts:
+	</p>
+	<ul>
+		<li>Documentation contains some contradictory information which could take a lot of 
+			time searching for right answers<ul>
+				<li>in
+					<a href="http://holisticwarez.net/Services/VoIP/2N%20OfficeRoute_VoiceBlueEnterprise%20-%20User%20Manual%20ver.%201.7rev1.pdf">
+					2N OfficeRoute_VoiceBlueEnterprise - User Manual ver. 1.7rev1.pdf
+					</a>
+					<br />
+					Page 56 (SIP Lines, just before picture)
+					<br />
+					By default an internal SIP line is prepared. This line is necessary for you to 
+					make calls out of the SIP proxy. 
+					</li>
+				<li>in
+					<a href="http://holisticwarez.net/Services/VoIP/HowTo%20set%20outgoing%20routing%20in%20VoiceBlue%20Enterprise.pdf">
+					HowTo set outgoing routing in VoiceBlue Enterprise.pdf
+					</a>
+					<br />
+					Page 1 (Numbered list item 2)
+					<br />
+					First delete previously (default) created lines. Use a red X icon to delete 
+					lines.
+				</li>
+			</ul>
+		</li>
+		<li>support from 2N in Czech Republic will redirect You to local support and this 
+			could mean a lot.
+			<br />
+			We were told that default settings with IP 10.0.0.1 is needed for internal 
+			working of gateway.
+			<br />
+			If this is necessary for internal working why is it public accessible from 
+			outside?
+			<br />
+			At one site gateway was spraying SIP REGISTER requests all over 172.X.X.X 
+			network?
+		</li>
+	</ul>
+	<p>
+		Support redirect to local/national supports although
+		<f:function name="HolisticWare.Security.EMailAntiSpamProtection" xmlns:f="http://www.composite.net/ns/function/1.0">
+			<f:param name="Server" value="'2n.cz'" />
+			<f:param name="Subject" value="Question" />
+			<f:param name="User" value="support" />
+			<f:param name="Body" value="Ahoy!" />
+		</f:function>
+		<br />
+	</p>
+
+	<h2><a id="">Cookbook</a></h2>
+
+	<h3><a id="">Trixbox</a></h3>
+	<ul>
+		<li>Trunks<ul>
+			<li>SIP
+				<ul>
+					<li>Outgoing Settings<ul>
+						<li>Trunk Name: GSM2NTrunk</li>
+						<li>Peer Details<br />
+							<pre class="hw_code">
+type=friend 
+nat=no 
+insecure=very 
+host=$IP_GSMGW 
+dtmfmode=inband 
+deny=0.0.0.0/0.0.0.0
+permit=$IP_GSMGW/255.255.255.255 
+canreinvite=no 
+disallow=all 
+allow=alaw
+context=from-trunk
+</pre>
+						</li>
+						</ul>
+					</li>
+					<li>Incoming Settings<ul>
+						<li>Context Name: GSM2NContext<pre class="hw_code">type=friend 
+nat=no 
+insecure=very 
+host=$IP_GSMGW 
+dtmfmode=inband 
+deny=0.0.0.0/0.0.0.0
+permit=$IP_GSMGW/255.255.255.255 
+canreinvite=no 
+disallow=all 
+allow=alaw
+context=from-trunk
+</pre>
+						</li>
+						</ul>
+					</li>
+					<li>Notes:<ul>
+						<li>
+						If CALLERID parsing editing is needed (prepending for redial 
+						for Cisco/Linksys phones) then use custom context 
+						(context=from-trunk-custom)
+						</li>
+						<li>
+						output of the sip show peers command should show registered GSM2N 
+						trunk and context, possibly unmonitored
+						</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			</ul>
+		</li>
+		<li>Outbound routes
+			<ul>
+				<li>Name: GSM</li>
+				<li>
+				Patterns (Croatian mobile providers, dialout prefix 9, 
+				prepended prefix 00 for phones to do automatic redial)
+				<br />
+				<pre class="hw_code">
+9|091X.
+9|0038591X.
+9|092X.
+9|0038592X.
+9|095X.
+9|0038595X.
+9|098X.
+9|0038598X
+9|099X.
+9|0038599X.
+</pre>
+				</li>
+				<li>Trunks (order)
+					<ol>
+						<li>GSM2NTrunk</li>
+						<li>PSTNProvider</li>
+					</ol>
+					<p>
+						Asterisk fill failover if trunk returns 
+						(503 Service Unavailable and not 486 Busy Here)
+					</p>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<h3><a id="">2N</a></h3>
+	<ul>
+		<li>
+		factory reset
+			<ul>
+				<li>
+				prepare license if no backup is made (license can be found in backup)
+				</li>
+			</ul>
+		</li>
+		<li>
+		Network<br />
+		nothing, zilch, nada</li>
+		<li>
+		Devices
+			<ul>
+				<li>SIP lines<br />
+				<table class="style1">
+					<tr>
+						<td>
+							Line ID</td>
+						<td>
+							SIP server</td>
+						<td>
+							Phone Number</td>
+						<td>
+							Description</td>
+					</tr>
+					<tr>
+						<td>
+							[16]</td>
+						<td>
+							$IP_ASTERISK</td>
+						<td>
+							$EXTENSION</td>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td>
+						</td>
+						<td>
+						</td>
+						<td>
+						</td>
+					</tr>
+				</table>
+				<ul>
+					<li>Details per line<ul>
+						<li>Line:16</li>
+						<li>register with proxy: false
+							<br />
+							(uncheck)</li>
+						<li>port: 5060<br />
+							FreePBX from trunk outgoing settings</li>
+						<li>SIP name: numeric|text<br />
+							prepended in from-trunk-context</li>
+						<li>Enable CLIP: true
+							<br />
+							(check)
+							<br />
+							to send CLIP callerid</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				SIM Cards
+				<ul>
+					<li>
+					PINs
+					<br />
+					add PIN per SIM card if needed
+					</li>
+				</ul>
+			</li>
+			<li>
+				GSM routing
+				<br />
+				incoming routing based on modules (no matter which SIM is inside) 
+				or SIM cards
+				<br />
+				<table class="style1">
+					<tr>
+						<td>
+							GSM device</td>
+						<td>
+							Service Name</td>
+						<td>
+							Description</td>
+					</tr>
+					<tr>
+						<td>
+							GSM module - 1</td>
+						<td>
+							incoming</td>
+						<td>
+							099</td>
+					</tr>
+					<tr>
+						<td>
+							GSM module - 2</td>
+						<td>
+							incoming</td>
+						<td>
+							091</td>
+					</tr>
+				</table>
+				<ul>
+					<li>SIM routing<br />
+						incoming routing based on SIO card<ul>
+							<li>
+								Operator
+								<br />
+								extension to be called upon incoming call from mobile network
+								<ul>
+									<li>
+									Operator number: 38517779555
+									<br />
+									Inbound route DID in FreePBX
+									</li>
+								</ul>
+							</li>
+							<li>
+								table
+								<br />
+								<table class="style1">
+									<tr>
+										<td>
+											Service</td>
+										<td>
+											Operator number</td>
+										<td>
+											VoIP Line</td>
+										<td>
+											Description</td>
+									</tr>
+									<tr>
+										<td>
+											incoming</td>
+										<td>
+											38517779555</td>
+										<td>
+											16</td>
+										<td>
+										</td>
+									</tr>
+								</table>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				SIP proxy
+				<br />
+				OFF
+				<br />
+				link: switch proxy on (meaning it is off)
+			</li>
+			<li>
+				LCR == outgoing routing on GSMGW
+				<ul>
+					<li>
+					Routes
+					<br />
+					add them first
+						<ul>
+							<li>
+							Name:
+							</li>
+							<li>
+							Lines of route:
+							<br />
+								pick SIM card or module
+							</li>
+							<li>
+								CLI/CLR: default
+							</li>
+					</ul>
+				</li>
+				<li>Table<br />
+					<table class="style1">
+						<tr>
+							<td>
+								Destination</td>
+							<td>
+								Prefix[es]</td>
+							<td>
+								Enabled</td>
+							<td>
+								Routes</td>
+							<td>
+								Description</td>
+						</tr>
+						<tr>
+							<td>
+								091</td>
+							<td>
+								091;0038591;092;0038592;095;0038595</td>
+							<td>
+								checked</td>
+							<td>
+								VIP 091</td>
+							<td>
+								VIP 091</td>
+						</tr>
+						<tr>
+							<td>
+								099</td>
+							<td>
+								098;0038598;099;0038599</td>
+							<td>
+								checked</td>
+							<td>
+								T-mobile 098, 099</td>
+							<td>
+								HT 098, 099</td>
+						</tr>
+					</table>
+				</li>
+				<li>Destination details
+					<ul>
+						<li>Prefix<br />
+							091;0038591;092;0038592;095;0038595<br />
+							add as much as You need</li>
+						<li>Enable: true<br />
+							(check)</li>
+						<li>Route<br />
+							add route defined inf LCR::Routes</li>
+						<li>Priority: first free</li>
+						<li>Desc: VIP 091</li>
+					</ul>
+				</li>
+				</ul>
+			</li>
+			</ul>
+		</li>
+	</ul>
+
+	<h3><a id="">Test GW with SIP client to GW</a></h3>
+
+	<ul>
+		<li>XLite - RightClick<ul>
+			<li>SIP Account Settings<br />
+				select Account<ul>
+					<li>Properties
+						<ul>
+							<li>Account
+								<ul>
+									<li>
+									Domain Proxy
+										<ul>
+											<li>
+											Register with domain and receive incoming calls: 
+											false
+											<br />
+											(uncheck)
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+			usage
+			<br />
+			extension@$IP_ADDRESS</li>
+			</ul>
+		</li>
+	</ul>
+
+</body>
+</html>

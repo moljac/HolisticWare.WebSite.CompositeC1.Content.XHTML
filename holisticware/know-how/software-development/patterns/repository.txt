@@ -1,0 +1,156 @@
+Very interesting blog article, Ramana. The Repository pattern in one of the most currently used, I guess, in today's software development industry. Aside, though I clearly see the advantages of using such an abstraction between the data access layer and the domain layer, there is also one that Martin Fowler privileges which is the Unit of Work Pattern discussed here on MSDN : 
+
+http://msdn.microsoft.com/en-us/magazine/dd882510.aspx . 
+
+I am curious. I have already saw people using both the Unit of Work to keep track of the changes against an object in a stateless environment such as web applications, while using the Repository Pattern to persist domain objects information datum. 
+
+Since the Unit of Work is transaction-aware with a Commit and a Rollback feature, I guess that using both Unit of Work and Repository is somewhat overkill in abstracting the data access layer. In the Unit of Work pattern, changes are kept somehow through bool values that indicate whether an object IsNew, IsDirty and IsDeleted - when committing the object state, it is persisted according to those bool values, let's say that an object shall be inserted when its state says IsNew and IsDirty, or only modified when !IsNew and IsDirty, etc. 
+
+So, while the Repository abstracts the data access layer from the domain classes which also has some data extraction features, while the Unit of Work is more like a behaviour given to an object when it comes to persist the data. 
+
+I would be glad to read from you about your thoughts on the topic, and perhaps some code sample just like your excellent article about the Repository Pattern.
+
+
+
+
+Unit of work as a whole maintains the objects involving in a transaction, With this we can impose ACID rues to a transaction. In most of the ORM packages transactions are maintained by the context itself. In the example presented in the Post - Order and Order details are saved using the same context. Context makes sure weather the transaction should be committed or rolled back. As per DDD, we will have repository for each Root object and all the value object Data operations should performed from the Root Repository. This way Root holds control of all the value objects. It makes sense leaving transaction responsibility to the context itself rather than we manually maintaining all the details(New, Dirty ..) with the object.
+
+
+
+
+http://vizagtechie.blogspot.in/2013/03/Repository-Pattern-in-Domain-Driven-Design.html?goback=%2Egde_1211647_member_227499076
+
+
+
+
+
+
+Repoistory Pattern in Domain driven design
+
+
+Repository pattern is one of the popular design pattern used for the abstracting the Data Access Layer. It is a mediator in between your Data Access and Domain Layer. This hides the details of Data Access layer from the Domain Layer. This way all our Domain objects will be persistent ignorant. As per Domain driven design every root entity in an Aggregate in your Domain Layer will have corresponding Repository. This Root repository will take care of persistence details of respective value objects also.
+
+Advantages of Repository Pattern:
+Domain Layer will be persistence ignorant
+Abstracts Data Access Layer
+Encourages separation of concern.
+Avoids duplicate code.
+
+We will use Entity Frame work code first for designing our Repository Layer. As per the Layer super type pattern whenever we are designing a Layer we need to figure out the common functionality across the layer move it to a super class and all the classes consume the functionality by inhering the super class.
+We will design a generic Repository which will have all the common functionality required for an entity
+
+ public interface IRepository
+    {
+        void Add<TEntity>(TEntity entity) where TEntity : class;
+        IEnumerable<TEntity> GetAll<TEntity>() where TEntity : class;
+        TEntity GetById<TEntity>(int id) where TEntity : class;
+        IEnumerable<TEntity> Query<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : class;
+        void Remove<TEntity>(TEntity entity) where TEntity : class;
+        void Save();
+        void Update<TEntity>(TEntity entity) where TEntity : class;
+    } 
+
+Next step, I will create concrete Repository which will use delegate the calls to Data Access Layer which is developed using Entity Framework code First.
+
+  public class Repository : IRepository
+  {
+      private DbContext context;
+ 
+      public Repository(DbContext context)
+      {
+          this.context = context;
+      }
+      public Repository()
+      {
+          this.context = new BooksContext();
+      }
+      public TEntity GetById<TEntity>(int id) where TEntity : class
+      {
+          return context.Set<TEntity>().Find(id);
+      }
+      public IEnumerable<TEntity> GetAll<TEntity>() where TEntity : class
+      {
+          return context.Set<TEntity>();
+      }
+      public void Add<TEntity>(TEntity entity) where TEntity : class
+      {
+          context.Set<TEntity>().Add(entity);
+      }
+      public void Remove<TEntity>(TEntity entity) where TEntity : class 
+      {
+          context.Set<TEntity>().Remove(entity);
+      }
+      public void Update<TEntity>(TEntity entity) where TEntity : class
+      {
+          context.Entry<TEntity>(entity).State = System.Data.EntityState.Modified;
+      }
+      public IEnumerable<TEntity> Query<TEntity>(Expression<Func<TEntity, bool>> filter) where TEntity : class
+      {
+          return context.Set<TEntity>().Where(filter);
+      }
+      public void Save()
+      {
+          context.SaveChanges();
+      }
+    }
+ This is very simple class which will call the methods in the Data Access Layer. As I Said Root Entity will take care of persistence details of value objects. As an example consider an ecommerce application domain. If we consider the relationship between Customer and Address entities, customer is a Root entity and Address is a Value object. So our Customer entity should take care of persistence details of Address object also.
+
+    public class CustomerRepository : Repository, ICustomerRepository
+    {
+        public void Add(Customer customer)
+        {
+            base.Add<Customer>(customer);
+            base.Add<Address>(customer.AddressDetails);
+         }
+        public void Save()
+        {
+            base.Save();
+        }
+    }
+If you see in the above Customer Repository class Add method not only taking care of customer data it is also adding Address details also.
+We will create a Unit Test to verify our repository
+      [TestMethod]
+        public void TestRepository()
+        {
+            CustomerRepository cr = new CustomerRepository();
+            cr.Add(new Customer()
+            {
+                AddressDetails = new Address()
+                { 
+                    Address1  = "D No 1/22", Address2="Vizag", State = "AP"
+                }, Email = "alakey@madagaskar.com", Name = "Alakey"
+            });
+            cr.Save();
+        }
+This Test case will insert a new record in Customer as well as Address tables.
+Posted 1 week ago by Ramana Kumar Akula
+    
+2  View comments
+
+Fredi MachadoApril 1, 2013 at 5:25 AM
+Nice!
+Why not this approach?
+
+public interface IRepository where TEntity : class
+{
+void Add(TEntity entity);
+IEnumerable GetAll();
+TEntity GetById(int id);
+IEnumerable Query(Expression> filter);
+void Remove(TEntity entity);
+void Save();
+void Update(TEntity entity);
+}
+
+I think it's cleaner.
+
+Reply
+Replies
+
+Ramana Kumar AkulaApril 1, 2013 at 6:32 AM
+As per DDD, Root object needs to take care of persistent details of its value objects, with your piece of code and the pattern I followed you can't perform operations on value objects from Root Repository
+
+Reply
+
+
+

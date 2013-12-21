@@ -1,0 +1,422 @@
+<!--
+C1 generated!!
+<title>2011-04-15 Composite C1 Migration from v.2.0.sp1 to v.2.1</title>
+<meta name="Description" content="2011-04-15 Composite C1 Migration from v.2.0.sp1 to v.2.1 steps, issues and Workarounds" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="2011-04-15, Composite, C1, Migration" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-04-15" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Composite C1 Migration from v.2.0.sp1 to v.2.1 steps, issues and Workarounds</a></h1>
+	<!-- ================================================================== -->
+
+	<h2><a id="">Manual steps</a></h2>
+	<p><a href="http://compositec1.codeplex.com/discussions/249573">http://compositec1.codeplex.com/discussions/249573</a></p>
+	<h2><a id="">Reasons to migrate</a></h2>
+	<p>Version 2.1</p>
+	<ul>
+	  <li>is faster</li>
+	  <li>suports more browsers in console</li>
+	  <li>has a lot of new features and bug fixes <br /> Blog Package error <a href="http://compositec1.codeplex.com/discussions/251697">http://compositec1.codeplex.com/discussions/251697</a></li>
+	</ul>
+
+	<h2><a id="">v20sp1 to v21</a></h2>
+	<ol>
+	  <li>Create a backup</li>
+	  <li>Download 2.1 files, f.e. "Visual Studio" version from 
+		<p>http://compositec1.codeplex.com/releases/view/62388</p>
+	  </li>
+	  <li>Delete and copy it from 2.1 site the following files:
+		<ul>
+		  <li>/Bin/Composite.dll</li>
+		  <li>/Renderers/FileNotFoundHandler.ashx</li>
+		  <li>/Renderers/Page.aspx</li>
+		  <li>/Renderers/ShowMedia.ashx</li>
+		  <li>/Global.asax</li>
+		</ul>
+	  </li>
+	  <li>Delete file (if exists)"/Bin/Composite.MSSqlServer.dll"</li>
+	  <li>Under "/Composite" folder delete everything except for folders 
+		<ul>
+		  <li>/Composite/InstalledPackages</li>
+		  <li>/Composite/localization</li>
+		</ul>
+	  </li>
+	  <li>Copy files from "/Composite" in 2.1 version to "/Composite" in your site, 
+		<ul>
+		  <li>overwrite files under "/localization"</li>
+		</ul>
+	  </li>
+	  <li>Upgrading visual editor configuration
+		<ul>
+		  <li>Delete /Frontend/Styles/VisualEditor/</li>
+		  <li>Copy from 2.1 
+			<ul>
+			  <li>folder "/Frontend/Config/VisualEditor/"and </li>
+			  <li>file "/Frontend/Styles/VisualEditor.common.css"</li>
+			</ul>
+		  </li>
+		  <li>NOTE: if you did any changes to visual editor's styles, you should
+			apply them again</li>
+		</ul>
+	  </li>
+	  <li>Edit "/App_Data/Composite/Composite.config"
+		<ul>
+		  <li>Remove if exists node "configuration/exceptionHandling"</li>
+		  <li>Find node
+			"/configuration/Composite.Core.Configuration.Plugins.GlobalSettingsProviderConfiguration/GlobalSettingsProviderPlugins/add[@name='ConfigBasedGlobalSettingsProvider']"
+			<p>add the following attributes (if they're missing)</p>
+			<ul>
+			  <li>inlineCSharpFunctionDirectory="~/App_Data/Composite/InlineCSharpFunctions"</li>
+			  <li>packageLicenseDirectory="~/App_Data/Composite/PackageLicenses"</li>
+			</ul>
+		  </li>
+		  <li>Under "configuration" node, add the following nodes, if they don't
+			exist
+			<ul>
+			  <li>&lt;Composite.SetupConfiguration
+				PackageServerUrl="https://package.composite.net" /&gt;</li>
+			  <li>
+				<p>&lt;Composite.Core.IO.Plugins.IOProviderConfiguration
+				defaultIOProvider="LocalIOProvider"&gt;</p>
+				<p>&lt;IOProviderPlugins&gt;</p>
+				<p>&lt;add name="LocalIOProvider"
+				type="Composite.Plugins.IO.IOProviders.LocalIOProvider.LocalIOProvider,
+				Composite"/&gt;</p>
+				<p>&lt;/IOProviderPlugins&gt;</p>
+				<p>&lt;/Composite.Core.IO.Plugins.IOProviderConfiguration&gt;</p>
+			  </li>
+			</ul>
+		  </li>
+		  <li>Under "/configuration/configSectionsAdd" the following node, if
+			missing
+			<p>&lt;section name="Composite.Core.IO.Plugins.IOProviderConfiguration"
+			type="Composite.Core.IO.Plugins.IOProvider.Runtime.IOProviderSettings,
+			Composite" /&gt;</p>
+		  </li>
+		  <li> If node
+			"/configuration/Composite.Data.Plugins.DataProviderConfiguration/DataProviderPlugins/add[@name='DynamicSqlDataProvider']"
+			exists,
+			<p>edit @type attribute, the value should be
+			type="Composite.Plugins.Data.DataProviders.MSSqlServerDataProvider.SqlDataProvider,
+			Composite"</p>
+		  </li>
+		  <li>Remove the following nodes
+			<ul>
+			  <li>
+				<p>/configuration/loggingConfiguration/listeners/add[@name='Tcp
+				Custom Trace
+				Listener']/configuration/loggingConfiguration/specialSources/allEvents/listeners/add[@name='Tcp
+				Custom Trace Listener']</p>
+			  </li>
+			</ul>
+		  </li>
+		  <li>Under
+			/configuration/loggingConfiguration/specialSources/allEvents[@name='All
+			Events'] set @switchValue attribute to "Information"</li>
+		</ul>
+	  </li>
+	  <li>Edit "/web.config"
+		<p>If missing, add attribute optimizeCompilations="true" to
+		"configuration/system.web/compilation"</p>
+	  </li>
+	</ol>
+
+	<p></p>
+
+	<p>Video demonstration here 
+	<a href="http://www.youtube.com/watch?v=4ckiF37P2yY">
+	http://www.youtube.com/watch?v=4ckiF37P2yY</a>
+	</p>
+
+	<pre class="hw_code">
+	::echo off
+
+	::=============================================================
+	:: TIMESTAMP
+	set DATE_USED=%DATE%
+	set TIME_USED=%TIME%
+	set STAMP_USED=%DATE_USED%-%TIME_USED%
+	::------------------------------------------------------
+	:: stripping chars : .
+	set STAMP_USED=%STAMP_USED:.=-%
+	set STAMP_USED=%STAMP_USED::=-%
+	set STAMP_USED=%STAMP_USED: =-%
+	set STAMP_USED=%STAMP_USED:--=-0%
+	echo STAMP_USED=%STAMP_USED%
+	::=============================================================
+	set COPY=c:\bin\robocopy
+	::set ELEVATE=c:\bin\elevate
+	set ELEVATE=
+
+	set ROOT=D:\SRC\HolisticWare\HolisticWare_Web_CMS_C1
+	set SCRIPT_MIGRATE_LOCATION=Website\bat\
+	set SOURCE=..\..\Website
+
+	set BACKUP=..\..\Website_v20sp1_%STAMP_USED%
+
+	echo SOURCE=%SOURCE%
+	explorer /e,/root,%ROOT%
+
+	:: -------------------------------------------------------------------------------
+	:: ROBOCOPY v 1.50  :  Robust File Copy for Windows 95  :  by kevina@microsoft.com
+	:: -------------------------------------------------------------------------------
+	:: 
+	::   Started : Wed Mar 30 11:08:53 2011
+	:: 
+	::              Usage : ROBOCOPY source destination [file [file]...] [options]
+	:: 
+	::             source : Source Directory (drive:\path or \\server\share\path).
+	::        destination : Destination Dir  (drive:\path or \\server\share\path).
+	::               file : File(s) to copy  (names/wildcards - default is "*.*").
+	:: 
+	:: options :       /S : copy Subdirectories, but not empty ones.
+	::                 /E : copy subdirectories, including Empty ones.
+	:: 
+	::                 /T : Timestamp all destination files, including skipped files.
+	:: 
+	::               /R:n : number of Retries on failed copies - default is 1 million.
+	::               /W:n : Wait time between retries - default is 30 seconds.
+	:: 
+	::               /REG : Save /R:n and /W:n in the Registry as default settings.
+	:: 
+	::                 /X : report all eXtra files, not just those selected.
+	::                 /V : produce Verbose output, showing skipped files.
+	::                 /L : List only - don't copy, timestamp or delete any files.
+	:: 
+	::   /A+:[R][A][S][H] : add the given Attributes to copied files.
+	::   /A-:[R][A][S][H] : remove the given Attributes from copied files.
+	:: 
+	::   /XA:[R][A][S][H] : eXclude files with any of the given Attributes
+	::                 /A : copy only files with the Archive attribute set.
+	::                 /M : like /A, but remove Archive attribute from source files.
+	:: 
+	:: /XF file [file]... : eXclude Files matching given names/paths/wildcards.
+	:: /XD dirs [dirs]... : eXclude Directories matching given names/paths.
+	:: 
+	::    /XC | /XN | /XO : eXclude Changed | Newer | Older files.
+	::          /XX | /XL : eXclude eXtra | Lonely files and dirs.
+	::                /IS : Include Same files.
+	:: 
+	::               /ETA : show Estimated Time of Arrival of copied files.
+	::              /MOVE : Move files and dirs (delete from source after copying).
+	::             /PURGE : delete dest files/dirs that no longer exist in source.
+
+	:: %ELEVATE% %COPY% ^
+
+	::------------------------------------------------------------------------------
+	c:\bin\robocopy ^
+		%SOURCE%\ ^
+		%BACKUP%\ ^
+		/E /MIR /R:5 /W:5 /X /V /XD .svn
+	
+	dir /s %SOURCE%
+	dir /s %BACKUP%
+	pause
+	::------------------------------------------------------------------------------
+	:: xcopy ^
+	:: 	%SOURCE%\*.* ^
+	:: 	%BACKUP%\ ^
+	:: 	/s /e /v /i /h /r /o /y /exclude:svn
+	::------------------------------------------------------------------------------
+	set SOURCE=..\..\Composite_C1_VS2010_2.1.4087.22991_ReleaseBuild_20110311.2\Website\
+	echo SOURCE=%SOURCE%
+
+	dir %BACKUP%\Bin\Composite.dll
+	dir %BACKUP%\Renderers\FileNotFoundHandler.ashx
+	dir %BACKUP%\Renderers\Page.aspx
+	dir %BACKUP%\Renderers\ShowMedia.ashx
+	dir %BACKUP%\Global.asax
+
+	del /f %BACKUP%\Bin\Composite.dll
+	del /f %BACKUP%\Renderers\FileNotFoundHandler.ashx
+	del /f %BACKUP%\Renderers\Page.aspx
+	del /f %BACKUP%\Renderers\ShowMedia.ashx
+	del /f %BACKUP%\Global.asax
+
+
+	c:\bin\robocopy ^
+		%SOURCE%\Bin\ ^
+		%BACKUP%\Bin\ ^
+		Composite.dll
+
+	c:\bin\robocopy ^
+		%SOURCE%\Renderers\ ^
+		%BACKUP%\Renderers\ ^
+		FileNotFoundHandler.ashx ^
+		Page.aspx ^
+		ShowMedia.ashx
+
+
+	c:\bin\robocopy ^
+		%SOURCE%\ ^
+		%BACKUP%\ ^
+		Global.asax
+	
+	del /f %BACKUP%\Bin\Composite.MSSqlServer.dll
+
+
+
+	echo ---------------------------------------------------------------------------
+	echo 3.
+	echo Under "/Composite" folder delete everything except for folders 
+	echo              "/Composite/InstalledPackages" and 
+	echo              "/Composite/localization"
+	echo Copy files from "/Composite" in 2.1 version to "/Composite" in your site, 
+	echo  overwrite files under "/localization"
+
+	echo backing up InstalledPackages and localization in \Composite
+
+	move /y ^
+		%BACKUP%\Composite\InstalledPackages ^
+		%BACKUP%\
+	
+	move /y ^
+		%BACKUP%\Composite\localization ^
+		%BACKUP%\
+	
+	rd /q /s %BACKUP%\Composite
+	mkdir %BACKUP%\Composite
+
+	move /y ^
+		%BACKUP%\InstalledPackages ^
+		%BACKUP%\Composite\
+	
+	move /y ^
+		%BACKUP%\localization ^
+		%BACKUP%\Composite\
+	
+	dir %BACKUP%\Composite
+
+	echo Copy files from "/Composite" in 2.1 version to "/Composite" in your site, 
+	echo overwrite files under "/localization"
+
+	c:\bin\robocopy ^
+		%SOURCE%\Composite ^
+		%BACKUP%\Composite ^
+		/MIR /R:5 /W:5 /X /V
+
+	dir %BACKUP%\Composite
+
+	echo ---------------------------------------------------------------------------
+	echo 4. Upgrading visual editor configuration
+	echo Delete "/Frontend/Styles/VisualEditor/"
+
+	dir %BACKUP%\Frontend\Styles\
+	rd /q /s %BACKUP%\Frontend\Styles\VisualEditor\
+	dir %BACKUP%\Frontend\Styles\
+
+
+	echo Copy from 2.1 
+	echo        folder "/Frontend/Config/VisualEditor/" and 
+	echo        file "/Frontend/Styles/VisualEditor.common.css"
+
+	dir	%BACKUP%\Frontend\Config\VisualEditor
+	c:\bin\robocopy ^
+		%SOURCE%\Frontend\Config\VisualEditor ^
+		%BACKUP%\Frontend\Config\VisualEditor ^
+		/MIR /R:5 /W:5 /V
+	dir	%BACKUP%\Frontend\Config\VisualEditor
+
+
+	dir %BACKUP%\Frontend\Styles\
+	c:\bin\robocopy ^
+		%SOURCE%\Frontend\Styles\ ^
+		%BACKUP%\Frontend\Styles\ ^
+		VisualEditor.common.css
+	dir %BACKUP%\Frontend\Styles\
+
+
+	echo ---------------------------------------------------------------------------
+	echo 5.
+	echo Edit "/App_Data/Composite/Composite.config"
+	echo TODO: sed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+	c:\bin\robocopy ^
+		..\..\Composite_C1_VS2010_2.1.4087.22991_ReleaseBuild_20110311.2\ ^
+		%BACKUP%\App_Data\Composite\ ^
+		Composite.config
+	
+	notepad %BACKUP%\App_Data\Composite\Composite.config
+	pause
+
+	move %BACKUP% Website_v2.1
+
+	pause
+	</pre>
+
+	<h2><a id="">Some issues</a></h2>
+	<h3><a id="">New website (v2.1) added to solution</a></h3>
+	<p>
+	Adding newly migrated website to solution, setting it as default start project 
+	led to prbolems that the pages were not rendered correctly. 
+	The problem led to cause that javscript files were not found and not downloaded!
+	</p>
+	<p>
+	In html <code>/js/hw_pre_20110325.js</code> request was made for 
+	<code>http://localhost:3984/js/hw_pre_20110325.js</code> and it was not found on the 
+	server.
+	</p>
+	<p>
+	Cause was in Virtual Directory setting for new project in <code>/Website_v2.1</code>
+	so the files were searched in 
+	<code>
+	http://localhost:3984/Website_v2.1/js/hw_pre_20110325.js. 
+	</code>
+	In the Visual Studio old Website project the virtual path in Properties was set to
+	<code>Virtual path = /</code>
+	and in new Website_v21 was set to <code>Virtual path = /Website_v21</code>
+	This made requests broken.
+	</p>
+	<p>
+	Solution was to set Virtual directory to <code>/</code> in new project.
+	</p>
+	<blockquote>
+	Project + Right Click + Properties Window (not Pages!) + Virtual path = /
+	</blockquote>
+
+	<h3><a id="">Browser support</a></h3>		
+
+	<table>
+		<tr>
+			<td>Opera</td> <td>?</td>
+		</tr>
+		<tr>
+			<td>Flock</td> <td>?</td>
+		</tr>
+		<tr>
+			<td>K-Meleon</td> <td>?</td>
+		</tr>
+		<tr>
+			<td>ie9</td> <td>?</td>
+		</tr>
+		<tr>
+			<td>Safari</td> <td>?</td>
+		</tr>
+		<tr>
+			<td>Slim</td> <td>?</td>
+		</tr>
+		<tr>
+			<td>Avant-Browser</td> <td>?</td>
+		</tr>
+		<tr>
+			<td>SR Ware Iron</td> <td>?</td>
+		</tr>
+		<tr>
+			<td>Maxthon</td> <td>?</td>
+		</tr>
+		<tr>
+			<td>Sleipnir</td> <td>?</td>
+		</tr>
+	</table> 
+
+
+</body>
+</html>

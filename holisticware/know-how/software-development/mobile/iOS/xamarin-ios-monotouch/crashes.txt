@@ -1,0 +1,223 @@
+Preventing crashes
+
+Native crashes more info
+
+Here are a few hints on how to get more information about native crashes: 
+http://rolfkvinge.blogspot.com.es/2012/04/native-crashes-in-monotouch.html
+
+
+
+Sample 01
+
+This is driving me and my development team off the wall. We are getting
+random crashes in our iPad app running MonoTouch 6.0.6 on iOS 6 both on the
+device and the simulator. We are not getting a stack trace or a crash
+report. We have tried adding a try/catch around Main.cs and adding a gloabal
+exception handler, with no results. Also tried adding -v -v -v with no
+difference or results. 
+
+On the device the program is running with -aot "nimt-trampolines=512" 
+
+Is there anything we can do to get any sort of clues of what might be going
+on?
+
+
+Just to give a little more context, this is a multithreaded app, that's using
+webservices using ServiceStack's monotouch library. But the crash doesn't
+always happen around website calls (it seems).
+
+We are trying to get out app to the customer this week, and are really in
+trouble. Would really appreciate any help!
+
+
+
+
+
+
+
+
+
+
+For the benefit of others, I think I have gotten to the bottom of this.
+Looking at the class below, if you remove the lock statements, this will
+cause hard crashes throughout the app. Neither monotouch nor xcode will
+provide a stack trace in this case. When Spinner.Show() is called before (on
+previous screen for example) Spinner.Hide() didn't finish, everything will
+blow up. 
+
+public class SpinnerHelper
+	{
+		private string _title;
+		public const string DEFAULT_TITLE = "Loading Data.  Please Wait";
+		private  UIAlertView _alert;
+		private System.Object lockThis = new System.Object();
+                private const string _title = "Loading, please wait";              
+
+		public void Show ()
+		{
+			lock (lockThis)
+			{
+				if (_alert == null)
+				{
+					_alert = new UIAlertView (_title, "", null, null, null);
+				}
+				_alert.Show ();
+			}
+		}
+		
+		public void Hide ()
+		{
+			lock (lockThis)
+			{
+				_alert.DismissWithClickedButtonIndex (0, true);
+				_alert.Dispose ();
+				_alert = null;
+			}
+		}
+	}
+
+	
+	
+Rolf
+
+You should not need locks if you only interact with the UI on the main thread. If the locks fixes anything at all it means you're not following that rule. That said, recent versions of MonoTouch should catch illegal thread usage and show a helpful exception/message - did you disable that thread check (or are you using an old version of MonoTouch?)
+
+Can you also get the device log and see if anything is shown there? At the very least you should get a line saying something like "YourApp exited with exit code ##".
+
+
+
+
+
+Crash on device not in simulator
+
+The next version of my app works fine on the simulator, but crashes on
+the device.
+
+The crash log is in appendix.
+
+Please advise,
+
+
+Hello Guido,
+
+When you see something like:
+
+9   Slidy                         	0x00490bd2 monoeg_assertion_message
+(goutput.c:181)
+
+in your stacktrace it's a sign that the runtime tried to warn you
+about something (that often happens when not enough trampolines are
+available, i.e. before MT 6.0.8).
+
+You'll find the exact message in your device's console logs (from Xcode).
+
+
+
+
+
+Older version
+
+
+i
+ I recompiled with latest Monotouch and the app crashes when I run on iOS 5. It works fine on iOS 6. I haven't changed anything and it worked fine, when I compiled with prev version. 
+ 
+ 
+ Could you provide more information like the stacktrace or any error
+that gets printed on console logs??
+
+
+
+Could you open a bug report and add the exception and/or
+(symbolicated) crash logs so we can see what caused this ?
+
+Also specify exactly which version of the software you're using
+(latest does not tell us if it's the latest stable, beta... and the
+other tools being used). You can quickly get all of them from
+"MonoDevelop" menu, "About MonoDevelop" item, "Version Info" tab and
+copy/paste the version informations (at least down to the "Loaded
+assemblies" section) in the bug report.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TestFlight eating crashes
+
+
+our project we are using a custom binding for a pdf manipulation library, the previous version of the .a files works ok, but now they have shipped another version of the library and we have issues binding it. 
+The message i get is:
+ld: file is universal (3 slices) but does not contain a(n) armv7 slice: /var/folders/zc/gthhsjpn6vsdx92bxhs3td4r0000gn/T/tmp163c8e48.tmp/libPDFNet.a for architecture armv7
+Same happens when i make a build for a simulator.
+
+The strange thing to me is that this library works perfectly under an Xcode-IOS project for both device and simulator builds.
+Thanks in advance for your help.
+
+
+
+This may not be of any help to you, but for the record I want to mention
+here that, As Rolf suggested, TestFlight ate my crashes. So I now have
+this as 'default' Main.cs (to ensure that testflight does not kick in
+while debugging):
+
+
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+
+namespace YourNameSpace
+{
+    public class Application
+    {
+        static void Main(string[] args)
+        {
+#if TESTFLIGHTBUILD
+            TestFlight.SetDeviceIdentifier(UIDevice.CurrentDevice.UniqueIdentifier);
+#endif
+#if DEBUG
+            UIApplication.Main(args, null, "AppDelegate");
+#else
+            TestFlight.TakeOff ("4... ...c");
+            try
+            {
+                UIApplication.Main(args, null, "AppDelegate");
+            }
+            catch (Exception ex) {
+                TestFlight.Log("Unhandled Exception:" + ex.Message);
+                // rethrow to resume normal action on unhandeled exceptions
+                throw ex;
+            }
+#endif
+        }
+    }
+}
+
+Now I never have to un- nor re-comment the TakeOff block and I always
+get crash info, fortunately only when it crashes 
+
+Hope this helps,
+
+
+
+Test version of the native apps
+
+you can check which architectures are in the .a file with lipo, eg:
+
+# lipo libTestFlight.a -info
+Architectures in the fat file: libTestFlight.a are: armv6 armv7 i386
+
+If you don't have armv7, I'm not sure which other 3 you WOULD have tho
+- the only possibilities are armv6, armv7, armv7s and i386
+
+If you are using the iOS6 SDK, you NEED i386 (simulator) and armv7 at
+a minimum - and armv7s if you want to build for that (iPhone 5 only)
+

@@ -1,0 +1,119 @@
+That sounds like chunked encoding, Wikipedia says (
+http://en.wikipedia.org/wiki/Chunked_transfer_encoding):
+*Each chunk starts with the number of octets of the data it embeds
+expressed in hexadecimal followed by optional parameters (chunk extension)
+and a terminating CRLF sequence, followed by the chunk data. The chunk is
+terminated by CRLF. If chunk extensions are provided, the chunk size is
+terminated by a semicolon followed with the extension name and an optional
+equal sign and value.*
+
+Which is exactly what you're saying. I wonder if something is not being
+done correctly with files as large as the ones you're using. Since you said
+it works for thumbnails, I assume it's working for smaller files.
+
+Try Response.WriteFile or Response.TransmitFile in a standard
+ASP.NEThandler (.ashx) and see if they also don't work.
+
+All traffic to that URL [www.daniel-steiger.ch] (except for the folders
+> /doc and /images), but including images in /Content, is directly forwarded
+> to fastcgi by nginx, as per fastcgi config file for domain.
+
+I'd still suggest letting Nginx serve your static files. Just because the
+site is low-traffic doesn't mean that little performance tweaks aren't good
+. I do something like this:
+location / {
+# Pass requests for unknown files to Mono
+try_files $uri @mono;
+}
+
+location @mono {
+# Put all your Mono config here
+}
+My full site config is at
+https://github.com/Daniel15/Website/blob/master/nginx.conf
+
+
+which reads 196b68/r/n in ASCII
+196b68 is the filesize of the original image in hex...
+
+All details + hexdump links added here:
+
+http://stackoverflow.com/questions/14662795/why-do-i-have-unwanted-extra-bytes-at-the-beginning-of-image
+
+
+
+All traffic to that URL [www.daniel-steiger.ch] (except for the folders
+/doc and /images), but including images in /Content, is directly forwarded
+to fastcgi by nginx, as per fastcgi config file for domain.
+
+
+ server {
+         listen   80;
+         server_name www.daniel-steiger.ch daniel-steiger.ch;
+         access_log   /var/log/nginx/daniel-steiger.ch.access.log;
+
+         location / {
+                 root /home/danillo/www/HomePage;
+                 #index index.html index.htm default.aspx Default.aspx;
+                 #fastcgi_index Default.aspx;
+                 fastcgi_pass 127.0.0.1:9000;
+                 include /etc/nginx/fastcgi_params;
+         }
+
+
+location /doc {
+root /usr/share;
+autoindex on;
+allow 127.0.0.1;
+deny all;
+}
+
+location /images {
+root /usr/share;
+autoindex off;
+}
+
+#error_page 404 /404.html;
+
+# redirect server error pages to the static page /50x.html
+#
+error_page 500 501 503 504 /50x.html;
+location = /50x.html {
+root /home/danillo/www/HomePage;
+}
+
+
+error_page 502 /502.html;
+location = /502.html {
+root /home/danillo/www/HomePage;
+}
+
+}
+
+
+It's sufficient to have the file served without FileResult.
+Of course it's more efficient if nginx serves it directly, but this is a
+very low traffic website, so performance is really not my problem 
+
+And by the way, the problem is not finding a workaround.
+ I have already fixed it with a workaround about a week ago.
+I really just want to know where the bug is, because if FileResult
+malfunctions, there's probably more to it, and I don't want to walk into a
+subtle not at the first sight spottable bug later, like a botched binary
+upload/download file.
+
+
+
+
+
+On Sat, Feb 2, 2013, at 06:51 AM, Daniel Lo Nigro wrote:
+
+Hmm... Maybe try an X-Accel-Redirect header instead. This lets Nginx serve
+the file instead of Mono having to serve it, which makes it more efficient.
+See if that makes a difference, or if it has the same issue.
+
+Why not just link directly to the file, instead of serving it through your
+C# code?
+
+
+On Sun, Feb 3, 2013 at 1:43 

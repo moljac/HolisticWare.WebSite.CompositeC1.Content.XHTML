@@ -1,0 +1,77 @@
+http://aspdotnet-sekhar.blogspot.in/2013/06/difference-between-web.cofig 
+-and-machine.config-in-asp.net-server-configuration.html?sthash.Jw6kJigg 
+.mjjo&goback=%2Egde_46954_member_263570747 
+
+Explain difference between web.config and machine.config Server 
+Configuration files in Asp.Net Applications. Description: 
+
+.Net Framework provides three types of files known as Configuration 
+Files which contains information for controlling and managing .Net 
+Applications i.e.Windows(Windows Forms and WPF) and Web 
+Applications(Asp.Net,MVC). These are Machine.Config, App.Config and 
+Web.Config. 
+
+These files are XML based configuration files.All the information is in 
+the format of XML which can be easily modified and readable by .Net 
+Applications. Machine.Config: 
+
+This file is the top in the hierarchy of configuration files. It is a 
+global settings file for all the applications that run on the .Net 
+Framework on the machine. All the .Net application will use this 
+configuration information in their applications. This file is 
+automatically installed whenever .Net Framework is installed in the 
+System.Only one file per the system. This file is located at 
+C:\Windows\Microsoft.NET\Framework\v2.0.50727\CONFIG. All the 
+information in this file is readable by the applications but can not be 
+modified. This file can be maintained by the system administrator. Only 
+one machine configuration file is exists on server. This file stores 
+configuration information at system level so it can be called as machine 
+level configuration file. Web.Config: 
+
+This file is automatically created when you create Asp.Net Web 
+Application Project. This file contains configuration information only 
+for one web application only. All the machine.config file settings can 
+be inherited here and also can be overidable. This file contains 
+application level configuration so it can be called as application level 
+configuration file. One web application can contain many web.config 
+files based on the number of folders in the application. You can find 
+what Asp.Net Server Configuration can be stored here at Asp.Net Settings 
+Schema at MSDN You can store information like connections strings, 
+domains, application properties,session information, Cookie 
+information,Viewstate information etc in web.config file. Conclusion: 
+
+I hope you got the difference between web.config and machine.config 
+files. you can also find difference between app.config and web.config, 
+How to read and write app configuration information from Server 
+Configuration files. I would like to have Suggestions,Feedback,Questions 
+from you. 
+
+Related Tutorials 
+
+Architecture of WPF. Creation of Three Tier Architecture in .Net 
+Application. Difference between App.config and Web.Config Difference 
+between Machine.Config and Web.Config in Asp.Net Framework. Basic 
+Drawings and Shapes in WPF. How to read and write key values from and to 
+App.config Settings file .Net Windows Application. How to Use ViewState 
+in Asp.Net(State Management Techniques). How to use Hidden Field in 
+Asp.Net with Example(State Managemet Techniques). Beginners Tutorial on 
+How to use QueryStrings in Asp.Net(State Management Techniques). Asp.Net 
+Cookie Usage Overview with example(State Management Techniques). Access 
+Specifiers or Modifiers in C# with example(Oops Concept). - See more at: 
+http://aspdotnet-sekhar.blogspot.in/2013/06/difference-between-web.cofig 
+-and-machine.config-in-asp.net-server-configuration.html?sthash.Jw6kJigg 
+.mjjo&goback=%2Egde_46954_member_263570747#sthash.Jw6kJigg.N3JCAHn4.dpuf 
+
+web.config: It is the main settings and configuration file for an 
+ASP.NET web application. The file is an XML document that defines 
+configuration information regarding the web application. The web.config 
+file contains information that control module loading, security 
+configuration, session state configuration, and application language and 
+compilation settings. Web.config files can also contain application 
+specific items such as database connection strings. 
+
+machine.config: It contains settings that apply to an entire computer. 
+This file is located in the %runtime install path%\Config directory. 
+Machine.config contains configuration settings for machine-wide assembly 
+binding, built-in remote channels, and ASP.NET. 
+

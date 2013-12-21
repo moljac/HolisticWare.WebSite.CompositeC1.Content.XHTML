@@ -1,0 +1,304 @@
+<!--
+C1 generated!!
+url: tips-n-tricks
+Title = all keywords, max 65 char
+<title>Tips and Tricks</title>
+Description = all keywords + extra text
+<meta name="Description" content="Mono For Android Tips and Tricks" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+		<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+			<!--
+			Keywords = 
+			-->
+			<f:param name="KeywordsAdditional" value="mono, android, Tips, Tricks" />
+			<f:param name="AuthorsAdditional" value="" />
+			<f:param name="Date" value="2011-04-18" />
+			<f:param name="Language" value="en" />
+		</f:function>
+		<h1><a id="">Tips and Tricks</a></h1>
+		<!-- ================================================================== -->
+		<!--
+		<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+		-->
+
+	<!-- ============================================================================ -->
+	<h2><a id="">Phases</a></h2>
+	<ol>
+		<li>
+			Packaging application
+		</li>
+		<li>
+			Getting installed packages
+		</li>
+		<li>
+			Installing the Mono Runtime
+		</li>
+		<li>
+			Installing the Platform Framework
+		</li>
+		<li>
+			Copying Application to the Device
+		</li>
+	</ol>
+
+	<!-- ============================================================================ -->
+	<h2><a id="">Emulator speed</a></h2>	
+	<p>
+	Debugging from Visual Studio can be very slow and annoying. One of the reasons is 
+	slow emulator and the other is complexity of communication with adb (Android Debug
+	Bridge).
+	<br />
+	Yes, the emulator is waaaaay to slow. Even Google admits to it.
+	</p>
+	<ul>
+		<li>
+			Causes:
+				<ul>
+					<li>
+					Startup Animation
+					<br />
+					Skipping startup animation can decrease emulator startup time.
+					</li>
+					<li>
+					Snapshots not used
+					<br />
+					Some developers are not using newer features of the Android Development Tools
+					(ADT) 9.0.0 and above version has a feature that allows one to save state of the 
+					AVD  (emulator, virtual device) and it is possible to start emulator faster.
+
+					Go to the terminal. The emulator is actually quite slow to start up, but thanks
+					to the snapshot feature we can boot it up and save a snapshot in the running state. 
+					This will allow us to boot the Android VM in only a few seconds, as opposed to a 
+					few minutes.
+					<br />
+					<ol>
+						<li>
+							Start the emulator with the command:
+							<pre  class="hw_code">
+./emulator -avd AndroidVM -cpu-delay 0 -netfast -no-snapshot-save
+							</pre>
+							New window showing the Android instance should show up.
+							<br />
+							Wait until it has booted up completely. This can take a minute or two.
+						</li>
+						<li>
+							At this point we can use telnet to control some of the back end functionality of the 
+							emulator.
+							Run the command:
+							<pre  class="hw_code">
+telnet localhost 5554
+							</pre>
+						</li>
+					</ol>
+					<br />
+
+Once connected, run the command:
+					<pre  class="hw_code">
+avd snapshot save firstboot
+							</pre>
+					This will save a snapshot of the emulator instance under the name of firstboot. 
+					Again, this can take quite a while, so just leave it go. 
+					Telnet should exit with OK displayed once the upon completion.
+					Now run the command:
+					<pre  class="hw_code">
+kill
+					</pre>
+					This closes the emulator. 
+					Emulator can be restarted with the command:
+					<pre  class="hw_code">
+./emulator -avd AndroidVM -cpu-delay 0 -netfast -no-snapshot-save -snapshot firstboot
+					</pre>
+					Some report Android environemnt booting in just a few seconds.
+					<br />
+					From here you can explore your new Android environment, and install and 
+					use applications.
+					</li>
+					<li>
+					Emulator does not support hardware GL (2011-05)
+					<br />
+					GL code gets translated into software (ARM software, in fact) which then gets 
+					emulated in software in QEMU. 
+					This is crazy-slow. google guys working on this problem and have it partially 
+					solved, but not with any sort of release quality.
+					<br />	
+					Shrink the display size to the smallest you can get away with. 
+					Major reason for the emulator's slowness (in addition to emulating an ARM CPU) 
+					is graphics: the entire video pipeline is done in software, in ARM, in the 
+					emulator. 
+					Shrinking the emulator size as much as possible reduces what needs to be rendered, 
+					speeding things up.
+					</li>
+					<li>
+					DDMS (Dalvik Debug Monitor Server) connected
+					<br />
+					Some people noticed that emulator starts much faster if there's no DDMS connected. 
+					So if you start emulator from Virtual Device Manager "SDK Setup.exe" and 
+					Eclipse/Visual Studio is not started emulator works faster. 
+					<br />
+					If you start emulator from Eclipse - DDMS is there, so sometimes emulator is slower, 
+					but sometimes it's faster.
+					</li>
+					<li>
+					The emulator seems to slow itself down when idle.
+					<br />
+					This is made apparent by rapidly mousing over the keys on the side and 
+					observing the light-up responses. 
+					</li>
+					<li>
+					Antialiasing support with graphic adapters slows emulator down
+					<br />
+					Some people suggest emulator (eclipse plugin) was significantly slowed by 
+					nVidia graphics card antialiasing settings. 
+					Removing 2x anti aliasing from the graphics menu and changing it to application 
+					controlled made it more responsive. it is still slow, but better than it 
+					used to be.
+					</li>
+					<li>
+					Cause:
+					<br />
+					Some tools need time to load.
+					<br />
+					<a href="http://www.launcherpro.com/apk/LauncherPro-0.8.6.apk">
+					http://www.launcherpro.com/apk/LauncherPro-0.8.6.apk
+					</a>
+					Solution:
+					<br />
+					Use some tools to speed up load times. 
+					Downloaded Launcher-Pro.apk though the emulator. 
+					Installed and set it to default launcher. 
+					DOUBLED my emulation speed! screens load much smoother and faster. 
+					Doesn't seem to download in 2.1 or 2.2 only in 2.0
+					</li>
+					<li>
+					User data loading
+					<br />
+					Solution:
+					<br />
+					Wipe user data and it was much much better. 
+					I am guessing that it takes time to load up each apk you've deployed.
+					</li>
+					<li>
+					Try scaling down the emulator
+
+					1) on emulator, settings-display -> disable screen orientation
+					2) on eclipse, emulator startup options -> -cpu-delay 100
+					those had some effect in lowering cpu usage (not it is around 40-60%), not ultimate solution. 
+					but again, the cpu usage is NOT >100% anymore..!
+					</li>
+				</ul>
+		</li>
+		<li>
+			Solutions and Workarounds:
+				<ul>
+					<li>
+					Startup Animation
+					<br />
+					Disable startup animation by creating batch script that tweaks emulator.exe
+					with commandline parameters:
+					<pre  class="hw_code">
+emulator.exe -avd AndroidVirtualDeviceTestName -no-boot-anim -cpu-delay 0
+					</pre>
+					Some people report time reduction up to 40%.
+					</li>
+					<li>
+					Snapshot usage
+					<br />					
+					Enable snapshots feature while creating a new AVD or by editing the AVD.
+					</li>
+					<li>
+					increase the Device RAM Size to 1024 which can result in faster emulator.
+					</li>
+					<li>
+					Start emulator once (do not close it between tests/builds)
+					<br />
+					startup of the emulator is very slow, if the emulator is already running 
+					and running application again, the emulator reinstalls the application 
+					relatively quickly.
+					</li>
+					<li>
+					The emulator seems to slow itself down when idle.
+					<br />
+					This is made apparent by rapidly mousing over the keys on the side and 
+					observing the light-up responses. 
+					
+					As a workaround, pass -icount auto to qemu when starting the emulator. 
+					Make a batch file called my_avd.bat to do it for you:
+					<pre  class="hw_code">
+emulator @my_avd -no-boot-anim -qemu -icount auto
+					
+@VDName			-- launch a virtual device named 'VDname'
+-no-boot-anim	-- disable animation for faster boot
+-qemu args		-- pass arguments to qemu
+-icount [N|auto] -- enable virtual instruction counter with 2^N clock ticks per instruction
+					</pre>
+					People report big speed increase.
+					</li>
+					<li>
+					Do the tests on a real phone
+					</li>
+			</ul>
+		</li>
+	</ul>	
+	<p>
+		<a href="http://stackoverflow.com/questions/1554099/slow-android-emulator">
+		http://stackoverflow.com/questions/1554099/slow-android-emulator
+		</a>
+		<br />
+		<a href="http://www.brighthub.com/hubfolio/matthew-casperson/blog/archive/2011/06/27/running-android-apps-on-linux.aspx#ixzz1VhV6ZFRY">
+		http://www.brighthub.com/hubfolio/matthew-casperson/blog/archive/2011/06/27/running-android-apps-on-linux.aspx#ixzz1VhV6ZFRY
+		</a>
+		<br />
+		<a href="http://stackoverflow.com/questions/6605971/android-sdk-tools-revision-12-has-problem-with-proguard-error-conversion-to-d">
+		http://stackoverflow.com/questions/6605971/android-sdk-tools-revision-12-has-problem-with-proguard-error-conversion-to-d
+		</a>
+		<br />
+	</p>
+
+
+
+	<h2><a id="">External tools</a></h2>	
+	<ol>
+		<li>
+			External tools
+			<ol>
+				<li>
+				Android SDK Manager
+				</li>
+				<li>
+				DroidDraw
+				</li>
+				<li>
+				Batch scripts:
+					<ol>
+						<li>
+						reset server
+						</li>
+						<li>
+						start SDK manager (added to VS)
+						</li>
+						<li>
+						faster emulator start!
+						</li>
+						<li>
+						</li>
+					</ol>
+				</li>
+				<li>
+				</li>
+			</ol>
+		</li>
+		<li>
+		</li>
+		<li>
+		</li>
+		<li>
+		</li>
+	</ol>	
+
+</body>
+</html>

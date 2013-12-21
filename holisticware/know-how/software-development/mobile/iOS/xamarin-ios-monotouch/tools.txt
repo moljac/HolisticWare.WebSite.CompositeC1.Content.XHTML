@@ -1,0 +1,70 @@
+Complicated
+
+	iFormMaster
+		UIViewController
+			only
+			iFormMaster(string, NSBundle)
+		
+		Methods:
+			Show(), ShowDialog(), Close(), Hide(), Refresh(), PointToClient(Point pt), Invalidate(),
+			Invoke(Delegate method), CreateGraphics()
+			
+		Porperties:
+			Size, TopMost, Visible, Enabled, Location, Left, Top, Width, Height, 
+			ClientSize, Handle, IsDesignMode???!?!?!,  DataBindings, InvokeRequired
+
+			
+	 size
+		xib 24 kiB
+		nib 4  kiB	
+			
+tools
+	mtouch
+		compilation
+			for simulator testing
+			for device deployment.
+			of the source code for integration with X-Code
+		Deployment
+			to the device
+
+	xcodebuild
+	
+	simulator (x86)
+		/Developer/usr/bin/xcodebuild \
+			-project MyProject.xcodeproj \
+			-target MyLibrary \
+			-sdk iphonesimulator \
+			-configuration Release clean build
+			
+	device 
+		arm6
+			/Developer/usr/bin/xcodebuild \
+				-project MyProject.xcodeproj \
+				-target MyLibrary \
+				-sdk iphoneos \
+				-arch armv6 \
+				-configuration Release clean build			
+		arm7
+			/Developer/usr/bin/xcodebuild \
+				-project MyProject.xcodeproj \
+				-target MyLibrary \
+				-sdk iphoneos \
+				-arch armv7 \
+				-configuration Release clean build
+				
+	lipo - archiver for universal (fat) libraries
+				lipo -create \
+					-output libMyLibrary.a \
+					libMyLibrary-i386.a libMyLibrary-armv6.a libMyLibrary-armv7.a 
+					
+		creates libMyLibrary.a which will be a universal (fat) library which will be 
+		suitable to use for all iOS development targets.
+	
+
+	linking
+		Any third-party library that you consume needs to be statically linked with 
+		application. This is required because iOS does not support shared libraries 
+		for user applications.
+			
+
+		-gcc_flags "-L${ProjectDir} -lMylibrary -force_load ${ProjectDir}/libMyLibrary.a"

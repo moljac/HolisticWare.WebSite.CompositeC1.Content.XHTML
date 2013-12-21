@@ -1,0 +1,34 @@
+> I've recently upgraded to XCode 4.5 and MonoTouch 6, but I'm experiencing a
+> problem when I build for my actual device.
+>
+> The following part of the build process is taking at least 5 minutes when
+> building Debug for the actual phone.
+>
+> /Application/XCode.app/Contents.Developer/usr/bin/dsymutil
+>
+> Is this right now? or does anyone have any ideas whats wrong? or anything I
+> can try?
+
+Look at your project's build options and make sure the "Linker
+behavior" is at the default "Link SDK assemblies".
+
+If it's showing "Don't link" then you'll experience *very* long build
+time (a large part of it in dsymutil).
+
+
+
+
+lso experiencing long build time and I have to clean and rebuild each lib project otherwise the app crashes.
+
+Linker behavior : link sdk assemblies only
+Arguments: --linkskip=mscorlib -aot "nimt-trmpolines=512"
+
+
+
+
+
+> Linker behavior : link sdk assemblies only
+> Arguments: --linkskip=mscorlib -aot "nimt-trmpolines=512"
+
+Any reason to skip mscorlib.dll ? that's a huge assembly and likely
+where a lot of the time is spent.

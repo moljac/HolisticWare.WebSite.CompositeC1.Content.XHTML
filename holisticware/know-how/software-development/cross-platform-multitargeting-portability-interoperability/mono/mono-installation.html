@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body lang="en-us" xml:lang="en-us">
+	<h1><a id="">Mono install @ Ubuntu Server 11.4</a></h1>
+	<p>
+	Script was found on
+	</p>
+
+	<pre class="hw_code">
+#!/bin/bash -e
+
+TOPDIR=$(pwd)
+BUILDDIR=$TOPDIR/build
+PREFIX=/opt/mono-2.10
+
+export PATH=$PREFIX/bin:$PATH
+export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH
+ 
+echo &quot;updating existing system&quot;
+sudo apt-get update
+sudo apt-get upgrade -y
+
+echo &quot;installing prerequisites&quot;
+sudo apt-get install -y build-essential libc6-dev g++ gcc libglib2.0-dev \
+   pkg-config git-core apache2 apache2-threaded-dev \
+   bison gettext autoconf automake libtool \
+   libpango1.0-dev libatk1.0-dev libgtk2.0-dev libtiff4-dev \
+   libgif-dev libglade2-dev
+
+mkdir -p $BUILDDIR
+
+echo
+echo &quot;downloading mono packages&quot;
+echo
+cd $BUILDDIR
+
+PACKAGES=(&quot;mono-2.10.2&quot;
+&quot;libgdiplus-2.10&quot;
+&quot;gtk-sharp-2.12.10&quot;
+&quot;xsp-2.10.2&quot;
+&quot;mod_mono-2.10&quot;)
+URLS=(&quot;http://ftp.novell.com/pub/mono/sources/mono/mono-2.10.2.tar.bz2&quot;
+&quot;http://ftp.novell.com/pub/mono/sources/libgdiplus/libgdiplus-2.10.tar.bz2&quot;
+&quot;http://ftp.novell.com/pub/mono/sources/gtk-sharp212/gtk-sharp-2.12.10.tar.bz2&quot;
+&quot;http://ftp.novell.com/pub/mono/sources/xsp/xsp-2.10.2.tar.bz2&quot;
+&quot;http://ftp.novell.com/pub/mono/sources/mod_mono/mod_mono-2.10.tar.bz2&quot;)
+
+echo Downloading
+count=${#PACKAGES[@]}
+index=0
+while [ &quot;$index&quot; -lt &quot;$count&quot; ]
+	do
+		#only download it if you don't already have it. 
+	if [ ! -f &quot;${PACKAGES[$index]}.tar&quot; ]
+	then
+		wget &quot;${URLS[@]:$index:1}&quot;
+	fi
+	if [ -f &quot;${PACKAGES[$index]}.tar.bz2&quot; ]
+	then
+		bunzip2 -df &quot;${PACKAGES[$index]}.tar.bz2&quot;
+	fi
+	if [ -f &quot;${PACKAGES[$index]}.tar&quot; ]
+	then
+		tar -xvf &quot;${PACKAGES[$index]}.tar&quot;
+	fi
+   
+	let &quot;index = $index + 1&quot;
+done
+
+echo
+echo &quot;building mono packages&quot;
+echo
+for i in &quot;${PACKAGES[@]}&quot;
+	do
+		cd $BUILDDIR/$i
+		./configure --prefix=$PREFIX
+		make
+   
+		if [ &quot;$i&quot; = ${PACKAGES[0]} ]
+		then
+			sudo make install
+		fi
+done
+
+echo
+echo &quot;installing mono packages&quot;
+echo
+
+for i in &quot;${PACKAGES[@]:1}&quot;
+	do
+	cd $BUILDDIR/$i
+	sudo make install
+done
+
+cd $BUILDDIR
+echo
+echo &quot;done&quot;
+</pre>
+</body>
+</html>

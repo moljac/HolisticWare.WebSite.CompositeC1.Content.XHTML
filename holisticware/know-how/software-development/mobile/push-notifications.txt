@@ -1,0 +1,109 @@
+eveloped an app using both Monodroid (and Monotouch) and now I have to
+add push notifications for both of them. I am new to mobile app development
+and to push notifications services and I would like to know if someone has
+implemented push notifications in a Monodroid app and how you went about it.
+I've found some solutions online :
+
+1. urban air ship  http://urbanairship.com <http://urbanairship.com>  
+2. push sharp  https://github.com/Redth/PushSharp
+<https://github.com/Redth/PushSharp>  
+
+Which have you used?
+Which do you recommend?
+
+
+Go PushSharp way, you can find more info here
+
+http://blog.xamarin.com/2012/08/13/push-notifications-introduction-to-pushsharp-seminar/
+
+and here
+
+https://github.com/Redth/PushSharp/wiki/How-to-Configure-&-Send-GCM-Google-Cloud-Messaging-Push-Notifications-using-PushSharp
+
+on how to implement them.
+
+
+
+implemented push notifications by using a long polling strategy.
+
+long polling works by making a request with no timeout. The webserver will only reply when there is something to deliver. Though It is convenient to have a 5 to 8 minute timeout as some mobile operators tend to drop idle connections.
+
+
+Have you ever run into an issue with the number of concurrent connections to
+the webserver? I'm performing long polls instead of push notifications
+myself, and I'm experiencing some weird issues when I can suddenly no longer
+make a HttpWebRequest to my server and seeing as per default Android allows
+2 concurrent connections to the same address I suspect that I might be
+hitting that limit every now and then.
+
+
+I can confirm this... max 2 concurrent connections is allowed. If another one is done, it's blocked until one of the previous is released.
+I didn't notice this before because I didn't have (previously) any situation where more than 2 connections were made.
+Is this an Android limitation or a bug in MfA?
+
+nub, please :D
+
+http://msdn.microsoft.com/en-us/library/system.net.servicepointmanager.maxservicepoints.aspx
+
+whoops, ^ bad link
+
+http://msdn.microsoft.com/en-us/library/system.net.servicepointmanager.defaultconnectionlimit.aspx
+
+
+I've done some googling, the best I could find was this:
+http://stackoverflow.com/questions/4654480/android-httpclient-perfomance -
+according to this, it's an Android limitation. It would be nice to have some
+official confirmation, though - perhaps Jon could chime in?
+
+I'm also not sure how it is decided what is the same host... if it's the
+same fqdn, or if it's IP based (if it's the former, in my case I could work
+around it by using the ip address in the long poll and have two more
+requests for user initiated stuff).
+
+Then I found this:
+http://developer.android.com/reference/org/apache/http/conn/params/ConnPerRouteBean.html
+
+which seems to suggest it should be possible to change the value - though
+I'm not at all familiar with java interop at this point.
+
+If you do go down that route and find it working, I'd be much obliged if you
+could share the solution.
+
+For my part, I've started (already had some in place) to be extremely strict
+in enforcing that only one request runs on top of my long poll, and I
+diligently abort my long poll requests if I see a network issue reported
+anywhere (from connection manager or my "is server reachable" process) in
+the hope that this could bring an end to my "happens every now and then but
+I don't have a method to reliably reproduce" issues where every new http
+request I make reports a timeout even though the server is perfectly
+reachable.
+
+
+his solved my problem
+
+System.Net.ServicePointManager.DefaultConnectionLimit = 4;
+
+The default value is 2.
+http://msdn.microsoft.com/en-us/library/system.net.servicepointmanager.defaultconnectionlimit.aspx
+
+
+
+
+
+
+
+Thanks for the suggestion.
+Have you successfully implemented PushSharp in your app. If so: 
+
+1. how many active users does the app have?
+2. how many notifications are you sending out each day?
+
+
+Has anyone implemented push sharp in their monodroid application?
+If so, can you please post a tutorial on how do this ?
+
+
+Have you already looked at the examples available on github? 
+https://github.com/Redth/PushSharp/tree/master/Client.Samples/PushSharp.ClientSample.MonoForAndroid
+
+

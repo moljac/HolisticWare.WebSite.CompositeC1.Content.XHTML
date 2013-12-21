@@ -1,0 +1,49 @@
+http://www.youtube.com/watch?NR=1&feature=endscreen&v=y9jQ7kavkRM
+http://www.youtube.com/watch?v=jKTRqvW1IMU&feature=related
+
+
+http://www.youtube.com/watch?v=Wuco7f9likA&feature=g-vrec
+
+
+
+http://www.expand-a-lung.com/
+http://www.powerbreathe.com/
+http://www.powerlung.com/
+
+http://www.amazon.com/POWERbreathe-Fitness-Breathing-Trainer-LSI-Plus2/dp/B000NJMLPA
+http://www.amazon.com/Mabis-40-950-000-Breathboost-Breathing-Exercise/dp/B0071IB3B4/ref=pd_sim_sg_1
+
+
+https://www.chponline.com/store/cart.php?m=product_list&c=97
+
+
+
+
+
+
+
+<Target Name="clean_folders">
+    	<RemoveDir Directories=".\ProjectName\bin" />
+    	<RemoveDir Directories=".\ProjectName\obj" />
+    	<RemoveDir Directories="$(ProjectVarName)\bin" />
+    	<RemoveDir Directories="$(ProjectVarName)\obj" />
+    </Target>
+	
+msbuild /t:clean_folders
+msbuild /t:clean_folders
+PAUSE
+
+
+or
+FOR /F "tokens=*" %%G IN ('DIR /B /AD /S bin') DO RMDIR /S /Q "%%G"
+FOR /F "tokens=*" %%G IN ('DIR /B /AD /S obj') DO RMDIR /S /Q "%%G"
+
+
+
+or
+for /d /r . %%d in (bin,obj) do @if exist "%%d" rd /s/q "%%d"
+
+
+http://wf.codeplex.com/releases/view/70595
+http://blogs.msdn.com/b/rjacobs/archive/2011/07/24/clean-project-cleans-visual-studio-solutions-for-uploading-or-email.aspx
+

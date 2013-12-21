@@ -1,0 +1,77 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>HTML Scraping</title>
+Description = all keywords + extra text
+<meta name="Description" content="HTML Scraping" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: html-scraping
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="html, scraping" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-05-03" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">HTML Scraping</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<h2><a id="">
+	</a></h2>
+	<pre class="hw_code">
+String result = Regex.Replace(htmlDocument, @"<[^>]*>", String.Empty);
+This will work for most case, but there will be cases - for example CDATA containing angle brakets - where this will not work as exspected.
+
+
+
+Regex regex = new Regex(@"</?\w+((\s+\w+(\s*=\s*(?:"".*?""|'.*?'|[^'"">\s]+))?)+\s*|\s*)/?>", RegexOptions.Singleline);
+
+
+
+The question is too broad to be answered definitively. Are you talking about removing all tags from a real-world HTML document, like a web page? If so, you would have to:
+
+remove the <!DOCTYPE declaration or <?xml prolog if they exist
+remove all SGML comments
+remove the entire HEAD element
+remove all SCRIPT and STYLE elements
+do Grabthar-knows-what with FORM and TABLE elements
+remove the remaining tags
+remove the <![CDATA[ and ]]> sequences from CDATA sections but leave their contents alone
+That's just off the top of my head--I'm sure there's more. Once you've done all that, you'll end up with words, sentences and paragraphs run together in some places, and big chunks of useless whitespace in others.
+
+But, assuming you're working with just a fragment and you can get away with simply removing all tags, here's the regex I would use:
+
+@"(?></?\w+)(?>(?:[^>'""]+|'[^']*'|""[^""]*"")*)>"
+Matching single- and double-quoted strings in their own alternatives is sufficient to deal with the problem of angle brackets in attribute values. I don't see any need to explicitly match the attribute names and other stuff inside the tag, like the regex in Ryan's answer does; the first alternative handles all of that.
+
+In case you're wondering about those (?>...) constructs, they're atomic groups. They make the regex a little more efficient, but more importantly, they prevent runaway backtracking, which is something you should always watch out for when you mix alternation and nested quantifiers as I've done. I don't really think that would be a problem here, but I know if I don't mention it, someone else will. ;-)
+
+This regex isn't perfect, of course, but it's probably as good as you'll ever need.
+
+
+ public static string HtmlStrip(this string input)
+	{
+		input = Regex.Replace(input, "<style>(.|\n)*?</style>",string.Empty);
+		input = Regex.Replace(input, @"<xml>(.|\n)*?</xml>", string.Empty); // remove all <xml></xml> tags and anything inbetween.  
+		return Regex.Replace(input, @"<(.|\n)*?>", string.Empty); // remove any tags but not there content "<p>bob<span> johnson</span></p>" becomes "bob johnson"
+	}
+	
+	
+	
+	
+	
+	@"(?>(?:[^>'""]+|'[^']'|""[^""]"")*)>"	
+	
+	</pre>
+</body>
+</html>

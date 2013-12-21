@@ -1,0 +1,24 @@
+JDK settings
+
+Changing JDK settings for java compilation and apk builds is done with  
+
+Wrong:
+Nope!!
+JDK path variable in your environment variables. That's where I had to change it.
+I edit the eclipse ini files to specify an alternate JDK for other efforts.
+
+Vista; computer +/ Properties +/ Advanced System Settins +/ Environment Variables 
+
+
+Correct:
+
+Unfortunately Visual Studio doesn't provide a setting to change this.
+MonoDevelop does, and both Visual Studio and MonoDevelop use the same preference location:
+
+1. Start MonoDevelop
+2. Tools > Options...
+3. In the left pane, select Other > SDK Locations
+4. In the right pane, alter the Java SDK (JDK) entry.
+5. Click OK.
+
+You may need to restart Visual Studio for the change to be apparent.

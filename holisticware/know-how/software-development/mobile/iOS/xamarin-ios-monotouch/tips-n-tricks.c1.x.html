@@ -1,0 +1,55 @@
+Speeding-up startup
+
+moving all logic out of the 'FinishedLaunching'
+override? You should not be doing expensive initialisation
+synchronously for precisely this reason - iOS will kill your app if it
+takes too long. For example wrap code in a Task which will execute on
+the background thread. You need to ensure you only touch the UI from
+your main thread though,
+http://docs.xamarin.com/ios/advanced_topics/threading .
+
+
+Try switching between wifi and usb debugging. In my own experience
+wifi is significantly faster than usb, but that might depend on your
+network (so usb might be faster than wifi if your wifi is slow).
+
+Another thing that *might* be a slowdown is if you have *many*
+breakpoints set. Try clearing them to see if anything changes (I doubt
+it, but it's worth a shot 
+
+Remove refs
+What has seemed to help is this: Removing references to System.Data and 
+Mono.Data.SqlLite. They were both used in some code, but only code that 
+was executed on the server, or in generic code (base libraries) where 
+they were no longer needed. So for the code executed on the server 
+(same code shared between both projects) I conditionally compiled all 
+the System.Data code out of the iPhone side so I could remove the reference. 
+
+This has shaved several seconds off the load time as it’s fewer assemblies 
+needing to be loaded. It’s now down to about 12 seconds to start calling 
+my code, which takes about 1.5 seconds in total until the “ViewDidAppear”
+ends on my first view.
+
+this is why #defs are not good!
+
+
+Size and speed
+
+out of curiosity, do you have a load of static images being loaded? I
+suspect they will get done before the Main loads....
+
+eg:
+
+public static UIImage foo = UIImage.FromBundle("images/foo.png");
+
+might be taking up a bit of time. Clearly whatever it is can be done
+in parallel, because the single CPU core speed of the 4 vrs 4S is not
+hugely different, - just that the 4S has _two_ of them.
+
+Whats the obj-c thing you are loading? maybe it's spinning up threads?
+Does the console in xcode organiser show anything?
+
+
+
+static variables - 
+	nondeterministic- but guaranteed to be initialized before first use

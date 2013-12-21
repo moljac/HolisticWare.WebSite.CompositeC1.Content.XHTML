@@ -1,0 +1,51 @@
+http://venturebeat.com/2013/02/08/9-surprising-reasons-mobile-apps-get-rejected-from-the-apple-app-store/
+
+Nat Friedman is CEO and co-founder of Xamarin 
+Apple’s App Store review process is designed to keep the app ecosystem healthy 
+and to protect users from low-quality or hostile apps. And the system mostly 
+works. But sometimes an app is rejected for reasons you might not expect, and 
+it can force developers to scramble to either push back launch dates or 
+even have to redevelop key features.
+Before you head down that road, here are nine surprising reasons apps get rejected 
+by the App Store that you should consider before you submit your next app: 
+1.     Use of the word “beta” or otherwise indicating that your app is unfinished
+Google has made it a standard industry practice to launch services into indefinite 
+“beta,” but Apple can be quite strict about any indication that an app is unfinished 
+or not yet ready for prime time. We have seen apps get rejected for being labeled 
+“Beta,” “Preview,” and even “Version 0.9.”
+2.     Long load time
+All mobile operating systems – iOS, Android, and even Windows – enforce a maximum 
+app startup time. For iOS, the limit is about 15 seconds, and if your app isn’t running 
+by then the operating system will kill it.
+But even if your app loads within the limits during your local testing, slower network 
+connections, slower hardware, and other differences in the environment may cause your app to start too slowly during the review process. So don’t rely on the iOS simulator alone – be sure to test on actual hardware, and keep a few older phones around to ensure all users have a snappy startup.
+Remember, your app’s load time is your first chance to impress your users.
+3.     Linking to outside payment schemes
+Apple requires that all digital content be sold through the built-in iTunes-based in-app purchasing mechanism. This applies to one-time purchases as well as digital subscriptions. If your app accepts other payment mechanisms for digital content, you can be sure it will be rejected. This is the reason the Kindle app does not allow users to purchase new books.
+One important subtlety is that this rule applies even to Web pages linked to from your app. The Dropbox app was famously rejected by Apple because the Web-based login screen contained a link to purchase additional space. This not only affected the Dropbox app, but all apps that used the Dropbox SDK as well!
+So double check your workflow to ensure that all purchasing goes through the user’s iTunes account, or is removed altogether. This rule does not apply to non-digital services or merchandise, which is why Apply doesn’t get a cut of your Uber rides or hotel rooms booked through an app.
+4.     Do not mention other supported platforms
+This rule is not unique to Apple – none of the curated app marketplaces like it when apps mention rival platforms by name. So if your app is also available on Windows or Android, advertise that on your Web site, not in the app or the app store description.
+5.     Localization glitches
+The users of your mobile app will be everywhere, not just in the city or country the development was done.
+Even if you haven’t localized your app for multiple languages, it will look amateur if 300 YEN comes out looking like $300.00 for in-app purchases. Use add-ons such asNSNumberFormatter or Invariant Culture and a simulator to test the user experience in different locales to make sure dates and other data conform to the user’s location.
+For instance, we’ve seen European apps fail to handle negative values for latitude and longitude, and therefore not pass review in Cupertino, which is at Longitude -122.03. Make sure your app works at all points on the map, and especially check that your lat/long math for groups of points span the positive/negative boundaries of the prime meridian and the equator.
+6.     Improper use of storage and filesystems
+Soon after iOS 5.1 was released, Apple rejected an app update because developers had unpacked the 2MB database from the app bundle into the filesystem, violating the iCloud ideal of backing up only user-generated content.
+Any data that can be re-generated because it is static, shipped with the application or is easily re-downloaded from a remote server, should not be able to be backed up. For non-user data, choose a cache storage location or mark with a “do not backup” attribute.
+7.     Crashes from users denying permissions
+In iOS 6 users must give permission for apps to access the address book, photo gallery, location, calendar, reminders, Bluetooth, Twitter and Facebook accounts. If the user chooses to deny an app access to any of these services, Apple requires that the app continue to function anyway.
+This will certainly be tested during validation and will be an automatic rejection if it fails to work properly. You should test all combinations of “allow” and “deny” for all the data your app uses, including if the user allows access but later denies it in Settings.
+8.     Improper use of icons and buttons
+Many an iOS app have been rejected because of small UI issues that had nothing to do with performance or functionality. Make sure the built-in Apple icons and buttons are uniform in appearance and functionality by using a standard UIButtonBarSystemItem and familiarize yourself with Apple’s Human Interface Guidelines.
+For instance, you don’t want to use the “compose” icon for anything other than referring to content creation. Apple engineers want apps to behave in predictable ways and are therefore understandably strict about this.
+9.     Misuse of trademarks and logos
+Don’t use trademarked material or Apple icons or logos anywhere in your app or product images. This includes using icons that feature a drawing of an iPhone! We’ve also seen apps get denied for having trademarks in the keywords of the app.
+The flipside of this is that you should be sure your app does not obscure the attribution information in any embedded maps – this is also an automatic rejection.
+. . .
+. . .
+If your app does get rejected, don’t panic — address the issue and resubmit. In an emergency, Apple provides an expedited review process which can be used for critical bug fixes or to address security issues. But be careful. Developers who overuse the expedited review will be barred from using it in the future.
+The best approach is to avoid rejection in the first place. So, study the submission guidelines and focus on building a high-quality app. Your users will thank you for it.
+Nat Friedman is CEO and co-founder of Xamarin, a cross-platform mobile development framework for building native mobile apps in C#, while sharing code across iOS, Android, Mac, and Windows apps. Nat’s guidance is based on the experiences of more than 220,000 Xamarin developers.
+
+Read more at http://venturebeat.com/2013/02/08/9-surprising-reasons-mobile-apps-get-rejected-from-the-apple-app-store/#A4vZLq3DZUmlK3Bq.99 

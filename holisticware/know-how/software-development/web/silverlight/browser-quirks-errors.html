@@ -1,0 +1,235 @@
+<!--
+C1 generated!!
+	<title>Silverlight - Browser Quirks/Errors</title>
+	<meta name="Description" content="Silverlight - Browser Quirks/Errors: how to detect and solve" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="Silverlight, Browser, Quirks, Errors" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-03-22" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Silverlight - Browser Quirks/Errors</a></h1>
+	<!-- ================================================================== -->
+	<p>Date: 2011-03-22</p>
+
+	<h2><a id="">Browser quirks</a></h2>
+
+	<h3><a id="">Parameters and case-sensitivity</a></h3>
+	<p>
+	<a href="http://www.codingforums.com/showthread.php?t=44364">
+	http://www.codingforums.com/showthread.php?t=44364
+	</a>
+	<br />
+	HTML is case insensitive. 
+	The most common form, almost an informal standard  really, uses all upper case 
+	for element and attribute names. 
+	This is also the form it is normalised to in the DOM.
+	</p>
+	<p>
+	XML and XHTML are case sensitive. What case you use for your XML based language 
+	varies but in the case of XHTML all elements are lower case. Because of this future
+	HTML version being all lower case and HTML being case insensitive, most web developers
+	began using lower case only years ago. 
+	Web developers using XHTML are of course  REQUIRED to use lower case.
+	</p>
+	<p>
+	Do not confuse Javascript which is and always has been case sensitive with the 
+	HTML code it's often embedded within which hasn't been case sensitive in 
+	the past but now (with xHTML) is.
+	</p>
+	<p>
+	Example:
+	<br />
+	onmousemove is an HTML attribute which happens to be an event handler. 
+	It is not Javascript, the value of that attribute is. 
+	<br />
+	The only Javascript in the sample below is the bold part.
+	<br />
+	So:
+	</p>
+	<pre class="hw_code">
+	&lt;img name="myImage" src="myimage.gif" onmousemove="myJavascriptFunction()" /&gt;
+	</pre>
+	<p>
+	is different from:
+	</p>
+	<pre class="hw_code">
+	&lt;img name="myImage" src="myimage.gif" onmousemove="myjavascriptfunction()" /&gt;
+	</pre>
+	<p>
+	The onmousemove attribute (or all attributes for that matter) is case-insensitive in HTML.
+	<br />
+	On the other hand event handlers are scriptable in Javascript.
+	</p>
+	<pre class="hw_code">
+	document.images['myImage'].onmousemove = myJavascriptFunction;
+	</pre>
+	<p>
+	in that case, onmousemove is case-sensitive. 
+	</p>
+	<pre class="hw_code">
+	They do. Try entering the following in the location bar 
+	javascript:AlErT('If JavaScript were case insensitive, this would work') and 
+	compare to what happens when you enter 
+	javascript:alert('...but JavaScript is case sensitive, thus this works but not the other one.')
+	</pre>
+	<p>
+	Firefox 4.0.1 
+	<br />
+	Chrome 12.0.733.0.dev
+	<br />
+
+	</p>
+	<p>
+	Causes error - Sl not installed - click downloads SL - allready installed
+	</p>
+	<div id="silverlightControlHost">
+		<object id="objectSilverlightControlHost" data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="400" height="100">
+			<param name="source" value="/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap" />
+			<param name="onError" value="onSilverlightError" />
+			<param name="background" value="" />
+			<param name="minRuntimeVersion" value="4.0.50826.0" />
+			<param name="autoUpgrade" value="true" />
+			<param name="allowHtmlPopupWindow" value="true" />
+			<param name="enablehtmlaccess" value="true" />
+			<param name="initparams" value="" />
+			<param name="MaxFrameRate" value="60" />
+			<param name="OnFullScreenChanged" value="" />
+			<param name="OnLoad" value="" />
+			<param name="OnResize" value="" />
+			<param name="OnSourceDownloadComplete" value="" />
+			<param name="OnSourceDownloadProgressChanged" value="" />
+			<param name="SplashScreenSource" value="" />
+			<param name="Windowless" value="" />
+			<a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0" style="text-decoration:none">
+				<img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none" />
+			</a>
+		</object>
+		<iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe>
+	</div>
+	<p>
+		Empty paramteres cause this error: TODO check which!!
+	</p>
+	<pre class="hw_test">
+		&lt;param name="background" value="" /&gt;
+
+		&lt;-- 
+			empty initparams cause error!!! 
+			&lt;param name="initparams" value="" /&gt;
+			use dummy!
+		-&gt;
+		 &lt;param name="initparams" value="dummSon" /&gt;
+
+	</pre>
+
+	<pre class="hw_code">
+  &lt;div id="Div1"&gt;
+	&lt;object id="object1" data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="400" height="100"&gt;
+	  &lt;param name="source" value="/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap" /&gt;
+	  &lt;param name="onError" value="onSilverlightError" /&gt;
+	  &lt;!-- empty value for initparams not OK use transparent --&gt;
+	  &lt;param name="background" value="transparent" /&gt;
+	  &lt;param name="minRuntimeVersion" value="4.0.50826.0" /&gt;
+	  &lt;param name="autoUpgrade" value="true" /&gt;
+	  &lt;param name="allowHtmlPopupWindow" value="true" /&gt;
+	  &lt;param name="enablehtmlaccess" value="true" /&gt;
+	  &lt;!-- empty value for initparams not OK use dummy --&gt;
+	  &lt;param name="initparams" value="dumee" /&gt;
+	  &lt;param name="MaxFrameRate" value="60" /&gt;
+	  &lt;!-- wrong param names are tolerated --&gt;
+	  &lt;param name="OnFullScreenChanged" value="" /&gt;
+	  &lt;param name="OnLoad" value="" /&gt;
+	  &lt;param name="OnResize" value="" /&gt;
+	  &lt;param name="OnSourceDownloadComplete" value="" /&gt;
+	  &lt;param name="OnSourceDownloadProgressChanged" value="" /&gt;
+	  &lt;!-- empty value for SplashScreenSource not OK use dummy --&gt;
+	  &lt;param name="SplashScreenSource" value="dumee" /&gt;
+	  &lt;!-- empty value for windowless is tolerated! --&gt;
+	  &lt;param name="Windowless" value="" /&gt;
+
+	  &lt;a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0" style="text-decoration:none"&gt;
+		&lt;img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none" /&gt;
+	  &lt;/a&gt;
+	&lt;/object&gt;
+	&lt;iframe id="Iframe1" style="visibility:hidden;height:0px;width:0px;border:0px"&gt;&lt;/iframe&gt;
+  &lt;/div&gt;
+	</pre>
+	<div id="Div1">
+		<object 
+			id="object1" data="data:application/x-silverlight-2," type="application/x-silverlight-2" 
+			width="400" height="100"
+			>
+			<param name="source" value="/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap" />
+			<param name="onError" value="onSilverlightError" />
+			<!-- empty value for initparams not OK use transparent -->
+			<param name="background" value="transparent" />
+			<param name="minRuntimeVersion" value="4.0.50826.0" />
+			<param name="autoUpgrade" value="true" />
+			<param name="allowHtmlPopupWindow" value="true" />
+			<param name="enablehtmlaccess" value="true" />
+			<!-- empty value for initparams not OK use dummy -->
+			<param name="initparams" value="dumee" />
+			<param name="MaxFrameRate" value="60" />
+			<!-- wrong param names are tolerated -->
+			<param name="OnFullScreenChanged" value="" />
+			<param name="OnLoad" value="" />
+			<param name="OnResize" value="" />
+			<param name="OnSourceDownloadComplete" value="" />
+			<param name="OnSourceDownloadProgressChanged" value="" />
+			<!-- empty value for SplashScreenSource not OK use dummy -->
+			<param name="SplashScreenSource" value="dumee" />
+			<!-- empty value for windowless is tolerated! -->
+			<param name="Windowless" value="" />
+
+		<a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0" style="text-decoration:none">
+		<img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none" />
+		</a>
+		</object>
+		<iframe id="Iframe1" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe>
+	</div>
+
+
+	<hr />
+	<h2><a id="">References</a></h2>
+	<ul>
+		<li>
+			<a href="http://msdn.microsoft.com/en-us/library/cc189004(VS.95).aspx#Y911">
+			http://msdn.microsoft.com/en-us/library/cc189004%28VS.95%29.aspx#Y911
+			</a>
+		</li>
+		<li>
+			Silverlight and DOM
+		</li>
+		<li>HTML bridge
+			<p>
+				<a href="http://www.silverlight.net/learn/quickstarts/htmlbridge/">
+				http://www.silverlight.net/learn/quickstarts/htmlbridge/
+				</a>
+			</p>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<a href="http://msdn2.microsoft.com/en-us/library/bb882214.aspx">
+			Optimizing the Installation Experience
+			</a>
+		</li>
+		<li>
+			<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=F487DF43-1AFB-4F76-82C8-BB5ACBFFBA1B&amp;displaylang=en">
+			Silverlight Installation Experience Guide
+			</a>
+		</li>
+		<li>
+			<a href="http://msdn.microsoft.com/en-us/library/cc189089(VS.95).aspx">
+			How to: Add Silverlight to a Web Page by Using HTML
+			</a>
+		</li>
+	</ul>
+</body>
+</html>

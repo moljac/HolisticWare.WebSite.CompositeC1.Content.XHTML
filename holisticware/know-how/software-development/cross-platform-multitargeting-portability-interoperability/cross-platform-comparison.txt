@@ -1,0 +1,58 @@
+Cross platfrom
+
+.NET
+
+Installed .net frameworks
+	C:\Windows\Microsoft.NET\Framework\v1.0.3705
+		empty on HP 8510w
+		is netfx installed?
+	C:\Windows\Microsoft.NET\Framework\v1.1.4322
+		empty on HP 8510w
+		is netfx installed?
+	C:\Windows\Microsoft.NET\Framework\v2.0.50727
+		mscorlib.dll
+	C:\Windows\Microsoft.NET\Framework\v3.0
+		empty on HP 8510w
+		is netfx installed?
+	C:\Windows\Microsoft.NET\Framework\v3.5
+	C:\Windows\Microsoft.NET\Framework\v4.0.30319
+		mscorlib.dll
+
+
+ "new" concept of Microsoft. In the C:\Program Files\Reference Assemblies folder Microsoft 
+ installs assemblies for products that can be referenced from your code. Instead of referencing 
+ assemblies directly from the GAC or copying an assembly from an installation folder or the 
+ GAC to your project for reference, you can now reference the assemblies in this folder.
+ 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\
+		System.dll
+
+On the MsBuild team blog you can read more about this feature that happened to be with us 
+since the .Net 3.0 framework:
+
+	http://blogs.msdn.com/msbuild/archive/2007/04/12/new-reference-assemblies-location.aspx
+
+Also other applications like PowerShell keep their assemblies to reference in this location. 
+
+SDKs
+
+	C:\Program Files\Microsoft SDKs\
+
+
+MONO
+	Mono
+		2.10.1
+		2.10.8
+		2.10.9
+		
+		C:\Program Files\Mono-3.0.2\lib\mono\2.0
+				mscorlib.dll
+		C:\Program Files\Mono-3.0.2\lib\mono\3.5
+		C:\Program Files\Mono-3.0.2\lib\mono\4.0
+				mscorlib.dll
+		C:\Program Files\Mono-3.0.2\lib\mono\4.5
+				mscorlib.dll
+				
+	MonoTouch
+		D:\SRC\Core_2011\Core.DLL_201_BL_mClnt_CrossPlatform_MobileAPI_Xamarin\lib\
+	

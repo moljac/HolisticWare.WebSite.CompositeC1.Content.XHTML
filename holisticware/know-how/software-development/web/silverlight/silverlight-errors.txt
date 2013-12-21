@@ -1,0 +1,7 @@
+Error: Unhandled Error in Silverlight ApplicationCode: 2103
+
+Solution:
+
+found the solution, check the namespace of the startup object in 
+	silverlight application project properties!
+	

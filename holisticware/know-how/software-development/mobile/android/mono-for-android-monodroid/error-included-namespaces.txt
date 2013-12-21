@@ -1,0 +1,12 @@
+[2010-11-24]===================================================================
+
+Environment.NewLine
+	System.Environment conflicts with Android.OS.Environment.NewLine
+
+	Fully qualified:
+		Android.OS.Environment.NewLine
+			Error	6	'Android.OS.Environment' does not contain a definition for 'NewLine'
+		
+		System.Environment.NewLine
+			OK.
+

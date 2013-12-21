@@ -1,0 +1,241 @@
+Use the Activation application
+
+/Developer/MonoTouch/Applications/MonoTouch Activation
+
+
+his worked in previous versions where the activation was separate from the Install, but now it is together with the installer, so if the above app is still there, run it, but that might be an older version.
+
+To register now you'll have to remove the license file and re-run the setup. The license file is in ~/Library/MonoTouch and will have the name "License" or "License.v2" depending on the version of MonoTouch you have installed.
+
+http://android.xamarin.com/Installation/Offline_Activation
+
+http://blog.fusonic.net/2011/07/monotouch-tips-and-tricks-part-1/
+http://blog.fusonic.net/category/net/monotouch-mono/
+
+http://lostechies.com/marcusbratton/2010/08/13/getting-started-with-monotouch/
+
+
+
+Files
+	monotouch
+	var documents = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
+	var basedir = Path.Combine (Environment.GetFolderPath(Environment.SpecialFolder.Personal), ".."); 
+
+http://wiki.ios.xamarin.com/HowTo/Files/HowTo%3a_Store_Files
+
+~/Library/Application Support/iPhone Simulator
+~/Library/Application Support/iPhone Simulator/User/Applications/{guid}/
+Right click on your app name and select "show package contents".
+
+
+
+
+System Preferences =+ Keyboard =+ Keyboard Shortcuts =+ Services
+
+
+	m4a
+	string pwPath = Path.Combine( 
+                System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), 
+                "pw.txt"); 
+
+
+	wp
+	http://msdn.microsoft.com/en-us/library/system.environment.specialfolder(v=vs.95).aspx
+
+
+http://stackoverflow.com/questions/1829954/write-to-a-file-in-monotouch
+
+
+http://nicksnettravels.builttoroam.com/?tag=/MonoTouch
+http://nicksnettravels.builttoroam.com/blogengine/post/2011/04/04/Windows-Phone-7-Android-and-iOS-with-Mono-I-Getting-Started.aspx
+
+
+
+Enable New Terminal at Folder. There's also New Terminal Tab at Folder,
+
+
+to hide certain portions of your system in the Finder, open a terminal session and type:
+sudo pico /.hidden
+
+
+o make files invisible, if you have the developer tools installed, use the 
+SetFile command line tool in /Developer/Tools/SetFile. (I have put a symbolic 
+link in /usr/local/bin so that I can type "setfile" from anywhere to access the tool.) 
+There is a hint somewhere on this site with a more full description of SetFile's 
+functions (you can search for it), but, to make a file invisible, type:
+
+Visible
+/Developer/Tools/SetFile -a v /path/to/file
+
+InVisible
+/Developer/Tools/SetFile -a V /path/to/file
+
+Open the Script Editor in the /Applications/AppleScript/ folder and run the following:
+
+do shell script "defaults write com.apple.finder AppleShowAllFiles 1"
+
+
+OS X Lion hides the ~/Library folder from view in an effort to prevent users 
+from tampering with sensitive files or unwittingly tossing out their precious 
+data. It’s easy to get to your user’s Library folder with a simple 
+Go > Go to Folder command in Finder, then typing ~/Library. But moapp found a 
+Terminal command that can bring your library folder back into focus:
+
+Open the Terminal and type: 
+
+chflags nohidden /Users/[username]/Library/
+
+
+
+
+
+
+
+Push solution to server
+	Siverlight projects>
+	Error: Framework 'Moonlight / Silverlight 3.0' not installed. 
+	mhutchingson no way	
+
+
+
+projects
+	utility app
+	master-detail app
+	single view app
+	tabbed app
+	
+
+
+static Main
+	creates AppDelegate
+	UIApplication.Main (args, null, "AppDelegate");
+
+	AppDelegate is/inherits from UIApplicationDelegate
+		registered/exposed 
+		contains 
+			Window
+			UIViewConreoller
+08
+       [Register ("AppDelegate")]
+09
+       public partial class AppDelegate : UIApplicationDelegate
+10
+       {
+11
+              UIWindow window;
+12
+              HelloWorld_iPhoneViewController viewController;            
+13
+              // This method is invoked when the application has loaded
+14
+              // its UI and is ready to run
+15
+              public override bool FinishedLaunching (UIApplication app, NSDictionary options)
+16
+              {
+17
+                      window = new UIWindow (UIScreen.MainScreen.Bounds);                    
+18
+                      viewController = new HelloWorld_iPhoneViewController
+19
+                             ("HelloWorld_iPhoneViewController", null);
+20
+                      window.RootViewController = viewController;
+21
+                      window.MakeKeyAndVisible ();                    
+22
+                      return true;
+23
+              }
+24
+       }
+
+
+	UIViewController
+
+public partial class HelloWorld_iPhoneViewController : UIViewController
+09
+       {
+10
+              public HelloWorld_iPhoneViewController (string nibName, NSBundle bundle)
+11
+                   : base (nibName, bundle)
+12
+              {
+13
+              }            
+14
+              public override void DidReceiveMemoryWarning ()
+15
+              {
+16
+                      // Releases the view if it doesn't have a superview.
+17
+                      base.DidReceiveMemoryWarning ();                    
+18
+                      // Release any cached data, images, etc that aren't
+19
+                      // in use.
+20
+              }            
+21
+              public override void ViewDidLoad ()
+22
+              {
+23
+                      base.ViewDidLoad ();                    
+24
+                      //any additional setup after loading the view,
+25
+                      //typically from a nib.
+26
+              }            
+27
+              public override void ViewDidUnload ()
+28
+              {
+29
+                      base.ViewDidUnload ();                    
+30
+                      // Release any retained subviews of the main view.
+31
+                      // e.g. this.myOutlet = null;
+32
+              }            
+33
+              public override bool ShouldAutorotateToInterfaceOrientation
+34
+                      (UIInterfaceOrientation toInterfaceOrientation)
+35
+              {
+36
+                      // Return true for supported orientations
+37
+                      return (toInterfaceOrientation != UIInterfaceOrientation.PortraitUpsideDown);
+38
+              }
+
+
+XCode                            VS
+Navigator Area                   Solutioon Explorer
+Editor Area                      Designer
+Utility Area                     Properties/Toolbox/Object View
+  Library                          Toolbox
+  Inspector                       Property Window
+
+File Inspector – New in Interface Builder 4, the File Inspector shows file information, such as the file name and location of the Xib file that is being edited.
+Quick Help – Also new in Interface Builder 4, the Quick Help tab is part of Xcode 4’s redesigned help system. It provides contextual help based on what is selected in Xcode.
+Identity Inspector – The Identity Inspector provides information about the selected control/view.
+Attributes Inspector – The Attributes Inspector allows you to customize various attributes of the selected control/view.
+Size Inspector – The Size Inspector allows you to control the size and resizing behavior of the selected control/view.
+Connections Inspector – The Connections Inspector shows the Outlet and Action connections of the selected controls. We’ll examine Outlets and Actions in just a moment.
+
+
+
+
+Document Inspector
+  
+
+
+Outlets – Outlets are analogous to properties. If you wire up a control to an Outlet, it’s exposed to your code via a property, so you can do things like attach event handlers, call methods on it, etc.
+Actions – Actions are analogous to the command pattern in WPF. For example, when an Action is performed on a control, say a button click, the control will automatically call a method in your code. Actions are powerful and convenient because you can wire up many controls to the same Action.

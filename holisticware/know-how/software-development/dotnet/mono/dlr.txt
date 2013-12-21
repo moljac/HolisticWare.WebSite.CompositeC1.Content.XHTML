@@ -1,0 +1,32 @@
+for DynamicObject and the DLR (Dynamic Language Runtime) were added in Mono
+2.6 or 2.8. I've used dynamic in Mono 2.10 and 3.0 and it seems to work.
+
+DynamicObject is in the System.Dynamic namespace which is in
+System.Core.dll, which is a core part of the .NET Framework.
+
+
+
+
+ystem.Core is an assembly (System.Core.dll), not a namespace. There is no "System.Core" namespace. System.Core.dll contains types in the namespaces System.IO, System.Linq, System.Threading, and others:
+
+	https://github.com/mono/mono/tree/master/mcs/class/System.Core
+
+`using System.Core;` is thus not valid in a C# app, unless you yourself have declared types in a "System.Core" namespace.
+
+
+
+$ csharp -r:System.Core 
+> using System.Linq;
+> var x = new int[] { 1,2,3,4,5,6 };
+> var y = (from i in x where i > 4 select x).Skip(1).FirstOrDefault();
+
+
+
+That shouldn't be necessary at all; System.Core.dll should be in the default assembly include set and `using System.Linq` should be in the default namespace set for `csharp` so that you can immediately use LINQ:
+
+	$ csharp
+	Mono C# Shell, type "help;" for help
+
+	Enter statements below.
+	csharp> Enumerable.Range(1, 10).Max();
+	10 

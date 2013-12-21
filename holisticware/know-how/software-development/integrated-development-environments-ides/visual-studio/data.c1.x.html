@@ -1,0 +1,116 @@
+xml file. For that reason I created a
+subfolder into the resources one, and it`s name is xml.
+After that, in my projecto, I use the xmldocument method in this way:
+xmlDocument xDoc = new xmlDocument();
+xDoc.Load("Data.xml");
+
+But it crashes, and i Have tested a lot of ways to pass the url of my xml
+doc, but it allways crashes.
+Can anybody help me and tell me how I can Load a a xml file from the
+Resources/Xml folder.
+
+http://docs.xamarin.com/Android/Guides/Advanced_Topics/Using_Android_Assets
+
+
+
+ou then (presumably) added a Data.xml file to the Resources\Xml folder; 
+what Build action did you set on it?
+
+Default should be AndroidResource, but it wouldn't help to verify...
+
+> After that, in my projecto, I use the xmldocument method in this way:
+> xmlDocument xDoc = new xmlDocument();
+> xDoc.Load("Data.xml");
+
+This won't work/ xDoc.Load() wants a filename, and there is no such file. Files 
+with a Build action of AndroidResource are embedded into the .apk and are not 
+extracted at install time; in order to access such files, you need to use the 
+Resources [0, 1] API:
+
+	var doc = new XmlDocument ();
+	doc.Load (context.Resources.GetXml (Resource.Xml.Data));
+
+Alternatively, instead of using the Android Resources API, you may want to 
+embed the file into your assembly. This will allow your code to be portable 
+across Windows and MonoTouch as well. You'd set the Build action for Data.xml 
+to EmbeddedResource, and use Assembly.GetManifestResourceStream()[2]:
+
+	var doc = new XmlDocument ();
+	doc.Load (Assembly.GetExecutingAssembly ().GetManifestResourceStream (@RESOURCE_NAME@));
+
+Note: You'll need to double-check/change the Resource ID when using the 
+EmbeddedResource build action, as @RESOURCE_NAME@ frequently will NOT be the 
+filename; see the file's Properties panel.
+
+
+[0]: http://androidapi.xamarin.com/?link=T:Android.Content.Res.Resources
+[1]: http://androidapi.xamarin.com/?link=P:Android.Content.Context.Resources
+[2]: http://androidapi.xamarin.com/?link=M:System.Reflection.Assembly.GetManifestResourceStream(string)
+
+
+
+ave got it by using a streamReader and indicating the correct url of my
+file after trying a lot of combinations... However I will try your ad Jon,
+it`s quite simple too.
+
+
+wnt to use xml file as data storage...can any one tell me how to
+store data to xml file from mono for android edit texts ....i have 2 edit
+text controls when i click on save button the data in the edit text have to
+store into the xml file...m very new to mono for android...where to create
+xml file and where to write code
+
+
+The (internal) creation of the XML file is the same in monodroid as it is in 
+C# as is the reading and writing to the device (XmlReader and XmlWriter classes).
+
+The creation is simple enough. I'll call your save button btnSave for argument
+here with the EditText controls edit1 and edit2
+
+btnSave.Click += delegate { saveToXml(edit1.Text, edit2.Text); };
+
+private void saveToXml(string text1, string text2)
+{
+string path = System.IO.Path.Combine(System.Environment.GetFolderPath 
+(Environment.SpecialFolder.MyDocuments),"myXMLfile.xml");
+try
+{
+XmlTextWriter textWriter = new XmlTextWriter(path);
+textWriter.WriteStartDocument();
+textWriter.WriteStartElement("string1");
+textWriter.WriteStartElement(text1);
+textWriter.WriteEndElement();
+textWriter.WriteStartElement("string2");
+textWriter.WriteStartElement(text2);
+textWriter.WriteEndElement();
+textWriter.WriteEndDocument();
+textWriter.Close();
+}
+catch (IOException ex)
+{
+Console.WriteLine("Exception thrown : {0}", ex.Message);
+}
+}
+
+(or however you want to write the XML document - this is a quick and simple method)
+
+You will need it have
+
+using System.Xml;
+
+at the start of the file 
+
+
+
+XmlTextWriter textWriter = new XmlTextWriter(path);
+ i m getting error at instantiation...new XmlTextWriter(path);....
+the error is:
+XmlTextWriter.XmlTextWriter(TextWriter writer) (+2 overload(s))
+ Error:
+ the best overloaded method match for
+'System.Xml.XmlTextWriter.XmlTextWriter(System.IO.TextWriter)' has some
+invalid arguments
+i have
+using System.Xml;
+using System.IO;
+but i m getting error at new XmlTextWriter(path)

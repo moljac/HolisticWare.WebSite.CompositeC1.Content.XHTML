@@ -1,0 +1,49 @@
+Please help this one.
+I am using Arch Linux, with mod_mono 2.10 and mono-basic 2.10.
+But when I run a page with this code,
+
+<%@ Page Language="VB" %>
+<html>
+<body>
+     <h1>Hello Web Pages</h1>
+</body>
+</html>
+
+I got this result,
+
+System.Web.Compilation.CompilationException VBNC_CRASH: Visual Basic.Net
+Compiler version 0.0.0.5943 Copyright (C) 2004-2010 Rolf Bjarne Kvinge. All
+rights reserved. Error : VBNC2017: The library 'Microsoft.VisualBasic.dll'
+could not be found.
+There were 1 errors and 0 warnings.
+Compilation took 00:00:00.1138380
+
+
+
+
+
+
+
+Do you have Microsoft.VisualBasic.dll on your system?
+
+
+
+The exact location may depend on the distro you're using, but in my case
+it's here:
+
+
+/usr/lib/mono/gac/Microsoft.VisualBasic/8.0.0.0__b03f5f7f11d50a3a/Microsoft.VisualBasic.dll
+
+
+Can you try to execute this from a console window:
+
+cd /tmp
+touch test.vb
+vbnc test.vb -target:library -verbose
+
+Rolf
+
+
+sudo ln
+-s /usr/lib/mono/4.0/Microsoft.VisualBasic.dll
+/usr/lib/mono/4.5/Microsoft.VisualBasic.dll

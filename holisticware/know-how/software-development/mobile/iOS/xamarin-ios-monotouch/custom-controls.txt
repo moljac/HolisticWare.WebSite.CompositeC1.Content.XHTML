@@ -1,0 +1,14 @@
+
+
+Begin
+	UIImageView some_controll
+
+Modifcation
+	CustomControlIngeritingFromUIImageView some_controll;
+	
+	
+CustomControlIngeritingFromUIImageView must be registered:
+
+	[Register["CustomControlIngeritingFromUIImageView"]]
+	public classs
+		CustomControlIngeritingFromUIImageView : UIViewImage

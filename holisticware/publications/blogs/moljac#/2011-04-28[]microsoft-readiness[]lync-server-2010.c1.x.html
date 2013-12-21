@@ -1,0 +1,173 @@
+<!--
+C1 generated!!
+<title>Microsoft Readiness Lync Server 2010</title>
+<meta name="Description" content="Microsoft Readiness Lync Server 2010" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="microsoft, readiness, lync server 2010" />
+	  <f:param name="AuthorsAdditional" value="moljac#, moljac++" />
+	  <f:param name="Date" value="2011-04-18" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Microsoft Readiness: Lync Server 2010</a></h1>
+	<!-- ================================================================== -->
+	<p>
+		igor pavlekovic NA algebra hr
+	</p>
+	<p>
+		<a href="http://bit.ly/igorp_lync2010">http://bit.ly/igorp_lync2010</a>
+	</p>
+	<p>
+	The question is why does Microsoft saws its own branch?
+	</p>
+	<p>
+		SIP facts:</p>
+	<ul>
+		<li>was designed to mimic HTTP (after success of http) why does MS implements HTTP 
+			over TLS??<ul>
+				<li>HTTP does not define encryption</li>
+			</ul>
+		</li>
+		<li>SIP is hard to push through the routers when natting and firewalling</li>
+		<li>SIP usually is used in
+			<ul>
+				<li>private VoIP networks (<ul>
+					<li>TSP VoIP cores</li>
+					<li>private voip subnet of the customer</li>
+					</ul>
+				</li>
+				<li>so no need for encryption<ul>
+					<li>TSP have legal obligation for LawfullInterception that is the reason tha 
+						REINVITE is mostly forbidden!</li>
+					<li>owners of companies (customers) using VoIP sometimes love/enjoy reading 
+						mails/listening to conversation<ul>
+							<li>we can argue about it but, this is the fact! </li>
+						</ul>
+					</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>there is a lot of new standards emerging on SIP<ul>
+			<li>IMS<ul>
+				<li>currently 2011-04 some Croatian TSP are migrating to IMS</li>
+				<li>im MS does not embrace standard-unecrypted SIP they just might say bye bye to 
+					mass deployment<ul>
+						<li>who needs Lync server when I need asterisk too</li>
+					</ul>
+				</li>
+				</ul>
+			</li>
+			</ul>
+		</li>
+		<li></li>
+		<li></li>
+		<li>LyncServe Control Pannel</li>
+		<li>Autodiscovery clients</li>
+		<li>ip hardphones<ul>
+			<li>Aries</li>
+			<li>CX700/IP8540</li>
+			<li>LG Nortel<ul>
+				<li>failed appart?</li>
+				</ul>
+			</li>
+			<li>Polycom</li>
+			</ul>
+		</li>
+	</ul>
+	<p>
+		Lync Server is not PBX killer (heheheh like Silverlight was not Flash killer)
+	</p>
+	<p>
+		IVR not much
+	</p>
+	<p>
+		IP tel 35kn./mth
+	</p>
+	<p>
+	Planning tool () TechEd)
+	</p>
+	<ol>
+		<li>Features to choose<ol>
+			<li>Dial In Conferencing</li>
+			<li>Web Conferencing</li>
+			<li>Enterprise Voice</li>
+			<li>Call Admission Control</li>
+			<li>Monitoring</li>
+			<li>Archiving (saving IM data, data/file transfer etc..., but no voice!)</li>
+			<li>Federation IM 
+			<ol>
+				<li>private: with other lync servers</li>
+				<li>publicL with AOL, yahoo....</li>
+				</ol>
+			</li>
+			<li>High Availability</li>
+			</ol>
+		</li>
+		<li>Sites<ol>
+			<li>conference settings</li>
+			<li>virtualization</li>
+			<li>Voice Infrastructure<ol>
+				<li>
+				SIP trunkig provider must be certified!! 
+				(SIP@TLS- encryption)
+				</li>
+				</ol>
+			</li>
+			<li>Topology</li>
+			<li>Location E911 (enhanced 911 emergency calls)</li>
+			<li></li>
+			</ol>
+		</li>
+	</ol>
+	<ul>
+		<li>Q: Algebra TSP???</li>
+		<li>A: Iskon</li>
+		<li>Q: Lync price?</li>
+		<li>A: kajne anung!</li>
+	</ul>
+	<p>
+		Asterisk TLS</p>
+	<p>
+		references</p>
+	<ul>
+		<li><a href="https://wiki.asterisk.org/wiki/display/AST/SIP+TLS+Transport">
+			https://wiki.asterisk.org/wiki/display/AST/SIP+TLS+Transport</a></li>
+		<li><a href="http://www.asteriskguru.com/board/trying-to-setup-tls-certificates-with-asterisk-16-vt3622.html">
+			http://www.asteriskguru.com/board/trying-to-setup-tls-certificates-with-asterisk-16-vt3622.html</a></li>
+		<li><a href="http://www.voipuser.org/forum_topic_15977.html">
+			http://www.voipuser.org/forum_topic_15977.html</a></li>
+		<li><a href="http://www.remiphilippe.fr/2010/05/30/sips-on-asterisk-sip-security-with-tls/">
+			http://www.remiphilippe.fr/2010/05/30/sips-on-asterisk-sip-security-with-tls/</a></li>
+		<li><a href="http://www.sipring.ru/overview/func-asterisk/100-asterisk-tls-transport.html">
+			http://www.sipring.ru/overview/func-asterisk/100-asterisk-tls-transport.html</a></li>
+		<li></li>
+	</ul>
+	<p>
+	configured the sip.conf file as follows:
+	</p>
+	<pre class="hw_code">
+tlsenable=yes
+tlsbindaddr=0.0.0.
+tlscertfile=/etc/asterisk/asterisk.pem
+tlscadir=/etc/pki/tls/certs
+	</pre>
+	<p>
+	and then in the sip account set transport=tls
+	</p>
+
+	<h2><a id="">
+		Asterisk Lync</a></h2>
+	<p>
+		refereces:</p>
+	<ul>
+		<li><a href="http://social.technet.microsoft.com/Forums/en-IE/ocsvoice/thread/1a70140c-4601-4bb9-aa6f-258729045de8">
+			http://social.technet.microsoft.com/Forums/en-IE/ocsvoice/thread/1a70140c-4601-4bb9-aa6f-258729045de8</a></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,30 @@
+http://stackoverflow.com/questions/12448034/android-google-map-errors-basetilerequest-server-returned-3
+
+01-15 00:03:26.070 W/System.err(19241): IOException processing: 26
+01-15 00:03:26.070 W/System.err(19241): java.io.IOException: Server returned: 3
+01-15 00:03:26.070 W/System.err(19241): 	at android_maps_conflict_avoidance.com.google.googlenav.map.BaseTileRequest.readResponseData(BaseTileRequest.java:115)
+01-15 00:03:26.070 W/System.err(19241): 	at android_maps_conflict_avoidance.com.google.googlenav.map.MapService$MapTileRequest.readResponseData(MapService.java:1473)
+01-15 00:03:26.070 W/System.err(19241): 	at android_maps_conflict_avoidance.com.google.googlenav.datarequest.DataRequestDispatcher.processDataRequest(DataRequestDispatcher.java:1117)
+01-15 00:03:26.070 W/System.err(19241): 	at android_maps_conflict_avoidance.com.google.googlenav.datarequest.DataRequestDispatcher.serviceRequests(DataRequestDispatcher.java:994)
+01-15 00:03:26.070 W/System.err(19241): 	at android_maps_conflict_avoidance.com.google.googlenav.datarequest.DataRequestDispatcher$DispatcherServer.run(DataRequestDispatcher.java:1702)
+01-15 00:03:26.070 W/System.err(19241): 	at java.lang.Thread.run(Thread.java:1019)
+
+Frequent Errors:
+
+AndroidRuntime : android.content.ActivityNotFoundException: Unable to find 
+explicit activity class  have you declared this activity in
+AndroidManifest.xml?
+
+Declare new activity class within AndroidManifest.xml file
+
+MapActivity: no class definition found
+
+Maybe you have not defined the Google API add-on library within your 
+AndroidManifest.xml, the declaration should reside WITHIN the application element:
+
+
+System.err(985): java.io.IOException: Server returned: 3
+at android_maps_conflict_avoidance.com.google.googlenav.map.BaseTileRequest.readResponseData(BaseTileRequest.java:115)
+
+You did not enter a valid and registered Google Maps Key. Please refer to the 
+point above how to register for a Google Maps key.

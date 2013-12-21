@@ -1,0 +1,30 @@
+# xCode StoryBoard
+
+0. connecting key sequence is "ctrl" + drag 
+1. connecting options "modal","push" & "custom"
+	-> push option between ViewControllers allows returning back to previous ViewController
+		push option allowed only for ViewControllers after the NavigationController
+
+	-> modal option between ViewControllers allows one way navigation
+
+
+NavigationController -> starting point for controling ViewControllers. 
+Connection options TO NavigationController is "modal" FROM is "push"
+ViewController -> fundamental iOS building block
+
+2. code behind
+	-> using custom class!
+		1. mark entire View, on the right side toolbar, second row from the top, third icon from the left
+		2. Custom Class, Class(UIView) -> enter desired name
+		3. Save xCode, open Monodevelop
+		4. You should see your newly created class, xCode will reload
+		5. go back to xCode
+		6. select element inside the View from which you recently created custom class
+		7. on the right side toolbar, first row from the top, "Editor" group, press second icon
+		8. you should see something like this (UserCredentials is the name of your class)
+
+			@interface UserCredentials : UIView {
+			}
+
+		9. select item from your View, ctrl + drag just bellow interface declaration and then choose action
+		10. fire up Monodevelop and code!

@@ -1,0 +1,371 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>20130612 Case 25: Compplete Development cycle with Xamarin cross platform tools</title>
+Description = all keywords + extra text
+<meta name="Description" content="20130612 Case 25:Complete Development cycle with Xamarin cross platform tools CASE 25 Presentation" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: 
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head></head>
+	<body lang="en-us" xml:lang="en-us">
+		<div class="reveal">
+			<div class="slides">
+				<!-- ================================================================================== -->
+				<section>
+					<h1>2 hours, 4 man-hours, <br /> 8 platforms with <br /> 2 Studios</h1>
+					<h2>CASE 25 Conference 2013-06-12 <br /> Workshop / Hands on lab</h2>
+					<blockquote><a href="http://holisticware.net">http://holisticware.net</a> <br /> presented by Ivan Ðikic, Miljenko Cvjetko <br /> <a href="http://xamarin.com">http://xamarin.com</a></blockquote>
+				</section> <!-- ================================================================================== -->
+				<section>
+					<!-- ............................................................... -->
+					<section>
+						<h2>Features / Requirements 1</h2>
+						<ul>
+							<li>Quasi-Instagram/Picassa App
+								<ul>
+									<li>no editing</li>
+									<li>upload only</li>
+								</ul>
+							</li>
+							<li>Application (mobile app) complexity
+								<ol>
+									<li>simple - no communication</li>
+									<li>medium - downloading only (consuming app)</li>
+									<li style="color: Yellow">complex - generating content + uploading</li>
+								</ol>
+							</li>
+							<li style="color: Red">cross platform</li>
+						</ul>
+					</section> <!-- ............................................................... -->
+					<section>
+						<h2>Features / Requirements 2</h2>
+						<h3>Platforms + Architecture</h3>
+						<ul>
+							<li>server (web, HTTP) <br /> ASP.net MVC 4 (XS MVC2, VS MVC4)</li>
+							<li>Clients - Desktop
+								<ul>
+									<li>Desktop
+										<ul>
+											<li>Windows: Windows Forms, WPF, [GTK#]</li>
+											<li>Mac OSX: MonoMac, Xamarin.Mac, [GTK#, Windows Forms]</li>
+											<li>Linux: GTK#, [Windows Forms]</li>
+										</ul>Feature: pick an image file
+									</li>
+									<li>Mobile
+										<ul>
+											<li>iOS: Xamarin.iOS</li>
+											<li>iOS: Xamarin.Android</li>
+											<li>Windows Phone</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section> <!-- ............................................................... -->
+					<section>
+						<h2>Features / Requirements 3</h2>
+						<h3>Platforms - Features</h3>
+						<ul>
+							<li>server
+								<ul>
+									<li>Display Slides (Images)</li>
+									<li>Service for upload of Slides / Images <br /> rAPI (Remote API) SOAP WebService</li>
+								</ul>
+							</li>
+							<li>clients
+								<ul>
+									<li>desktop
+										<ul>
+											<li>pick/choose/browse Slide (image) from device (filesystem)</li>
+											<li>upload Slide to server</li>
+										</ul>
+									</li>
+									<li>mobile
+										<ul>
+											<li>pick/choose/browse Slide (image) from device (filesystem)</li>
+											<li>take picture (Slide)</li>
+											<li>upload Slide to server</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+				</section> <!-- ================================================================================== -->
+				<section>
+					<!-- ............................................................... -->
+					<section>
+						<h2>Rules n Recommendations 1</h2>
+						<h3>RnRs ~= Style-guides</h3>
+						<ul>
+							<li>Rules - must haves
+								<ul>
+									<li>performance</li>
+									<li>security</li>
+								</ul>
+							</li>
+							<li>Recommendations - nice to have
+								<ul>
+									<li>Productivity</li>
+									<li>Communication</li>
+									<li>Maintenance</li>
+								</ul>
+							</li>
+						</ul>
+					</section> <!-- ............................................................... -->
+					<section>
+						<h2>Rules n Recommendations 2</h2>
+						<h3>Recommendations - Naming 1 Projects Namespaces</h3>
+						<ul>
+							<li>Naming
+								<ul>
+									<li>Project names (csproj files) <br /> reflects on project structure <br /> Order in IDE</li>
+									<li>Namespaces - unification across platform layers <!--
+									<pre style="color: Yellow">
+									</pre>
+									--></li>
+								</ul>
+							</li>
+						</ul>
+						<br /> 
+						<br />
+						<table style="font-size: smaller">
+							<tbody>
+								<tr>
+									<td>Company.Project.BusinessLogic</td>
+									<td>-</td>
+									<td>Company.Project.DLL_BL_platform</td>
+								</tr>
+								<tr>
+									<td>.</td>
+									<td>.</td>
+								</tr>
+								<tr>
+									<td>Company.Project.EXE</td>
+									<td>-</td>
+									<td>Company.Project.EXE_PL_platform</td>
+								</tr>
+								<tr>
+									<td>Company.Project.Application</td>
+									<td>-</td>
+									<td>Company.Project.EXE_platform</td>
+								</tr>
+							</tbody>
+						</table>
+					</section> <!-- ............................................................... -->
+					<section>
+						<h2>Rules n Recommendations 3</h2>
+						<h3>Recommendations - Naming 1 UI Elements</h3>
+						<blockquote>UI elements domain neutral</blockquote>
+						<ul>
+							<li>
+								<strong style="color: Red">Screen</strong>
+								<ul>
+									<li><small>Form - Windows Forms</small></li>
+									<li><small>Window - WPF, GTK, Mac (NSWindow), iOS (UIWindow)</small></li>
+									<li><small>Page - WPF, Silverlight (RIA, Windows Phone)</small></li>
+									<li><small>Activity - Android</small></li>
+								</ul>
+							</li>
+							<li>Controls/Views/Widgets 
+								<br /> 1st implemented platform rules?!?
+								<ul>
+									<li>WF or WPF - textBox1 <br /> desktop app easier to develop or unit testing</li>
+									<li>iOS - UITextView - use textBox1</li>
+									<li>Android - EditText - use textBox1</li>
+								</ul>
+								<strong style="color:Red">Events can be reused (not only events)</strong>
+							</li>
+						</ul>
+					</section>
+				</section> <!-- ================================================================================== -->
+				<section>
+					<!-- ............................................................... -->
+					<section>
+						<h2>Steps 0</h2>
+						<p>Naming for Controls / Widgets / Views:</p>
+						<ul>
+							<li>Screen</li>
+							<li>textBoxUrlWebService</li>
+							<li>textImageNamePickedTaken</li>
+							<li>buttonBoxBrowsePickTake</li>
+							<li>buttonSendUploadToUrlWebService</li>
+						</ul>
+					</section> <!-- ............................................................... -->
+					<section>
+						<h2>Steps 1</h2>
+						<table>
+							<tbody>
+								<tr>
+									<th>Dev-I</th>
+									<th>Dev-M</th>
+								</tr>
+								<tr>
+									<td>MXS: Create Solution</td>
+									<td>Explain</td>
+								</tr>
+								<tr>
+									<td>MXS: Create ASP.net MVC2</td>
+									<td>Explain</td>
+								</tr>
+								<tr>
+									<td>MXS: Project Creation: Business Logic DLLs <br /> NS = HolisticWare.SlideShow.BusinessLogic <br /> dll = HolisticWare.SlideShow.DLL_BL_XI <br /> dll = HolisticWare.SlideShow.DLL_BL_XA</td>
+									<td>Explain</td>
+								</tr>
+								<tr>
+									<td>MXS: Project Creation: Apps (EXEs) <br /> NS = HolisticWare.SlideShow.EXE <br /> exe = HolisticWare.SlideShow.EXE_XI <br /> exe = HolisticWare.SlideShow.EXE_XA <br /> exe = HolisticWare.SlideShow.EXE_MM</td>
+									<td>Explain</td>
+								</tr>
+								<tr>
+									<td>git commit</td>
+									<td>Explain <br /> git update</td>
+								</tr>
+							</tbody>
+						</table>
+					</section> <!-- ............................................................... -->
+					<section>
+						<h2>Steps 2</h2>
+						<table>
+							<tbody>
+								<tr>
+									<th>Dev-I</th>
+									<th>Dev-M</th>
+								</tr>
+								<tr>
+									<td>MXS: App / UI - Xamarin.iOS</td>
+									<td>WVS: ASP.net MVC 4 (Models, Controllers, Views) <br /> Explain <br /> Deploy (AWS Scripts) <br /> git commit</td>
+								</tr>
+								<tr>
+									<td>MXS: App / UI - MonoMac (Xamarin.Mac)</td>
+									<td>Explain</td>
+								</tr>
+								<tr>
+									<td>MXS: App / UI - Xamarin.Android</td>
+									<td>Explain</td>
+								</tr>
+								<tr>
+									<td>MXS: App / UI - GTK#</td>
+									<td>Explain</td>
+								</tr>
+								<tr>
+									<td>git update <br /> git commit</td>
+									<td>Explain <br /> <br /> git update</td>
+								</tr>
+							</tbody>
+						</table>
+					</section> <!-- ............................................................... -->
+					<section>
+						<h2>Steps 3</h2>
+						<table>
+							<tbody>
+								<tr>
+									<th>Dev-I</th>
+									<th>Dev-M</th>
+								</tr>
+								<tr>
+									<td>Explain</td>
+									<td>WVS: Project Creation: Business Logic DLLs <br /> NS = HolisticWare.SlideShow.BusinessLogic <br /> dll = HolisticWare.SlideShow.DLL_BL_ASPnet_WF_WPG_GTK_MM_XM <br /> dll = HolisticWare.SlideShow.DLL_BL_SL <br /> dll = HolisticWare.SlideShow.DLL_BL_WP</td>
+								</tr>
+								<tr>
+									<td>Explain</td>
+									<td>WVS: Project Creation: Apps (EXEs) <br /> NS = HolisticWare.SlideShow.EXE <br /> dll = HolisticWare.SlideShow.DLL_EXE_WF <br /> dll = HolisticWare.SlideShow.DLL_EXE_WPF <br /> dll = HolisticWare.SlideShow.DLL_EXE_SL <br /> dll = HolisticWare.SlideShow.DLL_EXE_WP</td>
+								</tr>
+								<tr>
+									<td><br /> git update</td>
+									<td>git commit</td>
+								</tr>
+							</tbody>
+						</table>
+					</section> <!-- ............................................................... -->
+					<section>
+						<h2>Steps 4</h2>
+						<table>
+							<tbody>
+								<tr>
+									<th>Dev-I</th>
+									<th>Dev-M</th>
+								</tr>
+								<tr>
+									<td>Explain</td>
+									<td>WVS: Project Linking - Business Logic dll</td>
+								</tr>
+								<tr>
+									<td>Explain</td>
+									<td>WVS: App / UI - Windows Forms</td>
+								</tr>
+								<tr>
+									<td>Explain</td>
+									<td>WVS: App / UI - WPF</td>
+								</tr>
+								<tr>
+									<td>Explain</td>
+									<td>WVS: App / UI - SL</td>
+								</tr>
+								<tr>
+									<td>Explain</td>
+									<td>WVS: App / UI - WP</td>
+								</tr>
+								<tr>
+									<td><br /> git update</td>
+									<td>git commit</td>
+								</tr>
+							</tbody>
+						</table>
+					</section> <!-- ............................................................... -->
+					<section>
+						<h2>Steps 5</h2>
+						<table>
+							<tbody>
+								<tr>
+									<th>Dev-I</th>
+									<th>Dev-M</th>
+								</tr>
+								<tr>
+									<td>Explain</td>
+									<td>Web References: MonoASPnetMVC4AWSHolisticware <br /> HolisticWare.SlideShow.DLL_BL_ASPnet_WF_WPG_GTK_MM_XM <br /> HolisticWare.SlideShow.DLL_BL_SL <br /> HolisticWare.SlideShow.DLL_BL_WP</td>
+								</tr>
+								<tr>
+									<td>Explain</td>
+									<td>Web References: Linking Manual <br /> HolisticWare.SlideShow.DLL_BL_XI <br /> HolisticWare.SlideShow.DLL_BL_XA</td>
+								</tr>
+								<tr>
+									<td>Explain</td>
+									<td>WVS: Business Logic Code implementation <br /> Linking explained <br /> Platform differences</td>
+								</tr>
+								<tr>
+									<td><br /> git update</td>
+									<td>git commit</td>
+								</tr>
+							</tbody>
+						</table>
+					</section> <!-- ............................................................... -->
+					<section>
+						<h2>Steps 6</h2>
+						<table>
+							<tbody>
+								<tr>
+									<th>Dev-I</th>
+									<th>Dev-M</th>
+								</tr>
+								<tr>
+									<td>Test mobile <br /> TestFlight</td>
+									<td>Test desktop</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+				</section> <!-- ================================================================================== -->
+				<section>
+					<!-- ............................................................... -->
+					<section>
+						<h2>Summary</h2>
+						<h2>????? Questions ?????</h2>
+						<blockquote><a href="http://holisticware.net">http://holisticware.net</a> <br /> presented by Ivan Ðikic, Miljenko Cvjetko, logistics <br /> Bruno Balabušic, Emilije Strahinja <br /> <a href="http://xamarin.com">http://xamarin.com</a></blockquote>
+					</section>
+				</section>
+			</div>
+		</div>
+	</body>
+</html>

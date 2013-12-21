@@ -1,0 +1,41 @@
+Can you provide an `Activity` constructor which takes parameters? 
+Yes. 
+
+Would it be at all helpful? 
+No, because Activities are started through Context.StartActivity() [0], 
+which provides no mechanism to invoke a non-default constructor.
+
+The "Android Way" to transfer data between Activities is to use the Intent 
+"extras" mechanism, e.g. Intent.PutExtra(string,string) [1] and 
+Intent.GetStringExtra(string) [2], which introduces it's own set of problems:
+
+1. Intents are also an IPC mechanism (as an Activity may actually reside in 
+another process -- this is by design), so you're restricted to types which
+can be marshaled across process boundaries.
+2. `String`s, `int`s, and other builtin types are supported, but aren't 
+exactly "high level" objects.
+3. "Higher level" objects are supported through the android.os.Parcelable [3] 
+interface, but 
+(a) it has a "marshal by value" semantics, so isn't useful for sharing read+write 
+data between activities, and 
+(b) Mono for Android doesn't currently support implementing this interface [4].
+
+So how do you share data between Activities? By punting.
+
+* Place the data onto an Application[5] subclass. This will be accessible via 
+the Context.ApplicationContext [6] property, and can store process-global state.
+
+* Use some other `public static` field within your process to contain the shared 
+information.
+
+* Provide a ContentProvider [7] implementation which will store and provide the 
+desired data when prompted.
+
+* Sqlite?
+
+* Serialize to a string and transfer the sring
+
+* etc.
+
+The launched activity can then use the Bundle parameter passed to OnCreate() to 
+extract the Intent data.

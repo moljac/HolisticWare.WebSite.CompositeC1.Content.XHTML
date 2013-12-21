@@ -1,0 +1,131 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Visual Studio Integration</title>
+Description = all keywords + extra text
+<meta name="Description" content="Visual Studio Integration for MonoTouch (iOS)" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: visual-studio-integration
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="monotouch, ios, visual, studio, integration" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2012-02-21" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Visual Studio Integration</a></h1>
+	<p>
+		Date created : 2012-02-21
+		<br />
+		Date modified: 2012-10-05
+	</p>
+	<h2></h2>
+	
+	<ol>
+		<li>
+			Use plug-in/extension to enable Visual Studio to load MonoTouch projects.
+			<br />
+			Here is plug-in developed by HolisticWare team 
+			<a href="https://github.com/moljac/MonoVersalProjectFlavesForVisualStudio2010">
+			MonoVersalProjectFlaves for Visual Studio 2010 
+			<br />
+			https://github.com/moljac/MonoVersalProjectFlavesForVisualStudio2010
+			</a>
+			HolisticWare plugin is based on Jamie Briant's plug-in
+			<a href="https://github.com/jamiebriant/VsMono">
+				https://github.com/jamiebriant/VsMono
+			</a>
+			and adds ability to load other MonoDevelop projects like MonoMac and Windows Mobile
+			projects (CE framework and SmartDevice) due to the fact that support for those
+			projects is discontinued by Microsoft in Visual Studio version 2010 and above.
+		</li>
+		<li>
+			Copy MonoTouch assemblies to some folder on Windows box.
+			<br />
+			Source:
+			<ul>
+				<li>
+					MacOSX
+				</li>
+				<li>
+					Extract MonoTouch package
+				</li>
+			</ul>
+			Destination: 
+			<br />
+			D:\SRC\Core_2011\Core.DLL_201_BL_mClnt_CrossPlatform_MobileAPI_Xamarin\lib
+		</li>
+		<li>
+			Add destination folder to Visual Studio MonoTouch Project +/ Properties +/ Reference Paths.
+		</li>
+	</ol>
+
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+
+	<h2>References</h2>
+	<ol>
+		<li>
+			<a href="https://github.com/moljac/MonoVersalProjectFlavesForVisualStudio2010">
+			https://github.com/moljac/MonoVersalProjectFlavesForVisualStudio2010
+			</a>
+		</li>
+		<li>
+			<a href="http://escoz.com/blog/developing-with-monotouch-on-windows-and-visual-studio/">
+			http://escoz.com/blog/developing-with-monotouch-on-windows-and-visual-studio/
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/follesoe/VSMonoTouch">
+			https://github.com/follesoe/VSMonoTouch
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/jamiebriant/VsMono">
+			https://github.com/jamiebriant/VsMono
+			</a>
+		</li>
+	</ol>
+
+<!--
+Solved it.
+
+Need to add    
+
+ <NoStdLib>true</NoStdLib>
+
+to get VS to not automatically add the mscorlib reference.
+
+Cheers,
+Greg
+
+On 03/10/2012, at 10:21 PM, Greg Munn <greg@cinandgreg.com> wrote:
+
+> Hi All,
+>
+> I've been trying to get VSMonoTouch working again for VS 2012.  I've tried the fork that supports 
+> VS 2012 and the project loads but when I build I get the following:
+>
+> Warning	2	There was a mismatch between the processor architecture of the project being built "MSIL" 
+> and the processor architecture of the reference "C:\Windows\Microsoft.NET\Framework\v2.0.50727\mscorlib.dll", "x86". 
+> This mismatch may cause runtime failures. Please consider changing the targeted processor architecture of 
+> your project through the Configuration Manager so as to align the processor architectures between your project 
+> and references, or take a dependency on references with a processor architecture that matches the targeted 
+> processor architecture of your project.	C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets	MonoKit
+>
+>
+> Has anyone managed to get it to work?
+-->
+</body>
+</html>

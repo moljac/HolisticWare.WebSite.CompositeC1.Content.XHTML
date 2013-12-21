@@ -1,0 +1,86 @@
+﻿In economic view where iOS tool costs about $199 plus monoTouch $399 for personal, HTML5 would be the next choice if someone does not need sophisticate features rather than web features such as accessing and displaying? No matter what tools utilize, it seems to be more complex to use the combination of Mono touch + iOS rather just use iPhone app development tool, which is different than Android SDK anyway? I feel like we are trying to save dime here? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Young Kim - this comes down to needs of course. Do you need the application to work on both iOS and Android? Is the application large enough to justify going with cross-platform approach? Will there be functionality in this project that you might want to use again in a future project?
+ 
+The cost of license is the cost of doing business, if the application is commercial. Usually it is a drop in the bucket compared to cost of development hours. If it saves time then it's also a money saver.
+ 
+As the OP is looking to learn, I would make sure the tool has a free demo or academic license (one that doesn't expire after a short period of time). You will still be able to learn but won't be able to run the applications on real device. Most of the skills learned with Mono for Android should be easily transferable skills to developing with Dalvik. The danger is that C# offers quite a nice set of utility libraries (not to mention LINQ) so if you use those heavily your transfer to pure Android code might not be so painless...
+ 
+The one positive with using something like Mono is that one could develop an app side-by-side and at the same time see what the differences are between iOS and Android development. You would still need to get inside XCode, if for nothing else then for GUI components. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+If your requirement is to write something that is a simple business app, then you have many choices to pick from, but as your requirements increase your choices drop. For example, if you want a highly performant game then native is more likely to suit. Obviously then it's best to stick to Xcode and objective c for iPhone with perhaps cocoa2d or openGL. For android then it's Java and similar libraries.
+ 
+On iphone you can also use C, so if you have lots of c libraries in your tool kit then you may be at an advantage. Link C to openGL then you should be able to reuse a lot of this code on multiple devices.
+ 
+The problem is that coding in C is error prone, so C# is a great alternative, its a managed language that shields you from memory allocation problems and the quirks of C / objective C, Xamarin provide everything you need to cross compile C# to iPhone and Android, obviously you can use C# on windows phone too, I believe Blackberry too, but here we are talking about a performance hit in comparison to their non managed objective C solutions.
+ 
+More recently HTML 5, CSS3 and JavaScript enables you to target multiple mobiles and tablets, running through a web kit browser, wrapped in a small native app, using say Phonegap.
+ 
+The choice you make is down to 
+
+Performance required (do you require threading, are you timing critical) 
+Simplification (managed language v non) 
+Frameworks (.net offers a lot on top of cocoa UI.. A LOT!) 
+Your comfort zone (JavaScript, c#, c, objective C, Java) 
+What platforms you need to target (how much can you reuse) 
+
+It's not all down to the language either, sometimes software patterns can help with reuse, like the Model View Presenter pattern, or Model View Controller, Model View ViewModel, etc.
+ 
+I started with objective C, for iPhone as my only target. 
+
+My second app is being written in c# with Xamarins MonoTouch for iOS and MonoDroid for Android.
+ 
+My next app is going to be written using HTML5, CSS3, JavaScript on top of Phonegap.
+ 
+This is NOT to say that my evolution means the latter is any better than my former attempts, it's just that the apps don't need tons of speed, but they do need to be multi platform.
+ 
+Pros and cons are different for each, hopefully you have the basic knowledge to help you based on the above.
+ 
+Good luck and enjoy the journey, it's worth subscribing to a few forums / rss feeds that trickle tips and other people gotchas regularly, this way you are constantly learning and getting at least a feeling as you move forwards.
+ 
+I use PlualSight too, an excellent resource, I very much recommend it! 
+
+
+
+
+
+
+
+
+UI animation: IScroll 
+
+UI basics: Bootstrapjs/css 
+
+Client App Framework: Knockoutjs 
+
+Client data framework: JayData 
+
+

@@ -1,0 +1,5 @@
+# Feature suggestions 2012-12-21 #
+
++ 	project operations (csproj + folder)  
+	copying/moving/renaming  
+	it would be great if renaming project would rename folder too - or ask to do!  

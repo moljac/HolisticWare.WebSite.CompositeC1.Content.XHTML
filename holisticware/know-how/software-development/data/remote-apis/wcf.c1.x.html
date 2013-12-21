@@ -1,0 +1,8 @@
+It is not possible to use WCF proxies that is built with .NET 4.0 profile. 
+WCF in Mono for Android is based on almost the same API profile as what Silverlight 
+had, which references "2.1" profile of WCF assemblies. 
+
+To generate 2.1-compatible WCF proxies, one needs to use:
+	Silverlight SDK's SlSvcUtil.exe 
+	or 
+	mono's svcutil with --moonlight or --monotouch option.

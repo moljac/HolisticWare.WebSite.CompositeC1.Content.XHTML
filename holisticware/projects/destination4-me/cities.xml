@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gradovis>
+  <gradovi>
+	<id>1</id>
+	<grad>Zagreb</grad>
+  </gradovi>
+  <gradovi>
+	<id>2</id>
+	<grad>Split</grad>
+  </gradovi>
+  <gradovi>
+	<id>3</id>
+	<grad>Rijeka</grad>
+  </gradovi>
+  <gradovi>
+	<id>4</id>
+	<grad>Varaždin</grad>
+  </gradovi>
+</gradovis>
+
+
+<!--
+<gradovis>
+  <gradovi>
+	<id><![CDATA[1]]></id>
+	<grad><![CDATA[Zagreb]]></grad>
+  </gradovi>
+  <gradovi>
+	<id><![CDATA[2]]></id>
+	<grad><![CDATA[Split]]></grad>
+  </gradovi>
+  <gradovi>
+	<id><![CDATA[3]]></id>
+	<grad><![CDATA[Rijeka]]></grad>
+  </gradovi>
+  <gradovi>
+	<id><![CDATA[5]]></id>
+	<grad><![CDATA[Varaždin]]></grad>
+  </gradovi>
+</gradovis>
+-->
+

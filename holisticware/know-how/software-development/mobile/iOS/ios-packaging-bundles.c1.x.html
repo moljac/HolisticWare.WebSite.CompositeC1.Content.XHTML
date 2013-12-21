@@ -1,0 +1,138 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>iOS packaging - Bundles</title>
+Description = all keywords + extra text
+<meta name="Description" content="iOS packaging - Bundles (ipa, app files)" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: iOS packaging - Bundles
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="ios, packaging, packages, bundles, ipa, app" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2012-11-13" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>iOS packaging - Bundles</h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<p>
+		Every iOS (iPhone and iPad) app (and similar for apps on OS X) is a "bundle" which 
+		isn't an executable in the traditional sense, but actually a folder hierarchy inside 
+		of which app binary resides (along with resources, settings, etc.).
+	</p>
+
+	<p>
+		iOS apps are sandboxed (uebersandboxed), so apps are restricted to the complete
+		file-system (shared folders, etc) like for ordinary desktop development 
+		(common Documents folder that lives under a user's home folder to which 
+		applications have access).
+		<br />
+		Instead, every app has its own folder hierarchy that's like its own personal 
+		set of the folders that would typically be shared across apps.
+	</p>
+	<p>
+		One of the possible ways to see the file-system structure is with simulator (but not 
+		entirely the same)
+		<br />
+		The folders iOS simulator uses for app installs, settings and app file-system structure
+		is usually:
+	</p>
+	<pre>
+	~/Library/Application Support/iPhone Simulator
+	</pre>
+	<p>
+		This is usually divided into subfolders according to installed SDKs:
+	</p>
+	<pre>
+	~/Library/Application Support/iPhone Simulator
+	</pre>
+
+
+
+
+
+
+	<!-- ================================================================== -->
+	<h2>IPA</h2>
+		
+	<p>
+		IPA size 2012-10:
+	</p>
+	<ol>
+		<li>
+			ipa size > 20 MiB - users are asked to download it only on 
+			the Wi-Fi network and the 3G download would be disabled.
+		</li>
+		<li>
+			max size for app store is 2 GiB. 
+		</li>
+	</ol>
+	<p>
+		Make app less than 2gb, then download the remaining data on demand
+		(once the app is launched).
+		<br />
+		Enterprise builds, have no limits.
+	</p>
+	<p>
+		IPA content 2012-10:
+	</p>
+	<ol>
+		<li>
+			iTunesMetadata.plist
+		</li>
+		<li>
+			Payload
+		</li>
+	</ol>
+	<pre class="hw_code">
+AppName.ipa\iTunesMetadata.plist
+AppName.ipa\Payload
+AppName.ipa\Payload\AppName.app
+AppName.ipa\Payload\AppName.app\AboutUsVC.nib
+AppName.ipa\Payload\AppName.app\embedded.mobileprovision
+AppName.ipa\Payload\AppName.app\FileSharing_iPad.nib
+AppName.ipa\Payload\AppName.app\FileSharing_iPhone.nib
+AppName.ipa\Payload\AppName.app\HolisticWare
+AppName.ipa\Payload\AppName.app\somedll.dll
+AppName.ipa\Payload\AppName.app\appname
+AppName.ipa\Payload\AppName.app\appname.exe
+AppName.ipa\Payload\AppName.app\Info.plist
+AppName.ipa\Payload\AppName.app\Mono.Security.dll
+AppName.ipa\Payload\AppName.app\MonoTouch.Dialog-1.dll
+AppName.ipa\Payload\AppName.app\monotouch.dll
+AppName.ipa\Payload\AppName.app\mscorlib.dll
+AppName.ipa\Payload\AppName.app\PkgInfo
+AppName.ipa\Payload\AppName.app\ResourceRules.plist
+AppName.ipa\Payload\AppName.app\System.Core.dll
+AppName.ipa\Payload\AppName.app\System.dll
+AppName.ipa\Payload\AppName.app\System.Json.dll
+AppName.ipa\Payload\AppName.app\System.Xml.dll
+AppName.ipa\Payload\AppName.app\System.Xml.Linq.dll
+AppName.ipa\Payload\AppName.app\_CodeSignature
+AppName.ipa\Payload\AppName.app\HolisticWare\GeoLocation
+AppName.ipa\Payload\AppName.app\HolisticWare\GeoLocation\docs.txt
+AppName.ipa\Payload\AppName.app\_CodeSignature\CodeResources
+	</pre>
+
+
+	<!-- ================================================================== -->
+	<h2>APP</h2>
+
+	<!-- ================================================================== -->
+	<!--
+	http://holisticware.net/HolisticWare/Know-How/development/Mobile/iOS1/iOS-packaging-bundles.aspx
+	-->
+</body>
+</html>

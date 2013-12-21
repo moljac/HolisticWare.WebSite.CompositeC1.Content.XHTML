@@ -1,0 +1,49 @@
+xib free app should be better in the long run. I have had so many crashes that 
+always report, some in MonoDevelop and some in Xcode, I have also noted that 
+there are times where the sync'ing back to MonoDevelop has crashed both MonoDevelop 
+and XCode at the same time, both needing to be forced to quit which does not make sense 
+to me as the sync'ing from what I can see is not done via processes but file watching
+if you see my logic.
+
+I will in future use Xcode to only prototype screen layouts then creating the views
+programatically.
+
+
+What worked for me was rem'ing out the designer.cs for the view controllers and
+modifying the constructor for the view controller to remove the reference to the 
+xib files, this means you can put them back in if you need to.
+
+I found things compile much quicker without the xib files.
+
+
+    MonoDevelop and some in Xcode, I have also noted that there are times where the sync'ing back to MonoDevelop has crashed both MonoDevelop and XCode at the same time, both needing to be forced to quit which does not make sense to me as the sync'ing from what I can see is not done via processes but file watching if you see my logic.
+
+
+There's some IPC (via AppleScripting) between MonoDevelop and Xcode as well, during the syncing process, so this might explain that.
+
+
+    Where are the timeouts?, I will have a play with them if they are available to me.
+
+
+Unfortunately, they are not available for users to tweak (they are currently hard-coded in MonoDevelop). MonoDevelop's XcodeSync log file would help me figure out if it is related to the timeouts at all, or if it is something else.
+
+
+
+
+If you can get your hands on the appropriate XcodeSync log file in the MonoDevelop log directory, that might be enough. I added some fairly verbose debugging WriteLines in MonoDevelop's syncing logic in order to make it easier for me to debug these kinds of issues.
+
+You should be able to find them in /Users/<name>/Library/Logs/MonoDevelop-3.0/Xcode*.log
+
+uch, I'm really sorry that you are having this issue. MonoDevelop's XcodeSync log files can be found in /Users/<name>/Library/Logs/MonoDevelop-3.0/Xcode*.log - if you could get me the log file from the session where one of these Xcode syncing bugs occurred, hopefully the log file will provide me some clues as to what is going wrong (assuming I did a good enough job with sprinkling WriteLines around in the code). You can either email them to me directly or you can file a bug on http://files.xamarin.com and attach the log file(s) there (you can also mark them as private if you want).
+
+Again, I'm truly sorry that you've had to deal with this problem.
+
+
+
+
+
+It's worth investigating. I can make no guarantees that your current hardware is the cause of the xcode syncing problem, of course, but it's possible. Upgrading your hardware certainly wouldn't hurt. A year ago when I was doing a lot of work on the Xcode syncing stuff, I was finding that 4GB of RAM for running 2 copies of MonoDevelop (debugging MonoDevelop inside MonoDevelop) and Xcode side-by-side was a bit on the slow side and once I upgraded my RAM, things ran a lot faster. 8GB of RAM and an SSD should improve things a lot for you.
+
+That said, I did find one error in the log files you sent me yesterday indicating a race condition that caused an NRE during one of the last syncs in your most recent MonoDevelop session. I'm not 100% sure that it is the cause of the failure to sync, but it might be. The problem is that I'm not sure how the race was happening (the only way I can see how it could have happened is if our AppleSdkSettings object emitted a Changed event mid-sync, but I'm not sure how that could happen). That was the only code-path that didn't do the proper locking before modifying some internal state variables used by the syncing process. I've added the proper locking for an upcoming MonoDevelop 3.0.4.8 release (I can provide a pre-release download for you as soon as I get to the office). Maybe you can test it out for a few days and see if it seems to solve the issue for you.
+
+

@@ -1,0 +1,507 @@
+<!--
+C1 generated!!
+<title>2011-04-05 Composite C1 silverlight integration</title>
+<meta name="Description" content="2011-04-05 Composite C1 Silverlight integration" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="2011-04-05, Composite, C1, Silverlight, integration" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-04-05" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">2011-04-05 Composite  C1 Silverlight Integration</a></h1>
+	<!-- ================================================================== -->
+	<p>Date: 2011-04-05</p>
+
+	<h2><a id="">Intro</a></h2>
+	<p>
+	This write-up is based on 
+	<a href="~/holisticware/know-how/development/web/silverlight/silverlight-applications-embedding-in-web-pages.aspx">
+	general principles of silverlight integration in the web pages
+	</a>
+	</p>
+	<h2><a id="">Composite C1 framework</a></h2>
+
+	<h3><a id="">Defining C1 XSLT function without parameters</a></h3>
+	<p>
+	First step was to define XSLT function without parameters to see if 
+	Silverlight will be embedded...
+	</p>
+
+	<pre class="hw_code">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0" 
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:in="http://www.composite.net/ns/transformation/input/1.0" 
+	xmlns:lang="http://www.composite.net/ns/localization/1.0" 
+	xmlns:f="http://www.composite.net/ns/function/1.0" 
+	xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl in lang f"&gt;
+  &lt;xsl:template match="/"&gt;
+	&lt;html&gt;
+	  &lt;head&gt;
+	&lt;!-- markup placed here will be shown in the head section of the rendered page --&gt;
+		&lt;script type="text/javascript" src="/js/Silverlight.ErrorHandling.uncompressed.20110318.js"&gt;&lt;/script&gt;
+		&lt;script type="text/javascript" src="/js/Silverlight.js"&gt;&lt;/script&gt;
+	  &lt;/head&gt;
+	  &lt;body&gt;
+		&lt;!-- markup placed here will be the output of this rendering --&gt;
+		&lt;!--
+		&lt;div&gt;
+		  Value of input parameter 'TestParam': 
+		  &lt;xsl:value-of select="/in:inputs/in:param[@name='Input parameter name']" /&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+		  Value of function call 'TestCall': 
+		  &lt;xsl:value-of select="/in:inputs/in:result[@name='Function call local name']" /&gt;
+		&lt;/div&gt;
+		--&gt;
+		&lt;div id="silverlightControlHostDiv"&gt;
+		  &lt;object 
+			id="silverlight_contro_host_placeholder_object" 
+			data="data:application/x-silverlight-2," 
+			type="application/x-silverlight-2" 
+			width="400%" height="100"
+		&gt;
+			&lt;param name="source" value="/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap" /&gt;
+			&lt;param name="onError" value="onSilverlightError" /&gt;
+			&lt;param name="background" value="transparent" /&gt;
+			&lt;param name="minRuntimeVersion" value="4.0.50826.0" /&gt;
+			&lt;param name="autoUpgrade" value="true" /&gt;
+			&lt;a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0" 
+				style="text-decoration:none"&gt;
+				&lt;img src="http://go.microsoft.com/fwlink/?LinkId=161376" 
+					alt="Get Microsoft Silverlight" style="border-style:none" /&gt;
+			&lt;/a&gt;
+		 &lt;/object&gt;
+		  &lt;iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"&gt;&lt;/iframe&gt;
+		&lt;/div&gt;
+	  &lt;/body&gt;
+	&lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+	</pre>
+	<p>
+	</p>
+	<pre class="hw_code">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:in="http://www.composite.net/ns/transformation/input/1.0" 
+	xmlns:lang="http://www.composite.net/ns/localization/1.0" 
+	xmlns:f="http://www.composite.net/ns/function/1.0" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	exclude-result-prefixes="xsl in lang f"&gt;
+  &lt;xsl:template match="/"&gt;
+	&lt;html&gt;
+	  &lt;head&gt;
+	&lt;!-- markup placed here will be shown in the head section of the rendered page --&gt;
+		&lt;script type="text/javascript" src="/js/Silverlight.ErrorHandling.uncompressed.20110318.js"&gt;&lt;/script&gt;
+		&lt;script type="text/javascript" src="/js/Silverlight.js"&gt;&lt;/script&gt;
+	  &lt;/head&gt;
+	  &lt;body&gt;
+		&lt;!-- markup placed here will be the output of this rendering --&gt;
+		&lt;!--
+		&lt;div&gt;
+		  Value of input parameter 'TestParam': 
+		  &lt;xsl:value-of select="/in:inputs/in:param[@name='Input parameter name']" /&gt;
+		&lt;/div&gt;
+		&lt;div&gt;
+		  Value of function call 'TestCall': 
+		  &lt;xsl:value-of select="/in:inputs/in:result[@name='Function call local name']" /&gt;
+		&lt;/div&gt;
+		--&gt;
+		&lt;div id="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdDivSilverlightControlHost']' /&gt;" &gt;
+		  &lt;object 
+			id="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" 
+			data="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" 
+			type="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" 
+			width="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" 
+			height="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;"
+			&gt;
+			&lt;param name="source" value="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" /&gt;
+			&lt;param name="onError" value="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" /&gt;
+			&lt;param name="background" value="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" /&gt;
+			&lt;param name="minRuntimeVersion" value="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" /&gt;
+			&lt;param name="autoUpgrade" value="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" /&gt;
+			  
+			&lt;a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0" 
+			  style="text-decoration:none"&gt;
+				&lt;img src="http://go.microsoft.com/fwlink/?LinkId=161376" 
+					 alt="Get Microsoft Silverlight" style="border-style:none" /&gt;
+			&lt;/a&gt;
+		  &lt;/object&gt;
+		  &lt;iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"&gt;&lt;/iframe&gt;
+		&lt;/div&gt;
+	  &lt;/body&gt;
+	&lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+	</pre>
+	<p>
+	Preview:
+	</p>
+	<pre class="hw_code">
+	   &lt;div id=""&gt;
+		  &lt;object 
+			id="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" 
+			data="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" 
+			type="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" 
+			width="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" 
+			height="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;"
+			&gt;
+			&lt;param name="source" value="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" /&gt;
+			&lt;param name="onError" value="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" /&gt;
+			&lt;param name="background" value="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" /&gt;
+			&lt;param name="minRuntimeVersion" value="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" /&gt;
+			&lt;param name="autoUpgrade" value="&lt;xsl:value-of select='/in:inputs/in:param[@name='IdObjectSilverlightControlHost']' /&gt;" /&gt;
+			  
+			&lt;a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0" 
+			  style="text-decoration:none"&gt;
+				&lt;img src="http://go.microsoft.com/fwlink/?LinkId=161376" 
+					 alt="Get Microsoft Silverlight" style="border-style:none" /&gt;
+			&lt;/a&gt;
+		  &lt;/object&gt;
+		  &lt;iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"&gt;&lt;/iframe&gt;
+		&lt;/div&gt;
+	</pre>
+
+
+	<h3><a id="">XSLT function defined by C1 guys</a></h3>
+	
+	<p>
+	Holisticware team submitted Silverlight XSLT function to Composite C1 as contribution
+	in 2011-03, few days before Composite C1 team has published their version.
+	</p>
+
+	<pre class="hw_code">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:in="http://www.composite.net/ns/transformation/input/1.0"
+  xmlns:lang="http://www.composite.net/ns/localization/1.0"
+  xmlns:f="http://www.composite.net/ns/function/1.0"
+  xmlns="http://www.w3.org/1999/xhtml"
+  exclude-result-prefixes="xsl in lang f"&gt;
+
+  &lt;xsl:variable name="ClientId" select="/in:inputs/in:param[@name='ClientId']/text()" /&gt;
+  &lt;xsl:variable name="Source" select="/in:inputs/in:param[@name='Source']/text()" /&gt;
+  &lt;xsl:variable name="Width" select="/in:inputs/in:param[@name='Width']/text()" /&gt;
+  &lt;xsl:variable name="Height" select="/in:inputs/in:param[@name='Height']/text()" /&gt;
+
+  &lt;xsl:variable name="VirtualFolderPath" select="/in:inputs/in:result[@name='ApplicationPath']/text()" /&gt;
+  
+  &lt;xsl:template match="/"&gt;
+	&lt;html&gt;
+	  &lt;head /&gt;
+	  &lt;body&gt;
+		&lt;object width="{$Width}" height="{$Height}" data="data:application/x-silverlight-2," type="application/x-silverlight-2"&gt;
+		  &lt;xsl:if test="$ClientId != ''"&gt;
+			&lt;xsl:attribute name="id"&gt;
+			  &lt;xsl:value-of select="$ClientId" /&gt;
+			&lt;/xsl:attribute&gt;
+		  &lt;/xsl:if&gt;
+		  &lt;param name="source" value="{$VirtualFolderPath}{$Source}" /&gt;
+
+		  &lt;a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50401.0" style="text-decoration: none;"&gt;
+			&lt;img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style: none" /&gt;
+		  &lt;/a&gt;
+		&lt;/object&gt;
+	  &lt;/body&gt;
+	&lt;/html&gt;
+  &lt;/xsl:template&gt;
+  
+&lt;/xsl:stylesheet&gt;
+</pre>
+
+	<p>
+	HolisticWare version of final XSLT function with few more parameters, but not so much 
+	xslt logic implemented.
+	<br />
+	It is in contrib part right now.
+	<a href="http://docs.composite.net/C1/Packages/Contribution/HolisticWareSilverlightPlayer.aspx">
+	http://docs.composite.net/C1/Packages/Contribution/HolisticWareSilverlightPlayer.aspx
+	</a>
+	</p>
+
+	<pre class="hw_code">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0" 
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+  xmlns:in="http://www.composite.net/ns/transformation/input/1.0" 
+  xmlns:lang="http://www.composite.net/ns/localization/1.0" 
+  xmlns:f="http://www.composite.net/ns/function/1.0" 
+  xmlns="http://www.w3.org/1999/xhtml" 
+  exclude-result-prefixes="xsl in lang f"
+&gt;
+  
+  &lt;xsl:variable name="IdDivSilverlightControlHost"       select="/in:inputs/in:param[@name='IdDivSilverlightControlHost']/text()" /&gt;
+  &lt;xsl:variable name="IdObjectSilverlightControlHost"    select="/in:inputs/in:param[@name='IdObjectSilverlightControlHost']/text()" /&gt;
+  &lt;xsl:variable name="SourceXAP"                         select="/in:inputs/in:param[@name='SourceXAP']/text()" /&gt;
+  &lt;xsl:variable name="Data"                              select="/in:inputs/in:param[@name='Data']/text()" /&gt;
+  &lt;xsl:variable name="Type"                              select="/in:inputs/in:param[@name='Type']/text()" /&gt;
+  &lt;xsl:variable name="Width"                             select="/in:inputs/in:param[@name='Width']/text()" /&gt;
+  &lt;xsl:variable name="Height"                            select="/in:inputs/in:param[@name='Height']/text()" /&gt;
+  &lt;xsl:variable name="JSErrorHandler"                    select="/in:inputs/in:param[@name='JSErrorHandler']/text()" /&gt;
+  &lt;xsl:variable name="Backgorund"                        select="/in:inputs/in:param[@name='Backgorund']/text()" /&gt;
+  &lt;xsl:variable name="RuntimeMin"                        select="/in:inputs/in:param[@name='RuntimeMin']/text()" /&gt;
+  &lt;xsl:variable name="UpgradeAutomatic"                  select="/in:inputs/in:param[@name='UpgradeAutomatic']/text()" /&gt;
+  
+  &lt;xsl:variable name="AllowHtmlPopupWindow"              select="/in:inputs/in:param[@name='AllowHtmlPopupWindow']/text()" /&gt;
+  &lt;xsl:variable name="EnableHTMLAccess"                  select="/in:inputs/in:param[@name='EnableHTMLAccess']/text()" /&gt;
+  &lt;xsl:variable name="InitParams"                        select="/in:inputs/in:param[@name='InitParams']/text()" /&gt;
+  &lt;xsl:variable name="MaxFrameRate"                      select="/in:inputs/in:param[@name='MaxFrameRate']/text()" /&gt;
+  &lt;xsl:variable name="JSOnFullScreenChanged"             select="/in:inputs/in:param[@name='JSOnFullScreenChanged']/text()" /&gt;
+  &lt;xsl:variable name="JSOnLoad"                          select="/in:inputs/in:param[@name='JSOnLoad']/text()" /&gt;
+  &lt;xsl:variable name="JSOnResize"                        select="/in:inputs/in:param[@name='JSOnResize']/text()" /&gt;
+  &lt;xsl:variable name="JSOnSourceDownloadComplete"        select="/in:inputs/in:param[@name='JSOnSourceDownloadComplete']/text()" /&gt;
+  &lt;xsl:variable name="JSOnSourceDownloadProgressChanged" select="/in:inputs/in:param[@name='JSOnSourceDownloadProgressChanged']/text()" /&gt;
+  &lt;xsl:variable name="SplashScreenSource"                select="/in:inputs/in:param[@name='SplashScreenSource']/text()" /&gt;
+  &lt;xsl:variable name="Windowless"                        select="/in:inputs/in:param[@name='Windowless']/text()" /&gt;
+  
+  &lt;xsl:template match="/"&gt;
+	&lt;html&gt;
+	  &lt;head&gt;
+	&lt;!-- markup placed here will be shown in the head section of the rendered page --&gt;
+		&lt;!-- 
+		Silverlight javascript can be loaded at the end of the html (just before closing body tag)
+		in order to avoid blocking.
+		It is recomde
+		1. Put it (merge) in a sinlge javascript file to reduce requests post script 
+		2. minify-obfuscate-compress it for 
+		3. add some kind of tag in the filename (timestamp) to allow caching
+		
+		--&gt;
+		&lt;script type="text/javascript" src="/js/Silverlight.ErrorHandling.uncompressed.20110318.js"&gt;&lt;/script&gt;
+		&lt;script type="text/javascript" src="/js/Silverlight.js"&gt;&lt;/script&gt;
+	  &lt;/head&gt;
+	  &lt;body&gt;
+		&lt;!-- markup placed here will be the output of this rendering --&gt;
+		&lt;!--
+		Debugging
+		&lt;xsl:value-of select="/in:inputs/in:param[@name='SourceXAP']" /&gt;
+		--&gt;
+		&lt;div id="{$IdDivSilverlightControlHost}"&gt;
+		  &lt;object 
+			id="{$IdObjectSilverlightControlHost}" 
+			data="{$Data}" 
+			type="{$Type}" 
+			width="{$Width}" 
+			height="{$Height}"
+		  &gt;
+			&lt;param name="source" value="{$SourceXAP}" /&gt;
+			&lt;param name="onError" value="{$JSErrorHandler}" /&gt;
+			&lt;param name="background" value="{$Backgorund}" /&gt;
+			&lt;param name="minRuntimeVersion" value="{$RuntimeMin}" /&gt;
+			&lt;param name="autoUpgrade" value="{$UpgradeAutomatic}" /&gt;
+
+			&lt;param name="allowHtmlPopupWindow" value="{$AllowHtmlPopupWindow}" /&gt;
+			&lt;param name="enablehtmlaccess" value="{$EnableHTMLAccess}" /&gt;
+			&lt;param name="initparams" value="{$InitParams}" /&gt;
+			&lt;param name="MaxFrameRate" value="{$MaxFrameRate}" /&gt;
+			&lt;param name="OnFullScreenChanged" value="{$JSOnFullScreenChanged}" /&gt;
+			&lt;param name="OnLoad" value="{$JSOnLoad}" /&gt;
+			&lt;param name="OnResize" value="{$JSOnResize}" /&gt;
+			&lt;param name="OnSourceDownloadComplete" value="{$JSOnSourceDownloadComplete}" /&gt;
+			&lt;param name="OnSourceDownloadProgressChanged" value="{$JSOnSourceDownloadProgressChanged}" /&gt;
+			&lt;param name="SplashScreenSource" value="{$SplashScreenSource}" /&gt;
+			&lt;param name="Windowless" value="{$Windowless}" /&gt;
+			
+			&lt;a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0" 
+				style="text-decoration:none"&gt;
+			&lt;img src="http://go.microsoft.com/fwlink/?LinkId=161376" 
+			  alt="Get Microsoft Silverlight" style="border-style:none" /&gt;
+		  &lt;/a&gt;
+		 &lt;/object&gt;
+		  &lt;iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"&gt;&lt;/iframe&gt;
+		&lt;/div&gt;
+	  &lt;/body&gt;
+	&lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+	</pre>
+
+	<p>
+	Preview input:
+	</p>
+
+	<pre class="hw_code">
+&lt;in:inputs xmlns:in="http://www.composite.net/ns/transformation/input/1.0"&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='IdDivSilverlightControlHost'] --&gt;
+	&lt;in:param name="IdDivSilverlightControlHost"&gt;silverlightControlHost&lt;/in:param&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='IdObjectSilverlightControlHost'] --&gt;
+	&lt;in:param name="IdObjectSilverlightControlHost"&gt;objectSilverlightControlHost&lt;/in:param&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='SourceXAP'] --&gt;
+	&lt;in:param name="SourceXAP"&gt;mc++&lt;/in:param&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='Data'] --&gt;
+	&lt;in:param name="Data"&gt;data:application/x-silverlight-2,&lt;/in:param&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='Type'] --&gt;
+	&lt;in:param name="Type"&gt;application/x-silverlight-2&lt;/in:param&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='JSErrorHandler'] --&gt;
+	&lt;in:param name="JSErrorHandler"&gt;onSilverlightError&lt;/in:param&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='Background'] --&gt;
+	&lt;in:param name="Background"&gt;transparent&lt;/in:param&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='RuntimeMin'] --&gt;
+	&lt;in:param name="RuntimeMin"&gt;4.0.50826.0&lt;/in:param&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='UpgradeAutomatic'] --&gt;
+	&lt;in:param name="UpgradeAutomatic"&gt;true&lt;/in:param&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='AllowHtmlPopupWindow'] --&gt;
+	&lt;in:param name="AllowHtmlPopupWindow"&gt;true&lt;/in:param&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='EnableHTMLAccess'] --&gt;
+	&lt;in:param name="EnableHTMLAccess"&gt;true&lt;/in:param&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='InitParams'] --&gt;
+	&lt;in:param name="InitParams"/&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='MaxFrameRate'] --&gt;
+	&lt;in:param name="MaxFrameRate"&gt;60&lt;/in:param&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='JSOnFullScreenChanged'] --&gt;
+	&lt;in:param name="JSOnFullScreenChanged"/&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='JSOnLoad'] --&gt;
+	&lt;in:param name="JSOnLoad"/&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='JSOnResize'] --&gt;
+	&lt;in:param name="JSOnResize"/&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='JSOnSourceDownloadComplete'] --&gt;
+	&lt;in:param name="JSOnSourceDownloadComplete"/&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='JSOnSourceDownloadProgressChanged'] --&gt;
+	&lt;in:param name="JSOnSourceDownloadProgressChanged"/&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='SplashScreenSource'] --&gt;
+	&lt;in:param name="SplashScreenSource"/&gt;
+	&lt;!-- Input Parameter, XPath /in:inputs/in:param[@name='Windowless'] --&gt;
+	&lt;in:param name="Windowless"/&gt;
+&lt;/in:inputs&gt;
+	</pre>
+	<p>
+	Preview output:
+	</p>
+
+	<pre class="hw_code">
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+	 &lt;head&gt;
+		&lt;script type="text/javascript" src="/js/Silverlight.ErrorHandling.uncompressed.20110318.js"/&gt;
+		&lt;script type="text/javascript" src="/js/Silverlight.js"/&gt;
+	&lt;/head&gt;
+	 &lt;body&gt;
+		 &lt;div id="silverlightControlHost"&gt;
+			 &lt;object id="objectSilverlightControlHost" data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="" height=""&gt;
+				&lt;param name="source" value="mc++"/&gt;
+				&lt;param name="onError" value="onSilverlightError"/&gt;
+				&lt;param name="background" value=""/&gt;
+				&lt;param name="minRuntimeVersion" value="4.0.50826.0"/&gt;
+				&lt;param name="autoUpgrade" value="true"/&gt;
+				&lt;param name="allowHtmlPopupWindow" value="true"/&gt;
+				&lt;param name="enablehtmlaccess" value="true"/&gt;
+				&lt;param name="initparams" value=""/&gt;
+				&lt;param name="MaxFrameRate" value="60"/&gt;
+				&lt;param name="OnFullScreenChanged" value=""/&gt;
+				&lt;param name="OnLoad" value=""/&gt;
+				&lt;param name="OnResize" value=""/&gt;
+				&lt;param name="OnSourceDownloadComplete" value=""/&gt;
+				&lt;param name="OnSourceDownloadProgressChanged" value=""/&gt;
+				&lt;param name="SplashScreenSource" value=""/&gt;
+				&lt;param name="Windowless" value=""/&gt;
+				 &lt;a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0" style="text-decoration:none"&gt;
+					&lt;img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/&gt;
+				&lt;/a&gt;
+			&lt;/object&gt;
+			&lt;iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"/&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+	</pre>
+
+	<h2><a id="">Sample multimedia player</a></h2>
+	<p>
+	Sample:
+	</p>
+	<f:function name="HolisticWare.Silverlight.SilverlightPlayerObjectHost" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="SourceXAP" value="/ClientBin/HolisticWare.WWWMusic.EXE_SL3.xap" />
+	  <f:param name="Width" value="400" />
+	  <f:param name="Height" value="100" />
+	</f:function>
+	<p>
+	C1 XSLT usage:
+	</p>
+	<pre class="hw_code">
+	&lt;f:function name="HolisticWare.Silverlight.SilverlightPlayerObjectHost" xmlns:f="http://www.composite.net/ns/function/1.0"&gt;
+	  &lt;f:param name="SourceXAP" value="/ClientBin/HolisticWare.WWWMusic.EXE_SL3.xap" /&gt;
+	  &lt;f:param name="Width" value="400" /&gt;
+	  &lt;f:param name="Height" value="100" /&gt;
+	&lt;/f:function&gt;
+	</pre>
+	<p>
+	Notes:
+	</p>
+	<ul>
+		<li>
+		App using external files - those files should have properties set to Content and Copy* 
+		(copies files to Output directory)
+		</li>
+		<li>
+		for Silverlight apps hosted in some web projects/websites do not forget to copy Content
+		files from ClientBin (msbuild does not copy them during build/rebuild). 
+		This has to be done manually...
+		</li>
+		<li>
+			in Project Root in mm/ 
+			<br />
+			Copy To output folder
+			<br />
+			/ClientBin/mm
+		</li>
+	</ul>
+
+
+	<h2><a id="">Embedding using XSLT functions</a></h2>
+
+	<h3><a id="">Sample default parameters</a></h3>
+
+	<p>
+	Path to Silverlight application should be absolute from the root of the web site i.e.
+	<code>/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap</code>
+	</p>
+
+	<f:function name="HolisticWare.Silverlight.SilverlightPlayerObjectHost" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="SourceXAP" value="/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap" />
+	  <f:param name="Width" value="400" />
+	  <f:param name="Height" value="300" />
+	</f:function>
+
+	<h3><a id="">Sample: custom parameters</a></h3>
+
+	  <f:function name="HolisticWare.Silverlight.SilverlightPlayerObjectHost" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<f:param name="IdDivSilverlightControlHost" value="silverlightControlHost" />
+		<f:param name="SourceXAP" value="/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap" />
+		<f:param name="Width" value="400" />
+		<f:param name="Height" value="100" />
+		<f:param name="Background" value="White" />
+	  </f:function>
+
+	<h3><a id="">Tips</a></h3>
+	<p>
+	Use absolute path to Silverlight App package (XAP) and put it in the WebSite 
+	root folder ClientBin!<br />
+	Otherwise problems with loading and searching.
+	</p>
+
+	<h2><a id="">Embedding using UserControl (todo)</a></h2>
+
+	<h3><a id="">Sample 1:</a></h3>
+
+	<f:function name="Composite.AspNet.LoadUserControl" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="Path" value="~/Frontend/HolisticWare/WebUserControlSilverlightObjectHost.ascx" />
+	</f:function>
+	<p>
+	Unable to set parameters because UserControl cannot be accessed from App_Code directory!
+	</p>
+
+	<pre class="hw_code">
+C1
+
+Backgorund!!!
+
+&lt;span class="c1error"&gt;[ Error ]&lt;/span&gt;    &lt;/body&gt;  
+	</pre>
+</body>
+</html>

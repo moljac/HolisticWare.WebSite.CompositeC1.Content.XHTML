@@ -1,0 +1,15 @@
+User Interface UI presentation layer PL
+
+
+
+Xwt is not a replacement for Gtk#. It is merely a wrapper around Gtk#. It
+will never replace Gtk# as it is a lowest-common-denominator API which
+covers Wpf, Gtk and MonoMac.
+
+MonoDevelop is still based purely on Gtk# 2.x and Gtk+ 2.x.
+
+Generating bindings for Gtk# 3 is an opensource effort and most of the work
+has been done. There are a few summer of code proposals to work on it, so
+if one of them is accepted it's possible it'll be finished in the next few
+months. However anyone is free to contribute too!
+

@@ -1,0 +1,73 @@
+Copyleft: Boro and Ramiz - survival methodics for kids
+
+Mom					
+		info: 	
+					http://hr.linkedin.com/in/sperica
+					http://www.facebook.com/sandra.cvjetko
+					
+		role: 		coach; wife of Boro; friend of Ramiz
+
+Ramiz	
+		info: 	
+					http://www.facebook.com/amir.ljutic.3
+		role: 		SAS trainer for kids
+		
+Boro	
+		role: 		Pops; daddy-caddy
+		info:		
+					http://holisticware.net
+
+Hot Sails Maui
+		role:		designers of great sails for kids
+		location:	far-far-away
+		info:		
+					http://www.hotsailsmaui.com/
+					http://www.facebook.com/HotSailsMaui
+
+
+
+Composite C1 -  open source CMS system
+		role:		enabling You to see Lara in action
+		info:
+					
+Flow Player
+		role:		enabling You to see Lara in action
+		info:
+					http://flowplayer.org/
+
+Judo Klub Lika
+		role:		Lara's klub
+		info:
+
+Tae Kwon Do Club Novi Zagreb
+		role:		Lara's klub
+		info:
+					
+Ski Club Zagreb
+		role:		Lara's klub for winter activities
+		info:
+
+Surf Perna
+		role:		logistics
+		info:
+					http://www.facebook.com/pages/SURF-CENTAR-PERNA
+					http://perna-surf.com/
+
+					
+Auto kamp Antony Boy Viganj
+		role:		selling the place to sleep when Lara trains
+		info:		
+					http://www.antony-boy.com/
+
+Surf camp Liberan
+		role:		hale when in trouble
+		info:		http://www.liberan-camping.com/
+		
+Surfmania + Marko Stefancic 
+		role:		logistics (
+		location:	Sabunike Zadar
+		info:		
+					http://www.surfmania.net
+
+
+

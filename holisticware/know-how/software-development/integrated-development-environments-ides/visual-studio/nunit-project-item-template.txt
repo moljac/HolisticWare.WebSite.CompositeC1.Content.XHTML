@@ -1,0 +1,6 @@
+NUnit Project Item template
+
+HolisticWare projects
+
+Mixed mode Nunit + MSTest framework
+

@@ -1,0 +1,13573 @@
+<!--
+C1 generated!!
+url: ui-development-presentation layer framework comparison
+<title>UI development - presentation layer framework comparison</title>
+<meta name="Description" content="UI development - presentation layer framework comparison" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<style type="text/css">
+		table   {border-style: solid; border-width: thin; border-color: inherit; font-size: small; }
+		td      {border-style: dashed; border-width: thin}
+		td pre  {display:inline}
+	</style>
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="UI, development, presentation, layer, framework, comparison" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2012-03-06" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">UI development - presentation layer framework comparison</a></h1>
+	<!-- ===========================================================================  -->	
+		<p>
+			This page is HolisticWare team&#39;s attempt to compare various UI frameworks for 
+			cross-platform development.
+		</p>
+		<p>
+			Note: Some stuff can be (and is certainly) erroneous. Mail us please corrections, 
+			ideas, etc.
+		</p>
+		<p>
+			Definitions:
+		</p>
+		<ul>
+			<li>XAML - Extensible Application Markup Language</li>
+			<li>AXML - Android XML </li>
+		</ul>
+		<p>
+			Notes:</p>
+		<ul>
+			<li>(T) available with toolkit extension</li>
+			<li>(S) available if Silverlight dlls are referenced (it is doable yes!)</li>
+			<li>(M) forbidden by Metro design principles</li>
+			<li>(mod) with modifications</li>
+		</ul>
+		
+
+	<table border="0" cellpadding="0" width="100%" >
+		<tbody>
+			<tr>
+				<td style="">
+					
+						gUIAML
+					
+				</td>
+				<td>
+					
+						Pattern
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						XAML.WP7
+					
+				</td>
+				<td>
+					
+						Android
+					
+				</td>
+				<td>
+					
+						iOS
+					
+				</td>
+				<td>
+					
+						XAML.WPF
+					
+				</td>
+				<td>
+					
+						XAML.SL
+					
+				</td>
+				<td>
+					
+						ASP.net
+					
+				</td>
+				<td>
+					
+						WFAML
+					
+				</td>
+				<td>
+					
+						XUL
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						View
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						XAML
+					
+				</td>
+				<td>
+					
+						AXML
+					
+				</td>
+				<td>
+					
+						XIB (Interface Builder)
+					
+				</td>
+				<td>
+					
+						XAML
+					
+				</td>
+				<td>
+					
+						XAML
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						.xaml
+					
+				</td>
+				<td>
+					
+						.xml
+						<br/>
+						.axml
+						<br/>
+						merged layout forUserCotrnols
+					
+				</td>
+				<td>
+					
+						.xib (xml)
+						<br/>
+						.xib.Designer.cs MonoTouch!
+						<br/>
+						(.nib - binary)
+						<br/>
+						use more small xibs than few monolithic!
+					
+				</td>
+				<td>
+					
+						.xaml
+					
+				</td>
+				<td>
+					
+						.xaml
+					
+				</td>
+				<td>
+					
+						.designer.cs
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					
+						Device Factory Rest
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Settings =+ Privacy =+ Factory Data Reset
+					
+				</td>
+				<td>
+					
+						Settings =+ General =+ Reset =+ Erase All Content and Settings
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					
+						Device Prepare For Development
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Settings =+ Applications =+ Development =+
+						<br/>
+						USBDebugging=true
+						<br/>
+						StayAwake=true
+						<br/>
+						AllowMockLocations=true
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					Terms</td>
+				<td>
+				</td>
+				<td>
+					c# Interface or Abstract class</td>
+				<td>
+					java Interface or abstract class?</td>
+				<td>
+					Objective-C<br />
+					Protocol</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					Objective-C<br />
+					delegate<br />
+					(more than c# delegate contains interfaces[s])</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					SIP software input panel = keyboard<br />
+					InputScope</td>
+				<td>
+					SoftInputMode<br />
+					Virtual kbd<br />
+					WindowsManager<br />
+					InputMethodManager</td>
+				<td>
+					Virtual kbd</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						System.Object
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						MonoTouch.Foundation.NSObject
+					
+				</td>
+				<td>
+					
+						System.Object
+					
+				</td>
+				<td>
+					
+						System.Object
+					
+				</td>
+				<td>
+					
+						System.Object
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						System.String
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Syste.String
+						<br/>
+						(hides NSString)
+					
+				</td>
+				<td>
+					
+						System.String
+					
+				</td>
+				<td>
+					
+						System.String
+					
+				</td>
+				<td>
+					
+						System.String
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					Application
+					<ul>
+						<li>
+							single UIWindow pro application (usually)
+						</li>
+						<li>
+							multiple ViewControllers (UIViewControllers)
+						</li>
+					</ul>
+					<br />
+					Analogy:
+					<ul>
+						<li>
+							Asp.net / Silverlight
+						</li>
+					</ul>
+
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					Main Entry Point</td>
+				<td>
+					</td>
+				<td>
+					<pre class="hw_code">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+
+namespace HelloWorld_iPhone
+{
+	   public class Application
+	   {
+			  static void Main (string[] args)
+			  {
+					 UIApplication.Main (args, null, "AppDelegate");
+			  }
+	   }
+}                    </pre>	
+				</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					Console
+					<br />
+					<pre class="hw_code">
+using System;
+ 
+public class HelloWorld
+{
+	static public void Main ()
+	{
+		Console.WriteLine ("Hello Mono World");
+	}
+ 
+}
+					</pre>
+					<br />
+					Winforms
+					<br />
+					<pre class="hw_code">
+using System;
+using System.Windows.Forms;
+ 
+public class HelloWorld : Form
+{
+	static public void Main ()
+	{
+		Application.Run (new HelloWorld ());
+	}
+ 
+	public HelloWorld ()
+	{
+		Text = "Hello Mono World";
+	}
+}
+					</pre>
+					<br />
+					GTK#
+					<br />
+					<pre class="hw_code">
+using Gtk;
+using System;
+ 
+class Hello {
+ 
+		static void Main()
+		{
+				Application.Init ();
+ 
+				Window window = new Window ("helloworld");
+				window.Show();
+ 
+				Application.Run ();
+		}
+}
+					</pre>
+				</td>
+				<td>
+				</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					Exception Handling</td>
+				<td>
+					UnhandledExcpetions</td>
+				<td>
+					<pre class="hw_code">
+	AppDomain.CurrentDomain.UnhandledException += ...
+					</pre>
+				</td>
+				<td>
+					<pre class="hw_code">
+	System.AppDomain.CurrentDomain.UnhandledException += 
+
+	Android.Runtime.AndroidEnvironment.UnhandledExceptionRaiser += 
+		new EventHandler&lt;RaiseThrowableEventArgs&gt;(AndroidEnvironment_UnhandledExceptionRaiser);
+					</pre>
+
+				</td>
+				<td>
+					(like RIA Silverlight)
+					<br />
+					<pre class="hw_code">
+	// using System.Windows;
+	// ApplicationUnhandledExceptionEventArgs;
+	Application.UnhandledException += event_handling_fnc;
+					</pre>
+				</td>
+				<td>
+					<pre class="hw_code">
+	AppDomain.UnhandledException From all threads in the AppDomain.
+	Dispatcher.UnhandledException From a single specific UI dispatcher thread.
+	Application.DispatcherUnhandledException From the main UI dispatcher thread in your WPF application.
+					</pre>
+					<br />
+					<pre class="hw_code">
+	&lt;Application x:Class=&quot;UnhandledExceptionHandler.App&quot;
+		xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+		xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+		StartupUri=&quot;Window1.xaml&quot;
+		Startup=&quot;Application_Startup&quot;
+		DispatcherUnhandledException=&quot;Application_DispatcherUnhandledException&quot;&gt;
+		&lt;Application.Resources&gt;
+		 
+		&lt;/Application.Resources&gt;
+	&lt;/Application&gt;
+					</pre>
+					<br />
+				</td>
+				<td>
+					<pre class="hw_code">
+	// using System.Windows;
+	// ApplicationUnhandledExceptionEventArgs;
+	Application.UnhandledException += event_handling_fnc;
+					</pre>
+				</td>
+				<td>
+					<pre class="hw_code">
+	AppDomain currentDomain = AppDomain.CurrentDomain;
+	currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
+					</pre>
+					<br />
+					WindowsForms
+					<br />
+					<pre class="hw_code">
+	// Add the event handler for handling UI thread exceptions to the event.
+	Application.ThreadException += new ThreadExceptionEventHandler(ErrorHandlerForm.Form1_UIThreadException);
+
+	// Set the unhandled exception mode to force all Windows Forms errors to go through
+	// our handler.
+	Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+
+	// Add the event handler for handling non-UI thread exceptions to the event. 
+	AppDomain.CurrentDomain.UnhandledException +=
+		new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+					</pre>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					Data Store
+					<br />
+					FileSystem
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					<pre class="hw_code">
+	string filePath = Context.FilesDir.AbsolutePath;
+	string filePath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); 
+					</pre>
+					should return the same value
+					<br />
+					Not recommended:
+					<br />
+					<pre class="hw_code">
+	string filePath = Path.Combine (new string[]{"folder1", "foder2", PackageName, "files", fileName});
+					</pre>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Do not use Reflection.Emit!
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Mono.Android.dll
+					
+				</td>
+				<td>
+					
+						MonoTouch.dll
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						OpenTk.dll
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					
+						Screen Sizes
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						480x800
+					
+				</td>
+				<td>
+					
+						Normalized sizes
+						<br/>
+						small
+						<br/>
+						normal
+						<br/>
+						large
+						<br/>
+						xlarge
+					
+					
+						normalized densities
+						<br/>
+						ldpi
+						<br/>
+						mdpi
+						<br/>
+						hdpi
+						<br/>
+						xhdpi
+					
+				</td>
+				<td>
+					
+						iPhone 3 - 320x480
+						<br/>
+						iPhone 4 - 640x960 retina
+						<br/>
+						iPhone 5
+						<br/>
+						iPad 1 - 1024x768
+						<br/>
+						iPad 2 -
+						<br/>
+						iPodTouch - 320x480
+					
+				</td>
+				<td>
+					
+						CGA
+						<br/>
+						QVGA
+						<br/>
+						VGA
+						<br/>
+						WVGA
+						<br/>
+						WVGA
+						<br/>
+						WSVGA
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					
+						Startup Image
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						iPhone
+						<br/>
+						Default.png (320x480)
+						<br/>
+						Default @2x.png (640x960 retina)
+					
+					
+						iPad
+						<br/>
+						Default~ipad.png (768x1004)
+						<br/>
+						Default-Portrait~ipad.png (768x1004)
+						<br/>
+						Default-Landscape~ipad.png (1024x768)
+						<br/>
+						Default-PortraitUpsidedown~ipad.png (768x1004)
+						<br/>
+						Default-LandscapeLeft~ipad.png (1024x768)
+						<br/>
+						Default-LandscapeRight~ipad.png (1024x768)
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					
+						Application Config Files (Manifests)
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						WMAppManifest.xml
+						<br/>
+						appManifest.xml????
+					
+				</td>
+				<td>
+					
+						AndroidManifest.xml
+					
+				</td>
+				<td>
+					
+						Info.plist
+						<br/>
+						(Manifest.plist)
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					
+						Icons
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Application Icon
+						<br/>
+						XAP package requirements
+						<br/>
+						62x62
+						<br/>
+						Icon.png
+					
+				</td>
+				<td>
+					
+						Launcher
+						<br/>
+						ldpi 36x36
+						<br/>
+						mdpi 48x48
+						<br/>
+						hdpi 72x72
+					
+				</td>
+				<td>
+					
+						iPhone/iPodTouch HomeScreen
+						<br/>
+						57x57
+						<br/>
+						Icon.png
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Application Tile Image
+						<br/>
+						XAP package requirements
+						<br/>
+						173x173
+						<br/>
+						Tile.png (whatever.png)
+					
+				</td>
+				<td>
+					
+						Menu
+						<br/>
+						ldpi 36x36
+						<br/>
+						mdpi 48x48
+						<br/>
+						hdpi 72x72
+					
+				</td>
+				<td>
+					
+						iPhone4 Home screen
+						<br/>
+						114x114
+						<br/>
+						Icon@2x.png
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Device Application Image
+						<br/>
+						Market catalogue
+						<br/>
+						99x99 (small)
+						<br/>
+						173x173 (large)
+					
+				</td>
+				<td>
+					
+						StatusBar
+						<br/>
+						2.3+
+						<br/>
+						ldpi 12wx19h (preffered,w variable)
+						<br/>
+						mdpi 16wx25h (preffered,w variable)
+						<br/>
+						hdpi 24wx38h (preffered,w variable)
+						<br/>
+						2.2-
+						<br/>
+						ldpi 19x19
+						<br/>
+						mdpi 25x25
+						<br/>
+						hdpi 38x38
+					
+				</td>
+				<td>
+					
+						iPad Home Screen
+						<br/>
+						72x72
+						<br/>
+						Icon-72.png
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Desktop Application Image
+						<br/>
+						Market catalogue
+						<br/>
+						200x200
+					
+				</td>
+				<td>
+					
+						Tab, Dialog, LstView
+						<br/>
+						ldpi 24x24
+						<br/>
+						mdpi 32x32
+						<br/>
+						hdpi 48x48
+					
+				</td>
+				<td>
+					
+						iPhone/IPodTouch Spottlight and Settings, iPAd Settings
+						<br/>
+						29x29
+						<br/>
+						Icon-Small.png
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Dialog
+					
+				</td>
+				<td>
+					
+						iPhone4 Spotlight and Settings
+						<br/>
+						58x58
+						<br/>
+						Icon-Small@2x.png
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						ListView
+					
+				</td>
+				<td>
+					
+						iPadSpotlight
+						<br/>
+						50x50
+						<br/>
+						Icon-Small-50.png
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						iOS application
+					
+					
+						typically 1 UIWindows
+					
+					
+						similaity:
+					
+					
+						Silverlight app
+						<br/>
+						UIWindow=Browser
+						<br/>
+						UIViewController=Page in XAML
+					
+					
+						Desktop app with single container (Windows Forms Form, or WPF Window)
+						<br/>
+						UIWindow=Form | Window
+						<br/>
+						UIViewController=UserControl in WinForms or XAML hosted in Container (Form | Window)
+					
+					
+						<br/>
+						()
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIWindow
+						<br/>
+						typically one for iOS appliucation
+						<br/>
+						similar to System.Windows.Form
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Property Window
+					
+				</td>
+				<td>
+					
+						Droid Draw
+						<br/>
+						Properties
+					
+				</td>
+				<td>
+					
+						XCode.Attribute Window
+						<br/>
+						Inspector
+					
+				</td>
+				<td>
+					
+						Property Window
+					
+				</td>
+				<td>
+					
+						Property Window
+					
+				</td>
+				<td>
+					
+						Property Window
+					
+				</td>
+				<td>
+					
+						Property Window
+					
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						PhotoChooserTask
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIImagePickerController
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Microsoft.Phone.Tasks
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						7.0
+						<br/>
+						EmailAddresChooserTask
+						<br/>
+						PhoneChooserTask
+						<br/>
+						7.1 Mango
+						<br/>
+						AddressChoserTask
+						<br/>
+						SaveContactTask
+						<br/>
+						UserData.Contacts
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						ABAddressBook
+						<br/>
+						ABPerson
+						<br/>
+						ABPeoplePickerNavigationController
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						MediaElemen
+						<br/>
+						MediaPlayerLauncher
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						MPMediaPickerController
+						<br/>
+						MPMusicPlayerController
+						<br/>
+						MPMoviePlayerController
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Type - XAML xml Element! &lt;TextBlock&gt;
+						<br/>
+						Name - XAML xml Attribute x:Name!
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Outlets&lt;Name, Type&lt;UIKit&gt;&gt;
+						<br/>
+						'parts of Controls with Name and Type'
+					
+				</td>
+				<td>
+					
+						Type - XAML xml Element! &lt;TextBlock&gt;
+						<br/>
+						Name - XAML xml Attribute x:Name!
+					
+				</td>
+				<td>
+					
+						Type - XAML xml Element! &lt;TextBlock&gt;
+						<br/>
+						Name - XAML xml Attribute x:Name!
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Control.AddControl(Control)
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						window.AddSubView(UIVIew)
+					
+				</td>
+				<td>
+					
+						Control.AddControl(Control)
+					
+				</td>
+				<td>
+					
+						Control.AddControl(Control)
+					
+				</td>
+				<td>
+					
+						Control.AddControl(Control)
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						PhoneApplicationPage
+					
+				</td>
+				<td>
+					
+						Activity (with or without UI)
+					
+				</td>
+				<td>
+					
+						UIViewController
+					
+				</td>
+				<td>
+					
+						Window / Page
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Form
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIWindow
+						<br/>
+						one per app on iOS
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						UserControl
+					
+				</td>
+				<td>
+					
+						Layout / View
+					
+				</td>
+				<td>
+					
+						UIView
+						<br/>
+						similar to UserControl
+					
+				</td>
+				<td>
+					
+						UserControl
+					
+				</td>
+				<td>
+					
+						UserControl
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						UserControl
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ContentControl
+					
+				</td>
+				<td>
+					
+						Layout / View
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						CustomControl
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Containers
+					
+				</td>
+				<td>
+					
+						StackPanel
+					
+				</td>
+				<td>
+					
+						LinearLayout
+					
+				</td>
+				<td>
+					
+						n/a (UIAutoResizing)
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ListBox
+					
+				</td>
+				<td>
+					
+						ListView
+					
+				</td>
+				<td>
+					
+						UITableView
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ListBox.ItemTemplate
+					
+				</td>
+				<td>
+					
+						n/a (any View)
+					
+				</td>
+				<td>
+					
+						UITableViewCell
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						StackPanel
+					
+				</td>
+				<td>
+					
+						LinearLayout
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						StackPanel
+					
+				</td>
+				<td>
+					
+						StackPanel
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						RelativeLayout
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TableLayout
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						GridView
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ListView
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Gallery
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TabControl (S)
+					
+				</td>
+				<td>
+					
+						TabHost
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TabControl
+					
+				</td>
+				<td>
+					
+						TabControl
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TabControl
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TabItem (S)
+					
+				</td>
+				<td>
+					
+						TabWidget
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TabItem
+					
+				</td>
+				<td>
+					
+						TabItem
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TabPage
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Panel?
+					
+				</td>
+				<td>
+					
+						FrameLayout
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Panel?
+					
+				</td>
+				<td>
+					
+						Panel?
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Panel?
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						n/a (Binding, IEnumerable&lt;&gt;)
+					
+				</td>
+				<td>
+					
+						BaseAdapter
+					
+				</td>
+				<td>
+					
+						UITableViewSource
+					
+				</td>
+				<td>
+					
+						(Binding, IEnumerable&lt;&gt;)
+					
+				</td>
+				<td>
+					
+						(Binding, IEnumerable&lt;&gt;)
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TextBlock
+					
+				</td>
+				<td>
+					
+						TextView
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TextBlock
+					
+				</td>
+				<td>
+					
+						TextBlock
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Label
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TextBox (mod)
+					
+				</td>
+				<td>
+					
+						AutoCompleteTextView
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TextBox (mod)
+					
+				</td>
+				<td>
+					
+						TextBox (mod)
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TextBox (mod)
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TextBox
+					
+				</td>
+				<td>
+					
+						EditText : TextView
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TextBox
+					
+				</td>
+				<td>
+					
+						TextBox
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TextBox
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Button
+					
+				</td>
+				<td>
+					
+						Button
+					
+				</td>
+				<td>
+					
+						UIButton
+						<br/>
+						UIControlState = Normal
+						<br/>
+						UIControlState =Selected
+						<br/>
+						UIControlState = Highlighted
+						<br/>
+						UIControlState = Disabled
+						<br/>
+						<br/>
+						UIButtonType.Custom
+						<br/>
+						UIButtonType.RoundRect
+						<br/>
+						UIButtonType.DetailDisclosure (&gt;)
+						<br/>
+						UIButtonType.InfoDark
+						<br/>
+						UIButtonType.InfoLight
+						<br/>
+						UIButtonType.ContactAdd
+					
+				</td>
+				<td>
+					
+						Button
+					
+				</td>
+				<td>
+					
+						Button
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Button
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						CheckBox
+					
+				</td>
+				<td>
+					
+						CheckBox
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						CheckBox
+					
+				</td>
+				<td>
+					
+						CheckBox
+					
+				</td>
+				<td>
+					
+						CheckBox
+					
+				</td>
+				<td>
+					
+						CheckBox
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						RadioButton
+					
+				</td>
+				<td>
+					
+						RadioButton
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						RadioButton
+					
+				</td>
+				<td>
+					
+						RadioButton
+					
+				</td>
+				<td>
+					
+						RadioButton
+					
+				</td>
+				<td>
+					
+						RadioButton
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ToggleButton
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						RadioGroup
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						GroupBox
+					
+				</td>
+				<td>
+					
+						GroupBox
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						GroupBox
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						(M)
+					
+				</td>
+				<td>
+					
+						Spinner
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ComboBox
+					
+				</td>
+				<td>
+					
+						ComboBox
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ComboBox
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						PushNotifications
+					
+				</td>
+				<td>
+					
+						Toast
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						MessageBox
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						MessageBox (mod)
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Image
+					
+				</td>
+				<td>
+					
+						ImageView
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Image
+					
+				</td>
+				<td>
+					
+						Image
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						DatePicker (T)
+					
+				</td>
+				<td>
+					
+						DatePicker
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						DateTimePicker
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TimePicker (T)
+					
+				</td>
+				<td>
+					
+						TimePicker
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						TimePicker
+					
+				</td>
+				<td>
+					
+						TimePicker
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						DateTimePicker
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ProgressBar (mod)
+					
+				</td>
+				<td>
+					
+						RatingBar
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ProgressBar (mod)
+					
+				</td>
+				<td>
+					
+						ProgressBar (mod)
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ProgressBar (mod)
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ProgressBar
+					
+				</td>
+				<td>
+					
+						ProgressBar
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ProgressBar
+					
+				</td>
+				<td>
+					
+						ProgressBar
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ProgressBar
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						WebBrowser
+					
+				</td>
+				<td>
+					
+						WebView
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						WebBrowser
+					
+				</td>
+				<td>
+					
+						WebBrowser
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						WebBrowser
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					
+						Controllers
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Derive from UIViewController
+						<br/>
+						Screens - app has single Window and bunch of Views
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIViewController
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UINavigationController
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UITabBarController
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIToolbarController
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					
+						DataViews
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIWebView
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UITextView
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIScrollView
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIPickerView
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIDatePicker
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Bars
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Menus
+					
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIWindow
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIView
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UINavigationBar
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UINagivationItem
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIToolbar
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIBarButtonItem
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UItabBar
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UITabBarItem
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIPageView
+						<br/>
+						no of pages in application
+						<br/>
+						taping navigates to page
+						<br/>
+						ApplicationBar??
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Controller
+					
+				</td>
+				<td>
+					
+						Navigation
+					
+				</td>
+				<td>
+					
+						NavigationService.Navigate()
+					
+				</td>
+				<td>
+					
+						StartActivity()
+					
+				</td>
+				<td>
+					
+						NavigationController.PushViewController()
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Form.Show()
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Uri (XAML page)
+					
+				</td>
+				<td>
+					
+						Intent.SetClass()
+					
+				</td>
+				<td>
+					
+						n/a (Object)
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						URI + querystring params
+					
+				</td>
+				<td>
+					
+						Intent.PutExtra().AddFlags()
+					
+				</td>
+				<td>
+					
+						n/a (Object Properties)
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						NavigationContext.QueryString.TryGetValue()
+					
+				</td>
+				<td>
+					
+						Intent.GetXXXExtra()
+					
+				</td>
+				<td>
+					
+						n/a/ (Object Properties)
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Conntrollers
+						<br/>
+						families of controllers that controll activities
+						<br/>
+						(not Android activitiy)
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Data Views
+						<br/>
+						present information to user
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UITableView
+						<br/>
+						Table View, scrollable, cell is table View Cell
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UITableViewCell
+						<br/>
+						Table View Cell
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIImageView
+						<br/>
+						Image View - displays image or
+						<br/>
+						animation (UIImag[])
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIWebView
+						<br/>
+						Web View - Browser controll displays web content in app
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						MKMapView
+						<br/>
+						displays map in app
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UITextView
+						<br/>
+						multilne editable text
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						ScrollViewver around Contrl
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIScrollView
+						<br/>
+						content larger than display can be scrolled
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIPickerView
+						<br/>
+						spinner (slot machine spinner) ComboBox, DropDownListBox
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIDatePicker
+						<br/>
+						Date/Time picker
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						INputs/Values
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UISegmentedControl
+						<br/>
+						Segmented Button - Button[]
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UILabel
+						<br/>
+						Label displays text
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIButton
+						<br/>
+						RoundRectButton !!!!
+						<br/>
+						Button for touch events - click event
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UITextField
+						<br/>
+						Text Filed TextBox for input + keyboard
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UISwitch
+						<br/>
+						Switch = Checkbox / 2 state button
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UISlider
+						<br/>
+						Slider - single vaule input from range
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIProgressView
+						<br/>
+						ProgressView
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIActivityIndicatorView
+						<br/>
+						feedback that task is running
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIPageControl
+						<br/>
+						information about additional Pages in app
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Windows Views Bars
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIWindow
+						<br/>
+						contains multiple Views, first displayed, contains all Views, is singleton
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIView
+						<br/>
+						rectangular region for adding controls
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UISearchBar
+						<br/>
+						Search bar
+						<br/>
+						text field + image (button) for searching
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UISearchDisplayController
+						<br/>
+						Search bar and display controler = Search Bar, bookmarks, cancel and Table View for results
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UINavigationBar
+						<br/>
+						supports navigation of content in hierarchical manner
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UINavigationItem
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIToolbar
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIBarButtonItem
+						<br/>
+						Item in Toolbar or Navigation bar
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UIBarButtonItem
+						<br/>
+						Flexible space?
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UITabBar
+						<br/>
+						allows control to be displayed at the bottom
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						UITabBarItem
+						<br/>
+						item in a Tab Bar
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Outlet
+						<br/>
+						Mapping Code-behind to control in layout xib
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Action
+						<br/>
+						Message fired off after Event (similar to .net Event)
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Responsivnes
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						StartThread
+					
+				</td>
+				<td>
+					
+						ThreadPool.QueueUserWorkItem
+						<br/>
+						(o =&gt; MethodSlow ());
+					
+				</td>
+				<td>
+					
+						ThreadPool.QueueUserWorkItem
+						<br/>
+						(o =&gt; MethodSlow ());
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ThreadPool.QueueUserWorkItem
+						<br/>
+						(o =&gt; MethodSlow ());
+					
+				</td>
+				<td>
+					
+						ThreadPool.QueueUserWorkItem
+						<br/>
+						(o =&gt; MethodSlow ());
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						ThreadPool.QueueUserWorkItem
+						<br/>
+						(o =&gt; MethodSlow ());
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Refresh UI from worker Thread
+					
+				</td>
+				<td>
+					
+						outputBlock.Dispatcher.BeginInvoke(delegate () {
+						<br/>
+						outputBlock.Text += "Hello from the thread pool.\r\n"; });
+					
+				</td>
+				<td>
+					
+						RunOnUiThread (() =&gt; textview.Text = "Method Complete");;);t;);
+					
+				</td>
+				<td>
+					
+						-InvokeOnMainThread();
+					
+				</td>
+				<td>
+					
+						if (!myCheckBox.Dispatcher.CheckAccess())
+						<br/>
+						{
+						<br/>
+						- myCheckBox.Dispatcher.Invoke( System.Windows.Threading.DispatcherPriority.Normal, new Action( delegate() { myCheckBox.IsChecked =
+						true; } ));
+						<br/>
+						}
+						<br/>
+						else
+						<br/>
+						{
+						<br/>
+						-myCheckBox.IsChecked = true;
+						<br/>
+						}
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						// Invoke the delegate on the form. this.Invoke(new BarDelegate(UpdateBar));
+						<br/>
+						<br/>
+						// on UI thread
+						<br/>
+						private void UpdateBar()
+						<br/>
+						{ progressBar1.Value++; if (progressBar1.Value == progressBar1.Maximum)
+						<br/>
+						{ // We are finished and the progress bar is full.
+						<br/>
+						}
+						<br/>
+						}
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						Model
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+				<td>
+					
+						-
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					
+						Data
+					
+				</td>
+				<td>
+					
+						Resources
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						VS.BuildAction=AndroidResource
+						<br/>
+						\Resources\*
+						<br/>
+						\Resources\layout\
+						<br/>
+						\Resources\layout-land\
+						<br/>
+						\Resources\layout-hdpi\
+						<br/>
+						\Resources\layout-mdpi\
+						<br/>
+						\Resources\layout-ldpi\
+						<br/>
+						\Resources\drawable\
+						<br/>
+						\Resources\values\*
+						<br/>
+						\Resources\values\strings.xml
+						<br/>
+						\Resources\values\strings.xml
+						<br/>
+						\Resources\xml\
+						<br/>
+						\Resources\anim\
+						<br/>
+						<br/>
+						Resource.&lt;Name&gt;.&lt;Id&gt;
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Assets
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						VS.BuildAction=AndroidAsset
+						<br/>
+						Assets\
+						<br/>
+						AssetManager.*
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						VS.BuildAction=Content
+						<br/>
+						CopyToOutputDir=Always|IfNewer
+						<br/>
+						file in XAP
+					
+				</td>
+				<td>
+					
+						VS.BuildAction=Content
+						<br/>
+						CopyToOutputDir=Always|IfNewer
+						<br/>
+						file in XAP
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					
+						Storage - Files
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					
+						System Version
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						System.OperatingSystem osInfo = System.Environment.OSVersion;
+					
+				</td>
+				<td>
+					
+						Android.OS.Build.Version
+						<br/>
+						Java: (port to c#)
+						<br/>
+						Build.VERSION.SDK_INT Build.VERSION_CODES.GINGERBREAD
+					
+				</td>
+				<td>
+					
+						MT.UIKit.UIdevice.CurrentDevice.SystemVersion
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					
+						UniqueID
+					
+				</td>
+				<td>
+				</td>
+				<td>
+					
+						Microsoft.Phone.Info
+					
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+				<td>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<hr />
+
+
+<!--
+		<table border="solid 1px" font-size: xx-small" 
+		width="100%">
+			<tr>
+				<td>
+					gUIAML</td>
+				<td>
+					Pattern</td>
+				<td>
+					-</td>
+				<td>
+					WFAML</td>
+				<td >
+					XAML.WPF</td>
+				<td>
+					XAML.SL</td>
+				<td>
+					XAML.WP7</td>
+				<td >
+					ASP.net</td>
+				<td >
+					AXML</td>
+				<td>
+					iOS</td>
+				<td>
+					XUL</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					View</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					XAML</td>
+				<td>
+					XAML</td>
+				<td>
+					XAML</td>
+				<td >
+					-</td>
+				<td >
+					AXML</td>
+				<td>
+					XIB (Interface Builder)</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					.xaml</td>
+				<td>
+					.xaml</td>
+				<td>
+					.xaml</td>
+				<td >
+					.designer.cs</td>
+				<td >
+					.xml<br />
+					.axml<br />
+					merged layout forUserCotrnols</td>
+				<td>
+					.xib (xml)<br />
+					.xib.Designer.cs MonoTouch!<br />
+					(.nib - binary)</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					Device Factory Rest</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					Settings =+ Privacy =+ Factory Data Reset</td>
+				<td>
+					Settings =+ General =+ Reset =+ Erase All Content and Settings</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					Device Prepare For Development</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					Settings =+ Applications =+ Development =+<br />
+					USBDebugging=true<br />
+					StayAwake=true<br />
+					AllowMockLocations=true</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					System.Object</td>
+				<td>
+					System.Object</td>
+				<td>
+					System.Object</td>
+				<td >
+					System.Object</td>
+				<td >
+					</td>
+				<td>
+					MonoTouch.Foundation.NSObject</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					System.String</td>
+				<td>
+					System.String</td>
+				<td>
+					System.String</td>
+				<td >
+					System.String</td>
+				<td >
+					</td>
+				<td>
+					Syste.String<br />
+					(hides NSString)</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					Do not use Reflection.Emit!</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					Mono.Android.dll<br />
+					</td>
+				<td>
+					MonoTouch.dll</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					OpenTk.dll</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					Screen Sizes</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					CGA<br />
+					QVGA<br />
+					VGA<br />
+					WVGA<br />
+					WVGA<br />
+					WSVGA</td>
+				<td>
+					</td>
+				<td>
+					480x800</td>
+				<td >
+					</td>
+				<td >
+					<ul>
+						<li>Normalized sizes<br />
+							small<br />
+							normal<br />
+							large<br />
+							xlarge</li>
+						<li>normalized densities<br />
+							ldpi<br />
+							mdpi<br />
+							hdpi<br />
+							xhdpi<br />
+
+						</li>
+					</ul>
+					</td>
+				<td>
+					iPhone 3 - 320x480<br />
+					iPhone 4 - 640x960 retina<br />
+					iPhone 5<br />
+					iPad 1 - 1024x768<br />
+					iPad 2 -<br />
+					iPodTouch - 320x480 </td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					Startup Image</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					<ul>
+						<li>
+							iPhone <br />
+							Default.png (320x480)<br />	
+							Default @2x.png (640x960 retina)						
+						</li>
+						<li>
+							iPad <br />
+							Default~ipad.png (768x1004)<br />	
+							Default-Portrait~ipad.png (768x1004)<br />
+							Default-Landscape~ipad.png (1024x768)<br />
+							Default-PortraitUpsidedown~ipad.png (768x1004)<br />
+							Default-LandscapeLeft~ipad.png (1024x768)<br />
+							Default-LandscapeRight~ipad.png (1024x768)<br />
+						</li>
+					</ul>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					Application Config Files (Manifests)</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					WMAppManifest.xml<br />
+					appManifest.xml????</td>
+				<td >
+					</td>
+				<td >
+					AndroidManifest.xml<br />
+				</td>
+				<td>
+					Info.plist<br />
+					(Manifest.plist)</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					Icons</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					Application Icon
+					<br />
+					XAP package requirements<br />
+					62x62<br />
+					Icon.png</td>
+				<td >
+					</td>
+				<td >
+					Launcher<br />
+					ldpi 36x36<br />
+					mdpi 48x48<br />
+					hdpi 72x72</td>
+				<td>
+					iPhone/iPodTouch HomeScreen<br />
+					57x57<br />
+					Icon.png</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					Application Tile Image<br />
+					XAP package requirements<br />
+					173x173<br />
+					Tile.png (whatever.png)</td>
+				<td >
+					</td>
+				<td >
+					Menu<br />
+					ldpi 36x36<br />
+					mdpi 48x48<br />
+					hdpi 72x72</td>
+				<td>
+					iPhone4 Home screen<br />
+					114x114<br />
+					Icon@2x.png</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					Device Application Image<br />
+					Market catalogue<br />
+					99x99 (small)<br />
+					173x173 (large)</td>
+				<td >
+					</td>
+				<td >
+					StatusBar
+					<br />
+					2.3+<br />
+					ldpi 12wx19h (preffered,w variable)<br />
+					mdpi 16wx25h (preffered,w variable)<br />
+					hdpi 24wx38h (preffered,w variable)<br />
+					2.2-<br />
+					ldpi 19x19<br />
+					mdpi 25x25<br />
+					hdpi 38x38</td>
+				<td>
+					iPad Home Screen<br />
+					72x72<br />
+					Icon-72.png</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					Desktop Application Image<br />
+					Market catalogue<br />
+					200x200</td>
+				<td >
+					</td>
+				<td >
+					Tab, Dialog, LstView<br />
+					ldpi 24x24<br />
+					mdpi 32x32<br />
+					hdpi 48x48</td>
+				<td>
+					iPhone/IPodTouch Spottlight and Settings, iPAd Settings<br />
+					29x29<br />
+					Icon-Small.png</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					Dialog</td>
+				<td>
+					iPhone4 Spotlight and Settings<br />
+					58x58<br />
+					Icon-Small@2x.png</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					ListView</td>
+				<td>
+					iPadSpotlight<br />
+					50x50<br />
+					Icon-Small-50.png</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					iOS application
+					<ul>
+						<li>
+							typically 1 UIWindows
+						</li>
+						<li>
+							similaity:
+							<ul>
+								<li>
+									Silverlight app 
+									<br />
+									UIWindow=Browser
+									<br />
+									UIViewController=Page in XAML
+								</li>
+								<li>
+									Desktop app with single container (Windows Forms Form,  or WPF Window)
+									<br />
+									UIWindow=Form | Window
+									<br />
+									UIViewController=UserControl in WinForms or XAML hosted in Container (Form | Window)
+								</li>
+							</ul>
+						</li>
+					</ul><br />
+					()</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIWindow<br />
+					typically one for iOS appliucation<br />
+					similar to System.Windows.Form</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					Property Window</td>
+				<td >
+					Property Window</td>
+				<td>
+					Property Window</td>
+				<td>
+					Property Window</td>
+				<td >
+					Property Window</td>
+				<td >
+					Droid Draw<br />
+					Properties</td>
+				<td>
+					XCode.Attribute Window<br />
+					Inspector</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					PhotoChooserTask</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIImagePickerController</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					Microsoft.Phone.Tasks</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					7.0<br />
+					EmailAddresChooserTask<br />
+					PhoneChooserTask<br />
+					7.1 Mango<br />
+					AddressChoserTask<br />
+					SaveContactTask<br />
+					UserData.Contacts</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					ABAddressBook<br />
+					ABPerson<br />
+					ABPeoplePickerNavigationController</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					MediaElemen<br />
+					MediaPlayerLauncher</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					MPMediaPickerController<br />
+					MPMusicPlayerController<br />
+					MPMoviePlayerController</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					Type - XAML xml Element! &lt;TextBlock&gt;<br />
+					Name - XAML xml Attribute x:Name!</td>
+				<td>
+					Type - XAML xml Element! &lt;TextBlock&gt;<br />
+					Name - XAML xml Attribute x:Name!</td>
+				<td>
+					Type - XAML xml Element! &lt;TextBlock&gt;<br />
+					Name - XAML xml Attribute x:Name!</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					Outlets&lt;Name, Type&lt;UIKit&gt;&gt;<br />
+					&#39;parts of Controls with Name and Type&#39;</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					Control.AddControl(Control)</td>
+				<td>
+					Control.AddControl(Control)</td>
+				<td>
+					Control.AddControl(Control)</td>
+				<td >
+					Control.AddControl(Control)</td>
+				<td >
+					</td>
+				<td>
+					window.AddSubView(UIVIew)</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					Form</td>
+				<td >
+					Window / Page</td>
+				<td>
+					-</td>
+				<td>
+					PhoneApplicationPage</td>
+				<td >
+					-</td>
+				<td >
+					Activity (with or without UI)</td>
+				<td>
+					UIViewController</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIWindow<br />
+					one per app on iOS</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					UserControl</td>
+				<td >
+					UserControl</td>
+				<td>
+					UserControl</td>
+				<td>
+					UserControl</td>
+				<td >
+					-</td>
+				<td >
+					Layout / View</td>
+				<td>
+					UIView<br />
+					similar to UserControl</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					CustomControl</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					ContentControl</td>
+				<td >
+					-</td>
+				<td >
+					Layout / View</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					Containers</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					StackPanel</td>
+				<td >
+					-</td>
+				<td >
+					LinearLayout</td>
+				<td>
+					n/a (UIAutoResizing)</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					ListBox</td>
+				<td >
+					-</td>
+				<td >
+					ListView</td>
+				<td>
+					UITableView</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					ListBox.ItemTemplate</td>
+				<td >
+					-</td>
+				<td >
+					n/a (any View)</td>
+				<td>
+					UITableViewCell</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					StackPanel</td>
+				<td>
+					StackPanel</td>
+				<td>
+					StackPanel</td>
+				<td >
+					-</td>
+				<td >
+					LinearLayout</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					RelativeLayout</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					TableLayout</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					GridView</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					ListView</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					Gallery</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					TabControl</td>
+				<td >
+					TabControl</td>
+				<td>
+					TabControl</td>
+				<td>
+					TabControl (S)</td>
+				<td >
+					-</td>
+				<td >
+					TabHost</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					TabPage</td>
+				<td >
+					TabItem</td>
+				<td>
+					TabItem</td>
+				<td>
+					TabItem (S)</td>
+				<td >
+					-</td>
+				<td >
+					TabWidget</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					Panel?</td>
+				<td >
+					Panel?</td>
+				<td>
+					Panel?</td>
+				<td>
+					Panel?</td>
+				<td >
+					-</td>
+				<td >
+					FrameLayout</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					(Binding, IEnumerable&lt;&gt;)</td>
+				<td>
+					(Binding, IEnumerable&lt;&gt;)</td>
+				<td>
+					n/a (Binding, IEnumerable&lt;&gt;)</td>
+				<td >
+					-</td>
+				<td >
+					BaseAdapter</td>
+				<td>
+					UITableViewSource</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					Label</td>
+				<td >
+					TextBlock</td>
+				<td>
+					TextBlock</td>
+				<td>
+					TextBlock</td>
+				<td >
+					-</td>
+				<td >
+					TextView</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					TextBox (mod)</td>
+				<td >
+					TextBox (mod)</td>
+				<td>
+					TextBox (mod)</td>
+				<td>
+					TextBox (mod)</td>
+				<td >
+					-</td>
+				<td >
+					AutoCompleteTextView</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					TextBox</td>
+				<td >
+					TextBox</td>
+				<td>
+					TextBox</td>
+				<td>
+					TextBox</td>
+				<td >
+					-</td>
+				<td >
+					EditText : TextView</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					Button</td>
+				<td >
+					Button</td>
+				<td>
+					Button</td>
+				<td>
+					Button</td>
+				<td >
+					-</td>
+				<td >
+					Button</td>
+				<td>
+					UIButton<br />
+					UIControlState = Normal
+					<br />
+					UIControlState =Selected<br />
+					UIControlState = Highlighted<br />
+					UIControlState = Disabled<br />
+					<br />
+					UIButtonType.Custom<br />
+					UIButtonType.RoundRect<br />
+					UIButtonType.DetailDisclosure (&gt;)<br />
+					UIButtonType.InfoDark<br />
+					UIButtonType.InfoLight<br />
+					UIButtonType.ContactAdd </td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					CheckBox</td>
+				<td >
+					CheckBox</td>
+				<td>
+					CheckBox</td>
+				<td>
+					CheckBox</td>
+				<td >
+					CheckBox</td>
+				<td >
+					CheckBox</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					RadioButton</td>
+				<td >
+					RadioButton</td>
+				<td>
+					RadioButton</td>
+				<td>
+					RadioButton</td>
+				<td >
+					RadioButton</td>
+				<td >
+					RadioButton</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					ToggleButton</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					GroupBox</td>
+				<td >
+					GroupBox</td>
+				<td>
+					GroupBox</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					RadioGroup</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					ComboBox</td>
+				<td >
+					ComboBox</td>
+				<td>
+					ComboBox</td>
+				<td>
+					(M)</td>
+				<td >
+					-</td>
+				<td >
+					Spinner</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					MessageBox (mod)</td>
+				<td >
+					MessageBox </td>
+				<td>
+					- </td>
+				<td>
+					PushNotifications</td>
+				<td >
+					-</td>
+				<td >
+					Toast</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					Image</td>
+				<td>
+					Image</td>
+				<td>
+					Image</td>
+				<td >
+					-</td>
+				<td >
+					ImageView</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					DateTimePicker</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					DatePicker (T)</td>
+				<td >
+					-</td>
+				<td >
+					DatePicker</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					DateTimePicker</td>
+				<td >
+					TimePicker</td>
+				<td>
+					TimePicker</td>
+				<td>
+					TimePicker (T)</td>
+				<td >
+					-</td>
+				<td >
+					TimePicker</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					ProgressBar (mod)</td>
+				<td >
+					ProgressBar (mod)</td>
+				<td>
+					ProgressBar (mod)</td>
+				<td>
+					ProgressBar (mod)</td>
+				<td >
+					-</td>
+				<td >
+					RatingBar</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					ProgressBar</td>
+				<td >
+					ProgressBar</td>
+				<td>
+					ProgressBar</td>
+				<td>
+					ProgressBar</td>
+				<td >
+					-</td>
+				<td >
+					ProgressBar</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					WebBrowser</td>
+				<td >
+					WebBrowser</td>
+				<td>
+					WebBrowser</td>
+				<td>
+					WebBrowser</td>
+				<td >
+					-</td>
+				<td >
+					WebView</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					Controllers</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					Derive from UIViewController<br />
+					Screens - app has single Window and bunch of Views</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIViewController</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UINavigationController</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UITabBarController</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIToolbarController</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					DataViews</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIWebView</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UITextView</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIScrollView</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIPickerView</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIDatePicker</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					Menus</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					Bars</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIWindow</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIView</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UINavigationBar</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UINagivationItem</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIToolbar</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIBarButtonItem</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UItabBar</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UITabBarItem</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIPageView<br />
+					no of pages in application<br />
+					taping navigates to page<br />
+					ApplicationBar??</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					Controller</td>
+				<td>
+					Navigation</td>
+				<td>
+					Form.Show()</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					NavigationService.Navigate()</td>
+				<td >
+					-</td>
+				<td >
+					StartActivity()</td>
+				<td>
+					NavigationController.PushViewController()</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					Uri (XAML page)</td>
+				<td >
+					-</td>
+				<td >
+					Intent.SetClass()</td>
+				<td>
+					n/a (Object)</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					URI + querystring params</td>
+				<td >
+					-</td>
+				<td >
+					Intent.PutExtra().AddFlags()</td>
+				<td>
+					n/a (Object Properties)</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					NavigationContext.QueryString.TryGetValue()</td>
+				<td >
+					-</td>
+				<td >
+					Intent.GetXXXExtra()</td>
+				<td>
+					n/a/ (Object Properties)</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					Conntrollers<br />
+					families of controllers that controll activities<br />
+					(not Android activitiy)</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					Data Views<br />
+					present information to user</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					<br />
+				</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UITableView<br />
+					Table View, scrollable, cell is table View Cell</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UITableViewCell<br />
+					Table View Cell</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIImageView<br />
+					Image View - displays image or
+					<br />
+					animation (UIImag[])</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIWebView<br />
+					Web View - Browser controll displays web content in app</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					MKMapView<br />
+					displays map in app</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UITextView<br />
+					multilne editable text</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					ScrollViewver around Contrl</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIScrollView<br />
+					content larger than display can be scrolled</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIPickerView<br />
+					spinner (slot machine spinner) ComboBox, DropDownListBox</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIDatePicker<br />
+					Date/Time picker</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					INputs/Values</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UISegmentedControl<br />
+					Segmented Button - Button[]</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UILabel<br />
+					Label displays text</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIButton<br />
+					RoundRectButton !!!!<br />
+					Button for touch events - click event</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UITextField<br />
+					Text Filed TextBox for input + keyboard</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UISwitch<br />
+					Switch = Checkbox / 2 state button</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UISlider<br />
+					Slider - single vaule input from range</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIProgressView<br />
+					ProgressView</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIActivityIndicatorView<br />
+					feedback that task is running</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIPageControl<br />
+					information about additional Pages in app</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					Windows Views Bars</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIWindow<br />
+					contains multiple Views, first displayed, contains all Views, is singleton</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIView<br />
+					rectangular region for adding controls</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UISearchBar<br />
+					Search bar<br />
+					text field + image (button) for searching</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UISearchDisplayController<br />
+					Search bar and display controler = Search Bar, bookmarks, cancel and Table View 
+					for results</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UINavigationBar<br />
+					supports navigation of content in hierarchical manner</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UINavigationItem<br />
+				</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIToolbar<br />
+				</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIBarButtonItem<br />
+					Item in Toolbar or Navigation bar</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UIBarButtonItem<br />
+					Flexible space?</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UITabBar<br />
+					allows control to be displayed at the bottom</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					UITabBarItem<br />
+					item in a Tab Bar</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					Outlet<br />
+					Mapping Code-behind to control in layout xib</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					Action<br />
+					Message fired off after Event (similar to .net Event)</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					Responsivnes</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					StartThread</td>
+				<td>
+					ThreadPool.QueueUserWorkItem
+					<br />
+					(o =&gt; MethodSlow ());</td>
+				<td >
+					ThreadPool.QueueUserWorkItem 
+					<br />
+					(o =&gt; MethodSlow ());</td>
+				<td>
+					ThreadPool.QueueUserWorkItem 
+					<br />
+					(o =&gt; MethodSlow ());</td>
+				<td>
+					ThreadPool.QueueUserWorkItem 
+					<br />
+					(o =&gt; MethodSlow ());</td>
+				<td >
+					-</td>
+				<td >
+					ThreadPool.QueueUserWorkItem 
+					<br />
+					(o =&gt; MethodSlow ());</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+	Refresh UI from worker Thread</td>
+				<td>
+					// Invoke the delegate on the form. this.Invoke(new BarDelegate(UpdateBar));<br />
+					<br />
+					// on UI thread<br />
+					private void UpdateBar() 
+					<br />
+					{ progressBar1.Value++; if (progressBar1.Value == progressBar1.Maximum)
+					<br />
+					{ // We are finished and the progress bar is full.
+					<br />
+					}
+					<br />
+					}</td>
+				<td >
+					if (!myCheckBox.Dispatcher.CheckAccess()) 
+					<br />
+					{
+					<br />
+- myCheckBox.Dispatcher.Invoke( System.Windows.Threading.DispatcherPriority.Normal, new Action( 
+					delegate() { myCheckBox.IsChecked = true; } ));
+					<br />
+					} 
+					<br />
+					else
+					<br />
+					{<br />
+-myCheckBox.IsChecked = true;
+					<br />
+					}</td>
+				<td>
+					-</td>
+				<td>
+		outputBlock.Dispatcher.BeginInvoke(delegate () {
+					<br />
+					outputBlock.Text += &quot;Hello from the thread pool.\r\n&quot;; });</td>
+				<td >
+					-</td>
+				<td >
+					RunOnUiThread (() =&gt; textview.Text = &quot;Method Complete&quot;);;);t;);</td>
+				<td>
+					-InvokeOnMainThread();</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					Model</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+				<td >
+					-</td>
+				<td >
+					-</td>
+				<td>
+					-</td>
+				<td>
+					-</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					Data</td>
+				<td>
+					Resources</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					VS.BuildAction=AndroidResource<br />
+					\Resources\*<br />
+					\Resources\layout\<br />
+					\Resources\layout-land\<br />
+					\Resources\layout-hdpi\<br />
+					\Resources\layout-mdpi\<br />
+					\Resources\layout-ldpi\<br />
+					\Resources\drawable\<br />
+					\Resources\values\*<br />
+					\Resources\values\strings.xml<br />
+					\Resources\values\strings.xml<br />
+					\Resources\xml\<br />
+					\Resources\anim\<br />
+					<br />
+					Resource.&lt;Name&gt;.&lt;Id&gt;</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					Assets</td>
+				<td>
+					</td>
+				<td >
+					VS.BuildAction=Content<br />
+					CopyToOutputDir=Always|IfNewer<br />
+					file in XAP</td>
+				<td>
+					VS.BuildAction=Content<br />
+					CopyToOutputDir=Always|IfNewer<br />
+					file in XAP</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					VS.BuildAction=AndroidAsset<br />
+					Assets\<br />
+					AssetManager.*</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					Storage - Files</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					System Version</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					System.OperatingSystem osInfo = System.Environment.OSVersion;</td>
+				<td >
+					</td>
+				<td >
+					Android.OS.Build.Version
+					<br />
+					Java: (port to c#)
+					<br />
+					Build.VERSION.SDK_INT Build.VERSION_CODES.GINGERBREAD
+					</td>
+				<td>
+					MT.UIKit.UIdevice.CurrentDevice.SystemVersion</td>
+				<td>
+					</td>
+			</tr>
+			<tr>
+				<td>
+					</td>
+				<td>
+					UniqueID</td>
+				<td>
+					</td>
+				<td>
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					Microsoft.Phone.Info
+					</td>
+				<td >
+					</td>
+				<td >
+					</td>
+				<td>
+					</td>
+				<td>
+					</td>
+			</tr>
+		</table>
+-->
+	<h2><a id="">TODOs</a></h2>	
+		<p>
+			Possible idea: common XML framework that would generate basic (note basic) UI 
+			for certain target platforms...
+		</p>
+		<p>
+			Name for common framework (idea is to make common xml that won't be UI 
+			framework/platform dependant.
+		</p>
+		<ul>
+			<li>GAML</li>
+			<li>UIAML</li>
+			<li>GUIAML</li>
+			<li>WAML</li>
+		</ul>
+
+		<p>
+			Definitions:
+		</p>
+		<ul>
+			<li>
+				GAML - Generic Application Markup Language
+				<ul>
+					<li>HolisticWare</li>
+				</ul>
+			</li>
+			<li>
+				WFAML - Windows Forms Application Markup Language
+				<ul>
+					<li>HolisticWare</li>
+				</ul>
+			</li>
+		</ul>
+
+
+
+	</body>
+</html>

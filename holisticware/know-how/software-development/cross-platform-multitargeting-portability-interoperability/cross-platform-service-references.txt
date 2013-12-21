@@ -1,0 +1,102 @@
+http://stackoverflow.com/questions/12351247/project-reference-vs-file-links-in-mono-multi-target-projects
+
+
+  <Compile Include="Service References\ServiceReferenceJournaline\Reference.cs">
+	<AutoGen>True</AutoGen>
+	<DesignTime>True</DesignTime>
+	<DependentUpon>Reference.svcmap</DependentUpon>
+  </Compile>
+  <ItemGroup>
+	<WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReferenceJournaline\Journaline.wsdl" />
+    <None Include="Service References\ServiceReferenceJournaline\RIZ.ContentServer2013.ServiceReferenceJournaline.GetFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceJournaline\RIZ.ContentServer2013.ServiceReferenceJournaline.SaveFileResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceJournaline\RIZ.ContentServer2013.ServiceReferenceJournaline.StatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReferenceJournaline\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReferenceJournaline\Journaline.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReferenceJournaline\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReferenceJournaline\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReferenceJournaline\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+ Change to: 
+  
+  <ItemGroup>
+	<Compile Include="..\RIZ.DRM.ContentServer2013.DataServices.DLL_BL_SL4\Service References\ServiceReferenceJournaline\Reference.cs">
+	  <Link>Service References\ServiceReferenceJournaline\Reference.cs</Link>
+	  <AutoGen>True</AutoGen>
+	  <DesignTime>True</DesignTime>
+	  <DependentUpon>Reference.svcmap</DependentUpon>
+	</Compile>
+  </ItemGroup>
+  <ItemGroup>
+	<WCFMetadata Include="..\RIZ.DRM.ContentServer2013.DataServices.DLL_BL_SL4\Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+	<None Include="..\RIZ.DRM.ContentServer2013.DataServices.DLL_BL_SL4\Service References\ServiceReferenceJournaline\Journaline.wsdl">
+	  <Link>Service References\ServiceReferenceJournaline\Journaline.wsdl</Link>
+	</None>
+	<None Include="..\RIZ.DRM.ContentServer2013.DataServices.DLL_BL_SL4\Service References\ServiceReferenceJournaline\RIZ.ContentServer2013.ServiceReferenceJournaline.GetFileResponse.datasource">
+	  <Link>Service References\ServiceReferenceJournaline\RIZ.ContentServer2013.ServiceReferenceJournaline.GetFileResponse.datasource</Link>
+	  <DependentUpon>Reference.svcmap</DependentUpon>
+	</None>
+	<None Include="..\RIZ.DRM.ContentServer2013.DataServices.DLL_BL_SL4\Service References\ServiceReferenceJournaline\RIZ.ContentServer2013.ServiceReferenceJournaline.SaveFileResponse.datasource">
+	  <Link>Service References\ServiceReferenceJournaline\RIZ.ContentServer2013.ServiceReferenceJournaline.SaveFileResponse.datasource</Link>
+	  <DependentUpon>Reference.svcmap</DependentUpon>
+	</None>
+	<None Include="..\RIZ.DRM.ContentServer2013.DataServices.DLL_BL_SL4\Service References\ServiceReferenceJournaline\RIZ.ContentServer2013.ServiceReferenceJournaline.StatusResponse.datasource">
+	  <Link>Service References\ServiceReferenceJournaline\RIZ.ContentServer2013.ServiceReferenceJournaline.StatusResponse.datasource</Link>
+	  <DependentUpon>Reference.svcmap</DependentUpon>
+	</None>
+	<Content Include="..\RIZ.DRM.ContentServer2013.DataServices.DLL_BL_SL4\ServiceReferences.ClientConfig">
+	  <Link>Service References\ServiceReferenceJournaline\ServiceReferences.ClientConfig</Link>
+	</Content>
+  </ItemGroup>
+  <ItemGroup>
+	<WCFMetadataStorage Include="..\RIZ.DRM.ContentServer2013.DataServices.DLL_BL_SL4\Service References\ServiceReferenceJournaline\">
+	</WCFMetadataStorage>
+  </ItemGroup>
+  <ItemGroup>
+	<None Include="..\RIZ.DRM.ContentServer2013.DataServices.DLL_BL_SL4\Service References\ServiceReferenceJournaline\Journaline.disco">
+	  <Link>Service References\ServiceReferenceJournaline\Journaline.disco</Link>
+	</None>
+  </ItemGroup>
+  <ItemGroup>
+	<None Include="..\RIZ.DRM.ContentServer2013.DataServices.DLL_BL_SL4\Service References\ServiceReferenceJournaline\configuration91.svcinfo">
+	  <Link>Service References\ServiceReferenceJournaline\configuration91.svcinfo</Link>
+	</None>
+  </ItemGroup>
+  <ItemGroup>
+	<None Include="..\RIZ.DRM.ContentServer2013.DataServices.DLL_BL_SL4\Service References\ServiceReferenceJournaline\configuration.svcinfo">
+	  <Link>Service References\ServiceReferenceJournaline\configuration.svcinfo</Link>
+	</None>
+  </ItemGroup>
+  <ItemGroup>
+	<None Include="..\RIZ.DRM.ContentServer2013.DataServices.DLL_BL_SL4\Service References\ServiceReferenceJournaline\Reference.svcmap">
+	  <Link>Service References\ServiceReferenceJournaline\Reference.svcmap</Link>
+	  <Generator>WCF Proxy Generator</Generator>
+	  <LastGenOutput>Reference.cs</LastGenOutput>
+	</None>
+  </ItemGroup>

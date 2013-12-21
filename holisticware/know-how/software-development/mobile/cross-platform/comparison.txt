@@ -1,0 +1,48 @@
+
+Fragments
+
+	Mono for Android supports Fragments, both in the Honeycomb incarnation and in the 
+	Support incarnation. If you want to target Android v2.2, you'll need to reference 
+	Mono.Android.Support.v4.dll:
+	
+Tabs
+
+	kes sense that it should do this, but I want to keep the tabs at the
+bottom because I'm porting from an iOS app which uses a UITabBarController.
+I've probably just missed something very obvious.
+
+Can anyone post an example on how I could go about this?
+
+
+ok a few things you should know about android.
+
+Each intent has it's own contentview. So if you want tabs on each intent, you have to
+make your content view set on each intent. You might be thinking of a viewflipper or 
+the like which, though annoying to set up, is what I think you want.
+
+
+Tabs in android are at the top of the screen. My suggestion is to follow the native format 
+as users are used to this. You should also look at the fragmenttabspager demo 
+https://github.com/xamarin/monodroid-samples/blob/master/Support4/Support4/Activities/FragmentTabsPager.cs. 
+I believe tabs at bottom is custom
+
+
+view flipper or a carousel style interface
+
+My app is a drill-down app with a lot of data and a lot of nested ListViews,
+so it's crucial that the navigation is good so people can get to info
+quickly and logically.
+
+I've been working with ActivityGroup, although I know that it is deprecated.
+I have it working but it's still a little buggy when navigating back, but
+I'm sure I can fix that.
+
+I thought of using fragments but my target Android version is 2.2 (Froyo)
+and above and I read that Mono for Android doesn't support fragments in
+anything under 3.0 (yet).
+
+I would have thought it was simpler to implement having a set of tabs
+positioned either top or bottom, which would act as global navigation and be
+available on each Activity.
+
+

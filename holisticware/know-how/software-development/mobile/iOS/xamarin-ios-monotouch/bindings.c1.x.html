@@ -1,0 +1,68 @@
+bindings
+
+
+It looks like your bindings requires CoreGraphics (GC) to be linked in
+(and maybe other framework as well).
+
+You can add the list of required frameworks in your [LinkWith]
+attribute in your binding project. This will instruct MonoTouch to add
+the required (native linking) parameters when building your device
+binaries.
+
+note: The default simulator launcher does this automatically (for
+every framework) since size does not matter in this case.
+
+
+
+I'm assuming you did the binding library:
+
+"/Users/pos/Desktop/binding/VPC_MonoTouch/NextFrameWorkBindingLibrary.dll"
+
+If you expand the static library (.a) you should see a libXXX.linkwith.cs file.
+This is where the [LinkWith] attribute is located.
+
+You'll need to add:
+
+Frameworks = "CoreGraphics"
+
+inside it (or add "CoreGraphics" to the list of framework already
+present). Other frameworks might also be required.
+
+
+
+mhh, the .dll file and .a files are creating automatic with a make file.
+
+Additionally there are 4 *. A * create files
+a Universial
+an ARMv6
+a ARMv7 ...
+
+With what program can expand static librarys?
+can integrate the frameworks of default can be automated?
+
+
+If you're using a Makefile then you're likely not using the new
+binding project, which includes LinkWith support.
+
+Try adding:
+
+-gcc_flags="-framework CoreGraphics"
+
+to your project's Options, iPhone Build, inside the "additional mtouch
+arguments".
+
+This will do the same as [LinkWith] does (but you'll need to add it to
+both Debug and Release options).
+
+
+
+
+
+
+
+
+ive add the framework now so:
+
+-gcc_flags="-framework CoreGraphics -framework SystemConfiguration
+-framework MediaPlayer -framework AudioToolbox -framework CFNetwork
+-framework CoreLocation -framework StoreKit"

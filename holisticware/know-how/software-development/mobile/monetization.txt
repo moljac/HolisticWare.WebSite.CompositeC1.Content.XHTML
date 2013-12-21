@@ -1,0 +1,401 @@
+http://appclover.com/ 
+
+http://info.tapjoy.com/wp-content/uploads/2012/08/Final-August-Newslette 
+r-2012.pdf 
+
+http://inspiredm.com/mobile-monetization-models-making-money-out-of-apps 
+/?goback=%2Egde_69893_member_265347953#%21 
+
+Mobile monetization is a problem that usually bothers every mobile 
+developer out there. Creating a cool app is only the first step in the 
+roadmap of creating a successful application that can be monetized. 
+Choosing the appropriate monetization model for an app is usually one of 
+the most difficult decisions to be made. Mobile developers are looking 
+for more revenue without compromising the user experience and the 
+quality of their app. 
+
+We will highlight the most important mobile monetization models that 
+exist out there, focusing mainly on mobile advertising models, which 
+seem to be quite popular among mobile developers nowadays. 
+
+Mobile Advertising 
+
+One of the most widely used monetization models is mobile ads. There is 
+a big debate going on regarding ad methods & tactics, compromising user 
+experience level, revenue effectiveness, intrusiveness and users 
+drop-off among different mobile ad platforms. Developers are usually 
+overflowed with terms such as eCPMs, fill rates, CPI, CPA, CTR and 
+others. But what are developers actually looking for? Can a current 
+mobile ad platform bring sufficient enough revenue to a developer? Many 
+developers usually try different mobile ad platforms or even a 
+combination of them to find which ones monetize better their apps. 
+
+What a developer is actually looking for is: 
+
+1) High and efficient revenue 
+
+2) Not compromising app’s user experience 
+
+3) Easiness of SDK integration 
+
+4) Reduce app’s users drop-off 
+
+Mobile ad platforms are using a variety of methods and techniques to 
+deliver ads to the users. We will list some of the most important of 
+them here: 
+
+Banner Ads 
+
+Banner Ads are one of the most widely used mobile advertising methods. A 
+banner is placed somewhere in the UI of the app (therefore it usually 
+requires change of the UI of the app). There are different kinds of 
+banners and different sizes according to the monetization platform used. 
+It’s up to the developer to place them in a place within the app that 
+will deliver better conversion rates. Their content varies from text to 
+rich media. Some types of banners include expandable, floating and 
+interactive banners. A few of the top players in this category are 
+AdMob, iAd and Millennial Media. 
+
+Mobile monetization models making money out of apps Mobile monetization 
+models making money out of apps 
+
+Interstitials 
+
+Interstitials are usually placed between transition points within or 
+while entering or exiting a mobile app (e.g. the change of a game level, 
+app launch, app exit and others) and are usually rendered as full screen 
+or big popup. Some of them render videos, images or other rich content. 
+They are usually used to drive downloads of another app, visit a 
+website, show a video and others. These kinds of ads are usually more 
+expensive for the publishers, deliver higher revenue when used 
+appropriately by the developers and get more attention by the users. 
+Well known players at this category are TapJoy, Flurry, LeadBold, RevMob 
+and AdColony while Chartboost enables developers to cross-promote 
+directly with other apps, providing them this a way an option to drive 
+installs on their own apps. 
+
+Mobile monetization models making money out of apps Mobile monetization 
+models making money out of apps 
+
+Offer Walls 
+
+Offer walls is a monetization model where users are prompted with a 
+landing page full screen wall of targeted offers that provide users with 
+virtual items/credits/features or levels unlocks in exchange for 
+registration, downloads or others. Some of the key players in this area 
+are Tapjoy, StartApp and {FIKSU}. 
+
+Mobile monetization models making money out of apps Mobile monetization 
+models making money out of apps 
+
+Notification Ads 
+
+Notification Ads are one of the most intrusive models widely used 
+nowadays. Users receive a notification for an ad even without having the 
+app open. This kind of model usually pays better for the developers, 
+however excessive use can really end up with a lot of unhappy users of 
+the app. Some of the key players in this area are Airpush and LeadBold. 
+
+Mobile monetization models making money out of apps Mobile monetization 
+models making money out of apps 
+
+Surveys 
+
+Surveys as a monetization method for mobile is a new and emerging trend 
+with very promising features. Surveys are rendered as an overlay within 
+the apps and therefore developers do not have to change anything in 
+app’s UI and flow. Since surveys are rendered as an overlay, integration 
+ends up as a drag and drop, one line code activation. Developers are 
+paid for each completed survey through their app. Users are prompted to 
+take a survey in order to get into a draw for a prize. The key player in 
+this area is Pollfish, which claims that surveys deliver revenue up to 
+20 times more than classic ad clicks. 
+
+Mobile monetization models making money out of apps Mobile monetization 
+models making money out of apps Mobile monetization models making money 
+out of apps 
+
+Lock Screen Ads 
+
+Another emerging trend in mobile ads is ads on smartphone’s lock screen. 
+Users can choose either to engage or not with the ad and if they do so 
+they get paid with real money. One of the downsides of this approach is 
+that these platforms can focus only on Android. Some of the key players 
+here are AdLatte and Locket. 
+
+Mobile monetization models making money out of apps Mobile monetization 
+models making money out of apps 
+
+Other 
+
+There are other monetization models for ads out there that are not 
+listed in this article such as audio ads, capture forms, app icons, 
+caller ads, widget ads etc. 
+
+Paid applications 
+
+Choosing to follow the paid application approach model, developers have 
+to specify a price for the app that the users will have to pay upfront. 
+Higher price for an app does not reflect more revenue. With a paid app a 
+developer gains a new customer, with much higher expectations than a 
+regular mobile app user, who also expects free lifetime updates. Usually 
+for the majority of the apps users get disappointed easily since bug 
+free operation, or quality app experience and updates frequency do not 
+reflect the purchase expectations. Another notable fact here is that 
+users do not pay for apps from new developers and tend to buy from 
+well-established ones. In addition cross-platform wise this is a model 
+more successfully used on iOS rather than Android platform where users 
+seem to prefer staying on free applications. Finally, it worth 
+mentioning here, that app stores keep a percentage of developers’ 
+revenue for each purchase. 
+
+Mobile monetization models making money out of apps Mobile monetization 
+models making money out of apps 
+
+Freemium models / In-App Purchases 
+
+The developer provides the basic features of the app for free and then 
+requests a price to unlock the rest of the app functionality or provide 
+enhanced features. In-App Purchases is a flexible model that can be used 
+with free (freemium) or paid apps. Different types of in-app purchases 
+exist. Users use in-app purchases to unlock/proceed to a new level, 
+receive new features, use a new weapon in a game, receive an update and 
+many others. Only quality, useful or engaged apps can be used with this 
+model. 
+
+Mobile monetization models making money out of apps Mobile monetization 
+models making money out of apps 
+
+Subscriptions 
+
+Subscription model works by distributing the mobile apps for free. User 
+has to login into the app using an account who is usually charged for 
+the service provided. The model works either for delivering live feed 
+data to the user in exchange for a monthly payment fee (e.g. newspapers 
+subscriptions, magazine subscriptions etc.) or for using software as a 
+service. This kind of model is usually used in combination with web 
+solutions, something that usually requires much more effort both on the 
+developer side and on customer/users acquisition. 
+
+Choosing the right monetization model for an app, is one of they key 
+choices towards its success. The right choice depends heavily on app’s 
+content, quality and engagement potential. In most cases traction plays 
+a significant role in app monetization. Capitalizing on this traction 
+the right way is one of the major decisions in a mobile app’s 
+monetization strategy. 
+
+Author bio: Andreas Vourkos is COO of Pollfish, a company that aims to 
+change the way mobile surveys are conducted and additionally offering a 
+new alternative and effective monetization method for mobile developers. 
+
+
+
+
+
+
+
+
+Android AdMob 
+
+iOS iAd 
+
+Windows Phone Advertizing?! 
+
+http://appmuse.com/appmusing/how-much-does-it-cost-to-develop-a-mobile-a 
+pp/ 
+
+Publisher Exhibitor Lecturer Trainer 
+
+so how is this thing done? Anybody selling their apps from EU? How does 
+the taxes story look like for EU members? I guess this is handled by MS 
+...? As far I know they (MS) gets 30% (for hosting, app certification 
+etc.), the developer 70% of the revenue. This information comes with no 
+warranty of any kind ;-) I'll going to sell some WP7 apps in a few weeks 
+then I hope I will know it better. You have to declare it as income tax. 
+As ms does not deduct tax automatically. See also 
+http://create.msdn.com/en-US/home/faq topic "payments": * You'll be paid 
+70% of all application sales as your revenue share * You'll be 
+responsible for paying all taxes on the payments you receive etc. 
+Flasch you'd get (100 * 0,7) - (100 * 0,7 * 0,2) = 56 % of your revenue 
+since you should pay tax only from your actual income. I'm gonna verify 
+this for Poland thourgh MS representative. Ok, so I've verified that VAT 
+tax is handled by MS and income tax is on your hands, so to correct my 
+previous statement it's: 100 * 0,7 * 0,77 * 0,81 = 43,659 % of the 
+original value 
+
+(that's 30% for MS, 23% PL VAT tax, and 19% PL income tax) 
+
+http://inspiredm.com/mobile-monetization-models-making-money-out-of-apps 
+/?goback=%2Egde_2013391_member_265347958#%21 
+
+Mobile Monetization Models – Making Money from Your Apps 
+
+Andreas Vourkos on August 21, 2013 with 0 Comments inShare 2 Mobile 
+monetization is a problem that usually bothers every mobile developer 
+out there. Creating a cool app is only the first step in the roadmap of 
+creating a successful application that can be monetized. 
+
+Choosing the appropriate monetization model for an app is often one of 
+the most difficult decisions to be made. Mobile developers are looking 
+for more revenue without compromising the user experience and the 
+quality of their app. 
+
+We will highlight the most important mobile monetization models that 
+exist out there, focusing mainly on mobile advertising models, which 
+seem to be quite popular among mobile developers nowadays. 
+
+Mobile Advertising 
+
+One of the most widely used monetization models is mobile ads. There is 
+a big debate going on regarding ad methods & tactics, compromising user 
+experience level, revenue effectiveness, intrusiveness and users 
+drop-off among different mobile ad platforms. 
+
+Developers are usually overflowed with terms such as eCPMs, fill rates, 
+CPI, CPA, CTR and others. But what are developers actually looking for? 
+Can a current mobile ad platform bring sufficient enough revenue to a 
+developer? Many developers usually try different mobile ad platforms or 
+even a combination of them to find which ones monetize better their 
+apps. 
+
+What a developer is actually looking for is: 
+
+High and efficient revenue Not compromising app’s user experience 
+Easiness of SDK integration Reduce app’s users drop-off Mobile ad 
+platforms are using a variety of methods and techniques to deliver ads 
+to the users. We will list some of the most important of them here: 
+
+Banner Ads 
+
+Banner Ads are one of the most widely used mobile advertising methods. A 
+banner is placed somewhere in the UI of the app (therefore it usually 
+requires a change to the UI of the app). 
+
+There are different kinds of banners and different sizes according to 
+the monetization platform used. It’s up to the developer to place them 
+somewhere within the app that will deliver better conversion rates. 
+Their content varies from text to rich media. Some types of banners 
+include expandable, floating and interactive banners. 
+
+A few of the top players in this category are AdMob, iAd and Millennial 
+Media. 
+
+Interstitials 
+
+Interstitials are usually placed between transition points within or 
+while entering or exiting a mobile app (e.g. the change of a game level, 
+app launch, app exit and others) and are usually rendered as full screen 
+or big popup. Some of them render videos, images or other rich content. 
+
+They are frequently used to drive downloads of another app, visit a 
+website, show a video and others. These kinds of ads are usually more 
+expensive for the publishers, deliver higher revenue when used 
+appropriately by the developers and get more attention by the users. 
+
+Well known players at this category are TapJoy, Flurry, LeadBolt, RevMob 
+and AdColony while Chartboost enables developers to cross-promote 
+directly with other apps, providing them this a way an option to drive 
+installs on their own apps. 
+
+Offer Walls 
+
+Offer walls is a monetization model where users are prompted with a 
+landing page full screen wall of targeted offers that provide users with 
+virtual items/credits/features or level unlocks in exchange for 
+registration, downloads or others. Some of the key players in this area 
+are Tapjoy, StartApp and Fiksu. 
+
+Notification Ads 
+
+Notification Ads are one of the most intrusive models widely used 
+nowadays. Users receive a notification for an ad even without having the 
+app open. This kind of model usually pays better for the developers, 
+however excessive use can end up with a lot of unhappy users of the app. 
+
+Some of the key players in this area are Airpush and LeadBolt. 
+
+Surveys 
+
+Surveys as a monetization method for mobile is a new and emerging trend 
+with very promising features. Surveys are rendered as an overlay within 
+the apps and therefore developers do not have to change anything in the 
+app’s UI and flow. 
+
+Since surveys are rendered as an overlay, integration ends up as a drag 
+and drop, one line code activation. Developers are paid for each 
+completed survey through their app. Users are prompted to take a survey 
+in order to get into a draw for a prize. 
+
+The key player in this area is Pollfish, which claims that surveys 
+deliver revenue up to 20 times more than classic ad clicks. 
+
+Lock Screen Ads 
+
+Another emerging trend in mobile ads is ads on smartphone’s lock screen. 
+Users can choose either to engage or not with the ad and if they do so 
+they get paid with real money. One of the downsides of this approach is 
+that these platforms can focus only on Android. 
+
+Some of the key players here are AdLatte and Locket. 
+
+Other 
+
+There are other monetization models for ads out there that are not 
+listed in this article such as audio ads, capture forms, app icons, 
+caller ads, widget ads, etc. 
+
+Paid Applications 
+
+Choosing to follow the paid application approach model, developers have 
+to specify a price for the app that users will have to pay upfront. 
+Higher prices for an app do not necessarily reflect more revenue. 
+
+With a paid app, a developer gains a new customer, with much higher 
+expectations than a regular mobile app user, who also expects free 
+lifetime updates. Usually for the majority of the apps, users get 
+disappointed easily since bug free operation, or quality app experience 
+and updates frequency do not reflect the purchase expectations. 
+
+Another notable fact here is that some users do not pay for apps from 
+new developers and tend to buy from well-established ones. In addition, 
+cross-platform wise this is a model more successfully used on iOS rather 
+than Android platform where users seem to prefer staying on free 
+applications. 
+
+Finally, it worth mentioning here, that app stores keep a percentage of 
+developers’ revenue for each purchase. 
+
+Freemium Models / In-App Purchases 
+
+The developer provides the basic features of the app for free and then 
+requests a price to unlock the rest of the app functionality or provide 
+enhanced features. In-App Purchases is a flexible model that can be used 
+with free (freemium) or paid apps. 
+
+Different types of in-app purchases exist. Users make in-app purchases 
+to unlock/proceed to a new level, receive new features, use a new weapon 
+in a game, receive an update and many others. Only quality, useful or 
+engaged apps can be used with this model. 
+
+Subscriptions 
+
+Subscription models work by distributing the mobile apps for free. A 
+user has to login into the app using an account who is usually charged 
+for the service provided. The model works either for delivering live 
+feed data to the user in exchange for a monthly payment fee (e.g. 
+newspapers subscriptions, magazine subscriptions, etc.) or for using 
+software as a service. This kind of model is usually used in combination 
+with web solutions, something that usually requires much more effort 
+both on the developer side and on customer/users acquisition. 
+
+Choosing the right monetization model for an app is one of they key 
+choices towards its success. The right choice depends heavily on app’s 
+content, quality and engagement potential. In most cases, traction plays 
+a significant role in app monetization. Capitalizing on this traction 
+the right way is one of the major decisions in a mobile app’s 
+monetization strategy. 
+
+- See more at: 
+http://appclover.com/mobile-monetization-models-making-money-apps/?gobac 
+k=%2Egde_2013391_member_267611501#%21 
+

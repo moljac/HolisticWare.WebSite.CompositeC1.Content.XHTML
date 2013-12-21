@@ -1,0 +1,56 @@
+unmanaged code
+
+
+Please everyone forget everything I was trying to do. I always thought that
+even when pinning the array a copy of it was made, but thanks to Dzmitry I
+have just learned that this is not the case. This means that the
+performance hit I thought existed in fact does not.
+Rafael, thanks for the suggestion, this is precisely what I was doing, and
+it is how things will remain.
+
+
+On Sun, Dec 2, 2012 at 7:19 PM, Rafael Teixeira <monoman@gmail.com> wrote:
+
+> I would not go that route. Have you tried to pin the arrays in managed
+> code and marshalling just the pointers, using unsafe C# code obviously? It
+> would do what you want, avoid copying, but with no need to do hard to
+> maintain hacks... 
+>
+> Have fun,
+> Em 02/12/2012 18:12, "Marcelo Zabani" <mzabani@gmail.com> escreveu:
+>
+>> Hi everyone, I've been trying to find a way to invoke unmanaged code
+>> without any marshaling, i.e. by making my unmanaged functions receive
+>> Mono's objects (or their addresses).
+>> I've read the Embedding Mono page (a very good one at that) and found
+>> that if I embed Mono in my application, I could call mono_add_internal_call
+>> on my unmanaged functions and mark my C# methods with
+>> [MethodImplAttribute(MethodImplOptions.InternalCall)]; there is a catch in
+>> my case, however.
+>> I am not trying to embed Mono in my application, I'm trying to avoid
+>> marshaling from my "standard" .NET app to my C API calls since my C
+>> functions deal with large byte arrays all the time, and this implies a
+>> significant overhead in allocating and copying them. I would much rather
+>> try pinning the arrays and accessing the underlying C-like array directly
+>> in some cases (is this possible and is this in Mono's public API?). For
+>> this reason, I can only run mono_add_internal_call after my managed code
+>> has already executed, and apparently because of this I'm getting
+>>
+>>      Unhandled Exception: System.MissingMethodException: Cannot find the
+>> requested method.
+>>
+>> Is there anyway to achieve what I want?
+>> This is my first time with Mono's internals and I'm only beginning with
+>> Interop, so please excuse any stupidities I may be doing.
+
+
+Manual pinning isn't required. Blittable types and their one dimensional arrays a
+re automatically pinned by the p/invoke marshaler. 
+Robert 
+
+On 02.12.2012 22:19, 
+Rafael Teixeira wrote:
+> I would not go that route. Have you tried to pin the arrays in managed code
+> and marshalling just the pointers, using unsafe C# code obviously? It would
+> do what you want, avoid copying, but with no need to do hard to maintain
+> hacks... 

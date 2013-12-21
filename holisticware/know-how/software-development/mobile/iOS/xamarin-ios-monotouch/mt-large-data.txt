@@ -1,0 +1,4 @@
+http://msdn.microsoft.com/en-us/library/system.environment.specialfolder.aspx
+
+
+http://jamesantrobus.wordpress.com/2011/01/16/itunes-file-sharing-with-monotouch/

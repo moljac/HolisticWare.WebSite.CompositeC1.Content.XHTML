@@ -1,0 +1,115 @@
+regex
+
+
+So, I recently did a major update to my ASP.Net website running on
+Mono (runs on .Net as well, but I work on it and host it with Mono).
+Long story short, my websites performance sunk big time. It now takes
+110ms for a response that once took less than 20ms.
+
+I traced down the big difference to using regular expressions as a
+part of my routing and a few other things. (I have a custom MVC
+framework: https://bitbucket.org/earlz/barelymvc).
+
+Here are some(maybe all) of the regular expressions being used
+(they're really simple):
+
+@"[^a-zA-Z0-9]\ "
+@"[^a-zA-Z0-9\-]"
+"^[0-9a-zA-Z]+$"
+@"^[-+]?[0-9]*\.?[0-9]+$"
+ "^[-+]?[0-9]*$"
+"^[0-9A-Fa-f]+$"
+
+All of these regular expressions are compiled once at application
+startup and cached. (with RegexOptions.Compiled). They are used with
+with IsMatch(input) or Replace(input, replacement);
+
+When profiling my application however, the number one most time
+consuming method was `System.Text.RegularExpressions.Interpreter:Eval
+(System.Text.RegularExpressions.Interpreter/Mode,int&,int)` (my
+database functions, which are also not really fast didn't even compare
+to the amount of time this function consumed)
+
+Is there anything I can do to mitigate this problem? I'm using the
+latest stable version of Mono (Arch Linux) on a 64-bit platform. Is it
+true also that regular expression should now be on par with .Net's
+implementation? From what I understand, mono compiles them to IL
+correct? Is there anything to watch for in regular expressions that
+could give me performance problems like this?
+
+
+
+
+Are you sure your site is running in release mode (debug="false" in your
+web.config, and Release build config for assemblies)? Running in debug mode
+will turn off lots of optimisations that may cause slowdown.
+
+It might be worth trying out
+Regex.CompileToAssembly<http://msdn.microsoft.com/en-us/library/9ek5zak6.aspx>to
+precompile your regular expressions - This will create a separate .NET
+assembly which has pre-optimised versions of the regular expressions.
+However I've found this is only beneficial for very large regular
+expressions, and regular expressions that are used a lot. So it might not
+help too much (but it doesn't hurt to try it to see if it makes a
+difference or not). As far as I know, Mono doesn't
+support Regex.CompileToAssembly, but you should be able to generate the
+assembly on Microsoft .NET, and then use the generated assembly with Mono.
+I haven't tried this myself though.
+
+Out of curiosity, how are you profiling the code?
+
+
+
+
+I actually found out how to use the profiler a bit better and found
+that MarkdownSharp(http://code.google.com/p/markdownsharp/) is what
+makes extensive use of regular expressions, however, the majority of
+it's regular expressions are also compiled. (though are of course
+significantly more complex).
+
+Now, on to your questions
+
+On Sun, Dec 2, 2012 at 10:03 PM, Daniel Lo Nigro <lists@dan.cx> wrote:
+> Are you sure your site is running in release mode (debug="false" in your
+> web.config, and Release build config for assemblies)? Running in debug mode
+> will turn off lots of optimisations that may cause slowdown.
+
+Yes, it's in release mode with debug=false
+
+> It might be worth trying out Regex.CompileToAssembly to precompile your
+> regular expressions - This will create a separate .NET assembly which has
+> pre-optimised versions of the regular expressions. However I've found this
+> is only beneficial for very large regular expressions, and regular
+> expressions that are used a lot. So it might not help too much (but it
+> doesn't hurt to try it to see if it makes a difference or not). As far as I
+> know, Mono doesn't support Regex.CompileToAssembly, but you should be able
+> to generate the assembly on Microsoft .NET, and then use the generated
+> assembly with Mono. I haven't tried this myself though.
+
+That's an option, but I'd really prefer to avoid it. My regular
+expressions are easily cacheable and used quite a bit, but not complex
+at all.
+
+> Out of curiosity, how are you profiling the code?
+
+I'm using this:
+
+mono --profile=log:noalloc,calls,maxframes=16 /usr/lib/mono/4.0/xsp4.exe
+
+I know xsp isn't a production server or anything, but I don't think it
+matters much in this case. (I see the same kind of speed problems with
+mod_mono and apache).
+
+I then read the report like this:
+
+mprof-report --method-sort=total --traces output.mlpd  > report.txt
+
+And I generate the load on my test application using apache's ab
+
+
+Also, I'm wondering if it's suppose to call
+`System.Text.RegularExpressions.Interpreter:Eval
+(System.Text.RegularExpressions.Interpreter/Mode,int&,int)` when
+working with compiled regexs. My gut tells me it's not support to do
+that, but I don't know the mono internals at all.
+

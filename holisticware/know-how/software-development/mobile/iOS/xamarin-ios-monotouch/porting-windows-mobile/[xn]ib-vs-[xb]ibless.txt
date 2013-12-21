@@ -1,0 +1,106 @@
+HowTO: UIViewController extending (inheriting, customization, specialization)
+
+In the course of porting one Windows Mobile app to iOS with MonoTouch we ran into
+several design/decision problems and today we are stuck and of course tensions rise.
+
+Most of the problems are caused by the lack of knowledge of iOS programming paradigms,
+legacy code (historical stuff) and effort to reuse existing code as much as possible.
+
+
+Notation (quasi UML):
+
+		Base/Super class <--------- Derived/specialized class
+
+Steps done:
+
+  1. proof-of-concept (legacy business layer code reuse + UI iOS native xibs)
+  
+		UIViewController <----- SomeController (loads xib)
+
+  2. minimizing some platform differences custom UIViewController[s] added
+  
+		UIViewController <----- InheritnaceClass01 ....  InheritnaceClassNN <----- SomeController (loads xib)
+
+  3. removing need for xibs
+
+		UIViewController <----- InheritnaceClass01 ....  InheritnaceClassNN <----- SomeController (xibless)
+
+
+There is much more in the app (custom GestureRecognizers) what could cause us problems such as
+after step 3: ButtonEvents and GestureRecognizers stopped working.
+
+Generally in step 2. we have only one intermediate class between SomeController (xib) and UIViewController,
+but the question is general:
+
+What needs to be done with custom UIViewController in order to work properly?
+
+I suspect that somewhere in inheritance chain event flow and registration of derived class is cutoff, 
+so some assumptions:
+
+1. Register Attribute (done)
+2. Outlets that used to be in designer.cs file (declarations with [OutletAttribute] 
+   are left intact, but actual initialization is in ViewDidLoad()
+3. polymorphism
+
+	3.1 which methods need to be overriden?? (did override ViewDidLoad())
+	
+	3.2 which overriden methods need to call base??
+	
+
+I don't want to point finger and blame, just looking for suggestion and advice. I'm suspecting that
+in the inheritnace chain/graph events are not passed to UIViewController (iOS itself).
+
+Right now project leader suggested (it is hard to say that was a suggestion):
+1. to recreate all xibs as empty one (or create single in app)
+2. to change base class of those xib created UIViewControllers to UIView
+
+As far as I know UIView and UIViewController are on the same "inheritnace level" (deriving from
+UIResponder), implying they have not too much common stuff, implementing different methods, so 
+they are ment for different purposes.
+
+I'm concerned about thw worth of the effort:
+ * all ViewDidLoad, ViewDidUnload, DidReceiveMemoryWarning must be moved to UIView equivalents 
+   (if there are any).
+ * constructor UIViewController(string nibname, NSBundle nsb) does not exist in UIVIew
+
+My intuition tells me this base class switch leads us further from solution.
+
+And there is question how to load plain UIView in UIWindow in AppDelegate... But I'll ask that
+in another thread...
+
+thx
+
+mel
+
+===================================================================================================
+
+Forgot constructors:
+
+2. constructors implemented
+	1. default  InheritnaceClass() : base()
+	2. xib loading InheritnaceClass(string xibname, NSBundle nsb) : base(xibname, nsb)
+	3. marshaling  InheritnaceClass(IntPtr handle) : base(handle)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+http://conceptdev.blogspot.com/2009/10/monotouch-sans-interface-builder.html
+http://www.mentby.com/rory-blyth/startup-times-nib-vs-nib-less.html
+http://stackoverflow.com/questions/2908971/how-does-monotouch-autogenerate-xib-code-behind
+
+http://stackoverflow.com/questions/3514399/monotouch-xib-or-not-to-xib
+http://stackoverflow.com/questions/11188634/creating-a-custom-view-using-a-xib
+

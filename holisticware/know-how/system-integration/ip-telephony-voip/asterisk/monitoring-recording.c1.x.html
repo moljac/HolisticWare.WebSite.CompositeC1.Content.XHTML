@@ -1,0 +1,101 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Monitoring and Recording</title>
+Description = all keywords + extra text
+<meta name="Description" content="Monitoring and Recording in asterisk, FreePBX and Elastix" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Monitoring and Recording
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="asterisk, monitoring, recording" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Monitoring and Recording</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<h2><a id="">FreePBX - Elastix - Asterisk Recording Interface (ARI)</a></h2>
+	<ol>
+		<li>
+			Config file: /var/www/html/recordings/includes/main.conf.php
+			<br />
+			default recording location:	/var/spool/asterisk/monitor 
+		</li>
+		<li>
+			open Elastix web-gui +/ PBX +/ general settings +/ Recording Location: 
+			(always include trailing slash)
+			<br />
+			example: /media/ASTERISK/
+		</li>
+		<li>
+		open shell, navigate one folder above Recording Location folder
+		<br />
+		example: /media/
+		</li>
+		<li>
+			Execute:
+			<pre class="hw_code">
+	chgrp asterisk /ASTERISK
+	chown asterisk /ASTERISK
+	
+	ls -al
+			</pre>
+			Output:
+			<pre class="hw_code">
+	drwxr-xr-x  2 asterisk asterisk 4096 May  9 06:56 ASTERISK
+			</pre>
+		</li>
+		<li>
+			edit /var/www/html/recordings/includes/main.conf.php
+			<br />
+			Find: $ARI_ADMIN_PASSWORD ="ari_password";
+			<br />
+			Change!
+			<br />
+			Find: 	$ASTERISK_CALLMONITOR_PATH = $amp_conf["ASTSPOOLDIR"]."/monitor";
+			<br />
+			Uncomment and set path to example
+			<br />
+			$ASTERISK_CALLMONITOR_PATH ="/media/ASTERISK/";
+		</li>
+		<li>
+			Restart services (to load new settin)
+			<pre class="hw_code">
+	amportal restart
+	service httpd restart
+	service asterisk restart
+			</pre>
+		</li>
+		<li>
+			Open GUI +/ PBX +/ Extensions
+			Change:
+			<br />			
+			change Record Incoming -> always
+			<br />			
+			change Record Outgoing -> always
+			<br />			
+		</li>
+		<li>
+			Files can be downloaded from: https://$IP_PBX/recordings/
+		</li>
+	</ol>
+	<img
+		alt="FreePBX ARI"
+		title="FreePBX ARI"
+		src="http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/asterisk/monitoring-and-recording/freepbx-ari-call-monitor.png"
+		width="100%"
+	/>
+</body>
+</html>

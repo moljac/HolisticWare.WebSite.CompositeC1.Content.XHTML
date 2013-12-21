@@ -1,0 +1,90 @@
+There are pretty limited scenarios that I can think of where this would be useful, but let's assume you can't get funds to purchase VS2012 or something to that effect. If that's the case and you have Windows 7+ and VS 2010 you may be able to use the following hack I put together which seems to work (but I haven't fully deployed an application using this method yet).
+
+Backup your project file!!!
+
+Download and install the Windows 8 SDK which includes the .NET 4.5 SDK.
+
+Open your project in VS2010
+
+Create a text file in your project named "Compile_4_5_CSharp.targets" with the following contents. (Or just download it here - Make sure to remove the ".txt" extension from the file name)
+
+<Project
+ DefaultTargets="Build"
+ xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <!-- Change the target framework to 4.5 if using the ".NET 4.5" configuration -->
+    <PropertyGroup Condition=" '$(Platform)' == '.NET 4.5' ">
+        <DefineConstants Condition="'$(DefineConstants)'==''">
+            TARGETTING_FX_4_5
+        </DefineConstants>
+        <DefineConstants Condition="'$(DefineConstants)'!='' and '$(DefineConstants)'!='TARGETTING_FX_4_5'">
+            $(DefineConstants);TARGETTING_FX_4_5
+        </DefineConstants>
+        <PlatformTarget Condition="'$(PlatformTarget)'!=''"/>
+        <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    </PropertyGroup>
+
+    <!-- Import the standard C# targets -->
+    <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+
+    <!-- Add .NET 4.5 as an available platform -->
+    <PropertyGroup>
+       <AvailablePlatforms>$(AvailablePlatforms),.NET 4.5</AvailablePlatforms>
+    </PropertyGroup>
+</Project>
+Unload your project (right click -> unload)
+
+Edit the project file (right click -> Edit *.csproj)
+
+Make the following changes in the project file:
+
+a. Replace the default "CSharp.targets" with the target file created in step 4.
+
+<!-- Old Import Entry -->
+<!-- <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /> -->
+
+<!-- New Import Entry -->
+<Import Project="Compile_4_5_CSharp.targets" />
+b. Change the default platform to ".NET 4.5"
+
+<!-- Old default platform entry -->
+<!-- <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform> -->
+
+<!-- New default platform entry -->
+<Platform Condition=" '$(Platform)' == '' ">.NET 4.5</Platform>
+c. Add AnyCPU platform to allow targeting other frameworks as specified in the project properties. This should be added just before the first "" tag in the file.
+
+<PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+</PropertyGroup>
+
+.
+.
+.
+<ItemGroup>
+.
+.
+.
+Save your changes and close the *.csproj file.
+
+Reload your project (right click -> Reload Project)
+
+In the configuration manager (Build -> Configuration Manager) make sure the ".NET 4.5" platform is selected for your project.
+
+Still in the configuration manager, create a new solution platform for ".NET 4.5" (you can base it off of "Any CPU") and make sure ".NET 4.5" is selected for the solution.
+
+Build your project and check for errors.
+
+Assuming the build completed you can verify that you are indeed targeting 4.5 by adding a reference to a 4.5 specific class to your source code.
+
+using System;
+using System.Text;
+
+namespace testing
+{
+    using net45check = System.Reflection.ReflectionContext;
+}
+When you compile using the ".NET 4.5" platform the build should succeed. When you compile under the "Any CPU" platform you should get a compiler error.
+
+Error 6: The type or namespace name 'ReflectionContext' does not exist in
+the namespace 'System.Reflection' (are you missing an assembly reference?)

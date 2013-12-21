@@ -1,0 +1,407 @@
+﻿<!--
+C1 generated!!
+url: project-linker
+<title>Project Linker</title>
+<meta name="Description" content="Project Linker, internals, workings, tips and tricks, including/excluding extensions" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="title" />
+	  <f:param name="AuthorsAdditional" value="" />
+	  <f:param name="Date" value="2011-04-18" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+
+	<h1><a id="">Project Linker</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<p>
+		<a href="http://msdn.microsoft.com/en-us/library/ff921108(v=pandp.20).aspx">
+		Project linker at http://msdn.microsoft.com/en-us/library/ff921108(v=pandp.20).aspx
+		</a>
+		Project Linker is a result of Microsoft's Patterns and Practices project called
+		Prism. Prism ...
+	</p>
+	<p>
+		Project Linker is a tool in a form of Visual Studio AddIn (codeplex or Visual Studio
+		Gallery)... When installed adds some menu and context menus for project manipulation:
+	</p>
+	<ul>
+		<li>
+		Project +/ Edit Links
+		<br />
+		Edit source and target project relations. Here one can remove links with
+		Unlink command.
+		</li>
+		<li>
+		Project context menu (right click) +/ Add project link
+		<br />
+		To add source project (linked source files) to given project.
+		</li>
+	</ul>
+
+	<p>
+		Project Linker in conjunction with c# partial classes concept has proven as
+		great tool for code sharing on multi platform (multi-targeting) projects.
+		<br />
+		<a
+			href="">
+			c# partial classes 
+
+		</a>
+	</p>
+
+
+	<h3><a id="">Benefits</a></h3>
+
+	<p>
+	In our experience this is great tool, which enables sharing of source code -
+	not assemblies (let say on binary or quasi-binary level). This enables us to
+	test in parallel code builds for various .net profiles (Windows Phone Silverlight,
+	RIA Silverlight, desktop Windows Forms and WPF and ASp.net) 
+	and 
+	Mono (linux, Mono for Android, MonoTouch iOS)
+	</p>
+	<p>
+	HolisticWare team uses it to share 90% of code in business logic layer (model),
+	but one can use it for sharing XAML between WPSL, SL-RIA and WPF....
+	<br />
+	Project Structure recommendation for multi-targeting projects/solutions:
+	<br />
+	<a href="/HolisticWare/Know-How/development/multitargeting-portability-interoperability/visual-studio-solutions.aspx">
+	Visual Studio Solution structure
+	</a>
+	<br />
+	<a href="/HolisticWare/Know-How/development/visual-studio/project-and-solution-structure-on-holisticware-projects.aspx">
+	R-n-Rs on HolisticWare projects
+	</a>
+	<br />
+	Coming soon....
+	</p>
+
+	<!-- ================================================================== -->
+	<h2><a id="">How it works</a></h2>
+	<p>
+	Project Linker is a source code syncing tool used to add large numbers of 
+	"shared/linked" source code files across different projects 
+	</p>
+	<p>
+	It would be equivalent to do in VS:
+	Add Existing Item +/ Browse to source file +/ Add as link (Important!).
+	</p>
+	<p>
+	But imagine to do that for bunch of files across folders... Not very desirable...
+	</p>
+
+
+	<h3><a id="">Linking projects</a></h3>
+	<p>
+	Linking creates dependency between two project source and target. Those dependencies
+	are managed by Project Linker.
+	<br />
+	For each source code file added to source project (shared/referenced/reused code) 
+	a link (linked source code file) is added to target project (referencing code, reusing).
+	</p>
+	<p>
+	To determine which project should be source and which target:
+	define source Base-Project with smallest subset (in our case it is usually Windows Phone 
+	project) of features or capabilities/resources (processor, memory, allowed features, etc).
+	This project will hold "original"/shared/not-linked code.
+	</p>
+
+	<h4>Visual Studio</h4>
+	<ol>
+		<li>
+			In the project that is superset to Base-Project 
+			<ul>
+				<li>
+				Desktop Windows Forms is superset to Silverlight
+				</li>
+				<li>
+				Mono For Android is superset to Windows Phone speaking 2011-09-20
+				(has more features in form of BCL classes, not only async methods ...)
+				</li>
+			</ul>
+			in context menu (right click) choose: Add project link to add original project.
+			Target Project file is changed
+			<pre class="hw_code">
+  &lt;ProjectExtensions&gt;
+	&lt;VisualStudio&gt;
+	  &lt;UserProperties 
+		ProjectLinkerExcludeFilter=&quot;\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$&quot; 
+		ProjectLinkReference=&quot;4fdab527-c64b-4fbb-910e-af070abd9453&quot; 
+		/&gt;
+	&lt;/VisualStudio&gt;
+  &lt;/ProjectExtensions&gt;
+
+
+Project Linker
+
+Project Linked
+
+  &lt;Import Project=&quot;$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets&quot; /&gt;
+  &lt;ProjectExtensions&gt;
+	&lt;VisualStudio&gt;
+		&lt;!-- Source (Original project 61EC1FD4-51A7-4398-A361-0373D07E9EEC WP7 --&gt;
+	  &lt;UserProperties 
+		ProjectLinkReference=&quot;61ec1fd4-51a7-4398-a361-0373d07e9eec&quot; 
+		ProjectLinkerExcludeFilter=&quot;\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$&quot; 
+		/&gt;
+	&lt;/VisualStudio&gt;
+  &lt;/ProjectExtensions&gt;
+  &lt;!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  &lt;Target Name=&quot;BeforeBuild&quot;&gt;
+
+  
+  Trying just before:
+
+&lt;/Project&gt;
+
+	
+Project source
+			</pre>
+		</li>
+	</ol>
+
+	<h4>Manual - Editing project files (csproject)</h4>
+	<p>
+	Linking projects (adding source project to target) (linked) project changes Target's project 
+	project-file (csproject) by adding Visual Studio ProjectExtensions element and ProjectLinker 
+	UserProperties xml element with:
+	</p>
+	<ul>
+		<li>
+		ProjectLinkReference xml attribute
+		<br />
+		GUID of the source project where original source files reside and
+		</li>
+		<li>
+		ProjectLinkerExcludeFilter attribute
+		<br />
+		as RegEx exclusion pattern for files not meant to be included into target
+		project
+		</li>
+	</ul>
+	<pre class="hw_code">
+&lt;ProjectExtensions&gt;
+	&lt;VisualStudio&gt;
+		&lt;UserProperties 
+		ProjectLinkerExcludeFilter=&quot;\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$&quot; 
+		ProjectLinkReference=&quot;4fdab527-c64b-4fbb-910e-af070abd9453&quot; 
+		/&gt;
+	&lt;/VisualStudio&gt;
+&lt;/ProjectExtensions&gt;
+	</pre>
+
+	<h4>Moving file</h4>
+	<p>
+		Assume that source project is WP7. This implies that exclusion pattern is *.Silverlight.cs.
+	</p>
+	<p>
+		Copying/moving excluded files (*.Silverlight.cs) to another linked (targeted) project
+		does not cause problems.
+	</p>
+	<p>
+		For copying/moving linked files first exclude files from project 
+		with Right Click (Context Menu) +/ Exclude from project.
+		The source file (*.cs) will be grayed out, but Explorer operations are still
+		possible. Copy/move file to linked project. If file was copied, rename it.
+		Include it in project.
+		Fix necessary build problems (duplicate defs, etc)
+	</p>
+
+	<h4>Source project contains source files before linking</h4>
+
+	<h5>Problem</h5>
+	<p>
+	If source project already contains files those files will not be automagically added to target
+	project.
+	</p>
+
+	<h5>Solution</h5>
+	<p>
+	In source project:
+	Solution Explorer +/ Select all files +/ Exclude from project +/ (re) Include into Project
+	</p>
+
+
+	<h3><a id="">Unlinking projects</a></h3>
+
+	<p>
+	Unlinking project removes ProjectLinkReference attribute in UserProperties element.
+	(Or one can remove whole UserProperties element from target project file (csproject).
+	</p>
+
+	<pre class="hw_code">
+&lt;UserProperties 
+	ProjectLinkerExcludeFilter=&quot;\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$&quot; 
+/&gt;
+	</pre>
+
+
+	<pre class="hw_code">
+&lt;ProjectExtensions&gt;
+	&lt;VisualStudio&gt;
+		&lt;UserProperties 
+		ProjectLinkerExcludeFilter=&quot;\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$&quot; 
+		/&gt;
+	&lt;/VisualStudio&gt;
+&lt;/ProjectExtensions&gt;
+	</pre>
+
+
+	
+	<!-- ================================================================== -->
+	<h2><a id="">Tips and Tricks</a></h2>
+
+	<h3><a id="">Exclusion Patterns</a></h3>
+	<p>
+	A possible way to get source files (cs or XAML) files included in the linked project 
+	is the following:
+	</p>
+	<ul>
+		<li>
+		Link two projects together.
+		</li>
+		<li>
+		Close the Visual Studio Solution.
+		</li>
+		<li>
+		Open the Target Project using Notepad (or any other text editor). 
+		Search for a line like this: 
+		<pre class="hw_code">
+  &lt;ProjectExtensions&gt;
+	&lt;VisualStudio&gt;
+	  &lt;FlavorProperties GUID=&quot;{A1591282-1198-4647-A2B1-27E5FF5F6F3B}&quot;&gt;
+		&lt;SilverlightProjectProperties /&gt;
+	  &lt;/FlavorProperties&gt;
+	  &lt;UserProperties 
+				ProjectLinkReference=&quot;9c3fba6b-d882-4902-97d0-9279ce86444d&quot; 
+				ProjectLinkerExcludeFilter=&quot;\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;\.xaml;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$&quot; 
+			/&gt;
+	&lt;/VisualStudio&gt;
+  &lt;/ProjectExtensions&gt;
+		</pre>
+		<li>
+		Replace filters to be ignored (xaml)
+		Remove the “\.xaml” filter. 
+		Resulting in:
+		<pre class="hw_code">
+  &lt;ProjectExtensions&gt;
+	&lt;VisualStudio&gt;
+	  &lt;FlavorProperties GUID=&quot;{A1591282-1198-4647-A2B1-27E5FF5F6F3B}&quot;&gt;
+		&lt;SilverlightProjectProperties /&gt;
+	  &lt;/FlavorProperties&gt;
+	  &lt;UserProperties 
+				ProjectLinkReference=&quot;9c3fba6b-d882-4902-97d0-9279ce86444d&quot; 
+				ProjectLinkerExcludeFilter=&quot;\\?desktop(\\.*)?$;\\?silverlight(\\.*)?$;\.desktop;\.silverlight;^service references(\\.*)?$;\.clientconfig;^web references(\\.*)?$&quot; 
+			/&gt;
+	&lt;/VisualStudio&gt;
+  &lt;/ProjectExtensions&gt;
+		</pre>
+		</li>
+
+		</li>
+	</ul>
+	<p>
+	Now projects will add project links to XAML files. 
+	Have this issue in mind when using project linker.
+	</p>
+
+	<h3><a id="">Integration with MonoDevelop</a></h3>
+	<p>
+	TODO:
+	</p>
+
+	<h3><a id="">Source Project relocating</a></h3>
+	<ol>
+		<li>
+		open target project csproj project file
+		</li>
+		<li>
+		rename links (replace links) with new path
+		</li>
+	</ol>
+
+	<p>
+	TODO:
+	<br />
+	Renaming?!?!/
+	</p>
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Restrictions - Facts</a></h2>
+
+	<ul>
+		<li>
+		It is not possible to add/link another project source to project that already has one
+		project source
+		</li>
+		<li>
+		Project having link - source project - cannot be source project to another project!
+		<br />
+		No chaining!
+		</li>
+	</ul>
+	<h2><a id="">HolisticWare exclusion patterns</a></h2>
+	
+	<p>
+	Suggested filename patterns to prevent Project Linker to add file do linked projects.
+	<br />
+	Solution file attribute in UserProperties- ProjectLinkerExcludeFilter
+	</p>
+	<ul>
+		<li>
+			Windows Phone 7x - *.WP7.cs = \.WP7.cs
+		</li>
+		<li>
+			Mono For Android - *.M4A.cs = \.M4A.cs
+		</li>
+		<li>
+			MonoTouch - *.MTch.cs = \.MTch.cs
+		</li>
+	</ul>
+
+
+
+	<h3><a id="">Changing dir of the source project</a></h3>
+	
+	<ol>
+		<li>
+		foreach (project p in all linked/referencing/target Project .csproj files
+			<ol>
+				<li>
+				edit project file p
+				</li>
+				<li>
+				change path in Include attribute of Compile element for all occurrences of old path:
+				<pre class="hw_code">
+	&lt;Compile Include=&quot;..\Core.DLL_022_BL_mClnt_WP7_SL4_netfx4\Algorithms\RecursiveStructure.cs&quot;&gt;
+	  &lt;Link&gt;Algorithms\RecursiveStructure.cs&lt;/Link&gt;
+	&lt;/Compile&gt;
+				</pre>
+				to new path:
+				<pre class="hw_code">
+	&lt;Compile Include=&quot;..\Core.DLL_211_BL_mClnt_WP7_SL4_netfx4\Algorithms\RecursiveStructure.cs&quot;&gt;
+	  &lt;Link&gt;Algorithms\RecursiveStructure.cs&lt;/Link&gt;
+	&lt;/Compile&gt;
+				</pre>
+				</li>
+			</ol>
+		</li>
+	</ol>
+
+	<!-- ============================================================================================ -->
+	<h2><a id="">Further reading</a></h2>
+
+	</body>
+</html>

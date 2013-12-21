@@ -1,0 +1,37 @@
+Google API 
+
+Need Help with Google Analytics API Has anyone coded the Google 
+Analytics API within their application? 
+
+I am trying to connect to our GA account via the GA API and not having 
+much success. That includes verification of valid connection (username, 
+password). Not to mention pulling profile data once connected. 
+
+There are some PhP and other example online that are older and not 
+relevant to what I'm trying to do - pull data and metadata (download 
+stream). 
+
+Even books are articles would help. Whatever I can get. 
+
+d definitely give these links a go: 
+
+https://developers.google.com/analytics/devguides/config/mgmt/v3/mgmtAccountGuidehttp://code.google.com/p/google-api-dotnet-client/wiki/APIs#Google_Analytics_API 
+
+-Dave 
+
+Assuming you are using the .net client api and had followed the examples 
+provided by Google, have you checked the conversation using Fiddler 2 or 
+alike? I would suspect that your enterprise firewall might somehow 
+corrupt the conversation at http level. 
+
+Hey Zee, have you isolated a problem? If it's authentication, are you 
+set up for the new two-factor authentication? You may not need a 
+username/password, but a username/appkey. This has been a stumbling 
+block for some other apps using a Google API I've seen. 
+
+Don't know if this is any use: 
+
+https://www.youtube.com/watch?v=3DWZULiJYNI&feature=g-user-u 
+
+I saw it yesterday while browsing google developers on Youtube. 
+

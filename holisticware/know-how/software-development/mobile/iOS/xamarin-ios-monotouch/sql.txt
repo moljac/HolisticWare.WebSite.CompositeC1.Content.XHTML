@@ -1,0 +1,79 @@
+why are you using an adapter are you updating the data?, I would use a 
+reader as they are much quicker and then if some of the data needs to be 
+updated, native sql update statements to update e.g. update tbldata set 
+field1=test where primarykey=1 
+
+or use the orm of sql-net which is quick enough for most things. 
+
+is your data joined in the adapter if so make sure that you have indexes 
+on all the relevant fields as this will speed things up. 
+
+
+ATB
+
+Alex
+On 31 Dec 2012, at 04:28, sama446 <sudhiipreddi@gmail.com> wrote:
+
+> I have a database with tables containing more than 1000 lines, when i write a
+> query for sqlite database on MonoTouch. To read data into dataadapter and
+> fill it into datatable. IOS throws an exception at the statement
+> dataadaper.fill(datatable).(TIMED OUT). The query is a simple one to collect
+> 4 columns with some simple where condition( where the ideal result would be
+> 8 rows with 4 columns).
+>
+> I'm not sure whether it is being thrown because the query execution is
+> taking longer or dataadapter.fill(datatable) is not fast enough. Please let
+> me know if there is any faster way to query data from SQLITE database. 
+
+
+
+
+
+
+
+
+I've not seen anything on sqlite itself, but you can see the queries
+in sqlite-net using the Trace property on the SQLiteConnection class.
+
+Most of the performance problems I've seen is if you use LINQ to get a
+big dataset then filter it in memory. I fixed it by using  query so
+sqlite was doing the work, not sqlite-net.
+
+On Wed, Dec 5, 2012 at 11:41 PM, James Darbyshire
+<jamesdarbyshire@gmail.com> wrote:
+> Hi all,
+>
+> I have a problem with one of my apps and slow queries.
+>
+> Is there a way of tracing SQLite on monotouch?
+>
+> I am using Praeclarium's SQLite-net (but I think it would be outside this
+> layer).
+
+
+
+
+
+
+
+
+
+
+My questions are:
+
+    How many records are in the database tables?
+    What does the query look like?
+    What has an index?
+
+
+As for suggestions, I agree with Alex on the dataset v. datareader.  Datasets are great in a client server world with multiple users, you can disconnect the results and not have to worry about some type of inadvertent locks.  In the sqlite world, you typically have only 1 query at a time.  Plus, the dr is a tad bit faster depending on the records returned.
+
+
+
+
+
+
+This may help, here is Linq to SQLite.
+https://www.kellermansoftware.com/p-47-net-data-access-layer.aspx
+
+

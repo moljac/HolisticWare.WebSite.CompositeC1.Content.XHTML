@@ -1,0 +1,7 @@
+Dependency Injection [DI]
+
+Funq
+ *	[http://funq.codeplex.com/](http://funq.codeplex.com/)
+ *	[http://blogs.clariusconsulting.net/kzu/funq-screencast-series-on-how-to-building-a-di-container-using-tdd/](http://blogs.clariusconsulting.net/kzu/funq-screencast-series-on-how-to-building-a-di-container-using-tdd/)
+ *  [http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design))	
+

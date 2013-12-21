@@ -1,0 +1,29 @@
+http://www.fusonic.net/en/blog/2011/07/06/monotouch-tips-and-tricks-part-1/
+
+
+
+
+dll location
+
+/Developer/MonoTouch/usr/lib/mono/2.1
+
+
+
+
+bindings
+
+
+
+When I build my project with the iPhoneSimulator configuration, I get:
+
+    missing required architecture i386 in file
+/var/folders/0t/z2shp7y529d6zp4_ynqrq6180000gn/T/tmpaa7bdd3.tmp/libMapView.a
+(2 slices)
+
+The libMapView.a that you added to the project only contains code for the ARM platform.
+
+You need to create a "fat" binary, one that contains both the code for the ARM platform, 
+as well as code for the x86 platform.   You can either request the upstream distribution 
+to give you the fat binary, or you 
+can build the library yourself by using the "lipo" command to bundle multiple 
+architecture-specific binaries into a single file.

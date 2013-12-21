@@ -1,0 +1,56 @@
+UIViewController-less iOS app?!
+
+I got requirement for UIViewController-less iOS app (story is a bit longer), so following code produces only
+black screen in iOS simulator:
+
+
+		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
+		{
+			// create a new window instance based on the screen size
+			window = new UIWindow (UIScreen.MainScreen.Bounds);
+
+			// If you have defined a view, add it here:
+			// window.AddSubview (navigationController.View);
+
+
+			UIButton button = new UIButton();
+			button.Frame = new System.Drawing.RectangleF(100,100, 100,20);
+			button.SetTitle("Test", UIControlState.Highlighted);
+			button.Hidden = false;
+
+			window.AddSubview(button);
+
+			// make the window visible
+			window.MakeKeyAndVisible ();
+
+			return true;
+		}
+
+
+Result:
+Blank screen
+
+Application Output (iOS6 simulator):
+
+		2012-11-07 09:43:17.945 XampleXibbedWithModifiedXib[756:1607] Application windows are expected to have a root view controller at the end of application launch
+
+
+Steps:
+
+1. Empty MonoTouch application 
+2. In app delegate add code (above)
+
+The idea is to insert custom UIView instead of UIButton.
+
+Questions:
+
+1. is this way to go?
+2. is at least one UIViewController necessary?
+3. possible caveats? 
+  1. besides losing some of native event handling like gestures and touches, orientation
+  2. iOS 6 requires controllers will this be more strict in the future?
+
+
+thanks
+
+m

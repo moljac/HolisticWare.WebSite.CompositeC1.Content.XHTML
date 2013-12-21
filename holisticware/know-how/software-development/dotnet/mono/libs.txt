@@ -1,0 +1,17 @@
+Your Web.config has references to Entity Framework 4, which Mono doesn't
+support.  You'll have to remove all the EntityFramework sections from the
+Web.config (the <section> node at the top, and the <entityFramework> node
+at the bottom). Delete EntityFramework.dll from your application's bin
+folder if it exists in there. If you want to use Entity Framework, you will
+have to use version 6, as this is the only version that Microsoft has
+released as open source. It hasn't had an official release yet, but you can
+grab EntityFramework.dll from your Mono installation.
+
+Also ensure you delete Microsoft.Web.Infrastructure.dll as Mono has its own
+implementation of this assembly (Microsoft's implementation is dependent on
+IIS).
+
+I'm not sure how you configure it with Apache (I use nginx myself), but you
+need to route all requests for non-existent files to Mono. Just routing
+them based on extensions (AddHandler mono .aspx ascx .asax .ashx .config
+.cs .vb .asmx .axd) won't work, as ASP.NET MVC doesn't use file extensions.

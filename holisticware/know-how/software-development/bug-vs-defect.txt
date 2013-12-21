@@ -1,0 +1,292 @@
+Do you distinguish between bug and defect?
+Do you distinguish between bug and defect in issue tracking, SCRUM, or project management?
+19 days ago
+Like CommentFollow Flag More
+Dennis L., Inbar G. like this
+42 comments • Jump to most recent comments
+ 
+Carl
+Carl F. • Not really. The words "bug" and "defect" are interchangeable when it comes to software that is not working as designed. Our team makes the delineation between pre-production and post-production defects. Pre-production defects are handled in a different tracking system, not through our change request system.
+19 days ago
+ 
+Peter
+Peter S. • I'm pretty much on the same path as Carl except for one point. 
+
+in my mind a 'defect' is caused by a short coming in the design and/or planning of the software, where as a 'bug' is caused by issues with the actual construction and/or coding.
+
+the difference is, a defect existed right from the beginning, a bug came about later.
+19 days ago
+ 
+jeff
+jeff S. • I tell my scrum-lord that the bug is a feature and I count more points toward my burn-down. 
+
+I tell him it's a personal defect if he disagrees.
+19 days ago
+ 
+Peter
+Peter L. • I think it is a defect to have two error-tracking systems.
+19 days ago
+ 
+Zijian
+Zijian H. • Bug is what the users or testers had found, "Hey, this bug bites me, please debug.". There is apparently immediate business value in debugging, see, you fix the problems and satisfy the customers. Bug is high value target in SDLC. 
+
+Defect is the bug nest. As long as no bug is coming out biting anyone yet, who care? 
+
+Anyway, if you care, how do you handle defects? say, do you proactively search for defects? if you do how do you manage in in issue tracking, SCRUM, or project management? Not different from handling a bug?
+19 days ago
+ 
+Carl
+Carl F. • Issue tracking should depend on your situation. I've worked in R&D departments where the only people looking at issues were either developers or testers; everyone had a license for the source control repository and issue tracking system. I currently work in a situation where our team is doing both post-production support and new development. Our change request system is available to the developers, testers, and end-users. So, we've found it better to not pollute the change request system with the rather large number of pre-production defects, some of which we know will NEVER be fixed. When we release a product, the Product Owner evaluates the known pre-production defects and converts any he wants fixed to change requests. 
+
+We work down defects using our standard Scrum process. I think in the last three years, I've only seen one bug (created by a significant change in our server environment beyond our control) that required project management. Even then, we still worked down our project tasks using our standard Scrum process.
+19 days ago
+ 
+Peter
+Peter L. • @Carl ... interesting word choice ... "pollute". 
+It remains true that the pre-production bugs/defects need to be recorded. I imagine that users get to see only the post-production bugs/defects of interest to them as individuals or as members of a group. If this is so - and it should be - then the placement of pre-production bug/defect notices in one database or another is immaterial ... the production users don't see them anyway. 
+
+The source of my discomfort can be concretised. 
+We have a pre-production defect. It is not vital, so it gets deferred repeatedly. Eventually the suite of programs goes live with the defect still there. The users don't like this "feature" ... so they raise a new defect notice .... in a new database. A new group of people get to work on it and set about fixing it via plan(A). Meanwhile, the original team has a bit of breathing space (OK OK But it can happen) and the PM randomly selects the original defect for repair work. This gets tackled via Plan(B). 
+
+Wonder of wonders ... the normal situation where nobody solves nuttin' has been inverted and now two groups are simultaneously solving it with conflicting and probably incompatible methods. 
+
+I stand by my original assertion .... I think it is a defect to have two error-tracking systems.
+18 days ago
+ 
+Carl
+Carl F. • @Peter - I too would choose a different approach given your scenario. A Technology team develops software and lobs it over to the wall to the Business group. End-users report bugs to a production support team in Technology, which is a completely different group of people than developed the software. That is the standard model for large organizations. It's also a model my peers and I reject, completely. 
+
+We develop new software and testers find a significant number of pre-production defects. The Product Owner prioritizes defect and feature development until he decides the software is ready for release. Once the software is released, any known pre-production defects the Product Owner cares to have fixed are converted to change requests. 
+
+End-users submit bugs into our change request system. * here's the beautiful part * The Product Owner approves the requests and prioritizes the defects for repair. If he rejected a known pre-production defect the first time around, he is going to reject it again. That defect has no chance of being a post-production change request. Having said that, the pre-production defect is, in fact, recorded and preserved for posterity, but no one has to waste any time reviewing, researching, and reporting on work that is never going to get done. 
+
+Finally, we are the team that fixes the bugs in our stuff. Now, sometimes I fix a bug written by one of my peers, or perhaps the other way around, but there is no "other team" supporting our software. This creates a system that is tightly-coupled to the end-user experience and satisfaction, which is ultimately the rule by which our team's productivity and quality is measured. Ticket counts are not a part of the equation.
+18 days ago
+ 
+Peter
+Peter L. • @Carl ... I have heard of places where ticket counts matter ... I would not work for one of these places. I have also seen places where they are called change "requests" ... but there is no way they get into the database unless there is a 99.99% probability that they will be proceeded with. Shockers ! 
+
+My personal preference is to accept everything into the database and the workflow ... pre and post production ... bugs, enhancements, defects, just suggestions ... automated entries from system crashes ... nice to haves ... the entire spectrum that just might cause a developer to write, amend, or delete some code. I would also prefer to allow this input flow to originate from any person whatsoever. 
+
+So you can see that I have a bit of trouble with Zijian's dichotomous question. My preferred terminology is the deliberately vague "item" ... something that someone ought to attend to.
+18 days ago
+ 
+Marcos Artur
+Marcos Artur G. • Conceptually I think it's a very interesting question. We developers tend to think of bugs as self-evident flaws in our software. Considering that a "bug" is (from the development process viewpoint) in general an issue registered in some tool, that triggers an intervention of the development team to implement or change something, a defect is or should be or will be a bug, but not every bug is a defect. Considering a defect as some operational flaw of the software, what can be a bug? a) the software DOES, but doesn't make correctly what it is expected to do. This is not always evident. An error message signals that we (or the OS) have found a flaw in our software behavior. But if we implemented nicely a wrong interpretation of some business rule, working well is actually worse because we are delivering nicely the wrong result. b) Our software DOESN'T make at all something it is supposed to do. This is not always self-evident. c) Our software DOES something that its requirements DON'T require it to do. Is this a source of bugs? Yes. d) Our software DOESN'T do something that its requirements DON'T require it to do, but it SHOULD do anyway. After all, requirements can be defective and incomplete, as well, or some things are just implicit (at least for the users!). So, bugs are really a much broader concept, and defects are a source, or a class of bugs. We really entered in the realm of software testing as a discipline of its own merits.
+14 days ago
+ 
+Martin
+Martin B. • I agree with the sentiment that a bug is a micro-level problem/fix to solve an issue with the program. A flaw is usually a larger, design-related problem that makes the end-users feel as though they're working handicapped.
+14 days ago
+ 
+isha
+isha P. • Bug is found by the Tester at the time of Testing and Defect is found when the User or Client is testing, Defect is found when Application does not meet the Requirement Specification.
+14 days ago
+ 
+Dennis
+Dennis L. • According to the wiki those are synonymous: 
+http://en.wikipedia.org/wiki/Software_bug
+
+bug = defect = error = flaw = mistake = ... you name it.
+
+I think a lot of interesting opinions expressed above describe different characteristics of a defect but not necessarily explain why it should be conceptually different from bug for instance: 
+* who discovered it?
+
+* when was it discovered?
+
+* what was the root cause (design, development, environment configuration)?
+
+etc.
+
+Question we should ask ourselves: is there any value in distinguishing between two terms?
+
+If the answer, in your specific case, is "no", then both Lean philosophy and Occam's razor are suggesting us that we should consider them identical.
+14 days ago
+ 
+Martin
+Martin B. • We should DEFINITELY distinguish between bugs and defects. In my opinion, a defect requires a design change, which requires a reevaluation/overview of the application's design, to ensure we're not building a spaceship or accidentally baking antipatterns into our code, or making our code overly complicated.
+
+A bug doesn't require a design review, but just a quick code review. The intent behind the code is obvious, just someone fat fingered a key, for example. Making this distinction then allows us to properly budget assumed portions of time.
+14 days ago
+ 
+Peter
+Peter T. • A ‘defect’ is when a deliverable is broken or substandard. This can be in executable code, or in an installation guide or other documentation. A ‘bug’ is always an actual programming mistake. So a bug is a type of defect. 
+
+Customers, or end users, report ‘issues’. Issues might be defects or spec related or user errors or whatever.
+14 days ago
+ 
+Zijian
+Zijian H. • @Dennis, I notice the wikipedia link with a list of "bug names" in section "Mistake metamorphism" refers to TestingExperience.com which apparently focuses on testing rather than SDLC. And the moderator asked for improving this entry.
+
+Lean is surely very good for certain types of projects which might consider bug and defect identical. Would you use Lean as a silver bullet to shoot every types of projects?
+13 days ago
+ 
+Zijian
+Zijian H. • There are some types of projects in which you may definitely consider bug and defect identical:
+1. Web sites development with FrontPage, DreamWaver or ASP or ASP .NET.
+
+1. Some small and medium ASP .NET applications.
+
+3. Mobile apps like those running on smart phones and iPad
+
+4. ...
+
+The commonality is that these projects do require little software architecture design and focus on end user features, and the development platform had well support RAD for all features.
+13 days ago
+ 
+Carl
+Carl F. • @Zijian - Let's say that tomorrow I join the development team at Zijian Enterprises where I enter "issues" into the issue-tracking system. When I get to the field "Issue Classification", I notice that I have a drop-down with two choices; "Bug" or "Defect". Are you saying that I need to know something about the software architecture and the RAD tools that were used before I can make the correct selection? What if it's a legacy tool where we don't have that information? What if the "issue" was submitted for a vendor-developed tool? Do I really care about any of that? Does the President of Zijian Enterprises really care about that? 
+
+You may be over-thinking this a bit. If there is a difference between a "bug" and a "defect", and that is still a big "IF" in my mind, then I suggest it should be based on your response to the issue rather than other external characteristics of the issue. For example, some people responding in this discussion suggest a defect may require extraordinary design and review where a bug does not. Our team uses an adaptation of the Unified Process. So, when I see a "defect", I know that means it must go back to Elaboration (or possibly even Inception) and make it through all the gates leading back to Production. A "bug", on the other hand, has no ingress to our Unified Process and is handled entirely within the Production Support process. Now "bug" and "defect" become meaningful words to the developers and support personnel because it indicates to them how the issue will be handled. 
+
+Of course, the problem with my example is that now Carl Fenley, a new employee at Zijian Enterprises, has to determine whether the "issue" is simply going to be fixed or requires re-engineering. I think I'm going to take a long lunch.
+13 days ago
+ 
+Dennis
+Dennis L. • @Zijian
+I am not really advocating Lean as a development methodology or an approach to QA. There are no silver bullets. 
+
+Actually, I was referring to a fundamental philosophical principle of Lean (thinking and manufacturing): if a certain activity does not bring value to your customers or organization - don't do it. In case a clear distinction between bugs and defects helps your team and company to improve quality of software - go for it. I did not find it useful in environments and teams I have been working. 
+
+However, it does not mean that I will not adopt the idea of distinguishing between bugs and defects it I see a value in it. I actually found it very useful to see other's perspective on this thread.
+13 days ago
+ 
+Zijian
+Zijian H. • @Carl, I don't disagree that your approach is working in your organization, especially you mentioned the adaptation of the Unified Process. Let me put it this way, eliminating a bug is an issue, so you may then either kill it or catch it and move it out of the building. Eliminating a bug nest is an issue too, however, the scale and the extend are quite different for solving the issue.
+13 days ago
+ 
+Follow Martin
+Martin Bliss • I agree with @Dennis. One should never initiate activities without a clear path to value for the org or the customer, and differentiating bugs and defects is yet another instance requiring such a decision. In my case, it brings huge value because I run my shop with exceedingly high design and code standards, and we have very little bandwidth and resources. It is far more efficient for me to make very clear rules/decision workflows that save everyone hours of time than have everything evaluated on a case-by-case basis, in maintaining quality control. This may not be a concern at other shops, however.
+13 days ago• Like1
+ 
+Follow Daniel
+Daniel Duffy • Some people see bugs as undocumented features while a defect is a show-stopper.
+13 days ago• Like
+ 
+Follow Peter
+Peter Lander • Here is a real-life experience of "A bug is a bug isn't it ?" 
+
+Someone forgot that the number of days is (Date2 - Date1 + 1) ... they omitted the "+1". Not a problem. Put the "+1" in, wash hands and have a well-earned, bug-solved ale. 
+As the months roll by, there are rumblings offstage ... which eventually crescendo into an almighty roar of anger at the flood of dollars going out the door. You see, that bit of code was used by both the borrowing and the lending systems. When we lend from the 2nd to the 8th - it is 7 days interest they pay us. When they lend to us (debentures) for the same dates it is 6 days interest that we pay them. The design failures were thoroughly investigated and continued to ramify with ripples spreading wider and wider ... and eventually a 4-man 3-month repair of a fundamental design DEFECT was done. 
+
+On the other hand, a defect of quite significant impact (we forgot to put the ABN in the supplier table and screen) was fixed in less time than it took to define the defect. 
+
+I contend that the distinction between design defect and implementation bug is a waste of time. I can relate to Carl's pre-release and post-release differentiation because different work-flows and different teams are involved. Relate to without agreeing with. 
+For me, evertyhing is just "something that someone has to fix - sooner or later". 
+
+(and no, that was not the most horrendous bug in my collection ... even though it rates an honorable mention)
+12 days ago• Like
+ 
+Follow David V.
+David V. Corbin • As was alluded to earlier, there is value in having a set of classifications. While there is no standardization between "Bug", "Defect" and other terms, I am firmly convinced that a division into the following three areas (at a minimum) are critical to establishing a healthy environment 
+
+1) The code does not work as the developer intended [this is the classic bug] 
+2) The code does what the developer wanted but it does not match the defined requirements [or meet the user story] 
+3) The requirement [user story] does not meet the actual needs/wants of the "user". 
+
+Each of these are problematic, but the location in the design/implementation process where they occur is radically different. Finding the best approach to minimizing these, almost always first requires an understanding of which of these three areas is the primary source of problems and why....
+12 days ago• Like1
+ 
+Follow Thomas
+Thomas Tuerke • Tomayto/Tomahto... I think it's pretty clear -- given the diversity of answers here -- that the distinction comes from an artificial taxonomy. Boil away the shop-specific categorizations, and you essentially have synonyms. 
+
+At one place, we had referenced things by DID (Defect ID's) in our <ahem> bug database. And yes, we would casually refer to all these things as bugs. "What's the bug-count?" "Do you have any bugs left on your plate? What are their DIDs?" etc. 
+
+Another place had a very strange TLA to describe certain kinds of defect, and another TLA for other kinds. Yet another place referred to everything as artifacts (that is, the procedural item to capture and track things had a name, but the nature of the item was determined by a categorization and other attributes, and segregated by query.) 
+
+I won't argue over the need for a taxonomy that separates, for example, a developer's accidental null-pointer deference from a feature that is not implemented to-spec from a shortcoming in the spec that does not address a stakeholder's needs, and so on. But using Bug vs Defect to distinguish the two will, at best, always be very parochial.
+12 days ago• Like1
+ 
+Follow Zijian
+Zijian Huang • I don't disagree with David C's classifications, which I think is very appropriate for contracting, which require explicit and clear specifications or contract terms. However, in many non-contract IT projects, explicit and clear specification is rare.
+12 days ago• Like
+ 
+Follow Peter
+Peter Shaw • @Zijian - I hate to tell you this but clear and concise specs are just as rare in contracting circles too :-) 
+
+You want to see the state of the one I'm working with now, it's been revised 25 times in just under 2 months (Roughly about once every 4 days) - usually as a result of the client having a look at the work that's been done and deciding he wants it a slightly different way. 
+
+Despite my best efforts on this one, Iv'e just been unable to stop / slow him down. The spec is an html doc on his systems, that I'm just reading in a browser, no matter what I say , or try to push home he still goes ahead, updates it and then expects to see the functionality available a few days later. 
+
+I have found a partial silver bullet though, the cost :-) not a perfect solution, but does make him review his choices a little closer.
+12 days ago• Like
+ 
+Follow Bryan
+Bryan Donaldson • To me a defect is "we said it would work this way - and it doesn't" - a case where implementation didn't match spec or requirement. A bug is "um - why did it do that?" - unintended code behavior to normal or abnormal inputs. They can be classified the same - and should be stored in the same place.
+12 days ago• Like
+ 
+Follow Trevor
+Trevor Lane • I like Shawty's definition. Its a design v manufacture thing. 
+
+If you designed a plane to climb at 1000 ft a minute and it does that; But 1000 feet per minute is not enough, then it is a defect. If you designed it to climb at 1000ft per minute, but it actually only manages 900 feet per minute; then it is a bug.
+12 days ago• Like
+ 
+Follow sunil
+sunil bisht • Bug and Defect are synonymous of each other. Bug raised while development time, but when deployment reached to client and some thing doesn't meet their requirements known as Defect.
+11 days ago• Like
+ 
+Follow David V.
+David V. Corbin • Zijian - re: "However, in many non-contract IT projects, explicit and clear specification is rare. "....Like peter I don't see much of a difference between contract and other types of projects. But I do think it is critical to look at the timing of the "specification" and the quantification of "explicit and clear". 
+
+With waterfall type approaches, there are often volumes of specifications that attempt to cover everything, but almost invariably miss the mark by the time a specific element is being implemented. 
+
+However, with a solid Agile practice and good ALM processes, the specification only needs to exist a few seconds before the relevant work begins and only needs to remain stable for the amount of time it takes to complete the user story and associated tasks. Since this is usually on the scale of 2-4 weeks, the stability can be pretty high, and as questions are discovered the "Specification" is immediately updated. 
+
+Note to Peter: You really need to get some good ALM tooling, and get away from "and html document" as the specification. Have revision tracking and cost correlations at a very granular level. The results are often surprising....
+11 days ago• Like
+ 
+Follow Peter
+Peter Shaw • @david - you don't need to sell me on that one :-) I don't usually have an issue, but this particular client is a complete pain in the A** it matters not what I try to do to manage things, he's hell bent on doing things his way, and flatly refuses to acknowledge anything provided by me (Other than the deliverables he's laid out) unless it's come about by his hand. So much so, that once this current sprint I'm on with is done, I'm pulling the plug, as he's starting to consume way more resources than I'm billing him for.
+11 days ago• Like
+ 
+Follow Zijian
+Zijian Huang • @David and Peter, I am an early adaptor of Extreme Programming since 2001, so "you don't need to sell me that one :-)". I do agree that good ALM tooling could improve Agile practice. 
+
+I just realized my original question might be a little too board, however, in some regard it is also good to see people from different backgrounds with different methodologies express the opinions and the advices. 
+
+There's clearly no clear line between bug and defect, and they go to the same issue tracking system. Distinguishing them sometimes in some context just help us to plan for activities of fixing.
+11 days ago• Like
+ 
+Follow Inbar
+Inbar Gazit ? • Good discussion. I worked in companies that used the term "bug" and those who used the term "defect". I found that the latter are typically less tech oriented and more business oriented. "Defect" is something you find in a car or a washing machine after it rolled off the production floor and there's some inspection for defects. The concept is very different than what we developers consider a bug. We all know that every serious software has bugs. However, I'm sure you can find a new car in the dealership without any defects. That's a major conceptual difference that is hard for some people to grasps. I often heard "once you fix all the defects - we can finally go to production". and I had the nerve to say "you mean, like , ah, never?". Needles to say - that didn't go very well with the managers over there...
+11 days ago• Like
+ 
+Follow David V.
+David V. Corbin • Inbar - I appreciate what you are saying, but will disagree that "sure you can find a new car in the dealership without any defects", it was over 35 years ago that I bought my first (new) car...and every one of them has had some defect. The real issue [IMHO] is the impact of the defect. No real world physical device is perfect.
+11 days ago• Like
+ 
+Follow Sean
+Sean Boyle • I go with the premise that they are interchangeable terms and comes down to semantics. Whether the problem is resulting from bad design or some error in developers code doesn't matter. It comes down to the fact the application isn't functioning as expected and most likely failed a step in a test script and some analysis needs to be done to determine what's causing the failure and whether or not it needs to be fixed.
+11 days ago• Like
+ 
+Follow Peter
+Peter Trevor • Maybe it’s a perspective thing. As a developer, I see a ‘bug’ is something I have to fix in code. A design defect gets handed back to the original SA. A setup issue may involve reviewing documentation but usually involves email and/or phone guidance to the end user (it may or may not be me who does this). A bug is a defect, but not all defects are bugs.
+11 days ago• Like
+ 
+Follow Rowan
+Rowan Hutchinson • The first-ever "bug", found by Grace Hopper:
+
+http://www.history.navy.mil/photos/images/h96000/h96566k.jpg
+10 days ago• Like
+ 
+Follow Zijian
+Zijian Huang • Yes, that was a moth trapped in a relay of Mark II. So you need to remove the bug, nowadays we call such activity debug. But the defect or vulnerability is still there, so we need pest control or pest window screen around "Mark II".
+10 days ago• Like1
+ 
+Follow Peter
+Peter Lander • My favourite kind of bug is the little bug that hides the big defect. 
+The software has always crashed in a certain place. People grumble but work around it. Finally, the nettle is grasped and we decide to fix the bug. The program stops crashing and at long last we can see what the original designer and developer really had in mind ... and what they had in mind is a most horrible DEFECT ... breathtaking in its awfulness, ... and it'll take three months to re-engineer the whole sorry mess. 
+
+Cannot happen ? Don't you believe it.
+10 days ago• Like
+ 
+Follow Zijian
+Zijian Huang • In an asp.net app, a yellow page with call stack exposed is a typical bug reported. And typically, a programmer is assigned for debugging, who finds a defect and fixes it; then the project manager announces that the bug is fixed and case closed. Not long after, the same bug comes back, with the same call stack, and then another defect is found. Yes, multiple defects could cause the same bug, and fixing one defect alone may probably reduce the appearance of of the bug, but the bug will be back anyway. 
+
+After all, why present a call stack to the end user? Such call stack is rude and meaningless to the end users. A clear evident of malpractice/defect of project management, not following the basic guidelines of web app development.
+9 days ago• Like
+ 
+Follow Vesselina
+Vesselina Tasheva • I think it is more important how "bug" and "defect" are defined within the organization, but not their definition in general as a term. The context is important. So there might be no difference between the two or a very huge difference. It just depends.
+
+I think questions like this one should be covered by scrum/agile glossaries. We will definitely include it in ours - http://www.telerik.com/agile-project-management-tools/agile-resources/vocabulary.aspx

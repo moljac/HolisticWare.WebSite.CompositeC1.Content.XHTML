@@ -1,0 +1,58 @@
+jquery
+
+http://www.dotnet-tricks.com/Tutorial/aspnet?id=R8SX290512&title=Asp.Net%20-%20asynchronous%20file%20upload%20using%20jquery&goback=%2Egde_2139884_member_120731384
+
+http://www.aspdotnet-suresh.com/2012/08/jquery-open-all-hyperlinks-in-new.html?goback=%2Egde_46954_member_224458327
+http://www.aspdotnet-suresh.com/2012/08/jquery-expand-textbox-on-focus-using.html
+http://www.aspdotnet-suresh.com/2012/08/disable-right-click-on-images-using.html
+http://www.aspdotnet-suresh.com/search/label/JQuery
+http://www.aspdotnet-suresh.com/search/label/Asp.net
+
+
+
+http://stackoverflow.com/questions/2947832/one-click-web-site-backup-with-asp-net
+http://dotnetzip.codeplex.com/
+
+
+
+Why jQuery is so popular? altabel.wordpress.com
+About five years ago, no one had heard about jQuery. Today, we can say for sure, it is the most popular Javascript library in the world. The statistics clearly says for that fact: in the year 2012 ...
+
+
+
+ Easy syntacs, browser independend.
+ 
+ Focused on the mail javascript task: manipulating the DOM.
+ 
+ 
+ 
+ 
+ In my mind, there are a number of reasons. 
+1. Majority of developers moving from desktop to web, and classic web designers are not JavaScript capable. In a world where its fast pushing and moving to web, it was a good thing to see a library that made that a little easier for these people. They could now learn JQuery (a lot who dont even know its JavaScript) 
+2. the same people above had to learn JSON and Ajax, once again, with it being wrapped in a small library it helped. 
+3. Cross browser agony. JQuery solved a few of these issues right from the start. 
+4. Developers are always dying for a library that makes things more compatible, reusable and easier. JQuery has a good design. 
+5. It was easy to build in a few animations (slides, moving bits), into Wordpress or other CMS, further propagating it. 
+6. hatred for document.getElementById 
+7. Good design touched on above, which correctly chose CSS selectors, which was already a hit with designers. 
+
+
+
+
+
+ I'd add it's functional design (It is a monad) and it's extensibility along with perfect timing (providing a good api for cross browser ajax e.g.) and it's adoption in cms (Wordpress.) It is currently in half of all websites and was popular well before adoption by Microsoft.
+ 
+ 
+ 
+ 
+ First of all JQuery is a Library, and its easier to use than some of the competition which went the framework route. So I will exclude framework comparisons 
+
+But just looking at the pros of Jquery design against other libraries 
+(imho - some libraries do some of this but not all as well) 
+
+- uses Sizzle for selections (follows CSS) 
+- use of closures and wrapping browser Nodes 
+- uses chaining, event patterns 
+- It does less and is partitioned ( UI vs core library) 
+- The name? jQuery sounds more mature than MOO or DOJO.
+

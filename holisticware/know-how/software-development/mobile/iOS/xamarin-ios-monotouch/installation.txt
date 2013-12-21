@@ -1,0 +1,24 @@
+This worked in previous versions where the activation was separate from the Install, 
+but now it is together with the installer, so if the above app is still there, run it, 
+but that might be an older version.
+To register now you'll have to remove the license file and re-run the setup. 
+The license file is in ~/Library/MonoTouch and will have the name "License" or "License.v2" 
+depending on the version of MonoTouch you have installed.
+
+The current (2012) error is "mtouch exited with code 99".
+In addition to deleting the license file in ~/Library/MonoTouch, as noted by @Kenny, 
+you may also need to delete the contents of /Developer/MonoTouch. If you don't do this, 
+the MonoTouch installer may not do anything at all.
+
+
+
+	1. Log in at xamarin.
+
+	2. Download your license file (think about creating a new on if you moved to another machine)
+	3. Open the Mac terminal
+	4. chflags nohidden ~/Library/
+	5. Open your user-home-directory in Finder.
+	6. NOW you can see the freakin' Library-folder.
+	7. After you placed the license-file there go back to terminal and use chflags hidden ~/Library/
+
+For those of you who don't know where "~" comes from on Mac: Alt + N + Space!

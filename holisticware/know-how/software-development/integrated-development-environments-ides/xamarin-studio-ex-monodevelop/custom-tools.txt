@@ -1,0 +1,2 @@
+Custom tools have been supported for a long time:
+http://mjhutchinson.com/journal/2010/05/03/t4_templates_monodevelop

@@ -1,0 +1,26 @@
+http://www.dijksterhuis.org/finding-the-local-ip-addresses-in-c/
+
+
+public static bool IsInternetAvailable()
+
+    {
+
+        try
+
+        {
+
+            IPHostEntry thisIPHostEntry = Dns.GetHostEntry("www.google.com");
+
+            return true;
+
+        }
+
+        catch
+
+        {
+
+            return false; // host not reachable. 
+
+        }
+
+    }

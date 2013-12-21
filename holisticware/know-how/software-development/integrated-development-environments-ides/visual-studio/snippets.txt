@@ -1,0 +1,12 @@
+Snippets
+
+Import:
+	Tool +/ Code Snippets Manager +/ Browse to files +/ Import
+	
+Insert:
+	menu
+	
+		Edit +/ Intellisense +/ Add Snippet
+	
+	Keyboard:
+		Ctrl+k Ctrl+x

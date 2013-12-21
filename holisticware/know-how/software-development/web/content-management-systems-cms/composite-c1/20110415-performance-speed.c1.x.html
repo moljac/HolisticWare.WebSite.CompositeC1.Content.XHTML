@@ -1,0 +1,508 @@
+<!--
+C1 generated!!
+<title>2011-04-15 Composite C1 performance Speed</title>
+<meta name="Description" content="2011-04-15 Composite C1 performance Speed" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="2011-04-15, Composite, C1, performance, Speed" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-04-15" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">2011-04-15Composite C1 performance Speed</a></h1>
+	<!-- ================================================================== -->
+
+	<p>Date: 2011-04-15</p>
+
+	<h2><a id="">Tests</a></h2>
+
+	<p>Tests were conducted with Firefox plug-ins:</p>
+	<ul>
+		<li>yslow and </li>
+		<li>pagespeed</li>
+	</ul>
+
+	<table border="1" style="width: 100%">
+	  <col />
+	  <col />
+	  <col />
+	  <col />
+	  <col />
+	  <col />
+	  <tbody>
+		<tr>
+		  <td>Customer</td>
+		  <td>url</td>
+		  <td>yslow(small site or blog)</td>
+		  <td>yslow</td>
+		  <td>yslow</td>
+		  <td>page speed</td>
+		</tr>
+		<tr>
+		  <td>Centric</td>
+		  <td>http://www.centric.eu/EU/Default.aspx?re=0 
+
+			<p></p>
+		  </td>
+		  <td>95/100 
+
+			<p>grade A</p>
+		  </td>
+		  <td></td>
+		  <td></td>
+		  <td>74/100</td>
+		</tr>
+		<tr>
+		  <td>SimCorp</td>
+		  <td>http://www.simcorp.com/Home.aspx 
+
+			<p></p>
+		  </td>
+		  <td>85/100 
+
+			<p>grade B</p>
+		  </td>
+		  <td></td>
+		  <td></td>
+		  <td>71/100</td>
+		</tr>
+		<tr>
+		  <td>Teleca</td>
+		  <td>http://www.teleca.com/Home.aspx</td>
+		  <td>87/100 
+
+			<p>grade B</p>
+		  </td>
+		  <td></td>
+		  <td></td>
+		  <td>78/100</td>
+		</tr>
+		<tr>
+		  <td>RequirementOne 
+
+			<p></p>
+		  </td>
+		  <td>http://www.requirementone.com/Free_project_management_tool.aspx</td>
+		  <td>82/100 
+
+			<p>grade B</p>
+		  </td>
+		  <td></td>
+		  <td></td>
+		  <td>75/100</td>
+		</tr>
+		<tr>
+		  <td>Rigsrevisionen 
+
+			<p></p>
+		  </td>
+		  <td>http://www.rigsrevisionen.dk/</td>
+		  <td>85/100 
+
+			<p>grade B</p>
+		  </td>
+		  <td></td>
+		  <td></td>
+		  <td>66/100</td>
+		</tr>
+		<tr>
+		  <td>Caldic 
+
+			<p></p>
+		  </td>
+		  <td>http://www.caldic.com/Corporate.aspx</td>
+		  <td>77/100 
+
+			<p>grade C</p>
+		  </td>
+		  <td></td>
+		  <td></td>
+		  <td>70/100</td>
+		</tr>
+		<tr>
+		  <td>xstream 
+
+			<p></p>
+		  </td>
+		  <td>http://www.xstream.dk/Xstream.aspx</td>
+		  <td>82/100 
+
+			<p>grade B</p>
+		  </td>
+		  <td></td>
+		  <td></td>
+		  <td>68/100</td>
+		</tr>
+		<tr>
+		  <td>Fritz Hansen</td>
+		  <td>http://www.fritzhansen.com/en/fritz-hansen.aspx</td>
+		  <td>89/100 
+
+			<p>grade B</p>
+		  </td>
+		  <td></td>
+		  <td></td>
+		  <td>85/100</td>
+		</tr>
+		<tr>
+		  <td>Quartz+Co</td>
+		  <td>http://www.quartzco.com/QuartzCo.aspx</td>
+		  <td>92/100 
+
+			<p>grade B</p>
+		  </td>
+		  <td></td>
+		  <td></td>
+		  <td>72/100</td>
+		</tr>
+	  </tbody>
+	</table>
+
+	<h3><a id="">Compression</a></h3>
+	  <ul>
+		  <li>web server compression<ul>
+			  <li>IIS 7<ul>
+				  <li>dynamic</li>
+				  <li>static</li>
+				  </ul>
+			  </li>
+			  </ul>
+		  </li>
+		  <li>ASP.net compression<ul>
+			  <li>HTTP modules<ul>
+				  <li>blowery.Compression package!</li>
+				  </ul>
+			  </li>
+			  </ul>
+		  </li>
+	  </ul>
+	  <h4>Drawbacks</h4>
+	  <ul>
+		  <li>Behaviour: editor not working/unable to open page in C1 console</li>
+		  <li>Workarounds:<ul>
+			  <li>
+				  <p>ExcludePath in HttpModule config - not working!!</p>
+			  </li>
+			  </ul>
+		  </li>
+	  </ul>
+	<p>TODOs</p>
+	  <ul>
+		  <li>try Wicked compression</li>
+	  </ul>
+	<h3><a id="">Minimification/obfuscation of Javascript and CSS</a></h3>
+	  <p>yuicompress</p>
+
+	<h3><a id="">Web Server -IIS7 tuning through web.config</a></h3>
+	  <p>tests and scores</p>
+	  <ul>
+		  <li>without this web.config<ul>
+			  <li>yslow-yslow2=87</li>
+			  <li>yslow-classic=76</li>
+			  <li>yslow-small-site-or_blog=99</li>
+			  </ul>
+		  </li>
+		  <li>with this web.config<ul>
+			  <li>yslow-yslow2=93</li>
+			  <li>yslow-classic=88</li>
+			  <li>yslow-small-site-or_blog=99</li>
+			  </ul>
+		  </li>
+	  </ul>
+
+	<pre class="hw_code">
+	&lt;?xml version="1.0" encoding="utf-8"?&gt;
+	&lt;configuration&gt;
+		&lt;configSections&gt;
+			&lt;sectionGroup name="blowery.web"&gt;
+				&lt;section name="httpCompress"
+					type="blowery.Web.HttpCompress.SectionHandler, blowery.Web.HttpCompress"
+				/&gt;
+			&lt;/sectionGroup&gt;
+			&lt;section name="dotNetOpenAuth"
+				type="DotNetOpenAuth.Configuration.DotNetOpenAuthSection"
+				requirePermission="false" allowLocation="true"
+			/&gt;
+		&lt;/configSections&gt;
+
+
+		&lt;blowery.web&gt;
+			&lt;httpCompress preferredAlgorithm="gzip" compressionLevel="high"&gt;
+				&lt;excludedMimeTypes&gt;
+					&lt;add type="image/jpeg" /&gt;
+					&lt;add type="image/gif" /&gt;
+					&lt;add type="image/png" /&gt;
+					&lt;add type="application/zip" /&gt;
+					&lt;add type="application/x-zip-compressed" /&gt;
+					&lt;add type="application/x-gzip-compressed" /&gt;
+					&lt;add type="application/x-compressed" /&gt;
+					&lt;add type="application/octet-stream" /&gt;
+					&lt;add type="application/pdf" /&gt;
+				&lt;/excludedMimeTypes&gt;
+				&lt;excludedPaths&gt;
+					&lt;add path="Composite/*" /&gt;
+					&lt;add path="Composite/top.aspx" /&gt;
+					&lt;add path="WebResource.axd" /&gt;
+					&lt;add path="ScriptResource.axd" /&gt;
+				&lt;/excludedPaths&gt;
+			&lt;/httpCompress&gt;
+		&lt;/blowery.web&gt;
+
+		&lt;system.net&gt;
+			&lt;mailSettings&gt;
+				&lt;smtp deliveryMethod="Network"&gt;
+					&lt;network host="localhost" /&gt;
+				&lt;/smtp&gt;
+			&lt;/mailSettings&gt;
+		&lt;/system.net&gt;
+
+
+	&lt;system.web&gt;
+		&lt;customErrors mode="RemoteOnly"&gt;
+			&lt;error statusCode="404" redirect="Renderers/FileNotFoundHandler.ashx" /&gt;
+		&lt;/customErrors&gt;
+		&lt;compilation debug="true" targetFramework="4.0" optimizeCompilations="true"&gt;
+			&lt;assemblies&gt;
+				&lt;add assembly="System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" /&gt;
+				&lt;add assembly="System.Workflow.ComponentModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" /&gt;
+				&lt;add assembly="System.Workflow.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" /&gt;
+				&lt;add assembly="System.Transactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" /&gt;
+			&lt;/assemblies&gt;
+		&lt;/compilation&gt;
+		&lt;httpRuntime maxRequestLength="20480" /&gt;
+		&lt;xhtmlConformance mode="Strict" /&gt;
+		&lt;trace enabled="false" traceMode="SortByTime" requestLimit="100" writeToDiagnosticsTrace="false" pageOutput="true" /&gt;
+		&lt;pages controlRenderingCompatibilityVersion="3.5" clientIDMode="AutoID"&gt;
+			&lt;controls&gt;
+				&lt;add tagPrefix="aspui" namespace="Composite.Core.WebClient.UiControlLib" assembly="Composite" /&gt;
+				&lt;add tagPrefix="control" tagName="httpheaders" src="~/Composite/controls/HttpHeadersControl.ascx" /&gt;
+				&lt;add tagPrefix="control" tagName="styleloader" src="~/Composite/controls/StyleLoaderControl.ascx" /&gt;
+				&lt;add tagPrefix="control" tagName="scriptloader" src="~/Composite/controls/ScriptLoaderControl.ascx" /&gt;
+			&lt;/controls&gt;
+		&lt;/pages&gt;
+
+		&lt;httpModules&gt;
+			&lt;add name="LoggerHostnameHandler" type="Composite.Core.WebClient.Logging.WCF.LoggerHostnameHandler" /&gt;
+			&lt;add name="ApplicationOfflineCheck" type="Composite.Core.Application.ApplicationOfflineCheckHttpModule" /&gt;
+			&lt;add name="AjaxResponseHandler" type="Composite.Core.WebClient.Ajax.AjaxResponseHttpModule" /&gt;
+			&lt;add name="CompositeAdministrativeResponseFilter" type="Composite.Core.WebClient.HttpModules.AdministrativeResponseFilterHttpModule" /&gt;
+			&lt;add name="CompositeAdministrativeAuthorization" type="Composite.Core.WebClient.HttpModules.AdministrativeAuthorizationHttpModule" /&gt;
+			&lt;add name="CompositeRequestInterceptor" type="Composite.Core.WebClient.Renderings.RequestInterceptorHttpModule" /&gt;
+			&lt;add name="CompositeAdministrativeDataScopeSetter" type="Composite.Core.WebClient.HttpModules.AdministrativeDataScopeSetterHttpModule" /&gt;
+			&lt;add name="CompositeAdministrativeCultureSetter" type="Composite.Core.WebClient.HttpModules.AdministrativeCultureSetterHttpModule" /&gt;
+
+
+			&lt;!--
+			&lt;add name="CompressionModule" type="blowery.Web.HttpCompress.HttpModule, blowery.web.HttpCompress"/&gt;
+			--&gt;
+
+		&lt;/httpModules&gt;
+		&lt;authentication mode="Forms" /&gt;
+	&lt;/system.web&gt;
+	&lt;system.codedom&gt;
+		&lt;compilers&gt;
+			&lt;compiler language="c#;cs;csharp" extension=".cs" compilerOptions="/warnaserror-" warningLevel="4" type="Microsoft.CSharp.CSharpCodeProvider, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"&gt;
+				&lt;providerOption name="CompilerVersion" value="v4.0" /&gt;
+			&lt;/compiler&gt;
+			&lt;compiler language="vb;vbs;visualbasic;vbscript" extension=".vb" compilerOptions="/optioninfer+" type="Microsoft.VisualBasic.VBCodeProvider, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"&gt;
+				&lt;providerOption name="CompilerVersion" value="v4.0" /&gt;
+			&lt;/compiler&gt;
+		&lt;/compilers&gt;
+	&lt;/system.codedom&gt;
+
+	&lt;!--         
+		The system.webServer section is required for running ASP.NET AJAX under 
+		Internet Information Services 7.0.  
+		It is not necessary for previous version of IIS.    
+		
+		mc++ from here below page-speed optimizations
+		- compression
+		- caching
+		- headers, etags
+	--&gt;
+	&lt;system.webServer&gt;
+		&lt;httpProtocol&gt;
+			&lt;customHeaders&gt;
+				&lt;clear/&gt;
+				&lt;add name="ETag" value="" /&gt;
+				&lt;remove name="Vary"&gt;&lt;/remove&gt;
+				&lt;add name="Vary" value="Accept-Encoding"&gt;&lt;/add&gt;
+			&lt;/customHeaders&gt;
+		&lt;/httpProtocol&gt;
+
+		&lt;httpCompression directory="%SystemDrive%\inetpub\temp\IIS Temporary Compressed Files"&gt;
+			&lt;scheme name="gzip" dll="%Windir%\system32\inetsrv\gzip.dll"/&gt;
+			&lt;dynamicTypes&gt;
+				&lt;add mimeType="text/*" enabled="true"/&gt;
+				&lt;add mimeType="message/*" enabled="true"/&gt;
+				&lt;add mimeType="application/javascript" enabled="true"/&gt;
+				&lt;add mimeType="text/javascript" enabled="true"/&gt;
+				&lt;add mimeType="text/javascript1.0" enabled="true"/&gt;
+				&lt;add mimeType="text/javascript1.2" enabled="true"/&gt;
+				&lt;add mimeType="text/javascript1.4" enabled="true"/&gt;
+				&lt;add mimeType="text/x-javascript" enabled="true"/&gt;
+				&lt;add mimeType="text/jscript" enabled="true"/&gt;
+				&lt;add mimeType="application/x-javascript" enabled="true"/&gt;
+				&lt;add mimeType="*/*" enabled="false"/&gt;
+			&lt;/dynamicTypes&gt;
+			&lt;staticTypes&gt;
+				&lt;add mimeType="text/*" enabled="true"/&gt;
+				&lt;add mimeType="message/*" enabled="true"/&gt;
+				&lt;add mimeType="application/javascript" enabled="true"/&gt;
+				&lt;add mimeType="text/javascript" enabled="true"/&gt;
+				&lt;add mimeType="text/javascript1.0" enabled="true"/&gt;
+				&lt;add mimeType="text/javascript1.2" enabled="true"/&gt;
+				&lt;add mimeType="text/javascript1.4" enabled="true"/&gt;
+				&lt;add mimeType="text/x-javascript" enabled="true"/&gt;
+				&lt;add mimeType="text/jscript" enabled="true"/&gt;
+				&lt;add mimeType="application/x-javascript" enabled="true"/&gt;
+				&lt;add mimeType="*/*" enabled="false"/&gt;
+			&lt;/staticTypes&gt;
+		&lt;/httpCompression&gt;
+		&lt;urlCompression doStaticCompression="true" doDynamicCompression="true"/&gt;
+
+		&lt;staticContent&gt;
+			&lt;remove fileExtension=".js" /&gt;
+			&lt;mimeMap fileExtension=".js" mimeType="text/javascript" /&gt;
+			&lt;clientCache cacheControlMode="UseExpires" httpExpires="Sun, 29 Mar 2020 00:00:00 GMT" /&gt;
+		&lt;/staticContent&gt;
+
+		&lt;!--
+			&lt;clientCache cacheControlMode="UseMaxAge"	cacheControlMaxAge="7.00:00:00" /&gt;
+
+			&lt;mimeMap fileExtension=".js" mimeType="application/javascript" /&gt;
+			&lt;mimeMap fileExtension=".js" mimeType="application/x-javascript" /&gt;
+		&lt;staticContent&gt;
+			Does not work!
+			&lt;mimeMap fileExtension=".js" mimeType="application/javascript" /&gt;
+			trick to getting compression working is a requirement berried deep in TechNet. 
+			You must hit the same page on IIS 7 with two different IP addresses
+			from two different machines. If you keep trying to hit the page with the 
+			same machine it will never compress the page. 
+			
+			Error 500 internal server error
+			&lt;clientCache cacheControlMode="UseExpires"	httpExpires="2020-12-31" /&gt;
+			&lt;clientCache cacheControlMode="UseMaxAge"	cacheControlMaxAge="7.00:00:00" /&gt;
+			&lt;clientCache cacheControlMaxAge="14.00:00:00" cacheControlMode="UseMaxAge"/&gt;
+		&lt;/staticContent&gt;
+		--&gt;
+
+		&lt;validation validateIntegratedModeConfiguration="false" /&gt;
+		&lt;modules&gt;
+			&lt;add name="LoggerHostnameHandler" type="Composite.Core.WebClient.Logging.WCF.LoggerHostnameHandler, Composite" /&gt;
+			&lt;add name="ApplicationOfflineCheck" type="Composite.Core.Application.ApplicationOfflineCheckHttpModule, Composite" /&gt;
+			&lt;add name="AjaxResponseHandler" type="Composite.Core.WebClient.Ajax.AjaxResponseHttpModule, Composite" /&gt;
+			&lt;add name="CompositeAdministrativeResponseFilter" type="Composite.Core.WebClient.HttpModules.AdministrativeResponseFilterHttpModule" /&gt;
+			&lt;add name="CompositeAdministrativeAuthorization" type="Composite.Core.WebClient.HttpModules.AdministrativeAuthorizationHttpModule, Composite" /&gt;
+			&lt;add name="CompositeRequestInterceptor" type="Composite.Core.WebClient.Renderings.RequestInterceptorHttpModule, Composite" /&gt;
+			&lt;add name="CompositeAdministrativeDataScopeSetter" type="Composite.Core.WebClient.HttpModules.AdministrativeDataScopeSetterHttpModule, Composite" /&gt;
+			&lt;add name="CompositeAdministrativeCultureSetter" type="Composite.Core.WebClient.HttpModules.AdministrativeCultureSetterHttpModule, Composite" /&gt;
+
+			&lt;add name="HttpCacheModule" lockitem="false"&gt;&lt;/add&gt;
+			&lt;add name="StaticCompressionModule" lockitem="false"&gt;&lt;/add&gt;
+			&lt;add name="HttpRedirectionModule" lockitem="false"&gt;&lt;/add&gt;
+			&lt;add name="StaticFileModule" lockitem="false"&gt;&lt;/add&gt;
+			&lt;add name="AnonymousAuthenticationModule" lockitem="false"&gt;&lt;/add&gt;
+			&lt;add name="CustomErrorModule" lockitem="false"&gt;&lt;/add&gt;
+			&lt;add name="IsapiModule" lockitem="false"&gt;&lt;/add&gt;
+			&lt;add name="ProtocolSupportModule" lockitem="false"&gt;&lt;/add&gt;
+		&lt;/modules&gt;
+		&lt;caching enabled="true" enablekernelcache="true"&gt;
+		&lt;profiles&gt;
+			&lt;add extension=".gif" policy="DontCache" kernelcachepolicy="CacheUntilChange" duration="0.00:01:00" location="Any"&gt;&lt;/add&gt;
+			&lt;add extension=".png" policy="DontCache" kernelcachepolicy="CacheUntilChange" duration="0.00:01:00" location="Any"&gt;&lt;/add&gt;
+			&lt;add extension=".js" policy="DontCache" kernelcachepolicy="CacheUntilChange" duration="0.00:01:00" location="Any"&gt;&lt;/add&gt;
+			&lt;add extension=".css" policy="DontCache" kernelcachepolicy="CacheUntilChange" duration="0.00:01:00" location="Any"&gt;&lt;/add&gt;
+			&lt;add extension=".jpg" policy="DontCache" kernelcachepolicy="CacheUntilChange" duration="0.00:01:00" location="Any"&gt;&lt;/add&gt;
+			&lt;add extension=".jpeg" policy="DontCache" kernelcachepolicy="CacheUntilChange" duration="0.00:01:00" location="Any"&gt;&lt;/add&gt;
+		&lt;/profiles&gt;
+		&lt;/caching&gt;
+
+	&lt;/system.webServer&gt;
+	&lt;dotNetOpenAuth&gt;
+		&lt;openid&gt;
+			&lt;relyingParty&gt;
+				&lt;behaviors&gt;
+					&lt;add type="DotNetOpenAuth.OpenId.Behaviors.AXFetchAsSregTransform, DotNetOpenAuth" /&gt;
+				&lt;/behaviors&gt;
+			&lt;/relyingParty&gt;
+		&lt;/openid&gt;
+	&lt;/dotNetOpenAuth&gt;
+&lt;/configuration&gt;
+	</pre>
+
+	<h3><a id="">Performance Tuninng Isues </a></h3>
+
+	<h4>Package InstallationProblems</h4>
+	<p>After installing Blog package in v.2.0 following error comes up:</p>
+	<pre class="hw_code">
+	Error
+	Error17Only one &lt;configSections&gt; element allowed per config file and if present must be the first child of the root &lt;configuration&gt; element.D:\SRC\HolisticWare\HolisticWare_Web_CMS_C1\Website\Web.config17
+
+	web.config
+	&lt;system.net&gt;
+	&lt;mailSettings&gt;
+	&lt;smtp deliveryMethod="Network"&gt;
+	&lt;network host="localhost" /&gt;
+	&lt;/smtp&gt;
+	&lt;/mailSettings&gt;
+	&lt;/system.net&gt;
+
+
+	&lt;!--
+	mc++ Composite C1 compression stuff
+	--&gt;
+	&lt;configSections&gt;
+	&lt;!-- 
+	in configuSections!
+	This chunk sets up the configuration section handler for blowery.web/httpModules/ 
+
+	--&gt;
+	&lt;sectionGroup name="blowery.web"&gt;
+	&lt;section name="httpCompress" type="blowery.Web.HttpCompress.SectionHandler, blowery.Web.HttpCompress" /&gt;
+	&lt;/sectionGroup&gt;
+
+	&lt;/configSections&gt;
+	&lt;!--
+	after configSections end
+	config section for http module 
+	--&gt;
+	&lt;!--
+	Here's an example on how to change the algorithm or compression level
+
+	&lt;compressionModule preferredAlgorithm="deflate|gzip" 
+	compressionLevel="high|normal|low"
+
+	so, to use deflate by default, and high compression, you would
+	use the following line
+	/&gt;
+	--&gt;
+	&lt;blowery.web&gt;
+	&lt;httpCompress preferredAlgorithm="gzip" compressionLevel="high"&gt;
+	&lt;excludedMimeTypes&gt;
+	&lt;add type="image/jpeg" /&gt;
+	&lt;add type="image/gif" /&gt;
+	&lt;/excludedMimeTypes&gt;
+	&lt;excludedPaths&gt;
+	&lt;add path="NoCompress.aspx" /&gt;
+	&lt;/excludedPaths&gt;
+	&lt;/httpCompress&gt;
+	&lt;/blowery.web&gt;
+
+	&lt;!-- Hey Dev! Changing or removing existing elements in this file may cause functionality in Composite C1 to break --&gt;
+
+	Workaround
+	Web.config
+	</pre>
+
+	<h3><a id="">Analysis</a></h3>
+
+  </body>
+</html>
+
+

@@ -1,0 +1,47 @@
+Deployment failed. 
+Internal error
+\
+
+
+Can you provide Diagnostic build output?
+
+Within MonoDevelop/OS X:
+
+	• Click MonoDevelop > Preferences...
+	• In the left-hand tree view, select Preferences > Build
+	• In the right-hand panel, set the Log verbosity drop-down to Diagnostic
+	• Click OK
+	• Restart MonoDevelop
+	• Clean and rebuild your package.
+
+It will also be helpful to view the $HOME/Library/Logs/MonoDevelop-3.0/AndroidTools*.log file.
+
+or what it's worth, I'm using the same version of the both and I also
+periodically get deployment errors too ("deployment failed"); usually
+I just restart monodevelop and the problem disappears though.
+
+
+Another place to look for error messages is in the AndroidTools log files:
+
+	Windows:
+		%LOCALAPPDATA%\MonoDevelop-3.0\Logs\AndroidTools-DATE.log
+
+	OSX:
+		$HOME/Library/Logs/MonoDevelop-3.0/AndroidTools-DATE.log
+
+This is usually similar in nature to:
+
+	http://docs.xamarin.com/android/troubleshooting#INSTALL_FAILED_INVALID_APK_when_installing_a_package
+
+You'll need to obtain the logcat output to see _why_ Android doesn't like your AndroidManifest.xml:
+
+	http://docs.xamarin.com/Android/Guides/Deployment%2C_Testing%2C_and_Metrics/Android_Debug_Log
+
+	
+	
+	      I also encountered this and found that it is because of wrong
+package name. If my package name does not have a .[dot] like
+HelloWorld then it complains, but if I change my package name to
+Mvp.HelloWorld, then it works fine.
+
+       I am not sure whether you are also having the same problem?

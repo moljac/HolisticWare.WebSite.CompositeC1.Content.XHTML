@@ -1,0 +1,268 @@
+http://thecareerconsult.com/how-to-find-a-new-job-in-todays-world-2.php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://internsover40.blogspot.in/2012/02/should-older-job-hunters-use-facebook.html?goback=%2Egde_2013391_member_110956548#
+http://thecareerconsult.com/how-to-get-your-first-job-tips-for-job-hunting.php?goback=%2Egde_2013391_member_112063514
+
+
+http://www.jobsguidepro.com/how-not-to-ask-for-help-in-job-searching.php?goback=%2Egde_2013391_member_108333506
+
+
+http://thecareerconsult.com/the-7-deadly-mistakes-of-job-seekers.php?goback=%2Egde_2013391_member_107324217
+http://careerconfidential.com/the-4-unasked-job-interview-questions-you-must-answer/
+http://www.techrepublic.com/blog/10things/10-it-job-roles-that-are-hardest-to-fill/3160?tag=nl.e101&goback=%2Egde_1932594_member_106415639
+http://research.microsoft.com/en-us/um/redmond/events/20anniversary/career-reflections.aspx?goback=%2Egde_95320_member_107571495
+
+
+
+
+
+
+I've been an SDLC specific headhunter for 7 years now and have worked with developers of all levels. If you ask me who the 
+'best' devs are in my stable I would show you some people who are using latest technology, represent well presentation wise, 
+and most importantly have a history of making great applications that actually accomplished the objectives they were intended 
+for...without breaking.
+ 
+But these are laymen identifiers, I am just a humble recruiter with a tiny buzzword brain. I can identify 'highly employable'
+developers, I've also gotten good at nailing the 'it factor' that confident people who are good at what they do tend to exhibit.
+ 
+But what makes a developer truly elite amongst their peers? I can’t code, but I still love and appreciate it very
+ much. I know this is subjective, but the fact that you can code software in a million different ways to solve the 
+ same problem makes it a pseudo art form to me because an artist chooses their own tools. In screenwriting, the 
+ best writers accomplish the most ‘bang’ with the least amount of words. In development, the simplest solutions 
+ that use the least resources are also highly regarded.
+ 
+Here are a few factors that I think make a developer elite, please chime in and add some of your own, I really 
+want to hear from you devs on this…
+ 
+They’ve created something original that has made a large impact in the development/business world. (application, 
+product…)
+ 
+They’ve actually established the principals of how to do something the best way and their work has been adopted
+ by other developers. (Invented a language, methodology, framework…)
+ 
+They code faster, more efficiently then anyone else, and that code is sustainable.
+ 
+They have dual technical/business skills and see the total picture of what they are working on .
+ 
+They would die of misery if they couldn’t code, it’s a lifestyle that fuels their existence
+
+
+
+
+Shipping is important. Its not a feature, it's more important than that. Putting a product out in the 
+marketplace is a major step.
+ 
+Accepting of feedback. Some want to argue points. That's the wrong attitude. Understand what users 
+need and provide that to them.
+ 
+Understand what the business is trying to accomplish. I could not agree more!!!!!
+ 
+Understand the problems, tools, and these tools help to solve the problem. Don't just throw out the 
+latest and greatest technology or acronym, that's complete BS.
+ 
+Be open to new ideas. Keep up with what is happening as well as new options in the marketplace. At 
+the same time, don't just blindly accept them, but understand the value that they bring to the table 
+as well as how they can help. 
+
+
+
+
+
+elite developer has a strong skillset in being able to balance that fine line between giving the 
+client/customer what they want and giving them what they need but didn't ask for that greatly 
+improves the final product :)
+ 
+In my 15+ years of doing IT work, I've run into a lot of people with jaw-dropping knowledge but 
+they often were negatively viewed by the consumer of their work for being very rigid in their 
+viewpoints and driving forward with architecture that they feel is right or the only way to do it, 
+but ultimately produced a product the client hated. I think this goes back to Wallace's point about 
+"Accepting of Feedback".
+ 
+Now this is purely my observation, but I'd argue that 90%+ of those that I've worked with who 
+claimed/boasted of being elite were in fact not. But, I'm sure many would disagree with that 
+assessment, but it's purely based on my own subjective personal experience
+
+
+
+
+
+In my mind, most of the Elite devs I know are quite humble , many of them don't admit or accept 
+that they are elite, they just like to be accepted for the fact they do what they do.
+ 
+I think having a human side is also important, I know far too many devs who are the technical 
+world equivalent of "Sheldon" (That statement in it's own right with root out a few ;-) ) in 
+so much that they can associate only with their technical environment.
+ 
+You also need to be adaptable, not just in your chosen discipline but in a technological arena 
+in general. 
+
+
+
+
+From what I've seen in the world of application development it is easier to point out common 
+deficits than what makes for greatness: lack of fundamentals and too much focus on "cutting edge"
+- e.g. using fancy LINQ statements and lambdas while failing to put basic OOP principles into 
+practice. 
+
+
+
+
+
+
+corresponded with - a number of elites in disparate fields; development, photography and finance 
+to name but a few. People who use an international flight like I use a taxi, but only more so.
+ 
+Those whom I consider the 'true' elite have always been humble: they don't consider themselves 
+particularly gifted, are always ready to listen - really listen - to another's point-of-view, and 
+are ready to assist a plodder (like myself) without any particular thought of personal gain.
+ 
+ 
+ 
+ 
+ Creativity 
+Broad experience base 
+Up to date on at least some major subset of current tech 
+Detail oriented 
+
+And the most important... 
+Great communicator 
+
+Awesome code isn't worth a damn if it doesn't do what its supposed to do, and that's all about 
+communications. Further, the good communicators are usually good documenters, which means a 
+maintainable code base, and are good debuggers, because they can get to the bottom of the 
+observations of others.
+ 
+By the way if I were a recruiter I would jump hard on people out the door at Yahoo. 
+They hire some seriously good techies.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Elite developers know how to use threading and distributed processing to make an application 
+ scalable to whatever extent is necessary. They are able to optimize code and are proficient 
+ at using code profilers to identify those areas of the application that are the bottlenecks.
+ The are then able to focus on that area and optimize the code bottleneck by writing a custom 
+ DLL in low-level code that runs at optimal speed. Elite developers understand all the 
+ optimization flags on the compiler they are using and use them to produce an optimal 
+ executable for there hardware/software environment. Elite developers keep up with and 
+ understand the latest APIs and language extensions to their chosen development platform. 
+ They know how they'll be able to utilize the new features long before the features are even 
+ available. Elite developers have multiple systems or VMs available gain experience and learn 
+ with Beta versions of operating systems and compiler before they are released for general use. 
+ 
+ 
+ 
+ Making existing code better 
+Maximizing system resources through threading and distribution 
+Identifying bottlenecks that slow stuff down 
+Marriage of HW/SW for top perofrmance 
+Experience with latest API's 
+Eyes on the horizon for latest/greatest features and how to adopt them into production
+ 
+Spot on answer, just what my recruiter brain was looking for :) Just sent you a LinkedIn invite, 
+hope to see you more on LIDNUG!
+ 
+
+ 
+ 
+ 
+ 
+ Great developers don't use recruiters. I can have a 5 minute conversation with another developer
+ and tell you his level. You can not learn wisdom. I am frankly mystified that recruiters have jobs! 
+ All they do is scan resume banks and make phone calls. And companies pay a percentage of my pay for 
+ them to do so?? I personally find two professions to be utterly useless: recruiters and HR.
+ 
+Now that being said, there are a few good recruiters out there. Why? Because they've actually 
+established relationships with companies and built up a network of solid candidates to fill jobs. 
+But nothing I can tell you WILL or any other recruiter is going to help you at all in evaluating a 
+developer. My advice to you: HIRE a Senior developer to have a conversation with prospective 
+candidates. I leave the evaluation of soft skills to recruiters/HR. 
+
+
+
+
+
+Firstly, an elite developer understands that there is a difference between the problem you are 
+solving and the code you are writing to solve it. An elite developer understand that you have to
+think about your code before you write it, while you are writing it, and *most importantly* 
+after you write it.
+ 
+Many developers I have worked with generally think about the problem only while they are coding. 
+Very, very few revisit the code *for the code's sake* after they finish coding.
+ 
+This mentality leads to both code rot and spaghetti code - as an example, new code that depends 
+on the old code may suffer performance issues because the old code is not fast, but because 
+touching the old code involves re-testing other code that depends on it, it seems to make more 
+sense to re-implement it in a separate place with a better performance profile. If the original 
+code is not then replaced, however, you now have exactly the same functionality being performed by 
+two pieces of code which look different, and take different paths to achieve the same goals. This is 
+a huge potential source of bugs, and as long as you leave both implementations in place, the number 
+of additional pieces of code that depend on each will continue to grow, and the cost of merging them 
+grows even more quickly.
+ 
+When writing code you should "Make it work, then make it fast (while keeping it working), 
+then make it right (while still keeping it both working and fast)". [Attributed to Brian Kernighan] 
+Code that works does what the requirement says it should do, without a specific regard to performance 
+or maintainability. *This is where many developers stop thinking about the problem.*
+ 
+I believe that: 
+An elite developer goes into a task with a longer view 
+-- What is the basic structure of code that achieves the requirement? 
+-- What changes can I foresee to that structure that will be required when I work on making it fast?
+ 
+Instead of walking away, an elite developer then steps back and looks at the code, and considers it 
+deficient
+ -- It's not as fast as possible yet; it's not written to be. 
+-- It's not necessarily clean; it may do things in unnecessary or incorrect ways.
+ 
+Next, an elite developer goes back into the code, and makes it fast. 
+-- It may need to do things in a concurrent or asynchronous manner; these are implemented.
+ -- It may have algorithms that can be replaced by algorithms with a lower time or space complexity; these replacements are made.
+ Note that in order to make these changes, you have to both be able to recognize that the code that's in place would benefit from them and be able to competently create the alternatives.
+ 
+Again, an elite developer will step back and look at the code, and will consider it ugly.
+ -- It may have unnecessary dependencies, or expose members that it shouldn't. 
+-- It may have raw spots that can be cleaned up or made more understandable. 
+
+In my opinion, my code is right when a developer who I consider to be an elite developer can look at my code and state that he or she would sign off on it without requiring any structural changes.
+ 
+There's one other aspect to the classification, in my mind - every elite developer that I've met can point to a number of people in their past who have challenged their assumptions and assertions about how they do things, and required that they think before, during, and after they write their code. These may have been personal relationships or peer or mentor professional relationships, but that particular facet of the relationship is not at all important to this point.
+ 
+What is important is that an elite developer realized the value of the advice, internalized it, and practiced it until he or she truly understood it. Even more important is that an elite developer is willing and able to provide the same guidance to his or her peers who are willing and able to understand, internalize, and practice it. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://keirsey.com/personalityzone/wz21.asp?goback=%2Egde_73429_member_10757037
+
+
+

@@ -1,0 +1,5 @@
+http://www.programmableweb.com/
+http://www.WebserviceX.net
+
+here are some sample OData services at odata.org, and several free (with registration) 
+data services in the Azure Data Market (also OData).

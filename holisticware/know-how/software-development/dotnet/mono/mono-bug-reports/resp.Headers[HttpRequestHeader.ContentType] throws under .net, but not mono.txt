@@ -1,0 +1,36 @@
+Hi
+
+Just took MonoTouch sample from Frank Krueger form github https://github.com/praeclarum/odata
+
+and in following function:
+
+		static string ReadResponse (HttpWebRequest req)
+		{
+			using (var resp = (HttpWebResponse)req.GetResponse ()) {
+				var ct = resp.Headers[HttpRequestHeader.ContentType];
+				var enc = GetEncoding (ct);
+
+				using (var r = new System.IO.StreamReader (resp.GetResponseStream (), enc)) {
+					return r.ReadToEnd ();
+				}
+			}
+		}
+Line:
+
+   var ct = resp.Headers[HttpRequestHeader.ContentType] ;
+
+throws under .net, but not mono.
+Exception is:
++		
+  [System.InvalidOperationException]	
+  {"This collection holds response headers and cannot contain the specified request header."}	
+  System.InvalidOperationException
+
+
+it does not throw if changed to:
+
+     var ct = resp.Headers[HttpResponseHeader.ContentType] ;
+
+regards
+
+mel

@@ -1,0 +1,295 @@
+<head>
+	<style type="text/css">
+#title-crumbs,body #sites-page-title-header,.sites-tile-name-header,#sites-canvas-main .sites-tile-name-content-1,.sites-tile-name-footer,.sites-subpages,.sites-kix-editor-wrapper,#sites-editor-wrapper{padding-left:10px;padding-right:10px}#sites-page-title-header{color:#000;font-size:22px;padding:3px 10px}#sites-page-title-header{font-size:22px;font-weight:bold;margin:0}#sites-canvas-main{min-height:150px;_height:150px;padding-bottom:5px;padding-top:15px}.sites-canvas-main{background:none}#sites-canvas-main table{margin:0}.sites-layout-hbox{width:100%;table-layout:fixed}#sites-canvas-main .sites-tile-name-content-1,#sites-canvas-main .sites-tile-name-content-2,#sites-canvas-main .sites-tile-name-content-3{padding-top:10px;padding-bottom:10px}.sites-layout-hbox td.sites-layout-tile{vertical-align:top}.sites-layout-tile{padding:3px}td{vertical-align:top}ol{list-style-type:decimal}a,a:active,#sites-chrome-everything .goog-tree-item-label a{color:#e41500}code{color:#006000}</style>
+</head>
+<h3 id="sites-page-title-header" align="left" 
+	xmlns="http://www.w3.org/1999/xhtml">
+	<span id="sites-page-title" dir="ltr">Programming Tips</span></a></h3>
+<div id="sites-canvas-main" class="sites-canvas-main">
+	<div id="sites-canvas-main-content">
+		<table cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox" 
+			xmlns="http://www.w3.org/1999/xhtml">
+			<tr>
+				<td class="sites-layout-tile sites-tile-name-content-1">
+					<div dir="ltr">
+						<ol>
+							<li><span style="font-weight: bold;">
+								<a href="http://www.yacoset.com/Home/every-line-of-code-is-a-user-interface">
+								Every line of code is a user interface</a></span><br />
+								If this wasn&#39;t true, then there wouldn&#39;t be a point to high-level languages. 
+								Imagine a stranger is reading your code and write like you were trying to 
+								explain the program to him<br />
+								<br />
+
+								<div dir="ltr">
+									A company&#39;s software assets are not its codebase, it&#39;s the programmers who know 
+									what the problem is. On the balance sheet the code is a liability rather than an 
+									asset, and it&#39;s not even the good kind of liability because 90% of all code is 
+									the kind you don&#39;t want: it has nothing to do with the business problem itself, 
+									it just sets things up for other code that does. You can pay millions of dollars 
+									to have this &quot;overhead&quot; code written, and a month or year later it&#39;s all 
+									rendered obsolete by an upgrade to the platform--and not necessarily your chosen 
+									platform, either.<div>
+										<br />
+									</div>
+									<div>
+										Years ago I used to work for a company that made a web-based case tracking 
+										system for police agencies, and we spent thousands of developer hours writing 
+										code that processed templates to build HTML forms, serialized data to-and-from 
+										the database, and converted complex searches into SQL. We also wrote our own 
+										code for user authentication, session tracking, and our own federated remote 
+										query system. All written in Perl in the late 1990s and early 2000s.
+									</div>
+									<div>
+										<br />
+									</div>
+									<div>
+										With some awkwardness, a cop in Arkansas with a sometimes-online dial-up AOL 
+										account could search for the connections between a VIN and a gun&#39;s serial # on a 
+										database in a neighboring state, and everything got ferried through email with 
+										PGP and XML. After 9-11 I even coded up a way to display the Department of 
+										Homeland Security&#39;s multi-colored alert level in the UI, writing my own RSS 
+										parser along the way.</div>
+									<div>
+										<br />
+									</div>
+									<div>
+										One day while standing around chatting with a manager, I said &quot;what if Microsoft 
+										replaces &#39;Northwind&#39; with a police database in the next version of Access? We&#39;d 
+										be wiped out in one stroke.&quot;</div>
+									<div>
+										<br />
+									</div>
+									<div>
+										Specifically it wasn&#39;t Microsoft Access we had to worry about, but Ruby on Rails 
+										that provided 99% of all the infrastructure we&#39;d built ourselves for an 
+										HTML-fronted database application. Even if our idea of a case tracking system 
+										was superior, 99% of our time had been spent to build a platform upon which that 
+										product could be built. But in the end our customers didn&#39;t care what kind of 
+										template processor rendered all the web pages, which meant a competitor could 
+										have duplicated our whole product at a fraction of the cost once all of those 
+										web application primitives became available for free.</div>
+									<div>
+										<br />
+									</div>
+									<div>
+										There is nothing that can be done when an existing framework doesn&#39;t have an 
+										abstraction for the feature you need to build, except to build that abstraction 
+										yourself. In the late 90s there didn&#39;t exist a single framework with the right 
+										combination of features that we required for our product, so we had to build our 
+										own. The tragedy is that the product was a bas relief on the surface of that 
+										monstrous framework and completely inseparable from it, so when RoR came along 
+										it wasn&#39;t possible to port our &quot;business logic&quot; over without rewriting it from 
+										scratch.</div>
+									<div>
+										<br />
+									</div>
+									<div>
+										When you are writing your own code you must think about which lines are directly 
+										manifesting the program&#39;s purpose, and which lines are only there to provide 
+										what wasn&#39;t already in the framework, language or operating system. Some code 
+										must be written to be <b>independent of the program&#39;s function</b> and some code 
+										must be written to be <b>independent of the program&#39;s form</b>.
+									</div>
+									<div>
+										<br />
+									</div>
+									<div>
+										When this site and others exhort you to simplify your code, keep &quot;business 
+										objects&quot; pure, and to write as lucidly as possible for the benefit of a 
+										stranger, it&#39;s because one day the <i>function</i> of that code will have to be 
+										ported into a different <i>form</i>, and the only way that&#39;s ever going to 
+										happen is if the real asset of the company--the programmer--understands what the 
+										function is and the problem its trying to solve.</div>
+									<div>
+										<br />
+									</div>
+									<div>
+										This is why <b>naming is everything</b>, why code conventions are important, why 
+										Model-View-Controller is recommended, and why functional style is adopted. Even 
+										replacing for-loops with list comprehensions helps because it boils away another 
+										overhead variable--the index pointer--and leaves a little bit less to port and 
+										maintain. Every line of code is a user interface and needs to be designed and 
+										tweaked and tested the way user interfaces are; for comprehension, flexibility 
+										and intuitiveness.</div>
+									<div>
+										<br />
+									</div>
+									<div>
+										Now that police database system is history and another waste of taxpayer 
+										dollars. When the support contract wasn&#39;t renewed the paychecks dried up and the 
+										company&#39;s real assets took jobs elsewhere. What was left wasn&#39;t an asset, it was 
+										unreadable.</div>
+								</div>
+
+							</li>
+							<li><span style="font-weight: bold;">
+								<a href="http://www.yacoset.com/Home/naming-tips" 
+									style="color: rgb(85, 26, 139);">Choosing the right name is everything</a></span><br />
+								Having an intuitive, descriptive, accurate name for classes, methods and 
+								properties is just as important as what they do. <b>Avoid &quot;ProcessData()&quot; 
+								disease<br />
+								<br />
+								</b></li>
+							<li><b>Minimize state</b><br />
+								Variables and fields are begrudging necessities. When you&#39;re forced to declare a 
+								variable, sneer at it. Consider inlining a function call instead of stashing its 
+								output in a temporary variable if it&#39;ll only be called once. But don&#39;t go silly 
+								and start recycling variables for different purposes<br />
+								<br />
+							</li>
+							<li><span style="font-weight: bold;">If it doesn&#39;t return or modify the state of an 
+								object, then it should be <code>static</code></span><br />
+								Pass a functions&#39;s parameters to it, don&#39;t pull them out of your
+								<span style="color: rgb(238, 238, 238);">cl</span>ass<br />
+								<b><span style="font-weight: normal;">
+								<br />
+								</span></b></li>
+							<li><b>DestroyBaghdad() is immoral. Use DestroyCity(Baghdad) instead<br />
+								<span style="font-weight: normal;">Avoid tying details to implementations. Check 
+								your language to see if it supports first-class functions (functions that can be 
+								passed as arguments to other functions) and design a program to push any 
+								unavoidably specific logic to the edges<br />
+								<br />
+								</span></b></li>
+							<li><b><span style="font-weight: normal;">One side effect at a time<br />
+								A side effect is anything that happens in addition to returning a value from a 
+								function. For example, <code>bool MsgBox(string message)</code> is a classic 
+								case: it returns a boolean, but it has the side-effect of creating a UI with an 
+								&quot;OK&quot; button. Side effects are not necessarily bad unless you do more than one 
+								per function. Don&#39;t manifest UI, change global variables, update a database and
+								<i>then</i> return a boolean<br />
+								<br />
+								</span></b></li>
+							<li><span style="font-weight: bold;">Don&#39;t ENUMerate what hasn&#39;t been implemented</span><br />
+								Laundry lists of promised modes and half-empty SWITCHboards shouldn&#39;t be thought 
+								of as a skeleton waiting to be fleshed out, because they will force maintenance 
+								programmers to keep re-discovering what hasn&#39;t been done yet. They also set a 
+								name in stone before you know if it&#39;s right. Leave speculative modes in 
+								comments--or better yet, the case tracking system<br />
+								<br />
+							</li>
+							<li><b>Don&#39;t use strings or integers if it can be Enumerated</b><br />
+								If you&#39;re keeping track of definite states (&quot;Open&quot;, &quot;Closed&quot;, &quot;Initializing&quot;, 
+								&quot;Faulted&quot;, etc.) don&#39;t store that state as a string or integer if your language 
+								supports ENUMs. If you have to accept a string to set an enumerable state, use 
+								the <code>Enum.Parse()</code> or <code>TryParse()</code> method to get input 
+								validation for free<br />
+								<b><span style="font-weight: normal;">
+								<br />
+								</span></b></li>
+							<li><b>Keep business objects pure</b><br />
+								When you create a new class to represent a business-related concept or chunk of 
+								information, such as a SKU or customer, don&#39;t contaminate it with logic relevant 
+								only to the program you&#39;re writing at the time. Keep it purely about the thing 
+								it models and nothing else. For example, if you have a class that models a 
+								customer and you happen to be using it in a program that fetches PayPal 
+								transactions, do not put a <code>GetPayPalTransactions</code> method in the 
+								customer class. Put the GetPayPalTransactions method elsewhere and have it 
+								accept a customer object as its parameter.<br />
+								<b>Side tip:</b> consider using Extension methods in C# or Categories in 
+								Objective-C to gain some Intellisense/Tab-Completion advantages in your IDE<br />
+								<br />
+							</li>
+							<li><b>Shun concatenation</b><br />
+								Favor <code>String.Format()</code> over string concatenation, especially when 
+								preparing SQL. It makes it easier to see what the template is, avoids 
+								accidentally invoking arithmetic addition, and can provide better formatting 
+								options in most languages<br />
+								<br />
+							</li>
+							<li><b>Use list comprehensions instead of for-loops</b><br />
+								A list comprehension (&quot;foreach&quot;, &quot;map&quot;, LINQ extensions, etc.) is better than a 
+								for-loop unless you really need to know the index position<br />
+								<br />
+							</li>
+							<li><b>Make your variables </b><code><b>final</b></code><br />
+								In Java, declare your variables with the <code>final</code> keyword so their 
+								values can&#39;t be set more than once at runtime. In C#, use <code>readonly</code> 
+								on as many fields as you can. This will force you to change how you write code 
+								and think of variables as labels for the values themselves, rather than for the 
+								boxes that contain them<br />
+								<br />
+							</li>
+							<li><b>Put constants in configuration files</b><br />
+								<span style="border-collapse: collapse;"><font face="arial, sans-serif">Do not 
+								hard-code directory paths, server names or database names. Most popular 
+								development environments now have built-in mechanisms for configuration files, 
+								saved in XML or some other format. In Microsoft&#39;s Visual Studio, for example, 
+								it&#39;s begins with the &quot;app.config&quot; file and the <code>System.Preferences</code> 
+								namespace<br />
+								<br />
+								</font></span></li>
+							<li><span style="border-collapse: collapse;"><b>Only UI-behavior belongs in 
+								code-behind files</b><br />
+								Microsoft&#39;s development tools are heavy on the &quot;code-behind&quot; idea, where you 
+								paint a form and then put logic in a class that was automatically generated to 
+								go with it. Don&#39;t put business logic in these code-behind classes. Only use them 
+								to put the reflexive logic of your user-interface, like basic input validation 
+								or enabling/disabling controls based on other inputs and settings<br />
+								<br />
+								</span></li>
+							<li><span style="border-collapse: collapse;">
+								<span style="border-collapse: separate;"><b>Some cut-n-paste is okay</b><br />
+								Use your judgement to cut-n-paste <i>if it makes the action of the program 
+								easier to read</i>. The &quot;DRY&quot; principle wasn&#39;t meant to make you obsessively 
+								hide every line of code behind abstractions (soon you&#39;ll be cut-n-pasting the 
+								abstraction&#39;s invocation syntax). If it makes you feel better you can call them 
+								something disarming, like &quot;snippets&quot;.<br />
+								<br />
+								</span></span></li>
+							<li><span style="border-collapse: collapse;">
+								<span style="border-collapse: separate;"><b>Reuse != borrowing</b><br />
+								Code reuse can become code abuse if you borrow classes, enums or interfaces for 
+								incidental parts of their function or to reinterpret their meaning. Don&#39;t 
+								instantiate a database connection class because you want to use its string 
+								quoting/escaping functions to write text files, don&#39;t borrow the <code>
+								System.IO.FileAccess</code> enum becuase you&#39;re too lazy to make your own 
+								definition of <code>Read</code> and <code>Write</code>, etc.<br />
+								<br />
+								</span></span></li>
+							<li><span style="border-collapse: collapse;">
+								<span style="border-collapse: separate;"><b>Don&#39;t be in a hurry to make 
+								abstractions</b><br />
+								If you make an abstraction the first time you meet a new concept it will be too 
+								limited, and attempts to extend it to cover the rest of its natural domain will 
+								be hacky and buggy<br />
+								<br />
+								</span></span></li>
+							<li><span style="border-collapse: collapse;">
+								<span style="border-collapse: separate;"><b>Exceptions are exceptional</b><br />
+								Don&#39;t shun the idea of throwing exceptions, but don&#39;t design a program that 
+								throws them ten times a second, either. Nor should you worry about handling 
+								every exception at the point where they occur: sometimes the only logical place 
+								to recover from them is further up the call-stack than where you are now. 
+								Throwing an exception can incur a performance penalty because: 1) it&#39;s like a 
+								&quot;GOTO&quot; that forces the computer to load code that isn&#39;t in the cache, and 2) it 
+								may involve a ring transition. Both of these penalties are trivial if you throw 
+								exceptions rarely</span></span></li>
+						</ol>
+						<h3><a id="">
+							<a id="TOC-Observations-on-Code"></a>Observations on Code</a></h3>
+						<div>
+							<ol>
+								<li><b>Functional style in an imperative language only works if the language 
+									designer wanted it to</b><br />
+									Lambdas, list comprehensions, closures and other functional techniques are the 
+									new silver bullets, but not when you try to fake them in a language that wasn&#39;t 
+									designed to encourage it (&quot;When in Rome, don&#39;t speak
+									<a href="http://www.yacoset.com/Home/how-to-get-a-night-s-sleep-without-shit-happening">
+									latinized Japanese</a>&quot;)<br />
+									<br />
+								</li>
+								<li><b>It doesn&#39;t matter where you put the curly braces</b><br />
+									Readability is paramount, but there is no hard-and-fast rule that always applies 
+									to every situation. Sometimes it&#39;s easier to read code when you put a whole 
+									IF-THEN on one line, and sometimes it&#39;s not. Because &quot;readability&quot; itself is a 
+									subjective quality, so is every choice you make to format the code</li>
+							</ol>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

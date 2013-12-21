@@ -1,0 +1,26 @@
+Errors
+		11/20/12 8:56 AM: Build successfully deployed
+		11/20/12 9:00 AM: Configuration file is invalid
+		11/20/12 9:00 AM: Pre-warming web worker
+		
+		
+		
+11/27/12 11:39 PM	
+removed Cache
+Failed
+11/27/12 11:08 PM		project items excluded included
+Succeeded
+11/27/12 2:58 PM	11/27/12 3:03 PM	None -> Content
+ACTIVE
+Succeeded
+11/27/12 2:47 PM	11/27/12 2:53 PM	project references instead of folder
+DEPLOY
+Failed
+11/27/12 2:24 PM		msbuild Failed
+11/27/12 2:08 PM		 lib Failed
+11/27/12 1:29 PM		automatic build Succeeded
+11/27/12 1:18 PM	11/27/12 1:22 PM	gitignore for cahce added DEPLOY
+Failed 	11/27/12 1:12 PM		bin -> lib
+Succeeded
+11/27/12 12:58 PM	11/27/12 1:18 PM	.gitignore
+		

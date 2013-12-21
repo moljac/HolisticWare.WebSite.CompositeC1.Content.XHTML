@@ -1,0 +1,78 @@
+Azure
+
+AppHarbour
+	http://support.appharbor.com/discussions/problems/8386-unable-to-deploy-a-website-project-not-a-web-application-project
+	http://support.appharbor.com/kb/getting-started/frequently-asked-questions
+	
+	url:	http://compositec1-grid960gs.apphb.com/
+	repo:	https://moljac@appharbor.com/compositec1-grid960gs.git
+	build:	https://appharbor.com:443/applications/compositec1-grid960gs/builds?authorization=wmtZLmiidUegAmqMrkVD%2fH34y8C3FqBGqcZ0IMlfFno%3d
+			admin
+			hwcc1960gs
+			
+holisticware-ft-compositec1
+		thoricc
+		th0r1cc
+		
+v4.0-composite1-1.apphb.com
+		???
+		
+removed prefix 
+	holisticware-ft-compositec1- (path length)
+		v4-mvc2
+			thoricc
+		v4-mvc4
+			thoricc
+		
+			
+
+
+			
+0.	local machine
+	1. Composite C1 conversion: Website -> WebApp
+		1. add new project 
+			WebApp MVC2 empty
+		2. Copy files from Website to WebApp
+			1. rename <Webapp>\bin folder to <Webapp>\lib or even better move binary dependencies
+			  (assemblies) out of <WebApp> project. Suggestion ..\packages to be nuget compliant!
+			  
+				Composite.dll
+				Composite.Workflows.dll
+				Composite.XmlSerializers.dll
+				ICSharpCode.SharpZipLib.dll
+				Microsoft.Practices.EnterpriseLibrary.Common.dll
+				Microsoft.Practices.EnterpriseLibrary.Logging.dll
+				Microsoft.Practices.EnterpriseLibrary.Validation.dll
+				Microsoft.Practices.ObjectBuilder.dll
+				Microsoft.Web.Infrastructure.dll
+				System.Web.Razor.dll
+				System.Web.WebPages.Deployment.dll
+				System.Web.WebPages.dll
+				System.Web.WebPages.Razor.dll
+				TidyNet.dll
+				
+		3. reinclude files (reveal hidden files) (VSCommands)
+			exclude, then include
+				carefull not to include 
+					dlls from cache
+						Cache dlls removed/excluded from project
+						App_Data\Composite\Cache
+					pdb files in folders like ~\lib for references (blocked in push by .gitignore)
+					Thumb.db files in folders where pngs for UI reside!
+					
+		4. convert Webapp to webapp (he he he - just do it! to be sure)
+		5. compile
+		6. test run
+1. PaaS (cloud application platform) Web UI
+	1. create app			
+	2. settings
+			Enable File System Write Access
+			Disable Precompilation
+	3. repository url (clicking copies to clipboard)
+4. local machine
+		git clone repo url from step 3
+			
+			
+			
+			
+

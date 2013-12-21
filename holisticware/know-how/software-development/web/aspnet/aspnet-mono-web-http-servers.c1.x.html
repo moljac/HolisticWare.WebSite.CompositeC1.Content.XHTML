@@ -1,0 +1,179 @@
+﻿<!--
+C1 generated!!
+<title>Mono ASP.net and Web (http) Servers</title>
+<meta name="Description" content="Mono ASP.net and Web (http) Servers" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value=">Mono, ASP.net, Web, (http), Servers" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-04-18" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Mono ASP.net and Web (http) Servers</a></h1>
+	<p>
+	Configs for mono on linux servers
+	</p>
+	<h2><a id="">Ubuntu server + Apache 2.2 + mono 2.10.2</a></h2>
+	<p>
+	Test config for demonstration on Microsoft community Web user Group 
+	(mscommunity WebUG):
+	<br />
+	<a href="http://www-old.holisticwarez.net">
+	Old website (mono Asp.net 2.0) http://www-old.holisticwarez.net
+	</a>
+	</p>
+	<pre class="hw_code">
+# set $DOMAIN=www-old.holisticwarez.net
+# set $MAIL=info@hiolisticware.net
+# set $DIR=/var/www/www.holisticware.old/
+
+
+&lt;VirtualHost *:80&gt;
+  ServerName %$DOMAIN%
+  ServerAdmin %$MAIL%
+  DocumentRoot %$DIR%
+  # MonoServerPath can be changed to specify which version of ASP.NET is hosted
+  # mod-mono-server1 = ASP.NET 1.1 / 
+  # mod-mono-server2 = ASP.NET 2.0
+  # For SUSE Linux Enterprise Mono Extension, uncomment the line below:
+  # MonoServerPath %$DOMAIN% "/opt/novell/mono/bin/mod-mono-server2"
+  # For Mono on openSUSE, uncomment the line below instead:
+  MonoServerPath %$DOMAIN% "/opt/mono-2.10/bin/mod-mono-server2"
+
+  # To obtain line numbers in stack traces you need to do two things:
+  # 1) Enable Debug code generation in your page by using the Debug="true"
+  #    page directive, or by setting &lt;compilation debug="true" /&gt; in the
+  #    application's Web.config
+  # 2) Uncomment the MonoDebug true directive below to enable mod_mono debugging
+  MonoDebug %$DOMAIN% true
+
+  # The MONO_IOMAP environment variable can be configured to provide platform abstraction
+  # for file access in Linux.  Valid values for MONO_IOMAP are:
+  #    case
+  #    drive
+  #    all
+  # Uncomment the line below to alter file access behavior for the configured application
+  MonoSetEnv %$DOMAIN% MONO_IOMAP=all;LD_LIBRARY_PATH=/opt/mono-2.10/lib:$LD_LIBRARY_PATH;PATH=/opt/mono-2.10/bin:$PATH
+  #
+  # Additional environtment variables can be set for this server instance using
+  # the MonoSetEnv directive.  MonoSetEnv takes a string of 'name=value' pairs
+  # separated by semicolons.  For instance, to enable platform abstraction *and*
+  # use Mono's old regular expression interpreter (which is slower, but has a
+  # shorter setup time), uncomment the line below instead:
+  # MonoSetEnv %$DOMAIN% MONO_IOMAP=all;MONO_OLD_RX=1
+
+  MonoApplications %$DOMAIN% "/:%$DIR%"
+  &lt;Location "/"&gt;
+	Allow from all
+	Order allow,deny
+	MonoSetServerAlias %$DOMAIN%
+	SetHandler mono
+	SetOutputFilter DEFLATE
+	SetEnvIfNoCase Request_URI "\.(?:gif|jpe?g|png)$" no-gzip dont-vary
+  &lt;/Location&gt;
+  &lt;IfModule mod_deflate.c&gt;
+	AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript
+  &lt;/IfModule&gt;
+&lt;/VirtualHost&gt;
+
+
+
+Silverlight
+
+If you have permission to edit the master configuration files
+
+Edit the file mime.types file and do the following:
+
+Find this line.
+audio/midi mid midi kar
+
+Remove the mid so it looks like this:
+
+audio/midi midi kar
+
+Now, add the following line to the file.
+
+audio/x-midi mid
+
+If you ever need to add a new MIME type to your server, this is how you do it. Look over the mime.types file to see all of the MIME types your server supports.
+Adding a MIME type using .htaccess
+
+If you cannot modify your master configuration files, relax. Simply edit the .htaccess file located in your main HTML directory. If you do not have this file, feel free to create it!
+
+To enable the proper MIDI MIME type, just add the following line:
+
+AddType audio/x-midi mid
+
+
+
+
+
+
+
+
+
+
+application/manifest 			manifest	
+application/xaml+xml			xaml	
+application/x-msdownload 		dll	
+application/x-ms-application	application
+application/x-ms-xbap 			xbap	
+application/octet-stream		deploy	
+
+
+
+
+here are 3 MIME types required
+
+.xaml application/xaml+xml
+.xap application/x-silverlight-app
+.xbap application/x-ms-xbap
+To add the MIME types to IIS6:
+
+1. Choose your website in IIS
+2. Open the context menu and choose “Properties”
+3. Select the register “HTTP-Header”
+4. Click on the button labeled “MIME Types…”
+5. If .xaml is not yet listed as a type, choose “New”
+6. Enter the following description:
+
+Extension: .xaml
+MIME type: application/xaml+xml
+
+7. Click “Ok”,
+8. Got to 5 and add xap and xbap as above then goto 9 
+9. Choose “Apply” and you’re set!
+
+To do this in Apache 2.2: Using mod_rewite or mod_mime with AddType
+
+1. Open httpf.conf in your favorite text editor
+2. Search for
+3. Add AddType application/xaml+xml .xaml + all the other types above
+
+AddType application/xaml+xml 			.xaml
+AddType application/x-silverlight-app	.xap 
+AddType application/x-ms-xbap			.xbap	
+
+
+/etc/mime.types
+
+application/xaml+xml 			xaml
+application/x-silverlight-app	xap 
+application/x-ms-xbap			xbap	
+
+
+4. Close and save the httpd.conf file
+5. Gracefully restart Apache – apacectl restart or /etc/init.d/apache restart
+
+
+
+
+	</pre>
+
+  </body>
+</html>

@@ -1,0 +1,355 @@
+HTTP Error 404.17 - Not Found 
+The requested content appears to be script and will not be served by the 
+static file handler.
+
+A1
+e installed .Net Framework4.0 on your IIS server, please run "aspnet_regiis -i" 
+in C:\Windows\Microsoft.NET\Framework\v4.0.21006
+
+If your problem persists, please update here. Thanks.
+
+
+
+please post the output the following command:
+
+%windir%\system32\inetsrv\appcmd.exe list config "site's name" -section:system.webServer/handlers
+
+
+
+After A1
+HTTP Error 404.2 - Not Found
+The page you are requesting cannot be served because of the ISAPI and CGI Restriction 
+list settings on the Web server.
+
+
+Make sure the 4.0 items listed in the cgi / isapi restrictions are enabled (allowed)
+
+
+ Opened IIS - Clicked on the Servername - Went to the IIS group and double clicked on 
+ cgi & Isapi restrictions - Selected the desired framework and clicked allow in the 
+ right pane Thanks a ton!
+ 
+ Web Server name +/ IIS group +/ ISAPI and CGI restrictions +/ allow netfx 4
+ 
+ 
+ 
+ Server Error in '/' Application.
+
+Access to the path 'C1@d-web_sites-www.holisticware-' is denied.
+
+
+
+
+
+he account saving the file doesn't have permission to the server/folder that it 
+is writing to.  You need to grant this account permission.  If you are using the 
+default ASP.NET process account, NETWORK SERVICE and not doing impersonation, 
+you will need to grant that account access.  The proble is that NETWORK SERVICE 
+is a local account.  Easiest is change the ASP.NET process account to a domain 
+account that has permission.  Check www.iis.net for help on doing that.
+
+
+
+
+
+
+
+
+
+
+
+
+URL rewriting for canonical form with and without www
+
+http://stackoverflow.com/questions/7107242/deploy-web-site-on-iis-7-with-and-without-www-prefix
+http://stackoverflow.com/questions/521804/how-to-redirect-with-www-urls-to-without-www-urls-or-vice-versa
+http://blog.stackoverflow.com/2008/06/dropping-the-www-prefix/
+http://serverfault.com/questions/88030/redirect-to-domain-without-www
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 2 good ways to do this in IIS7. URL Rewrite is great if you have it installed. With that you can 
+ create a rule to redirect www to non-www. Another option is the HTTP Redirect feature in IIS.
+
+To use the IIS HTTP Redirect (easiest method), do the following:
+
+create a 2nd site with a host header binding of www.yourdomain.com
+BE SURE to point it to a different path on disk since in IIS Manager updating the HTTP 
+Redirect will update your web.config file which you don't want to update for your 
+main site. Just point to a deadend folder since it isn't used for anything else for reading 
+the web.config file.
+For your www site, turn on the HTTP Redirect and set the value to http://yourdomain.com. Set 
+the status code to 301 (permanent)
+
+
+
+ In IIS if you want to 301 from www to the non www, you have to create each site in IIS and then do the 301 redirect from one to the other.
+
+Make sure to leave “redirect all requests to exact destination” unchecked. You also do not have to populate the www directory with anything, but make sure that if you are using the same IP to remove www from the non-www bindings so that the www site will respond.
+
+Lol that seems a little convoluted let me lay it out in steps:
+
+1) Create www version of site on IIS (no content necessary)
+2) Select the www site and click http redirect
+3) Check redirect request to this destination and put in non-www value
+4) Change status code to 301
+5) Click Apply.
+6) Make sure that you take the www out of the host name bindings on the non-www site if it is in there. You can check by selecting the non-www site and then click bindings and see if you see the www version in there. If you do go in and remove it. To be sure restart the IIS service, though it may start resiolving without it.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SEO
+
+Canonical 
+http://www.w3schools.com/tags/tag_DOCTYPE.asp
+http://umbraco.miketaylor.eu/2010/11/03/url-rewriting-and-seo/
+http://weaselfire.wordpress.com/2009/12/09/iis-7-url-rewrite-and-canonical-urls/
+http://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/
+
+
+<configuration>
+	<system.webServer>
+		<rewrite>
+			<rules>
+				<!-- in here -->
+6
+               </rules>
+7
+          </rewrite>
+8
+     </system.webServer>
+9
+</configuration>
+
+<rewrite>
+			<rules>
+
+				<!-- SEO: Canonical home page - redirect from home page /nodename to home page with no path -->
+				<!-- assumes root node is called "Home" -->
+				<rule name="Canonical home page" stopProcessing="true">
+					<match url="^(home|default\.aspx)$" />
+					<action type="Redirect" redirectType="Permanent" url="/" />
+				</rule>
+
+				<!-- SEO: Using Directory URLs, so force trim all .aspx -->
+				<!-- exclude umbraco folder -->
+				<rule name="Trim aspx for directory URLs" stopProcessing="true">
+					<match url="(.*)\.aspx$" />
+					<conditions>
+						<add input="{REQUEST_URI}" pattern="^/umbraco/" negate="true" />
+					</conditions>
+					<action type="Redirect" redirectType="Permanent" url="{R:1}" />
+				</rule>
+
+				<!-- SEO: Canonical host name - consistent use/absence of www. -->
+				<!-- in this case, we are redirecting to host name without www -->
+				<rule name="Canonical host name" stopProcessing="true">
+					<match url="(.*)" />
+					<conditions>
+						<add input="{HTTP_HOST}" pattern="^yourdomain\.com$" negate="true" />
+					</conditions>
+					<action type="Redirect" redirectType="Permanent" url="http://yourdomain.com/{R:1}" />
+				</rule>
+
+				<!-- SEO: Remove trailing slash from URLs -->
+				<rule name="Remove trailing slash" stopProcessing="true">
+					<match url="(.*)/$" />
+					<conditions>
+						<add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+						<add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+					</conditions>
+					<action type="Redirect" redirectType="Permanent" url="{R:1}" />
+				</rule>
+
+				<!-- SEO: Force lower-case for URLs -->
+				<!-- exclude umbraco folder, and all static requests to images, css, js and axd resource files -->
+				<rule name="LowerCaseRule1" stopProcessing="true">
+					<match url=".*[A-Z].*" ignoreCase="false" />
+					<conditions>
+						<add input="{REQUEST_URI}" pattern="^/umbraco/" negate="true" />
+						<add input="{URL}" pattern="^.*\.(axd|css|js|jpg|jpeg|png|gif)$" negate="true" ignoreCase="true" />
+					</conditions>
+					<action type="Redirect" redirectType="Permanent" url="{ToLower:{URL}}" />
+				</rule>
+
+			</rules>
+
+		</rewrite>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+<rewrite>
+            <rules>
+                <clear />
+                <rule name="CanonicalHostNameRule1">
+                    <match url="(.*)" />
+                    <conditions>
+                        <add input="{HTTP_HOST}" pattern="^www\.mydomain\.com$" negate="true" />
+                    </conditions>
+                    <action type="Redirect" url="http://www.mydomain.com/{R:1}" />
+                </rule>
+                <rule name="Default Document URL Rewrite" enabled="true" stopProcessing="true">
+                    <match url="(.*?)/?Default\.aspx$" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false" />
+                    <action type="Redirect" url="{R:1}/" />
+                </rule>
+                <rule name="LowerCaseRule1" enabled="true" stopProcessing="true">
+                    <match url="[A-Z]" ignoreCase="false" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                        <add input="{URL}" pattern=".axd" negate="true" />
+                        <add input="{URL}" pattern=".asmx" negate="true" />
+                        <add input="{URL}" pattern=".jpg" negate="true" />
+                        <add input="{URL}" pattern=".png" negate="true" />
+                        <add input="{URL}" pattern=".gif" negate="true" />
+                        <add input="{URL}" pattern=".js" negate="true" />
+                        <add input="{URL}" pattern="/Base" negate="true" />
+                        <add input="{URL}" pattern="cdv=1" negate="true" />
+                    </conditions>
+                    <action type="Redirect" url="{ToLower:{URL}}" />
+                </rule>
+                <rule name="AddTrailingSlashRule1" enabled="true" stopProcessing="true">
+                    <match url="(.*[^/])$" ignoreCase="true" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                        <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+                        <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                        <add input="{URL}" pattern=".axd" negate="true" />
+                        <add input="{URL}" pattern=".asmx" negate="true" />
+                        <add input="{URL}" pattern=".aspx" negate="true" />
+                        <add input="{URL}" pattern=".mp3" negate="true" />
+                    </conditions>
+                    <action type="Redirect" url="{R:1}/" />
+                </rule>
+            </rules>
+            <outboundRules>
+                <preConditions>
+                    <preCondition name="ResponseIsHtml1">
+                        <add input="{RESPONSE_CONTENT_TYPE}" pattern="^text/html" />
+                    </preCondition>
+                </preConditions>
+            </outboundRules>
+        </rewrite>		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+<rewrite>
+			<rules>
+
+				<!-- SEO: Canonical host name - consistent use of www. -->
+				<!-- better to use the www version -->
+				<rule name="Canonical host name" stopProcessing="true">
+					<match url="(.*)" />
+					<conditions>
+						<add input="{HTTP_HOST}" pattern="^www.flag10\.local$" negate="true" />
+					</conditions>
+					<action type="Redirect" redirectType="Permanent" url="http://www.flag10.local/{R:1}" />
+				</rule>
+
+				
+				<!-- SEO: Canonical home page - redirect from home page /nodename to home page with no path -->
+				<!-- assumes root node is called "Home" -->
+				<rule name="Canonical home page" stopProcessing="true">
+					<match url="^(home|home\.aspx|default\.aspx)$" />
+					<action type="Redirect" redirectType="Permanent" url="/" />
+				</rule>
+
+
+				<!-- SEO: Using Directory URLs, so force trim all .aspx -->
+				<!-- exclude umbraco folder -->
+				<rule name="Trim aspx for directory URLs" stopProcessing="true">
+					<match url="(.*)\.aspx$" />
+					<conditions>
+						<add input="{REQUEST_URI}" pattern="^/umbraco/" negate="true" />
+					</conditions>
+					<action type="Redirect" redirectType="Permanent" url="{R:1}/" />
+				</rule>
+
+
+				<!-- SEO: Add trailing slash to URLs -->
+				<!-- better for SEO to *have* the trailing slash -->
+				<rule name="Add trailing slash" stopProcessing="true">
+					<match url="(.*[^/])$" ignoreCase="true" />
+					<conditions>
+						<add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+						<add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+						<add input="{REQUEST_URI}" pattern="^/umbraco/" negate="true" />
+						<add input="{URL}" pattern="^.*\.(asp|aspx|axd|asmx|css|js|jpg|jpeg|png|gif|mp3)$" negate="true" ignoreCase="true" />
+						<add input="{URL}" pattern="/Base" negate="true" />
+						<add input="{URL}" pattern="cdv=1" negate="true" />
+					</conditions>
+					<action type="Redirect" redirectType="Permanent" url="{R:1}/" />
+				</rule>
+
+				
+				<!-- SEO: Force lower-case for URLs -->
+				<!-- exclude umbraco folder, and all static requests to images, css, js and axd resource files -->
+				<rule name="LowerCaseRule1" stopProcessing="true">
+					<match url=".*[A-Z].*" ignoreCase="false" />
+					<conditions>
+						<add input="{REQUEST_URI}" pattern="^/umbraco/" negate="true" />
+						<add input="{URL}" pattern="^.*\.(axd|asmx|css|js|jpg|jpeg|png|gif|mp3)$" negate="true" ignoreCase="true" />
+						<add input="{URL}" pattern="/Base" negate="true" />
+						<add input="{URL}" pattern="cdv=1" negate="true" />
+					</conditions>
+					<action type="Redirect" redirectType="Permanent" url="{ToLower:{URL}}" />
+				</rule>
+
+			</rules>
+			
+		</rewrite>		
+		
+		
+		
+
+
+
+
+		

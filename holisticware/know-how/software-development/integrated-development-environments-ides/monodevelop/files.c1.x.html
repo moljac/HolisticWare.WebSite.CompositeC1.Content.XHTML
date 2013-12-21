@@ -1,0 +1,107 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Files</title>
+Description = all keywords + extra text
+<meta name="Description" content="Files in MonoDevelop" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url:files
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="monodevelop, files" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">MonoDevelop Files</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<h2><a id="">ProjectName.userpref</a></h2>
+	<pre class="hw_code">
+&lt;Properties&gt;
+  &lt;MonoDevelop.Ide.Workspace ActiveConfiguration=&quot;Debug&quot; /&gt;
+  &lt;MonoDevelop.Ide.Workbench&gt;
+	&lt;Pads&gt;
+	  &lt;Pad Id=&quot;ProjectPad&quot;&gt;
+		&lt;State expanded=&quot;True&quot; selected=&quot;True&quot;&gt;
+		  &lt;Node name=&quot;Core.DLL_215_BL_mClnt_MTch_mono&quot; expanded=&quot;True&quot; /&gt;
+		  &lt;Node name=&quot;TestsXMonoTouchApplication1&quot; expanded=&quot;True&quot; /&gt;
+		&lt;/State&gt;
+	  &lt;/Pad&gt;
+	  &lt;Pad Id=&quot;ClassPad&quot;&gt;
+		&lt;State expanded=&quot;True&quot; selected=&quot;True&quot; /&gt;
+	  &lt;/Pad&gt;
+	  &lt;Pad Id=&quot;MonoDevelop.Debugger.WatchPad&quot;&gt;
+		&lt;State /&gt;
+	  &lt;/Pad&gt;
+	  &lt;Pad Id=&quot;ConnectionManagerPad&quot;&gt;
+		&lt;State selected=&quot;True&quot;&gt;
+		  &lt;Option id=&quot;ShowDatabaseName&quot; value=&quot;True&quot; /&gt;
+		  &lt;Option id=&quot;ShowSystemObjects&quot; value=&quot;True&quot; /&gt;
+		&lt;/State&gt;
+	  &lt;/Pad&gt;
+	&lt;/Pads&gt;
+  &lt;/MonoDevelop.Ide.Workbench&gt;
+  &lt;MonoDevelop.Ide.DebuggingService.Breakpoints&gt;
+	&lt;BreakpointStore /&gt;
+  &lt;/MonoDevelop.Ide.DebuggingService.Breakpoints&gt;
+  &lt;MonoDevelop.Ide.DebuggingService.PinnedWatches /&gt;
+&lt;/Properties&gt;
+	</pre>
+
+	<h2><a id="">ProjectName.pidb</a></h2>
+	<p>
+		MonoDevelop creates a Parser Information Database (pidb) file for assembly/project.
+		This file contains all the information about classes implemented in an assembly, 
+		together with documentation pulled from Monodoc.
+		<br />
+		Purpose:
+	</p>
+	<ul>
+		<li>
+			to improve a bit the performance and memory use
+			<br />
+			not recommended to include it in source control unless it makes a big difference to 
+			performance: 
+			<br />
+			If it's big and changes regularly, could find it adds significant 
+			overhead to the repository too.
+		</li>
+	</ul>
+	<p>
+		Content :
+	</p>
+	<ol>
+		3 sections:
+		<li>
+			 header which contains among other things the version of the file format 
+			 <br />
+			 (that version is checked when loading the pidb, and the file will be regenerated 
+			 if it doesn't match the current implementation version). 
+		</li>
+		<li>
+			index of the pidb file. It contains an index of all classes in the database. 
+			The index is always fully loaded in memory to be able to quickly locate classes. 
+		</li>
+		<li>
+			contains all the class information: list of methods, fields, properties, 
+			documentation for each of those, and so on. Each entry in the index has a file 
+			offset field, which can be used to completely load all the information of a class 
+			(the index only contains the name).
+		</li>
+	</ol>
+	<pre class="hw_code">
+	</pre>
+</body>
+</html>

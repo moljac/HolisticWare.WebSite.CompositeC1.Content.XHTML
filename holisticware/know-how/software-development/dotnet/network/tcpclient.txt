@@ -1,0 +1,89 @@
+ have written a simple TCP client and server. The problem lies with the client.
+
+I'm having some trouble reading the entire response from the server. I must let the thread sleep to allow all the data be sent.
+
+I've tried a few times to convert this code into a loop that runs until the server is finished sending data.
+
+// Init & connect to client
+TcpClient client = new TcpClient();
+Console.WriteLine("Connecting.....");
+client.Connect("192.168.1.160", 9988);
+
+// Stream string to server
+input += "\n";
+Stream stm = client.GetStream();
+ASCIIEncoding asen = new ASCIIEncoding();
+byte[] ba = asen.GetBytes(input);
+stm.Write(ba, 0, ba.Length);
+
+// Read response from server.
+byte[] buffer = new byte[1024];
+
+System.Threading.Thread.Sleep(1000); // Huh, why do I need to wait?
+
+int bytesRead = stm.Read(buffer, 0, buffer.Length);
+response = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+Console.WriteLine("Response String: "+response);
+
+client.Close();
+
+
+The client needs some way to find out when the server is finished (eg, a length prefix for a special termination sequence) – SLaks Nov 6 '11 at 14:29
+Try using StreamReader msdn.microsoft.com/en-us/library/system.io.streamreader.aspx – David Czihak Nov 6 '11 at 14:44
+How would StreamReader help? It doesn't know when the server is finished either. – John Saun
+
+
+
+
+The nature of streams that are built on top of sockets is that you have an open pipeline that transmits and receives data until the socket is closed.
+
+However, because of the nature of client/server interactions, this pipeline isn't always guaranteed to have content on it to be read. The client and server have to agree to send content over the pipeline.
+
+When you take the Stream abstraction in .NET and overlay it on the concept of sockets, the requirement for an agreement between the client and server still applies; you can call Stream.Read all you want, but if the socket that your Stream is connected to on the other side isn't sending content, the call will just wait until there is content.
+
+This is why protocols exist. At their most basic level, they help define what a complete message that is sent between two parties is. Usually, the mechanism is something along the lines of:
+
+A length-prefixed message where the number of bytes to read is sent before the message
+A pattern of characters used to mark the end of a message (this is less common depending on the content that is being sent, the more arbitrary any part of the message can be, the less likely this will be used)
+That said you aren't adhering to the above; your call to Stream.Read is just saying "read 1024 bytes" when in reality, there might not be 1024 bytes to be read. If that's the case, the call to Stream.Read will block until that's been populated.
+
+The reason the call to Thread.Sleep probably works is because by the time a second goes by, the Stream as 1024 bytes on it to read and it doesn't block.
+
+Additionally, if you truly want to read 1024 bytes, you can't assume that the call to Stream.Read will populate 1024 bytes of data. The return value for the Stream.Read method tells you how many bytes were actually read. If you need more for your message, then you need to make additional calls to Stream.Read.
+
+Jon Skeet wrote up the exact way to do this if you want a sample.
+
+
+Try to repeat the
+
+int bytesRead = stm.Read(buffer, 0, buffer.Length);
+while bytesRead > 0. It is a common pattern for that as i remember. Of course don't forget to pass appropriate params for buffer.
+
+
+
+
+m trying to read the data from a TcpClient, here is how I am doing it:
+
+var client = tcpListener.AcceptTcpClient();
+var data = new byte[client.ReceiveBufferSize];
+
+StringBuilder dataString = new StringBuilder();
+using (var ns = client.GetStream())
+{
+    while (ns.Read(data, 0, client.ReceiveBufferSize) != 0)
+    {
+        dataString.Append(Encoding.UTF8.GetString(data));
+    }
+}
+client.Close();
+The problem is that my string does not have a length of 8192 (which is the value of client.ReceiveBufferSize) and because of that I am appending a lot of \0 in my StringBuilder.
+
+How can I get only the exact amount of data?
+
+
+
+int readCount;
+while ((readCount = ns.Read(data, 0, client.ReceiveBufferSize)) != 0)
+{
+    dataString.Append(Encoding.UTF8.GetString(data, 0, readCount));
+} 

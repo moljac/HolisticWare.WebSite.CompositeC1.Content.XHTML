@@ -1,0 +1,29 @@
+can send data one page to other page through query string or cross page posting 
+
+
+could use Server.Transfer(...) 
+
+specfied and use server.transfer() instead of response.redirect()...Server.transfer hide values from url.. 
+
+
+If you are using server.transfer you ext use context object. Otherwise use query string or cross
+page posting. 
+
+The simplest method is to use hidden form fields. The data fields are contained in the form just
+like any other form field. They are just not visible in the browser.
+ 
+In many situations, this is superior to session variables, because session variables can be corrupted 
+if a user has multiple windows open to the same application. Form fields are unique to the displayed 
+page, but session variables are only unique to the connection. You can have many tabs or windows sharing 
+the same session connection. That's why if you are logged in to a site and then open another window and 
+go to the same site, you are already logged in. Your log in state is usually related to the session id. 
+
+
+
+If you want to send C# objects from one page to another then you can use the 
+DataContractJsonSerializer to serialize the objects to JSON. Then you can send the JSON as a 
+querystring parameter. In the other page where you get the JSON querystring parameter, use the 
+DataContractJsonSerializer again to deserialize it back into the C# object. 
+
+
+can simply post data to another page. 

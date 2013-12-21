@@ -1,0 +1,17 @@
+> understand how the pieces fit together. 
+>
+> So: to determine compatibility with a particular C# release I need to be
+> looking at the Mono package itself which includes the compiler, not the
+> IDE. I should be able to take it from there. Thanks for this important
+> clarification.
+
+Well, not quite.  Like with .Net, you have the runtime version and the language
+versions.
+
+Eg, it is possible to write using C# 4.0 and target the .Net 3.5 runtime (
+which will run on mono 2.10.x and .Net )
+
+In which case your compiler will need to understand C# 4.0 ( which dmcs does )
+
+Your application (once compiled) will be able to run on a particular runtime
+profile, eg, .Net 2.0, .Net 3.5, .Net 4.0 etc

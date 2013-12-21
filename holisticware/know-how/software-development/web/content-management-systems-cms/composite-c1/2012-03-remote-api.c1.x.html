@@ -1,0 +1,166 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Service Layer - Remote API</title>
+Description = all keywords + extra text
+<meta name="Description" content="Service Layer - Remote API for Composite C1 (RPC, IPC, SOAP Web Service, REST, XML-RPC, WCF)" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: 2012-03-soap-api
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Keywords" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Remote API</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Motivation</a></h2>
+	<p>
+		Remoting API and/or framework (through SOAP Web Services, REST, WCF, 
+		XML-RPC, protobuffers, U name it) for:
+	</p>
+	<ul>
+		<li>
+			remote maintenance
+		</li>
+		<li>
+			batch editing/work
+		</li>
+	</ul>
+	<p>
+		with:
+		Nice-to-have to reuse existing Composite C1 
+	</p>
+	<ul>
+		<li>
+			CRUD stuff (all Ops - select, insert, update, delete)
+		</li>
+		<li>
+			for CRUD stuff security is essential (authentification/authorization API)
+			<br />
+			Idea is to reuse Composite C1 exisitng authentification/authorization API.
+		</li>
+	</ul>
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">References</a></h2>
+	<p>
+		Documentation:
+	</p>
+	<ol>
+		<li>
+			Fronetnd FAQ - External functions - ASHX files:
+			<br />
+			<a href="http://docs.composite.net/HTML/FrontendFAQ?q=Can+I+call+C1+Functions+AJAX+style+from+JavaScript+or+Flash%3F">
+				http://docs.composite.net/HTML/FrontendFAQ?q=Can+I+call+C1+Functions+AJAX+style+from+JavaScript+or+Flash%3F
+			</a>
+			<br />
+			Caveat: "Read only" - CRUD needed with authentification and authorization
+			<br />
+			Suggestions?
+		</li>
+	</ol>
+	<p>
+		Discussion list:
+	</p>
+	<ol>
+		<li>
+			<a href="http://compositec1.codeplex.com/discussions/263317">
+				http://compositec1.codeplex.com/discussions/263317
+			</a>
+		</li>
+		<li>
+			<a href="http://compositec1.codeplex.com/discussions/263678">
+				http://compositec1.codeplex.com/discussions/263678
+			</a>
+		</li>
+		<li>
+			<a href="http://compositec1.codeplex.com/discussions/256876">
+				http://compositec1.codeplex.com/discussions/256876
+			</a>
+		</li>
+		<li>
+			<a href="http://compositec1.codeplex.com/discussions/250644">
+				http://compositec1.codeplex.com/discussions/250644
+			</a>
+		</li>
+		<li>
+			<a href="">
+			</a>
+		</li>
+	</ol>
+	
+
+	
+	<!-- ================================================================== -->
+	<h2><a id="">Status</a></h2>
+
+	<ol>
+		<li>
+			Implemented External Function with ashx
+			<br />
+			:
+			<br />
+			Bugs/features found:
+			<a	
+				href="http://www.holisticware.net/HolisticWare/Know-How/development/Web/CMS/Composite-C1/Discussions/2012-03-07-External-Functions-ashx-lowercase-url-excption.aspx"
+				title=""
+			>
+				External Functions ashx - lowercase url - excption
+				http://www.holisticware.net/HolisticWare/Know-How/development/Web/CMS/Composite-C1/Discussions/2012-03-07-External-Functions-ashx-lowercase-url-excption.aspx
+			</a>
+		</li>
+		<li>
+			Implemented SOAP webservice
+			<ol>
+				<li>
+					in root of the application: http://host.domain/api/tools.asmx
+					<br />
+					<br />
+					Works OK, but no security
+				</li>
+				<li>
+					behind/below Composite of the application: http://host.domain/Composite/api/tools.asmx
+					<br />
+					Currently getting redirects, but working on it!
+					<br />
+					Before going further, any suggestions/ideas. 
+					Composite C1 uses SOAP a lot this would be nice-to-have...
+				</li>
+			</ol> 
+		</li>
+	</ol>
+
+	
+
+	
+
+	
+
+	
+
+	<pre class="hw_code">
+	http://progtutorials.tripod.com/Authen.htm
+	http://stackoverflow.com/questions/56112/wcf-asp-net-membership-provider-and-authentication-service
+	http://www.codeproject.com/Articles/24244/Access-a-Forms-Based-SharePoint-Site-s-Web-Service
+	http://sharepoint.stackexchange.com/questions/13002/windows-authentication-with-sharepoint-web-services-via-soap
+
+	</pre>
+</body>
+</html>

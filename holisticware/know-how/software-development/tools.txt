@@ -1,0 +1,317 @@
+
+
+Decompiler and Assembly Browser
+	http://sharptoolbox.com/categories/profilers-debuggers
+
+	Equatec
+		http://www.eqatec.com/tools/profiler/
+		
+	SlimTune
+		https://code.google.com/p/slimtune/
+		
+	YourKit
+		http://sharptoolbox.com/tools/yourkit-profiler-for-net
+		
+	nprof
+	
+	dotPeak
+	
+	NDepend
+		http://www.ndepend.com/Purchase.aspx
+		
+	MemoryProfiler
+		http://memprofiler.com/order.aspx
+	
+	
+	
+http://www.linkedin.com/groups/programming-tools-43315.S.216787576?view=&srchtype=discussedNews&gid=43315&item=216787576&type=member&trk=eml-anet_dig-b_pd-ttl-hdp&ut=3HC5UbhMEzsRE1
+
+
+programming tools
+Those are my programming tools in 2012:
+http://msprogrammer.serviciipeweb.ro/2013/02/18/programming-tools-2012/
+What are yours?
+8 days ago
+Like CommentFollow Flag More
+Zijian Huang, Dan Wygant and 1 other like this
+22 comments • Jump to most recent comments
+ 
+Follow Peter
+Peter Shaw • Definitely an interesting question it has to be said.
+
+However, I'm going to turn it on it's head a little bit:
+
+I have a huge amount of different tools, and it really depends on what my current 
+project is, as to what I use.
+
+Common tools however? well there are a few, VS2010 for starters gets used in just 
+about everything.
+
+SMSS is another.
+
+but then your getting into the realm of graphics vs code. If I'm doing design work, then Photoshop, Flash and many others feature, if it's SQL then depends on the DB in use, but I use things like PGAdmin SQNavigator and NaviCat, if it's C# then lots of .NET related tools like Resharper.
+
+The point here is, there is NO universal tool set, a good developer should be able to use everything, and more appropriately should know what to use, why to use it and when.
+8 days ago• Like3
+ 
+Follow Vijaya
+Vijaya Kumbaji • @Peter,
+
+My answer would be same as Peter Shaw's above , I would agree with him in all lines. I have worked on so many different contract jobs and had to learn new technical skill (sometimes more than one skill) at each of the client project. So even I have developed .NET application with different technologies but .NET, VS 2008,2010, 2012 and SQL Server 2008, 2010 and now 2012 being core development tools. 
+Now I am working on MVC 4 with MVVM and KnockoutJS tools. KnockoutJS, KendoUI MVC and MVVM is new for me.
+
+Zijian Huang • Nice list. Excellent attitude of sharing and approaching laziness. 
+
+Surely I would walk some of the items later. 
+
+May I remind you about a bit inconsistency? 
+
+"A Programmer with Microsoft Tools", however, 7-zip is of cross platform open source tools.
+8 days ago• Like1
+ 
+Follow Peter
+Peter Shaw • @jeff "Office space?" 
+
+@ignat : 
+
+Visual Studio Ultimate (all versions - yes I still use 2008 & 2005) w Resharper 
+Ultra Edit 
+SSMS 
+Fiddler 
+Foxit 
+Photoshop 
+Awk 
+Sed 
+Grep 
+FF 
+Chrome 
+IE 
+Safari 
+Opera 
+Opera Mobile Emulator 
+Electric Light Simulator 
+PGAdmin 
+SQLite Administrator 
+Navicat 
+PrimoPDF 
+Calibre 
+ProcExplorer 
+ProcAssasin 
+Metro Studio 
+Sound Forge 
+Blend 
+Illustrator 
+Quantum 
+VMWare PLayer 
+NetBeans 
+MS Office 
+Metro Twit 
+Handbrake 
+Putty 
+SQL Server 
+Postgres 
+SQLite 
+Spatialite 
+Postgis 
+Topstyle3 
+GitHub 
+RegEx Coach 
+Linq Pad 
+ILSpy 
+Win Merge 
+Daemon Tools 
+Fiddler 
+Wireshark 
+Camtasia Studio 
+Vlc 
+
+and about 1000 other things......
+7 days ago• Like2
+ 
+Follow Carl
+Carl Fenley • There is no way I could enumerate all the applications, applets, and scripts 
+I've used in 2012, but I'll throw out a list of things that I couldn't do without:
+
+Visual Studio 2010 SP1
+SQL Server Management Studio
+LINQPad
+Infragistics NetAdvantage
+Microsoft Visio 2010
+Microsoft PowerPoint 2007
+Microsoft OneNote 2007
+Microsoft Word 2007
+Microsoft Excel 2007
+Entity Framework 4.1
+WCF RIA Services 1.0 SP2
+Microsoft Silverlight 4
+Fiddler
+Internet Explorer
+
+Win Debugger (*)
+VMMap (*)
+Process Explorer (*)
+Telerik RADControls (*)
+Notepad++ (*)
+Expression Blend 4 (*)
+
+(*) Removing these from my arsenal may result in a decrease of capabilities and productivity, 
+but it would not prevent me from completing my work.
+
+EDIT: Oh yeah, let's not forget Slacker Radio and my copy of Office Space!
+7 days ago• Like2
+ 
+Follow Peter
+Peter Shaw • Yes slacker radio works wonders too :-) or in my case, my 1Tb NAS drive full of 
+MP3's :-) and a streaming music server I set up on my home network.
+7 days ago• Like1
+ 
+Follow Cesar
+Cesar Rodriguez • Agree is to hard to mention all but my favorite to navigate thru c# 
+code is re-sharper!
+7 days ago• Like1
+ 
+Follow David
+David Haney • .NET 4/4.5, VS 2010/2012, MVC3 or 4, WCF, SQL Server Management Studio 2008/2012, 
+IIS 7.0/7.5, Enterprise Library Logging, Dapper.
+6 days ago• Like1
+ 
+Follow John
+John Gwynn • used daily: msdev 2008 and 2012; Toad for Oracle; Git; Jenkins; Webstorm; Sourcegear 
+DiffMerge; Agent Ransack and Fiddlah (the Boston version.) Chrome and IE9 debuggers.
+5 days ago• Like1
+ 
+Follow Keith
+Keith Urquhart • i'm disturbed that no one has mentioned google docs!
+5 days ago• Like1
+ 
+Follow jeff
+jeff stokes du bose • @Kieth. Is that two comments? 
+
+Nobody has mentioned Beyond Compare, either.
+5 days ago• Like1
+ 
+Follow Dan
+Dan Wygant • So many tools to choose from, so little time. I've gotten used to using more toolkits than tools. I didn't see anyone mention: 
++ GhostDoc http://submain.com/products/ghostdoc.aspx 
+I love this for documenting my code, although I reckon there are other tools for this
+
++ RazorSql http://www.razorsql.com/ 
+It can be run without install, will connect to any database, provides great database specific CRUD support, better than Toad in the respect that it's not database specific, yet provides similar capabilities
+
++ Azure https://manage.windowsazure.com/
+
++ SkyDrive https://skydrive.live.com/
+
++ MEF, Prism, Caliburn.Micro, and a million toolkits
+5 days ago• Like1
+ 
+Follow Peter
+Peter Shaw • @keith - Oh Noes... run away from the Axis of Evil :-) 
+
+@jeff - Winmerge & DIff, all you'll ever need.. esp if you like the command line like me .... 
+
+@Dan - quick question, for MVVM which do you recomend? 
+
+I tried Caliburn and it was just too much overhead, all I want to do is automatically have my 
+Properties be INotify enabled without having to add all the BP Code myself, but I'd still like
+ to do my window layout the traditional way. The thing I find with most of these tool kit's is you have to start building DI chains and overriding main windows and goodness knows what else. 
+
+to put it another way, which kit do you recomend that would just simply allow me to change all 
+my "ints" to "INotifyInts" or "strings" to "INotifyStrings" you get the idea. 
+
+Iv'e got one in my downloads I'm going to check out when I get 5 mins called "Catel" found it 
+on NuGet but I suspect again, it's going to want to change everything when all I want is to just 
+easily create notifyable properties.
+5 days ago• Like1
+ 
+Follow Emmett
+Emmett Childress, Jr • notepad
+5 days ago• Like1
+ 
+Follow Zijian
+Zijian Huang • Programmer's Notepad
+5 days ago• Like1
+ 
+Follow Phil
+Phil Simpson • I have a comprehensive list of Programming Tools, but since they may or may not 
+have worked for us in the past it's better I don't disclose them for legal reasons.
+4 days ago• Like
+ 
+Follow Ignat
+Ignat Andrei • @Phil: just the ones that worked....
+2 days ago• Like
+ 
+Follow Maxim
+Maxim Konstantinovski • This list includes the resources I use most often for my development. 
+
+Software 
+Chrome, FF, IE 
+VS 2012 
+LinqPad 
+SQL Server Management Studio 
+DropBox 
+Portable Apps - in DropBox goes where I go 
+FileZilla in Portable Apps 
+Notepad++ in Portable Apps 
+LogMeIn Ignition in Portable Apps 
+Devart Code Compare Pro 
+Git (for windows) 
+Join.me 
+Excel 
+
+VS 2012 -AddIns 
+Git Source Control Provide 
+NuGet 
+Build Version Increment 
+
+Libraries & Framework(s) 
+.NET Framework 
+SpreadsheetGear 
+NLog 
+Dapper from NuGet 
+Dapper.Data (My Creation - wrapper around dapper for ease of use) 
+ScriptSharp (My Creation - enables me to run C# code as a script) 
+Ninject - (dependency injection) 
+jQuery 
+knockoutjs - (javascript library two way data binding in webpages on client side) 
+kendoui - (client side javascript framework like etjs) 
+DevExpress DXperience 12.1 (window form controls) 
+Excel-Dna 
+...
+1 day ago• Like1
+ 
+Follow Dan
+Dan Wygant • More "manditory power tools" posted here:
+http://www.linkedin.com/groupItem?view=&gid=1229257&type=member&item=218806195&qid=2af59ebf-0c95-4016-b4d4-7dc816d6ddea&trk=group_most_popular-0-b-cmr&goback=.gde_1229257_member_218932616.gmp_1229257.gde_1229257_member_218806195.gmp_1229257
+
+...
+other manditory power tools like: 
++ LinqPad [http://www.linqpad.net/] 
++ Just Decompile http://www.telerik.com/download-trial-file.aspx?pid=845 
++ Fiddler [http://www.fiddler2.com/fiddler2/] 
++ Regulazy & daddy Regulator [http://osherove.com/tools/]
+
+& more ...great list here: 
+http://www.hanselman.com/blog/ScottHanselmans2011UltimateDeveloperAndPowerUsersToolListForWindows.aspx
+
+Here are tons more:
+http://www.linkedin.com/groups/programming-tools-43315.S.216787576?view=&gid=43315&item=ANET%3AS%3A216787576&goback=.gmp_43315.amf_43315_3661046&trk=NUS_RITM-title
+16 hours ago• Like
+ 
+Follow Patrick
+Patrick Smacchia • Since 2004 I am developing a tool for .NET developers named NDepend. 
+This tool offers many unique features for .NET developers that cares for:
+* Code Structure,
+* Dependencies Management,
+* Code Evolution,
+* Code Diff,
+* Code Quality
+* Code Metrics
+...
+WIth NDepend, one can query all this complex data about a code base, through LINQ queries, 
+creates rules, and visualize results, all that 100% integrated in Visual Studio.
+http://www.ndepend.com/DefaultRules/webframe.html
+
+Since NDepend hasn't been mentioned so far in this discussion, I take a chance to spread the 
+word for .NET developers and .NET architects concerned by mentioned topics.
+http://www.ndepend.com/

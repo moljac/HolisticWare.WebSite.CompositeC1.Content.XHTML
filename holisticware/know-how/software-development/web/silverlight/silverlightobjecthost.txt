@@ -1,0 +1,54 @@
+------ Rebuild All started: Project: HolisticWare.Inkunabula.DLL_728_BL_ClntRIA_SL3_netfx35, Configuration: Debug Any CPU ------
+error CS0006: 
+	Metadata file '.\Core.DLL_231_BL_rClnt_SL3\Bin\Debug\Core.DLL_028_BL_ClnRIA_SL3.dll' 
+	could not be found
+
+Project was renamed!
+Check properties
+AssemblyName:
+
+
+error CS0006: Metadata file 'some.dll' could not be found
+
+Checked names of Assemblies
+delete bin and obj dirs
+optinally check Configuration Manager
+	Configuration Manager settings is stored in user (.suo) file, it's a hidden file locates in 
+	solution folder and non-editable.
+
+
+
+
+
+  <div id="Div1">
+    <object id="object1" data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="400" height="100">
+      <param name="source" value="/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap" />
+      <param name="onError" value="onSilverlightError" />
+      <!-- empty value for initparams not OK use transparent -->
+      <param name="background" value="transparent" />
+      <param name="minRuntimeVersion" value="4.0.50826.0" />
+      <param name="autoUpgrade" value="true" />
+      <param name="allowHtmlPopupWindow" value="true" />
+      <param name="enablehtmlaccess" value="true" />
+      <!-- empty value for initparams not OK use dummy -->
+      <param name="initparams" value="dumee" />
+      <param name="MaxFrameRate" value="60" />
+      <!-- wrong param names are tolerated -->
+      <param name="JSOnFullScreenChanged" value="" />
+      <param name="JSOnLoad" value="" />
+      <param name="JSOnResize" value="" />
+      <param name="JSOnSourceDownloadComplete" value="" />
+      <param name="JSOnSourceDownloadProgressChanged" value="" />
+      <!-- empty value for SplashScreenSource not OK use dummy -->
+      <param name="SplashScreenSource" value="dumee" />
+      <!-- empty value for windowless is tolerated! -->
+      <param name="Windowless" value="" />
+
+      <a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0" style="text-decoration:none">
+        <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none" />
+      </a>
+    </object>
+    <iframe id="Iframe1" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe>
+  </div>
+
+

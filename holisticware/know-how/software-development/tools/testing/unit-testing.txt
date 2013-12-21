@@ -1,0 +1,77 @@
+Thanks for the reply. I understand how to get the test framework to load 
+a config file, and the first test does just that. It succeeds on both 
+platforms. The second test does the same exact thing, only it makes a 
+call to HttpUtility first, and this seems to trip up the 
+ConfigurationManager, but only under mono. Under MS .NET, both tests 
+succeed in loading the configuration and both pass, but under mono, the 
+first test passes and the second test fails because once a call is made 
+to HttpUtility, the ConnectionStrings are replaced with the defaults 
+from the ASP.NET stack. This seems like very odd behavior. 
+
+
+
+
+Each test framework has it's own requirements for where a config file 
+must be located and how it should be named in order to be loaded and 
+used. Those requirements are necessarily different from how .NET 
+normally locates config files because following the .NET rules would 
+load the config for the test runner itself rather than for your tests. 
+
+In the case of NUnit, you can find the required info at 
+http://www.nunit.org/index.php?p=configFiles&r=2.6.2 
+
+
+
+I ran into an issue several months back where my code could not find 
+ConnectionStrings while running my code in NUnit under mono, however, I 
+was having trouble making a simple reproducible test case. Now I have 
+one, and I suspect that it is not an NUnit issue, as the same thing 
+happens under xUnit. Rather, I'm guessing that this has to do with how 
+the AppDomain in mono resolves configuration file locations in shadow 
+copied assemblies like those used by unit testing frameworks. 
+
+My simple test is below. The first test will succeed, but the second one 
+will fail only under mono (tried versions 2.10.8.1, 3.0.2, 3.1.2, and 
+3.2.0). Under MS.NET, both will succeed. The only difference in the 
+first and the second test is that the second test uses HttpUtility from 
+System.Web, and when this happens, the 
+ConfigurationManager.ConnectionStrings changes to the default one from 
+ASP.NET, containing a LocalSqlServer (SQLEXPRESS) and LocalSqliteServer. 
+
+Is anyone able to explain why this would happen only in the AppDomains 
+as created by unit testing frameworks? Any known workarounds for this to 
+keep it from loading a different config? 
+
+
+### TestCode.cs ###
+
+using System;
+using System.Configuration;
+using NUnit.Framework;
+
+namespace TestHarness
+{
+[TestFixture]
+public class MyClass
+{
+[Test]
+public void TestSomeCode1() {
+var connStr = ConfigurationManager.ConnectionStrings["mystr"];
+Assert.IsNotNull (connStr);
+}
+[Test]
+public void TestSomeCode2() {
+System.Web.HttpUtility.ParseQueryString ("http://foo.bz?bar=fu");
+var connStr = ConfigurationManager.ConnectionStrings["mystr"];
+Assert.IsNotNull (connStr);
+}
+}
+}
+
+### App.config ###
+
+<configuration>
+<connectionStrings>
+<add name="mystr" connectionString="test@whatever.net" />
+</connectionStrings>
+</configuration>

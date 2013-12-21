@@ -1,0 +1,13 @@
+
+Button - change (Text | Label | Title)
+WF
+	button1.Text = "title";
+WPF
+	button1.Content = "title";
+SL
+	button1.Content = "title";
+SLWP
+	button1.Content = "title";
+MA
+MT
+	button1.SetTitle ("title", UIControlState.Normal);

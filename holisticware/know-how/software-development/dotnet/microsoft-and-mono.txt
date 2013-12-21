@@ -1,0 +1,10 @@
+Microsoft and Mono
+
+
+Microsoft has helped Mono by open sourcing very large chunks of .NET code
+that run on Mono.
+
+Things like the F#, IronPython and IronRuby languages.   The Dynamic
+Language Runtime, ASP.NET MVC up to version 4, their new WebAPI, the OData
+Client, EntityFramework, WebMatrix.Data and a few more that I might have
+missed.

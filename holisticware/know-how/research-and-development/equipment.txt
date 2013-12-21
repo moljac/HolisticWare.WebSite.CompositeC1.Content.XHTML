@@ -1,0 +1,40 @@
+equipment
+
+	recession/cheap
+		PC
+			Asus EEE PC
+				2012-05	
+				www.m-copmputers.hr
+				1400kn
+				Android?!?
+		Smartphone
+			Android
+				Huawei U8650 Sonic	1099
+				HTC Explorer		1500
+				Huawei U8850 Vision	2100
+				
+				
+	NFC RFID Smartphones
+		Sony Xperis S
+				
+				
+				
+				
+b service in my app that requires a specific cookie to be set in order access it's methods.
+
+I was using a generated wrapper class for that service that was created using wsdl.exe tool. 
+Everything is working ok using that method.
+
+// this is the instance of object generated with wsdl.exe
+WSWrapper service = new WSWrapper(); 
+
+// set cookie
+service.CookieContainer = new CookieContainer();    
+Cookie cookie = new Cookie(name, value, path, domain);
+service.CookieContainer.Add(cookie);
+
+// run method requiring cookie to be set
+service.Test();
+Now I wanted to do something similar using Service Reference instead of pre-generated class. 
+I added web reference but there seems to be no CookieContainer (or anything similar) in 
+service reference port client that was generated.

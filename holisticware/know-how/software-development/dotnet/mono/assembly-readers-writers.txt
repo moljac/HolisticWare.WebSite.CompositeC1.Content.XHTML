@@ -1,0 +1,8 @@
+Assembly Readers-Writers
+
+*	Mono.Cecli
+*	IKVM.Reflection
+
+http://www.mono-project.com/Cecil
+https://github.com/jbevain/cecil/wiki
+https://github.com/jbevain/cecil/wiki/Users

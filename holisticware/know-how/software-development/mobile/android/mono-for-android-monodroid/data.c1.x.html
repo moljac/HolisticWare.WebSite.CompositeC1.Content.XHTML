@@ -1,0 +1,57 @@
+Can you provide an Activity constructor which takes parameters? Yes. Would it be at all helpful? No, because Activities are started through Context.StartActivity(), which provides no mechanism to invoke a non-default constructor.
+
+The "Android Way" to transfer data between Activities is to use the Intent "extras" mechanism, e.g. Intent.PutExtra(string,string) and Intent.GetStringExtra(string), which introduces it's own set of problems:
+
+Intents are also an IPC mechanism (as an Activity may actually reside in another process -- this is by design), so you're restricted to types which can be marshaled across process boundaries.
+Strings, ints, and other builtin types are supported, but aren't exactly "high level" objects.
+"Higher level" objects are supported through the android.os.Parcelable interface, but (a) has a "marshal by value" semantic, so isn't useful for sharing read+write data between activities, and (b) Mono for Android doesn't currently support implementing this interface.
+So how do you share data between Activities? By punting.
+
+Place the data onto an Application subclass. This will be accessible via the Context.ApplicationContext property, and can store process-global state.
+Use some other public static field within your process to contain the shared information.
+Provide a ContentProvider implementation which will store and provide the desired data when prompted.
+Sqlite?
+etc.
+
+
+e json serialization and attach the resulting string as Intent Extras. For this you need to decorate the Class you want to serialize with [DataContract] attribute and Class Fields with [DataMember]. 
+On the receiving activity you can again use json deserialization to construct the object. 
+
+
+
+
+In Activity 1 I tried this: 
+>                        var intent = new Intent(this.BaseContext, new HelloTabWidget().Class);
+>                        intent.AddFlags(ActivityFlags.NewTask);
+> 
+>                        Bundle bun = new Bundle();
+>                        *bun.PutSerializable("test", (BaseData)dat);  *
+> 
+>                        intent.PutExtras(bun);
+>                        StartActivity(intent);
+> 
+> The bold line won´t work
+
+PutSerializable() wants a Java.IO.ISerializable, which (1) BaseData doesn't implement, and  (2) you
+can't currently implement from managed code anyway. (java.io.Serializable requires that you
+implement private readObject() and writeObject() methods, which you can't currently do in Mono for Android.)
+
+Thus, there are two workarounds:
+
+ 1. If Activity2 is in your process, store the BaseData object reference in a global variable somewhere and
+just read it from Activity2.
+ 2. If Activity2 isn't in your process (or using globals is "evil"), then serialize BaseData to a string
+(XML?) and send the string to Activity2.
+
+
+
+
+
+If Activity2 is in your process, store the BaseData object reference in a
+global variable somewhere and just read it from Activity2. 
+Since I have to finish a small demonstration app this would be ok. 
+
+I´ve tried to define a public variable in activity1. But I had no luck to
+access this from activity2. 
+
+Could you please give me a very short example on how to do that? 

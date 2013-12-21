@@ -1,0 +1,514 @@
+http://docs.xamarin.com/ios/tutorials/TestFlight_Support
+https://github.com/ayoung/monotouch-testflight
+https://github.com/roblthegreat/MonoTouch-TestFlight
+
+in libraries-original:
+	TestFlight\
+		https://github.com/ayoung/monotouch-testflight
+			better explanation
+		https://github.com/roblthegreat/MonoTouch-TestFlight
+		
+		Am struggling to get TestFlight working with my MonoTouch app (Monotouch 5, IOS5) 
+and have not found any MonoTouch documentation for TestFlight.
+
+Here is what I tried so far.
+
+Downloaded TestFlight bindings from 
+
+
+in libraries-original:
+	TestFlight\
+		https://github.com/mono/monotouch-bindings/tree/master/TestFlight 
+		
+		
+
+
+
+MonoTouch bindings for TestFlight SDK
+Before diving in, please be aware that TestFlight's SDK is compiled with THUMB 
+instructions. This means that you won't know if the SDK will work in your app or not. 
+It may work one day, then the next day it might not. Please read this for more info. 
+Also, read the Code Generation Engine section on Xamarin's docs.
+
+Adding this lib to your project
+The SDK will only run properly on the device when built using the LLVM compiler. Make 
+sure this is enabled in your project's advanced build settings.
+
+Download the TestFlight SDK
+git clone this repository (or just download the src archive)
+In terminal, run "make" within the cloned repository
+Copy libTestFlight.a (downloaded from step 1) and monotouch-testflight.dll (generated from 
+"make") to the root of your proj. You can copy them to another relative location but you'll 
+have to modify the gcc_flags specified down below to match the paths.
+Add the monotouch-testflight.dll reference in your MonoTouch project
+In your MonoTouch project options > iPhone Build
+
+Set Linker behavior to "Link SDK assemblies only"
+Set the Extra arguments in all iPhone Build configurations that you want to use the SDK in to:
+
+-nosymbolstrip -nostrip -cxx -gcc_flags "-lgcc_eh -L${ProjectDir} -ltestflight -ObjC"
+
+
+		
+		
+-- after adding this as a reference it seemed that the TestFlight methods were 
+actually not exposed at all, so I looked for another set of bindings.
+
+Downloaded ayoung's TestFlight bindings from https://github.com/ayoung/monotouch-testflight. 
+Built monotouch-testflight.dll with Make, copied it to the project and added to References 
+-- this time the TestFlight methods were all visible.
+
+Added libTestFlight.a to the Lib folder in my MonoTouch project with BuildAction set to 
+Nothing. (I also have RedLaser in there).
+
+Per ayoung, I enabled LLVM compiler (with ARMv7); ayoung states it is required. 
+In Project Options -> iPhone Build my additional mtouch arguments are:
+
+-cxx -nosymbolstrip -nostrip -gcc_flags 
+"-lgcc_eh -framework SystemConfiguration -framework CFNetwork -framework CoreVideo 
+-framework CoreMedia -framework AVFoundation -framework OpenGLES -framework Security 
+-L${ProjectDir}/Lib -ltestflight -RedLaserSDK -ObjC"
+
+
+Note: The app worked ok with RedLaser before TestFlight was added to the project.
+
+Here -lgcc_eh is as per ayoung -- I have not been able to find out what it is or 
+what it is for. Perhaps I should have a gcc_eh.dll (?) but I don't AFAIK, and I don't 
+know where I could find such a thing.
+
+In Main.cs I added
+
+using TestFlightSdk;
+
+and In FinishedLaunching I added
+
+TestFlight.TakeOff( "(downloaded team token is here)" );
+Compiled and installed with no error (Release|iPhone).
+
+When I now run the app on the device, it exits immediately with no diagnostic 
+that I can discover.
+The app also exits immediately if compiled to Debug|iPhone. In this case, however, 
+if I turn off LLVM despite ayoung's strictures then in Application Output I see the 
+following:
+TestFlight: Started Session TestFlight: Crash Handlers are installed Thread started: 
+Thread started: TestFlight: Team Token is recognized TestFlight: End of Session TestFlight: 
+Communication with TestFlight is currently disabled, check earlier in your log for details
+
+This might be because I have not yet uploaded the app's .ipa file to TestFlight?? 
+(The app does launch in this case however.)
+
+I am trying to find out how to generate a .ipa file. TestFlight documentation shows 
+how to do this from XCode but my app is code-only with no .xib so that option seems 
+to be out? TestFlight documentation also shows how to generate a .ipa from the .app file. 
+Here my problem is, how do I lay my hands on the .app file for a device build?
+Any help with these issues would be so much appreciated.
+
+
+
+
+-lgcc_eh is needed to include the Exception Handling GCC library, which is often required if you link with C++ libraries.
+
+You also have a lot of -framework options that do not look required (MonoTouch already adds them) - but that won't be the cause of your problem. If you're curious about what mtouch use/provide at compilation time then you can add "-v -v -v" to the "additional touch arguments" in your project options (and look at the build output).
+
+As for the main issue I think it's related to the fact the TestFlight handlers are not compatible (presently) with MonoTouch (5.0). MonoTouch exception handling already provides it's own crash handlers (e.g. for NullReferenceException) and adding other handlers needs to be done with care (how and when to do it is very important). This is likely why the current bindings in monotouch-bindings don't include every feature available in testflight.
+
+I suggest you to open a bug report at bugzilla.xamarin.com and you'll get email updates on the progress (and know exactly when the feature will become available).
+
+p.s. try to break your issues into several (stack overflow) questions, you're more likely to receive answers that way since not everyone knows all the answers to every question you might have :-)
+
+
+
+
+
+
+
+ was going down the wrong track entirely. Finally found the MonoTouch documentation which describes the built-in support for TestFlight:
+
+http://docs.xamarin.com/ios/tutorials/TestFlight_Support
+
+Will try this, it should solve the problem.
+
+
+
+
+
+
+Distributing throug testflightapp is a different thing than using the testflightsdk in you app.
+
+The first one is by clicking the upload to testflight button in the menu.
+
+The second is by including the actual sdk. In the last few day they (xamarin) released new testflight sdk bindings. That don't recuire you to modify the mtouch parameters. So it should be much easier to include it.
+
+Personally i really like the testflight sdk... Helps me better (let) test my apps.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+From the sound of this Xamarin bug report, it seems as though even if you get the TestFlight SDK native library working with MonoTouch bindings or by linking it yourself, you're still going to have the problem that TestFlight is not going to properly handle any NullReference exceptions and is simply going to crash the app when it encounters one. This makes the whole point of the TestFlight SDK kind of pointless until either a) MonoTouch is re-tooled to deal with it or b) TestFlight releases a managed Mono library.
+
+Don't get me wrong, I REALLY want to be able to use the TestFlight SDK with MonoTouch. I've been beating my head against the wall trying to get it work all day. Something is failing when I call the TestFlight.TakeOff("MyKey") method. Control does return from the method, but then it crashes shortly thereafter...about 1 second after it's called. Weird.
+
+If anyone else has gotten it work, I'd love to hear about your experiences. Thanks.
+
+
+
+
+
+Did you ever get this to work? For me it just crashes when TakeOff is called. – thought.tinkerer May 18 at 0:02
+I had the same problem as you but I got it to work by using the official MonoTouch bindings and setting my project to use LLVM and ARMv7 (but not THUMB-2, leave that box unchecked) Also, "Generate Debug symbols" is unchecked under Project Properties > iPhone Build. I'm using MonoDevelop 3.0 and MonoTouch 5.1.2. – Martin Wiboe May 21 at 1:16
+
+
+
+
+
+e been searching around and can't seem to find a definitive reference on how to use the TestFlight SDK with MonoTouch... has anyone gotten it to work successfully with 0.8.3 and mind sharing their secret?
+
+
+
+
+
+
+
+
+
+Testflight documentation can be found here: http://docs.xamarin.com/ios/tutorials/TestFlight_Support#
+
+The Testflight bindings can be found here: https://github.com/mono/monotouch-bindings/tree/master/TestFlight
+
+Instructions about building are also on Github following the link above. Basically you just have to run "make" from the TestFlight folder (but copy the appropriate TestFlightSDK_xxx.zip file into that folder first).
+
+The Make file included in the github repo utilizes the TestFlight SDK (a zip file) which must be independently downloaded from TestFlightApp.com and manually copied (in compressed form) into the folder containing the binding project from github.
+
+Then use Testflight SDK as explained on the Testflight website (call TakeOff(), set checkpoints, etc.).
+
+
+
+
+
+
+
+
+
+
+tried to do this, but get the following error: /var/folders/wv/.../T/tmp483c5d2d.tmp/reczookaScorer -framework CFNetwork -framework Foundation -framework UIKit -framework AudioToolbox -lz -u _mono_pmip -u _CreateZStream -u _CloseZStream -u _Flush -u _ReadZStream -u _WriteZStream -liconv -lmono-2.0 -lmonotouch -L/Developer/MonoTouch/.../usr/lib -force_load /var/folders/wv/.../T/tmp483c5d2d.tmp/libTestFlight.a ld: in /var/folders/.../libTestFlight.a, file too small for architecture armv6 collect2: ld returned 1 exit status mtouch exited with code 1 – Ryan Moore Feb 23 at 0:48
+The latest version uses armv7 architecture so make sure you use that 
+
+
+
+
+
+
+Maybe try the bindings from ayoung and follow his readme.
+
+https://github.com/ayoung/monotouch-testflight
+
+
+
+
+
+
+From my own research and trials trying to get the TestFlight SDK to work with MonoTouch, it seems that the error reporting won't really work. Here's why:
+
+Essentially, the TestFlight SDK inserts an obj-c global exception handler and then sends the exceptions, stack traces, etc. to TestFlight. Since the SDK is a NATIVE library, it will only wind up receiving native obj-c exceptions. This means that none of your Mono exceptions will ever reach this global obj-c handler because the handler is running at a lower level than the Mono runtime.
+
+So, you CAN bind to the native TestFlight SDK library, you CAN call the TakeOff() method, etc. But at the end of the day, it's all kind of pointless because your Mono-level exceptions will never be caught. You could certainly receive obj-c exceptions when they occur, but this doesn't really help you with your Mono exceptions. Since all your code is presumably in C# running in the Mono runtime, don't expect your exceptions to hit the TestFlight SDK handler.
+
+If I'm wrong, someone please correct me, but I don't believe the TestFlight SDK will be useful until a MonoTouch library is written that intercepts Mono exceptions and sends those to TestFlight.
+
+
+
+
+
+
+Agreed that some stack information can get lost in the crash report, but most of the details are caught & reported (including some custom C# object types and their method signatures). Your definition of usefulness is subjective, TestFlight API session reports include all crossed Checkpoints and the complete Console log for every session... that alone is priceless for my use cases. (tested by throwing an exception in my mono(cross) app code :-) – benhorgen Sep 17 at 21:03
+Hmmm...the console log bit is useful. Having a bunch of checkpoints that you know execution is crossing could be useful too, but it seems rather cumbersome. I'd really like to see a collaboration between Xamarin and TestFlight to come up with a Mono DLL for this. – NovaJoe Sep 17 at 21:07
+
+
+
+
+
+
+familiar with MonoTouch, but what about using the Remote Logging features of the TestFlight SDK?
+
+share|improve this answer
+answered Feb 7 at 23:19
+
+bryanjclark
+692118
+I was using MonoTouch binding here: github.com/ayoung/monotouch-testflight Which I don't know if he has the TFlog Obj-C function setup for use from C#. I will try to bind all missing methods myself and see if any of them solve this issue. – jonathanpeppers Feb 8 at 12:53
+1	  
+Found a newer one (commit on Feb 01) here: github.com/mono/monotouch-bindings/tree/master/TestFlight Going to try it. – jonathanpeppers Feb 8 at 12:59
+Ok, using TestFlight.Log() works pretty well. You have to log exceptions in AppDomain.UnhandledException and in static void Main(). The C# stacktrace won't show up as a crash report, but you can view it in the log of the session. – jonathanpeppers Mar 14 at 12:51
+What are you sending to TestFlight.Log? – Piotr May 23 at 0:58
+
+
+
+
+1. Call takeoff 
+2. Call SetDeviceIdentifier IF YOU ARE NOT IN THE APPSTORE (Apple will 
+reject it if it is, but it's fine - and useful - if you are just 
+testing) 
+3. Call Checkpoint now and again 
+4. ??? 
+5. Profit! 
+
+(couldn't resist) 
+
+Thats it, really. You can use the Feedback method, too, to get the 
+user to enter feedback, which shows up in TF. The checkpoints and user 
+sessions show up both in TF and in TFLive, which is more use for when 
+your app is in the appstore. 
+
+Under builds (in TF) you can see who has what 
+Under sessions, you can see who's used your app. 
+etc. 
+
+Most of it - crash dumps etc - is all automatic, as they put in hooks 
+(also: dont call TakeOff when you are debugging, they override all the 
+Mono debug hooks, and debugging doesn't work!) 
+
+
+
+
+
+There is NO 'SetDeviceIdentifier' if i use TF in MonoDevelop... or maybe i'm using some wrong, old bindings? I've downloaded the v1.0 SDK from the TF site yesterday, and i got the bindings from https://github.com/ayoung/monotouch-testflight
+
+Also i see samplecode here that uses TestFlight.Log() but that is also NOT in the API... 
+
+If i use TestFlight.PassCheckPoint(string) i now find entries in the debugger section of the TestFlightApp site, but the device id/name and the checkpoint name do not show up.
+
+
+ use the "official" bindings: https://github.com/mono/monotouch-bindings/tree/master/TestFlight
+
+ 
+ 
+ 
+ 
+ orry, I meant to add that the .Log() method is available for me. I use it in place of Console.WriteLine() in my "live" apps.
+ 
+ 
+ 
+ How do i get the device identifier? It seems that UIDevice.CurrentDevice.UniqueIdentifier is obsolete?
+ 
+ 
+ 
+ 
+ Use that method. It's the only way. 
+
+Or generate a GUID for the user, store it somewhere in your app, and 
+use that each time. 
+
+On Thu, Apr 26, 2012 at 11:16, jowi <[hidden email]> wrote:
+
+> How do i get the device identifier? It seems that 
+> UIDevice.CurrentDevice.UniqueIdentifier is obsolete? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OK, i'll use that. I've added the SDK using the 'proper' bindings, i now do have the setdeviceid and log methods etc. Note to Xamarin: ADD THIS INFO TO THE TESTFLIGHT SECTION PLEASE!!!! :) at this moment there is only some minimal info about how to upload your IPA, nothing on how to add and use bindings or how to actually use the TF stuff in code. Would be nice. 
+
+I saw that the TF site now shows that there are checkpoints etc in the build, and the sdk debugger shows activity, but i still can't find my .log() stuff anywher
+
+
+
+Thank you for that. How do you deal with external users getting 
+access? In the apple docs they say you need to deploy using adhoc. I 
+have the Pro version of MonoTouch so I don't know if that will work. 
+
+I sent an invite to one of my users. He got set up fine and I see him 
+in the TestFlight dashboard. I can upload a build to TestFlight via 
+the Project | Publish to TestFlight menu (aweseome feature, BTW!!!), 
+but I can't get that user to have permissions for that build. I think 
+I need to add them to my development profile. I know this is an 
+Apple/iOS thing, but I'm having troubles getting this done. Does 
+someone have a link to show me what I'm missing. Thanks in advance. 
+
+
+
+
+> Thank you for that. How do you deal with external users getting 
+> access? In the apple docs they say you need to deploy using adhoc. I 
+> have the Pro version of MonoTouch so I don't know if that will work. 
+
+yes, it does. You make an adhoc build based on your user's UDID's. TF 
+handles them signing up and collecting the UDID, you just add in the 
+UDIDs, make a cert, then make a new build target in MD and it makes an 
+IPA for you, which you upload (via MD or the website) to testflight, 
+and people can get it from there 
+
+And you absolutely can do it with pro. 
+
+> I sent an invite to one of my users. He got set up fine and I see him 
+> in the TestFlight dashboard. I can upload a build to TestFlight via 
+> the Project | Publish to TestFlight menu (aweseome feature, BTW!!!), 
+> but I can't get that user to have permissions for that build. I think 
+> I need to add them to my development profile. I know this is an 
+> Apple/iOS thing, but I'm having troubles getting this done. Does 
+> someone have a link to show me what I'm missing. Thanks in advance. 
+
+You need to go into the provisioning portal, make a new Provisioning 
+(distribution) profile The type is adhoc, and you can pick which 
+devices have access (you have to add them into the devices section). 
+
+Then you get the certificates down, install them into xcode, and 
+select them in your build settings in MD. 
+
+And yes, it IS a royal pain in the arse. I've had devices which are on 
+the list, but refuse to install, then will, then will not.... it's a 
+mess. 
+
+
+
+
+
+
+
+
+
+
+
+In reply to this post by jowi
+FYI, i was wondering what i was doing wrong since i couldnt fin my Testflight logging anywhere... Turns out that it takes a while for the TF site to collect the stuff, and the logs are pretty much hidden in a way i couldnt find it at first glance. But it is there, you just have to drill down. You guys probably all know this, but it is not to be found anywhere on this site, nor is the TF site very clear about this. 
+
+To see the logs created with TestFlight.Log(): 
+
+1. Click on Builds and then select the build of your app that you're interested in 
+2. Click on Sessions in the left-hand sidebar 
+3. Click the sessions from the user you're interested in 
+4. Click the "i" information graphic on the right-hand side for the individual session you're interested in 
+5. Click the Events drop-down on the right of the window that appears and select Log 
+
+The TFLog output is displayed. Note that it's mixed in with any Checkpoints that have been passed within that session 
+
+(Thanks to John Topley http://stackoverflow.com/questions/10317426/where-can-i-see-tflog-output-on-testflightapp-com) 
+
+Now all i need is more info on exception handling with TestFlight. I've seen ObjectiveC samples on this, but i can't find Monotouch samples. If i take a look at a TF crash report, i get lines like: 
+
+18 UniversalTestApp 0x0007b01f TFLog + 486615 
+
+I assume the 'TFLog'+ number points to some location in the logging? Or is a placeholder for more info which i should have provided in code or something? All i can find on this is a comment of someone saying "You have to log exceptions in AppDomain.UnhandledException and in static void Main()"... 
+
+If anyone can show me a Monotouch sample about thism or, on ALL aspects of TestFlight, that would be great...
+
+
+
+
+
+
+
+
+used the bindings of Andrew Young to succesfully add testflight to my iphone app. 
+https://github.com/ayoung/monotouch-testflight
+
+used the bindings of Andrew Young to succesfully add testflight to my iphone app. 
+https://github.com/ayoung/monotouch-testflight
+
+
+
+
+I just tried the TestFlight SDK within Monotouch, but the compiler returns the following error: 
+
+Error 1: mtouch failed with the following message: 
+Process exited with code 1, command: 
+/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -gdwarf-2 -fobjc-legacy-dispatch -fobjc-abi-version=2 -miphoneos-version-min=4.3   -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk /var/folders/kw/kwxvac35EcCj0HJ+LYpHsE+++TI/-Tmp-/tmp7be1a2e6.tmp/main.x86.o -o /var/folders/kw/kwxvac35EcCj0HJ+LYpHsE+++TI/-Tmp-/tmp7be1a2e6.tmp/TestflightTest -framework CFNetwork -framework Foundation -framework UIKit -framework AudioToolbox -lz -u _mono_pmip -u _CreateZStream -u _CloseZStream -u _Flush -u _ReadZStream -u _WriteZStream -liconv -lmono-2.0 -lmonotouch -L/Developer/MonoTouch/SDKs/MonoTouch.iphonesimulator.sdk/usr/lib -u _catch_exception_raise -L/Users/noskill/Projects/TestflightTest/TestflightTest -ltestflight -ObjC 
+
+Undefined symbols: 
+  "__Unwind_Resume_or_Rethrow", referenced from: 
+      -[TFAirTrafficController convertArrayToJSON:] in libtestflight.a(TFAirTrafficController.o) 
+      -[TFAirTrafficController addAndQueueObject:toArrray:] in libtestflight.a(TFAirTrafficController.o) 
+      -[TFAirTrafficController removeObjects:fromArray:] in libtestflight.a(TFAirTrafficController.o) 
+      +[TFNetworkManager sharedNetworkManager] in libtestflight.a(TFNetworkManager.o) 
+      -[TFNetworkManager addOperation:toQueue:finishedTarget:action:] in libtestflight.a(TFNetworkManager.o) 
+      -[TFNetworkManager observeValueForKeyPath:ofObject:change:context:] in libtestflight.a(TFNetworkManager.o) 
+      -[TFNetworkManager operationDone:] in libtestflight.a(TFNetworkManager.o) 
+      -[TFNetworkManager cancelOperation:] in libtestflight.a(TFNetworkManager.o) 
+      -[TFRunLoopOperation setState:] in libtestflight.a(TFRunLoopOperation.o) 
+      -[TFRunLoopOperation cancel] in libtestflight.a(TFRunLoopOperation.o) 
+ld: symbol(s) not found 
+collect2: ld returned 1 exit status 
+ (1) (TestflightTest)
+ 
+ 
+ 
+ 
+ Hello Danny, 
+
+You're linking a C++ library so you'll need to add --cxx to your 
+"extra mtouch arguments". That way mtouch will use the right (C++) 
+compiler and linker to build your application. 
+http://ios.xamarin.com/Documentation/Linking_Native_Libraries
+
+Regards, 
+Sebastien 
+
+
+With some other bindings I was working on recently I had to have -lgcc_eh as well as -cxx. Also, make sure -cxx is not inside the gcc_flags section.
+
+-cxx -gcc_flags "-lgcc_eh  ……….."
+
+Cheers,
+
+Chris
+
+
+
+Yesss, the lgcc_eh argument did the trick! 
+
+Thanks a lot, 
+
+
+
+
+k. So after all that, why would it work for some, like me, who didn't use the -cxx and -lgcc flags but for others it doesn't work?
+
+
+
+
+Andrew,
+
+That's a good question and I don't know the answer to that :-(
+
+Are you linking with any other libraries that perhaps pull in those libraries by some other means?
+
+That said, I have started working on a fix for this type of issue that I hope to get into a future release of the MonoTouch binding tool which will embed hints to mtouch and MonoDevelop on what libraries a binding requires so that developers like you and Scheelings don't get bitten by this issue (it seems to be fairly common and is why I've started working on a solution).
+
+Part of the solution will likely end up in MonoTouch 4.2.0, but I hadn't accounted for handling of the -cxx and -lgcc_eh flag bits so the solution is incomplete.
+
+After I get those implemented, I want to port the monotouch-bindings repo to use my solution (as it should serve as a good test case for my solution to make sure it works as expected). Once that is done, expect to see me blog about it and have things magically work ;-)
+
+
+
+
+Ugh - and to the list too this time!
+
+Jeff.
+
+The bindings I needed to use -lgcc_eh on were my draft LineaPro bindings in my fork of monotouch-bindings (https://github.com/chrisbranson/monotouch-bindings). My RedLaser bindings use -cxx too, but don't need -lgcc_eh. The RL bindings on my repo are up-to-date - I have sent pull requests for the changes but these have sat unloved in the mono repo since the MT/Attachmate drama earlier this year :-)
+
+
+
+
+	

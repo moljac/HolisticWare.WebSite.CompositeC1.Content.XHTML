@@ -1,0 +1,571 @@
+http://www.devcurry.com/2009/09/difference-between-aspnet-webforms-and.html
+http://www.asp.net/mvc/tutorials/overview/asp-net-mvc-overview
+http://www.asp.net/mvc/tutorials/mvc-music-store
+http://nerddinner.codeplex.com/
+http://quickstart.developerfusion.co.uk/QuickStart/
+
+
+
+think depends on the project to be developed. MVC requires writing more code, but the generated HTML is much more "clean". Moreover, the logic of the project is more flexible, more people than a team can work better in different levels.
+ But web forms are easier to understand and does not require thinking about the various levels of design (model, view, control). 
+ 
+ One is not better than the other in a general sense; each has it's strengths and weaknesses, and as Andrea points out it depends on the project. I have worked in groups where the MVC architecture was a great asset. For the types of projects I currently work on (software assistant to the manufacturing process), you cannot beat the speed of web forms development. 
+
+
+asp.net web forms has lots of server controls but in mvc we have to write pure HTML which takes lots of time.another thin is we have to validate each model and apply security in individual controllers in mvc. 
+
+
+I agree for a forward facing website, where your concerns might include SEO separation of tasks, TDD, etc. And I know you don't want to deal with passing the ViewState back and forth. Very good for large team development. For a smaller team though (especially one where the developer may have dual responsibilities for both web and win-form development), and for a lot of intranet type scenarios, I think the page controller pattern built into web forms is best, and it is less hassle to manage state information. 
+
+
+
+Once you start using ASP.NET MVC you will love it and do not wish any more to go back to web forms. There is a very clear separation of concerns in MVC. Unless if it is an existing web application definitely consider MVC before architecting a new web application. We have developed quite a few MVC Mobile applications for our clients and like the MVC approach. 
+
+
+To do sophisticated development in ASP.Net requires intimate knowledge with the ordering of individual events, as well as Javascript to handle client side events.
+ 
+I haven't developed in MVC yet, but it makes a lot of sense to me - now that a lot of the communications are in AJAX, building up and tearing down the pages continually using the postback model seems very unwieldy. 
+
+
+Aps.Net MVC application are given very good performance. But the Asp.Net web forms is good for fast development. But the Asp.Net MVC requires to do on configuration.
+ 
+So if you well in MVC you can use it for any kind of application, it's little like classic Asp but it not. Web forms is good for large business(high scale or big project) projects. 
+
+
+ASP.NET MVC allows you to have mutch control over HTML and a big separation between presentation logic and data. Requeires more know how to doit of HTML and real knowns about HTTP. Is the ideal when you want to make an aproach to web with ritch html interfaces.
+ 
+Pure ASP.NET still a great technologie and is the natural ,net tech when we are talking about web applications in the LOB or mutch complex web applications.
+ 
+Another point you must consider when choosing is the developer team you have. The learning curve of a good MVC developer is biger then asp.net.
+ 
+My advice would be choose wisely based on the team you have and the tyoe of web application you will build. 
+\
+
+
+
+
+MVC vs ASPX
+For developing a new web application or website how can I decide what is the best way to implement, I mean choosing between MVC and regular ASP.Net. Is there any criteria for decide that!?
+
+
+
+
+f it's a small website, go with ASPX. MVC might be over-kill. That being said, if you want to learn something new, go with MVC.
+
+
+
+
+
+
+
+
+
+Peter S. • Yup, there sure is, and it's the ultimate criteria.....
+
+that criteria is.....
+
+What's best for the product you plan to create.
+
+It's not a riddle, it's cold hard facts. What are you writing? What will it be running on? Who are your Intended Audience? Internal App or External App? For a Specific Client, or for General Release? What's your planned data store? Will the data store be clustered, or single server? Will you be producing feeds? What type of Feeds?
+
+I could sit here and keep typing until I fill this box up with questions.
+
+but I'm not going too....
+
+Instead, I'm going to tell you to go away, get out your pencil, and a drawing pad and start sketching. Sketch architecture diagrams, layer diagrams, database schemas, cloud diagrams, data flows, form layouts, black box models.
+
+Then when you've done that, go back and start again but this time with more detail, then again with more detail, then again with more detail...
+
+Oh what's that? sorry I didn't quite hear you.....
+
+You don't have time to do all that.....
+
+Oh well, just throw it together in which ever way seems the quickest and easiest to you then.
+
+Keep the boss happy.
+
+Just remember, the client WILL come back and bite you when things start to fail, so might as well take the time to do it all properly from the beginning.
+
+once you have all these diagrams and sketches and have really refined your ideas down to something you can actually visualise in your head, then the choice as to which to use will naturally fall into place.
+
+oh and remember, it's NOT just a choice between MVC or Web Forms.(for the record ASPX does not != MVC) it's also a choice between UI output type, data access technology, layer pattern's and much much much more.....
+
+flip side to ALL OF THE ABOVE,
+
+if your trying to decide just because you want to learn something, then..... Learn them both.
+
+Do your same site in BOTH technologies at the same time, along side of each other and compare the pro's and con's of each as you learn.
+1 month ago
+ 
+Armen
+Armen K. • Actually this was a question that I had in a job interview.
+1 month ago
+ 
+Prakash
+Prakash S. • MVC is good for enterprise applications or bigger application...
+1 month ago
+ 
+sunil
+sunil B. • No, doubt technically there are numbers of Pros & Cons in both of them. Generally , ASPX web- development(building application ) is fast compare to MVC application. 
+MVC is used for enterprises and bigger of level Application. It's smart routing mechanism is fast and quick. MVC is little complex then ASPX , if you havent used is previously. From my side, if you have enough time, resources then go for MVC , it's integration with HTML 5 is awesome and control loaded fast on client side as it's Presentation layer (View) is purely made up of HTML controls. While ASPX has inbuilt drag gable controls , which is known for rapid development.
+29 days ago
+ 
+James
+James M. • There's a key point that needs to be addressed - with ASP.NET its no longer an either/or decision. The whole "one asp.net" thing is about allowing you to build your application using the most appropriate building blocks. 
+
+What that may well mean is using MVC for client facing code where you want to have tight control over what markup goes to the browser (this is really the key strength of MVC - notwithstanding issues of testability etc) and then use web forms and tools like dynamic data and to allow you to build back end admin tools with minimal effort giving you more time to focus on the edge cases.
+29 days ago
+ 
+Emmett
+Emmett C. • MVC 100%. Yeah I said it. Work with a solid UX resource and focus on building a SOLID infrastructure. Wire up the UI to the SOLID infrastructure and get the client what they paid for. If your view can't be built using notepad then its wrong. http://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29
+29 days ago
+ 
+Erik
+Erik H. • A few advantages of MVC over WebForms are testabilty and separation of concerns. If it's important for a project that a UX designer implements the HTML/CSS, then it might be good to consider MVC. Unit testing is more efficient in an MVC model. For quick and smaller web projects WebForms might be a good choice. Easy use of advanced web controls might also be an advantage over MVC. Furthermore. MVC can be quite a learning curve for some. Professionals that only have web experience with WebForms and are less familiar with MVC principles might feel like they are set back in time. WebForms usually hide the HTML/CSS/JavaScript complexity for them. These days when Ajax, HTML5 etc. becomes more important, these technologies become more important, hence the increasing number of UX designers. As James Murphy states, you can combine these technologies though
+29 days ago
+ 
+Emmett
+Emmett C. • Erik has laid out the basic premise for my answer. Why anyone would want to hide from web standards is just amazing to me. Complexity is good. Complicated is bad. The minute a developer is tasked with scaling a site that has a complicated aspx implementation that is time when the trouble starts. The complexity of the web is what makes it great. Solving problems with complicated solutions is crazy. ASPX issues are often treated with more complication. I appreciate the business cases, I really do. Why do we never take into account the OPEX of aspx? It's insane.
+29 days ago
+ 
+Brian
+Brian C. • At the moment most jobs seem to be asking for MVC, so for your own benefit it is worth having at least one project under your belt with MVC. Otherwise I think the previous posts have summed things up quite nicely.
+29 days ago
+ 
+Emmett
+Emmett C. • Brian I wouldn't hire anybody that had only done one MVC project. I need to have them tell me what they know about HTML/CSS/JavaScript. Then I need to know what they know about interfaces, classes, and .net. Then i need to know what they know about security, logging, and any other cross cutting concern that comes to mind. MVC is a different way of doing web development. I don't want someone bringing limited knowledge to bear when they could have educated themselves and chose not too. The need to not sweat the details is what got them in trouble to begin with.
+29 days ago
+ 
+Andrei
+Andrei D. • Emmett you make it sound like there is much difference between the two. 
+
+HTML, CSS, Javascript, interfaces, classes, .net, security , logging etc have nothing to do with the choice between webforms or MVC. 
+
+I will grant you one thing though. MVC requires one to know about HTML a lot more than someone coming from a webforms background used to drop controls here and there, write a bit of code and call it an application. 
+
+When it comes to MVC, all one needs to learn is the pattern itself and how it works. Everything else stays the same and the same principles apply. 
+
+Personally I like MVC a lot more than webforms. I only learnt MVC because I was given the choice to choose my tools and environment, jumped right in, without knowing anything at all about MVC and ending up writing a decent product within the allotted time and budget.
+29 days ago
+ 
+Emmett
+Emmett C. • There is a huge difference between complexity and complication. Look around on any posting and you will hear people complaining about the accelerated pace of innovation that MVC brings. People actually are so accustomed to not thinking about the solutions that they develop. MVC requires responsibility. It is irresponsible to drop a control on a designer and not get the expected HTML result. It is irresponsible to not be able to apply cascading styles and java script in a standards based way. 
+
+The browser compatibility problems are a result of poor software practices. Separation of concerns would greatly help ease compatibility issues. The difference between the two is a matter of responsibility. MVC allows one to take responsibility. Forms based development encourages those who chose to be irresponsible and enables levels of complexity that should never have existed in the first place.
+29 days ago
+ 
+Peter
+Peter S. • @Emmett here here... 
+
+IMHO There is far too much "People being accustomed to not thinking" in our profession. 
+
+In recent times we've gotten wayyyyyy to comfortable with the "It's some one else's problem" scenario, to the point where we have newcomers coming into the industry because they believe it's easy simple money to be made. 
+
+Now don't get me wrong, if your good at what you do, and get good consistent results that work, then hats off to you. 
+
+Problem is, there is far too many newcomers to this industry these days, that see's only the drag and drop side of things, they jump in and think... hell yea I can do that... drag some s**t together, draw some pretty pictures and some company boss is going to love me for it. 
+
+Then when the app they created, falls apart, it's a "Hey.... I did it the same way as everyone else approach... not my problem boss...." attitude. 
+
+No one these days is prepared to take responsibility for what they do, and ultimately it always ends up being Microsoft's fault.... 
+
+This bug in MVC caused it.... 
+
+That bug in web-forms caused it.... 
+
+The point is it's not easy doing what we do, and it takes a special breed of person to do it. We do what we do because we love what we do and for the most point where all good at what we do. 
+
+It's not about MVC or Webforms, or for that matter EF vs Linq2Sql , it's about knowing what you do, why you do it, what's best for the project your working on and why. 
+
+Until developers start adopting that mental attitude once again, and actually thinking (oh and our management allow us to think), where doomed to just descend in an ever decreasing spiral until we eventually disappear up our own assholes.
+29 days ago
+ 
+Emmett
+Emmett C. • @Peter I had to unleash the beast. No one wants to hear the same preachy tone all the time, but this point needs to be made. Clients are losing millions of dollars due to a lack of execution. Bright young minds are deciding to not work with software because their is no continuity between college and business computing. Yeah mock up your site in ASP to get the client all hot and bothered. When you get the client to fund the project you should perform proper analysis, design , and implementation using asp.net MVC. I refuse to accept the apathy that has gripped a large portion of Microsoft developers. If you don't have the time to study the web and the related technologies go into another profession.
+29 days ago
+ 
+Zijian
+Zijian H. • @Emmett and Peter, I quite agree with you. MVC is a necessary complexity to support simple solutions to deal with complicated problems. However, far too many asp .net developers, senior or junior and managers, rush to whatever RAD platforms like asp .net, mvc, sharepoint or sitefinity, you name it, implement horizontal features and ignore basic vertical features. When the nasty results of lack of vertical feature surface, then blame the platforms. 
+
+Without understanding the basic of the complexity, programmers could easily deliver complicated solutions for complicated problems and even simple problems. 
+
+Get back to the question. Which one to choose should be more based on your business analysis if you are the boss, or based on the preference of your employers.
+29 days ago
+ 
+Brian
+Brian C. • @Emmett - just to clarify, I wasn't suggesting that experience on a single MVC project alone would or should be sufficient to get a job. Like you I'd expect a demonstrateable knowledge of HTML, CSS, JavaScript and a host of other things as well. I was just pointing out that as far as job advertisements are concerned MVC seems to be the flavour of the month so when considering a job move it is a good to have a tick in the box.
+28 days ago
+ 
+Emmett
+Emmett C. • @Brian I agree having the tick in the box is a good idea for one who is considering a change in jobs. The point of my rant is that the MVC tick means a demonstrateable knowledge of HTML, CSS, JavaScript (the view). The tick in the box means interface based classes and skinny controllers. The tick in the box means the classes which are used to store and manipulate state, typically in a database of some kind.
+28 days ago
+ 
+Emmett
+Emmett C. • How about applying the scientific method (http://en.wikipedia.org/wiki/Scientific_method) in order to provide a solution to a business problem? How about making the distinction between developing a new solution and developing a solution based on an existing solution? How about making the distinction between static web sites and dynamic applications? How about knowing that when one references the "web" one is referring to the Internet protocol suite (http://en.wikipedia.org/wiki/Internet_protocol_suite)?
+
+There are those of us that earn a living delivering solutions utilizing vendor specific implementations of academic computing concepts. The vendors choose to define what "regular" means based on the need to generate profits. According to Microsoft you can't chose MVC without choosing asp.net. So the criteria is do you want to use a Microsoft based solution or not. The criteria should be a set of requirements that need to be met based on the implementation of some technology.
+28 days ago
+ 
+Peter
+Peter S. • @Emmet indeed you can, for instance If I told you from time to time I get projects to do where I employ Code-igniter, would you still consider that I was doing the same kind of work? Many folks assume it's Microsoft's, Beacuse they invented it, but that's not the case, most don't see this though because their clouded by the marketing speel and the promise of easy money...
+27 days ago
+ 
+Follow David
+David Driver • I really don't think that there is project that is "too small" for MVC. MVC does not take any more setup than a small aspx site. 
+
+That said we currently use MVC with a WCF back end for all new development. I am trying to get some traction to change it. If we are going to use a WCF service and AJAX in the UI why do we need the MVC at all? 
+
+I am trying to get people interested in Angular.JS and using Web API. We are doing so much in javascript these days that the majority of our controller methods are pretty much empty or they just return a JSON graph.
+27 days ago• Like4
+ 
+Follow P.J.
+P.J. Patterson • I agree with David. No project too small - as long as you are familiar with the tools. For some of use who have been doing this a while, you see platforms and technologies come and go, as each tries to reinvent or improve on something it sees as a shortcoming. 
+
+MVC is good because it lets you separate concerns for display, program flow, and solid models. Unit testing is highly achievable. 
+
+ASP.Net I don't find useful except for very quick prototypes or one-off pages, although I see the appeal for the more visually oriented programmer. I think it gets in the way of stronger architectural programmers. 
+
+With any tool, though, you can get great things when created by a great mind. It can also be abused, or simply ignore most of its benefits. 
+
+Back to the original post, I don't know what the person interviewing was looking for, but my best guess would be to use ASP.Net for prototyping, and MVC for building a scalable, testable product. But perhaps they really just wanted to see if you had a strong preference somewhere... 
+
+Personally, I am currently trending more often to the Web API and HTML/CSS/Javascript front ends. Works great for separating a project UI from the models and database concerns. But that really is only an advantage if you have a team that can take advantage of it.
+26 days ago• Like3
+ 
+Follow Niraj Dhar
+Niraj Dhar Dubey • MVC is a disciplined way of developing applications, with better maintainability as compared to traditional asp.net, but the negative side is you will not be able to use in-built .net components like gridview etc.
+26 days ago• Like
+ 
+Follow Brian
+Brian Cryer • @Emmett: agreed.
+26 days ago• Like
+ 
+Follow Tony
+Tony Wang • With all other criteria simply focusing on the minutiae between the technologies, in my opinion, the decision to implement a solution with MVC or Web Forms come down to the following criteria: 
+
+- Is this a brownfield project? 
+- Is this a greenfield project where you want control over the HTML and JavaScript that is transmitted to the user? 
+- Is this a greenfield project, and you are more familiar with Win Forms development? 
+
+If you answered, yes, to the first, the the technology you use will more than likely be whatever technology the previous developer used. Even though, MVC and Web Forms are able to coexist the same solution, in the long run, it is better to be consistent. 
+
+If you answered, yes, to the second, then MVC is the better choice. One of the major advantages of MVC is it's ability to allow developers into it's inner workings. Unlike WebForms, which tries to shield developers from the underlying code. 
+
+If you answered, yes, to the second, then you may want to consider Web Forms. The original intent of Web Forms was to lessen the transitional friction of a Win Forms developer into the web world. 
+
+Note, I purposely excluded separation of concerns and test-ability from the list because both those criteria can be achieved using Web Forms. Just, not as easily as with MVC. Likewise, both those criteria can be completely ignored using MVC. MVC, merely allows a developer to adhear to those criteria more easily. 
+
+Also, I make no mention to solution size because, as touch upon by others, there is no project to big or too small for either implementation. Size is merely a metric of the solution. Not a criteria for deciding between MVC or Web Forms.
+26 days ago• Like1
+ 
+Follow James
+James Murphy • @Tony that's a much more rational assessment - especially the point about testing (though it would be reasonable to suggest that code-behind makes it all too easy to misbehave).
+
+I think one still has to bear in mind the notion of speed of development i.e. if you have a constrained target environment for pages then taking advantage of the RAD capabilities offered by webforms can be a huge plus for productivity for stock list/view/edit pages (even more so with the likes of dynamic data).
+
+And again - its important to note that its not an either/or choice - ASP.NET has basically been reduced to a set of nuget components from which you can pick and choose as appropriate to a particular project/solution.
+
+So actually it seems to me that it comes down more than anything to "do you need fine grained control over the markup sent to the browser" - yes would bias one toward MVC, no toward webforms (although of course there are other criteria).
+25 days ago• Like
+ 
+Follow Peter
+Peter Shaw • @james you wrapped it in a nutshell. :-) 
+
+For RAD, webforms works everytime, but for great control MVC is a clear winner.
+25 days ago• Like
+ 
+Follow Emmett
+Emmett Childress, Jr • Rad is less difficult with mvc. A designer cranks out the views while the devs crank out the controllers and the models. Put parts together just in time and the client sees features delivered on time and under budget. Webforms just violates the SOLID principle and exposes the project to higher maintenance costs.
+25 days ago• Like1
+ 
+Follow Tony
+Tony Wang • @James, I would agree, netting down this discussion to a singular point, the ultimate criteria would be, the fine grain control of markup sent to the browser. 
+
+To Emmett's point, RAD is achievable through MVC, but I will concede that RAD is more RAD with Web Forms. However, the mechanism that makes WebForms RAD is the same mechanism that makes the generated HTML vary based on control provider. This, in turn, makes it more difficult for a designer to work in parallel with a developer.
+25 days ago• Like
+ 
+Follow James
+James Murphy • @Tony and you've hit where the interesting assumptions arise - specifically in the need for a designer in a lot of contexts. 
+
+That doesn't mean that we shouldn't be paying attention to the UX experience at all, rather that there are times when all that is necessary is a good foundation set of styles and that we don't do anything silly because the key to that element of system is its function (that its useable and that it does what its supposed to).
+25 days ago• Like
+ 
+Follow James
+James Murphy • @Emmett its trivial to violate SOLID with MVC - and in fact I suspect that that is almost endemic where MVC is being used mostly because its the shiny new toy... 
+
+Likewise its not particularly hard to be SOLID with WebForms (although I'll be the first to concede that very few people, myself included, do so well yet - frameworks and tooling exist to help with separation and model binding in 4.5 should make it a lot easier) the problem that its far too easy to misbehave in the code behind (-: MVC starts a step further in the right direction than webforms but it still doesn't actually ensure you do the right things. 
+
+Actually I've missed a step here - with webforms you're pitching for the minimal code scenarios, as soon as you get into complex interactions or complex code directly associated fairly with the UX its probably the wrong model. But where you want basic table driven CRUD and have things you can bind to then it may be a good fit.
+25 days ago• Like
+ 
+Follow Emmett
+Emmett Childress, Jr • Asp.net will no longer be an option when ie8 is no longer supported. Standards-based web development is not attainable with output that varies.
+25 days ago• Like
+ 
+Follow Tony
+Tony Wang • I think a factor that has been, for the most part, if not all together ignored is that of the skill set and knowledge of your team and the team that will have to maintain the solution, if it is a different team. 
+
+Their knowledge and limitations are definitely factors in the decision making process. Similar to the brownfield criteria, knowledge and skill set may force the decision for you.
+25 days ago• Like
+ 
+Follow Chuck
+Chuck Conway • This question is a bit of a troll, but I'll bite. 
+
+MVC. Webforms is a desktop model in a web world.
+21 days ago• Like1
+ 
+Follow David
+David Driver • @Chuck I never got web forms either. Anybody that would willingly design something that would allow such huge postbacks should be given a good talking to.
+20 days ago• Like
+ 
+Follow Richard
+Richard Dudley • Since this was asked during a job interview, I'll give you all a hint. There is no right or wrong answer, but you could pass or fail. They're really looking for whether nor not you can make a decision, support it with reason and speak intelligently and concisely about your decision, Erik's answer was the only good one in this thread. Some of the other answers in this thread had a good point, but weren't good answers.
+20 days ago• Like1
+ 
+Follow Richard
+Richard Dudley • To throw out one correction to Andrei, HTML/CSS/JS have everything to do with the choice between WebForms and MVC. With MVC, you have complete and total control over what is rendered. With WebForms, you do not. If you use server side controls, you are stuck with whatever the manufacturer decides to do. Often, that is rather ugly and tied to the postback model of WebForms. If you have any concern at all for client side coding, MVC would be a better choice. You can do client side coding with WebForms, but compromises have to be made.
+20 days ago• Like1
+ 
+Follow Bart
+Bart Van Gheluwe • Just dive in MVC and never look back. One thing that starts sitting in the way with more complex WebForms applications is that horrible ViewState. I find that MVC gives you much more flexibility in any way.
+20 days ago• Like
+ 
+Follow Laila
+Laila Lotfi • Like Erik H points out, MVC can be quite a learning curve, so we're in the process of building a learning resource for those who want to learn it: http://labs.simple-talk.com/
+
+The site is still a protoype (it's not designed properly yet), but we've got 70% of the content there. If you are learning MVC, then take a look. :)
+
+And don't forget to give us feedback (various ways of doing that on the site). We need to know if the resource if delivering value or whether we should stop investing our efforts in it.
+19 days ago• Like1
+ 
+Follow Nidal
+Nidal Ghosheh • If I may throw in my 2 cents @Armen: 
+With MVC, as long as you understand the concept of how MVC works and how best to implement it, I think you should go with that. I find that it provides many advantages over WebForms. For example: People have talked about Testability and how you have control over the resulting output. That is both Good and Bad. Good because your output is HTML/CSS and Javascript which you control completely. You could choose to outsource that work to a designer while you work on the rest of the app; you can use HTML5/CSS3 if you wish and produce output that has a lot more capability; you can also create adaptive pages which can render very differently for desktops vs Mobile client. You can do all that with WebForms, but there are difficulties and complications to that. The bad is that you have full control of the HTML/CSS & JS output which could be a bit daunting and somewhat maddening when you deal with browser incompatibility issues. I find those to be a minor inconvenience at best, though, so I stick with MVC for most of my news development. 
+
+There is One area though where WebForms Trumps MVC and that is in the use of complex 3rd party controls. If your client wants a specific output format that you can get from an existing 3rd party control (say a report or a dashboard or what have you), there is no sense in trying to recreate that look using HTML/CSS and JS. Also keep in mind that MVC and WebForms are NOT incompatible. I have had situations in which parts of a web app were in MVC while others (for that 3rd party control) were done in WebForms. So don't feel you have to limit yourself to one or another. It all depends on what gets the job done.
+19 days ago• Like1
+ 
+Follow murat
+murat mercan • if you have to use Server side controls and if you need view States, traditional ASP.Net Form Application. 
+If you need testable scalable application Choose MVC
+18 days ago• Like1
+ 
+Follow James
+James Murphy • @murat that's far too simplistic a view (which is the basic problem with this discussion). 
+
+Scalable depends on far more than just the presentation layer - but there are certainly things in webforms that may encourage development that is not scaleable (however see below). 
+
+Testable is achievable in a webforms app and equally you can write MVC code that is hard to test and definitely isn't SOLID. The difference is that MVC should point you more in a direction that tends towards testable - but its not a magic bullet. 
+
+Lastly people keep making assumptions about the requirement for the client that don't necessarily stand up - scalable is a particularly interesting one as lots of us write lots of applications that are never going to see more than a couple of dozen users - if that. Those same apps need to be neat and tidy but they don't necessarily need to be able to cope well with everywhich browser or to have responsive layout or indeed much of anything so long as they work well within the context in which they are deployed. If using webforms means we can deal with the basic CRUD elements of these applications to the required standard in minimal elapsed time then so much the better. 
+
+As it happens there is has been a lot of work to bring drag and drop type productivity to MVC... but of course in the process you start to lose the control you were looking for in the first place (and you start getting mired in code generation which itself has issues). 
+
+So it comes back to finding the right tools for the job - and recognising that potentially those tools may vary across the features of a single application (at least in the case of a web application).
+17 days ago• Like
+ 
+Follow murat
+murat mercan • hi @james 
+
+a few months ago I taught “2609A Introduction to C# Programming with Microsoft .NET” course. It’s a very old course and runs on Visual studio 2003. 
+When I opened ASP.Net Form application in visual Studio 2003, I clearly saw ASP.Net Form application should design as a transformation template to allow Windows developers to create web content with using their windows application skills. From 2003 to 2012 ASP.Net Form changed but how structure works still stood, let me try to explain what I mean with and example : 
+2003 or 2012 we dropped a button, in to a page and start writing click event in code behind file like Windows form application, forgetting: it is a Web application, it runs in a browser far from our server, from a number of users and for each event, page calls back, re construct, render and send back to client, ASP.Net hides the http REALTY and emulate comfort of windows application behavior the worse part of it seeing from Asp.net works so well and hide everything very well, lot’s of Web developers don’t interest what is going on in client. But clients wait after each action and it doesn't make their job easy and it doesn’t make Web applications favorite platform for business applications, what if all user actions handles in client side and server, serve the data, fast fluid effective, responsive application. 
+
+I am actually in MVC side for all type of web Application at least it reflect real http behavior 
+
+Web API or JSon serialization is not only MVC features regardless the application if client side is possible I like to do it in client Side with JavaScript and carry the data between client and server by Web API, MVC makes it very easy for me 
+
+MVC has a structure like MVVM if you don't use it the way it should testing will be as hard as ASP.NET form application or harder :) 
+better Scalable and Testable aren't my prediction they are Microsoft's Official info from Official trainings and Documents
+17 days ago• Like
+ 
+Follow Brian
+Brian Carter • We are all carpenters, building applications. Like people I know in other trades, know the tools you use and be efficient/effective. New tools are always becoming available. You must decide if the new tool will fit on your tool belt or replace an existing tool. 
+
+I’ve completed a few MVC apps; not only on .Net, but RoR. I prefer the MVC frameworks and design patterns. While aspx and asmx are easier, the routing and control – HTML helpers – and EF make me more effective.
+16 days ago• Like3
+ 
+Follow Trevor
+Trevor Lane • Who said Viewstate was huge. I am no expert but recent readings has led me to believe that ASP dotNET4 has increased the efficiency of and decreased the size of Viewstate because it was recognised as a problem in the past. Are we harping back to the bad old days, or is my recent learning wrong.
+16 days ago• Like
+ 
+Follow Peter
+Peter Shaw • Absolutley.... 
+
+Many devs forget that Viewstate CAN and SHOULD be turned off on a control by control basis, as well as at page level. 
+
+You should only ever turn it on for anything that needs to preserve it's state.
+16 days ago• Like1
+ 
+Follow Kent
+Kent Marsh • The original mindset of ASP.NET was to allow windows developers to create "stateful", event driven programs than run on the web. The ASP.NET view state and post backs allowed for this kind of development. As long as the application was for a small group of users or could be built with a moderate amount of post-backs it worked. 
+Of course, the web is by nature a "stateless" environment and most UI events really occur on the client. So, one can use javaScript, AJAX, WebForm Web Services etc. to make a snappier site. 
+The benefit of ASP.NET for most development shops has been to have a platform that average corporate developers could be productive with-out a large learning curve. Serious technologists could overcome the issues of ASP.NET with effort and well architected sites. 
+
+MVC starts with the mindset of a "Stateless" application and good architecture. The learning curve is steeper. To get the full advantage of MVC, developers will also need to leverage jQuery, AJAX, JASON and have a strong CSS resource. 
+
+My simplistic approach for sites is, Intranet web sites - use ASP.NET, customer facing internet sites - use MVC. Sites that are lots of table maintenance, use MVC's scaffolding for RAD development.
+14 days ago• Like3
+ 
+Follow Matthew
+Matthew Staffeld • If you are starting a new application, why not learn MVC both the design pattern and the .NET implementation. I am assuming you have not already gathered a personal preference for either one, but my opinion is to lean towards MVC. As much as I try to understand WebForms, I prefer the many benefits of MVC and feel better using ASP.NET MVC. To me, MVC is everything you need, clean and vanilla. What I do not like about WebForms, is the unknown, the special framework generated "extras" and things that seem to get in the way of pure design. MVC is my personal preference for anything 'cool.'
+11 days ago• Like
+ 
+Follow Sergey
+Sergey Chavlytko • MVC is just a today's fashion (plus in 4.0 a great job was done to help developers). However we can see a new wave is coming - web api and everything in JavaScript :) 
+
+If you are a real developer as Peter pointed correctly above you can use very well any technology to develop a very good solution for your clients. Personally I like web forms - it gives you RAD, very good separation between UI and other layers, control over HTML markup where you need it (just replace standard control with your own), Somebody mentioned viewstate - I believe novadays many of us are keeping it in the file system or in the database and not sending to our clients... 
+
+Again, however - because of fashion and pressure from the media on our clients I am developing more and more projects using MVC today... That's life... What I will do tomorrow - probably pure HTML + JavaScript and WCF :) Yes, your right, we already did something similar 15 years ago...
+7 days ago• Like
+
+
+
+
+Is AJAX with JSON better over ASP.NET Server Side in the long run?
+I wanted to know which would give better performance,maintainability, security , having AJAX return JSON and use it with JS or ASP.NET Web Forms with DataBind ( not including ASP.NET MVC) given when the code and functionality increase over time ?
+12 days ago
+
+
+
+
+
+
+ould definitely suggest using ASP.Net MVC and JQuery if I was to develop any kind of Microsoft Based web application today. 
+
+I see ASP.Net WebForms bit like an elephant, you can do simple stuff in no time, but it's harder to maintain, and unless you're very carefull, you end up having most of the C#/VB.Net coding as code-behind on the aspx pages. 
+
+JQuery is JQuery regardless of the ASP.Net platform, so why not use the good architecture and freedom of Razor syntax ?
+
+
+st joined this project and lot of code is already done using AJAX and JS (still a sandbox) ,hence the question for the longer run , What happens when my JS increases and what are the security threats by having more WCF calls .... 
+something on those lines... 
+pardon me for my "not so technical" description....
+
+ the best solution from user perspective is to have Ajax call on server where keep long running operation and get JSON result on client site to show result. At list you can implement progress bar to show that application not hang but it does long running operation. On the other hand it is more code and more debugging for developer (you have to manage and .NET and js code). Performance +- the same (Ajax should be little bit faster as you do not do page initialization on every call). From security point of view there is no major difference for server side, but you should keep in mind that user\hacker can read your js code, so you have to make sure that even if hacker knows web-service interface he cannot do anything illigal. I would say that if your application is user-orientated you propably need to do Ajax, to keep user informed about long running operation, but if you have local application and users can deal with long opening pages pure ASP.NET will be enought.
+ 
+ 
+ ocus on what is best for the user. Because of this, if you are into Webforms, go with it. If you are into MVC and jQuery, go with it. It really depends on so many variables that trying to put this into a question of which is better is too hard. That, plus discussions of better tend to stray into the areas of "my technology is better than your technology." I have several apps that are deployed at major organizations. Some are based on Webforms and some on MVC/jQuery. 
+
+As for which code is better over time, I doubt that there is a difference. Code tends to grow over time. I'm not sure if it matters that it is c# on the server of jQuery on the client.
+
+
+
+Just to confirm so as the JS files grow there shouldn't be much performance degradation .... because presently everything happens through AJAX and JS ... hardly anything is there on the server side for the View part.... 
+@Wallace : Totally agree with user perspective as the driving factor. 
+Just for the long run part , this project that I'd be working on came as new version of something existing(business is same). It was in ASP.NET 2.0 VB but the architecture or coding (haven't seen only heard) was so bad that it couldn't be upgraded or added with new functionality.Other way of saying it they found the easier(cheaper) option would be to start a project from scratch altogether. 
+
+Coming back to my question , I just want to know whether there could be some issues which need to be considered , I agreed ASP.NET MVC is the best but I think that's not an option now(at present). But it could become if we can find some issue going with WCF and AJAX design. I felt it is better to dig deeper into these things now than later . That is the reason I've been stressing on the long run part is to know the maintainibility, reusability for it to grow. 
+One of the things Juri pointed out is the WCF services would be exposed to an end user so need to wary of the fact.Thanks for that.
+
+
+ve MVC and javascript/AJAX. My one caveat is that imo it's best to code for the "now". If MVC and AJAX are easy to use right now, then do it. I try not to plan code too far ahead, since you never know where you'll go next. I remember maintaining a large Silverlight codebase because we were sharing code between a WPF kiosk app and the web. Well, not a year after it was implemented, we had to re-implement it in HTML5/Javascript because we now targeted the iPad and you can't run Silverlight on it. 
+
+Long story short - code for the now, you never know what you'll be using in a year.
+
+
+
+
+n the long run using javascript over server side code is a pain becouse you loose most of the benefits of Visual Studio, including debugging (especially debugging). 
+
+Javascript and Ajax are good for creating responsive websites, but if your project grows much... better not ask (I am dealing with one like that right now)
+
+
+if you're going to have sizeable javascript, better bust out Chrome and make sure you have javascript namespacing. TypeScript looks pretty interesting too, but I haven't used it in production code. 
+
+You make a good point. AJAX adds complexity. If using server side rendering suits your needs, then use that, as it is less complex and easier to debug.
+
+
+
+
+
+
+ASP has its place in the business world for quickly developing business web apps, especially given the power of control toolkits such as the ajax kit or the radcontrols 
+( http://www.asp.net/ajaxlibrary/AjaxControlToolkitSampleSite/)(http://www.telerik.com/products/aspnet-ajax.aspx ). 
+
+With the surge in mobile demands, the one page architecture with jquery makes sense. Using a boiler plate one can devlop a mobile site in a reasonable amount of time ( http://html5boilerplate.com/ ) 
+( http://www.initializr.com/ ) 
+
+I'd reccommend giving your data two UI's: one for mobile and one for full screen. This allows you to use asp to deliver maximum functionality screen and javascript to deliver mobility.
+
+
+
+knockoutjs
+
+Additionally backbone and backbone marionette are very good to create a manageable web application. I am working on a personal project creating an web development framework using open source frameworks.
+Such as backbone,
+Backbone marionette,
+Kendo ui
+
+Its very productive
+8 days ago• Like
+
+
+In the long run, you're better off with a server that is actually a server, not everything at once. Proper separation of concerns will pay off. Use a decent javascript framework (YUI3, backbone.js, angular.js, knockout.js, ember.js, and the list goes on) to make your HTML5/JS user interface and keep it out of your server. Make a RESTful server that will be able to handle any type of clients. What will happen when you need a command line interface? Or when you create an Android App? You may be using Microsoft technologies but look at what the outside world has to offer, it's no so scary. Keep it standard and you'll save yourself trouble.
+
+
+
+
+
+hanks All ... taking a summary from all comments .. I do see MVC is the long run winner .... Plus the MVC 4 ASP.NET Web API Template seems something especially designed for the AJAX calls ...
+
+
+
+
+ad few problems with JSON parsing when the server returns JSON data in ajax response (but thats for IE 7, 8 versions when large chunks of complex json data is returned), although it got better with the json3 parser. I would prefer server side code to return your complex pages/partials for a reason that its more easy to debug the perf issues.
+
+
+If you are thinking about using Ajax, JSON then MVC would be your best option. I switched to MVC for over a year now, and I'll never switch back to ASP.Net web form. You will have more choices on your presentation layer with MVC. 
+
+If you are making a lot of ajax calls, or buiding a Single Page Application style, check out javascript library such backbone.js, knockout.js...
+
+
+
+
+
+ake look at Knockout ( http://knockoutjs.com/ ). Working in pair with any server-side technology It allows building excellent applications, see http://blogs.msdn.com/b/amar/archive/2012/12/12/hello-world-with-knockout-js-and-asp-net-mvc-4.aspx for example.
+
+
+
+ its important for any project to have good separation of concerns. Having business logic in the code behind of webforms or in the endpoint (mvc / wcf) is bad. IMO its best to make your app service orientated and expose the services as required.Debugging shouldn't be a problem even when javascript and .net code are mixed. There are very good client-side debugging tools baked into visual studio (you may need to enable them).With regard to webforms / AJAX, I think its important to keep the client side as lightweight as possible due to the current uptake of mobile devices. I would lean toward using MVC for any new projects. I've found that zurb foundation gives a very good responsive framework on the front end.
+ 
+ 
+ 
+ jQuery and Knockout are compatible. jQuery is a framework for querying and manipulating the dom. Knockout allows binding of objects to UI elements and maintaining state (MVVM).
+ 
+ 
+ 
+ 
+ o Knockout does something what a strongly typed View with a Model would do in ASP.NET MVC, Now we have it on client side , so we bind our controls with the Knockout observable collection. 
+Nevertheless JQuery is still the language for dynamically modifying the DOM. 
+Please correct me if incorrect.
+
+
+building MVC 4 / Web Api + Client side JS applications now, and while it is initially more complex than just server side rendering, it provides a much better end-user experience. With using WebApi you can open the application for an array of devices. Letting the server manage data as a service, and the client handle rendering of dynamic data. 
+
+While there are a multitude array of JS frameworks available, remember the more code you add, the more the client has to download, cache, and process, this may not be an issue for desktop engines like chrome, however mobile devices have limited resources at present. Don't just add bloat where it's not needed. 
+
+jQuery is *the* standard way to query and manipulate the dom now, however you will still want to get to grips with javascript in general, and using developer tools such as chromes developer tools to debug client side code. 
+
+I've also created a google developer tools extension and just released a couple of days ago for helping with forms, especially for ajax serialization. 
+
+( https://chrome.google.com/webstore/detail/form-viewer/gihginompkjijnipckobcjioandcmjgp )
+
+
+
+What is nice about some of these technologies, jQuery, AJAX, KnockoutJC, is they can be mixed and matched in a number of ways. 
+
+A project I am working on requires rendering views in tabs without doing a full page post, and updating navigation elements outside of the tabs based on the selected tab. We found we are able to use AJAX to call a controller action and displayed the returned ViewResult in the tab, allowing us to use MVC validation. We can also use the Model that is returned, serialize it into a JS object, and use it with KnockoutJS to update navigation elements. Then we use Sammy with KnockoutJS to route the navigation to the proper controller action. 
+
+Mind you this might not be perfect, but it is a great example of using multiple technologies together, all starting from MVC server side rendering and evolving as the needs/requirements evolved.
+
+
+
+
+1. IE 9 changed the DOM compared to IE 8, so if you parsing through DOM Nodes you need to be aware of the changes. I believe that IE9 is more compatable with the Chrome DOM now. If you have to support multiple browsers, and especially old IE versions you amy want to stay with the web forms. 
+
+2. MVC exposes data values in links that you may not want to expose. Part of my application used person identifiers that were based on SSN. These were not visible in web forms but would have been in MVC. I changed the idetifiers in my data model to GUIDs and eliminated 90 percent of my PII exposure, as well as improving application performance. I still have that part of the application in Web forms, but I am ready to switch to MVC with the data changes. 
+
+3. You can combine web forms and MVC in the same application. You don't have to convert everything at once. If you use consistent styles you can make them appear the same to the user. 
+
+

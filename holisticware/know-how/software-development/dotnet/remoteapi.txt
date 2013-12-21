@@ -1,0 +1,54 @@
+http://127.0.0.1:7913/RemoteAPI/WebServiceSOAP/WebServiceNews.asmx
+
+http://127.0.0.1:7913/RemoteAPI/WebServiceSOAP/NewsWebService.asmxServer 
+Error in '/' Application.
+--------------------------------------------------------------------------------
+
+Parser Error 
+Description: An error occurred during the parsing of a resource required to service
+this request. Please review the following specific parse error details and modify 
+your source file appropriately. 
+
+Parser Error Message: Could not create type 'WebServiceNews'.
+
+Source Error: 
+
+
+Line 1:  <%@ WebService Language="C#" CodeBehind="~/App_Code/WebServiceNews.cs" Class="WebServiceNews" %>
+
+ 
+
+Source File: /RemoteAPI/WebServiceSOAP/WebServiceNews.asmx    Line: 1 
+
+
+
+
+http://127.0.0.1:7913/RemoteAPI/WebServiceSOAP/NewsWebService.asmx?op=Calculate
+
+http://127.0.0.1:7913/RemoteAPI/WebServiceSOAP/News.asmx
+
+Compilation Error 
+Description: An error occurred during the compilation of a resource required to service 
+this request. Please review the following specific error details and modify your source 
+code appropriately. 
+
+Compiler Error Message: CS0116: A namespace cannot directly contain members such as fields 
+or methods
+
+Source Error:
+
+ 
+
+Line 4:  	Class="HolisticWareAPI.News" 
+Line 5:  	%>
+Line 6:  <%--
+Line 7:  	Class="HolisticWareAPI.News"
+Line 8:  	Class="Composite.Services.HolisticWareAPI"
+ 
+
+Source File: d:\SRC\CompositeC1_GridSystems_RemoteAPI\Website\RemoteAPI\WebServiceSOAP\News.asmx    Line: 6 
+
+
+
+
+http://127.0.0.1:7913/RemoteAPI/OData/Odata.svc/

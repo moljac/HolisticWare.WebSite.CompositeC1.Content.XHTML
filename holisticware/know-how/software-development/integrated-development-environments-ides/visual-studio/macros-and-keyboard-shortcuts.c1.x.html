@@ -1,0 +1,116 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Macros and Keyboard Shortcuts</title>
+Description = all keywords + extra text
+<meta name="Description" content="Macros and Keyboard Shortcuts in Visual Studio" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: macros-and-keyboard-shortcuts
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Visual Studio, macros, keyboard, shortcuts" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2013-04-11" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>Macros and Keyboard Shortcuts</h1>
+	<p>
+		Date created: 2013-04-11
+		<br />
+		Date modified: 2013-04-11
+	</p>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<p>
+		Not VB.net, 
+		no builds
+		macro scripting language VB alike
+	</p>
+
+	<!-- ================================================================== -->
+	<h2>Macros for web development - HTML writing</h2>
+	
+	<h3>Html Encode Macros</h3>
+
+	<p>
+		To HTML encode selected text (code snippets from source files like *.cs, *.xml,...) in html
+		documents.
+		<br />
+		Select text and execute macro (keyboard shortcut).
+	</p>
+	<p>
+		MyMacros.HtmlEncode.HtmlEncode
+	</p>
+	<pre class="hw_code">
+Imports System
+Imports EnvDTE
+Imports EnvDTE80
+Imports EnvDTE90
+Imports EnvDTE90a
+Imports EnvDTE100
+Imports System.Diagnostics
+
+Public Module HtmlEncode
+
+	Sub HtmlEncode()
+		DTE.ActiveDocument.Selection.Text = _
+		System.Web.HttpUtility.HtmlEncode(DTE.ActiveDocument.Selection.Text)
+	End Sub
+
+End Module
+	</pre>
+	<p>
+		Keyboard Shortcut:
+	</p>
+
+
+
+	<h3>Title convert to SEO friendly filename</h3>
+
+	<p>
+		Convert Title to filename (replace space with - and convert to lowercase)
+	</p>
+	<p>
+		MyMacros.HtmlFilenameSEOFriendly.HtmlFilenameSEOFriendly
+	</p>
+	<pre>
+Imports System
+Imports EnvDTE
+Imports EnvDTE80
+Imports EnvDTE90
+Imports EnvDTE90a
+Imports EnvDTE100
+Imports System.Diagnostics
+
+Public Module HtmlFilenameSEOFriendly
+
+	Sub HtmlFilenameSEOFriendly()
+		Dim txt As String
+		txt = DTE.ActiveDocument.Selection.Text()
+		txt = txt.Replace(" ", "-")
+		txt = txt.ToLower()
+		DTE.ActiveDocument.Selection.Text = txt
+	End Sub
+
+End Module
+	</pre>
+	<!-- ================================================================== -->
+	<h2>
+		<a id="unique_in_this_document">Further reading</a>
+	</h2>
+</body>
+</html>
+<!--
+In VS 2012, the macro editor has been removed. That's the bad news. The good news is, you can use basically the same code in the language of your choice, by creating an add-in. Create a Visual Studio Add-in project, which will contain the boilerplate code you need. When you test, VS 2012 will fire up a separate instance of VS 2012 with your add-in installed. When you're ready to actually deploy, go to My Documents\Visual Studio 2012\Addins. There, for your project whatever, put the whatever.dll for your add-in, as well as the whatever.AddIn file from the main project directory. – Kyralessa Sep 5 '12 at 19:12
+
+-->

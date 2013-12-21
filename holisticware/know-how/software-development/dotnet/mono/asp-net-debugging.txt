@@ -1,0 +1,2 @@
+temporarily use "MonoDebug true" in you mod_mono 
+configuration to enable line numers in stack traces.

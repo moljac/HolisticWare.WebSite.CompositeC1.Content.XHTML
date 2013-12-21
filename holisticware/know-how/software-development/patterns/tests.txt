@@ -1,0 +1,70 @@
+testing
+
+using RSpec for unit testing and Cucumber for acceptance testing. 
+It is so refreshing to have such a simple syntax! 
+
+But at work we use MSpec, which is a .NET port of RSpec. It's got a 
+more verbose syntax than RSpec, so it's not as easy to use, but it 
+gives you that English syntax when you run the tests. 
+
+At some point, I'll need to get back to trying out SpecFlow, which 
+is like Cucumber for .NET. (I love NUNit and Moq!).
+
+
+
+ I've used both Moq and Rhino Mocks, both of which are good and have 
+ saved me loads of time. NUnit is my mainstay for the actual unit tests. 
+ I don't know of any combined tools for mocking and unit tests though. 
+
+It's not free but I have been using NCrunch now for about 6 months and 
+it is a great little tool, integrates into VS and works with most of the 
+common .NET unit test frameworks. I am not affiliated with NCrunch in any 
+way, just think it's a great tool and complements my unit tests very well.
+
+
+
+rimarily use NUnit with Moq and with NUnit support now in VS2012 it you 
+don't need a pay for test runnier if you want it integrated into Visual 
+Studio. Having said that I hate not having both R# and NCrunch for doing 
+TDD. 
+
+been getting nUnit, Rhino, and Moq mentioned to me mostly for this. I am 
+interested to know why you guys decided on using separate mocking and 
+testing software as opposed to Justmock or Typemock which I understand 
+have both combined. n regards to your question about why to use Rhino 
+Mocks or Moq instead of Justmock or Typemock: 
+
+There are these all-in-one packages. You'll find them in many areas: TFS 
+for version control/tracking bugs, C# for OO/async/dynamic typing, and 
+these combined unit testing tools like you mentioned. In my experience, 
+you never find best-in-breed tools packaged together like that. If you 
+want to find the best, you must look for the best in a single area. I 
+advocate the use of Moq for mocking. It has the cleanest syntax. For 
+version control, I'd check out Git or Mercurial. For a language, I'd 
+learn many languages and use the one that fits the project. 
+
+Also, there are other schools of thought on how unit testing should be 
+done, and what the testing tools should excel at. For example, mSpec or 
+Specflow are great for creating a living documentation with tests. NUnit 
+is very good for testing the input and output of functions and can be 
+used to great effect for fuzz testing or testing exceptions. 
+
+ere at work we have been using NUnit for practically forever :-) and it 
+is well integrated into our build and documentation systems. Everyone is 
+very comfortable with it and there is an element of if it aint broke 
+don't fix it, if something else comes along and a worthwhile case is 
+made for changing then we'd look again. But so far NUnit has given us 
+everything we need. 
+
+I used Moq on a Silverlight project a couple of years back as I wanted 
+to try it out (really liked it by the way) but for the most part (as a 
+company) we use Rhino. Both do the job and everyone is familiar with 
+them. We have tried to standardise on a few tools to make it easier for 
+people to switch between projects and teams as required without 
+additional learning curves. 
+
+I wasn't aware that TypeMock or JustMock included both mocking and 
+testing components as I haven't used these tools before. May take a look 
+at these in the future but I suspect that unless there is a significant 
+advantage we may stick with NUnit and Rhino. 
+

@@ -1,0 +1,78 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Linking</title>
+Description = all keywords + extra text
+<meta name="Description" content="Threading facts" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Threading
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Keywords" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Threading</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<h2><a id="">Load</a></h2>
+	<p>
+	Can't understand when to choose "Sdk Assamblies only" or "Sdk and User Assamblies" 
+	in project configuration?
+
+	Mono.Android.GoogleMaps.dll is an SDK assembly, and it's being improperly linked, 
+	so there's no real difference between those options here.
+
+	The problem is that due to a bug (oversight), Mono.Android.GoogleMaps.dll isn't 
+	linked the same was as Mono.Android.dll is, causing too much to be removed.
+
+	Try disabling linking of Mono.Android.GoogleMaps.dll by using linkskip support:
+
+	http://docs.xamarin.com/android/advanced_topics/linking#linkskip
+	http://docs.xamarin.com/android/advanced_topics/build_process#Mandroid_Arguments
+
+	</p>
+	<pre class="hw_code">
+	<PropertyGroup>
+		<AndroidLinkMode>Mono.Android.GoogleMaps</AndroidLinkMode>
+	</PropertyGroup>
+	</pre>
+
+	<h2><a id="">Not Linking but Crashing!</a></h2>
+	<p>
+	</p>
+	<pre class="hw_code">
+		Scenario:
+ - bug in app causes a crash and Android re-starts the app
+ - during the re-start the app de-serialises some stored data but this
+fails, for example when de-serialising XmlElement. The same code works fine
+most of the time.
+
+It seems as though during the re-start some of the assemblies that are
+usually "hanging around" (technical term) aren't there. So code like:
+
+string typeName = "XmlElement";
+Type type = GetType(typeName);
+XmlSerializer s = new XmlSerializer(type);
+
+would fail. Simply adding in the assembly name to help out the serialiser
+will work:
+
+string typeName = "XmlElement, System.Xml";
+
+Hope this saves somebody some time one day!
+
+	</pre>
+</body>
+</html>

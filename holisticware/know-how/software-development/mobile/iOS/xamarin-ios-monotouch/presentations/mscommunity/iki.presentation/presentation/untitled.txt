@@ -1,0 +1,87 @@
+
+
+//iOS 
+
+	- Cocoa Touch kolekcija framework-a koja nam sluzi za razvoj iOS aplikacija
+	- Cocoa Touch sadrzi Foundation(plus CF, Core Foundation, C API) i UIKit framework
+	- Foundation(NSArray,NSString... ) prblizno BCL 
+	- Nas zanima UIKit
+
+	- Neke od najcesce koristenih UIKit klasa su: 
+		1. UIViewController - upravlja sadrzajem na ekranu
+		2. UITableViewCell - custom redak u tablici
+		3. UILabel - prikazivanje malih djelova teksta
+		4. UIImageView - prikaz slike na ekranu
+
+	Npr. UIButton lanac nasljedivanja
+
+
+
+			UIButton -> UIControl
+			UIControl -> UIView
+			UIView ->UIResponder
+			UIResponder -> NSObject
+
+	Vrsni objekt u Objective-C u je NSObject(.Net = Object).
+
+	Design pattern koji se koristi je MVC
+
+	Model -> upravlja sa podacima (BL). Sadrzi podatke i njihovo ponasanje.
+
+	View -> objekti pomocu kojih gradimo interface. Svi View -ovi u iOS nasljeduju od UIView-a
+			Imaju sposobnost iscrtavanja na ekran ali i odgovaranja na korisnicke radnje.
+			Bitna stvar za zapamtiti, inicijalizacija view objekta ne znaci da je on prikazan na ekranu,
+			vec samo da je objekt kreiran u memoriji. Da bi ga dodali na ekran, moramo ga dodati kao subview na postojece korisnicko sucelje. UIWindow je top level view objekt od vase aplikacije. Svi nakndano kreirani View ovi su subview ovi od UIWindowa ili od sebe samih, stvarajjuci tako hierarhiju viewova.
+
+	Controller -> Srz aplikacije, imaju puno zadaca i vecina koda ce se nalaziti unutar contoller klase.
+					Neke od zadaca:
+						1. inicijalizacija i pozicioniranje view objekata za odredeno korisnicko sucelje
+						2. automatsko upravljanje sa rotacijom i promjenama layout-a
+						3. upravljanje korisnickim eventima (tapp, swipe ...)
+						4. javljanje modelu(BL) o svim promjenama nastalim na View layerima.
+						5. dohvacanje izmjena unutar modela (BL) i osvjezavanje korisnickog sucelja
+				-> Svaka instanca UIViewController ima za property UIView koji je top-level view objekt za 
+				jedan ekran sa sadrzajima.
+
+				-> Gdje i kako koristimo UIViewController? Ako je to view controler koji seprikazivati prvi ekran
+				nakon sto pokrenemo aplikaciju biti ce stvoren unutar AppDelegate klase.
+
+
+	AppDelegate -> Entry point aplikacije, obicno postoji samo jedna instanca. Sve ono sto mi radimo obicno stavljamo unutar
+	metode FinishedLaunching. 
+
+	public override bool FinishedLaunching (UIApplication app, NSDictionary options)
+	{
+		// create a new window instance based on the screen size
+		window = new UIWindow (UIScreen.MainScreen.Bounds);
+		
+		// If you have defined a root view controller, set it here:
+		// window.RootViewController = myViewController;
+
+			// instancijranje UIViewController i UINavgationControllera se odvija ovdje
+
+				//1. Add new file -> iPhoneViewController
+
+					//nas novi ekran sa pripadajucim XIB fileom, unutar kojega slazemo nterface 
+					//Tipa UIViewController
+					MainScreenViewController vc = new MainScreenViewController();
+					
+					//Navigation controller
+					UINavigationController nc = new UINavigationController(vc);
+
+					this.window.rootViewController = nc;
+
+
+			//-------------------------------------------------------------------------
+
+		
+		// make the window visible
+		window.MakeKeyAndVisible ();
+		
+		return true;
+	} 
+
+
+
+
+			

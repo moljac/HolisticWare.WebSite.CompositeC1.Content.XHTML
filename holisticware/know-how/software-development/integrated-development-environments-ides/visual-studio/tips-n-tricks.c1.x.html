@@ -1,0 +1,162 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Tips n Tricks</title>
+Description = all keywords + extra text
+<meta name="Description" content="Tips n Tricks in Visual Studio" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Tips n Tricks
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="tips, tricks, visual, studio" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-10-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="tips-n-tricks">Tips n Tricks</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<!-- ================================================================== -->
+	<h2><a id="windows-explorer-new">Windows Explorer /+ New /+ Visual Studio Solution</a></h2>
+	<p>
+		Sometimes developer needs to start new project (solution) from scratch as soon as
+		possible, either for some proof-of-concept project or some quick tests. This
+		is setup how to add Visual Studio solution in context menu (right click) for
+		Windows Explorer custom item like  Visual Studio solution
+	</p>
+	<p>
+		Steps:
+	</p>
+	<ol>
+		<li>
+			Run (Start +/ Run) +/ regedit
+		</li>
+		<li>
+			navigate to: HKEY_CLASSES_ROOT\.extension
+		</li>
+		<li>
+			create a new key named ShellNew
+		</li>
+		<li>
+			In the right-pane, create a REG_SZ (String Value) named NullFile or Data or FileName or Command				
+		</li>
+	</ol>
+	<p>
+		So, to add Visual Studio empty solution file to Context Menu's New command merge following
+		reg file (the empty solution file is in %SYSTEMROOT%\ShellNew, c:\windows\shellnew).
+		<br />
+		File is commented for better understanding.
+	</p>
+	<pre class="hw_code">
+Windows Registry Editor Version 5.00
+
+; ShellNew add custom to Explorer +/ new command
+;
+;  Order or execution / Priority is as follows (shown by tests):
+;
+; FileName
+;	Creates a file that is a copy of a specified file. FileName is a REG_SZ value, set to the 
+;	fully qualified path of the file to be copied.
+;	folders search order:
+;		1. %Userprofile%\Templates
+;		2. %Allusersprofile%\Templates
+;		3. %Systemroot%\ShellNew
+;
+; Command
+;	Executes an application. This is a REG_SZ value specifying the path of the 
+;	application to be executed. For example, you could set it to launch a wizard.
+;
+; Data
+;	Creates a file containing specified data. Data is a REG_BINARY value with the file's data. 
+;	Data is ignored if either NullFile or FileName is specified.
+;
+; NullFile
+;	Creates an empty file. NullFile is not assigned a value.
+; "NullFile"=""
+;
+[HKEY_CLASSES_ROOT\.sln\ShellNew]
+"FileName"="SolutionEmpty.sln"
+; "NullFile"=""	
+</pre>
+
+	<!-- ================================================================== -->
+	<h2><a id="sendto-visual-studio">Send to: Visual Studio</a></h2>
+	<p>
+		Sometimes, there is a need to open a single file in Visual Studio. This might
+		be a problem if user is using virtual desktops and has Visual Studio instance
+		opened, because command Open with +/ Visual Studio would open file in already
+		opened instance.
+	</p>
+	<p>
+		To open file in new Visual Studio instance use SendTo command and it is implemented
+		in a way that link to target application or application itself is located in
+		SendTo folder.
+		<br />
+		Locations:
+	</p>
+	<ul>
+		<li>
+			%APPDATA%\Microsoft\Windows\SendTo
+		</li>
+		<li>
+			%USERPROFILE%\SendTo
+			<br />
+			(C:\Users\username\SendTo)
+		</li>
+		<li>
+			%ALLUSERPROFILE%\SendTo
+			<br />
+			c:\Users\AllUsers\SendTo
+		</li>
+		<li>
+			"%SYSTEMDRIVE%\Users\DefaultUser\SendTo"
+		</li>
+	</ul>
+	<p>
+		in the given folder paste executable or shortcut (link, lnk file)
+	</p>
+
+
+
+	<!-- ================================================================== -->
+	<h2><a id="frequently-used-text">Frequently used text</a></h2>
+	<h3><a id="clipboard-ring">Clipboard ring</a></h3>
+	<ul>
+		<li>
+			last 15 copies or cuts
+		</li>
+		<li>
+			ctrl +/ shift +/ v
+			<br />
+			to circle through Clipboard ring
+		</li>
+	</ul>
+
+
+	<h3><a id="">Toolbox quasi-snippets</a></h3>
+	<ul>
+		<li>
+			to save a text or piece of code frequently used.
+		</li>
+		<li>
+		highlight a section of code (or text) and drag it to the Toolbox.
+		</li>
+		<li>
+		This feature is extremely useful for code demos where one donsn’t want to type out 
+		each line of code. 
+		</li>
+	</ul>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Custom Views Inheritance in Xcode</title>
+Description = all keywords + extra text
+<meta name="Description" content="Custom Views Inheritance in Xcode all keywords, of the page" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Custom Views Inheritance in Xcode
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Keywords" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>Custom Views Inheritance in Xcode</h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<h2>
+	</h2>
+	<pre class="hw_code">
+	</pre>
+</body>
+</html>
+
+
+Custom Views
+
+For existing View (Control) change 
+System.Exception has been thrown
+
+
+Selector invoked from objective-c on a managed object of type SomeCustomControl (0xFD04B70) that has been GC'ed
+
+
+System.Exception: Selector invoked from objective-c on a managed object of type SomeCustomControl (0xFD04B70) that has been GC'ed ---> System.Exception: No constructor found for SomeCustomControl::.ctor(System.IntPtr)
+  at System.Activator.CreateInstance (System.Type type, BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) [0x000f1] in /Developer/MonoTouch/Source/mono/mcs/class/corlib/System/Activator.cs:280
+  at System.Activator.CreateInstance (System.Type type, System.Object[] args, System.Object[] activationAttributes) [0x00000] in /Developer/MonoTouch/Source/mono/mcs/class/corlib/System/Activator.cs:234
+  at System.Activator.CreateInstance (System.Type type, System.Object[] args) [0x00000] in /Developer/MonoTouch/Source/mono/mcs/class/corlib/System/Activator.cs:229
+  at MonoTouch.ObjCRuntime.Runtime.ConstructNSObject (IntPtr ptr, IntPtr klass) [0x0000d] in /Developer/MonoTouch/Source/monotouch/src/ObjCRuntime/Runtime.cs:210
+  --- End of inner exception stack trace ---
+  at MonoTouch.ObjCRuntime.Runtime.ConstructNSObject (IntPtr ptr, IntPtr klass) [0x00045] in /Developer/MonoTouch/Source/monotouch/src/ObjCRuntime/Runtime.cs:215
+  at MonoTouch.ObjCRuntime.Runtime.GetNSObject (IntPtr ptr) [0x0001f] in /Developer/MonoTouch/Source/monotouch/src/ObjCRuntime/Runtime.cs:259
+  at MonoTouch.ObjCRuntime.Runtime.GetNSObjectWrapped (IntPtr ptr) [0x00000] in /Developer/MonoTouch/Source/monotouch/src/ObjCRuntime/Runtime.cs:276
+  at (wrapper native-to-managed) MonoTouch.ObjCRuntime.Runtime:GetNSObjectWrapped (intptr)
+  at (wrapper managed-to-native) MonoTouch.ObjCRuntime.Messaging:void_objc_msgSend (intptr,intptr)
+  at MonoTouch.UIKit.UIWindow.MakeKeyAndVisible () [0x00010] in /Developer/MonoTouch/Source/monotouch/src/UIKit/UIWindow.g.cs:124
+  at SomeProject.AppDelegate.FinishedLaunching (MonoTouch.UIKit.UIApplication app, MonoTouch.Foundation.NSDictionary options) [0x00041] in /Users/mc/Desktop/SomeProjectSVN/src/SomeProject.iPad/AppDelegate.cs:51
+  at (wrapper managed-to-native) MonoTouch.UIKit.UIApplication:UIApplicationMain (int,string[],intptr,intptr)
+  at MonoTouch.UIKit.UIApplication.Main (System.String[] args, System.String principalClassName, System.String delegateClassName) [0x0004c] in /Developer/MonoTouch/Source/monotouch/src/UIKit/UIApplication.cs:38
+  at SomeProject.MainApp.Main (System.String[] args) [0x00000] in /Users/mc/Desktop/SomeProjectSVN/src/SomeProject.iPad/Main.cs:24
+
+
+
+
+http://stackoverflow.com/questions/8762378/selector-invoked-from-objective-c-on-a-managed-object-that-has-been-gced-how-t
+http://stackoverflow.com/questions/8344613/what-are-my-options-to-hunt-monotouch-exceptions-like-system-exception-selecto
+
+

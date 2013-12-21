@@ -1,0 +1,226 @@
+Productivity Power Tools
+
+
+Microsoft Visual Studio 2010
+Version 10.0.40219.1 SP1Rel
+Microsoft .NET Framework
+Version 4.5.50709 SP1Rel
+
+Installed Version: Ultimate
+
+Microsoft Office Developer Tools   01019-532-2002102-70458
+Microsoft Office Developer Tools
+
+Microsoft Visual Basic 2010   01019-532-2002102-70458
+Microsoft Visual Basic 2010
+
+Microsoft Visual C# 2010   01019-532-2002102-70458
+Microsoft Visual C# 2010
+
+Microsoft Visual C++ 2010   01019-532-2002102-70458
+Microsoft Visual C++ 2010
+
+Microsoft Visual F# 2010   01019-532-2002102-70458
+Microsoft Visual F# 2010
+
+Microsoft Visual Studio 2010 Architecture and Modeling Tools   01019-532-2002102-70458
+Microsoft Visual Studio 2010 Architecture and Modeling Tools
+    
+UML® and Unified Modeling Language™ are trademarks or registered trademarks of the Object Management Group, Inc. in the United States and other countries.
+
+Microsoft Visual Studio 2010 Code Analysis Spell Checker   01019-532-2002102-70458
+Microsoft Visual Studio 2010 Code Analysis Spell Checker
+
+Portions of International CorrectSpell™ spelling correction system © 1993 by Lernout & Hauspie Speech Products N.V. All rights reserved.
+
+The American Heritage® Dictionary of the English Language, Third Edition Copyright © 1992 Houghton Mifflin Company. Electronic version licensed from Lernout & Hauspie Speech Products N.V. All rights reserved.
+
+Microsoft Visual Studio 2010 Team Explorer   01019-532-2002102-70458
+Microsoft Visual Studio 2010 Team Explorer
+
+Microsoft Visual Web Developer 2010   01019-532-2002102-70458
+Microsoft Visual Web Developer 2010
+
+Microsoft Windows Phone 7.1 Profiler   01019-532-2002102-70458
+Microsoft Windows Phone 7.1 Profiler
+
+Windows Phone SDK 7.1 - ENU   01019-532-2002102-70458
+Windows Phone SDK 7.1 - ENU
+
+Add Reference Dialog Plus!   1.0
+An significantly enhanced Add Reference dialog for managed code projects.
+
+AlignAssignments   1.0
+Command for aligning assignments.
+
+AnkhSVN - Subversion Support for Visual Studio   2.4.11610.27
+AnkhSVN - Subversion Support for Visual Studio 2.4.11610.27 
+ * Ankh.Package 2.4.11610.27
+ * Subversion 1.7.6 via SharpSvn 1.7006.2206.13750
+
+SharpSvn is linked to: Apr 1.4.6, Apr-util 1.4.2, Cyrus Sasl 2.1.23, Neon 0.29.6, OpenSSL 1.0.1c 10 May 2012, serf 1.1.0, SQLite 3.7.12.1, Subversion 1.7.6-SharpSvn-1.7.6, ZLib 1.2.7
+SharpSvn is optionally linked to: Berkeley DB 4.4.20, SharpPlink 1.7006.2206.13750
+
+AutoBraceComplete   1.0
+auto brace complete
+
+Crystal Reports Templates for Microsoft Visual Studio 2010   
+Crystal Reports Templates for Microsoft Visual Studio 2010
+
+Devart dotConnect for SQLite   2.90.152.0
+Devart dotConnect for SQLite
+Copyright 2002 - 2010 Devart. All rights reserved.
+Web: www.devart.com/dotconnect/sqlite
+Support: support@devart.com
+
+Document Well 2010 Plus   1.0.10916.0
+This package provides configurable behavior for the Document Well and its tabs. Please be sure to let us know what you like/dislike about this extension.
+
+Git Source Control Provider   1.0.0.0
+
+
+Hotfix for Microsoft Visual Studio 2010 Ultimate - ENU (KB2529927)   KB2529927
+This hotfix is for Microsoft Visual Studio 2010 Ultimate - ENU.
+If you later install a more recent service pack, this hotfix will be uninstalled automatically.
+For more information, visit http://support.microsoft.com/kb/2529927.
+
+Hotfix for Microsoft Visual Studio 2010 Ultimate - ENU (KB2548139)   KB2548139
+This hotfix is for Microsoft Visual Studio 2010 Ultimate - ENU.
+If you later install a more recent service pack, this hotfix will be uninstalled automatically.
+For more information, visit http://support.microsoft.com/kb/2548139.
+
+Hotfix for Microsoft Visual Studio 2010 Ultimate - ENU (KB2549864)   KB2549864
+This hotfix is for Microsoft Visual Studio 2010 Ultimate - ENU.
+If you later install a more recent service pack, this hotfix will be uninstalled automatically.
+For more information, visit http://support.microsoft.com/kb/2549864.
+
+Hotfix for Microsoft Visual Studio 2010 Ultimate - ENU (KB2565057)   KB2565057
+This hotfix is for Microsoft Visual Studio 2010 Ultimate - ENU.
+If you later install a more recent service pack, this hotfix will be uninstalled automatically.
+For more information, visit http://support.microsoft.com/kb/2565057.
+
+Hotfix for Microsoft Visual Studio 2010 Ultimate - ENU (KB2581019)   KB2581019
+This hotfix is for Microsoft Visual Studio 2010 Ultimate - ENU.
+If you later install a more recent service pack, this hotfix will be uninstalled automatically.
+For more information, visit http://support.microsoft.com/kb/2581019.
+
+Hotfix for Microsoft Visual Studio 2010 Ultimate - ENU (KB2591016)   KB2591016
+This hotfix is for Microsoft Visual Studio 2010 Ultimate - ENU.
+If you later install a more recent service pack, this hotfix will be uninstalled automatically.
+For more information, visit http://support.microsoft.com/kb/2591016.
+
+Hotfix for Microsoft Visual Studio 2010 Ultimate - ENU (KB2615527)   KB2615527
+This hotfix is for Microsoft Visual Studio 2010 Ultimate - ENU.
+If you later install a more recent service pack, this hotfix will be uninstalled automatically.
+For more information, visit http://support.microsoft.com/kb/2615527.
+
+Hotfix for Microsoft Visual Studio 2010 Ultimate - ENU (KB2635973)   KB2635973
+This hotfix is for Microsoft Visual Studio 2010 Ultimate - ENU.
+If you later install a more recent service pack, this hotfix will be uninstalled automatically.
+For more information, visit http://support.microsoft.com/kb/2635973.
+
+Hotfix for Microsoft Visual Studio 2010 Ultimate - ENU (KB2736182)   KB2736182
+This hotfix is for Microsoft Visual Studio 2010 Ultimate - ENU.
+If you later install a more recent service pack, this hotfix will be uninstalled automatically.
+For more information, visit http://support.microsoft.com/kb/2736182.
+
+Hotfix for Microsoft Visual Studio 2010 Ultimate - ENU (KB2813041)   KB2813041
+This hotfix is for Microsoft Visual Studio 2010 Ultimate - ENU.
+If you later install a more recent service pack, this hotfix will be uninstalled automatically.
+For more information, visit http://support.microsoft.com/kb/2813041.
+
+IronFoundry.VisualStudioExtension   1.0
+Cloud Foundry Extension
+
+Microsoft Advertising SDK for Windows Phone   5.2.1027.0
+Microsoft Advertising SDK for Windows Phone
+Build 5.2.1027.0
+
+Microsoft Moles   1.0.0.0
+Moles generator for Visual Studio
+
+Microsoft Pex   0.93.50813.0
+Microsoft Pex Visual Studio Extensions
+
+Microsoft Practices Project Linker   1.0
+Microsoft patterns & practices project linker
+
+Microsoft Visual Studio 2010 SharePoint Developer Tools   10.0.40219
+Microsoft Visual Studio 2010 SharePoint Developer Tools
+
+Microsoft Visual Studio 2010 Ultimate - ENU Service Pack 1 (KB983509)   KB983509
+This service pack is for Microsoft Visual Studio 2010 Ultimate - ENU.
+If you later install a more recent service pack, this service pack will be uninstalled automatically.
+For more information, visit http://support.microsoft.com/kb/983509.
+
+Microsoft XNA Game Studio   4.0
+Microsoft XNA Game Studio 4.0
+Build 4.0.30901.0
+
+Microsoft.VisualStudio.QuickAccess.Package   1.0
+Awesome search bar. 
+
+MktPlaceIntegrationPackage   1.0
+This package provides is responsible for integrating VS and Market place compliance kit.
+
+Mono Tools for Visual Studio   2.0.8152
+Mono Tools for Visual Studio provides developers with features which improve the development experience for targeting the Mono runtime.
+
+MonoFlave2010   1.0
+A language flavor project to enable VS2010 to load mono projects.
+
+MySQL Connector/Net   6.5.4
+Data design and management tools for MySQL.  Copyright © 2007-2011 Oracle, Inc.
+
+NuGet Package Manager   2.5.40416.9020
+NuGet Package Manager in Visual Studio. For more information about NuGet, visit http://docs.nuget.org/.
+
+OptionsPageImpl   1.0
+Information about my package
+
+Perspectives   1.0
+Allows for view, changing and saving window perspectives.
+
+PowerCommands for Visual Studio 2010   1.0
+A set of power commands for Visual Studio 2010
+
+QuickFind   1.0
+Visual Studio 2010 Quick Incremental Find Extension
+
+Security Update for Microsoft Visual Studio 2010 Ultimate - ENU (KB2645410)   KB2645410
+This security update is for Microsoft Visual Studio 2010 Ultimate - ENU.
+If you later install a more recent service pack, this security update will be uninstalled automatically.
+For more information, visit http://support.microsoft.com/kb/2645410.
+
+SlowCheetah - XML config transforms    1.0
+This package enables you to transform your app.config or any other XML file based on the build configuration. It also adds additional tooling to help you create XML transforms.
+
+Snippet Designer   1.3.1
+Snippet Designer is a Visual Studio plug in which allows you to create and search for snippets inside the IDE
+
+Visual Nunit   1.0
+Visual Nunit is an integration package that enables running of Nunit tests in Visual Studio.
+
+VSCommands 2010   10.3.9.21
+Prevent accidental Drag & Drop in Solution Explorer, Group Items, Locate In Solution, Create Code Contract, Copy/Paste References and many many others!
+
+Web Essentials   1.0
+Information about my package
+
+Windows Installer XML Toolset 3.5   
+Windows Installer XML Toolset 3.5.1419.0 
+Copyright © Microsoft Corporation. All rights reserved.
+
+Xamarin.Android   4.6.04000 (03814ac5)
+Visual Studio plugin to enable development for Xamarin.Android.
+
+Xamarin.iOS   1.1.200 (7d63692c)
+Visual Studio extension to enable development for Xamarin.iOS
+
+Visual Git
+Henk Westhuis
+
+Xsd2Code
+For more information about , see the  website at
+http://www.codeplex.com/Xsd2Code
+Copyright (c) Pascal Cabanel 2009  Inc.

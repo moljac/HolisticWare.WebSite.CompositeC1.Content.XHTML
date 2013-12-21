@@ -1,0 +1,57 @@
+root password
+	passwd
+portal password
+	passwd-amp 
+	htpasswd /usr/local/apache/passwd/wwwpasswd wwwadmin
+freepbx
+	passwd-maint
+	htpasswd /usr/local/apache/passwd/wwwpasswd maint
+meetmee
+	passwd-meetme 
+	htpasswd /usr/local/apache/passwd/wwwpasswd meetme
+
+	
+	
+mysql
+mysql>use asterisk;
+Database changed
+mysql> update ampusers set password="NEW_PASSWORD" where username="admin"
+
+click administrators from Setup tab
+click admin on right hand side
+then change password
+
+
+My setting in amportal.conf is AUTHTYPE=none.
+
+I will have to change that to database then start using FreePBX to create admin users.
+
+Thanks again.
+
+
+
+
+nano /etc/ampportal.conf
+to change the line
+AUTHTYPE=none
+to
+AUTHTYPE=database
+save and close,
+then
+nano /etc/trixbox/httpdconf/trixbox.conf
+Rem out the first seven lines in this file, like:
+##Password protect /var/www/html/admin
+#
+#AuthType Basic
+#AuthName "Restricted Area"
+#AuthUserFile /usr/local/apache/passwd/wwwpasswd
+#Require user wwwadmin maint
+#
+Save and exit.
+then
+service httpd restart
+
+
+
+
+http://www.freepbx.org/support/documentation/howtos/how-to-using-freepbx-back-end-for-trixbox-ce-authentication

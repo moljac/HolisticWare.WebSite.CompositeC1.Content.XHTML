@@ -1,0 +1,29 @@
+We have some trouble to run an Asp.Net MVC3 under mono 3.0.2 (profile .NET
+4.0)  The webapp runs fine under mono 2.10.9.
+
+In details, we are using  lighttpd 1.4.28 (ssl) webserver. the fastcgi
+configuration file is the following:
+
+fastcgi.server = (
+    "" => ((
+        "socket" => "/tmp/fastcgi-mono-server",
+                "bin-path" => "/opt/mono/bin/fastcgi-mono-server4",
+                "bin-environment" => (
+                        "PATH" => "/bin:/usr/bin:/opt/mono/bin",
+                        "LD_LIBRARY_PATH" => "/opt/mono/lib:",
+                        "MONO_SHARED_DIR" => "/tmp/",
+                        "MONO_FCGI_LOGLEVELS" => "Standard",
+                        "MONO_FCGI_LOGFILE" => "/tmp/fastcgi.log",
+                        "MONO_FCGI_ROOT" => "/var/www/html/ourwebapp",
+                        "MONO_FCGI_APPLICATIONS" => "/:."
+                ),
+                "max-procs" => 1,
+        "check-local" => "disable"
+    ))
+)
+
+On the server we installed side-by-side either mono Mono 2.10.9 and  Mono
+3.0.2> while executing the web application using lighttp with mono 2.10.9
+no big issues are found,  when we use mono 3.0.2  and  the latest XSP
+(2.10.2) we obtain an empty responses on the client side and the following
+error on the server log

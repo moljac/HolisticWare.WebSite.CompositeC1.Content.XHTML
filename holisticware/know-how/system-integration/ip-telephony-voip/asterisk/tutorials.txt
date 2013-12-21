@@ -1,0 +1,19 @@
+ggest to use clean asterisk at first to understand underground of any product like FreePBX.
+It is not so difficult to configure. Just for first steps you need to do couple of Dial planing and SIP(IAX) configuration.
+
+
+On Asterisk official web site:
+http://www.asterisk.org/community/documentation 
+
+The saterisk DOC web site:
+http://www.asteriskdocs.org/ 
+
+And itself PDF version:
+http://www.voxlink.ru/files/Asterisk.The.Definitive.Guide-2011.pdf
+
+
+
+ Digium has a very readable beginning tutorial: 
+https://wiki.asterisk.org/wiki/display/AST/Getting+Started
+
+

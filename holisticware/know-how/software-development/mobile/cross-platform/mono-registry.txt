@@ -1,0 +1,21 @@
+know Mono emulates the registry using a file structure in
+/etc/mono/registry, as well as .mono/registry in the user's home directory
+for user keys, and am trying to find what to replace "HKEY_CURRENT_USER" etc
+with, as all I get is a crash report saying it doesn't start with a valid
+registry root.
+
+I have tried "CurrentUser", "~/.mono/registry/CurrentUser", and various
+other combos, as well as converting to lower case.  I still get the invalid
+registry root error message.
+
+What do I need to replace HKEY_CURRENT_USER and HKEY_CLASSES_ROOT etc with
+to get it to pick up data from the registry folders?
+
+
+
+
+This is the only file in my ~/.mono/registry directory.  
+~/.mono/registry/CurrentUser/software/classes/code/shell/open/command/values.xml
+
+Have you tried creating a trivial program to write to HKEY_CURRENT_USER? 
+Does this trivial program work on other platforms?

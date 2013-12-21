@@ -1,0 +1,51 @@
+Process shell
+
+
+>  want to execute a shell builtin command from mono on a linux box. (To be 
+> precise: I want to read the current umask with the 'umask' command). Using the 
+> Process class doesn't work, since it looks for an actual command file to run.
+> Is there a way to do this?
+
+how about running "bash -c umask" and capturing the output?
+
+
+Any particular reason why you don't just call the POSIX syscall directly, w/o exec a shell?
+
+/ulrich
+
+
+Which is bound as Syscall.umask():
+
+	http://docs.go-mono.com/?link=M%3aMono.Unix.Native.Syscall.umask(Mono.Unix.Native.FilePermissions)
+
+	ou're right, that would work for umask (as would Ulrich's suggestions with 
+Mono.Unix.Native.Syscall.umask). But it won't work for other builtins (like 
+jobs or set), because it starts a new shell. I'm curious, if there is a 
+generic solution for this problem.
+
+
+
+
+Since any exec always starts a fresh shell there won't be any jobs to
+control or variables to set/get (other than what is set initially) to begin
+with.
+
+What are you trying to achieve?
+
+
+
+> s it? I didn't know that. I assumed it uses the same shell that mono is  running in.
+
+You're assuming that Mono was started from a shell. This need not be the case (e.g. 
+started directly as user's login shell or as system service, in which `init`
+would be the parent process).
+
+Even if Mono is started from a shell, it's usually not possible for a child 
+process to communicate with the parent process unless they're explicitly 
+designed to do so (e.g. via common file descriptor or pipes); e.g. there's no 
+way (that I know of) for a child to ask it's parent shell "what environment 
+variables do you currently have?". (Keep in mind that the child gets a _copy_ 
+of the parent's environment, so if the parent's environment changes, the 
+child won't see those changes.)
+
+Then there's Windows which doesn't even have a parent/child relationship.

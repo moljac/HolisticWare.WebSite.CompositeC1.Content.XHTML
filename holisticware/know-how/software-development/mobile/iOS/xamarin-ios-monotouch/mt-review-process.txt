@@ -1,0 +1,25 @@
+ never seen "pending an apple release"
+
+I've seen "pending DEVELOPER release" - thats when you say "I'll
+release it when I want to, not as soon as it's done". You have to go
+into itunes connect and release it (good if you are doing PR at the
+same time)
+
+Of course, Google says:
+
+http://news.ycombinator.com/item?id=1925066
+
+""Pending an Apple release" means that the binary was built against a
+version of iOS that hasn't been released yet (probably 4.2). You could
+try resubmitting with a deployment target of 4.0 if you need to get it
+into the store right away."
+
+It's an old answer, but that might be it? Maybe they forgot?
+
+
+On Thu, Sep 27, 2012 at 10:13 PM, Neal Culiner <neal@nc-software.com> wrote:
+> On Friday Sep 21st I submitted an update for my app with Min OS 6.0 using
+> MonoTouch 6.0.0 and Xcode 4.5.  It was reviewed today and later went into a
+> status of “Pending an Apple Release”.  I’m hoping this is an error on
+> Apple’s side.  Hoping this was not a meta data issue in MonoTouch 6.  Anyone
+> else seen this?  I submitted an inquiry to the App Review team.

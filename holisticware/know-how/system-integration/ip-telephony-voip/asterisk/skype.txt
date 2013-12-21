@@ -1,0 +1,40 @@
+o get Skype working on Asterisk PBX, you should install Freeswitch and mod_skypopen. There is a lot of guides online, below I put some links. 
+Idea is: 
+1. Install freeswitch 
+2. Install headless X server with VNC access 
+3. Run skype instance(s) 
+4. Configure freeswitch to talk with asterisk 
+
+Performance is not best, but it works, on standard workstation, you may run about 5 skype clients. 
+Stability is ... not best, you will need to create a series of scripts to monitor skype instances. 
+
+If money is not a big problem, buy a commercial SIP support from skype. 
+
+Some links, I have used to install Freeswitch: 
+http://wiki.freeswitch.org/wiki/Mod_skypiax#Debian_6_.28Squeeze.29_and_Ubuntu_12.04.x_.28LTS.29_required_packages 
+http://wiki.freeswitch.org/wiki/Skypiax#Which_Skype_Client_to_use_on_Linux 
+hotsechu.wordpress.com/2012/02/07/skype-en-centos-6-sin-sonido/ 
+wiki.centos.org/HowTos/VNC-Server#head-76401321dae4d80916a7fd7e710272a9b85c9485
+
+
+
+http://www.voiptoday.org/index.php?option=com_content&view=article&id=247:how-to-connect-asterisk
+
+Skype for Asterisk
+PLEASE NOTE: Skype for Asterisk is no longer available for sale. Skype for Asterisk will be 
+supported for two more years, until July 26, 2013.
+
+Skype for Asterisk is an add-on channel driver for Asterisk-based PBX systems. 
+Adding Skype for Asterisk to any Asterisk server enables complete access to the Skype 
+community, including low cost PSTN access and calling to more than 500 million registered 
+Skype users. 
+
+Use of Skype for Asterisk requires a Skype Manager account.
+
+Source: http://www.digium.com/en/products/software/skype-for-asterisk 
+
+There is three ways right now:
+1. Install skype on X and drivers
+2. Buy SIP service from skype
+3. Buy commercial skype gateways.
+

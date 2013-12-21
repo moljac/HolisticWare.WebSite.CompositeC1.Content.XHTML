@@ -1,0 +1,237 @@
+Use an abtract class Vehicule (It's abstract). the class can have 
+several abstract methods like move, haswheels, breaks, Speeds etc.. Know 
+you try to create classes like Car, Bus, Bike that extend the abstract 
+Vehicule class. You can put anything in your method. For example the Car 
+class HasWheels returns 4 wheels, 2 front and 2 back wheels etc....you 
+can redefine any abstract method in the classes. 
+
+Abstract classes are closely related to interfaces. Abstract class is a 
+class that can not be instantiated, it exists extensively for 
+inheritance and it must be inherited. // C# abstract class 
+WashingMachine { public WashingMachine() { // Code to initialize the 
+class goes here. } 
+
+abstract public void Wash(); abstract public void Rinse(int loadSize); 
+abstract public long Spin(int speed); } 
+
+Things to think about, Abstract classes usually have some implementation 
+of methods, with a few pure abstract methods. Interfaces are all 
+abstract, in that there is no implementations. A class can inherit from 
+multiple interfaces, but only one class, even if that class is abstract. 
+
+An example I could think of is a polygon class that has abstract methods 
+for sides, side length, and name, but you can generalize the draw if you 
+have the sides and lengths since you can calculate the angles etc. This 
+could inherit from a shape interface that has draw, and you could add 
+another class for circles etc. 
+
+interface IShape { void Draw(); } abstract class Polygon : IShape { 
+public void Draw() { /* ... logic to draw ... */ } public abstract int 
+Sides { get; } public abstract int SideLength { get; set; } public 
+abstract string Name { get; } } 
+
+class Square : Polygon { public override int Sides { get { return 4; } } 
+public override int SideLength { get; set; } public override string Name 
+{ get { return "Square"; } } } 
+
+Derivied classes from parent abstract have all the original properties 
+of the abstract and must implement (override) the same abstract class 
+methods. You can use abstract when you plan to write many similar 
+classes that share the same base concept. In this way, if you want to 
+make a global conceptual change, you can simply edit the original 
+abstract class instead of each derivied. 
+
+visit this link it will help u 
+http://dotnetcodes.com/dotnetcodes/code/Articles-103-When-we-will-use-an 
+-Interface-and-Abstract-class.aspx 
+
+Actually we use abstract class when we are going the provide common 
+functionality. Like we need define class for employee. Employe pay role 
+will be different based on designation. In this this senior we can 
+define one abstract class called Employee which will have common 
+properties of employee like name,address, payroll etc and than we define 
+one like Manger, Engineer, GM which will inherit the base employee 
+class. 
+
+This one simple example of using abstract class. 
+
+public abstract class Employee { } 
+
+public class Manager : Employee { } 
+
+One advantage of abstract class is that in future if you want to add 
+more functionality, It will be very easy in compare to interface. 
+
+An abstract class means that, no object of this class can be 
+instantiated, but can make derivations of this. abstract class absClass 
+{ public abstract void abstractMethod(); } , note that an abstract class 
+does not mean that it should contain abstract members. Even we can have 
+an abstract class only with non abstract members abstract class absClass 
+{ public void NonAbstractMethod() { Console.WriteLine("NonAbstract 
+Method"); } } 
+
+Example //Abstract Class1 abstract class absClass1 { public abstract int 
+AddTwoNumbers(int Num1, int Num2); public abstract int 
+MultiplyTwoNumbers(int Num1, int Num2); } 
+
+//Abstract Class2 abstract class absClass2:absClass1 { //Implementing 
+AddTwoNumbers public override int AddTwoNumbers(int Num1, int Num2) { 
+return Num1+Num2; } } 
+
+//Derived class from absClass2 class absDerived:absClass2 { 
+//Implementing MultiplyTwoNumbers public override int 
+MultiplyTwoNumbers(int Num1, int Num2) { return Num1*Num2; } } 
+
+In the real world, you see that we all know what "TV" is and what 
+behavior a "TV" can have. Also we all know many instances of "TV" 
+available in the world as "SONY", "PANASONIC", "NEC" and many others. 
+They all are "TV"s and usualy have the same functionalities, some more. 
+
+It's the same as "Employee"s in a company. They all have "Position", 
+"Salary" etc. But There are many instances of an "Employee". 
+
+The first example I knew about the abstraction was "Mammal" and all the 
+sub-instances in the world. We can't have an instance of "Mammal" but we 
+do have the "Mr John Smith" instead and we all know he's a "Mammal". 
+(Also we do have another abstract definition named "Human" inherits from 
+"Mammal", and "Mr John Smith" inherits from "Human") 
+
+• the abstract class is genrally known as incomplete class it is used 
+when we want to change the definiton of the method for the different 
+different classes... suppose there is an abstract class having salary 
+mathod of an company... now we know that the every member have different 
+salaries of a company ...so by inheritnig that abstract class to any 
+class and then we can change the definiton of salary method for every 
+class for their respective memmbers 
+
+Abstract class is a class which can not be instantiated and we need to 
+always inherit it to use in our code. The purpose of this class is to 
+have some Abstract methods/functions, which we need to overrides in the 
+derived class compulsory. 
+
+The benefit with abstract class is, it defines some common functionality 
+in this class to say all derives classes of this class that you have to 
+overrides the same functionality within your class as per your 
+requirement. Abstract class can also contain some other method/function 
+other than abstract methods/functions. 
+
+Interface is similar to this concept, but with a little difference. 
+Interface can not have concrete methods/functions within it. But we can 
+implement multiple interfaces in a class which is not possible with 
+abstract class. In case in future we need to add any other functionality 
+then it will be problem with abstract class but if it is an interface, 
+we can easily add one more interface in a class. 
+
+Abstract class is a special kind of class that cannot be instantiated. 
+So the question is why we need a class that cannot be instantiated? An 
+abstract class is only to be sub-classed (inherited from). In other 
+words, it only allows other classes to inherit from it but cannot be 
+instantiated. The advantage is that it enforces certain hierarchies for 
+all the subclasses. In simple words, it is a kind of contract that 
+forces all the subclasses to carry on the same hierarchies or standards. 
+
+using System; 
+
+namespace AbstractsANDInterfaces { /// 
+
+/// Summary description for Employee. 
+
+/// 
+
+public abstract class Employee { //we can have fields and properties 
+
+//in the Abstract class 
+
+protected String id; protected String lname; protected String fname; 
+
+//properties 
+
+public abstract String ID { get; set; } 
+
+public abstract String FirstName { get; set; } 
+
+public abstract String LastName { get; set; } //completed methods 
+
+public String Update() { return "Employee " + id + " " + lname + " " + 
+fname + " updated"; } //completed methods 
+
+public String Add() { return "Employee " + id + " " + lname + " " + 
+fname + " added"; } //completed methods 
+
+public String Delete() { return "Employee " + id + " " + lname + " " + 
+fname + " deleted"; } //completed methods 
+
+public String Search() { return "Employee " + id + " " + lname + " " + 
+fname + " found"; } 
+
+//abstract method that is different 
+
+//from Fulltime and Contractor 
+
+//therefore i keep it uncompleted and 
+
+//let each implementation 
+
+//complete it the way they calculate the wage. 
+
+public abstract String CalculateWage(); 
+
+} } 
+
+It is better to think in real life example. "Animal" is abstract from 
+dog,cat lion etc..You can see any thing called "Animal" only you have to 
+specify what it is, i.e it is Cat, Dog Lion. 
+
+So Animal has common characteristic that can be share among all other 
+entities. I.e. Eat, Drink and run. 
+
+Abstract class can not be instantiated because we can not see real thing 
+as animal but we can categories many thing to animal with common 
+behaviors. 
+
+An abstract class is a programming example of a real world problem. If 
+we want to create an object to represent, for example, dogs, cats and 
+other pets, we would create an abstract object Pet, and use it to create 
+the 'instant' class Dog OR Cat. Class Dog or class Cat are the physical 
+representation of the group of pets. 
+
+In OO, the to creat a class is to instatiate it. We can't create an 
+instance of the abstract class alone, since to do so would mean that 
+'Pet' is a physical thing. The instance of Dog is physical, but it 
+belongs to the group, or abstract 'Pet' 
+
+With this, we can state in the class Pet, the basic required of all 
+pets, - number of legs, - has fur - makes noise, where the class Dog and 
+class Cat will override these properties. 
+
+Other examples: Abstract Animal - Abstract Bird - Eagle, Swan etc 
+
+In the above example, we have two abstract layers. In C#, it is 
+sometimes better to use interfaces rather than abstract classes, where 
+the interface is a list of common properties, and linked to the class 
+that needs to implement these properties. 
+
+OO can be seen as trying to map the real world as close as possible. 
+
+Look up, for reference the difference between HAS_A and IS_A 
+relationships 
+
+An abstract class is nothing more than a simple class,but we use use 
+abstract keyword whenever we're using atleast one abstract method.An 
+abstract class can not be instantiated(you cannot make an object of this 
+class). An abstract method is almost same as the virtual method public 
+virtual void mymethod() //virtual method { // method body } 
+
+public abstract void mymethod(); //abstract Method 
+
+The difference between an abstract method and virtual method is that for 
+example if we have 1 baseclass and 5 derived classes if we donot apply 
+both abstract and virtual keywords to the method of the base class, the 
+method of the base will be inherited in all the derived class however if 
+we apply the virtual method than we can easily override the methods in 
+derived class(making changing in the method) by using override we can 
+only override those which have been decleard as virtual if we donot 
+override the same virtual method wil be inherited Now the abstract 
+method is a bit different,in abstract method we've to override every 
+method in every derived classes by using override keyword 
+

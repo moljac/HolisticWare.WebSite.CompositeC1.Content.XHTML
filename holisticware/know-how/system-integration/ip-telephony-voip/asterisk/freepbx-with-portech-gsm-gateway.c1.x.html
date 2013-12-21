@@ -1,0 +1,192 @@
+<!--
+C1 generated!!
+<title>Asterisk (FreePBX) with Portech GSM gateway</title>
+<meta name="Description" content="Asterisk with Portech GSM gateway, FreePBX and its derivatives Elastix, TrixBox" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function xmlns:f="http://www.composite.net/ns/function/1.0" name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords">
+		<f:param name="KeywordsAdditional" value="Asterisk, FreePBX, Portech, GSM, gateway">
+		</f:param>
+		<f:param name="AuthorsAdditional" value="mcvjetko">
+		</f:param>
+		<f:param name="Date" value="2011-02-20">
+		</f:param>
+		<f:param name="Language" value="en">
+		</f:param>
+	</f:function>
+	<h1><a id="">Asterisk (FreePBX) with Portech GSM gateway</a></h1>
+	<!-- ================================================================== -->
+
+	<p>
+	This is how-to for setting up FreePBX and its derivatives (Elastix, TrixBox)
+	with Portech gateways..
+	</p>
+
+	<h2><a id="">Asterisk and derivatives (Trixbox/Elastix) and Portech 37x GSM gateway</a></h2>
+
+
+	<h3><a id="">PBX setup</a></h3>
+	<ul>
+		<li>For each SIM card create
+			<ul>
+				<li>SIP trunk
+					<ul>
+						<li>outgoing sttings
+							<ul>
+								<li>peer details None/Zilch/Nada</li>
+							</ul>
+						</li>
+						<li>peerdetails<br />
+							host=IP_GSMGW<br />
+							type=peer<br />
+							port=5064 ; this varies for each trunk (increment by 2)</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<ul>
+			<ul>
+				<li>NOTE:each trunk has different port settings</li>
+			</ul>
+		</ul>
+		<ul>
+			<li>outbound route
+				<ul>
+				<li>dial pattern for that mobile network<br />
+					9|091X.</li>
+				<li>trunk sequence
+					<ul>
+						<li>
+						first trunk in the sequence should be trunk for this mobile operator
+						</li>
+						<li>
+						next trunks could be other mobile or fixed operators put cheaper first
+						</li>
+						<li>
+						NOTE: in order to have trunk failover in asterisk when SIM card is 
+						used GSM GW must send &quot;SERVICE UNAVAILABLE&quot; instead of 
+						&quot;BUSY HERE&quot;
+						</li>
+					</ul>
+				</li>
+				</ul>
+			</li>
+		</ul>
+	</ul>
+
+	<h3><a id="">GSM gateway setup</a></h3>
+	<ul>
+		<li>
+			notation
+			<ul>
+				<li>ITEM priority/enumeration of rules</li>
+				<li>CID caller id number</li>
+				<li>URL SIP uri</li>
+			</ul>
+		</li>
+		<li>Route<ul>
+			<li>
+				Mobile to LAN setting
+				<br />
+				Mobile to LAN 1,2 (same for Mobile to LAN 3,4)
+				<table style="width: 100%">
+					<tr>
+						<td>
+							ITEM</td>
+						<td>
+							CID</td>
+						<td>
+							URL</td>
+					</tr>
+					<tr>
+						<td>
+							0</td>
+						<td>
+							*</td>
+						<td>
+							300@IP</td>
+					</tr>
+				</table>
+			</li>
+			<li>
+				Mobile to LAN settings Speed Dial
+				<br />
+				Mobile 1,2
+				<br />
+				<table style="width: 100%">
+					<tr>
+						<td>
+							ITEM
+						</td>
+						<td>
+							CID
+						</td>
+						<td>
+							URL
+						</td>
+					</tr>
+					<tr>
+						<td>
+							0
+						</td>
+						<td>
+							*
+						</td>
+						<td>
+							#
+						</td>
+					</tr>
+				</table>
+			</li>
+			<li>LAN to Mobile</li>
+			</ul>
+		</li>
+		<li>Mobile
+			<ul>
+			<li>Mobile 1,2
+				<ul>
+					<li>Mobile 1,2: on</li>
+					<li>SIP from: Tel/Tel (Not reg)</li>
+					<li>Routing range: default (0 to 49)</li>
+					<li>LAN ans mode: income</li>
+				</ul>
+			</li>
+			</ul>
+		</li>
+		<li>Network
+			<ul>
+				<li>Master IP: ip of the GSMGW</li>
+			</ul>
+		</li>
+		<li>Service Domain
+			<ul>
+			<li>
+				Mobile 1
+				<ul>
+					<li>Active: On</li>
+					<li>Domain server: IP_PBX</li>
+					<li>Proxy server: IP_PBX</li>
+					<li>Status: not registered??</li>
+				</ul>
+			</li>
+			<li>
+				Mobile 3
+				<ul>
+					<li>Display Name: xyz</li>
+					<li>User name: xyz</li>
+					<li>Register name: xyz</li>
+					<li>Register password: aaa</li>
+					<li>Domain server: IP_PBX</li>
+					<li>Proxy server: IP_PBX</li>
+				</ul>
+			</li>
+			</ul>
+		</li>
+	</ul>
+
+</body>
+</html>

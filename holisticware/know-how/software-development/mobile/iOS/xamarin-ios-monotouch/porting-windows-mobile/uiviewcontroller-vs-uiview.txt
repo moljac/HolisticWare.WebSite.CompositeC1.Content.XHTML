@@ -1,0 +1,64 @@
+UIViewController vs UIView 
+
+UIResponder <--------------- UIView <---------------- UIViewController 
+
+on the same hierarchy level -> implementing different functionality! -> 
+different purpose 
+
+create xib change base class from UIViewController to UIView 
+
+missing base.ViewDidLoad (); base.ViewDidUnload (); 
+base.DidReceiveMemoryWarning (); 
+
+No base ctor 
+
+: base() // UIView cannot load xibs //base (UserInterfaceIdiomIsPhone ? 
+"Xample_XibbedWithModifiedXibViewController_iPhone" : 
+"Xample_XibbedWithModifiedXibViewController_iPad", null) 
+
+AppDelegate.FinishedLaunching 
+
+//window.RootViewController = viewController; 
+window.AddSubview(viewController); 
+
+Result: Blank screen Application Output: 2012-11-07 09:43:17.945 
+XampleXibbedWithModifiedXib[756:1607] Application windows are expected 
+to have a root view controller at the end of application launch 
+
+UIViewControllerLess iOS app 
+
+public override bool FinishedLaunching (UIApplication app, NSDictionary options) 
+{
+	// create a new window instance based on the screen size 
+	window = new UIWindow (UIScreen.MainScreen.Bounds); 
+
+	// If you have defined a view, add it here: 
+	// window.AddSubview 
+	(navigationController.View); 
+
+	UIButton button = new UIButton(); 
+	button.Frame = new 
+	System.Drawing.RectangleF(100,100, 100,20); 
+	button.SetTitle("Test", UIControlState.Highlighted); button.Hidden = false; 
+
+	window.AddSubview(button); 
+
+	// make the window visible window.MakeKeyAndVisible (); 
+
+	return true; 
+} 
+
+Controller objects in iOS are represented by subclasses of 
+UIViewController. In an iPhone application, each view controller 
+represents one screen’s worth of data. In an iPad application, a view 
+controller might represent a whole screen or it may just represent a 
+functional unit of the screen such as a controller for a list displayed 
+on the screen. For this tutorial, we will focus on the iPhone scenario 
+since iPad view controller hierarchies can get complicated. Each view 
+controller has a View property that is used to manage its view 
+hierarchy. Methods defined in UIViewController can be overridden in view 
+controller subclasses to participate in what Apple refers to as the View 
+Controller Lifecycle. For instance, a view controller can override 
+LoadView to create and load its view object and override ViewDidLoad to 
+customize the view after it has loaded. 
+

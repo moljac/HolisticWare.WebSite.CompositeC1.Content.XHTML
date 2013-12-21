@@ -1,0 +1,164 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>USB drivers for Android devices</title>
+Description = all keywords + extra text
+<meta name="Description" content="USB drivers for Android devices (vendor specific, samples HTC Sensation, Sony Ericsson Xperia X10)" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: usb-drivers-for-android-devices
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Android, USB, drivers, devices" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Android USB drivers for devices</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<!-- ================================================================== -->
+	<h2><a id="">Reset reload USB drivers</a></h2>
+	<p>
+	ADB commandline to reset USB:
+	</p>
+	<pre class="hw_code">
+	adb usb
+	</pre>
+
+	<!-- ================================================================== -->
+	<h2><a id="">USB Drivers installation (loose less time)</a></h2>
+
+	<h3><a id="">Docs and references</a></h3>
+	<ul>
+		<li>
+		<a href="http://developer.android.com/sdk/win-usb.html">
+		Google Windows USB drivers http://developer.android.com/sdk/win-usb.html
+		</a>
+		</li>
+		<li>
+		<a href="http://developer.android.com/sdk/oem-usb.html">
+		OEM (Vendor specific) drivers http://developer.android.com/sdk/oem-usb.html
+		</a>
+		</li>
+	</ul>
+
+	<p>
+	Prepared everything for deployment with Android SDK and AVD Manager.
+	Checked/downloaded:	Available Packages +/ Google USB Drivers.
+	</p>
+	<p>
+	Tried to install 2 devices on Windows Vista:
+	</p>
+	<ul>
+		<li>HTC Sensation</li>
+		<li>Sony Ericsson Xperia X10</li>
+	</ul>
+	<p>
+	in Computer +/ Manage +/ Device Manger drivers were reported
+	</p>
+	<ul>
+		<li>for HTC Sensation as "Android Device"</li>
+		<li>Sony Ericsson Xperia X10 as "SEMC HUSB"</li>
+	</ul>
+	<p>
+	Downloaded drivers for:
+	</p>
+	<ul>
+		<li>
+			<a href="http://www.htc.com/www/help/">
+			HTC Sensation no drivers, but HTC Sync Application http://www.htc.com/www/help/
+			</a>
+		</li>
+		<li>		
+			<a href="http://developer.sonyericsson.com/wportal/devworld/search-downloads/driver?cc=gb&amp;lc=en">
+			Sony Ericsson Xperia X10 drivers 
+			http://developer.sonyericsson.com/wportal/devworld/search-downloads/driver?cc=gb&amp;lc=en
+			</a>
+		</li>
+	</ul>
+	<p>
+	Driver installation for X10 failed, but for XTC Sensation after installation of Sync application
+	everything worked as charm.
+	Next step was to give it a try and download similar application for Sony Ericsson and got
+	<a href="http://www.sonyericsson.com/cws/support/mobilephones/downloads/subject/pccompanion/1.689743?cc=gb&amp;lc=en">
+	PC Companion http://www.sonyericsson.com/cws/support/mobilephones/downloads/subject/pccompanion/1.689743?cc=gb&amp;lc=en
+	</a>.
+	<br />
+	Again after installation everything worked like a charm...
+	</p>	
+
+
+	<h3><a id="">Conclusion</a></h3>
+	<p>
+	It seems that it makes sense to install appropriate syncing applications for devices, 
+	because most likely that they have up-to-date USB drivers for device.
+	</p>
+
+
+
+	<h3><a id="">USB debugging in Mono for Android</a></h3>
+	<p>
+	USB debugging is available since version 1.0.1. 
+	</p>
+	<p>
+	In AndroidManifest.xml file, add android:debuggable="true" to the &lt;application&gt;
+	element.
+	</p>
+	<p>
+	On device set:
+	</p>
+	<ul>
+		<li> 
+		Device +/ Settings +/ Applications +/ Unknown sources = true
+		</li>
+		<li>
+		Device +/ Settings +/ Applications +/ Development +/ USB debugging = true
+		</li>
+	</ul>
+	<p>
+	Verify that device is connected by executing 
+	</p>
+	<pre class="hw_code">
+	adb devices
+	</pre>
+	<p>
+	from SDK platform-tools/ directory. 
+	If connected, the device name is listed as a "device."
+	</p>
+	<p>
+	For IDE (Visual Studio/Eclipse), run or debug application as usual. 
+	Device Chooser Dialog will be presented that lists the available 
+	emulator(s) and connected device(s). 
+	Select the target device where application will be deployed.
+	</p>
+	<p>
+	If using the Android Debug Bridge (adb), it is possible to issue commands 
+	with the -d  flag to target certain connected device.
+	</p>
+
+	<!-- ================================================================== -->
+	<h2><a id="">References</a></h2>
+	<ul>
+		<li>
+		<a href="http://developer.android.com/guide/developing/device.html">
+		Using hardware devices http://developer.android.com/guide/developing/device.html
+		</a>
+		</li>
+		<li>
+		<a href="http://developer.android.com/guide/developing/tools/adb.html">
+		Android Debug Bridge http://developer.android.com/guide/developing/tools/adb.html
+		</a>
+		</li>
+	</ul>
+</body>
+</html>

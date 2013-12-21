@@ -1,0 +1,8 @@
+
+Find in files
+	find . -type f |xargs grep hello
+	find . -exec grep hello {} \; -print
+	find . -exec grep -l hello {} \;
+	find . -exec grep -Hn hello {} \;
+	find . -exec grep -n hello /dev/null {} \;
+	find / -print -exec grep 'hello' {} \;

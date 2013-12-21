@@ -1,0 +1,26 @@
+ class Person
+    {
+       string name;
+
+       int age;
+    }
+
+JSON
+{“age”:42,”name”:”John”}
+
+XML
+
+<Person>
+	<Name>John</Name>
+	<Age>42</Age>
+</Person>
+
+
+I am looking for a decent JSON option for Monotouch for both serializing and 
+deserializing. My preference for all of my Windows development has been Json.Net 
+but it doesn't seem to be properly supported for Monotouch. I got the latest source 
+code and tried to compile it's portable library and then tried by setting the 
+Silverlight and PocketPC compiler options but it still has quite a few compiler errors.
+
+Do you just use the built in System.Json? I haven't used it much so I don't 
+have an opinion on it.

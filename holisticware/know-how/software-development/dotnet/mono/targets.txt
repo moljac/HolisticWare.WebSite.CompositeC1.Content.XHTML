@@ -1,0 +1,11 @@
+Mono Targets
+
+
+Defined by compiler
+
+targeting .NET 2.0 (using gmcs). 
+
+It seems to work correctly with my project targeting .NET 4.0 (using dmcs). 
+
+I get the correct /debug- flag when I have <DebugType>none</DebugType> in my .csproj file. 
+Or maybe you have a mismatched <DebugSymbols>true</DebugSymbols> in your .csproj? 

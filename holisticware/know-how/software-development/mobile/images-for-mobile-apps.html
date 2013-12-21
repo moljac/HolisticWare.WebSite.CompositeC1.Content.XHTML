@@ -1,0 +1,1347 @@
+<!--
+C1 generated!!
+url: images-for-mobile-apps
+<title>Images for mobile apps</title>
+<meta name="Description" content="Images for mobile apps, generation and issues" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="title" />
+	  <f:param name="AuthorsAdditional" value="" />
+	  <f:param name="Date" value="2011-04-18" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Images for mobile apps</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<h2><a id="">Intro</a></h2>
+	<p>
+	These scripts are for generating png images for diverse mobile platforms from given svg file.
+	</p>
+	<p>
+		Files:
+	</p>
+	<ul>
+		<li>
+			create_bitmaps_from_svg.bat
+			<br />
+			calls other scrips if needed
+		</li>
+		<li>
+			create_bitmaps_from_svg_w_inkscape.bat
+			<br />
+			Works ok!
+		</li>
+		<li>
+			create_bitmaps_from_svg_w_imagemagick.bat
+			<br />
+			using convert
+			<br />
+			problems with gradients -  lost colors
+			<br />
+			check options!!
+			<br />
+			Anyone?!?!?!
+		</li>
+	</ul>
+	<p>
+	TODOS:
+	</p>
+	<ol>
+		<li>
+		Bash script (MacOSX)
+		<br /> 
+		@Iki - test it!
+		</li>
+		<li>
+		Optimizations with optipng
+		<br />
+		Rationale: Mobile apps have limited resources, so optimization of images make sense like
+		in web apps.
+		<br />
+		@Moljac -  test script and write HowTo
+		</li>
+	</ol>
+	<!-- =================================================================================== -->
+	<h3><a id="">Inkscape</a></h3>
+	<pre class="hw_code">
+@echo off
+echo Converting SVG files to PNGs
+echo Warning: Do not use filenames with whitespace!!!
+
+:: http://how-to.wikia.com/wiki/How_to_convert_one_image_format_to_another_via_command_line
+:: http://www.imagemagick.org/Usage/draw/#svg
+
+setlocal EnableDelayedExpansion
+
+set INKSCAPE="C:\Program Files\Inkscape\inkscape.exe"
+
+
+FOR /F "tokens=*" %%s IN ('dir /s /b ..\*.svg') DO (
+	echo =======================================================================
+	set FILENAME_PATH_SVG=%%s
+	set FILENAME=%%~ns
+	set FILENAME_W_EXT=%%~nxs
+	::set DIRNAME=!FILENAME_PATH:.svg=!  No renaming
+	set DIRNAME="!FILENAME_PATH_SVG!.holisticware-inkscape-generated.tmp"
+
+	echo FILENAME_PATH_SVG=!FILENAME_PATH_SVG!
+	echo FILENAME=!FILENAME!
+	echo FILENAME_W_EXT=!FILENAME_W_EXT!
+	echo DIRNAME="!DIRNAME!"
+
+	echo "Creating Directory - surrounded with "" in the case of whitespace"
+	echo "Working with full path!"
+	rmdir /q /s "!DIRNAME!"
+	mkdir "!DIRNAME!"
+
+	echo ----------------------------------------------------
+	identify "!FILENAME_PATH_SVG!"
+
+	echo ----------------------------------------------------
+	set PLATFORM=windows-phone
+	echo PLATFORM=!PLATFORM!
+
+	mkdir "!DIRNAME!\!PLATFORM!"
+
+	set WIDTH=62
+	set HEIGHT=62
+	set SIZE=!WIDTH!x!HEIGHT!_application_image
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+
+	set WIDTH=173
+	set HEIGHT=173
+	set SIZE=!WIDTH!x!HEIGHT!_application_tile_image
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+
+	set WIDTH=173
+	set HEIGHT=173
+	set SIZE=!WIDTH!x!HEIGHT!_marketplace_catalog_application_icon_for_device_large
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+
+	set WIDTH=99
+	set HEIGHT=99
+	set SIZE=!WIDTH!x!HEIGHT!_marketplace_catalog_application_icon_for_device_small
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+
+	set WIDTH=200
+	set HEIGHT=200
+	set SIZE=!WIDTH!x!HEIGHT!_marketplace_catalog_application_icon_for_desktop
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+
+	echo ----------------------------------------------------
+	:: http://developer.android.com/guide/practices/ui_guidelines/icon_design.html
+	set PLATFORM=android
+	echo PLATFORM=!PLATFORM!
+
+	mkdir "!DIRNAME!"\!PLATFORM!\
+
+	echo Launchers
+
+	set WIDTH=36
+	set HEIGHT=36
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi_120dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_launcher_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi_160dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_launcher_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=72
+	set HEIGHT=72
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi_240dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_launcher_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=96
+	set HEIGHT=96
+	set SIZE=!WIDTH!x!HEIGHT!_320dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_launcher_!FILENAME!_!SIZE!.png"
+
+
+
+	echo Menus
+
+	set WIDTH=36
+	set HEIGHT=36
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_menu!FILENAME!_!SIZE!.png"
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_menu!FILENAME!_!SIZE!.png"
+
+	set WIDTH=72
+	set HEIGHT=72
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_menu!FILENAME!_!SIZE!.png"
+
+
+
+
+	echo Action bar
+
+	set WIDTH=18
+	set HEIGHT=18
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi_120dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_action_bar_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=24
+	set HEIGHT=24
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi_160dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_action_bar_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=36
+	set HEIGHT=36
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi_240dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_action_bar_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_320dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_action_bar_!FILENAME!_!SIZE!.png"
+
+
+
+	echo Status Bar
+
+	set WIDTH=18
+	set HEIGHT=18
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi_120dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=24
+	set HEIGHT=24
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi_160dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=36
+	set HEIGHT=36
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi_240dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_320dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+
+	echo Android 2.3
+
+	set WIDTH=12
+	set HEIGHT=19
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=16
+	set HEIGHT=25
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=12
+	set HEIGHT=19
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+
+
+	echo Android 2.2-
+
+	set WIDTH=25
+	set HEIGHT=25
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+
+
+	echo Tab Bar
+
+	set WIDTH=24
+	set HEIGHT=24
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_tab_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=32
+	set HEIGHT=32
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_tab_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_tab_!FILENAME!_!SIZE!.png"
+
+
+
+
+	echo Dialog
+
+	set WIDTH=24
+	set HEIGHT=24
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi_120dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_dialog_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=32
+	set HEIGHT=32
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi_160dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_dialog_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi_240dpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_dialog_!FILENAME!_!SIZE!.png"
+
+
+
+
+	echo List View
+
+	set WIDTH=24
+	set HEIGHT=24
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_listview_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=32
+	set HEIGHT=32
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_listview_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\ic_listview_!FILENAME!_!SIZE!.png"
+
+
+
+
+	echo ----------------------------------------------------
+	set PLATFORM=ios
+	echo PLATFORM=!PLATFORM!
+
+	mkdir "!DIRNAME!"\!PLATFORM!\
+
+
+	echo iPhone only
+	
+	set SIZE=512x512
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\itunes_artwork_!FILENAME!_!SIZE!.png"
+
+	set SIZE=57x57
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon_!FILENAME!_!SIZE!.png"
+
+	set SIZE=114x114
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon@2x_!FILENAME!_!SIZE!.png"
+
+	set SIZE=72x72
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon-72_!FILENAME!_!SIZE!.png"
+
+	set SIZE=29x29
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon-Small_!FILENAME!_!SIZE!.png"
+
+	set SIZE=50x50
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon-Small-50_!FILENAME!_!SIZE!.png"
+
+	set SIZE=58x58
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon-Small@2x_!FILENAME!_!SIZE!.png"
+
+
+
+
+	echo iPad only
+	
+	set SIZE=512x512
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\itunes_artwork_!FILENAME!_!SIZE!.png"
+
+	set SIZE=72x72
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon-72_!FILENAME!_!SIZE!.png"
+
+	set SIZE=50x50
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon-Small-50_!FILENAME!_!SIZE!.png"
+
+	set SIZE=29x29
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon-Small_!FILENAME!_!SIZE!.png"
+		
+
+
+
+
+	echo Universal
+	
+	set SIZE=512x512
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\itunes_artwork_!FILENAME!_!SIZE!.png"
+
+	set SIZE=57x57
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon_!FILENAME!_!SIZE!.png"
+
+	set SIZE=114x114
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon@2x_!FILENAME!_!SIZE!.png"
+
+	set SIZE=72x72
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon-72_!FILENAME!_!SIZE!.png"
+
+	set SIZE=50x50
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon-Small-50_!FILENAME!_!SIZE!.png"
+
+	set SIZE=29x29
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon-Small_!FILENAME!_!SIZE!.png"
+
+	set SIZE=58x58
+	%INKSCAPE% ^
+		-f "!FILENAME_PATH_SVG!" ^
+		-w !WIDTH! -h !HEIGHT! ^
+		-e "!DIRNAME!\!PLATFORM!\Icon-Small@2x_!FILENAME!_!SIZE!.png"
+)
+
+pause
+	</pre>
+	<!-- =================================================================================== -->
+	<h3><a id="">Imagemagick</a></h3>
+	<p>
+	Note: Problems with gradiens and losing colors!! Check Options!!!!!!
+	</p>
+	<pre class="hw_code">
+@echo off
+echo Converting SVG files to PNGs
+echo Warning: Do not use filenames with whitespace!!!
+
+:: http://how-to.wikia.com/wiki/How_to_convert_one_image_format_to_another_via_command_line
+:: http://www.imagemagick.org/Usage/draw/#svg
+
+setlocal EnableDelayedExpansion
+
+set CONVERT=convert
+set CONVERT_OPTIONS=-density 144 -background none
+
+
+FOR /F "tokens=*" %%s IN ('dir /s /b ..\*.svg') DO (
+	echo =======================================================================
+	set FILENAME_PATH_SVG=%%s
+	set FILENAME=%%~ns
+	set FILENAME_W_EXT=%%~nxs
+	::set DIRNAME=!FILENAME_PATH:.svg=!  No renaming
+	set DIRNAME="!FILENAME_PATH_SVG!.holisticware-imagemagick-generated.tmp"
+
+	echo FILENAME_PATH_SVG=!FILENAME_PATH_SVG!
+	echo FILENAME=!FILENAME!
+	echo FILENAME_W_EXT=!FILENAME_W_EXT!
+	echo DIRNAME="!DIRNAME!"
+	
+	echo "Creating Directory - surrounded with "" in the case of whitespace"
+	echo "Working with full path!"
+	rmdir /q /s "!DIRNAME!"
+	mkdir "!DIRNAME!"
+
+	echo ----------------------------------------------------
+	identify "!FILENAME_PATH_SVG!"
+	
+	echo ----------------------------------------------------
+	set PLATFORM=windows-phone
+	echo PLATFORM=!PLATFORM!
+	
+	mkdir "!DIRNAME!\!PLATFORM!"
+		
+	set WIDTH=62
+	set HEIGHT=62
+	set SIZE=!WIDTH!x!HEIGHT!_application_image
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"		
+	
+	set WIDTH=173
+	set HEIGHT=173
+	set SIZE=!WIDTH!x!HEIGHT!_application_tile_image
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	set WIDTH=173
+	set HEIGHT=173
+	set SIZE=!WIDTH!x!HEIGHT!_marketplace_catalog_application_icon_for_device_large
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+
+	set WIDTH=99
+	set HEIGHT=99
+	set SIZE=!WIDTH!x!HEIGHT!_marketplace_catalog_application_icon_for_device_small
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+				
+	set WIDTH=200
+	set HEIGHT=200
+	set SIZE=!WIDTH!x!HEIGHT!_marketplace_catalog_application_icon_for_desktop
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"	
+
+
+	echo ----------------------------------------------------
+	:: http://developer.android.com/guide/practices/ui_guidelines/icon_design.html
+	set PLATFORM=android
+	echo PLATFORM=!PLATFORM!
+
+	mkdir "!DIRNAME!"\!PLATFORM!\
+	
+	echo Launchers
+
+	set WIDTH=36
+	set HEIGHT=36
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi_120dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_launcher_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi_160dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_launcher_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=72
+	set HEIGHT=72
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi_240dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_launcher_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=96
+	set HEIGHT=96
+	set SIZE=!WIDTH!x!HEIGHT!_320dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_launcher_!FILENAME!_!SIZE!.png"
+
+
+
+	echo Menus
+
+	set WIDTH=36
+	set HEIGHT=36
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_menu!FILENAME!_!SIZE!.png"
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_menu!FILENAME!_!SIZE!.png"
+
+	set WIDTH=72
+	set HEIGHT=72
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_menu!FILENAME!_!SIZE!.png"
+
+
+
+
+	echo Action bar
+
+	set WIDTH=18
+	set HEIGHT=18
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi_120dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_action_bar_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=24
+	set HEIGHT=24
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi_160dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_action_bar_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=36
+	set HEIGHT=36
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi_240dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_action_bar_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_320dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_action_bar_!FILENAME!_!SIZE!.png"
+
+
+
+	echo Status Bar
+
+	set WIDTH=18
+	set HEIGHT=18
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi_120dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=24
+	set HEIGHT=24
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi_160dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		 "!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=36
+	set HEIGHT=36
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi_240dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		 "!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_320dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+
+	echo Android 2.3
+
+	set WIDTH=12
+	set HEIGHT=19
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=16
+	set HEIGHT=25
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=12
+	set HEIGHT=19
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+
+
+	echo Android 2.2-
+
+	set WIDTH=25
+	set HEIGHT=25
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_stat_notify_!FILENAME!_!SIZE!.png"
+
+
+
+	echo Tab Bar
+
+	set WIDTH=24
+	set HEIGHT=24
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_tab_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=32
+	set HEIGHT=32
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_tab_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_tab_!FILENAME!_!SIZE!.png"
+
+
+
+
+	echo Dialog
+
+	set WIDTH=24
+	set HEIGHT=24
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi_120dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_dialog_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=32
+	set HEIGHT=32
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi_160dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_dialog_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi_240dpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_dialog_!FILENAME!_!SIZE!.png"
+
+
+
+
+	echo List View
+
+	set WIDTH=24
+	set HEIGHT=24
+	set SIZE=!WIDTH!x!HEIGHT!_ldpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_listview_!FILENAME!_!SIZE!.png"
+
+	set WIDTH=32
+	set HEIGHT=32
+	set SIZE=!WIDTH!x!HEIGHT!_mdpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_listview_!FILENAME!_!SIZE!.png"
+
+
+	set WIDTH=48
+	set HEIGHT=48
+	set SIZE=!WIDTH!x!HEIGHT!_hdpi
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\ic_listview_!FILENAME!_!SIZE!.png"
+
+		
+	echo ----------------------------------------------------
+	set PLATFORM=ios
+	echo PLATFORM=!PLATFORM!
+
+	mkdir "!DIRNAME!"\!PLATFORM!\
+	
+	echo iPhone only
+	
+	set SIZE=512x512
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\itunes_artwork_!FILENAME!_!SIZE!.png"
+
+	set SIZE=57x57
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon_!FILENAME!_!SIZE!.png"
+
+	set SIZE=114x114
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon@2x_!FILENAME!_!SIZE!.png"
+
+	set SIZE=72x72
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon-72_!FILENAME!_!SIZE!.png"
+
+	set SIZE=29x29
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon-Small_!FILENAME!_!SIZE!.png"
+
+	set SIZE=50x50
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon-Small-50_!FILENAME!_!SIZE!.png"
+
+	set SIZE=58x58
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon-Small@2x_!FILENAME!_!SIZE!.png"
+
+
+
+
+	echo iPad only
+	
+	set SIZE=512x512
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\itunes_artwork_!FILENAME!_!SIZE!.png"
+
+	set SIZE=72x72
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon-72_!FILENAME!_!SIZE!.png"
+
+	set SIZE=50x50
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon-Small-50_!FILENAME!_!SIZE!.png"
+
+	set SIZE=29x29
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon-Small_!FILENAME!_!SIZE!.png"
+		
+
+
+
+
+	echo Universal
+	
+	set SIZE=512x512
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\itunes_artwork_!FILENAME!_!SIZE!.png"
+
+	set SIZE=57x57
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon_!FILENAME!_!SIZE!.png"
+
+	set SIZE=114x114
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon@2x_!FILENAME!_!SIZE!.png"
+
+	set SIZE=72x72
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon-72_!FILENAME!_!SIZE!.png"
+
+	set SIZE=50x50
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon-Small-50_!FILENAME!_!SIZE!.png"
+
+	set SIZE=29x29
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon-Small_!FILENAME!_!SIZE!.png"
+
+	set SIZE=58x58
+	%CONVERT% ^
+		%CONVERT_OPTIONS% ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !WIDTH!x!HEIGHT! ^
+		"!DIRNAME!\!PLATFORM!\Icon-Small@2x_!FILENAME!_!SIZE!.png"
+	
+)
+	</pre>
+
+
+
+
+	<h2><a id="">TODOs</a></h2>
+	<ul>
+		<li>
+			More description 
+			<br />
+			In the meantime team's writeup 
+			<a href="http://www.holisticware.net/HolisticWare/Know-How/development/multitargeting-portability-interoperability/ui-development-presentation-layer-framework-comparison.aspx">
+			http://www.holisticware.net/HolisticWare/Know-How/development/multitargeting-portability-interoperability/ui-development-presentation-layer-framework-comparison.aspx
+			</a>
+		</li>
+		<li>
+			bash version for Linux/MacOSX
+		</li>
+		<li>
+			split into scripts for each platform and add common startup script
+		</li>
+		<li>
+			add optimizations (same like for web apps - page speed)
+		</li>
+	</ul>
+
+
+	<!-- =================================================================================== -->
+	<h2><a id="">Old obsolete script!!!</a></h2>
+
+	<pre class="hw_code">
+@echo off
+echo Converting SVG files to PNGs
+echo Warning: Do not use filenames with whitespace!!!
+
+
+setlocal EnableDelayedExpansion 
+
+set OPTIPNG=c:\bin\optipng\optipng.exe
+
+%OPTIPNG%
+
+FOR /F "tokens=*" %%s IN ('dir /s /b ..\*.svg') DO (
+	echo =======================================================================
+	set FILENAME_PATH_SVG=%%s
+	set FILENAME=%%~ns
+	set FILENAME_W_EXT=%%~nxs
+	::set DIRNAME=!FILENAME_PATH:.svg=!  No renaming
+	set DIRNAME="!FILENAME_PATH_SVG!.holisticware-generated"
+
+	echo FILENAME_PATH_SVG=!FILENAME_PATH_SVG!
+	echo FILENAME=!FILENAME!
+	echo FILENAME_W_EXT=!FILENAME_W_EXT!
+	echo DIRNAME="!DIRNAME!"
+	
+	echo "Creating Directory - surrounded with "" in the case of whitespace"
+	echo "Working with full path!"
+	rmdir /q /s "!DIRNAME!"
+	mkdir "!DIRNAME!"
+
+	echo ----------------------------------------------------
+	identify "!FILENAME_PATH_SVG!"
+	
+	echo ----------------------------------------------------
+	set PLATFORM=windows-phone
+	echo PLATFORM=!PLATFORM!
+	
+	mkdir "!DIRNAME!\!PLATFORM!"
+		
+	set SIZE=62x62
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+	
+		
+	set SIZE=173x173
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	set SIZE=99x99
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	set SIZE=200x200
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+	
+
+
+	echo ----------------------------------------------------
+	set PLATFORM=android
+	echo PLATFORM=!PLATFORM!
+
+	mkdir "!DIRNAME!"\!PLATFORM!\
+	
+	set SIZE=36x36
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	set SIZE=48x48
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	set SIZE=72x72
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	set SIZE=96x96
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	set SIZE=19x19
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	set SIZE=25x25
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	set SIZE=38x38
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+
+	set SIZE=24x24
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+
+	set SIZE=32x32
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	echo ----------------------------------------------------
+	set PLATFORM=ios
+	echo PLATFORM=!PLATFORM!
+
+	mkdir "!DIRNAME!"\!PLATFORM!\
+	
+	set SIZE=57x57
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+
+	set SIZE=114x114
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	set SIZE=72x72
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	set SIZE=28x28
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+		
+	set SIZE=58x58
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+
+	set SIZE=50x50
+	convert ^
+		"!FILENAME_PATH_SVG!" ^
+		-resize !SIZE! ^
+		"!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png"
+	
+)
+
+pause
+
+
+
+	%OPTIPNG% ^
+		-log "!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.png.log" ^
+		-out "!DIRNAME!\!PLATFORM!\!FILENAME!_!SIZE!.opt.png" ^
+		"!DIRNAME!\!FILENAME!_!SIZE!.opt.png"
+
+:: Howtos!!!!!!!!!!!!!!!
+
+
+:: http://commandwindows.com/tipsandtricks.htm
+
+:: echo %mA% %mB% %mC% %mD%
+:: and all the variables translate to an empty string, because none of 
+:: them have been set. In that case, the command is actually just this:
+:: 	          echo
+
+
+:: Variable substitution
+:: %~I         - expands %I removing any surrounding quotes (")
+:: %~fI        - expands %I to a fully qualified path name
+:: %~dI        - expands %I to a drive letter only
+:: %~pI        - expands %I to a path only
+:: %~nI        - expands %I to a file name only
+:: %~xI        - expands %I to a file extension only
+:: %~sI        - expanded path contains short names only
+:: %~aI        - expands %I to file attributes of file
+:: %~tI        - expands %I to date/time of file
+:: %~zI        - expands %I to size of file
+:: %~$PATH:I   - searches the directories listed in the PATH
+::                environment variable and expands %I to the
+::                fully qualified name of the first one found.
+::                If the environment variable name is not
+::                defined or the file is not found by the
+::                search, then this modifier expands to the
+::                empty string		   
+			   
+			   
+	   
+::delayed expansion
+	</pre>
+
+</body>
+</html>

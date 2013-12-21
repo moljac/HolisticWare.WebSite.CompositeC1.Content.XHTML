@@ -1,0 +1,142 @@
+http://dotprogramming.blogspot.in/2013/08/how-to-use-application-state-session.html?goback=%2Egde_109945_member_264982886#%21
+
+
+
+
+
+How to use Application State, Session State and View State in ASP.NET
+
+ Application State : Application state is used to store data 
+corresponding to all the variables of an ASP.NET Web application. The 
+data in application state is stored once and read several times. 
+Application state uses the HttpApplicationstate class to store and share 
+the data throughout the application. You can access the information 
+stored in an applicationstate by using the HttpApplication class 
+property. Data stored in application state is accessible to all the 
+pages of the application and is the same for all users accessing the 
+application. The HttpApplicationstate class provides a lock, method , 
+which you can use to ensure that only one user is able to access and 
+modify the data of an application at any instant of time. 
+
+Session State : Each client accessing a Web application maintains a 
+distinct session with the Web server, and there is also specific 
+information associated with each of these sessions. Session state is 
+defined in the <sessionState> section of the web.config file. It also 
+stores the data specific to a user session in session variables. 
+Different session variables are created for each user session. In 
+addition, session variables can be accessed from any page of the 
+application. When a user accesses a page , a session ID for the user is 
+created. The session ID is transferred between the server and the client 
+over the HTTP protocol using cookies. 
+
+View State : View state stores page specific information , when a page 
+is posted back to the server. When a page is processed, the current 
+state of the page and its controls is hashed (transforming a sequence of 
+character into a fixed-length value ) into a string and saved as a 
+hidden field on the page. Such a state of the page is called view state. 
+
+
+Example of Application State , Session State and View State
+Step-1 : Add Global.asax file in your project
+Step-2 : Copy this code and paste in your global.asax file
+
+
+<%@ Application Language="C#" %>
+<%@ Import Namespace="WebSite2" %>
+<%@ Import Namespace="System.Web.Optimization" %>
+<%@ Import Namespace="System.Web.Routing" %>
+
+<script runat="server">
+
+    void Application_Start(object sender, EventArgs e)
+    {
+        Application["visits"] = 0;
+    
+    }
+  
+    void Application_End(object sender, EventArgs e)
+    {
+        //  Code that runs on application shutdown
+
+    }
+
+    void Application_Error(object sender, EventArgs e)
+    {
+        // Code that runs when an unhandled error occurs
+
+    }
+    void Session_Start(Object sender, EventArgs e)
+    {
+        Session["mytext"] = "I am a teacher";
+      
+    }
+
+</script>
+
+Step-3: Add a webform in your project
+Step-4: Copy this code and paste to your webform
+Source code 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="saexample.aspx.cs" Inherits="saexample" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+  
+        Enter your name :
+        <asp:TextBox ID="TextBox1" runat="server" Height="26px" Width="155px"></asp:TextBox>
+        <br />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+        <br />
+        <asp:Label ID="Label1" runat="server"></asp:Label>
+        <br />
+        <br />
+        Application State :<br />
+        Number of last visit :<br />
+        <asp:Label ID="Label2" runat="server"></asp:Label>
+        <br />
+        <br />
+        Session State<br />
+        <asp:Label ID="Label3" runat="server"></asp:Label>
+        <br />
+  
+    </div>
+    </form>
+</body>
+</html>
+
+
+Code Behind file 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class saexample : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Application["visits"] = (int)Application["visits"] + 1;
+        Label2.Text = Application["visits"].ToString();
+        Label3.Text = (string)Session["mytext"];
+
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string txtvalue = TextBox1.Text;
+        ViewState.Add("item", txtvalue);
+        string item = (string)ViewState["item"];
+        Label1.Text = item;
+    }
+}
+
+OutPut 
+
+
+How to use Application State, Session State and View State in ASP.NET
+

@@ -1,0 +1,309 @@
+asp.net mvc
+
+What third-party libraries are you using? I'm currently building a (fairly
+small) ASP.NET MVC app and I haven't experienced any major issues with
+Mono, all the components I'm using are working pretty well "out of the
+box". I'm using the latest version of:
+
+   - ASP.NET MVC 4 with Razor 2 and its built-in CSS and JS minification
+   (WebGrease)
+   - ServiceStack
+OrmLite<https://github.com/ServiceStack/ServiceStack.OrmLite> with
+   MySql.Data for the data access layer
+   - SimpleInjector <http://simpleinjector.codeplex.com/> for IoC /
+   Dependency injection
+   - DotLESS <http://www.dotlesscss.org/> for CSS preprocessing
+   - ELMAH <http://code.google.com/p/elmah/> for error logging
+
+All of these components are working well on Mono 3.0.2.
+
+
++1 for this; I've had nothing but trouble running MVC apps using mono.
+
+The web forms stuff is pretty mature, but setting the server up to run MVC
+successfully is poorly documented and finiky.
+
+... that said, there's just no comparison. The MVC stuff is lightyears
+ahead of the classic ASP, and an excellent framework, but we're still
+running our site on IIS; after trying for weeks to get a production stable
+version running using mono we just gave up.
+
+~
+Doug.
+
+
+I recently decided to try it out again, rewriting my blog in C# using
+ASP.NET MVC 4 and running it on Mono 3. I used the latest version of all
+these libraries:
+
+   - ASP.NET <http://asp.net/> MVC 4 with Razor 2 and its built-in CSS and
+   JS minification (WebGrease)
+   - ServiceStack
+OrmLite<https://github.com/ServiceStack/ServiceStack.OrmLite> with
+   MySql.Data for the data access layer
+   - SimpleInjector <http://simpleinjector.codeplex.com/> for IoC /
+   Dependency injection
+   - DotLESS <http://www.dotlesscss.org/> for CSS preprocessing
+   - ELMAH <http://code.google.com/p/elmah/> for error logging
+
+It turns out that all of these work fine with Mono 3.0.2, and the site is
+running just as well as it does on Microsoft .NET. The live site is at
+http://dan.cx/ and http://dan.cx/blog, and the source code is available on
+Github (https://github.com/Daniel15/Website)
+
+
+
+
+
+
+
+
+
+
+
+Does the view file it's trying to load (~/Views/Home/Index.cshtml) exist?
+The file name will be case-sensitive on Linux - Make sure all the uppercase
+letters are correct.
+
+Try running the site through xsp4 via a console, if you haven't already.
+Are there any errors output to the console? Sometimes these view errors are
+misleading and the problem is actually elsewhere (in which case you'll see
+a message in the console).
+
+
+On Fri, Dec 28, 2012 at 12:34 AM, wangyubin <harry198344@gmail.com> wrote:
+
+> I use the monodevelop to create a MVC3 with Razor project.
+> everything is default but when I run the project, always get the error
+> below:
+> ======
+> System.**InvalidOperationException
+> The view 'Index' or its master was not found or no view engine supports
+> the searched locations. The following locations were searched:
+> ~/Views/Home/Index.aspx ~/Views/Home/Index.ascx ~/Views/Shared/Index.aspx
+> ~/Views/Shared/Index.ascx ~/Views/Home/Index.cshtml
+> ~/Views/Home/Index.vbhtml ~/Views/Shared/Index.cshtml
+> ~/Views/Shared/Index.vbhtml
+>
+> Description: HTTP 500.Error processing request.
+>
+> Details: Non-web exception. Exception origin (name of application or
+> object): System.Web.Mvc.
+
+
+
+
+
+
+
+
+
+
+
+
+https://github.com/angelcolmenares/KnockoutServiceStackDemo: mvc3 app
+developed with monodevelop on linux ( runs everywhere)
+
+
+
+
+
+
+
+
+
+Here's my MVC 4 site, which is working fine with Mono 3.0.2:
+https://github.com/Daniel15/Website. Developed on Windows though (not with
+MonoDevelop).
+
+MonoDevelop not creating the Web.config file in the Views folder sounds
+like a bug with the template. Perhaps it should be raised on the Mono bug
+tracker.
+
+
+
+
+
+
+
+
+eah, routing rules should block it, I forgot to mention that. I don't
+think ASP.NET MVC allows "\" in its route parameters.
+
+But if you have the default route (/ControllerName/ActionName) enabled,
+your app could still be vulnerable. A user could pass the parameter as a
+GET or POST parameter (ie. go to
+/Gallery/FullImage?id=../../../../../../../etc/passwd)
+and the default model binder will accept this parameter. It's usually safer
+to always do validation of your parameters instead of relying on the
+routing engine to do it 
+
+What I mean is file path validation in
+> Response.TransmitFile
+> Response.WriteFile
+> Server.MapPath
+> System.IO.Path.GetFiles
+> etc.
+> To check whether the requested file is not below the root directory of the
+> web application
+
+But in some cases you might want to read files below the root directory
+(eg. some apps use c:\Windows\Temp or /tmp)
+
+WriteFile.ashx?myfile=../../../../../../../root/.ssh/id_rsa would be really
+> really bad.
+
+This should never work as id_rsa should have its mode set to 0700 and Mono
+shouldn't be running as root. The user Mono runs as should be relatively
+locked down. I use www-data (the default web server / PHP-FPM user in
+Debian) for mine.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+to get ASP.NET MVC 3 running on Mono + FastCGI + Lighttpd +
+Raspberry Pi.
+But I keep getting:
+ System.Threading.ThreadAbortException: Thread was being aborted
+
+Here are the steps I used:
+
+A. Start from the Raspberry Server: Web Edition distro
+B. Install Mono: 
+ sudo apt-get install lighttpd mono-fastcgi-server
+
+C. Configure Mono
+
+index-file.names += ( "index.aspx", "default.aspx" )
+
+var.mono_dir = "/usr/"
+var.mono_shared_dir = "/tmp/"
+var.mono_fastcgi_server = mono_dir + "bin/" + "fastcgi-mono-server4"
+var.mono_fcgi_root = server.document-root
+var.mono_fcgi_applications = "/net:/home/pi/www/net"
+
+# Webapp path: http://server/net/HelloWorld
+$HTTP["url"] =~ "^/net/" {
+        fastcgi.server = (
+                "" => ((
+                        "socket" => mono_shared_dir + "fastcgi-mono-server",
+                        "bin-path" => mono_fastcgi_server,
+                        "bin-environment" => (
+                                "PATH" => "/bin:/usr/bin:" + mono_dir +
+"bin",
+                                "LD_LIBRARY_PATH" => mono_dir + "lib:",
+                                "MONO_SHARED_DIR" => mono_shared_dir,
+                                "MONO_FCGI_LOGLEVELS" => "Standard",
+                                "MONO_FCGI_LOGFILE" => mono_shared_dir +
+"fastcgi.log",
+                                "MONO_FCGI_ROOT" => mono_fcgi_root,
+                                "MONO_FCGI_APPLICATIONS" =>
+mono_fcgi_applications
+                ),
+                "max-procs" => 1,
+                "check-local" => "disable"
+                ))
+        )
+}
+
+D. Create a test project:
+
+- Create a new ASP.NET MVC 3 Web Application with the Empty template
+- Remove the EntityFramework reference
+- Add a simple Model, View and Controller
+- Add the following references:
+ System.Web.WebPages.Deployment
+ System.Web.WebPages.Razor
+
+- Set Copy Local to true for the following references
+ System.Web.Helpers
+ System.Web.Mvc
+ System.Web.Razor
+ System.Web.WebPages
+ System.Web.WebPages.Deployment
+ System.Web.WebPages.Razor
+
+- Set MvcBuildViews to true in the project file
+- Build
+- Publish
+- Copy the files to the server
+
+What's going wrong here?
+ASP.NET webforms run fine.
+
+
+
+ trying to run an ASP.NET 4.5 (MVC4 with Razor) application under CentOS
+6, using Mono 3.0 and Apache2. I have compiled Mono and it works fine. I've
+added that line in etc/httpd/httpd.conf:
+
+Include conf.d/*.conf
+
+Then in conf.d I created mvcgui.conf, and this is the configuration:
+
+<VirtualHost _default_:80>
+        MonoServerPath mvcgui "/opt/mono/bin/mod-mono-server4"
+        MonoDebug mvcgui true
+        MonoSetEnv ctgui MONO_IOMAP=all
+
+        MonoApplications "/:/home/mvcgui/wwwroot"
+        <Location "/">
+                Allow from all
+                Order allow,deny
+                MonoSetServerAlias mvcgui
+                SetHandler mono
+        </Location>
+</VirtualHost>
+
+However, this configuration generates two errors. When I start the service I
+see this in the apache logs:
+
+[Mon Mar 25 10:55:49 2013] [notice] Apache/2.2.15 (Unix) DAV/2 mod_mono/2.10
+configured -- resuming normal operations
+Listening on: /tmp/mod_mono_server_global
+Root directory: /
+Listening on: /tmp/mod_mono_server_global
+Root directory: /
+Error: Address already in use
+Error: Directory "/home/mvcgui/wwwroot/" not found.
+[root@localhost httpd]#
+
+I have no idea why the server doesn't see the wwwroot. The directory *is*
+there, and I added 'apache' user in the 'mvcgui' group. Then if I try to
+reach that server anyway, this is what appears in the logs:
+
+[Mon Mar 25 10:57:49 2013] [error] Not running mod-mono-server.exe because
+no MonoApplications, MonoApplicationsConfigFile or MonoApplicationConfigDir
+specified.
+[Mon Mar 25 10:57:51 2013] [error] Not running mod-mono-server.exe because
+no MonoApplications, MonoApplicationsConfigFile or MonoApplicationConfigDir
+specified.
+[Mon Mar 25 10:57:53 2013] [error] Not running mod-mono-server.exe because
+no MonoApplications, MonoApplicationsConfigFile or MonoApplicationConfigDir
+specified.
+[Mon Mar 25 10:57:55 2013] [error] Failed to connect to mod-mono-server
+after several attempts to spawn the process.
+
+Which is strange to me as, as you can see in the VHOST configuration, I do
+specify a MonoApplications directive. To be sure the VHOST config is read
+I've changed the MonoApplications path and I get the first error message on
+the modified path - meaning it's being read I think.
+
+I'm completely lost as to what to do next! Any help would be appreciated.
+
+
+

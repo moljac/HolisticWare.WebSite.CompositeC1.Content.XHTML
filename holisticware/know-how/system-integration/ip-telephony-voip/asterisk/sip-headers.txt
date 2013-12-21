@@ -1,0 +1,7 @@
+Does anyone know if in Asterisk if there is a way to use SIPAddHeader so that on a 
+reply to say a call coming in, it will add the header? I know OpenSipS can do it but I 
+want to tag the calls with a SIP header showing the Asterisk Channel.
+
+In Asterisk SIP Headers works only on INVITE. So in case you receive and incoming 
+call from OpenSIPS to Asterisk you can tell OpenSIPS about the channel information in 
+a new invite i.e. another leg which is Asterisk-> OpenSIPS

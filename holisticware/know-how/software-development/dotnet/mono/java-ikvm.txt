@@ -1,0 +1,58 @@
+in IKVM you need the java Virtual Machine and that will be the compiler and
+the IKVM convert java source code to other format compatible to .net, but
+what am talking about is to set the mono C# compiler statement to java and
+compile the source code of the java 
+
+
+
+> in this web site www.java2s.com i can find the JDK source code , the classes 
+can be add as dll files, compiling these files will be all at one time to have 
+full classes without error 
+
+Which is more or less what IKVM allows. IKVM is two things (possibly among others):
+
+1. A "transpiler" that can convert Java bytecode into CIL.
+2. A JVM implementation that can load Java bytecode at runtime and execute it.
+
+(1) is required in order for (2) to work. However, (1) can also be done "ahead of time", 
+e.g. you can take the JDK `classes.jar` and transpile it into classes.dll. Other Java
+code can then refer to this classes.dll (via more transpiling), and C# code can reference 
+classes.dll and use Java types such as java.util.ArrayList.
+
+The benefit to this approach is that you have a Real Java Compiler compiling the Java code, 
+along with a Real Java Class Library (allowing Java code to easily execute), both of which 
+you don't need to maintain (bonus!), and has full support for all Java language features. 
+Furthermore, after running ikvmc.exe, there's no additional runtime overhead -- everything 
+is CIL.
+
+Is there any reason -- other than learning/education -- to prefer a new Java compiler 
+based on mcs than to leverage the work of IKVM?
+
+
+IKVM IS only managed code.
+
+
+
+
+
+but you need the JVM to let java code start, how can the compiler will be
+installed in managed code platform
+
+
+IKVM IS the JVM in this case and it is managed code.
+
+
+
+
+
+Ikvm can directly run Java bytecode, or it can convert Java bytecode
+into MSIL. There is no other JVM required.
+
+
+
+
+Ok, I'm done arguing this point, though I think you are missing what IKVM
+offers. Almost any Java library can be converted to .NET IL, removing the
+need for the original JVM and ONLY requiring IKVM and its port of the Java
+standard library. I don't know what else you would need, but enjoy your
+project.

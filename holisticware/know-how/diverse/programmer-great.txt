@@ -1,0 +1,68 @@
+
+http://www.infoworld.com/d/application-development/16-ways-torture-developers-215773?page=0,2&utm_source=linkedin&utm_medium=social&utm_content=19954db2-ed25-4b3b-83d2-e5458dfaa03c
+
+
+What makes a great .net programmer?
+8 days ago
+Like CommentFollow Flag More
+Tushar Panchal, Attiya Fathalla and 2 others like this
+8 comments
+ 
+Follow Dmitri
+Dmitri Soroka • clean structure/syntax. making debugging simpler. :) game Dev code is nasty but faster. while software Dev is clean and organized for next one to come in and adjust. also always comment on code :) if code used more then 1 time make function calls :) and etc.
+6 days ago• Like3
+ 
+Follow Jonathan
+Jonathan Crossland • What makes a great .NET programmer is the same as what makes a great programmer. There should not be a distinction. 
+
+A great programmer 
+- Creates code that accomplishes the objectives 
+- Is thoughtful over implicit as much as explicit requirements 
+- Reduces project time-frame and/or expenditure 
+- Does not embellish code or functionality, but simplifies where possible. 
+- Communicates in Patterns (in code, documentation) 
+- Balances the following 7 design / coding principles (Ammerse) 
+
+AgileDesign 
+is to alleviate the stress of change (in code, in business). 
+MinimalDesign 
+is a design that is small, efficient and elegant. 
+MaintainableDesign 
+is an easily maintainable design and implementation. 
+EnvironmentalDesign 
+is to be friendly to the environment, not pollute (works with othe tech, layers, existing code). 
+ReachableDesign 
+must be a reachable, attainable goal.(complete within a time-frame) 
+SolvingDesign 
+must solve the problems it set out to solve. (functional code) 
+ExtensibleDesign 
+is to allow extensibility to solve other problems later.
+6 days ago• Like3
+ 
+Follow Ivan
+Ivan Sazonov • I think the .net part of the question should be taken out :)
+5 days ago• Like
+ 
+Follow John
+John Gwynn • I would remove both .net and great from the query replacing it with good. As to what makes a good programmer, while creativity and craftsmanship do not hurt, it is the willingness to engage in hard work that is more important. No matter what skill level you find yourself at, if you do your homework you find your programming skills evolve over time and that is a constant.
+5 days ago• Like2
+ 
+Follow Ivan
+Ivan Sazonov • When you suddenly realize the last time you ate was at 3pm and the sun is rising.... and you're still at it..... lol
+4 days ago• Like
+ 
+Follow Konrad
+Konrad Jaskowiec • I wouldn't take the ".NET" from the inquiry, and add those points to the answer: 
+
+- understands GC well enough to locate and solve memory leak problems 
+- understands how adding a resource to a class in a hierarchy changes the semantics of the whole hierarchy 
+- makes good interops (it's a basic skill but I am sure not everyone has it, whereas every one who calls himself a good c# .NET developer should ) 
+- understands reflection well enough to take advantage of it instead of making your project worse due to misuse of that mechanism
+4 days ago• Like1
+ 
+Follow Jeff
+Jeff Irick • Jonathan, your first sentence says it all. John, I couldn't agree more.
+3 days ago• Like
+ 
+Follow Jeff B.
+Jeff B. Cromwell, PhD • Passion and the pursuit of perfection.

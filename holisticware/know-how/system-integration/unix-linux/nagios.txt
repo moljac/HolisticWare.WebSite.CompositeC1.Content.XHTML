@@ -1,0 +1,9 @@
+monitoring tool
+	nagios
+	Zabbix 
+	
+	
+http://www.elastix.org/index.php/en/component/kunena/99-autre/81261-tutoriel-monitor-trunk-failures.html#81261
+http://zecic.com/monitoring-trunk-failures-in-freepbx/
+http://www.solicall.com/products.html#PBXMate
+AQuA and Asterisk VQM 

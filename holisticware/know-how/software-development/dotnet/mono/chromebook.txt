@@ -1,0 +1,30 @@
+Using the thread at
+http://www.raspberrypi.org/phpBB3/viewtopic.php?f=66&t=11634&p=218815&hilit=mono,
+I was able to get mono working on the ARM Chromebook.
+
+On the Chromebook:
+
+    cd ~
+    git clone git://github.com/directhex/mono-1.git
+    cd mono-1
+    git checkout remotes/origin/armhf-port
+    ./autogen.sh --disable-mcs-build
+    make CFLAGS=-DARM_FPU_VFP_HARD
+    make install
+
+On Ubuntu desktop machine:
+
+    cd ~
+    git clone git://github.com/directhex/mono-1.git
+    cd mono-1
+    git checkout remotes/origin/armhf-port
+    ./autogen.sh
+    make
+    make install DESTDIR=~/monoArmhfBuild
+    cd ~/monoArmhfBuild/usr/local/lib
+    tar -cf mono.tar mono
+ 
+Moved mono.tar onto the Chromebook, then on the Chromebook:
+
+    cd /usr/local/lib
+    tar xf mono.tar mono

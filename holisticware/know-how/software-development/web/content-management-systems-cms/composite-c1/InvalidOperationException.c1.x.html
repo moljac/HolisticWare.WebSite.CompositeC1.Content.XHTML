@@ -1,0 +1,67 @@
+Title:	add new content page after deleting page template causes InvalidOperationException
+After deleting page template
+trying to add new Content Page following error:
+
+20120620 11:51:09.3959 2 14 Verbose TreeServicesFacade.ExecuteElementAction  Starting Method
+20120620 11:51:09.5609 2 14 Verbose WorkflowFacade  Workflow created, Activity = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0, Id = Composite.Plugins.Elements.ElementProviders.PageElementProvider.AddNewPageWorkflow
+20120620 11:51:09.6459 2 14 Verbose WorkflowFacade  Workflow instance status changed to idle. Id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:09.6699 2 14 Verbose WorkflowFacade  Workflow instance status changed to running. Id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:10.2529 2 14 Verbose WorkflowFacade  Workflow instance status changed to idle. Id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:10.6209 2 14 Verbose WorkflowFacade  FormData persisted for workflow id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:11.0399 2 14 Verbose WorkflowFacade  Workflow loaded, Activity = Composite.Plugins.Elements.ElementProviders.PageElementProvider.AddNewPageWorkflow, Id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:11.0609 2 14 Verbose WorkflowFacade  Workflow instance status changed to idle. Id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:11.2939 2 14 Verbose WorkflowFacade  FormData persisted for workflow id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:11.3829 2 14 Verbose WorkflowFacade  Workflow persisted, Activity = Composite.Plugins.Elements.ElementProviders.PageElementProvider.AddNewPageWorkflow, Id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:11.9709 2 14 Verbose TreeServicesFacade.ExecuteElementAction  Finished Method (2574 ms)
+20120620 11:51:13.2109 2 23 Verbose TemplatedUiContainerFactory  Finished getting compiled '~/Composite/controls/FormsControls/FormUiContainerTemplates/WizardExecutionContainer.ascx' (0 ms)
+20120620 11:51:13.7699 2 23 Verbose FlowUi.aspx  Time spent serving request: 764 ms
+20120620 11:51:17.9589 2 15 Error Application Error  Failed to process 'GET' request to url '/Composite/skins/system/controls/vista/control-maximize-default.png'
+20120620 11:51:17.9869 2 15 Critical Application Error  System.Web.HttpException (0x80004005): File does not exist.
+   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+20120620 11:51:18.0579 2 14 Error Application Error  Failed to process 'GET' request to url '/Composite/skins/system/controls/vista/control-minimize-default.png'
+20120620 11:51:18.1459 2 14 Critical Application Error  System.Web.HttpException (0x80004005): File does not exist.
+   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)
+   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)
+   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+20120620 11:51:34.8769 2 14 Verbose TemplatedUiContainerFactory  Finished getting compiled '~/Composite/controls/FormsControls/FormUiContainerTemplates/WizardExecutionContainer.ascx' (0 ms)
+20120620 11:51:35.5549 2 14 Verbose WorkflowFacade  Workflow instance status changed to running. Id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:44.0289 2 14 Verbose WorkflowFacade  Workflow persisted, Id = {0}b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:44.1159 2 14 Critical WorkflowFacade  Workflow terminated - Id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0, Exception:
+The following foreign keys integrity did not validate: TemplateId ['e1f96c1c-1aba-46bd-9efc-a0ea584b94ad']; DataType: Composite.Data.Types.IPage
+   at Composite.Data.DataReferenceFacade.ValidateForeignKeyIntegrity(IData refereeData) in D:\SRC\CMS\CompositeC1\3-CoreCompositeC1\grid-systems-remote-api\Composite\Data\DataReferenceFacade.cs:line 117
+   at Composite.Data.DataFacadeImpl.AddNew_AddingMethod[T](String providerName, IEnumerable`1 datas, Boolean suppressEventing, Boolean performForeignKeyIntegrityCheck, Boolean performeValidation) in D:\SRC\CMS\CompositeC1\3-CoreCompositeC1\grid-systems-remote-api\Composite\Data\DataFacadeImpl.cs:line 371
+   at Composite.Data.DataFacadeImpl.AddNew[T](IEnumerable`1 datas, Boolean allowStoreCreation, Boolean suppressEventing, Boolean performForeignKeyIntegrityCheck, Boolean performeValidation, List`1 writeableProviders) in D:\SRC\CMS\CompositeC1\3-CoreCompositeC1\grid-systems-remote-api\Composite\Data\DataFacadeImpl.cs:line 329
+   at Composite.Data.DataFacade.AddNew[T](IEnumerable`1 collection, Boolean allowStoreCreation, Boolean suppressEventing, Boolean performForeignKeyIntegrityCheck, Boolean performeValidation, List`1 writeableProviders) in D:\SRC\CMS\CompositeC1\3-CoreCompositeC1\grid-systems-remote-api\Composite\Data\DataFacade.cs:line 1177
+   at Composite.Data.DataFacade.AddNew[T](T data) in D:\SRC\CMS\CompositeC1\3-CoreCompositeC1\grid-systems-remote-api\Composite\Data\DataFacade.cs:line 909
+   at Composite.Data.Types.PageServices.AddPageAtBottom(IPage newPage, Guid parentId, Boolean addNewPage) in D:\SRC\CMS\CompositeC1\3-CoreCompositeC1\grid-systems-remote-api\Composite\Data\Types\PageServices.cs:line 197
+   at Composite.Data.Types.PageServices.AddPageAtBottom(IPage newPage, Guid parentId) in D:\SRC\CMS\CompositeC1\3-CoreCompositeC1\grid-systems-remote-api\Composite\Data\Types\PageServices.cs:line 174
+   at Composite.Plugins.Elements.ElementProviders.PageElementProvider.AddNewPageWorkflow.stepFinalize_codeActivity_ExecuteCode(Object sender, EventArgs e) in D:\SRC\CMS\CompositeC1\3-CoreCompositeC1\grid-systems-remote-api\Composite.Workflows\Plugins\Elements\ElementProviders\PageElementProvider\AddNewPageWorkflow.cs:line 527
+   at System.Workflow.ComponentModel.Activity.RaiseEvent(DependencyProperty dependencyEvent, Object sender, EventArgs e)
+   at System.Workflow.Activities.CodeActivity.Execute(ActivityExecutionContext executionContext)
+   at System.Workflow.ComponentModel.ActivityExecutor`1.Execute(T activity, ActivityExecutionContext executionContext)
+   at System.Workflow.ComponentModel.ActivityExecutor`1.Execute(Activity activity, ActivityExecutionContext executionContext)
+   at System.Workflow.ComponentModel.ActivityExecutorOperation.Run(IWorkflowCoreRuntime workflowCoreRuntime)
+   at System.Workflow.Runtime.Scheduler.Run()
+
+20120620 11:51:44.1789 2 14 Verbose WorkflowFacade  Workflow instance status changed to terminated. Id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:44.3039 2 14 Verbose FileWorkFlowPersisetenceService  Workflow persisted state deleted. Id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:44.5379 2 14 Verbose WorkflowFacade  Persisted FormData deleted for workflow id = b2d136f0-b2c6-40b9-bda8-ebfd61802ef0
+20120620 11:51:44.9569 2 14 Critical WorkflowFacade  System.InvalidOperationException: The following foreign keys integrity did not validate: TemplateId ['e1f96c1c-1aba-46bd-9efc-a0ea584b94ad']; DataType: Composite.Data.Types.IPage
+   at Composite.Data.DataReferenceFacade.ValidateForeignKeyIntegrity(IData refereeData) in D:\SRC\CMS\CompositeC1\3-CoreCompositeC1\grid-systems-remote-api\Composite\Data\DataReferenceFacade.cs:line 117
+   at Composite.Data.DataFacadeImpl.AddNew_AddingMethod[T](String providerName, IEnumerable`1 datas, Boolean suppressEventing, Boolean performForeignKeyIntegrityCheck, Boolean performeValidation) in D:\SRC\CMS\CompositeC1\3-CoreCompositeC1\grid-systems-remote-api\Composite\Data\DataFacadeImpl.cs:line 371
+   at Composite.Data.DataFacadeImpl.AddNew[T](IEnumerable
+
+   
+   
+   BTW what is Website\App_Data\Composite\clean.bat for?
+   
+   cheers
+   
+   mel
+   

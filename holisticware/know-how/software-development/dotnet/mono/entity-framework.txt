@@ -1,0 +1,79 @@
+Hi, I?m trying to use Entity Framework, I would like to use MySql. In my
+understanding there is no EF6 provider yet, so this is not possible. In
+fact, I only found two providers available for EF, SQL Server and SQL CE.
+
+ 
+
+Is this right? Is there any other option out there?
+
+ 
+ 
+Entity Framework uses the standard ADO.NET providers, so most ADO.NET
+providers should work with it. This includes the MySQL one, which comes with
+Ubuntu and Debian in the "libmysql6.4-cli" package, or you can download it
+from http://dev.mysql.com/downloads/connector/net/. Just reference
+MySQL.Data.dll and set up your App.config or Web.config correctly. Here is
+an example config:
+
+ 
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+
+     <system.data>
+
+          <DbProviderFactories>
+
+              <add name="MySQL Data Provider"
+invariant="MySql.Data.MySqlClient" description=".Net Framework Data Provider
+for MySQL" type="MySql.Data.MySqlClient.MySqlClientFactory, MySql.Data" />
+
+          </DbProviderFactories>
+
+     </system.data>
+
+     <connectionStrings>
+
+      <add name="BloggingContext" 
+
+           connectionString="Server=localhost; Database=dotnettest;
+Uid=root; Pwd=password"
+
+           providerName="MySql.Data.MySqlClient" />
+
+     </connectionStrings>
+
+</configuration>
+
+ 
+
+ 
+
+Obviously, change all the placeholder values (context name, server name,
+database, username, password). You will need to use a very recent version of
+Mono (3.0.1 or trunk) due to bug 7396
+<https://bugzilla.xamarin.com/show_bug.cgi?id=7936> .
+
+
+
+
+Mono doesn't support Entity Framework 4 or 5, it only supports the alpha version
+ of Entity Framework 6. If you are using Entity Framework, you might not have 
+ much luck with Mono. Entity Framework 6 is still an alpha version and is not 
+ yet ready for production. If you are not using Entity Framework in your 
+ application, remove all references to it (your app should not reference 
+ System.Data.Entity or EntityFramework, and it should not be mentioned in the 
+ Web.config). 2. I had to remove the attribute targetFramework from compile 
+ element and
+> from httpRuntime in Web.Config
+
+This generally happens when you're trying to run an ASP.NET 4.0 site under
+ASP.NET 2.0/3.5. Ensure you're using ASP.NET 4.0 (xsp4 if you're using
+XSP, fastcgi-mono-server4
+if you're using FastCGI, mod-mono-server4 if you're using Apache +
+mod_mono). You should be able to see the ASP.NET version at the bottom of
+error pages, it should look like this:
+
+Version Information: 3.0.3 (tarball Monday 28 January 18:14:39 EST 2013); *
+ASP.NET Version: 4.0.30319.17020*

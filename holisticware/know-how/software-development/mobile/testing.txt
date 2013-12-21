@@ -1,0 +1,91 @@
+Beta Testing
+
+	http://ubertesters.com/public-beta-program/
+
+
+
+No need to have monodevelop. After getting nunit you can just call it via (for instance)
+
+mono nunit-console.exe your.dll
+You can also do this using only binaries downloaded from nunit site, just be in the nunit's 
+directory.
+
+If there is no package for OS X, you can install it by making script invoking nunit 
+(this is how standard nunit install on Linux works) and putting it in your search path. 
+Adding assemblies to GAC is not necessary as long as they are with exe's.
+
+For example this is nunit-console script on Ubuntu (which can be usually found in /usr/bin):
+
+#!/bin/sh
+exec /usr/bin/mono --debug $MONO_OPTIONS /usr/lib/mono/2.0/nunit-console.exe "$@"
+Of course you should replace /usr/lib/mono/2.0/ with directory which contains nunit.
+
+share|improve this answer
+edited Sep 27 '11 at 21:03
+
+answered Sep 27 '11 at 19:28
+
+konrad.kruczynski
+2,527713
+i have the script on OSX as well called nunit-console.exe which has the following->
+#!/bin/sh 
+exec /Library/Frameworks/Mono.framework/Versions/2.10.5/bin/mono \
+	--debug $MONO_OPTIONS \ 
+/Library/Frameworks/Mono.framework/Versions/2.10.5/lib/mono/2.0/nunit-console.exe \
+"$@" 
+
+BUT i cannot run the mono nunit-console "tests.dll" command, it says cant find assembly so i 
+tried running just nunit-console "tests.dll" command. It throws me the following exception 
+While saving registry data at
+"/Library/Frameworks/Mono.framework/Versions/2.10.5/etc/mono/registry/last-btime" 
+access is denied –
+
+
+
+
+
+The first and most obvious way is to start NUnit as an external program. This goal can be 
+achieved by right clicking on the unit tests project -> choosing the properties option -> 
+selecting the Debug tab -> choosing "start external program" radio button instead of 
+"start project" (which is the default option) and enter NUnit assembly location. We are not 
+done yet, the "command line arguments" section shall be filled too, otherwise, NUnit will 
+not necessarily run our unit test. If NUnit has no command line arguments, it is opening 
+the last assembly which was loaded into it. So, the command line argument shall be the 
+location of our unit test assembly.
+The second way to achieve our goal is using plugins. ReSharper and Test Driven .Net are 
+2 great plugins (ReSharper has much more functionality and is not solely focused on the 
+unit tests, while Test Driven .Net does), I will show my case using Test Driven .Net.  
+It is very simple, just right click on any test, unit test file or the project file and 
+we get "Run Test" option in the context menu. What do we have to do now? just clicking 
+on that menu item and our unit tests are running. It is important to mention that the 
+plugin has more options, but this is not the subject of that post.
+The third way involves some code writing. First, the assembly type shall be exe and not 
+dll and there shall be a main method in the code with the [STAThread] attribute. Then, 
+add the "nunit.core.interfaces" assembly as a reference to the project file. In the 
+main method call Class1.Main() with the name of our executing assembly as a parameter. 
+Don’t you think someone in the NUnit team forgot to rename Class1 name ? I do…
+   1: class Program
+   2:  {
+   3:      [STAThread]
+   4:      static void Main(string[] args)
+   5:      {
+   6:          Class1.Main(new string[] { Assembly.GetExecutingAssembly().Location });
+   7:      }
+   8:  }
+OK, so we covered some ways to run NUnit from Visual Studio. There is one more issue 
+that shall be taken into consideration and that is, the AppDomain (Represents an 
+application domain, which is an isolated environment where applications execute). 
+What will the running AppDomain be in any of the possibilities mentioned above? 
+NUnit or our unit test executable?
+When we run NUnit as an external program or using a plugin, NUnit exe will be 
+loaded as the default application domain. When NUnit is called from code (way #3), 
+the AppDomain is our unit tests executable. Why is that so important you wonder? 
+Well, that depends on our code, but i can warn you about one issue i ran into.
+If an app.config file is used (file that is intended to store static values or 
+settings for your application) and the running AppDomain is NUnit, we will get 
+default values and not what’s in the configuration file. That is surely unwanted, 
+so be aware of that, following way #3 will keep us away from this "obstacle".
+
+
+
+http://www.mojoportal.com/usingnunitwithvisualstudio.aspx

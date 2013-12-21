@@ -1,0 +1,101 @@
+[2010-12-15]===================================================================
+
+"C:\Program Files\Java\jdk1.6.0_22\bin\javac.exe" "-d" "bin\classes" "-classpath" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar;D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\android\bin\mono.android.jar" "@C:\Users\moljac\AppData\Local\Temp\tmpD09A.tmp"
+
+Error	15	System.InvalidOperationException: Command failed. Command: 
+"C:\Program Files\Android\android-sdk-windows\platform-tools\aapt" "package" ^
+"-M" "C:\Users\moljac\AppData\Local\Temp\xjrz5y1w.pon\AndroidManifest.xml" ^
+"-F" "C:\Users\moljac\AppData\Local\Temp\xjrz5y1w.pon\resources.apk" ^
+"-S" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\res" ^
+"-I" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar"	
+
+D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\aresgen	HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35
+
+Solution:
+channel.xml was in root dir of the project
+Moved to assets
+
+Another Error
+
+Error	19	System.InvalidOperationException: Command failed. Command: 
+C:\Program Files\Android\android-sdk-windows\platform-tools\aapt "package" 
+"-M" "C:\Users\moljac\AppData\Local\Temp\gp3olhq0.j11\AndroidManifest.xml" 
+"-F" "C:\Users\moljac\AppData\Local\Temp\gp3olhq0.j11\resources.apk" 
+"-S" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\res" 
+"-I" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar"	
+
+aresgen : error 1: System.InvalidOperationException: Command failed. Command: 
+C:\Program Files\Android\android-sdk-windows\platform-tools\aapt "package" 
+"-M" "C:\Users\moljac\AppData\Local\Temp\gp3olhq0.j11\AndroidManifest.xml" 
+"-F" "C:\Users\moljac\AppData\Local\Temp\gp3olhq0.j11\resources.apk" 
+"-S" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\res" 
+"-I" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar"
+	invalid resource directory name: D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\res/Assets (TaskId:82)
+
+
+
+  C:\Program Files\MSBuild\Novell\monodroid.exe -v --nosign --sdk-dir="C:\Program Files\Android\android-sdk-windows" --builddir="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\android" --framework-dir="C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0" -S="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\res" --package="holisticware_gonix.exe_pl.094clntmob_monodroidp7_netfx35.holisticware_gonix.exe_pl.094clntmob_monodroidp7_netfx35" --abi="armeabi;armeabi-v7a" --java-sdk-dir="C:\Program Files\Java\jdk1.6.0_22" --debug -A="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\assets" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\bin\Debug\HolisticWare_GoNIX.EXE_PL.094ClntMob_MonoDroidP7_netfx35.dll" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.DLL_BL_024ClntMob_MonoDroidP7_netfx35\bin\Debug\HolisticWare_GoNIX.EXE_BL_032ClntMob_MonoDoidnetfx35.dll" "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\Mono.Android.dll" "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\mscorlib.dll" "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Core.dll" "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.dll" "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.dll" "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.Linq.dll"  (TaskId:113)
+  The "MonoDroid" task is using "monodroid.exe" from "C:\Program Files\MSBuild\Novell\monodroid.exe". (TaskId:113)
+  Running command: C:\Program Files\Android\android-sdk-windows\platform-tools\aapt "package" "-f" "-M" "AndroidManifest.xml" "-J" "src" "-F" "bin\packaged_resources" "-S" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\res" "-A" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\assets" "-I" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar" (TaskId:113)
+	Process executed in: 00:00:00.3029115 (TaskId:113)
+  Running command: C:\Program Files\Java\jdk1.6.0_22\bin\javac.exe "-d" "bin\classes" "-classpath" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar;D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\android\bin\mono.android.jar" "@C:\Users\moljac\AppData\Local\Temp\tmpD09A.tmp" (TaskId:113)
+monodroid : error 1: System.InvalidOperationException: Command failed. Command: C:\Program Files\Java\jdk1.6.0_22\bin\javac.exe "-d" "bin\classes" "-classpath" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar;D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\android\bin\mono.android.jar" "@C:\Users\moljac\AppData\Local\Temp\tmpD09A.tmp"
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\android\src\R.java:8: ';' expected (TaskId:113)
+  package holisticware_gonix.exe_pl.094clntmob_monodroidp7_netfx35.holisticware_gonix.exe_pl.094clntmob_monodroidp7_netfx35; (TaskId:113)
+
+
+
+
+
+
+
+
+
+
+
+[2010-12-15]===================================================================
+
+"C:\Program Files\Java\jdk1.6.0_22\bin\javac.exe" "-d" "bin\classes" "-classpath" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar;D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\android\bin\mono.android.jar" "@C:\Users\moljac\AppData\Local\Temp\tmpD09A.tmp"
+
+Error	15	System.InvalidOperationException: Command failed. Command: 
+"C:\Program Files\Android\android-sdk-windows\platform-tools\aapt" "package" ^
+"-M" "C:\Users\moljac\AppData\Local\Temp\xjrz5y1w.pon\AndroidManifest.xml" ^
+"-F" "C:\Users\moljac\AppData\Local\Temp\xjrz5y1w.pon\resources.apk" ^
+"-S" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\res" ^
+"-I" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar"	
+
+D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\aresgen	HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35
+
+Solution:
+channel.xml was in root dir of the project
+Moved to assets
+
+Another Error
+
+Error	19	System.InvalidOperationException: Command failed. Command: 
+C:\Program Files\Android\android-sdk-windows\platform-tools\aapt "package" 
+"-M" "C:\Users\moljac\AppData\Local\Temp\gp3olhq0.j11\AndroidManifest.xml" 
+"-F" "C:\Users\moljac\AppData\Local\Temp\gp3olhq0.j11\resources.apk" 
+"-S" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\res" 
+"-I" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar"	
+
+aresgen : error 1: System.InvalidOperationException: Command failed. Command: 
+C:\Program Files\Android\android-sdk-windows\platform-tools\aapt "package" 
+"-M" "C:\Users\moljac\AppData\Local\Temp\gp3olhq0.j11\AndroidManifest.xml" 
+"-F" "C:\Users\moljac\AppData\Local\Temp\gp3olhq0.j11\resources.apk" 
+"-S" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\res" 
+"-I" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar"
+	invalid resource directory name: D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\res/Assets (TaskId:82)
+
+
+
+  C:\Program Files\MSBuild\Novell\monodroid.exe -v --nosign --sdk-dir="C:\Program Files\Android\android-sdk-windows" --builddir="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\android" --framework-dir="C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0" -S="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\res" --package="holisticware_gonix.exe_pl.094clntmob_monodroidp7_netfx35.holisticware_gonix.exe_pl.094clntmob_monodroidp7_netfx35" --abi="armeabi;armeabi-v7a" --java-sdk-dir="C:\Program Files\Java\jdk1.6.0_22" --debug -A="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\assets" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\bin\Debug\HolisticWare_GoNIX.EXE_PL.094ClntMob_MonoDroidP7_netfx35.dll" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.DLL_BL_024ClntMob_MonoDroidP7_netfx35\bin\Debug\HolisticWare_GoNIX.EXE_BL_032ClntMob_MonoDoidnetfx35.dll" "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\Mono.Android.dll" "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\mscorlib.dll" "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Core.dll" "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.dll" "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.dll" "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.Linq.dll"  (TaskId:113)
+  The "MonoDroid" task is using "monodroid.exe" from "C:\Program Files\MSBuild\Novell\monodroid.exe". (TaskId:113)
+  Running command: C:\Program Files\Android\android-sdk-windows\platform-tools\aapt "package" "-f" "-M" "AndroidManifest.xml" "-J" "src" "-F" "bin\packaged_resources" "-S" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\res" "-A" "D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\assets" "-I" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar" (TaskId:113)
+	Process executed in: 00:00:00.3029115 (TaskId:113)
+  Running command: C:\Program Files\Java\jdk1.6.0_22\bin\javac.exe "-d" "bin\classes" "-classpath" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar;D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\android\bin\mono.android.jar" "@C:\Users\moljac\AppData\Local\Temp\tmpD09A.tmp" (TaskId:113)
+monodroid : error 1: System.InvalidOperationException: Command failed. Command: C:\Program Files\Java\jdk1.6.0_22\bin\javac.exe "-d" "bin\classes" "-classpath" "C:\Program Files\Android\android-sdk-windows\platforms\android-9\android.jar;D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\android\bin\mono.android.jar" "@C:\Users\moljac\AppData\Local\Temp\tmpD09A.tmp"
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.EXE_PL_924ClntMob_MonoDroidP7_netfx35\obj\Debug\android\src\R.java:8: ';' expected (TaskId:113)
+  package holisticware_gonix.exe_pl.094clntmob_monodroidp7_netfx35.holisticware_gonix.exe_pl.094clntmob_monodroidp7_netfx35; (TaskId:113)
+
+

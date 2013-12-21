@@ -1,0 +1,63 @@
+Separation of Concerns in Solutions Architecture
+
+
+http://genehughson.wordpress.com/2013/07/27/when-silos-make-sense/?goback=%2Egde_1211647_member_261402981
+http://www.linkedin.com/groupItem?view=&srchtype=discussedNews&gid=1211647&item=261402981&type=member&trk=eml-anet_dig-b_pd-ttl-hdp&ut=1ygAIPdstMbRU1
+
+Separation of Concerns is a know concept, but it has to be done with lot 
+of visibility and proper thought, specially when thinking about 
+application maintainability and scalability. If properly done, it can be 
+a blessing in disguise. 
+
+Let's separate concerns further, even on higher, "meta" level :) We 
+should separate "logical" and "physical" things. 
+
+For example, logically separated database schemas are not shared, but 
+may still be located physically on the same server for the 
+simplicity/licensing/etc. reasons. 
+
+Now, we don't have any problems with maintainability/coupling/etc., and 
+we are free to deploy multiple logical things into one physical endpoint 
+when make sense or required, or have as many physical endpoints as we 
+need and when we need them (different "modules" may have different 
+requirements/prepositions). 
+
+Logical separation could be inadequate. When it's time to upgrade the DB 
+software, the more sharing, the more players to involve. Likewise 
+routine patches. This is not to say that sharing is bad, just that the 
+side effects must be taken into account. 
+
+Agree, but it is all about risks and choices. Because from the other 
+point you may say that if you want to upgrade or patch your DB software 
+you may want to do it for all the DB servers you have (especially for 
+critical patches), and this really means "more players to involve". 
+
+Separating logical from physical gives you choice. Some critical 
+"modules" may have their own dedicated hardware. Some may be considered 
+less critical and you may chose to put them on one machine. Some may 
+have different availability/scalability requirements so you may want to 
+have one logical thing on multiple physical endpoints (processing nodes, 
+whatever). 
+
+You may even choose to start from one of the extremes: "everything has 
+its own box" or "everything sits on the same one box", and then change 
+your topology when you need and how you need it. 
+
+The ability to make different choices in different contexts gives us 
+freedom and balance. Separation of concerns gives us choice :) 
+
+Exactly...tailoring the design to the context is the key. 
+
+As there is a trade-off between price and risk in case of 
+infrastructure, in applications it comes as performance versus 
+maintainability, extendibility etc. Separation of concerns always 
+introduces some extra layers, late binding etc., which in very 
+performance oriented applications may be of concern. 
+
+Designers need to raise questions about which functional area might see 
+changes in future and which may not be impacted and accordingly prepare 
+the design. 
+
+As Gene pointed out very rightly - tailoring the design to the context 
+is the key 
+

@@ -1,0 +1,7 @@
+Eclipse Workspace = Visual Studio solution
+Eclipse Project = VS project
+Eclipse Build Path = VS project references
+Java JARs = .Net DLLs
+Eclipse Perspectives = Different UI configuration - 
+	kinda like how you can set up VS as being optimised for 
+	C# development or VB development or Web development

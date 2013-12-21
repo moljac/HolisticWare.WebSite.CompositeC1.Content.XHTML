@@ -1,0 +1,1921 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>20131012 The Geek Gathering: Xamarin Cross Platform Tools</title>
+Description = all keywords + extra text
+<meta name="Description" content="Xamarin Cross Platform Tools: The Geek Gathering Conference Workshop 20131012" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: 20131012-the-geek-gathering-xamarin-cross-platform-tools
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<!--
+	<link rel="stylesheet" href="~/css/print/pdf.css" />
+	-->
+	<script>
+		document.write
+		(
+			'<link rel="stylesheet" href="~/css/print/'
+		+ (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper'
+		) + '.css" type="text/css" media="print" />');
+	</script>
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<div class="reveal">
+		<div class="slides">
+			<!-- ================================================================================== -->
+			<section>
+				<h1> Xamarin Cross Platform Tools </h1>
+				<h2>The Geek Gathering Conference <br /> 2013-10-12 <br /> Workshop / Hands on lab</h2>
+				<blockquote>
+					<a href="http://holisticware.net">http://holisticware.net</a> 
+					<br /> 
+					presented by Ivan Ðikic, Miljenko Cvjetko 
+					<br /> 
+					<a href="http://xamarin.com">http://xamarin.com</a>
+				</blockquote>
+			</section> 
+			<!-- ================================================================================== -->
+
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Intro 01</h2>
+					<h3>About us</h3>
+
+					<ul>
+						<li>
+							ivan dikic, iki
+							<br />
+							2010+ objective-c iOS developer
+							<br />
+							2010+ c# mono mobile 
+							<br />
+							<a href="https://github.com/idikic">
+							https://github.com/idikic
+							</a>
+						</li>
+						<li>
+							miljenko cvjetko, moljac, mel, moki
+							<br />
+							1994-2001 c/c++ developer , after 2001 occasionally
+							<br />
+							2001+ c# developer, desktop, ASP.net, Windows Phone 2010
+							<br />
+							2006+ c# mono developer
+							<br />
+							2010+ mono mobile developer - Android first iOS later
+							<br />
+							<a href="https://github.com/moljac">
+							https://github.com/moljac
+							</a>							
+							<br />
+							<a href="http://www.codeplex.com/site/users/view/moljac">
+							http://www.codeplex.com/site/users/view/moljac
+							</a>							
+						</li>
+						<li>
+							stable/accepted/approved stuff
+							<br />
+							<a href="https://github.com/holisticware">
+							https://github.com/holisticware
+							</a>							
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Intro 02</h2>
+					<h3>Target audience</h3>
+
+					<ul>
+						<li>
+							for .net devs to target other [mobile] platforms while waiting for Windows Phone
+						</li>
+						<li>
+							for iOS/objective-c and Android/java devs transitioning to other platforms
+						</li>
+					</ul>
+
+					<h4>About You</h4>
+					<ul>
+						<li>
+							c# devs?
+						</li>
+						<li>
+							mobile?
+						</li>
+						<li>
+							desktop? Windows Forms? WPF? GTK?
+						</li>
+						<li>
+							server? ASP.net?
+						</li>
+						<li>
+							Windows? Linux? MacOSX?
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Intro 03</h2>
+					<h3>Coverage</h3>
+
+					<ul>
+						<li>
+							explanation of Xamarin's concepts (way of thinking)
+							<br />
+							personal (subjective) interpretation based on actions in last few years
+						</li>
+						<li>
+							mobile - Xamarin priority No.1 - 2013-10
+							<ul>
+								<li>
+									a bit more iOS than Android
+									<br />
+									(more difficult to get Mac)
+								</li>
+							</ul>
+						</li>
+						<li>
+							iOS and Android for .net developers
+						</li>
+						<li>
+							a bit of desktop (AppKit - MacOSX and GTK#)
+						</li>
+					</ul>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Intro 04</h2>
+					<h3>Cross Platform Strategies</h3>
+
+					<ul>
+						<li>
+							obey the standards
+								<ul>
+									<li>
+										c/c++ or html5
+										<br />
+										c++ was killed by standardization
+									</li>
+								</ul>
+						</li>
+						<li>
+							stick to some "proprietary" technology
+							<ul>
+								<li>
+									java
+								</li>
+								<li>
+									ms.net (netfx) and mono
+								</li>
+							</ul>
+								influence of politics
+						</li>
+					</ul>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Intro 05</h2>
+					<h3>Prerequisites</h3>
+
+					<a href="http://docs.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial">
+					http://docs.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial
+					</a>
+					<ul>
+						<li>
+							iOS
+							<ul>
+								<li>
+									Mac w MacOSX w Xamarin Studio
+								</li>
+								<li>
+									iOS SDK + XCode
+								</li>
+							</ul>
+						</li>
+						<li>
+							Android
+							<ul>
+								<li>
+									(Winpc with Visual Studio || Xamarin Studio) 
+									<br />
+									|| 
+									<br />
+									(Mac with Xamarin Studio)
+								</li>
+								<li>
+									Android SDK
+								</li>
+								<li>
+									Optional: Eclipse, DroidDraw (historical)
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<p>
+						<br />
+						<br />
+						Xamarin Studio Starter - Free
+						<br />
+						<a href="https://store.xamarin.com/">
+						https://store.xamarin.com/
+						</a>
+					</p>
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Concepts by Xamarin 01</h2>
+
+					<h3>Keywords</h3>
+
+					<ul>
+						<li>
+							native
+						</li>
+						<li>
+							c#
+						</li>
+						<li>
+							complete process - CI continuous integration
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Concepts by Xamarin 01</h2>
+
+					<h3>Define: Native</h3>
+					<ul>
+						For Unbelieving/Doubting Thomas
+						<br />
+						Discussions about nativeness with all sides 
+						<br />
+						hybrid PhoneGap/Sencha and/or .net devs
+						<li>
+							Native
+							<ul>
+								<li>
+									definitions
+									<ul>
+										<li>
+											Is .net native or Win32 API on Windows?
+										</li>
+										<li>
+											Is java native on Android?
+										</li>
+										<li>
+											Is java native on Windows?
+										</li>
+									</ul>
+								</li>
+							</ul>
+							Xamarin talks about [g]UI
+							<br />
+							<a href="http://www.codinghorror.com/blog/2007/02/non-native-ui-sucks.html">
+							http://www.codinghorror.com/blog/2007/02/non-native-ui-sucks.html
+							</a>
+							search google: "java look ugly" (not true always - SWT)
+							<br />
+							the same can be applied to iOS design on Windows Phone (Metro) or vice versa
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Concepts by Xamarin 02</h2>
+
+					<h3>democratize c#</h3>
+					<ul>
+						<li>
+							Day == 24.00 hours
+							<ul>
+								<li>
+									server PHP, HTML5, CSS, Javascript, objective-c, java??
+								</li>
+								<li>
+									server ASP.net c#, WPF, Windows Forms, Silverlight, Windows Phone
+								</li>
+							</ul>
+						</li>
+						<li>
+							enables devs to use c# on non Windows platforms
+						</li>
+						<li>
+							Base Class Libraries (BCL) from .net
+						</li>
+						<li>
+							Linq
+						</li>
+						<li>
+							async/await framework (c# 5.0, netfx 4.5, mono 3.x [3.2])
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Concepts by Xamarin 03</h2>
+					<h3>Goals Purpose</h3>
+
+					<ul>
+						<li>
+							Native cross platform applications with C# and F#
+							<br />
+							because of thin layer in between - subnative? quasinative?
+						</li>
+						<li>
+							application type:
+							<ul>
+								<li>
+									Enterprise applications -  yet to come
+								</li>
+								<li>
+									Not only (monogame)
+								</li>
+							</ul>
+						</li>
+						<li>
+							Abstractions - Common denominators
+							<br />
+							do exist - not priority
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Concepts by Xamarin 04</h2>
+
+					<h3>iOS</h3>
+					<ul>
+						<li>
+							code interpreting, dynamic execution NO (Apple says)
+							<br />
+							Java and Flash (2012 Q4, year ago)
+							<br />
+							<a href="http://tirania.org/blog/archive/2010/Apr-28.html">
+							http://tirania.org/blog/archive/2010/Apr-28.html
+							</a>
+						</li>
+						<li>
+							no virtual machines (JVM, CLR mono or .net)
+						</li>
+						<li>
+							AOT (ahead of time compilation)
+						</li>
+						<li>
+							similar to ngen during deployment (jit before 1 use)
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Concepts by Xamarin 05</h2>
+
+					<h3>Android</h3>
+					<ul>
+						<li>
+							JVM allowed - Dalvik
+						</li>
+						<li>
+							mono CLR runs in parallel with Dalvik
+							<ul>
+								<li>
+									some features faster
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Concepts by Xamarin 05</h2>
+
+					<h3>Integration 01</h3>
+					<ul>
+						<li>
+							seamless integration - very important
+						</li>
+						<li>
+							integration with:
+							<ul>
+								<li>
+									OS core functions (file system, networking)
+								</li>
+								<li>
+									UI framework (UIKit in iOS, Android Widgets)
+								</li>
+								<li>
+									libraries written in native tools (objective-c, java)
+								</li>
+							</ul>
+						</li>
+						<li>
+							done through binding
+							<ul>
+								<li>
+									binding projects
+									<ul>
+										<li>
+											iOS: libraries (.a), frameworks (.framework)
+										</li>
+										<li>
+											Android: (.jar) java libraries/archives
+										</li>
+									</ul>
+								</li>
+								<li>
+									duplex/bidirectional == PInvoke + Embedding
+								</li>
+								<li>
+									tools: Objective-C Sharpie
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Concepts by Xamarin 06</h2>
+
+					<h3>Integration 02</h3>
+
+					<ul>
+						<li>
+							wrapping/piggy-backing 
+						</li>
+						<li>
+							classes 1:1 (bound)
+						</li>
+							<li>
+								day 1 support for iOS7
+						</li>
+						<li>
+								90% automatic
+						</li>
+					</ul>
+
+					<h3>Relation to netfx</h3>
+
+					<p>
+					</p>
+					Extended subset (oxym??) of several Silverlight and desktop assemblies
+
+				</section>
+				<!-- ............................................................... -->
+
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Concepts by Xamarin 07</h2>
+
+					<h3>iOS</h3>
+
+					<ul>
+						<li>
+							definiton:
+							<ul>
+								<li>
+									derived from OSX (Darwin foundation - NextSTEP + BSD)
+									<br />
+									unix
+								</li>
+								<li>
+									4 abstraction layers
+									<ul>
+										<li>
+											Core OS
+										</li>
+										<li>
+											Core Services
+										</li>
+										<li>
+											Core Media
+										</li>
+										<li>
+											Cocoa Touch
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							on c# side some additional concepts (namespaces, event handlers ...)
+						</li>
+						<li>
+							Garbage Collector (extra on .net side since iOS 5 ARC)
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Concepts by Xamarin 07</h2>
+
+					<h3>Android</h3>
+
+					<ul>
+						<li>
+							definition:
+							<ul>
+								<li>
+									linux with modified kernel
+								</li>
+								<li>
+									application framework written in java running in Dalvik VM
+								</li>
+							</ul> 
+						</li>
+						<li>
+							Component (key concepts)
+							<ul>
+								<li>
+									Activities
+								</li>
+								<li>
+									Intents
+								</li>
+								<li>
+									Services
+								</li>
+								<li>
+									content providers
+								</li>
+								<li>
+									Broadcast receivers
+								</li>
+							</ul>
+						</li>
+						<li>
+							rich development environment
+							<ul>
+								<li>
+									Eclipse
+								</li>
+								<li>
+									ADT Android Development Toolkit
+								</li>
+								<li>
+									Android Studio
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Tools 01</h2>
+
+					<h3>IDEs - Xamarin Studio AKA MonoDevelop</h3>
+
+					<ul>
+						<li>
+							Windows
+							<br />
+							installer
+						</li>
+						<li>
+							MacOSX
+							<br />
+							installer
+						</li>
+						<li>
+							Linux - MonoDevelop
+							<br />
+							building/compilation 2013-09
+							<br />
+							community packages for installation for some linux distros
+							<br />
+							no commercial packages - Xamarin.Android - uservoice
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demo Tools 01: Xamarin Studio</h2>
+
+					<ul>
+						<li>
+							Xamarin Studio MacOSX (MonoDevelop@Linux - some features)
+						</li>
+						<li>
+							Xamarin Studio Windows
+						</li>
+					</ul>
+
+					<a href="http://www.youtube.com/user/HolisticWare">
+					http://www.youtube.com/user/HolisticWare 
+					</a>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Tools 02</h2>
+
+					<h3>Visual Studio</h3>
+					<ul>
+						<li>
+							versions: 2010, 2012, 2013
+						</li>
+						<li>
+							Professional +
+						</li>
+						<li>
+							plugins addins suggested:
+							<ul>
+								<li>
+									VSCommands
+								</li>
+								<li>
+									Productivity Tools…
+								</li>
+								<li>
+									ProjectFlaves
+								</li>
+								<li>
+									Project Linker
+								</li>
+								<li>
+									File Linker
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+				<!-- ............................................................... -->
+				</section>
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demo Tools 02: Xamarin Studio Solutions and Projects</h2>
+
+					<ul>
+						<li>
+							Solution - Visual Studio sln file
+						</li>
+						<li>
+							Projects
+							<ul>
+								<li>
+									Android
+									<ul>
+										<li >
+											Android Application template
+<pre>
+XamarinAndroid.Xample
+</pre>										
+										</li>
+									</ul>
+								</li>
+								<li>
+									iOS
+									<ul>
+										<li>
+											XIB based
+<pre>
+XamariniOS.Universal.Empty.Xample
+XamariniOS.Universal.SingleView.Xample
+XamariniOS.Universal.Utility.Xample
+XamariniOS.Universal.MasterDetail.Xample
+XamariniOS.Universal.Tabbed.Xample
+XamariniOS.Universal.OpenGL.Xample
+</pre>
+										</li>
+										<li>
+											Storyboard based
+<pre>
+XamariniOS.UniversalStoryboard.SingleView.Xample
+XamariniOS.UniversalStoryboard.MasterDetail.Xample
+XamariniOS.UniversalStoryboard.Tabbed.Xample
+XamariniOS.UniversalStoryboard.OpenGL.Xample
+</pre>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<a href="http://www.youtube.com/user/HolisticWare">
+					http://www.youtube.com/user/HolisticWare 
+					</a>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Tools 03: Visual Studio Extras</h2>
+
+					<h3>Extras - AddIns PlugIns</h3>
+					<ul>
+						<li>
+							Microsoft defeatures its products
+							<ul>
+								<li>
+									Visual Studio 2010 no support for Windows Mobile projects
+									(CE and Smart Devices)
+								</li>
+							</ul>
+						</li>
+						<li>
+							porting difficult
+						</li>
+						<li>
+							ideal new and old pojects side by side (for linking)
+						</li>
+						<li>
+							[obsolete 2013-04] iOS projects not available in Visual Studio
+						</li>
+						<li>
+							solution: Project Flaves
+							<ul>
+								<li>
+									Visual Stuidio automation
+								</li>
+								<li>
+									project flaves (flavors, subtypes)
+								</li>
+								<li>
+									moljac@holisticware addition WinMo projects, MonoMac etc
+									<br />
+									<a href="http://www.youtube.com/user/HolisticWare">
+									</a>
+									<br />
+									<a href="http://www.youtube.com/user/HolisticWare">
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Tools 04: Environment setup for iOS</h2>
+
+					<ul>
+						<li>
+							Mac is must have - Apple's license!
+						</li>
+						<li>
+							box switching
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demo Tools 04</h2>
+
+					<h3>Xamarin.iOS Visual Studio</h3>
+					<ul>
+						<li>
+							debugging
+							<ul>
+								<li>
+									Android
+								</li>
+								<li>
+									iOS from
+									<ul>
+										<li>
+											Visual Studio in Virtual Machine on Mac host
+											<br />
+											HolisticWare setup
+										</li>
+										<li>
+											Visual Studio on Windows box over network
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<!--
+					<ul>
+						<li>
+							Problems to report:
+							<ul>
+								<li>
+									XA project created in XS cannot be opened in VS2012
+								</li>
+								<li>
+									XI OpenGL existing project adding in VS
+								</li>
+								<li>
+									path length for run
+								</li>
+							</ul>
+						</li>
+					</ul>
+					-->
+					<a href="http://www.youtube.com/user/HolisticWare">
+					http://www.youtube.com/user/HolisticWare 
+					</a>
+
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 01</h2>
+
+					<h3>iOS Concepts</h3>
+
+					<ul>
+						<li>
+							Xamarin
+							<br />
+							<a href="http://docs.xamarin.com/guides/ios/application_fundamentals/delegates,_protocols,_and_events ">
+								http://docs.xamarin.com/guides/ios/application_fundamentals/delegates,_protocols,_and_events 
+							</a>							
+						</li>
+						<li>
+							Apple
+							<br />
+							<a href="https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/chapters/StreamlineYourAppswithDesignPatterns/StreamlineYourApps/StreamlineYourApps.html">
+								https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/chapters/StreamlineYourAppswithDesignPatterns/StreamlineYourApps/StreamlineYourApps.html
+							</a>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 02</h2>
+
+					<h3>MVC pattern</h3>
+					
+					<ul>
+						<li>
+							Model View Controller
+							<br />
+							most important design pattern is MVC 
+							<br />
+							Model View Controller
+							<ul>
+								<li>
+									Model
+									<br />
+									Encapsulates the data of an app and defines a logic
+								</li>
+								<li>
+									View
+									<br />
+									Is an object that users can see, knows how to draw itself
+									and might respond to user actions
+								</li>
+								<li>
+									Controller
+									<br />
+									Intermediary between one or more View objects and 
+									one or more Model objects.
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<img 
+						src="http://cdn.holisticware.net/holisticware/publications/presentations/20131012-the-geek-gathering-xamarin-cross-platform-tools/ios-model-view-controller.png" 
+						alt="iOS MVC Pattern" 
+					/>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 03</h2>
+
+					<h3>other design patterns</h3>
+					<ul>
+						<li>
+							Delegation
+						</li>
+						<li>
+							Protocol
+						</li>
+						<li>
+							Notification Center
+						</li>
+						<li>
+							Target – Action
+						</li>
+						<li>
+							KVO – Key Value Observing
+						</li>
+						<li>
+							Blocks
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 04</h2>
+
+					<h3>Delegation </h3>
+					<ul>							
+						<li>
+							Acting on behalf on another object
+						</li>
+						<li>
+							Used when an object receives many events and it wants the same
+							Object to handle each of those events.
+						</li>
+						<li>
+							C# == Events
+						</li>
+					</ul>
+					<img 
+						src="http://cdn.holisticware.net/holisticware/publications/presentations/20131012-the-geek-gathering-xamarin-cross-platform-tools/ios-delegation-cs-events.png" 
+						alt="iOS Delegation - c# Events" 
+					/>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 05</h2>
+
+					<h3>Protocol</h3>
+					<ul>
+						<li>
+							Enabling communication between objects not related by inheritance
+						</li>
+						<li>
+							C# == Interfaces (abstract classes)
+						</li>
+					</ul>
+					<img 
+						src="http://cdn.holisticware.net/holisticware/publications/presentations/20131012-the-geek-gathering-xamarin-cross-platform-tools/ios-protocols.png" 
+						alt="iOS Delegation - c# Events" 
+					/>
+				</section>
+				<!-- ............................................................... -->
+
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 06</h2>
+
+					<h3>Notification Center</h3>
+					<ul>
+						<li>
+							Notifying Interested Observers of an Event
+						</li>
+						<li>
+							Every object can register an event
+							<br />
+							Every object can subscribe to an event
+						</li>
+					</ul>
+					<img 
+						src="http://cdn.holisticware.net/holisticware/publications/presentations/20131012-the-geek-gathering-xamarin-cross-platform-tools/ios-notification-center.png" 
+						alt="iOS Delegation - c# Events" 
+					/>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 07</h2>
+
+					<h3>Target Action</h3>
+					<ul>
+						<li>
+							Encapsulating a message to be sent when event occurs
+						</li>
+						<li>
+							Used when you have close relationship between two objects
+						</li>
+						<li>
+							ViewController and on of its Views (UIButton)
+						</li>
+					</ul>
+					<img 
+						src="http://cdn.holisticware.net/holisticware/publications/presentations/20131012-the-geek-gathering-xamarin-cross-platform-tools/ios-target-action.png" 
+						alt="iOS Delegation - c# Events" 
+					/>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 08</h2>
+
+					<h3>Key – Value Observing</h3>
+
+					<ul>
+						<li>
+							Notifying an observer when a value changes
+						</li>
+						<li>
+							Allows an object to observe a property of another  object
+						</li>
+					</ul>
+					<img 
+						src="http://cdn.holisticware.net/holisticware/publications/presentations/20131012-the-geek-gathering-xamarin-cross-platform-tools/ios-key-value-observing.png" 
+						alt="iOS Delegation - c# Events" 
+					/>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 09</h2>
+
+					<p>
+					Application concept (AppDelegate, UIView, UIViewController, UINavigationController)
+
+					</p>
+					<h3>UIKit 01 AppDelegate</h3>
+					<p>
+						AppDelegate
+						<br />
+						One of main jobs is to track the state transitions the app goes trough while is is running.
+						<br />
+						application:willFinishLaunchingWithOptions:
+						<br />
+						used to make any final tweaks, or to complete your’s app initialization
+						<br />
+						didFinishLaunching
+					</p>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 10</h2>
+
+					<h3>UIKit 02 UIViewController</h3>
+
+					<p>
+						ViewDidLoad, ViewWillAppear, ViewWillDisappear
+						<br />
+						ViewDidLoad
+						<br />
+						Initialize your ViewController
+						<br />
+						It will be called probably just once
+						<br />
+						ViewWillAppear
+						<br />
+						Is called every time view appears 
+						<br />
+						Manages a set of UIViews
+						<br />
+						IBOutlet (property)
+						<br />
+						IBAction (target-action design pattern)
+					</p>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 11</h2>
+
+					<h3>UIKit 03 UINavigationController</h3>
+					<p>
+						Handles navigation of UIViewControllers
+						<br />
+						Transition (push, modal or custom)
+						<br />
+						Push – drill down
+						<br />
+						Modal – Covers entire screen
+					</p>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 12</h2>
+
+					<h3>UIKit 04</h3>
+					<img 
+						src="http://cdn.holisticware.net/holisticware/publications/presentations/20131012-the-geek-gathering-xamarin-cross-platform-tools/ios-uinavigationcontroller.png" 
+						alt="iOS Delegation - c# Events" 
+					/>
+				</section>
+				<!-- ............................................................... -->
+				
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.iOS 13</h2>
+
+					<h3>iOS More</h3>
+					<ul>
+						<li>
+							FirstResponder, InputView
+						</li>
+						<li>
+							Protocol == Interface, Delegation  
+						</li>
+						<li>
+							UITableViewDelegate, UITableViewDataSource
+						</li>
+						<li>
+							UIAlertViewDelegate
+						</li>
+						<li>
+							XIB vs Storyboard
+							<br />
+							HTML, XAML equivalent
+							<br />
+							declarative object graph
+							<br />
+							key-value pair (Apple!)
+						</li>
+						<li>
+							Simple Application + UIElements
+						</li>
+						<li>
+							Navigation (XIB vs. Storyboard)
+						</li>
+						<li>
+							Segue
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demo: Xamarin.iOS</h2>
+
+					<p>
+					Table??
+					</p>
+
+					<p>
+					UML
+					</p>
+
+					<a href="http://www.youtube.com/user/HolisticWare">
+					http://www.youtube.com/user/HolisticWare 
+					</a>
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.Android</h2>
+
+					<h3>Components in detail 01</h3>
+					<ul>
+						<li>
+							Activities
+							<br />
+							application component that provides a interaction screen (or not)
+							<br />
+							Orchestrates a UI view
+							<br />
+							Applications are composed of 1-to-Many activities
+							<br />
+							One activity marked as main and shown first upon launch
+						</li>
+						<li>
+							Intents
+							<br />
+							messaging facility for late run-time binding between components in the same 
+							or different applications 
+							<br />
+							Eventing mechanism
+							<br />
+							Intent objects are passive data that is of interest to the component that is 
+							receiving the intent
+							<br />
+							Filterable
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.Android</h2>
+
+					<h3>Components in detail 02</h3>
+					<ul>
+						<li>
+							Services
+							<br />
+							application component that can perform long-running operations in the 
+							background and does not provide a user interface
+							<br />
+							Long lasting background work
+							<br />
+							No UI
+							<br />
+							Like Windows services
+							<br />
+							Possible to bind to an ongoing service and communicate via exposed interface
+							<br />
+							Runs in main application process but doesn’t block other components or UI
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demo: Xamarin.Android</h2>
+
+					<h3>Details</h3>
+					<a href="/holisticware/publications/presentations/20110630-mono-for-android-monodroid-android-for-dotnetters">
+					Mono for Android (MonoDroid) presentation on Microsoft Zagreb DevUG 2011-06-20
+					</a>
+
+					<h3>Showcase</h3>
+					<ul>
+						<li>
+							Designer
+						</li>
+						<li>
+							Emulator in VM
+						</li>
+						<li>
+							Navigation + Debugging
+						</li>
+					</ul>
+
+					<a href="http://www.youtube.com/user/HolisticWare">
+					http://www.youtube.com/user/HolisticWare 
+					</a>
+
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin Mobile and Abstractions</h2>
+
+					<h3>Comparison</h3>
+					<img 
+					src="http://cdn.holisticware.net/holisticware/publications/presentations/20110630-mono-for-android-monodroid-android-for-dotnetters/ios-lifecycle-from-android-lifecycle.png" 
+					alt="Android Content Providers" 
+					width="300px" height="300px"
+					/>
+
+					<ul>
+						<li>
+							Xamarin.Mobile
+						</li>
+						<li>
+							Xamarin.Auth
+						</li>
+						<li>
+							Xamarin.Social
+						</li>
+						<li>
+							MonoMobile.Dialog - Monotouch.Dialog
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demo: Xamarin Mobile and Abstractions</h2>
+
+					<ul>
+						<li>
+							Xamarin.Mobile
+						</li>
+						<li>
+							MonoMobile.Dialog - Monotouch.Dialog
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin (Mono) Desktop 01</h2>
+
+					<h3>Xamarin.Mac + MonoMac</h3>
+					<ul>
+						<li>
+							<a href="http://xamarin.com/mac">
+								http://xamarin.com/mac
+							</a>
+						</li>
+					</ul>
+					<h3>GTK#</h3>
+
+				</section>
+				<!-- ............................................................... -->
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demo: Xamarin (Mono) Desktop 01</h2>
+
+					<h3>SlideShow sample from CAASE 25 conference</h3>
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+
+
+			<!-- ================================================================================== -->
+			<section>
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Integration 01</h2>
+
+					<p>
+						Advanced internals - HowStuffWorks
+						<br />
+						How integration with platform[s] is achieved
+					</p>
+					<ul>
+						<li>
+							Binding Projects
+							<ul>
+								<li>
+									Xamarin.iOS
+									<br />
+									<a href="https://github.com/AFNetworking/AFNetworking">
+										https://github.com/AFNetworking/AFNetworking
+									</a>
+								</li>
+								<li>
+									ObjectiveC Sharpie
+									<a href="http://docs.xamarin.com/guides/ios/advanced_topics/binding_objective-c/objective_sharpie">
+										http://docs.xamarin.com/guides/ios/advanced_topics/binding_objective-c/objective_sharpie
+									</a>
+								</li>
+								<li>
+									Smples planned: Reachability, PingHelper
+									<br />
+									Issues to explain
+								</li>
+							</ul>
+						</li>
+						<li>
+							Porting of existing .net (c#) apps and libs
+							<ul>
+								<li>
+									Mobility Scanner
+									<a href="http://scan.xamarin.com/">http://scan.xamarin.com/</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demo: Integration 01</h2>
+					<h3>Binding iOS</h3>
+
+
+					<a href="http://www.youtube.com/user/HolisticWare">
+					http://www.youtube.com/user/HolisticWare
+					</a>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demo: Integration 02</h2>
+					<h3>Binding Android</h3>
+
+					http://www.openintents.org/en/libraries
+					https://code.google.com/p/android-json-rpc/downloads/detail?name=android-json-rpc-0.3.4.jar
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Ecosystem: Components 01</h2>
+					<h3>Motivation</h3>
+
+					<ul>
+						<li>
+							java popularity - numerous libraries/utilities
+						</li>
+						<li>
+							mostly open source
+						</li>
+						<li>
+							c# not as many, but catching up
+						</li>
+						<li>
+							numerous libs ported directly from java (log4j log4net)
+						</li>
+						<li>
+							Technology acceptance
+							<ul>
+								<li>
+									ecosystem
+									<ul>
+										<li>
+											benefits: ease of use, cost reduction
+										</li>
+										<li>
+											users: end users and developers
+										</li>
+										<li>
+											libraries, components, apps
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Ecosystem: Components 02</h2>
+					<h3>Xamarin Component Store</h3>
+
+					<ul>
+						<li>
+							<a href="http://components.xamarin.com/">
+							http://components.xamarin.com/
+							</a>
+							<ul>
+								<li>
+									similar to nuget
+								</li>
+								<li>
+									samples, documentation
+								</li>
+							</ul>
+						</li>
+						<li>
+							HolisticWare experience: SharpSerializer, MarkDownDeep, log4net, OxyPlot
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demo: Ecosystem Components</h2>
+
+					<a href="http://www.youtube.com/user/HolisticWare">
+					http://www.youtube.com/user/HolisticWare 
+					</a>
+
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+
+			<!-- ================================================================================== -->
+			<section>
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Testing 01</h2>
+
+					<h3>Beta testing support</h3>
+
+					<ul>
+						<li>
+							<a href="https://testflightapp.com/">
+							https://testflightapp.com/
+							</a>
+						</li>
+						<li>
+							Analytics and tracking SDKs
+						</li>
+						<li>
+							Both iOS and recently Android
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demo: Testing 01</h2>
+					<h3>Beta testing support</h3>
+
+					<p>
+						Deployment to TestFlight
+					</p>
+					<ul>
+						<li>
+							Xamarin Studio integration
+						</li>
+						<li>
+							deploying to beta testers
+							<ul>
+								<li>
+									iOS
+								</li>
+								<li>
+									Android recent
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+					<a href="http://www.youtube.com/user/HolisticWare">
+					http://www.youtube.com/user/HolisticWare 
+					</a>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Testing 02</h2>
+
+					<h3>Xamarin.TestCloud</h3>
+
+						<p>Automated tests</p>
+						<ul>
+							<li>
+								BDD behavior driven development and testing
+							</li>
+							<li>
+								scripting UI interaction, simulate user interaction, robots doing manual testing
+							</li>
+							<li>
+								testlabs expensive and hard to setup (only for Android devices $8k/month)
+							</li>
+							<li>
+								difficult to write sophisticated and realistic scripts
+							</li>
+							<li>
+								tests are fragile (image recognition)
+							</li>
+							<li>
+								user interfaces for the tools - very bad
+							</li>
+						</ul>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+					<section>
+						<h2>Testing 03</h2>
+
+						<h3>Testing mobile apps 01</h3>
+
+						<img 
+							src="http://cdn.holisticware.net/holisticware/publications/presentations/complete-development-process-with-xamarin-cross-platform-tools/testing-quadrant.png" alt="Testing Quadrant" height="200px" />
+
+						<ul>
+							<li>
+								Based on Calabash
+								<br />
+								<a href="http://calaba.sh/">
+									http://calaba.sh/
+								</a>
+								<br />
+								<a href="https://github.com/calabash/calabash-android">
+									https://github.com/calabash/calabash-android
+								</a>
+								<br />
+								<a href="https://github.com/calabash/calabash-ios">
+									https://github.com/calabash/calabash-ios
+								</a>
+							</li>
+					</ul>
+
+					</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+					<section>
+						<h2>Testing 03</h2>
+
+						<h3>Xamarin Test Cloud Details</h3>
+
+						<a href="http://holisticwarez.net/holisticware/publications/presentations/20130612-case25-complete-development-process-with-xamarin-tools#/4">
+							Xamarin.TestCloud details
+						</a>
+					</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demo: Xamarin Test Cloud </h2>
+
+					<ul>
+						<li>
+							<a href="http://xamarin.com/test-cloud">
+							http://xamarin.com/test-cloud
+							</a>
+						</li>
+					</ul>
+
+					<a href="http://www.youtube.com/user/HolisticWare">
+					http://www.youtube.com/user/HolisticWare 
+					</a>
+					
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Porting 01</h2>
+
+					<ul>
+						<li>
+							depends on starting point - original project
+							<ul>
+								<li>
+									Windows Phone (7 especially) smallest subset (common denominator)
+								</li>
+								<li>
+									web projects (System.Web.dll) log4net - more difficult
+								</li>
+								<li>
+									usages of preprocessor directives (#defines) complicates porting
+								</li>
+								<li>
+									project structure
+									<ul>
+										<li>
+											PCLs pros and cons (file clutter in the same project)
+										</li>
+										<li>
+											personally prefer separating in separeate folders (project folders)
+											<ul>
+												<li>
+													single common
+												</li>
+												<li>
+													deltas
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							project linker
+							<ul>
+								<li>
+									file extension pattern exclusion by moljac@holisticware
+									<ul>
+										<li>
+											github
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+			</section>
+			<!-- ================================================================================== -->
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Process 01</h2>
+
+					<ul>
+						<li>
+							Design
+							<ul>
+								<li>
+									Separation (of concern)
+								</li>
+								<li>
+									Layering
+									<ul>
+										<li>
+											Business layer / model / domain
+										</li>
+										<li>
+											Presentation layer UI
+											<br />
+											Patterns:
+											<ul>
+												<li>
+													Document/View
+												</li>
+												<li>
+													MVC, MVP, MVVM
+													<br />
+													controller, viewmodel
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									Technology rape avoidance
+									<ul>
+										<li>
+											Windows mobile - Desktop on 4"
+										</li>
+										<li>
+											Win8 - Tiles (huge) on 27" monitor
+										</li>
+										<li>
+											don't do Metro on iOS or iOS design on Windows Phone
+											<br />
+											though the difference vanishes (iOS7, Android 4)
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Process 02</h2>
+
+					<ul>
+						<li>
+							Sample: Log4net
+						</li>
+						<li>
+							Development
+						</li>
+						<li>
+							Test
+							<ul>
+								<li>
+									Beta testing
+								</li>
+								<li>
+									Xamarin TestCloud
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+
+
+
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demos from Windows Box and VS 2010</h2>
+					<h2>Demo Tools 01: Visual Studio Addins, External Tools</h2>
+
+					<ul>
+						<li>
+							Visual Studio tools
+							<ul>
+								<li>
+									Project Linker
+								</li>
+								<li>
+									VSCommands, Productivity Tools
+								</li>
+								<li>
+									Project Flaves
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+					<a href="http://www.youtube.com/user/HolisticWare">
+					http://www.youtube.com/user/HolisticWare 
+					</a>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Demos from Windows Box and VS 2010</h2>
+					<h2>Demo Tools 02: Xamarin Android</h2>
+
+					<ul>
+						<li>
+							Layouts with Code behind .axml
+						</li>
+						<li>
+							Designer (Design View / Code)
+						</li>
+					</ul>
+
+					<a href="http://www.youtube.com/user/HolisticWare">
+					http://www.youtube.com/user/HolisticWare 
+					</a>
+
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>	Summary </h2>
+					<h2>??? Questions ???</h2>
+					<blockquote>
+						<a href="http://holisticware.net">http://holisticware.net</a> 
+						<br /> 
+						presented by Ivan Ðikić, Miljenko Cvjetko, 
+						<br />
+						logistics Emilije Strahinja 
+						<br /> 
+						<a href="http://xamarin.com">http://xamarin.com</a>
+					</blockquote>
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+		</div>
+	</div>
+</body>
+</html>

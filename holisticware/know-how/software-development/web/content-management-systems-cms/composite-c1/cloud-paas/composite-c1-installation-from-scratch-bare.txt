@@ -1,0 +1,49 @@
+Page Types and Page Templates
+
+Add Website
+	perequisites: PageType
+
+	
+	
+Folder structure
+	folder for static html content (html files) 
+		contains folder structure like CMS structure
+	~/<websitename>
+		sample:
+			~/holisticware/
+	
+		example 960gs samples
+			~/holisticware/know-how/development/web/design/grid-systems/960gs/
+
+			
+handling in development server index.html			
+
+	1.
+		Warning 
+		/// <summary>
+		/// The built-in webserver is hardwired to use Default.aspx as the default page.
+		/// 
+		/// The project must have at least an empty Default.aspx file to overcome the 
+		/// Directory Listing problem for Global.asax.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		protected void Application_BeginRequest(object sender, EventArgs e)
+		{
+			if (Request.Url.AbsolutePath.EndsWith("/"))
+			{
+				Server.Transfer(Request.Url.AbsolutePath + "index.aspx");
+			}
+
+			this.Response.Write("hi@ " + this.Request.Path + "?" + this.Request.QueryString);
+			this.Response.StatusCode = 200;
+			this.Response.ContentType = "text/plain";
+
+			this.Response.End();
+		}
+
+	2. CC1
+	
+		<customErrors mode="Off">
+	to
+		<customErrors mode="On">

@@ -1,0 +1,92 @@
+
+[2010-08-18]===================================================================
+Error:
+
+
+	
+
+
+
+Downloading Android SDK Tools, revision 11
+File not found: C:\Program Files\Android\android-sdk-windows\temp\tools_r11-windows.zip (Access is denied)
+
+
+
+
+
+
+
+Deploying package
+	Debug > Run 
+	Select device > emulator-5554
+	Signing application package > Signing failed
+	Error: Could not sign the Android package. See exception for more details.
+	Question mark for details... (Could not copy paste...Can You make it TextBox ReadOnly?)
+
+	tried to cleanup
+		C:\Users\moljac\AppData\Local\Temp
+		did not help (could not clean all tmp files either)
+
+What about having Views in other ClassLib projects?? Any experience?
+
+
+
+
+[2010-11-23]===================================================================
+1. How to refresh app on the emulator? Wipe user data does not work for me...
+2. Getting error Resource does not contain definitoin for layout
+
+	[Activity(Label = "MyActivity", MainLauncher = true)]
+	public class Activity1 : Activity
+	{
+		int count = 1;
+ 
+		protected override void OnCreate(Bundle bundle)
+		{
+			base.OnCreate(bundle);
+ 
+			// Set our view from the "main" layout resource
+			SetContentView(Resource.layout.main);
+ 
+ 
+			return;
+		}
+	}
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/textview"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:text="@string/hello"/>
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">HolisticWare GoNix Channels</string>
+	<string name="app_name">HolisticWare.Gonix</string>
+</resources>
+
+3. If using multiple startup projects for solution got:
+
+Error	5	System.InvalidOperationException: Command failed. 
+Command: C:\Program Files\Java\jdk1.6.0_22\bin\javac.exe "-d" 
+"bin\classes" "-classpath" 
+"C:\android-sdk_r07-windows\android-sdk-windows\platforms\android-8\android.jar;D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.EXE_PL.094ClntMob_MonoDroidP7_netfx35\obj\Debug\android\bin\mono.android.jar" 
+"@C:\Users\moljac\AppData\Local\Temp\tmpACE6.tmp"	
+D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.EXE_PL.094ClntMob_MonoDroidP7_netfx35\monodroid	
+HolisticWare_GoNIX.EXE_PL.094ClntMob_MonoDroidP7_netfx35
+ 
+
+
+[Solution > Multiple Startup Projects]
+Error	5	System.InvalidOperationException: Command failed. 
+Command: C:\Program Files\Java\jdk1.6.0_22\bin\javac.exe "-d" 
+"bin\classes" "-classpath" 
+"C:\android-sdk_r07-windows\android-sdk-windows\platforms\android-8\android.jar;D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.EXE_PL.094ClntMob_MonoDroidP7_netfx35\obj\Debug\android\bin\mono.android.jar" 
+"@C:\Users\moljac\AppData\Local\Temp\tmpACE6.tmp"	
+D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.EXE_PL.094ClntMob_MonoDroidP7_netfx35\monodroid	
+HolisticWare_GoNIX.EXE_PL.094ClntMob_MonoDroidP7_netfx35
+
+
+"-classpath" "C:\android-sdk_r07-windows\android-sdk-windows\platforms\android-8\android.jar;D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.EXE_PL.094ClntMob_MonoDroidP7_netfx35\obj\Debug\android\bin\mono.android.jar" "@C:\Users\moljac\AppData\Local\Temp\tmpACE6.tmp"	D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.EXE_PL.094ClntMob_MonoDroidP7_netfx35\monodroid	HolisticWare_GoNIX.EXE_PL.094ClntMob_MonoDroidP7_netfx35

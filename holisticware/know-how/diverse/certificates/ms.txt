@@ -1,0 +1,171 @@
+ Anny MCSD as it still is for me a magic status Microsoft Certified Solution`s Developer 
+i was once verry close to the MCSD status so i am currently still a Multi MCP ;-)
+
+On the other hand i have currently something like huh CV ??? just Google my name and see what my knowledge is i do not need a braindump paper i can show you what i know in the wild what is that worth ? 
+
+So yes i probably pursue a MCSD but i would do it for myself and not for a potential employer just to test my skills .
+7 days ago
+ 
+Juri
+Juri K. • @Michel. I'm afraid to upset you, but there is no MCPD anymore for new exams. Now it is: MCSA, MCSE, MCSD. :) 
+@Darren. I have MCPD twice (and if I remember well 6 time MCTS), but they are in the bottom of the bottom of my 15 pages cv :) For company which wants to hire you, I believe, this is the latest item in the check list.
+7 days ago
+ 
+Michel
+Michel P. • Upset me why ? ,,, i am and was aware of that ... 
+
+I do not have MCPD`s i have old style MCP`s to be exact 70-175 and 70-176 
+
+i never botherd to get certified for .Net as i was and am a early adaptor i hate it to prepare for exams that are for me passed technology , i was always ahead of what could be certified at the time ...
+7 days ago
+ 
+Darren
+Darren C. • @Juri - MCPD retires in July 2013. I have been looking at this because I already know databases, WCF and Visual Studio etc. 
+
+If I just had the time..... 
+
+May just do my 70-513 within the next month or so, as I enjoy working with web services.
+7 days ago
+ 
+surendar
+surendar Y. • I have done MCPD in web developer 4.0. Is there any advanced certifications higher then MCPD web developer 4.0. ? Please let me know.
+6 days ago
+ 
+Richard
+Richard S. • I would purchase a subscription to Safari.com, lynda.com or books24x7. 
+
+To me access to one of these reference libraries beats any official certification.
+2 days ago
+ 
+Brian
+Brian H. • I have a subscription to Safari that I have found invaluable over the past few years, which allows me to stay as current or as backwards as my current contract requires. This type of resource is invaluable if you are the jack of all trades and show that you can do anything. As far as certifications go, I don not have any Microsoft ones and I have been on both sides of the interviewing table and agree with Juri that its the last thing in the list and IMHO only tells me you are good at taking tests, not that your a great problem solver or can think out of the box, which for most companies is a lot more important.
+2 days ago
+ 
+Bruce
+Bruce L. • The problems with any MS certification are (1) its really just a revenue stream for Microsoft, and though you might invest time, effort and money into it, you certainly dont get any refund or rebate just a few years later when that certification is either old or outdated. (2) Among us techies these of course have some value, but most HR departments and non-technical managers dont really care about them, let alone understand what they mean. (3) I have worked for two companies that see these certifications as a downside, NOT upside - as one company CIO said to me, "What was he NOT doing while he was getting this certification? Give me someone with real world experience - not someone who read a few books and got an expensive wall certificate." (4) Software development has always been a creative exercise and there are thousands if not millions of coders whose drive and creativity go FAR beyond any certificate so again, for many hiring professionals the certificate is the last consideration, not at all the first, let alone near the top. 
+
+For me personally, about 20 years ago I spent $5,200 on certifications (classes, books, exam, etc) and got one big NOTHING back for that investment. No one was all that impressed nor did I land any job where someone said the certificate mattered. After that, Microsoft dropped two of the products I was 'certified' in. Frankly, I would have been just as smart to buy a couple books, and use the rest for a good vacation - and its a mistake I wont make again.
+2 days ago
+ 
+Uriah
+Uriah B. • I think the value of the certification process is two-fold: 
+
+1. It is a good way to force yourself to study and dig deeper into parts of the framework that you might not have otherwise. It might help you discover some blind spots you had. On the other hand, you might be studying parts of the framework you will never use so your mileage may vary. 
+
+2. It is valuable for your career if you want to work somewhere that is a Microsoft Partner. They have certain requirements about employees having the certs and being certified will almost certainly get your foot in the door. 
+
+For most employers though, the certs do not play into the hiring process at all. I would not recommend pursuing them for that reason alone. I think the existence of the paper MCP is what devalues that. If all these certs required a real test of knowledge rather than a multiple choice scenario (say by a panel of peers) I think they would carry a lot more weight. The problem is that, right now at least, they really don't measure what they claim to measure. 
+
+As an aside, I should say that I don't think this is much of a revenue stream for Microsoft. They're charging $150 for a test that has a lot of overhead in terms of testing center costs. They might make some money off the training materials but I would argue not that much. Instead, the real value that Microsoft gets from this process is an investment by the engineer into their platform and that is probably worth a lot.
+1 day ago
+ 
+Juri
+Juri K. • Just to show another side (because I see that most of comments against or neutral about certifications): 
+1. Certificates are argument. Latest, but still they are. So if 2 candidates have the same experiance, same knowledge, they both look and smell good, but one has certificates and another one doesn't, guess who wins? Definitely you should get 1-2 on start of your career. 
+2. MS certificates are necessary to get MS partnership. Mainly I have them because of this point and because of this I quite valuable employe in company (except me there is only 1 guy who has certificate) 
+3. From marketing point of view they are good. If you speak with non-technical customer who doesn't know about MS certificates and you tell that you have status, certificates, etc... this gives value. I used this and this works (of course it shouldn't be main marketing strategy, but you always should mention them). 
+4. Why not? If you have some free time and 80$ (sometimes I even charge this to my employer)... Microsoft makes nice paper, they really look cool on wallpapers in my office :)
+1 day ago
+ 
+Darren
+Darren C. • @Uriah - I always find when studying a new certification is that you always learn a 'few extra addtional paths' along the way. 
+
+I love it when you get that 'aha' moment...so thats how you do it! 
+
+It always opens up an alternative solution to what you already know. 
+
+I know for a fact that certs work best with recruitment agencies to assist a job search. 
+
+Thanks for your detailed comment!
+1 day ago
+ 
+Darren
+Darren C. • @ Brian @Bruce - I will go and view Safari online next week and see what packages they have to offer. 
+
+It's surprising and interesting how you both feel about certifications in general. Thanks for your input. 
+
+I'm more into learning videos other than books. More a visual / auditorial learner!
+1 day ago
+ 
+shaik
+shaik I. • Nice discussion. mcpd is retiring, advisable to take up mcsd. i'm looking to do 481 as i've got 480 recently. plz advice
+1 day ago
+ 
+Kamran
+Kamran S. • MCSD: Windows Store Apps
+1 day ago
+ 
+Jason
+Jason V. • I got my first MCP for ASP.NET back in 2003. At the time, I was planning to pursue MCSD, but when I went independent I found that potential clients weren't as impressed by certification as I thought they'd be. A very few projects have specifically asked for them, but by-and-large the cost of Certification seems to outweigh the benefits. (IMHO)
+1 day ago
+ 
+.Salvatore
+.Salvatore .. • Two weeks ago Microsoft offered free testing for specific exams. My guess is they are trying to fill the void or fill demand.
+23 hours ago
+ 
+Juri
+Juri K. • @Salvatore. I took this exam. It was about HTML5 (not my favorite subject, but exam was very easy and it was really free).
+23 hours ago
+ 
+.Salvatore
+.Salvatore .. • Then I would take what is relevant to your profession, including .net.
+20 hours ago
+ 
+Doug
+Doug D. • I would also recommend www.PluralSight.com. Nice approach.
+3 hours ago
+ 
+Craig
+Craig B. • Some here have stated that Microsoft certs are useless. I don't agree. 
+They are valuable to the developer to show they are at a specific skill level. 
+Even if not useful for your community, employer, etc, there are valuable to you. 
+
+In addition to Pluralsight, I've always liked training from DevelopMentor. They've 
+just launched online learning at Learningline.com.
+2 hours ago
+ 
+Lynn
+Lynn M. • I have MCSD certificate. I was moving from classic ASP to .Net and thought 
+this would be a fast way to come up to speed and I had seen some jobs mentioning the 
+certificate was plus. In addition, having the certificate would show this old timer 
+is keeping up to date on paper (otherwise you need to read into the resume.) 
+
+However, the course/exam used an earlier version. So I did all the exercises on our 
+company machine (newer) and took the exam on the older stuff - translating all the 
+differences between .Net 1+ and 2. After my experience, I didn't count the certificate 
+so much when I was hiring. My certificate was more based on memorizing for a test than 
+actual work. Experience was what I achieved at work and I was looking for a self-starter 
+with more experience than myself. 2 years later that certificate was replaced with 
+others and these new ones have expiration dates to show that you need to keep up with 
+the technology. I believe these new certificates are a better approach. However, I'm 
+not going for them.
+2 hours ago
+ 
+Balachandran
+Balachandran E. • Hi, 
+
+I am beginner of .net with 2 years Experience. 
+
+I am not yet any certification in .net. 
+
+What .net certification is need to improve my career. 
+
+Any one Please Help me and Send details about Certification Details.
+1 hour ago
+ 
+Craig
+Craig B. • See http://www.microsoft.com/learning/en/us/certification-overview.aspx
+
+
+
+
+
+
+
+
+
+
+
+
+http://www.linkedin.com/groups/If-you-were-add-one-40949.S.214951546?view=&srchtype=discussedNews&gid=40949&item=214951546&type=member&trk=eml-anet_dig-b_pd-ttl-hdp&ut=336yuPCxgzsRE1
+

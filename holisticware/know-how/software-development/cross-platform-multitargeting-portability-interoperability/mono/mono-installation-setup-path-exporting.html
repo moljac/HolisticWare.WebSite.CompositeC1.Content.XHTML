@@ -1,0 +1,65 @@
+<!--
+C1 generated!!
+<title>Mono Setup Path Exporting</title>
+<meta name="Description" content="Mono Setup Path Exporting to get everything working" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="Mono, Setup,Path, Exporting" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-05-26" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Mono Setup Path Exporting</a></h1>
+
+<pre class="hw_code">
+#!/bin/bash -e
+
+# !!!!!!!!!!!!! execute this script with ROOT privileges !!!!!!!!!!!!!
+# exporting PATH for MONO; system wide; /etc/profile
+# tested on UBUNTU SERVER 11.4
+# before executing change permissions
+# chmod 755 ./install_mono-2.10.2_paths.sh
+
+PATHS=&quot;
+export PATH=/opt/mono-2.10/bin:$PATH
+export PKG_CONFIG_PATH=/opt/mono-2.10/lib/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=/opt/mono-2.10/lib:$LD_LIBRARY_PATH
+&quot;
+
+echo &quot;$PATHS&quot; &gt;&gt; /etc/profile
+
+# You can also use echo $PATHS but then bash will interpret commands and we dont 
+# want that we want import our config files into /etc/profile in exact way as 
+# displayed here
+#
+# echo -e $PATHS &gt;&gt; /etc/profile
+# If -e is in effect, the following sequences are recognized:
+
+#       \0NNN  the character whose ASCII code is NNN (octal)
+#
+#       \\     backslash
+#
+#       \a     alert (BEL)
+#
+#       \b     backspace
+#
+#       \c     suppress trailing newline
+#
+#       \f     form feed
+#
+#       \n     new line
+#
+#       \r     carriage return
+#
+#       \t     horizontal tab
+#
+#       \v     vertical tab
+</pre>
+
+</body>
+</html>

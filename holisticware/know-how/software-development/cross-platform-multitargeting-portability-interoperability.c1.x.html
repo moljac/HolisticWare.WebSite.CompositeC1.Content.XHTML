@@ -1,0 +1,153 @@
+<!--
+C1 generated!!
+<title>Cross Platform - Multitargeting - Portability - Interoperability</title>
+<meta name="Description" content="Cross Platform - Multitargeting - Portability - Interoperability: concepts, tips and tricks" />
+uri:multitargeting-portability-interoperability
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function xmlns:f="http://www.composite.net/ns/function/1.0" name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords">
+		<f:param name="KeywordsAdditional" value="multitargeting, portability, interoperability">
+		</f:param>
+		<f:param name="AuthorsAdditional" value="mcvjetko">
+		</f:param>
+		<f:param name="Date" value="2011-05-18">
+		</f:param>
+		<f:param name="Language" value="en">
+		</f:param>
+	</f:function>
+
+	<h1><a id="">Multitargeting - Portability - Interoperability</a></h1>
+	<p>
+	In human nature there is a drive to automate repetitive tasks in order to be more
+	productive, to spend less time on those tasks, thus gaining more extra time.
+	If this extra gained time is used for further activities/tasks like investment in 
+	knowledge (learning, education), cultural hoist/raise, physical activities etc, 
+	then one cannot talk that humans are inherently lazy.
+	But on the other hand of this extra spare time is not used for further activities
+	then the labeling "lazy" might be appropriate.
+	<br />
+	In our team's mindset we encourage team-members to be lazy, to code less through
+	code reuse, to write scripts for long everyday repetitive tasks and to use this
+	time gained for themselves to learn, train, improve themselves in any aspect.
+	<br />
+	As the matter of fact this kind of "laziness" is considered as added value.
+	</p>
+	<p>
+	Lazy-bum (admin or/and developer) howto:
+	
+	</p>
+	<ul>
+		<li>
+		Script! Write a script!
+		<br />
+		After doing something write a script, there's high possibility that it will be 
+		needed again (and again).
+		</li>
+		<li>
+		Reuse! Reuse code written!
+		<br />
+		When writing code, extract what is useful, parameterize it (generalize) and put
+		into library.
+		Add unit testing to be sure it works after changes (requirements fulfillment, 
+		acceptance and regression tests, etc...)
+		</li>
+	</ul>
+	<p>
+	</p>
+	<p>
+	So share code, no matter source or scripts...
+	</p>
+
+
+	<h2><a id="">History - brief</a></h2>
+	<p>
+	It is interesting that in Microsoft development community code sharing thoughts
+	intensified with dawn of Silverlight, when it was realized that code between WPF and
+	Silverlight could be shared... Although it was true for other earlier application
+	types (WinForms etc).
+	</p>
+	<p>
+	With the work of Monoists implementing MonoTouch, Mono For Android etc, code sharing
+	is more than necessity.
+	</p>
+	<p>
+	Today it is possible to write shared Model (Business Logic) and N Views (Presentation
+	Layers) for N platforms (some can be shared, but generally not)....
+	</p>
+	
+
+
+
+	<h2><a id="">HowTo</a></h2>
+	<p>
+	Core concept of the code reuse can be nicely shown on the concept of 
+	<a href="~/HolisticWare/Know-How/Development/Appliaction-Suites.aspx">
+	Multiplatform - Application Suites
+	</a> 
+	where 
+	</p>
+	<ul>
+		<li>determine smallest subset
+			<p>
+			WP7 or so... make it source project all will be linked to it ...
+			</p>
+		</li>
+		<li>determine Naming to preserve project order in VisualStudio solutions
+			<p>
+			HolisticWare team inserts numbering to achieve this see sample!!
+			</p>
+		</li>
+		<li>heavy use of partial classes
+			<ul>
+				<li>ClassName.cs (shared-linked accross linked Projects)
+					<p>
+						make an empty Class just to shut up compiler if code is only platform specific!</p>
+				</li>
+				<li>ClassName.&lt;Platform&gt;.cs in project as project/platform specific code
+					<p>
+						Platform=Silverlight in Silverlight/WP7
+					</p>
+					<p>
+					add ClassName.MonoDroid.cs in Monodroid project
+					</p>
+				</li>
+			</ul>
+		</li>
+		<li>UI
+			<ul>
+				<li>Make UI on Desktop/RichClient/Web as a mosaic of controls from mobile projects
+					<p>
+					WP7 pages are 480x800 (make them controls and reuse XAML in RIA and WPF)
+					</p>
+				</li>
+			</ul>
+		</li>
+		<li>Adding new Platforms (read Projects)
+			<ul>
+				<li></li>
+			</ul>
+		</li>
+	</ul>
+
+
+
+
+	<h2><a id="">Sample Visual Studio Project Structure</a></h2>
+	<ul>
+		<li>Core </li>
+		<li>Gonix </li>
+		<li>Getafisk </li>
+		<li>incunabula </li>
+		<li>ExceptZilla </li>
+	</ul>
+
+	<h2><a id="">Visual Studio Project Linker</a></h2>
+	<ul>
+
+	</ul>
+</body>
+</html>

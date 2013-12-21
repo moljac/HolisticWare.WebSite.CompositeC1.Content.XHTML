@@ -1,0 +1,15 @@
+<!--
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/7941_SEP000000000000.cnf.xml.txt
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/7970_SEP000000000000.cnf.xml.txt
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/SIP0019E8AFAE5A.cnf.txt
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/SIPDefault.cnf.txt
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/XMLDefault.cnf.xml.txt
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/dialplan.xml.txt
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/downloads.rar
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/sccp.conf.txt
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/sccp_original.conf.txt
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/spa504G (2).cfg.txt
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/spa504G.cfg.txt
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/spa504G_MAC_ccef485ce288 (2).cfg.txt
+http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/spa504G_MAC_ccef485ce288.cfg.txt
+-->

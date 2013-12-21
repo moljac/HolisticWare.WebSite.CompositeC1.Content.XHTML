@@ -1,0 +1,43 @@
+http://snipt.org/AXn1
+
+http://www.codeproject.com/Articles/634372/Clean-up-long-nesting-loops
+http://ubernostrum.wordpress.com/2008/08/01/updated-multi-property-sorting-with-linq/
+
+usage:
+
+var sorted = items.OrderBy("Property1").ThenBy("Property2").ToList();
+
+
+
+public static IOrderedEnumerable<T> OrderBy<T>(this IEnumerable<T> items, string orderByProperty)
+        {
+            var keySelector = CreateExpressionFromPropertyName<T>(orderByProperty);
+            var groups = items.OrderBy(keySelector);
+            return groups;
+        }
+
+        public static IOrderedEnumerable<T> ThenBy<T>(this IOrderedEnumerable<T> items, string orderByProperty)
+        {
+            var keySelector = CreateExpressionFromPropertyName<T>(orderByProperty);
+            var groups = items.ThenBy(keySelector);
+            return groups;
+        }
+
+        public static IOrderedEnumerable<T> ThenByDescending<T>(this IOrderedEnumerable<T> items, string orderByProperty)
+        {
+            var keySelector = CreateExpressionFromPropertyName<T>(orderByProperty);
+            var groups = items.ThenByDescending(keySelector);
+            return groups;
+        }
+
+        private static Func<T, object> CreateExpressionFromPropertyName<T>(string propertyName)
+        {
+            var arg = Expression.Parameter(typeof (T), "item");
+            var body = Expression.Convert(Expression.Property(arg, propertyName), typeof (object));
+            var lambda = Expression.Lambda<Func<T, object>>(body, arg);
+            var keySelector = lambda.Compile();
+            return keySelector;
+        }
+		
+		
+	

@@ -1,0 +1,40 @@
+ created an application using MonoDevelop. I used GTK#. It runs fine in the
+debugger. Now I want to make an installer for ubuntu, windows and mac. But I
+can not figure how I should do this.
+
+or Windows, I use InnoSetup, but there are other free installer makers.  You'll need to 
+figure out the steps required to install your application and the files needed.
+
+For ubuntu, you'll have to learn how ubuntu installs things.  I'm more familiar with 
+Fedora - on Fedora, you must make an RPM through use of a .spec file.  You can include the 
+files for the application and pre/post installation scripts.
+
+
+
+
+asked the same basic question here:
+
+http://stackoverflow.com/questions/12145204/mono-install-on-windows-mac
+
+Gist: look to a successful cross-platform example, like Banshee.
+
+I haven't done this yet, but if there is anyone that would like to
+work together on any aspect of this (making it easy, developing tools,
+documentation, etc) I'd be willing to help.
+
+
+Add the Gtk DLL to the resources (i.e. resx).
+
+Monodevelop SHOULD have plain text source compilation, like with CPP, built-in; 
+otherwise, it is the incremental build option in Visual Studio with .bat files enabled 
+on primary compilation stage.
+
+No need for the hadoop on .bat files. Save your breath.
+
+
+
+nstallJammer to create installer for Windows and Linux platforms.
+
+Try it, is a simple free and opensource installer program.
+http://www.installjammer.com/
+

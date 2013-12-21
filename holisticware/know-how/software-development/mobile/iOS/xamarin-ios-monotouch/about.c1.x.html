@@ -1,0 +1,36 @@
+As Jason said, you can either use Interface Builder (which is part of
+xcode) with C#, or write it in code. Interface builder is really just
+building a big object graph, so the result is pretty much the same.
+
+How you do it depends on the app, and you can mix and match as needed.
+If you are dealing with lists of data (and if you look closely, most
+things on the iPhone ARE lists, see here:
+http://tirania.org/blog/archive/2010/Feb-23.html and here:
+http://docs.xamarin.com/ios/tutorials/MonoTouch.Dialog ) then learn a
+bit about UITableViewController and how it works, then go use
+MonoTouch.Dialog, which wraps it all up and makes it really easy to
+use. It helps to atleast have a play with UITableViewController /
+UINavigationController etc tho, as you then know how the engine works,
+so to speak.
+
+Either way, you are going to be using CocoaTouch, which is the same
+API as you'd be using from Obj-C. If you have someone working with you
+who knows CT, then they are going to be instantly at home (Assuming
+they know C#). It's literally the same calls, with a different syntax:
+
+UIView myView;
+//init it
+// use it....
+[myView doSomething:1 withAnotherParameter:@"hello!"];
+
+vrs
+
+UIView myView;
+//init it
+//use it...
+myView.DoSomething(1, "Hello!");
+
+There are often a few differences, but it's more to make it look like
+proper c#-style methods. The underlying stuff is the same.
+
+

@@ -1,0 +1,208 @@
+Async Programming (?) 
+
+Its not far that 'Long Running' tasks in the application used to freeze the display of application and user had no way to know how far the task has progressed (unless developer has explicitely made some provisions). 
+
+.NET supports a programming model called 'Asynchronous Programming' by which the task can be executed asynchronously and upon completion/failure the task can inform the application (mostly with callbacks).
+ 
+1) Which are the screnarios where you use 'Async' programming ?
+ 
+2) While designing your classes, do you make sure that you support 'Async' version for class methods ? (e.g. WebRequest class supports Async versions of 'GetResponse' method as 'BeginGetResponse' and 'EndGetResponse' ).
+ 
+3) Which are ways you use to implement Async programming ?
+
+
+1) Nearly all of my applications are designed around asynchronous programming models [one must be careful to differentiate async/await .NET capabilities from other means, such as Thread Parallel Library [TPL], Background Worders, or raw thread management.] It takes very little extra effort (once comfortable with the paradigm) and is much easier to design in than to retro fit.
+ 
+2) I rarely use the Begin_xxx/End_xxx semantic model (which predates modern async methodologies, but do provide methods which allow passing of a continuation. This approach provides many options, including trivial extension methods to support Begin/End semantics
+ 
+3) TPL is the backbone of my implementations, although async/await is becoming increasingly common.
+ 
+As I alluded to, the paradigm shift takes time to become comfortable. Since the dawn of computing (indeed human nature in general) the "execute this line of code, then execute the next line of code" ("follow step 1, then follow step 2") has been the common theme. Switching to a mode of "Go Do this, and let someone (who may be me) know when you are done" is often facilitated by thinking of the work to be performed being assigned to a team. 
+
+
+
+
+
+
+Indeed its a 'Paradigm Shift' however the technique of callback isnt new to Windows Programmers (I remember WinSDK programming and WM_USER message to send a private message to window and handle that in WndProc).
+ 
+Any specific reason for not using Begin_xxx/End_xxx semantic ? 
+
+Though I am yet to try my hands on this Async Model but curious to know 
+How different 'async/await' than other means as TPL, Background Workers and raw threads? 
+
+
+
+
+
+
+
+Iv'e yet to use any of the new Async stuff in any of my web projects, and to be honest I can't see where I'd ever need it.
+ 
+Bear with me... I can hear you all banging your war drums :-) 
+
+Long before Async was introduced in .NET I was using JQuery and the AJAX request stuff to do client callbacks in exactly the same way, you fire off a request, you set up an event handler and wait for the back end web-app to send you your data.
+ 
+Your UI still remains fluent, and for most cases it works just as well as Async 
+
+For me it just works, without having to change my backend models. 
+
+
+
+
+
+
+You are doing Asynchronous Programming however in JavaScript (thats the reason to name it as AJAX :-) ). 
+
+
+
+
+
+
+So many (good) points.. lets take the easy one (Peter's) first... 
+
+From a client (calling) perspective a conventionaql callback is little different. Consider
+ 
+void Foo(CALLBACK whenDone); 
+
+But when WRITING "Foo", the different is significant. Historically one had to manage the creation of the thread, coordinate (resource scheduling, prioritization, load balancing) the thread activities, and then invoke the callback (often with additional code to marshal the callback so it executes on the original thread (a requirement for Windows UI).
+ 
+With TPL (or async/await) NONE of this has to be written, it is all provided by the compiler/liberaries. So the argument is basically equivilant to "Why use .NET when Assembler has worked fine for me for nearly 40 years???" [Ok it will ot be 40 years until September for me] 
+
+
+
+
+
+
+Begin/End is one semantic model. I have found that when this is the lowest level model, that it is difficult (or has performance issues) to create other convenient semantic models. On the otherhand, when using my preferred semantics, it is trivial to create high performance extension methods so that when begin/end semantics is convenient, it can be readily used.
+ 
+One of the really interesting things about async/await is that the code may actually execute directly on the calling thread without the overhead of creating (or activiting from a pool) a thread. This is a fantastic capability. LEts assume that today, the compiler/runtime analyzes both the async code and the calling context, and determines the most efficient way to execute the code is to perform it inline (at some point in time). Then tomorrow, a code change occurs (perhaps the method becomes more complex) and "magically" the code starts executing one a thread, without any changes from the developers perspective.
+ 
+TPL also provides significant benefits over directly accessing a thread pool. The library maintains a list of queues each associated with a thread. However if one thread's queu is empty, it will "steal" work from other queues. Additionally there is excellent support for task cancellation (something that can be very difficult to do cleanly), support for different continuations on success / failure of a given task, and more..
+ 
+ps: The windows message pump is a single threaded queue, and nothing more. This functionallity is equivilant to the Dispatcher class in .NET. In fact, the definitive difference between a "UI" and "Worker" thread, is that the former has an instance of a Dispatcher and the latter does not. However this is a limited (albiet very useful) environbment, as it does not support concurrent operations, and thus will only use a single core of a multi-core CPU. 
+
+
+
+
+
+
+
+
+
+
+IMHO, we are mixing different kinds of techniques in this post, techniques that are proper for very different kinds of scenarios.
+ 
+Allow me to tackle first the callback scenario, as it sets the stage for the main theme behind this post.
+ 
+Just as Yogesh points out, callbacks are ancient guys in the arena of Microsoft OSs, but they are not just legacy code that got stuck in the woodwork: they are still very relevant.
+ 
+Callbacks are the actual trick ("the real McCoy") behind event-driven programming. When you have an OS that supports multiple input devices that receive data from the user (like keyboard and mouse), you need to implement event-driven programming into the UI of the OS.
+ 
+In .NET, the "face" of callbacks are event handlers, but since in managed code every thing must have a type, the proper type for an event handler is a delegate.
+ 
+Now we can get into the main theme of the post: what design technique should we use when we have some kind of time-gap between resquests and their responses?
+ 
+When I say "requests and responses" I'm not implying that we are only talking about web apps (even though this discussion does include web apps), but any general situation where we have some kind of invocation, and its return will delay to appear due to some reason that is related to the functionality (and the reqs) in some way.
+ 
+Well, the technique to use will mainly depend on the causes for the time gap: what is the root cause of the delay between a request and its response?
+ 
+Regarding web apps, even though we could apply tricks like this, as the web server has a time-out to keep the max time to response a request at bay (that is to preserve the scalability of the web server), we should not indulge too much in the use of any tricks that allow us some latitude in this regard, as it may eventually start triggering time-outs (the solution to this IS NOT configuring a larger time-out value!)
+ 
+When you have these kinds of situations in a web app, you may use workflows (mainly of the state machine kind) to handle such functional responses, or other functional "fire and forget tricks" to take care of responses that are weakly coupled in time to their requests.
+ 
+Other kinds of func reqs, like say a long running process (a typical batch process), an operation that handles a huge stream (like a BLOB, a very large file, an FTP transfer), or other types of processes, like socket-based communications, will be better handled by some kind of async technique.
+ 
+In general, callbacks are more much better solutions than the async pattern present in .NET, but callbacks are also more difficult to learn to program well.
+ 
+Which brings us to the async pattern present in .NET: It is there just because is very easy to learn to use in comparison to callbacks, but clearly, callbacks are the way to go, hands down.
+ 
+So, my general recommendation is to use callbacks for the kinds of problems aforementioned, and be very careful trying not to get too excited about using these tricks in web apps, as the time-outs work against this kind of thinking.
+
+
+
+
+
+
+
+
+
+
+
+
+agree with most of what your posted. There are many different techniques, and one must be carefuly to differentiate between the async keyword/pattern and general async (ie not sequential) programming [very much like differentiating between the MVC design pattern and the MVC framework].
+ 
+My main point was the writing the part of the code that is "Doing the work" between the "some kind of time-gap between resquests and their responses", in a perfomant and robust manner is NOT easy if you are manually coding all of the low level "Stuff", and that using provided library/language capabilities is usually a better approach.
+ 
+I remember well when "time-gaps" were measured in 100's of milliseconds, today significan work can be done in 10's of microseconds. Add to this the fact that even commodity processors have up to 8 cores, and many desktops have more, so that multiple things really can happen at the exact same time if the application is so designed. I am convinced that concurrent/parallel/async processing is a basic requirement of any significant application.
+ 
+As a somewhat esoteric note: a program which uses all 8 cores on an i7 laptop to complete the same compute task in the same abount of time (within a few percent) can actually reduce the power consumption considerably by alowing the CPU to run at a lower frequency, and extend battery life. 
+
+
+
+
+
+
+
+I concur. Today's hardware offers too much speed and performance, and at the same time, a load of parallelism, so, we better rely on some good library to take care of the "scaffolding" code, so that we can concentrate on the actual use cases.
+ 
+
+ 
+ 
+ 
+ 
+ Gaston's contribution gives new 'perspective' to this discussion. "Async-Pattern Vs Other ways to perform asynchronous operations". 
+ 
+ 
+ 
+ This Async pattern has just helped us in our present assignment. The reports generated through Crystal Report for ASP.NET (webform) based application are scheduled for asynchronous processing and it has greatly enhanced the user-experience with the application. The report gets created via simple thread and upon creation, the user is notified by setting a web-session variable. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ We have to bear in mind that development tools offer different paradigms for one kind of problem, so we have a choice of techniques to apply.
+ 
+We could apply an analogy here to describe this: for instance, even though we know that Einstein's General Relativity is the right model to use to solve problems where gravitation is a major player, if the problem involves small masses and objects moving at slow speeds, we know that we will get almost the very same prediction by using Newton's Law and the calculations will be a lot easier.
+ 
+So, we have a choice of paradigms. All we have to do is determine which paradigm will be more suitable for the set of constraints that our project faces.
+ 
+Async and callbacks/threads could work just as well for many problems, but we know that callbacks/threads means a more complex solution, so, we have to map the proposed solution to the constraints and see what proposal fits better.
+ 
+ 
+ 
+ 
+ 
+ @Gaston - Unfortunately it looks like "problem involves small masses and objects moving at slow speeds, we know that we will get almost the very same prediction by using Newton's Law" may not be correct. Mondern theory of chaotic systems with very slow speeds (single digit MPH), low mass (mG range) and earth gravity may only be explainable using General Relativity. There are currently empirical experiments being done at a number of research firms that hope to prove this sometime within the next year.
+ 
+Along similar lines, "complexity" (from a mathematical metrics point of view) often does not match a humans perspective, simply because of a lack of familiarity 
+
+
+
+
+
+
+
+
+
+That might be the case, but I was talking about choices of paradigms in general, and not in particular about GR.
+ 
+Even though, engineers would still use Newtonian mechanics to solve those kinds of problems unless the discrenpancies between predictions and experimental measurements are very wide.
+ 
+Kind regards, GEN 
+
+
+
+I implement Async on the UI side for the user. The goal of which is to make the application appear faster to use. I just created a blog post on this.
+ 
+http://candordeveloper.com/2012/07/19/asyncui-mvc-with-progressive-enhancement/
+ 
+I have not had the need to use MVC Async action methods.
+ 
+I have used the Task class to trigger the creating of the AppFabric factory, since it can take up to 60 seconds to timeout when down and that timeout cannot be configured to another interval. 
+
+

@@ -1,0 +1,257 @@
+Hardware requirment of Asterisk box and asterisk stable version. I need 
+to setup a confrence Bridge server using astersik for 600 employe 
+company can you guys please suggest me. Hardware requirment for the for 
+srever machien for astersik box. more over which asterisk version should 
+i use for this. 9 days ago 
+
+We had (year 2007) a standard intel dual-core server for 2000+ users 
+with 120+ simultaneous calls on high load (transcoding, call recording, 
+CDR processing etc.) It was stable with 120 calls and laggy with 
+150-160. So, any modern server is okay for you. 
+
+ecommend Asterisk 1.8 or Asterisk 11.1. You say you have 600 employees, 
+but you don't say how many calls are going to be on the Conference 
+Bridge at the same time. So, your worst case is "everyone, and they 
+bring a friend" for 1200 calls, I suppose. 
+
+If you are bringing the calls to the Conference Bridge via SIP all using 
+G.711, then you'll need something around a 4 Dual-core 2Ghz CPUs, 8Gb of 
+RAM and 100Gb of disk. You'll need more disk if you intend to record the 
+conferences. 
+
+Please note that around 1200 G.711 calls, you are nearly saturating a 
+100M/bit NIC, so if you are going to need that kind of capacity, you 
+should consider Gigabit infrastructure. 
+
+Fewer calls mean less CPU and RAM. Transcoding means more CPU resources. 
+PRI instead of SIP generally means more CPU resources. Wideband audio 
+(G.722,etc) means more bandwidth per call, which either lowers your call 
+capacity, or forces you to go Gigabit earlier. 
+
+
+
+ How many simultaneous calls can Asterisk handle? Was wondering how many 
+extensions can be added and how many calls can Asterisk or Elastix 
+handle without any issues? 
+
+should depend on your hardware specs. asterisk itself has no limitation 
+that i'm aware of. 
+
+depend on the hardware and codec/protocol used by tyou Asterisk Box. 
+
+I suggest you to read this Article: 
+http://www.voip-info.org/wiki/view/Asterisk+dimensioning 
+
+It depends on a lot of different variables. In terms of extensions I 
+don't think that there's a hard limit as it's minor traffic and doesn't 
+put much load on the cpu. As per simultaneous calls, it all depends on 
+if you're transcoding. Depending on your hardware you could get anywhere 
+from 20-30 simultaneous calls to over 200. If you're not transcoding, 
+using meetme (high cpu utilization applications) you should be able to 
+push through quite a few more. 
+
+This is such a loaded question... But just to add, how many calls can 
+your network handle? SIP is somewhat noisy, and a few dozen calls can 
+significantly impact a network. 
+
+A better question is "I am expecting 500 users, and 50 simultaneous 
+calls. Has anyone done this, and what did you use?" 
+
+Build it in a virtual environment and use sipp to qualify and track each 
+use case. When done you can migrate the virtual system to bare metal or 
+an upgraded host system and increase your performance. Removing things 
+from the system you don't use or will ever use that run by default also 
+can squeeze more simultaneous calls out of the same system. Kamailio in 
+front of Asterisk is one solution for registrations beyond a few 
+hundred. If you plan on doing this with elastix or a ready to deploy 
+system like Elastix I would suggest an HA build, with two systems, one 
+primary and one secondary/backup. If you have the skill a DRBD setup may 
+be better suited. As Lee mentioned, this is a loaded question. The dual 
+and quad+ core cpu's available today are many times more powerful than 
+when I had a few servers servicing 20,000+ users with asterisk many 
+years ago. Virtual environments are useful to help qualify answers to 
+questions like these. Provisioning/Upgrading phones may be an issue when 
+you need to add features to phones and they need to be rebooted. When 
+the phones go out to pull down their configs this may take more time 
+than you anticipated if you have 200+ users at a single site. Have Fun. 
+Its just a suggestion. 
+
+Christopher, it is not the bandwidth but the noise. You can shut down 
+any Catalyst with a few meg of traffic if it is the right traffic... A 
+bunch of small packets with high QOS and the network starts to struggle. 
+You may even still get very good calls (if it is provisioned right) and 
+have nothing left for other uses. Now if your calls are on a seperate 
+v-lan, then you have started to segment the network, which is what I was 
+recommending. 
+
+That makes sense, it's easy to take down a Cisco network :-) I know 
+Cisco's IOS well, and it's a great company, with some awesome products, 
+but I always recommend people to use MikroTik RouterOS, it's more 
+flexible and with the right API developers, you can do some cool 
+automated stuff. I've used them as firewalls and edge routers in large 
+VoIP production networks, filtering at layer2 or layer3, so you can keep 
+your catalyst as "raw" Layer2 switches, so they won't crash when they 
+get over 10k packets per second. You can also build them to act as 
+honeypots for those overseas script kiddies that are scanning your 
+network for SIP relays and exploits. Once it detects them, it can 
+automatically add a rule to your edge firewall and block them before 
+they get into your network. I've had to do this because the Cisco PIX's 
+also get overloaded with to many UDP packets and jump to 100% CPU.. 
+Amazon uses sipXecs/Ezuce for over 30,000 users. SipXecs uses Freeswitch 
+and does not anchor media, which (if passing through a PBX) can consume 
+bandwidth and CPU among other resource, but instead it lets end point to 
+end point communication directly. You can configure Asterisk 
+(Canreinvite) to function as such too 
+
+h , I mange a few dozen call centers build on asterisk 1.8 running in 
+excess of 500 simultaneous calls with sql , apache and php without 
+issues. They ALL use Xeon multicore processors and have on average 16Gs 
+of RAM.The RE-INVITES Herbert is referring to is the default setting in 
+asterisk so ALL the rtp traffic goes from peer to peer. But at 20k per 
+call on a 1G network - do the math. 
+
+I have managed the infrastructure with asterisk-s, and there i have 
+manages max 600 sim-calls per asterisk, again this is depend from 
+Hardware and applications what are running on that server (i mean here 
+transcoding ....). 
+
+This is a subject that gets revisited quite often and there are so many 
+people chiming in with conflicting information. There are a few people 
+here who have given VERY valuable info as they are successfully managing 
+(or have successfully managed) large Asterisk infrastructures. My advise 
+is to listen to those who are successful. I have managed personally and 
+still am involved with a very large Asterisk infrastructure. You can 
+definitely scale Asterisk to handle many thousands of concurrent calls. 
+There are 3 main things that affect concurrency on an Asterisk system: 
+1. Features - If you are simply routing calls (no on hold music, no 
+recording, no IVR), Asterisk can handle many calls. There are better 
+solutions for those types of calls however. The above mentioned features 
+diminish the amount of concurrent calls MAJORLY. Additional hardware 
+helps for these items. Specifically, if recording, you need fast drives 
+and more RAM so as not to cause a bottleneck in I/O. If using menus/IVR, 
+transcoding (G.711 to G.729) and/or an ACD queue for calls, you need 
+heavy CPU improvements. 2. About traffic and network - THE MOST COMMON 
+ISSUES with scaling Asterisk are from improperly setting up your 
+network.... Issues mentioned such as "noise" insufficient bandwidth, 
+etc. ARE NOT REAL ISSUES if properly measured. Simple math: Each phone 
+call inbound and outbound with overhead are approx 32kbps (round up to 
+40) if using G729 compression (remember, this costs more CPU) and 
+87.2kbps (round up to 90) for G711. Therefore 300 concurrent calls = 
+12mbps for G729 and 27mbps for G711... saying that a GigE switch can't 
+handle this obviously makes no sense... SIP and RTP traffic, since 
+natively they are UDP, do NOT get priority on a network and WILL be 
+trampled by other traffic. It IS highly advised to run your phone 
+network on separate switches from your data network. It keeps things 
+simple and easy to manage and one network doesn't affect the other. OR, 
+you can also setup traffic shaping or QoS to "carve out" space for your 
+SIP/RTP traffic. Your phone calls will sound clear as a bell if you 
+follow that advise. Also note that if you care about high quality sound 
+and can't afford ANY dropped calls, you should invest in a direct 
+connection (MPLS or similar) to your upline provider - Synapse Global in 
+your case. ALMOST ALL sound quality issues are due to network 
+configuration problems. This setup ensures that from the phone to the 
+PBX to the SIP trunk provider is clear of any issues, assuming they are 
+a Tier 1 provider and connect directly to the PSTN themselves. 3. Server 
+infrastucture - As mentioned above, the amount of servers depends on 
+features needed. As Lucas mentioned a Kamailio server will dramatically 
+improve things by offloading SIP registrations and load balancing 
+between Asterisk servers. Kamailio handles SIP MUCH better than Asterisk 
+does (I believe a decent box can handle 10,000 concurrent SIP channels 
+or more). I know this is a lot to digest, but building a successful 
+Asterisk call center requires some great planning and great execution. 
+You will save $$$hundreds of thousands by doing it with open source 
+technology and HERE you have received $100,000 worth of free advise! 
+
+"Issues mentioned such as "noise" insufficient bandwidth, etc. ARE NOT 
+REAL ISSUES if properly measured." 
+
+Since this sounds a whole lot like you calling me out, I really have to 
+respond. That statement is misleading at best, and downright false at 
+worst. You even say later, "ALMOST ALL sound quality issues are due to 
+network configuration problems." 
+
+So lets talk about the typical network I see in the wild, and as a 
+network consultant, I see a lot of broken networks. 
+
+1) First, it is flat. One big LAN, that grew over time, until something 
+broke, and they call someone like me. 
+
+2) It is noisy. This is defined as a very large amount of small packets 
+overwhelming the network long before it reaches bandwidth capacity. If 
+you measure it, you will not be seeing anything near a gig of traffic, 
+but it won't handle anymore. This is where you see the latency spikes, 
+and UDP drops. 
+
+3) It is running Windows with no WINS. And here is the largest source of 
+noise, browser elections. Elections with printers, and Qnap devices, and 
+laptops... 
+
+Now how will your phones work in this environment? Sure, a good switch 
+(and TPlink unmanaged switches are not in this group) can handle 300 
+calls. But not 300 calls, and a few hundred browser elections. (and 
+FaceBook) 
+
+The funny thing is that you suggest the same things I did, after calling 
+me out. Namely, segmenting the network. (And segmenting the workload.) 
+
+e you Lee. My kid of guy. I think going back to the core question Keith 
+had, beyond the transport/network considerations for your 
+implementation, I think we can all agree that the limits on your 
+implementation (plain voice, with add-ons such IVR, CallCenter, 
+transcoding, etc etc) at the box level are system resources. Asterisk is 
+scalable. Scale as you see fitting per your requirements. 
+
+That's the beauty of * and open source software in general, scalable to 
+whatever the budget allows. 
+
+There is a huge difference from simulated calls and real world 
+experience with live production systems. 
+
+Who hasn't received a call from a telemarketing call center and had to 
+say hello 10 times before their system connects to an agent? Then to 
+have a second of delay and poor call quality? 
+
+There is some great advise above, but take it all with a grain of salt. 
+
+Absolutely, all of the parts can scale. You just have to remember that 
+the end user solution is a system of parts, and all of them have to 
+scale appropriately. 
+
+I also may be a tad hypersensitive to network issues since I am a 
+network guy often called in to fix network issues. :) 
+
+t depends if you leave Asterisk in the call path or if you REINVITE the 
+call after it's made. Asterisk can be removed from the call path 
+eliminating 99% of the work from the server for that call. At that point 
+Asterisk would only need to handle the control plane. I have run 
+Asterisk on a WRT54G router running OpenWRT. That's a 200MHz box with 
+64MB RAM. It was choppy and rough with the RTP processing through the 
+box, but with REINVITE working, it could handle many simultaneous calls. 
+
+Take note from asterisk 1.8 upwards the parameter is : directmedia=no 
+BUT if you have any recording app such as MixMonitor() or Monitor() the 
+rtp will still pass asterisk.If you con't want any transcoding set all 
+the endpoints and asterisk to the same codec , then ZERO transcoding 
+will be performed. But again if you are running Monitor() or 
+MixMonitor() and you are using g729 , asterisk will again have to 
+transcode to either gwm or wave. 
+
+Thanks everyone for all your comments and suggestions, lots to review! 
+and i apologize if i have started any 'fights' amongst members..LOL. 
+
+Also wanted to pick your brains on the built in f/w on Elastx. I was 
+told that there could be a conflict with the f/w and using fail2ban... 
+the reply i got from a tech was "the firewall webpage of Elastix 
+overwrites all of fail2ban's rules". 
+
+So, can i use both or just the built in f/w or the F2B? If only one, 
+which is better? On an older Elastix set up, we have the biult in f/w 
+Ip's listed and that's worked so far, but wanted the extra protection of 
+the F2B. 
+
+I use F2B and some own rules. It works fine (on Elastix 1.6). No test on 
+Elastix 2.4, but i think it's possible to use F2B and Elastix Security 
+module in same time. You must have your own rules on top, and F2B rules 
+on bottom. If i remember, just launch one of these modules at first 
+(iptables or F2B). 
+

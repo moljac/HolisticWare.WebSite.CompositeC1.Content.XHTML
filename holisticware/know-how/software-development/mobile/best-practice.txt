@@ -1,0 +1,103 @@
+1. Appealing UI 
+2. Easy to use 
+3. Fast inter-activity transactions 
+4. No crashes.
+
+
+1) Users’ Experience With Mobile Apps 
+2) How quick mobile app should launch 
+3) Mobile App Engagement http://bit.ly/YtlqkQ
+
+
+1) Simple - works best for one purpose (personaly I dont like app, that tries to do everything) 
+2) Nice UI, good UX, so when you run it you know what to do on first sight. No disturbing dialogs and quick response.
+
+
+1) Engagement - Creating an app that keeps people coming back. There are numerous ways to do this, but basically just make it enjoyable! Use push notifications (if it is suitable and not spammy). Connect the app with external social media sites (Twitter, Pinterest, Facebook, etc). 
+2) Usability - Arguably the most important aspect of an app. You should spend a good amount of time doing usability testing to see what works for users of the app. What are the pain points you can eliminate? Making the app intuitive and easy/enjoyable to use is highly imperative to gaining and retaining users. 
+3) Simple Interface - Because of the size limitations on a smartphone a lot of thought should also go into simplifying the design and process of using the app. This plays into the usability. Make it easy for users to visualize what the point of the app is, and what actions they should be taking. Fab.com does a great job at balancing simplicity with usability. I talk about that in this blog post if you're interested in knowing more about how Fab has been so successful as a mobile app - http://twotoasters.com/ideas/2013/creating-a-mobile-commerce-app-that-converts-interactions-into-transactions/ 
+4) Robust - The app should be able to run on numerous devices with numerous firmware combinations. The coding should be high quality to begin with so that the app runs smoothly. And finally, the app should be free of bugs. This results from rigorous testing to identify any issues that might arise.
+
+
+Best Practices for Mobile App Development on iPhone iPhone app 
+
+
+
+development iPhone app development Despite the growing popularity of 
+Android mobile operating system, no one can deny the huge popularity of 
+iPhone apps. The combination of innovative features and stylish 
+interface make the iOS apps popular among users across the world. But 
+the huge popularity of iPhone apps often makes it a daunting challenge 
+for the developers to build new applications. As an experienced iPhone 
+app developer, you may find the process both rewarding and fun. However, 
+the new developers have to look for the perfect starting point for the 
+application development project. Regardless of your experience, you can 
+still consider best practices for mobile app development on iPhone to 
+build a powerful interface within a limited timeframe. 
+
+Best Practices for Mobile App Development on iPhone 
+
+Involve Users in the Planning Phase: Each developer need to make a 
+roadmap to develop the iPhone app on schedule. But most programmers 
+forget to include users in the planning and testing phase of the 
+project. You can always optimize the application idea by getting it 
+evaluated by certain users in the initial planning phase. Also, you can 
+allow the users to try the app, and observe the problems faced by them. 
+You can always avail the assistance of your friends to check the impact 
+of the mobile application on end users. 
+
+Allow Adequate Time to Test the App: With companies launching apps at 
+frequent intervals, the mobile application development has become 
+competitive. So, clients often require developers to build the 
+application a time sensitive deadline. As the app will be approved by 
+the Apple app store about two weeks after your submission, you must 
+prepare a schedule to test and market the app properly. During the 
+initial planning phase, you must decide the timeline for testing and 
+marketing the app before it is approved by Apple. 
+
+Make a Content Strategy: The mobile apps are similar to websites. As no 
+website can be hosted without content, the mobile applications cannot be 
+designed without deciding the content and context. You will need content 
+as early as possible to develop the app in a quick and hassle-free way. 
+When you are planning the app, it is a good idea to decide the content. 
+If you are using the services of a professional content writer, he must 
+be instructed to develop content according to the initial plan. However, 
+he may also be required to change the content slightly once the app 
+development process is over. 
+
+Consider Designing Heterogeneous Applications: Once you develop an 
+iPhone app, it needs to be updated regularly to support interface 
+updates and provide fresh content. The heterogeneous apps make it easier 
+for you to update the app by avoiding the app store approval process. As 
+the app consists of a native base that is executed by referencing to 
+HTML5 content located externally, you can replace the existing content 
+at your own pace and convenience. Along with availing the advantages 
+provided by HTML5, the heterogeneous application further allows you to 
+execute the native code without requiring internet connectivity. 
+
+Take Advantage of the Device Components: Similar to other smartphones, 
+iPhone also comes with a set of innovative features and tools. Some of 
+the device components like microphone, high resolution camera and GPS 
+are used by all users. So you can consider using these device components 
+to optimize the performance of your mobile app. Further, these 
+components will help you in improving the user experience without 
+writing longer lines of code. However, you must choose the components 
+according to the nature and requirement of the app maintain its speed. 
+
+Use the Latest Security Features: Along with gathering several types of 
+information and data, users also carry out financial transactions using 
+their iPhones. So there are chances that you app will require users to 
+submit several types of sensitive information. As the sensitive 
+financial and contact details of a user can be used to carry out 
+identity thefts and financial frauds, you must use the latest security 
+techniques. Along with availing the security features of the smartphone, 
+you can also consider using the advanced encryption techniques to gain 
+the trust of end users. 
+
+Understanding these best practices not only helps you during app 
+development process, but also helps you in evaluating top app 
+development companies. 
+
+If you want to hire mobile app programmers for your iPhone app 
+development needs, please contact us at Mindfire Solutions. 
+

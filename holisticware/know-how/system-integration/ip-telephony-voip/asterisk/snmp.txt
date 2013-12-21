@@ -1,0 +1,59 @@
+Does anybody know of a free SNMP monitoring tool, for Asterisk, that includes a GUI similar to What's Up Gold? http://www.whatsupgold.com/products/whatsup-gold-core/index.aspx
+
+Network Monitoring Software & Server Management Tools whatsupgold.com
+Know what’s on your network. Automatically discover all resources and map their connectivity. Build an accurate picture of your network devices, systems and their interconnections, using Layer 2 and 3 networ
+
+
+
+Nagios is a good start http://www.nagios.com/
+
+
+Zabbix is good, too. 
+www.zabbix.com
+
+
+ do you guys think about Spiceworks?
+ 
+ 
+ Spiceworks is more of an inventory system than a monitoring system... It only polls twice a day. 
+
+For a service status page and e-mail alerts, I like Icinga. Icinga is a fork of Nagios, and all of the developers that had submitted patches that were just left to idle in the CVS forever, moved to this project. It has a LOT of nice fixes to Nagios, but still uses the huge library of nagios plugins. The GUI is also much better. And config is better as well since if loads a directory, and not just one big file, but it still requires text files for config. 
+
+For historical graphing, I love Cacti. Clean, easy, a full web config... Just no service based alerting... Most of my clients no have an Icinga / Cacti monitoring system with a syslog server running on it.
+
+
+
+nagios, cacti or Zabbix are the usual candidates. these work by polling the servers. if you want higher sampling rates then using collectd or ganglia is better as they run a small monitoring daemon on the server to be monitored. ganglia has a web application but can also be interfaced to graphite which is nicer. none of these are restricted to snmp.
+
+
+
+
+Shinken is also a good choice.
+
+
+
+
+ave been playing around with nagiosgraph and it seems to be doing a nice job of graphing historical data right in Nagios, without needing a separate Cacti / MRG graphing solution to maintain; I like this for my smaller setups. The last nagiosgraph release date was 3/2011, but it seems to work just fine with Nagios Core 3.4.4
+
+
+
+
+andora FMS is a good choice too. 
+
+http://pandorafms.com/
+
+
+
+I prefer Zabbix, add the Asterisk MIB file to the Zabbix MIB repository , you will have a perfect Asterisk Monitoring system.
+
+
+
+
+
+
+Without question Zabbix ( http://www.zabbix.com ) is by far the best. 
+Look at using a Zabbix Agent on the machine running Asterisk and using "UserParameter" config to fire scripts to check anything you need. You are not limited to metrics supplied via the SNMP MIB that way. 
+Spent a number of years running a hosting operation using What Up Gold, now only ever yse Zabbix.
+
+
+

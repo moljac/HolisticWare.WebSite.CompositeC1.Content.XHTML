@@ -1,0 +1,272 @@
+
+
+trying to follow the directions here: 
+https://groups.google.com/forum/#!msg/spatialite-users/eDMvwrlF0oI/iXcPH0cLkRMJ but am unsure
+how to get at Java.Lang.Reflect or get the equivalent working in C#.  Is this possible?  
+I’m using pinvoke for the native code portion and in theory that will work but as far 
+getting at the handle…
+
+
+
+Nevermind I figured it out.  
+This is how you enable the extension loading mechanism for  Android’s SQLite in Xamarin:
+
+ 
+[DllImport("libsqlite.so")]
+internal static extern int sqlite3_enable_load_extension(IntPtr sqliteDb, int onoff);
+
+private IntPtr GetInternalDatabaseHandle(SQLiteDatabase db)
+
+{
+   IntPtr fieldId = JNIEnv.GetFieldID(db.Class.Handle, "mNativeHandle", "I");
+   int handle = JNIEnv.GetIntField(db.Handle, fieldId);
+   return new IntPtr(handle);
+}
+
+
+public void LoadExtension()
+{
+	IntPtr internalHandle = GetInternalDatabaseHandle(db);
+	int i = sqlite3_enable_load_extension(internalHandle, 1);
+	
+	return;
+}
+
+
+
+
+to transfer binary data between these two with max performance.
+
+Main direction is cs -> java for now.
+
+What is the best way?
+
+1) JNI CopyArray - how is that implemented internally? SetIntArrayRegion?
+2) DirectByteBuffer seems to be a better alternative, but on mono side, the only way 
+   is Marshal.ReadInt32/WriteInt32? Is that fast?
+3) anything else? 
+ 
+ 
+ 
+ es, JNIEnv.CopyArray is implemented atop SetIntArrayRegion() and SetIntArrayRegion(), plus some type overhead.
+
+
+ 
+#2 This should be, as DirectByteBuffer was designed for exposure of "native" memory 
+into Java processes. The only issue is that said "native" memory can't move, so it 
+can't be backed by a C# byte[], but it can be backed by an "unmanaged" (non-moving) 
+block of memory.
+
+As for reading the buffer contents from C#, there's Marshal.Read*() and Marshal.Write*(), 
+as you note, but there is also unsafe C# code and pointers:
+
+	void Foo(Java.Nio.Buffer buffer)
+	{
+		if (!buffer.IsDirect)
+			throw new ArgumentException (...);
+		IntPtr address = buffer.GetDirectBufferAddress();
+		unsafe {
+			int* p = (int*) address;
+			*p = 42;
+		}
+	}
+
+To allocate said `buffer`, you can use either ByteBuffer.AllocateDirect(int) 
+and Java allocates the block of memory), or use JNIEnv.NewDirectByteBuffer() 
+(and you allocate the memory):
+
+	IntPtr directByteBuffer = JNIEnv.NewDirectByteBuffer(Marshal.AllocHGlobal (4096), 4096L);
+	Buffer buffer = Java.Lang.Object.GetObject<Buffer>(directByteBuffer, JniHandleOwnership.TransferLocalRef);
+	Foo (buffer);
+
+	
+	
+	
+	
+	
+	
+ missing  	java.io.BufferedInputStream
+
+
+can’t seem to find it.
+
+
+on't think it has any bindings, but maybe this might work for you: 
+
+https://github.com/mono/ngit/blob/master/Sharpen/Sharpen/BufferedInputStream.cs
+
+
+It isn't bound. Is there any particular reason you need it?
+
+
+
+
+
+
+
+
+
+
+
+to replicate DatabaseUtils.getTypeOfObject and am running into trouble telling it the object is a byte[].
+
+ 
+
+The code in the android source is:
+
+ 
+
+} else if (obj instanceof byte[]) {
+
+            return Cursor.FIELD_TYPE_BLOB;
+
+ 
+
+“obj is byte[]” doesn’t work so I tried:
+
+ 
+
+Type type = obj.GetType();
+
+if (type.IsArray && type.GetElementType() == typeof(Java.Lang.Byte))
+
+    return FieldType.Blob;
+
+ 
+
+However type.IsArray fails.
+
+
+I assume you have:
+
+	Java.Lang.Object obj = ...;
+
+If so, the easiest way to check that is:
+
+	if (obj.Class.Name == "[B") {
+		byte[] contents = (byte[]) obj;
+	}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Java.Lang.NoClassDefFoundError: java.lang.ICharSequence
+ 
+ 
+ 
+ Is there any way to fix the problem below?  I got this when running an
+application using a java binding library for Zebra Printer.
+
+{Java.Lang.NoClassDefFoundError: Exception of type
+'Java.Lang.NoClassDefFoundError' was thrown.
+  at Android.Runtime.JNIEnv.FindClass (System.String classname) [0x00087] in
+/Users/builder/data/lanes/monodroid-mac-monodroid-4.2.4-branch/9f7cbd60/source/monodroid/src/Mono.Android/src/Runtime/JNIEnv.cs:275 
+  at Android.Runtime.JNIEnv.FindClass (System.String className,
+System.IntPtr& cachedJniClassHandle) [0x00014] in
+/Users/builder/data/lanes/monodroid-mac-monodroid-4.2.4-branch/9f7cbd60/source/monodroid/src/Mono.Android/src/Runtime/JNIEnv.cs:288 
+  at Com.Zebra.Android.Discovery.BluetoothDiscoverer.get_class_ref ()
+[0x00000] in <filename unknown>:0 
+  at Com.Zebra.Android.Discovery.BluetoothDiscoverer.FindPrinters
+(Android.Content.Context p0, IDiscoveryHandler p1) [0x00000] in <filename
+unknown>:0 
+  at BTPrinting.Discovery+<>c__DisplayClass4.<OnCreate>b__0 () [0x0000d] in
+C:\Android\BTPrinting\BTPrinting\Discovery.cs:49 
+  --- End of managed exception stack trace ---
+java.lang.NoClassDefFoundError:
+com/zebra/android/discovery/BluetoothDiscoverer
+	at dalvik.system.NativeStart.run(Native Method)
+Caused by: java.lang.ClassNotFoundException:
+com.zebra.android.discovery.BluetoothDiscoverer
+	at dalvik.system.BaseDexClassLoader.findClass(BaseDexClassLoader.java:61)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:501)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:461)
+	... 1 more
+	
+	
+	
+	
+You're getting an error because the type com.zebra.android.discovery.BluetoothDiscoverer cannot be found.
+
+Where is this type supposed to be located? Is this a .jar that's supposed to be present on your target device, like Google Maps? If so, you'll need a <uses-library/> in your AndroidManifest.xml.
+
+Is this a .jar that's supposed to be included with your app? Then you need to add the .jar to your project with a Build action of AndroidJavaLibrary.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[mono-android] Error "java" existed with code 1
+
+
+Not sure if you have seen this error before, but after clean and try to
+rebuild using VS 2012. I get this. Any ideas, My Android target is 2.2
+
+Error 1 "java" exited with code 1. C:\Program Files
+(x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets line 988 
+column 3
+	
+	
+	
+Take a look in all your layout files. If any file have any tag wrong.
+
+Some times a edit the file layout wrong and take this message. 
+
+todo: CHECK THIS	
+
+
+
+
+> Error 1 "java" exited with code 1. C:\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets line 988  column 3
+
+Enable diagnostic output. You should see more complete `javac` errors (files, line numbers, etc.) in the diagnostic output.
+
+
+
+Error 1 "java" exited with code 1. C:\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets
+
+Line: 988
+Column: 3
+
+Of course, i wen
+
+
+
+If you have diagnostic output, you should have LOTS more output than that.
+
+Look through the output for "javac"; you want to find the javac invocation + command line. Following that should be javac build output, which should contain Java-related errors and warnings.
+
+Xamarin.Android.Common.targets:988 is just the <Javac/> task invocation.
+

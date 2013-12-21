@@ -1,0 +1,74 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Microsoft's Visual Studio strategy</title>
+Description = all keywords + extra text
+<meta name="Description" content="Microsoft's Visual Studio strategy" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Microsoft's Visual Studio strategy
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="microsoft, visual, studio, strategy" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>Microsoft's Visual Studio strategy</h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<p>
+	It is amazing how Microsoft cuts off its developer community by not supporting some project 
+	types for some "older technologies" like Windows Mobile (CF and SmartDevice) in VS2010.
+
+	HolisticWare team is currently porting several Windows Mobile apps to iOS (MonoTouch) and Android
+	(Mono for Android) and it is frustrating to be unable to open WinMobile projects in Visual
+	Studio 2010.
+	</p>
+	<p>
+	OK -  one could understand that there is no interest for Microsoft in supporting project
+	types created by other IDEs like MonoDevelop, but for their own technology? How do they expect
+	companies to port their existing "older" projects and codebase to new "promising" technologies
+	like Windows Phone (7 and 8) and Windows 8?
+	</p>
+	<p>
+	Yes - solution might be having 2-3 ore even more versions of Visual Studio installed on Your 
+	dev box, but what if user needs to have project in the same solution, so the code could be 
+	easier ported. And note lack of the discussion regarding VS tools and extensions here.
+	</p>
+	<p>
+	In order to overcome this problem people resort to solutions that lay deep in Visual Studio
+	automation model, like Jamie Briant did (and explained in his blog) for MonoTouch projects
+	in Visual Studio.
+	<br />
+	See: 
+	<a href="http://blog.binaryfinery.com/monotouch-in-visual-studio-2010">
+		http://blog.binaryfinery.com/monotouch-in-visual-studio-2010
+	</a>
+	<br />
+	His code is based on Visual Studio project flavors (Visual Studio Extensibility Platform SDK)
+	which enables unknown project types and subtypes to be loaded in VS and worked on it.
+	The code can be found on github:
+	<a href="https://github.com/jamiebriant/VsMono">
+		https://github.com/jamiebriant/VsMono
+	</a>
+	</p>
+	<p>
+	HolisticWare team has added support for loading Windows Mobile projects and code can is on
+	github:
+	<a href="https://github.com/moljac/MonoVersalProjectFlavesForVisualStudio2010">
+		https://github.com/moljac/MonoVersalProjectFlavesForVisualStudio2010
+	</a>
+	</p>
+</body>
+</html>
+

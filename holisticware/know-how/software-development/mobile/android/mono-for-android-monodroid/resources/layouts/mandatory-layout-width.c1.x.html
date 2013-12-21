@@ -1,0 +1,54 @@
+Mandatory layout_width
+
+
+Wanted to make Linearlayout Scrollable
+
+ScrollView w/o attributes!
+
+<ScrollView>
+	<LinearLayout>
+	</LinearLayout>
+</ScrollView>
+
+Deploy OK
+
+Runtime Bang!!
+
+Java.Lang.RuntimeException: 
+[ERROR] FATAL UNHANDLED EXCEPTION: Java.Lang.RuntimeException: Exception of type 'Java.Lang.RuntimeException' was thrown.
+  at Android.Runtime.JNIEnv.CallNonvirtualVoidMethod (IntPtr jobject, IntPtr jclass, IntPtr jmethod, Android.Runtime.JValue[] parms) [0x00024] in /home/jpobst/Desktop/monodroid/Mono.Android/src/Runtime/JNIEnv.g.cs:611 
+  at Android.App.Activity.SetContentView (Int32 layoutResID) [0x0006b] in /home/jpobst/Desktop/monodroid/Mono.Android/platforms/android-4/src/generated/Android.App.Activity.cs:2813 
+  at HolisticWare.PhActEx.PL.Resources.Layout.PhActEx.OnCreate (Android.OS.Bundle bundle_applicationState) [0x00009] in D:\SRC\HolisticWare\HolisticWare_PhActEx_2011\HolisticWare.PhActEx_2011.EXE_813_PL_mClnt_M4A_mono26\Resources\Layout\PhActEx.axml.cs:43 
+  at Android.App.Activity.n_OnCreate_Landroid_os_Bundle_ (IntPtr jnienv, IntPtr native__this, IntPtr native_savedInstanceState) [0x00010] in /home/jpobst/Desktop/monodroid/Mono.Android/platforms/android-4/src/generated/Android.App.Activity.cs:1380 
+  at (wrapper dynamic-method) object:8a61be08-ddf7-42b7-93d4-9523dfe7340d (intptr,intptr,intptr)
+  --- End of managed exception stack trace ---
+java.lang.RuntimeException: Binary XML file line #1: You must supply a layout_width attribute.
+	at android.content.res.TypedArray.getLayoutDimension(TypedArray.java:543)
+	at android.view.ViewGroup$LayoutParams.setBaseAttributes(ViewGroup.java:3598)
+	at android.view.ViewGroup$MarginLayoutParams.<init>(ViewGroup.java:3678)
+	at android.widget.FrameLayout$LayoutParams.<init>(FrameLayout.java:457)
+	at android.widget.FrameLayout.generateLayoutParams(FrameLayout.java:423)
+	at android.widget.FrameLayout.generateLayoutParams(FrameLayout.java:47)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java:396)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java:320)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java:276)
+	at com.android.internal.policy.impl.PhoneWindow.setContentView(PhoneWindow.java:207)
+	at android.app.Activity.setContentView(Activity.java:1663)
+	at holisticware.phactex.pl.resources.layout.PhActEx.n_onCreate(Native Method)
+	at holisticware.phactex.pl.resources.layout.PhActEx.onCreate(PhActEx.java:27)
+	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1047)
+	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:1615)
+	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:1667)
+	at android.app.ActivityThread.access$1500(ActivityThread.java:117)
+	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:935)
+	at android.os.Handler.dispatchMessage(Handler.java:99)
+	at android.os.Looper.loop(Looper.java:123)
+	at android.app.ActivityThread.main(ActivityThread.java:3691)
+	at java.lang.reflect.Method.invokeNative(Native Method)
+	at java.lang.reflect.Method.invoke(Method.java:507)
+	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:847)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:605)
+	at dalvik.system.NativeStart.main(Native Method)
+
+In mgmain JNI_OnLoad
+The program 'Mono' has exited with code 255 (0xff).

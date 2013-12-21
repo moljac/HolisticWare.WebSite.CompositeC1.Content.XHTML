@@ -1,0 +1,562 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Visual Studio 2010 VC++ Solution Conversion HowTo</title>
+Description = all keywords + extra text
+<meta name="Description" content="Visual Studio 2010 VC++ Solution Conversion HowTo PJSIP sample, Steps, Code, Tools" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: visual-studio-2010-vcpp-solution-conversion-howto     
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Keywords" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Visual Studio 2010 VC++ Solution Conversion HowTo</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<h2><a id="">Perequisites - Tools</a></h2>
+	<ul>
+		<li>
+			XSLT Trafo utility (msxsl.exe)
+			<br />
+			For changing/replacing/deleting nodes in XML config files of Visual Studio
+			<br />
+			TODO: saxon?
+		</li>
+		<li>
+			SED (MSDOS port)
+			<br />
+			for replacements in files
+		</li>
+	</ul>
+
+
+	<h2><a id="">Steps old - manual what was done!</a></h2>
+	<ol>
+		<li>
+			Download sources or grab our zip with everything in it.
+		</li>
+		<li>
+			Unzip sources with 01-unzip-sources.bat
+		</li>
+		<li>
+			Backup C/C++ project files with 02-backup-vcproj-files.bat
+			<pre class="hw_code">
+	foreach (File f = *.vcrpoj in folders)
+	{
+		copy(f, f.mc++.vcproj);
+	}
+			</pre>
+		</li>
+		<li>
+			Visual Studio 2010 does not support Mobile platforms (Windows Mobile 5,6, Pocket PC and Smartphone)
+			so remove those from 
+			<br />
+			with the help of XSLT transformation
+			<br />
+			<pre class="hw_code">
+			remove-mobile-dependencies.xslt
+			requirements: c:\bin\msxsl.exe
+			</pre>
+		</li>
+		<li>
+		Prepare PJSIP for conversion and compilation
+			<ul>
+				<li>
+				Conversion:
+				</li>
+				<li>
+				Compilation:
+				<pre class="hw_code">
+	copies 
+		config-site-sample.h 
+		to
+		config-site.h 		
+				</pre>
+				</li>
+			</ul>
+		</li>
+	</ol>
+
+
+
+
+	<h2><a id="">Conversion</a></h2>
+	<ol>
+		<li>
+			pjproject-vs8-common-defaults.vsprops - does not contain:
+			<pre class="hw_code">
+	&lt;UserMacro
+		Name=&quot;TargetCPU&quot;
+		Value=&quot;i386&quot;
+	/&gt;
+			</pre>
+			like
+			<br />
+			pjproject-vs8-win32-common-defaults.vsprops
+			<br />
+			Causes Wranings:
+			<pre class="hw_code">
+	MSB4211: 
+	.\PJSIP\pjproject-1.12\build\vs\pjproject-vs8-win32-common-defaults.props; 
+	The property "TargetCPU" is being set to a value for the first time, but it was already consumed at 
+	".\PJSIP\pjproject-1.12\build\vs\pjproject-vs8-common-defaults.props".
+			</pre>
+		</li>
+		<li>
+			Well known conversion issue and Warning MSB8012 has turned out as non-problematic!
+			<br />
+			<a href="http://blogs.msdn.com/b/vcblog/archive/2010/03/02/visual-studio-2010-c-project-upgrade-guide.aspx">
+			http://blogs.msdn.com/b/vcblog/archive/2010/03/02/visual-studio-2010-c-project-upgrade-guide.aspx
+			</a>
+			<pre class="hw_code">
+	MSB8012: 
+	$(TargetPath) ('.\PJSIP\pjproject-1.12\third_party\build\gsm\.\output\libgsmcodec--Win32-vc8-Debug\libgsmcodec.lib') 
+	does not match the Librarian's OutputFile property value '..\..\lib\libgsmcodec-i386-Win32-vc8-Debug.lib' 
+	('.\SIP\lib\libgsmcodec-i386-Win32-vc8-Debug.lib') in project configuration 'Debug|Win32'. 
+	This may cause your project to build incorrectly. 
+	To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Lib.OutputFile).
+			</pre>
+		</li>
+	</ol>
+
+	<h2><a id="">Compilation and Linking</a></h2>    
+	<ol>
+		<li>
+			DirectX SDK libray path:
+			<ol>
+				<li>
+					PJSIP 1.12
+					<br />
+					Problem - Linker Error:
+					<pre class="hw_code">
+Error	78	error LNK1181: cannot open input file 'dxguid.lib'	D:\SRC\HolisticWare\HolisticWare_VoIP\PJSIP\pjproject-1.12\pjsip-apps\build\LINK	sample_debug
+Error	79	error MSB6006: "link.exe" exited with code 1181.	C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Platforms\Win32\Microsoft.Cpp.Win32.Targets	275	6	sample_debug
+					</pre>
+					Solution/Workaround:
+					<br />
+					change
+					<ul>
+						<li>
+							Property Pages/Linker/General/Additional Library Directories:
+							<br />
+							from:
+							<br />
+							to: "C:\Program Files\Microsoft DirectX SDK (March 2009)\Lib\x86"
+							<br />
+							<img 
+								title="Property Pages 1" alt="Property Pages 1"
+								src="/mm/holisticware/know-how/development/visual-studio/visual-studio-2010-solution-conversion-for-pjsip-howto/property-pages-01.png" 
+								 height="465" width="706"
+								/>
+							<br />
+							For projects:
+							<ul>
+								<li>pjmedia_test</li>
+								<li>pjsua</li>
+								<li>pjsip_test</li>
+
+							</ul>
+						</li>
+						<li>
+							Property Pages/Configuration Properties/VC++ Directories/Library Directories:
+							<br />
+							from: $(LibraryPath)
+							<br />
+							to: $(LibraryPath);"C:\Program Files\Microsoft DirectX SDK (March 2009)\Lib\x86"
+							<br />
+							<img 
+								title="Property Pages 2" alt="Property Pages 2"
+								src="/mm/holisticware/know-how/development/visual-studio/visual-studio-2010-solution-conversion-for-pjsip-howto/property-pages-02.png" 
+								height="465" width="706"
+								/>
+							<br />
+							For projects:
+							<ul>
+								<li>samples</li>
+								<li>sample_debug</li>
+								<li>pjsystest</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					PJSIP 2.0 Beta
+					<br />
+					Problem - Linker Error:
+					<pre class="hw_code">
+Error	80	error LNK1104: cannot open file 'dxguid.lib'	D:\SRC\HolisticWare\HolisticWare_VoIP\PJSIP\pjproject-2.0-beta\pjsip-apps\build\LINK	samples
+Error	82	error MSB3073: The command "nmake /NOLOGO /S /f Samples-vc.mak BUILD_MODE=debug VC_VER=8 /a" exited with code 2.	C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.MakeFile.Targets	43	6	samples
+Error	81	error U1077: '"c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\cl.EXE"' : return code '0x2'	D:\SRC\HolisticWare\HolisticWare_VoIP\PJSIP\pjproject-2.0-beta\pjsip-apps\build\NMAKE	samples
+					</pre>
+					Solution/Workaround:
+					<br />
+					change
+					<ul>
+						<li>
+							Property Pages/Linker/General/Additional Library Directories:
+							<br />
+							from:
+							<br />
+							to: "C:\Program Files\Microsoft DirectX SDK (March 2009)\Lib\x86"
+							<br />
+							<img 
+								title="Property Pages 1" alt="Property Pages 1"
+								src="/mm/holisticware/know-how/development/visual-studio/visual-studio-2010-solution-conversion-for-pjsip-howto/property-pages-01.png" 
+								height="465" width="706"
+								/>
+							<br />
+							For projects:
+							<ul>
+								<li>sample_debug</li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</li>
+						<li>
+							Property Pages/Configuration Properties/VC++ Directories/Library Directories:
+							<br />
+							from: $(LibraryPath)
+							<br />
+							to: $(LibraryPath);"C:\Program Files\Microsoft DirectX SDK (March 2009)\Lib\x86"
+							<br />
+							<img 
+								title="Property Pages 2" alt="Property Pages 2"
+								src="/mm/holisticware/know-how/development/visual-studio/visual-studio-2010-solution-conversion-for-pjsip-howto/property-pages-02.png" 
+								height="465" width="706"
+								/>
+							<br />
+							For projects:
+							<ul>
+								<li>samples</li>
+								<li>pjsua</li>
+								<li>pjsip_test</li>
+								<li>pjsua</li>
+								<li>pjmedia_test</li>
+								<li>pjsystest</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ol>
+		</li>
+	</ol>
+
+
+	<h2><a id="">Steps - automagic explained</a></h2>
+	<p>
+	File list and steps to convert (just start batch files in this order):
+	</p>
+	<ol>
+		<li>
+			01-unzip-sources.bat
+			<br />
+			Hard to say what it does
+			<pre class="hw_code">
+echo off
+
+set ZIP=c:\bin\7za.exe x
+
+%ZIP% pjproject-1.12.zip
+%ZIP% pjproject-2.0-beta.zip
+
+pause
+			</pre>
+		</li>
+		<li>
+			02-backup-vcproj-files.bat
+			<br />
+			Backing up *.vcproj files before import/conversion
+			<pre class="hw_code">
+@echo off
+
+setlocal EnableDelayedExpansion
+
+set SED=c:\bin\sed.exe
+
+FOR /F "tokens=*" %%s IN ('dir /s /b *.vcproj') DO (
+	echo =======================================================================
+	set FILENAME_PATH_VCPROJ=%%s
+	set FILENAME=%%~ns
+	set FILENAME_W_EXT=%%~nxs
+	set PATH=%%~ps
+
+	echo FILENAME_PATH_VCPROJ=%%s
+	echo FILENAME=%%~ns
+	echo FILENAME_W_EXT=%%~nxs
+	echo PATH=%%~ps
+	echo -------------------------------------------------
+	set BACKUP=!FILENAME_PATH_VCPROJ:.vcproj=.vcproj.mc++.bckp!
+
+	echo BACKUP=!BACKUP!
+	
+	echo !FILENAME_PATH_VCPROJ! 
+	echo !BACKUP!
+	
+	del !BACKUP!
+	type !FILENAME_PATH_VCPROJ!> !BACKUP!
+	
+)
+
+dir /s /b *.vcproj
+
+dir /s /b *.bckp
+
+pause
+			</pre>
+		</li>
+		<li>
+			03-remove-mobile-platforms-from-vcproj-files.bat
+			<br />
+			Batch script that collects .vcproj files and applies XSLT trafo on them 
+			using msxsl.exe
+			<pre class="hw_code">
+@echo off
+
+setlocal EnableDelayedExpansion
+
+::TODO: saxon
+set XSLT_TRAFO_UTIL=c:\bin\msxsl.exe
+set XSLT_TRAFO=.\03-remove-mobile-platforms-from-vcproj-files.xslt
+
+
+FOR /F "tokens=*" %%s IN ('dir /s /b *.vcproj') DO (
+	echo =======================================================================
+	set FILENAME_PATH_VCPROJ=%%s
+	set FILENAME=%%~ns
+	set FILENAME_W_EXT=%%~nxs
+	set PATH=%%~ps
+
+	echo FILENAME_PATH_VCPROJ=%%s
+	echo FILENAME=%%~ns
+	echo FILENAME_W_EXT=%%~nxs
+	echo PATH=%%~ps
+	echo -------------------------------------------------
+	
+	echo !FILENAME_PATH_VCPROJ! 
+	!XSLT_TRAFO_UTIL! ^
+		!FILENAME_PATH_VCPROJ! ^
+		!XSLT_TRAFO! ^
+		-o !FILENAME_PATH_VCPROJ! 
+		
+	
+)
+
+pause
+			</pre>
+		</li>
+		<li>
+			03-remove-mobile-platforms-from-vcproj-files.xslt
+			<br />
+			Actual XSLT
+			<pre class="hw_code">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+		xmlns:msxsl=&quot;urn:schemas-microsoft-com:xslt&quot; exclude-result-prefixes=&quot;msxsl&quot;
+&gt;
+		&lt;!--&lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot;/&gt;--&gt;
+
+	&lt;!--
+	--&gt;
+	&lt;xsl:template match=&quot;@* | node()&quot;&gt;
+			&lt;xsl:copy&gt;
+				&lt;xsl:apply-templates select=&quot;@* | node()&quot;/&gt;
+			&lt;/xsl:copy&gt;
+	&lt;/xsl:template&gt;
+
+		&lt;!--&lt;xsl:template match=&quot;AA&quot;&gt;
+			&lt;xsl:copy&gt;
+				&lt;xsl:apply-templates select=&quot;*[. = &#39;bar&#39;]&quot;/&gt;
+			&lt;/xsl:copy&gt;
+		&lt;/xsl:template&gt;--&gt;
+
+
+	&lt;!--
+		Empty templates - swallowing nodes
+	--&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug|Windows Mobile 6 Standard SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug|Windows Mobile 6 Professional SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug|Pocket PC 2003 (ARMV4)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug|Smartphone 2003 (ARMV4)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug|Windows Mobile 5.0 Smartphone SDK (ARMV4I)&#39;]&quot;/&gt;
+
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release|Windows Mobile 6 Standard SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release|Windows Mobile 6 Professional SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release|Pocket PC 2003 (ARMV4)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release|Smartphone 2003 (ARMV4)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release|Windows Mobile 5.0 Smartphone SDK (ARMV4I)&#39;]&quot;/&gt;
+
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug-Static|Windows Mobile 6 Standard SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug-Static|Windows Mobile 6 Professional SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug-Static|Pocket PC 2003 (ARMV4)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug-Static|Smartphone 2003 (ARMV4)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug-Static|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug-Static|Windows Mobile 5.0 Smartphone SDK (ARMV4I)&#39;]&quot;/&gt;
+
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug-Dynamic|Windows Mobile 6 Standard SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug-Dynamic|Windows Mobile 6 Professional SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug-Dynamic|Pocket PC 2003 (ARMV4)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug-Dynamic|Smartphone 2003 (ARMV4)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug-Dynamic|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Debug-Dynamic|Windows Mobile 5.0 Smartphone SDK (ARMV4I)&#39;]&quot;/&gt;
+
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release-Dynamic|Windows Mobile 6 Standard SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release-Dynamic|Windows Mobile 6 Professional SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release-Dynamic|Pocket PC 2003 (ARMV4)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release-Dynamic|Smartphone 2003 (ARMV4)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release-Dynamic|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release-Dynamic|Windows Mobile 5.0 Smartphone SDK (ARMV4I)&#39;]&quot;/&gt;
+
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release-Static|Windows Mobile 6 Standard SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release-Static|Windows Mobile 6 Professional SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release-Static|Pocket PC 2003 (ARMV4)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release-Static|Smartphone 2003 (ARMV4)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release-Static|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)&#39;]&quot;/&gt;
+	&lt;xsl:template match=&quot;/VisualStudioProject/Configurations/Configuration[@Name=&#39;Release-Static|Windows Mobile 5.0 Smartphone SDK (ARMV4I)&#39;]&quot;/&gt;
+&lt;/xsl:stylesheet&gt;
+			</pre>
+		</li>
+		<li>
+			04-pjsip-prepare.bat
+			<br />
+			Modifying (sedding with SED) .vsprops files 
+			(inserting xml needed to silence some warnings)
+			<br />
+			Creating new Solutions that will be modified
+			<br />
+			Preparing for test compilation config_site.h
+			<br />
+
+			<pre class="hw_code">
+@echo off
+
+
+set SED=c:\bin\sed.exe
+
+echo============================================================================	
+echo sed - inserting into pjproject-vs8-common-defaults.vsprops
+echo to silence VS conversion warning MSB4211
+:: -i.bak backup extension for inline replacement 
+%SED% -f 04-pjsip-prepare-pjproject-vs8-common-defaults.vsprops.sed ^
+	.\pjproject-1.12\build\vs\pjproject-vs8-common-defaults.vsprops ^
+	>.\pjproject-1.12\build\vs\pjproject-vs8-common-defaults.vsprops.new
+
+%SED% -f 04-pjsip-prepare-pjproject-vs8-common-defaults.vsprops.sed ^
+	.\pjproject-2.0-beta\build\vs\pjproject-vs8-common-defaults.vsprops ^
+	>.\pjproject-2.0-beta\build\vs\pjproject-vs8-common-defaults.vsprops.new
+
+	
+echo copying backups etc...
+type ^
+	.\pjproject-1.12\build\vs\pjproject-vs8-common-defaults.vsprops ^
+	>.\pjproject-1.12\build\vs\pjproject-vs8-common-defaults.vsprops.bak
+
+type ^
+	.\pjproject-2.0-beta\build\vs\pjproject-vs8-common-defaults.vsprops ^
+	>.\pjproject-2.0-beta\build\vs\pjproject-vs8-common-defaults.vsprops.bak
+
+type ^
+	.\pjproject-1.12\build\vs\pjproject-vs8-common-defaults.vsprops.new ^
+	>.\pjproject-1.12\build\vs\pjproject-vs8-common-defaults.vsprops
+	
+type ^
+	.\pjproject-2.0-beta\build\vs\pjproject-vs8-common-defaults.vsprops.new ^
+	>.\pjproject-2.0-beta\build\vs\pjproject-vs8-common-defaults.vsprops
+
+echo============================================================================	
+type ^
+	.\pjproject-1.12\build\vs\pjproject-vs8-common-defaults.vsprops
+
+echo============================================================================	
+echo Creating new Soultions	
+type ^
+	pjproject-1.12\pjproject-vs8.sln ^
+	>>pjproject-1.12\pjproject-vs10.sln
+	
+type ^
+	pjproject-2.0-beta\pjproject-vs8.sln ^
+	>>pjproject-2.0-beta\pjproject-vs10.sln 
+
+echo============================================================================	
+echo Preparing files for Compilation (config_site.h)
+type ^
+	pjproject-2.0-beta\pjlib\include\pj\config_site_sample.h ^
+	>>pjproject-2.0-beta\pjlib\include\pj\config_site.h
+
+type ^
+	pjproject-1.12\pjlib\include\pj\config_site_sample.h  ^
+	>>pjproject-1.12\pjlib\include\pj\config_site.h
+
+echo============================================================================	
+
+set DEVENV="C:\Program Files\Microsoft Visual Studio 10.0\Common7\IDE\devenv.exe"
+::%DEVENV% pjproject-1.12\pjproject-vs10.sln
+::%DEVENV% pjproject-2.0-beta\pjproject-vs10.sln
+
+pause
+			</pre>
+		</li>
+		<li>
+			04-pjsip-prepare-pjproject-vs8-common-defaults.vsprops.sed
+			<pre class="hw_code">
+			</pre>
+		</li>
+	</ol>
+
+
+	<h3><a id="">Code</a></h3>
+	<p>
+		Batch scripts, XSLT etc:
+		<a href="/mm/holisticware/know-how/development/visual-studio/visual-studio-2010-solution-conversion-for-pjsip-howto/visual-studio-2010-solution-conversion-for-pjsip-howto.zip">
+		visual-studio-2010-solution-conversion-for-pjsip-howto.zip
+		</a>
+	</p>
+
+
+	<h2><a id="">Results</a></h2>
+	<p>
+		pjsua running in VS2010:
+		<img 
+			title="Testing pjsua 1" alt="Testing pjsua 1"
+			src="/mm/holisticware/know-how/development/visual-studio/visual-studio-2010-solution-conversion-for-pjsip-howto/tests-01.png" 
+			height="465" width="706"
+			/>
+		<br />
+		<img 
+			title="Testing pjsua 2" alt="Testing pjsua 2"
+			src="/mm/holisticware/know-how/development/visual-studio/visual-studio-2010-solution-conversion-for-pjsip-howto/tests-02.png" 
+			height="465" width="706"
+			/>
+		<br />
+	</p>
+
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">References</a></h2>
+
+	<ul>
+		<li>
+			<a href="http://comments.gmane.org/gmane.comp.voip.pjsip/15075">
+			Discussion archive on pjsip.org - http://comments.gmane.org/gmane.comp.voip.pjsip/15075
+			</a>
+		</li>
+	</ul>
+</body>
+</html>

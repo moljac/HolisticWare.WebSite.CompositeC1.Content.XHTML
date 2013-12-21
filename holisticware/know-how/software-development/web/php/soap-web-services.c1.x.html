@@ -1,0 +1,292 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>SOAP Web Services</title>
+Description = all keywords + extra text
+<meta name="Description" content="SOAP Web Services in php" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: soap-web-services
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="soap, web, services" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2012-05-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">SOAP Web Services</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<p>
+		Implementing SOAP Web Services in php is possible in 2 ways:
+	</p>
+	<ul>
+		<li>
+			Native support since PHP 5			
+		</li>
+		<li>
+			nusoap (not recommended anymore since PHP5 enables native support for
+			SOAP Web Services)
+		</li>
+	</ul>
+	<p>
+		Following sample is for MacOSX, but it should be almost the same for Linux:
+	</p>
+	<ul>
+		<li>
+			MacOSX comes with preinstalled Apache Web server (v.2 in Lion)
+		</li>
+		<li>
+			To activate web server:
+			<br />
+			Applications +/ System Preferences +/ Web Sharing = true (check)
+			<br />
+			This will start apache (deamon) service and enables web sites:
+			<ul>
+				<li>
+					for comupter at http://IPADDRES/
+					<br />
+					Deafult folder: /Library/WebServer/Documents/
+				</li>
+				<li>
+					for each user at http://IPADDRES/~username
+					<br />
+					folder is located in each home directory ~/Sites
+				</li>
+			</ul>
+		</li>
+	</ul>
+	
+	<h3>Settings</h3>
+	<p>
+		Some system settings (during tests)
+	</p>
+	<ol>
+		<li>
+			Used BBEdit trial.
+			<br />
+			Set preferences to 
+			<ul>
+				<li>
+					Enable: everything
+				</li>
+				<li>
+					Show Hidden items: true (checked)
+				</li>
+			</ul>
+			Browse from HardDisk name to
+			<br />
+			/etc/apache2
+		</li>
+		<li>
+			Edit http.conf
+			<ul>
+				<li>
+					Enable PHP
+					<br />
+					uncomment line (search is relative from ServerRoot which is by default: /usr)
+					<pre class="hw_code">
+					  LoadModule php5_module libexec/apache2/libphp5.so
+					</pre>
+				</li>
+				<li>
+					Change location of web files for computer
+					<br />
+					Change in /etc/apache2/httpd.conf :
+					<pre class="hw_code">
+#&lt;Directory &quot;/Library/WebServer/Documents&quot;&gt;
+&lt;Directory &quot;/Users/moljac/MyFolder&quot;&gt;
+					</pre>
+				</li>
+				<li>
+					Change location of web files for user
+					<br />
+					Change in /etc/apache2/users/someusername.conf :
+					<pre class="hw_code">
+&lt;Directory &quot;/Users/someusers/Sites/&quot;&gt;
+	Options Indexes MultiViews
+	AllowOverride None
+	Order allow,deny
+	Allow from all
+&lt;/Directory&gt;
+					</pre>
+					To:
+					<pre class="hw_code">
+&lt;Directory &quot;/Users/someuser/MyFolder/&quot;&gt;
+	Options Indexes MultiViews
+	AllowOverride None
+	Order allow,deny
+	Allow from all
+&lt;/Directory&gt;
+					</pre>
+				</li>
+			</ul>
+
+
+
+		</li>
+	</ol>
+	<ul>
+		<li>
+			restarting deamon (apache service):	sudo apachectl restart
+			<br />
+			check http://IPADDRESS
+		</li>
+		<li>
+			Logs in:
+			<ul>
+				<li>
+					/var/log/apache2/access_log 
+				</li>
+				<li>
+					/var/log/apache2/error_log 
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<!-- ============================================================================================ -->
+	<h2><a id="A1">Creating SOAP Web Service</a></h2>
+	<ul>
+		<li>
+			Create WSDL file:
+			<pre class="hw_code">
+&lt;?xml version =&#39;1.0&#39; encoding =&#39;UTF-8&#39; ?&gt; 
+&lt;definitions name=&#39;Catalog&#39; 
+  targetNamespace=&#39;http://example.org/catalog&#39;
+  xmlns:tns=&#39;http://example.org/catalog&#39; 
+  xmlns:soap=&#39;http://schemas.xmlsoap.org/wsdl/soap/&#39; 
+  xmlns:xsd=&#39;http://www.w3.org/2001/XMLSchema&#39; 
+  xmlns:soapenc=&#39;http://schemas.xmlsoap.org/soap/encoding/&#39; 
+  xmlns:wsdl=&#39;http://schemas.xmlsoap.org/wsdl/&#39; 
+  xmlns=&#39;http://schemas.xmlsoap.org/wsdl/&#39;&gt; 
+
+&lt;message name=&#39;getCatalogRequest&#39;&gt; 
+  &lt;part name=&#39;catalogId&#39; type=&#39;xsd:string&#39;/&gt; 
+&lt;/message&gt; 
+&lt;message name=&#39;getCatalogResponse&#39;&gt; 
+  &lt;part name=&#39;Result&#39; type=&#39;xsd:string&#39;/&gt; 
+&lt;/message&gt; 
+
+&lt;portType name=&#39;CatalogPortType&#39;&gt; 
+  &lt;operation name=&#39;getCatalogEntry&#39;&gt; 
+	&lt;input message=&#39;tns:getCatalogRequest&#39;/&gt; 
+	&lt;output message=&#39;tns:getCatalogResponse&#39;/&gt; 
+  &lt;/operation&gt; 
+&lt;/portType&gt; 
+
+&lt;binding name=&#39;CatalogBinding&#39; type=
+&#39;tns:CatalogPortType&#39;&gt; 
+  &lt;soap:binding style=&#39;rpc&#39; 
+	transport=&#39;http://schemas.xmlsoap.org/soap/http&#39;
+  /&gt; 
+  &lt;operation name=&#39;getCatalogEntry&#39;&gt; 
+	&lt;soap:operation soapAction=&#39;urn:localhost-catalog#getCatalogEntry&#39;/&gt; 
+	&lt;input&gt; 
+	  &lt;soap:body use=&#39;encoded&#39; namespace=&#39;urn:localhost-catalog&#39; 
+		encodingStyle=&#39;http://schemas.xmlsoap.org/soap/encoding/&#39;/&gt; 
+	&lt;/input&gt; 
+	&lt;output&gt; 
+	  &lt;soap:body use=&#39;encoded&#39; namespace=&#39;urn:localhost-catalog&#39; 
+		encodingStyle=&#39;http://schemas.xmlsoap.org/soap/encoding/&#39;/&gt; 
+	&lt;/output&gt; 
+  &lt;/operation&gt; 
+&lt;/binding&gt; 
+
+&lt;service name=&#39;CatalogService&#39;&gt; 
+  &lt;port name=&#39;CatalogPort&#39; binding=
+  &#39;CatalogBinding&#39;&gt; 
+	&lt;soap:address location=&#39;http://localhost/soap-server.php&#39;/&gt; 
+  &lt;/port&gt; 
+&lt;/service&gt;
+&lt;/definitions&gt;
+			</pre>
+		</li>
+		<li>
+			Create soap-server.php (to serve web service)
+			<pre class="hw_code">
+&lt;?php 
+function getCatalogEntry($catalogId) { 
+  if($catalogId==&#39;catalog1&#39;)
+
+return &quot;&lt;HTML&gt;
+ &lt;HEAD&gt;
+  &lt;TITLE&gt;Catalog&lt;/TITLE&gt;
+ &lt;/HEAD
+ &lt;BODY&gt;
+&lt;p&gt; &lt;/p&gt;
+ &lt;table border&gt;
+&lt;tr&gt;&lt;th&gt;CatalogId&lt;/th&gt;
+&lt;th&gt;Journal&lt;/th&gt;&lt;th&gt;Section
+&lt;/th&gt;&lt;th&gt;Edition&lt;/th&gt;&lt;th&gt;
+Title&lt;/th&gt;&lt;th&gt;Author&lt;/th&gt;
+&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;catalog1&lt;/td&gt;
+&lt;td&gt;IBM developerWorks&lt;/td&gt;&lt;td&gt;
+XML&lt;/td&gt;&lt;td&gt;October 2005&lt;/td&gt;
+&lt;td&gt;JAXP validation&lt;/td&gt;
+&lt;td&gt;Brett McLaughlin&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;&quot;;
+
+elseif ($catalogId=&#39;catalog2&#39;)
+
+return &quot;&lt;HTML&gt;
+ &lt;HEAD&gt;
+  &lt;TITLE&gt;Catalog&lt;/TITLE&gt;
+ &lt;/HEAD
+ &lt;BODY&gt;
+&lt;p&gt; &lt;/p&gt;
+ &lt;table border&gt;
+
+&lt;tr&gt;&lt;th&gt;CatalogId&lt;/th&gt;&lt;th&gt;
+Journal&lt;/th&gt;&lt;th&gt;Section&lt;/th&gt;
+&lt;th&gt;Edition&lt;/th&gt;&lt;th&gt;Title
+&lt;/th&gt;&lt;th&gt;Author
+&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;catalog1
+&lt;/td&gt;&lt;td&gt;IBM developerWorks&lt;/td&gt;
+&lt;td&gt;XML&lt;/td&gt;&lt;td&gt;July 2006&lt;/td&gt;
+&lt;td&gt;The Java XPath API
+&lt;/td&gt;&lt;td&gt;Elliotte Harold&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;&quot;;
+} 
+
+ini_set(&quot;soap.wsdl_cache_enabled&quot;, &quot;0&quot;); 
+$server = new SoapServer(&quot;catalog.wsdl&quot;); 
+$server-&gt;addFunction(&quot;getCatalogEntry&quot;); 
+$server-&gt;handle(); 
+
+?&gt;
+			</pre>
+			Check WSDL with: http://IPADDRESS/soap-server.php?wsdl
+
+		</li>
+		<li>
+			Create test client in php:
+			<pre class="hw_code">
+&lt;?php  
+  $client = new SoapClient(&quot;catalog.wsdl&quot;);
+  $catalogId=&#39;catalog1&#39;;
+  $response = $client-&gt;getCatalogEntry($catalogId);
+  echo $response;
+?&gt;
+			</pre>
+		</li>
+
+	</ul>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+CheckDuplicateJava
+
+> Error initializing task CheckDuplicateJavaLibraries: Not registered task CheckDuplicateJavaLibraries.
+
+That sounds very odd.
+
+First, diagnosis:
+
+	$ cd /Library/Frameworks/Mono.framework/External/xbuild/Novell
+	$ grep -l CheckDuplicateJava *
+	Novell.MonoDroid.Build.Tasks.dll
+	Novell.MonoDroid.Common.targets
+
+Do you see the same?
+
+If you don't see CheckDuplicateJava matches in Novell.MonoDroid.Build.Tasks.dll and 
+Novell.MonoDroid.Common.targets, then try:
+
+	$ cd /Library/Frameworks/Mono.framework/External
+	$ sudo unzip -o /Developer/MonoAndroid/usr/share/External.zip
+
+Then re-run the original grep command.

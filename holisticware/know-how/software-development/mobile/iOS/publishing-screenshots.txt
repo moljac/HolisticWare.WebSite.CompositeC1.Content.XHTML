@@ -1,0 +1,24 @@
+f you are updating your app for iPhone 5 and iPod touch (5th 
+generation), you must provide additional screenshots to support the new 
+screen dimensions for the App Store. 
+
+The new screenshot dimensions are: 
+
+640 x 1136 (portrait) 
+640 x 1096 (portrait) 
+1136 x 640 (landscape) 
+1136 x 600 (landscape) 
+
+To deliver new screenshots, go to the Version Details page in the Manage 
+Your Applications module on iTunes Connect. 
+
+If you deliver a new app binary that takes advantage of the new screen 
+size for iPhone 5 or iPod touch (5th generation) without screenshots in 
+the new dimensions, the status of your app will change to Missing 
+Screenshot. Your app will not be reviewed until you upload screenshots 
+with the correct dimensions. You will also need to upload screenshots 
+for any added localizations you have set up on iTunes Connect. 
+
+For more information on screenshot requirements, see the Asset 
+Specifications section in the iTunes Connect Developer Guide. 
+

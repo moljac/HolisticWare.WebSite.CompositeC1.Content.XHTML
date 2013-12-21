@@ -1,0 +1,74 @@
+Networking
+
+Credentials
+
+rying to load some data off my server (xml data). I normally just use HttpWebRequest as I can set the utomaticDecompression to DecompressionMethods.GZip | DecompressionMethods.Deflate in order to use gzip compression of my data automatically.
+
+Recently a client has emailed me saying that it does not work from within his school. Sent out another copy of the app to him via TestFlightApp to get more debugging info from him and the app responds with a 407 auth error. Since then I have set up a proxy on my computer which I redirect my iPhone traffic through to test on.
+
+My original setup was like so,
+
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create(_url);
+request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
+request.Proxy = null;
+request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+WebResponse response = request.GetResponse();
+
+and then so on from there.
+
+I'd set Proxy to null because in most cases the user would not be behind a proxy and this cut off 1-2 seconds of proxy resolving. There is code later to catch this and then re-create the HttpWebRequest but by not nulling the proxy, which I thought would be default proxy. Apparently not so...
+
+I tried to then get the default proxy settings of the device.
+
+CFProxySettings proxy0 = CFNetwork.GetSystemProxySettings();
+IWebProxy proxy1 = WebRequest.GetSystemWebProxy();
+IWebProxy proxy2 = HttpWebRequest.DefaultWebProxy;
+IWebProxy proxy3 = HttpWebRequest.GetSystemWebProxy();
+IWebProxy proxy4 = CFNetwork.GetDefaultProxy();
+
+proxy1 - proxy4 have null for the credentials. proxy0 contains proxy information which I need such as proxy url, port, username, but no password...
+
+I manually made a WebProxy with my credentials
+
+WebProxy webProxy = new WebProxy(proxy0.HTTPProxy, proxy0.HTTPPort);
+webProxy.Credentials = new NetworkCredential("user", "pass");
+request.Proxy = webProxy;
+
+and this works.
+Falling short of requesting username and password for the proxy on a 407 error I am not sure what to do...
+WebClient downloads do not work, but UIWebView and MKMapView does auto-auth itself. 
+
+
+ something similar happen very recently. I was pulling data from a public US Government web service that did not require credentials, but I was getting the same type of proxy 407 error. My issue turned out to be related to a profile that was installed on my phone by another app (not mine). Even though I had uninstalled the app and tried to remove the profile previously, it was still stuck on there somehow and not visible when looking in the profile section.  I found it by pure luck when I re-installed the app in question and noticed that it thought the profile was still installed. I forced a re-install and then removed it successfully and my 407 errors ended.
+
+Not sure if this is your problem too, but I figured I'd mention it just in case.
+Bob
+
+
+
+It may be related to #4784. The issue is that it's not possible (no
+API) to read the iOS proxy passwords. So such cases won't work with
+.NET API. You need to use the iOS API (NSUrl...) to be have it work
+"automagically".
+
+Once we move to the .NET 4.x API (rebase MT on top of Mono 3.0) we
+want to provide an HttpClient implementation on top of NSUrl* that
+would solve this issue.
+
+[1] https://bugzilla.xamarin.com/show_bug.cgi?id=4784
+
+
+A temp solution I made for now was to use NSUrlConnection class in a wrapper.
+https://github.com/ytn3rd/FourPiLibs/blob/master/FourPiLib/FourPiLib/Web/DataDownloader.cs 
+I wrote DataDownloader and it supports Sync and Async downloads, downloads
+to files and lets you use POST attributes.
+
+As for testing the proxy issue I was working on this,
+https://github.com/ytn3rd/random-code-things/tree/master/ProxyTest, it
+should do the trick of testing HttpWebRequest vs NSUrlConnection over a
+proxy.
+
+
+I had posted in a bug report about it as apparently it has been around for
+quite some time, https://bugzilla.xamarin.com/show_bug.cgi?id=1081
+

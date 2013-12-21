@@ -1,0 +1,158 @@
+SMS
+
+[IntentFilter(new[] { "android.provider.Telephony.
+SMS_RECEIVED" })]
+
+"
+
+was the same as registering the recvr in manifest, which makes it where you don't have to call register recvr?
+
+Second, do you have any other sms recving apps on the emulator that could be suppressing it?
+
+
+On Wed, Aug 29, 2012 at 5:33 AM, sorniels <sorniels@fooz.dk> wrote:
+
+    This doesn't work for me. I have the following:
+
+    [BroadcastReceiver(Enabled = true)]
+        [IntentFilter(new[] { "android.provider.Telephony.SMS_RECEIVED" })]
+        public class TextMessageListener : BroadcastReceiver
+        {
+            public static readonly string IntentAction =
+    "android.provider.Telephony.SMS_RECEIVED";
+
+            public override void OnReceive(Context context, Intent intent)
+            {
+                Toast.MakeText(context, "Msg received!",
+    ToastLength.Short).Show();
+                if (intent.Action == IntentAction)
+                {
+                    var bundle = intent.Extras;
+
+                    if (bundle != null)
+                    {
+                        var pdus = bundle.Get ("pdus");
+                        var castedPdus =
+    JNIEnv.GetArray<Java.Lang.Object>(pdus.Handle);
+
+                        var bytes = new
+    Byte[JNIEnv.GetArrayLength(castedPdus[0].Handle)];
+                        JNIEnv.CopyArray(castedPdus[0].Handle, bytes);
+                        var message = Encoding.UTF8.GetString(bytes);
+                        ((Main)context).ShowMessage(message);
+                    }
+                }
+            }
+        }
+
+    In the OnCreate() of my Main activity I'm registering the BroadcastReceiver
+    like this:
+
+    _receiver = new TextMessageListener();
+                var intent = new IntentFilter();
+                intent.AddAction(TextMessageListener.IntentAction);
+                RegisterReceiver(_receiver, intent);
+
+    Receive Sms is added to the manifest as a permission. The problem is, that
+    the SMS_RECEIVED never seems to fire. I've had a breakpoint in the code, but
+    it never reaches it.
+	
+	
+	how can i grab incoming message from my activity ,please help?
+i want to grab the message  variable
+
+
+
+      [BroadcastReceiver(Enabled = true, Label = "SMS Receiver")]
+    [IntentFilter(new[] { "android.provider.Telephony.SMS_RECEIVED" })]
+    public class SMSBroadcastReceiver : BroadcastReceiver
+    {
+        private const string Tag = "SMSBroadcastReceiver";
+        private const string IntentAction
+="android.provider.Telephony.SMS_RECEIVED";
+        public bool Received = false;
+        public String message = "";
+  
+        public override void OnReceive(Context context, Intent intent)
+        {
+            Log.Info(Tag, "Intent received: " + intent.Action);
+
+            if (intent.Action != IntentAction) return;
+            
+
+            var bundle = intent.Extras;
+
+            if (bundle == null) return;
+
+            var pdus = bundle.Get("pdus");
+            var castedPdus = JNIEnv.GetArray<Java.Lang.Object>(pdus.Handle);
+
+            var msgs = new SmsMessage[castedPdus.Length];
+
+            var sb = new StringBuilder();
+
+            for (var i = 0; i < msgs.Length; i++)
+            {
+                var bytes = new
+                byte[JNIEnv.GetArrayLength(castedPdus[i].Handle)];
+                JNIEnv.CopyArray(castedPdus[i].Handle, bytes);
+
+                msgs[i] = SmsMessage.CreateFromPdu(bytes);
+
+sb.Append(string.Format("SMS From: {0}{1}Body:{2}{1}",
+msgs[i].OriginatingAddress,Environment.NewLine,msgs[i].MessageBody));
+            }
+            message = sb.ToString();
+            Received = true;
+            //SmsManager.Default.SendTextMessage("05383665034", null,
+sb.ToString(), null, null);
+            
+
+           Toast.MakeText(context, "aaaaaa:"+sb.ToString(),
+ToastLength.Long).Show();
+        }
+    }
+
+	
+	
+	
+	
+	
+	
+	
+	
+I use this code, as a BroadcastReceiver:
+public void onReceive(Context context, Intent intent) 
+{   
+    //this stops notifications to others
+    this.abortBroadcast();
+
+    //---get the SMS message passed in---
+    Bundle bundle = intent.getExtras();   
+    SmsMessage[] msgs = null;
+    String str = "";            
+    if (bundle != null)
+    {
+        //---retrieve the SMS message received---
+        Object[] pdus = (Object[]) bundle.get("pdus");
+        msgs = new SmsMessage[pdus.length];            
+        for (int i=0; i<msgs.length; i++){
+            msgs[i] = SmsMessage.createFromPdu((byte[])pdus[i]);                
+            str += "SMS from " + msgs[i].getOriginatingAddress();
+            from = msgs[i].getOriginatingAddress();
+            str += " :";
+            str += msgs[i].getMessageBody().toString();
+            msg = msgs[i].getMessageBody().toString();
+            str += "\n"; 
+        }
+        if(checksomething){
+            //make your actions
+            //and no alert notification and sms not in inbox
+        }
+        else{
+            //continue the normal process of sms and will get alert and
+reaches inbox
+            this.clearAbortBroadcast();
+        }
+  }
+	

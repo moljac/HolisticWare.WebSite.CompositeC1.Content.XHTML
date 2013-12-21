@@ -1,0 +1,438 @@
+ 
+http://thinkmobile.appcelerator.com/blog/bid/284174/Native-vs-HTML5-look 
+ed-at-objectively-the-debate-is-over?goback=%2Egde_2013391_member_232223 
+562 
+
+http://www.slideshare.net/grigs/native-vs-web-vs-hybrid-mobile-developme 
+nt-choices 
+http://venturebeat.com/2011/07/08/hybrid-mobile-apps-take-off-as-html5-v 
+s-native-debate-continues/ 
+http://whereconf.com/where2010/public/schedule/detail/14138 
+http://assets.en.oreilly.com/1/event/34/Native%20Apps%20vs_%20Mobile%20W 
+eb%20vs_%20Hybrid%20Apps_%20Mobile%20Development%20Choices%20Presentatio 
+n.pdf 
+http://venturebeat.com/2011/07/08/hybrid-mobile-apps-take-off-as-html5-v 
+s-native-debate-continues/ 
+
+http://stackoverflow.com/questions/9191611/phone-gap-vs-monotouch-for-da 
+ta-intensive-app 
+http://stackoverflow.com/questions/4663870/appcelerator-vs-monotouch-whi 
+ch-one-is-best-for-a-net-developer 
+
+Waldir Borba Junior • Of course Native, but now a day it depends what 
+are you thinking about to do. Simple APP without too much resource you 
+can build using some cross platform. 
+
+But if your focus it is performance and native resource, without think 
+go to native solution. 12 days ago• Like1 Follow Naresh Naresh Reddy • 
+Yeah I agree with Waldir that it depends up on the features that you 
+want to incorporate in the APP. But even Cross-platform frameworks are 
+effective, like IBM Worklight, where you can build apps for 
+Android,IOS,Blackberry and Windows in a short span. Development time 
+reduces. And also, if you want to incorporate native features, you can 
+use 3rd-party plugins like Apache Cordova which comes inbuilt with the 
+framework. 
+
+If you are looking to opt for cross-platform development framework, I 
+would suggest you to go with IBM Worklight. 11 days ago• Like Follow 
+Vijay Vijay Masina • If you want to build an app that is consistent 
+across all platforms go with Hybrid (Cordova + HTML5+ Javascript Mobile 
+framework) Application development. But if you would like to build the 
+app with native look n feel, use Native SDKs or Titanium Appcelerator or 
+Xamarin. We have developed cross platform applications using 
+Phonegap+Sencha and Phonegap +JQuery Mobile and currently developing an 
+App with Titanium. Also developed applications using Android and iOS 
+SDKs 
+
+Some factors to consider *developer expertise -- for a web developer it 
+is easy develop using Cordova + javascript *nature of application -- for 
+a resource intensive app, using grahpics and complex, animations, better 
+to develop using native SDK *time to market -- you could use Titanium 
+and get the app created to iOS and Android devices for sharing code and 
+still maintain native look n feel *resources -- who is available and 
+their past experience, for Titanium you still need to understand the 
+platform differences and have the views developed based on the platform 
+
+Which ever approach you choose, you still end up spending more time to 
+handle performance issues and handling different device form factors 
+(tablets, phones, bigger screens and high density devices). 
+
+Arun Khanna • A hybrid approach using native wrappers and html5 cross 
+platform dynamic content has been successful in our approach. most 
+updates and changes are taken care within the html5 space and dependency 
+on approvals from apple is not required.The native wrappers maintain the 
+look and feel of the respective platforms. 10 days ago• Like Follow Neil 
+Neil Estandarte • There's absolutely nothing wrong with using PhoneGap, 
+Sencha, Titanium. It depends what you want to do. For optimal 
+performance using native is best. Vijay and others above make some 
+greats points, above all if you are going cross platform always test on 
+devices. Simulators can have their quirks. 
+
+http://www.webcred.biz http://www.newhereinc.com 10 days ago• Like 
+Follow Vidal Vidal Graupera • See Pro Smartphone Cross-Platform 
+Development iPhone, Blackberry, Windows Mobile and Android Development 
+and Distribution 
+
+http://www.apress.com/9781430228684/ 9 days ago• Like Follow Neil Neil 
+Harper • I use Corona. It doesn't impose any platform specific look and 
+feel and I am surprised that the other frameworks do. Is that really 
+true? Also it deals with pretty weighty graphics and mathematical 
+algorithms quite well. I would be interested to hear what your specific 
+performance problem is. Frameworks have moved on quite alot in the last 
+few years and I have noticed that people's opinions may be dragging 
+behind. 8 days ago• Like Follow Colin Colin Eberhardt • Native vs. 
+cross-platform is a topic that I have been interested in for quite some 
+time. The problem is, there are so many options to choose between, it 
+isn't simply a case of HTML5 vs. native. There are a whole host of HTML5 
+framework to choose between, each with their own pros and cons, and 
+there are also a bunch of non-HTML5 cross-platfrom frameworks (Titanium, 
+Xamarin, Air ...). 
+
+I think it is fair to say that most people are now of the understanding 
+that choosing HTML5 does result in some user experience compromises, but 
+it can also provide a significant cost saving when targeting multiple 
+platforms. 
+
+A few months ago I set up an open source project that helps people 
+select a suitable cross platform framework. It is called PropertyCross: 
+
+http://propertycross.com/ 
+
+This project demonstrates the same application implemented using a range 
+of cross platform frameworks. Currently this covers, Adobe Air, jQTouch, 
+Native, jQueryMobile, RhoMobile, SenchaTouch, Titanium and Xamarin. We 
+also have mgwt and Kendo on the way. 
+
+I am also interested if anyone want to submit a Corona, Enyo, Worklight, 
+Marmalade, trigger.io or any other alternative submissions. This is all 
+open source! 
+
+My personal approach for choosing a platform for a specific development 
+is as follows: 
+
+* Determine exactly what platforms you want to reach, iPhone, Android 
+(which version numbers), BlackBerry, WindowsPhone ... 
+
+* Define the requirements that you feel will be the most challenging. 
+
+* Take these requirements and turn them into a few representative 
+screens or UIs. In other words, do a little bit of your app design. 
+
+* Use PropertyCross ( http://www.propertycross.com ) to help select a 
+few frameworks that you think might work for you, in that they deliver a 
+user experience you are happy with and that the tools / language are 
+suitable for your development team. 
+
+* Prototype your application using the frameworks you want to test out. 
+
+* Place these prototypes in the hands of your users, stakeholders, 
+developers - your wife and mother-in-law. See what the users reaction is 
+to each framework. 
+
+* Take a view on delivered user experience versus cost for each 
+frameworks. 
+
+* Choose one and go for it! 
+
+Prototyping with a few frameworks might sound costly, but with so many 
+options, each of which are quite different, I feel it is the only way to 
+be sure you have made the right decision. Making the wrong decision can 
+be very costly. You don't want to do a 'Facebook' and have to throw away 
+your whole application because you are the wrong choice! 
+
+Finally, in step (4) above make sure you also consider native and non 
+HTML5-based frameworks (Xamarin, Titanium, AdobeAir). HTML5 is not the 
+only way to make a cross-platform application! 
+
+Babu Kishore • If you need closer integration between hardware and 
+software and your App requires to access some massive db somewhere or do 
+a lot of geo-fencing things, then always choose "native". Longer build 
+time, but runs faster. 
+
+If you dont need all the above, choose "hybrid". Its easy to build, but 
+usually a bit slower. 
+
+HTML5 is good when you don't know which screen resolution sizes you 
+would be targeting. 
+
+Amzur follows a six-phase approach that ensures the client’s business 
+needs are fully met. Our certified project managers are dedicated to 
+delivering unmatched quality and timely deliverables at each phase of 
+the project. 
+
+. Phase 1 - Conceptualization & Wire-framing . Phase 2 – Design . Phase 
+3 - Application Development . Phase 4 - Application Testing . Phase 5 
+-Deployment/App Store Submission . Phase 6 - Application Promotion 
+Ongoing - Application Maintenance and Enhancements 
+
+Call us at 813-600-4060 x 128 or submit a request at info@amzur.com to 
+learn more details about our project approach, customer success stories 
+or a free 1 hour consultation. 7 days ago• Like Follow Joseph Joseph 
+Carrigan MBA • There are a lot of comments here about using frameworks 
+that make cross platform work easier but with tradeoffs. I agree with 
+the comments above that using the SDKs gives you the most flexibility 
+and performance - that's why we use them at Pogo Corporation. 
+
+The barrier to many in using SDKs is the cost and long lead times of 
+development - we get around that through solid and disciplined code 
+development, maintaining code standards and protocols so that our code 
+is reusable, portable and scalable. We have built specialized apps for 
+many industries (food service, Hotels, cinemas, etc) where we can 
+deliver fully native apps on iPhone, Blackberry and Android within a few 
+days, plus if we want to add special functionality, we are only adding 
+that functionality. As always - good coding practices never become 
+obsolete! 
+
+The old model of long requirements definition, design documentation, 
+development and testing becomes unnecessary in most circumstances - our 
+code library is already heavily tested (and in use with over 2 million 
+users). It really is custom apps off the shelf. 
+
+Back to the issue of Hybrid approaches - there are many reasons to 
+incorporate HTML5 into a native app - sometimes it is the easiest way to 
+integrate a data base (when you have another vendor that is simply not 
+up to the task of a true integration) but it always has tradeoffs and 
+the key performance indicator in an app is always customer experience - 
+Whatever you do, measure it based on customer experience/throughput. 
+
+The NO2 team is pleased to announce that Strawberry SDK is now available 
+in public beta, so you can download it right now! 
+
+Strawberry SDK is a cross-platform tool that can compile your 
+applications and games for Android, iOS and Mac OS with the same code 
+using just one project. Is not only a tool for developers and designers, 
+it is also a new work methodology focused on dynamism and parallel work. 
+
+Strawberry SDK will help you reduce applications and games development 
+time by 42%, bringing your products faster to your users and making it 
+easier to mantain the code. 
+
+You can download it from here: www.strawberrysdk.com 
+
+We hope to hear your feedback, thanks! 
+
+The NO2 Team. 6 days ago• Like Follow Sami Sami Kallio • Alex, should we 
+expect WP8 support at some point? 4 days ago• Like Follow Colin Colin 
+Eberhardt • @Alex - sounds interesting. Would you be interested in 
+contributing a Strawberry SDK to the PropertyCross (propertycross.com) 
+project? It would help developers see how your solution differs from 
+other alternatives. 4 days ago• Like Follow Nicola Nicola Delnero • It 
+really depends. Some factors to consider: - Paid or charging client app 
+- device (I know iOS reqs tend to prefer more native approach) - what 
+does the app do? (Music streaming? playing games) - deadlines (wrapping 
+in html5 takes literally 5 minutes) - criticality of app (can you test 
+and see which one works best) - limitations & features (obviously there 
+are limitations to cross platform) 
+
+Joseph Carrigan MBA • What's missing from this conversation is well 
+organized templated native applications. Making the assumption that 
+Native requires traditional development cycles is incorrect. A well 
+templated native app can take less than an hour across 3 platforms (94% 
+of the market) without the compromises of HTML5 or Titanium. 
+
+http://theappentrepreneur.com/html5-adoption-too-soon?goback=%2Egde_2013 
+391_member_234163511 
+
+HTML5 Adoption – Too Soon? 
+
+Pratik Patel Posted on April 19, 2013 in News Leave a comment 
+
+There has been so much controversy around HTML5 in the app development 
+industry; rising potential fragmentation when it comes to web standards 
+among other concerns. Despite the controversy adoption of HTML5 by 
+developers in app development has not slowed down, it continues to grow. 
+
+Why HTML5? When developing a native app for either Android or iOS, you 
+would have to learn the programmers for both platforms. However with 
+HTML5, because you already understand the language, it’s pretty much 
+easier and becomes faster to develop an app and then tweak it slightly 
+for the app stores. This is the top reason among developers who are 
+using it. The cost to building an app also decrease with HTML5, which is 
+pulling in a lot of developers as costs are one of the things that irks 
+developers. But is this the right time to be using it or should we be 
+waiting a bit longer? Website Fragmentation Even though it’s easier and 
+faster to develop an app using HTML5, there’s more time spent on 
+ensuring that it actually works in each browser correctly from Internet 
+Explorer, Chrome, Safari to Firefox. One of the things that developers 
+can easily lose users on is slowness which is what happens with most 
+website based apps. How many developers are willing to lose users 
+because they used HTML5 and their end product is an app that’s really 
+slow? Perhaps what Todd Anglin and team is a bit more pressure on 
+addressing this and sorting it out first. Development Ecosystem 
+According to developers who have already adopted HTML5, there are still 
+other major concerns to be addressed. These range from the need for 
+better debugging support, access to latest native APIs to a better 
+development environment. All these are elements that contribute to the 
+success of every app. These need to be addressed if HTML5 is looking to 
+pulling all developers from creating apps on other platforms and only 
+use them. Whilst others might say it’s too early to be adopting HTML5, I 
+personally think that the app industry is a very unpredictable one and 
+if you can take a risk to create an app then why not use what seems to 
+be working for others. This is not about reinventing the wheel but 
+changing slightly what has already been done before. However, should the 
+risk of using HTML5 not work, oh well, you can always go back to native 
+apps platforms provided you have managed to weather the financial storm 
+that comes with an app failing in the beginning. HTML5 is common but can 
+Anglin and team stop focusing on the positives around it and actually 
+start addressing the developers major concerns? 
+
+http://mashable.com/2012/09/12/web-vs-native-apps/ 
+
+Why Web Apps Will Crush Native Apps 2.0k SHARES Share Tweet 
+Why-web-apps-will-crush-native-apps-bf95d71b2b 
+
+BY RYAN MATZNERSEP 12, 2012 Over five years ago (on January 9th, 2007, 
+for those of us who are counting), Steve Jobs released the original 
+iPhone. At the time, the only apps on the iPhone were the ones that came 
+pre-installed (think stocks, calculator and YouTube). There were so few 
+apps, they didn’t even fill up the home screen! Apple didn’t provide the 
+ability to create or install any add-on apps. Instead, developers were 
+urged to create web apps that users would access through the built-in 
+Safari web browser. 
+
+Facing backlash from developers, particularly in light of a community of 
+hackers that figured out how to crack the iPhone’s code and build their 
+own apps, Apple came around and embraced native apps. 
+
+SEE ALSO: Finally! YouTube Just Launched Its Own iPhone App Apple’s App 
+Store contains more than 700,000 iPhone and iPad apps today. The apps 
+available in Apple’s App Store, the Google Play marketplace, and 
+Microsoft’s Windows Phone Marketplace are all “native” apps, in that 
+developers built them using technology and code largely proprietary to 
+those platforms. An app built for the iPhone has to be almost entirely 
+re-coded if it’s to work on a device running Google’s Android operating 
+system (a bit like translating a book from one language to another). 
+
+Then, there are web apps. 
+
+Intro to Web Apps Web apps are built in standards-based technologies 
+such as HTML5, CSS3 and other modern web tech. Without any special 
+translations, conversions or re-programming, a web app can run on pretty 
+much any platform with a modern, standards-compliant web browser. Once a 
+web app is launched, users on iPhones, iPads, Android phones, the Kindle 
+Fire and Windows Phones can all access the same app and run it just as 
+well as on any other platform. 
+
+Native apps only work on the one platform they were built for, plus they 
+take longer and cost more to build than a web app. Why then, would 
+anyone bother building native? Current technology makes native apps a 
+superior experience — but this is the case only for as long as we're 
+stuck with current technology. A few advances here and there, and pretty 
+soon native apps will go the way of desktop apps (i.e. there are still a 
+few around but most users spend most of their time in the browser). A 
+few elements explain why native won’t rule the app roost in the future. 
+
+User Experience Native apps tend to have a smoother look and feel, more 
+polish. Native apps are able to leverage elements of their native 
+operating system (i.e. rubberbanding, overscroll and slick screen 
+transitions on iOS), so they feel more deeply integrated into the phone. 
+When it comes to aesthetics and overall user experience, it is 
+incredibly difficult for web apps to trump native. Furthermore, native 
+apps come with lots of elements pre-loaded and only need to fetch user 
+data from the web rather than the entire application, making them 
+speedier. 
+
+The web has come a long way from the days of scrolling marquee. It’s 
+only a matter of time before the technologies behind web apps are able 
+to compete directly with the aesthetic capabilities of native apps. 
+Remember how marvelously advanced HTML5 seemed when it came out? Just 
+wait 'til HTML6 or 7! 
+
+And as for having to download more data than native apps: In the future, 
+battery life and mobile connections will be fast enough that it won’t 
+matter. 4G download speeds are actually faster than the average U.S. 
+broadband connection, and when was the last time you worried about the 
+size of a website loading on your desktop? 
+
+Distribution Native apps are easy to find and install. The Apple App 
+Store, Google Play, etc. are great places to browse for and download 
+apps. The hard part of building a successful app store is creating a 
+robust developer community willing to devote the time, effort and money 
+to build lots of great apps that users want to use. That’s a tall order, 
+and is probably the biggest part of why Microsoft is struggling to gain 
+traction with Windows Phone. 
+
+One caveat to this whole web app thing is competition. Apple, Google and 
+even Microsoft must be particularly content with the great control and 
+influence they wield by controlling distribution for their platforms via 
+app stores and marketplaces. As web apps pick up steam and begin to 
+threaten mobile apps, it’s likely that current stakeholders will push 
+back against anything that devalues their native app stores. Fortunately 
+for consumers, there’s probably not a whole lot anyone can do to stop 
+the impending march of web apps. Robust web browsers being baked into 
+the OS aren’t going anywhere. 
+
+With web apps, there’s no need to convince developers to create software 
+for a specific platform. Instead, apps created for users on the most 
+popular platforms will also work for users on the least popular 
+platforms, assuming that platform has a decent web browser. In the 
+future, app stores can be created by independent retailers rather than 
+operating system creators. Directory sites such as BestVendor and Listio 
+might grow to rival Apple’s App Store. 
+
+Build Time and Cost A typical native app takes a bit longer to build 
+than an equivalent web app would, but as developer tools and education 
+improve, that will likely change. And as more developers become versed 
+in the development languages and technologies used to create native 
+apps, overall app development costs will fall. 
+
+But one thing that likely won’t change in the world of native apps is 
+that building for multiple platforms and devices is expensive. Adding 
+iPad compatibility when building an iPhone app can add up to 50% to the 
+development costs of a project. When rumors began swirling that Apple 
+might release an iPad Mini, we wondered, who has the budget to build for 
+all these screen sizes? 
+
+Web apps will work on devices across a range of sizes by being adaptive 
+and responsive. 
+
+Updates This is an area where web apps already trump native. Much to the 
+chagrin of developers, typical mobile users update their apps very 
+infrequently. That means the user base for a particular native app is 
+spread across multiple versions. A friend recently exclaimed his 
+surprise that Instagram wasn’t working properly on his iPhone. It turns 
+out he hadn’t updated the app in a while and was using an unsupported 
+old version. 
+
+Having an out-of-date web app is virtually impossible. Think about 
+loading a website. Each time a visitor loads a site, he or she is 
+loading the latest version off the server. When Google updates the logo 
+on their homepage, seeing it doesn’t require users to go and download an 
+update to Google — the mere action of visiting the site means the user 
+is viewing the latest version. 
+
+Web apps mean that users will never have to worry about updates. 
+
+Hardware Interfacing One of the things that make native apps so 
+delightful to use is their ability to leverage the phone’s hardware so 
+seamlessly. Think about all the great apps that use your phone’s 
+accelerometer (Nike+), GPS (Foursquare) or camera (Instagram). Of those 
+three, web apps can only access GPS and even then, only in a limited 
+capacity. Yes, that’s right — web apps can’t even use your phone’s 
+camera or access photos you’ve already taken. 
+
+There’s no standard way for web apps to access hardware on mobile 
+devices, but that’s relatively easy to change in future updates. One 
+issue to overcome is potential security concerns, but probably the 
+biggest hurdle is a lack of cooperation from entrenched interests that 
+would prefer to keep a native app monopoly in place. Nonetheless, 
+competitive pressures in the app and phone OS space will eventually 
+force devices to become more open. 
+
+Credit Cards Apple users are notoriously voracious consumers. Apple’s 
+secret weapon is that it has 400 million active iTunes accounts with 
+credit cards on file. And having a credit card on file makes app 
+purchases a breeze — tap “buy” and enter a password — that’s it! Google 
+and Microsoft surely have far fewer active accounts on their platforms, 
+but those numbers are growing. The bottom line is that purchasing native 
+apps and making in-app purchases is exceedingly easy. 
+
+There is no consolidated payment system for purchasing web apps or 
+buying web app add-ons, but that will change over time as players like 
+PayPal, Square, Venmo and others jump into the space. 
+
+A huge part of the success of iOS is attributed to Apple’s App Store, 
+much as the iTunes music store is a big part of why the iPod was such a 
+hit. And yet, the App Store’s undoing will likely be the web apps that 
+Apple originally promoted in lieu of native apps. 
+

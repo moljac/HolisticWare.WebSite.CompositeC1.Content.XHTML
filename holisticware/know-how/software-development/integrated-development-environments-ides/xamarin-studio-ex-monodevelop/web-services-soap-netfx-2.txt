@@ -1,0 +1,39 @@
+# Web Services SOAP in VS and XS/MD ##
+## Notation ##
+
+ + 	VS = Visual Studio 2010
+ +	MD = MonoDrvelop
+ + 	XSb4 = Xamarin Studio beta 4 2013-02-20
+
+## projects ##	
+	WebServiceReferenceSOAPnetfx2.VS2010
+	WebServiceReferenceSOAPnetfx2.XSb4
+	
+## Problems ##
+
+### Adding WS in XS/MD ###
+
+1. Attempt 1
+	1. Add Web Reference
+	2. paste url no ?wsdl suffix (only asmx) http://destination4me.apphb.com/Destination4Me.asmx
+	3. Jump
+	4. Exception
+		System.Net.WebException: There was an error downloading 'http://destination4me.apphb.com:15806/Destination4Me.asmx?wsdl'. ---> System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 176.34.122.158:15806
+		   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+		   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+		   --- End of inner exception stack trace ---
+		   at System.Web.Services.Protocols.WebClientProtocol.GetWebResponse(WebRequest request)
+		   at System.Web.Services.Protocols.HttpWebClientProtocol.GetWebResponse(WebRequest request)
+		   at System.Web.Services.Discovery.DiscoveryClientProtocol.Download(String& url, String& contentType)
+		   --- End of inner exception stack trace ---
+		   at System.Web.Services.Discovery.DiscoveryClientProtocol.Download(String& url, String& contentType)
+		   at System.Web.Services.Discovery.DiscoveryReference.Resolve()
+		   at System.Web.Services.Discovery.ContractReference.get_Contract()
+		   at System.Web.Services.Discovery.ContractReference.get_DefaultFilename()
+		   at MonoDevelop.WebReferences.Library.GenerateDiscoXml(StringBuilder text, DiscoveryDocument doc)
+		   at MonoDevelop.WebReferences.WCF.WebServiceDiscoveryResultWCF.GetDescriptionMarkup()
+		   at MonoDevelop.WebReferences.Dialogs.WebReferenceDialog.UpdateService(WebServiceDiscoveryResult service, String url)
+		   at MonoDevelop.WebReferences.Dialogs.WebReferenceDialog.<>c__DisplayClass2.<QueryService>b__1(Object , EventArgs )
+		   at Gtk.Application.InvokeCB.Invoke()
+		   at GLib.Timeout.TimeoutProxy.Handler()
+2.	Attempt 2

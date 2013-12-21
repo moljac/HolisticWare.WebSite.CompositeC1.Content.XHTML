@@ -1,0 +1,122 @@
+There are many libraries/frameworks avialable to reduce your effort, like log4net, Enterprise Library, Log4Net, Elmah, etc. 
+
+
+
+For me it's Elmah all the way, why? Because it works with everything, and works out of the box, only needing to be have it's set up changed if I need to customise things.
+ 
+I can do a simple NuGet and then everything is recorded from that point. 
+
+Downsides, error log is cleared between every re-compile, but that's fine during dev, then when deploy comes you simply set it up with a few changes in web.config to log to a database. 
+
+
+
+
+
+For me it's Enterprise Library all the way, why? Because it is part of an extensible set of "blocks" that all integrate. The others are "only" logging. 
+
+
+Why nobody mentioned System.Diagnostics? 
+
+If you find the Logging Application Block is too heavy, you may write your own trace listeners to do more than just logging. 
+
+
+use enterprise library. Once it is configured it works well. It is just that first time getting it installed and configured. Now there is a NuGet it is all I really want to use. 
+
+
+
+Peter - you said Elmah because "it works with everything" yet the Elmah website says, "for ASP.NET". Would you care to explain? 
+
+
+
+Chuck yea certainly, Iv'e used it with Winforms & WPF apps too in the past. I was not aware of what's said on the site, Iv'e never read it, when I was learning it I got most of my config examples off Stack Overflow, and as for using it, well I simply Just NuGetted it into my Winforms / WPF projects at the time I used it without being any of the wiser, since it worked then I had / have no reason to say that it works with everything
+
+
+
+
+use EntLib currently, but one of my major griped about it is that it is very invasive, and not conductive to good unit testing practices.
+ 
+By Invasive I mean that every library you want to log/exception handle needs a reference to EntLib, and worse still if you use a library that uses EntLib, then you need to include the configuration elements in the application configuration of your parent application. If a library tries to handle a "Database Log Policy" and you don't have that defined in your application config, not very nice things happen.
+ 
+With regards to unit testing, the nature of the static policy handlers and logging classes mean you cannot easily mock the exception handling or logging in your unit tests, meaning you need to write abstraction interfaces and implementations to wrap EntLib, or define the fully implemented configuration in the mstest app configuration file. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+In my current project we're using both log4net and ELMAH. Log4net handles the messages that we want written to the client's custom database table (via a stored procedure call, which was pretty simple to configure how to do in the web.config file), including caught exceptions, and ELMAH handles the "other stuff" that we don't explicitly catch (I see 404 errors showing up for CSS background images that we were missing, for example).
+ 
+I'm quite new to ELMAH, but I really like what I see. For those of you who say you only use ELMAH, though, I have a question: is ELMAH as extensible as log4net? For example, could I configure ELMAH to write to a custom database table? Can I write informational messages using ELMAH (e.g., "User A has logged on" or "Application started" type messages)?
+ 
+I was under the impression that ELMAH was just "bolted on" to handle errors and exceptions, which is why we use log4net for the other cases where we want control over the content of the messages.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ @steve yes, elmah can write to any db you can connect to, it can even write to unix syslog servers, and if you don't have an output, I|t's API makes it easy to write an interface.
+ 
+http://www.google.co.uk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0CKECEBYwAA&url=http%3A%2F%2Fdotnetslackers.com%2Farticles%2Faspnet%2FErrorLoggingModulesAndHandlers.aspx&ei=nnv9T8yGM-fA0QWP_bSVBw&usg=AFQjCNFkaCwn8854lCilPQu9z8tZPAvuzg
+ 
+and
+ 
+http://msdn.microsoft.com/en-us/library/aa479332.aspx
+
+
+
+
+
+
+
+
+
+NLog for me because of its fall-back mechanism and various targets (MSMQ, SMTP, TCP/IP etc) it supports. 
+
+
+
+
+
+
+
+
+
+
+
+SmartInspect from http://www.gurock.com/smartinspect/support/ . Worth every penny. 
+
+

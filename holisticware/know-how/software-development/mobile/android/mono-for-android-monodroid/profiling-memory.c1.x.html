@@ -1,0 +1,133 @@
+
+
+On Aug 13, 2012, at 8:49 PM, soyo <lukair1983@gmail.com> wrote:
+> As for checking the RAM usage, the task manager.
+
+Interesting. I hadn't seen those process sizes before...
+
+So, as a "walkthrough", let's consider the Hello World sample:
+
+	https://github.com/xamarin/monodroid-samples/tree/master/HelloWorld
+
+I've got it running on an x86 emulator and a Galaxy Nexus; alas, not all of what follows applies to both...
+
+So, as per Settings > Apps > Running > Show Cached Processes > mono.samples.helloworld, the Galaxy Nexus states that the process is 8.7MB in size, while the x86 emu says it's 8.8MB.
+
+PS output: x86:
+
+	$ adb -e shell ps | grep hellowo
+	app_55    1451  779   207184 31596 ffffffff b7ed8ed7 S mono.samples.helloworld
+
+PS output: ARM:
+
+	$ adb -d shell ps | grep hellowo
+	u0_a99    28904 124   486732 34176 ffffffff 00000000 S mono.samples.helloworld
+
+What are we looking for?
+
+	$ adb -e shell ps -p 1451
+	USER PID PPID VSIZE RSS PRIO NICE RTPRI SCHED WCHAN PC NAME
+	app_55 1451 779 207184 31596 20 0 0 3 ffffffff b7ed8ed7 S mono.samples.helloworld
+
+ The 4th column is VSIZE, while the 5th column is RSS (Resident Set Size); sizes are in KB. Thus, on each platform there's ~31-34MB in RSS, which (1) sounds huge, and (2) is quite different from what the Settings app is reporting.
+
+Want more detailed memory use? Check /proc/PID/status:
+
+x86 (abbreviated):
+
+	$ adb -e shell cat /proc/1451/status
+	Name:	ples.helloworld
+	State:	S (sleeping)
+	VmPeak:	  208684 kB
+	VmSize:	  207184 kB
+	VmLck:	       0 kB
+	VmHWM:	   33068 kB
+	VmRSS:	   31596 kB
+	VmData:	   32192 kB
+	VmStk:	      84 kB
+	VmExe:	       8 kB
+	VmLib:	   51088 kB
+	VmPTE:	     160 kB
+
+ARM:
+
+	$ adb -d shell cat /proc/28904/status
+	Name:	ples.helloworld
+	State:	S (sleeping)
+	VmPeak:	  491164 kB
+	VmSize:	  486732 kB
+	VmLck:	       0 kB
+	VmHWM:	   37572 kB
+	VmRSS:	   34176 kB
+	VmData:	   28340 kB
+	VmStk:	     136 kB
+	VmExe:	       8 kB
+	VmLib:	   29736 kB
+	VmPTE:	     130 kB
+	VmSwap:	       0 kB
+
+Certainly more human readable than `ps` output, but I still have no idea where the 8MB is coming from. Bizarre...
+
+Regardless, those numbers are still _huge_. Where's all the memory _going_?
+
+This is where the unlocked hardware falls down: /proc/PID/smaps has the desired information, but it's not accessible on unrooted devices:
+
+	$ adb -e shell cat /proc/1451/smaps
+	08048000-0804a000 r-xp 00000000 1f:00 464        /system/bin/app_process
+	Size:                  8 kB
+	Rss:                   4 kB
+	Pss:                   0 kB
+	Shared_Clean:          4 kB
+	Shared_Dirty:          0 kB
+	Private_Clean:         0 kB
+	Private_Dirty:         0 kB
+	Referenced:            4 kB
+	Swap:                  0 kB
+	KernelPageSize:        4 kB
+	MMUPageSize:           4 kB
+	...
+	0877d000-08ab1000 rw-p 0877d000 00:00 0          [heap]
+	Size:               3280 kB
+	Rss:                3280 kB
+	Pss:                2331 kB
+	Shared_Clean:          0 kB
+	Shared_Dirty:       1000 kB
+	Private_Clean:         0 kB
+	Private_Dirty:      2280 kB
+	Referenced:         2392 kB
+	Swap:                  0 kB
+	KernelPageSize:        4 kB
+	MMUPageSize:           4 kB
+	...
+
+It's...huge. You'll certainly want to redirect that to a file. 
+
+What you'll find is that _most_ of the memory is being used by "data" -- shared libraries, fonts, etc. What's interesting is the "Private_Dirty" and "Shared_Dirty" values; let's sum them up:
+
+	# sanity check; note that the value is fairly close to the previous VmPeak size in the /proc/PID/status output
+	$ adb -e shell cat /proc/1451/smaps | grep Size | awk '{ sum += $2 } END {print sum " kB"}'
+	209112 kB
+
+	$ adb -e shell cat /proc/1451/smaps | grep Private_Dirty | awk '{ sum += $2 } END {print sum " kB"}'
+	4212 kB
+
+	$ adb -e shell cat /proc/1451/smaps | grep Shared_Dirty | awk '{ sum += $2 } END {print sum " kB"}'
+	15036 kB
+
+	# sanity; note that Private_Dirty+Shared_Dirty = Dirty
+	$ adb -e shell cat /proc/1451/smaps | grep Dirty | awk '{ sum += $2 } END {print sum " kB"}'
+	19248 kB
+
+So ~4MB is private/unshared, and ~15MB is private/shared. There's nothing that can be done about the Shared_Dirty mappings (it's due to ld.so/etc.), so out of the original ~32MB RSS value, only 4MB was actually written to between Android & Mono for Android (for this process).
+
+I'm still not sure where the Settings app is getting 8MB from, but it appears to have no relation to any of the above information...
+
+ - Jon
+
+_______________________________________________
+Monodroid mailing list
+Monodroid@lists.ximian.com
+
+UNSUBSCRIBE INFORMATION:
+http://lists.ximian.com/mailman/listinfo/monodroid
+

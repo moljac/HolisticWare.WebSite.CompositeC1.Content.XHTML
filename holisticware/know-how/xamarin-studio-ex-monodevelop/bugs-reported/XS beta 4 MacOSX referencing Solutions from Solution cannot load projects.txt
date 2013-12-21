@@ -1,0 +1,45 @@
+# XS beta 4 MacOSX referencing Solutions from Solution cannot load projects #
+
+When opening existing solution where project were added through referencing other
+sln file in VS projects cannot be loaded anymore.
+
+Error is Load Failed.
+Could not find part of path ....
+
+After Reload the error is unknown file format.
+
+Adding projects separately one by one works.
+
+Now side-by-side installation of MonoDevelop is affected by this too...
+
+On windows XS loads project w/o hassle.
+
+MacOSX installation:
+* Mountain lion 
+* case insensitive
+
+
+
+
+
+
+
+
+
+post 04
+
+*	Created folder structure that resembles structure on our projects
+	* 	references\git\   	
+		git repos   
+		references\git\MonoMobile.Dialog clone from git https://github.com/moljac/MonoMobile.Dialog  
+		references\git\MonoMobile.Dialog\MonoMobile.Dialog.sln referenced solution!
+	*	projects\XamarinStudioTests\SolutionReferencingSolutions
+*	In VS created new soution SolutionReferencingSolutions.sln
+*	In VS added Solution Folder MonoMobile.Dialog
+	* 	Add existing project (change type to sln) +/ navigate to MonoMobile.Dialog.sln +/ Open
+*	Optional: added folder where on Windows MT dlls are so everything can be compiled
+*	XSb4[Windows] open solution
+	*	Expected errors:  
+		* 	Windows Phone  
+		*	MonoTouch (?!!? why not loading on Windows?!?!)   
+			Unknown Solution type {};{}  Guids for MT 

@@ -1,0 +1,23 @@
+http://social.msdn.microsoft.com/Forums/en-US/vssetup/thread/0376db8f-4761-4ae5-9af2-98c53216318a#VS_IDE_unexpected_problems
+
+
+
+devenv /ResetSettings
+
+
+devenv /log
+
+C:\Users\moljac\AppData\Roaming\Microsoft\VisualStudio\10.0\ActivityLog.xml
+
+
+
+An exception was encountered while constructing the content of this frame.  
+This information is also logged by running the application with the /log parameter 
+on the command line, which stores results in 
+"C:\Users\moljac\AppData\Roaming\Microsoft\VisualStudio\10.0\ActivityLog.xml".
+
+Exception details:
+System.OutOfMemoryException: Not enough storage is available to complete this operation. 
+(Exception from HRESULT: 0x8007000E (E_OUTOFMEMORY))
+   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at Microsoft.VisualStudio.Platform.WindowManagement.WindowFrame.ConstructContent()

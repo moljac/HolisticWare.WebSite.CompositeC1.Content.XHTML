@@ -1,0 +1,5 @@
+Try TinyMCE or CKEditor. Both are purely client-side and don't require any server-side code 
+(and thus don't care about what the server environment is). Then you just add a regular 
+text area (Html.TextareaFor in ASP.NET MVC, or one of the many ways of doing it in 
+ASP.NET Web Forms - <asp:HtmlTextArea>, <asp:Textbox Mode="Multiline">, or <textarea runat="server">)
+and tell TinyMCE to initialise for all textareas.

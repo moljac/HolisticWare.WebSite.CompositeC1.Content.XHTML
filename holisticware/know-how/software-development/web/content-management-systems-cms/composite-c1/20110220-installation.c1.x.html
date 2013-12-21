@@ -1,0 +1,124 @@
+<!--
+C1 generated!!
+<title>2011-02-20 Composite C1 instalation on IIS</title>
+<meta name="Description" content="2011-02-20 Composite C1 installation/deployment on IIS7 (errors, troubleshooting, tips &amp; tricks)" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function xmlns:f="http://www.composite.net/ns/function/1.0" name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords">
+		<f:param name="KeywordsAdditional" value="2011-02-20, composite, c1, installation, deployment, errors, iis, iis7, troubleshooting"></f:param>
+		<f:param name="AuthorsAdditional" value="mcvjetko"></f:param>
+		<f:param name="Date" value="2011-02-20"></f:param>
+		<f:param name="Language" value="en"></f:param>
+	</f:function>
+	<h1><a id="">2011-02-20 Composite C1 installation/deployment on IIS7 (errors, troubleshooting, tips&amp; tricks)</a></h1>
+	<!-- ================================================================== -->
+ 
+	<p>Date: 2011-02-20</p>
+	<p>
+	Notes on experience about deploying first Composite C1 application on IIS7.
+	</p>
+	<ol>
+	  <li>Filesystem + Create physical folder for web site/application</li>
+	  <li>IIS management + Sites + Add web site + Physical path = path from step 1.</li>
+	  <li>xcopy Composite C1 site to folder cd in step 1.</li>
+	  <li>test with browser</li>
+	  <li>errors and troubleshooting
+		<ol>
+		  <li>ACLs on server
+			<ol>
+			  <li>remote
+				<ol>
+				  <li>error
+<pre class="hw_code">
+Server Error in '/' Application.
+Runtime Error
+  Description: An application error occurred on the server. The current custom error
+  settings for this application prevent the details of the application
+  error from being viewed remotely (for security reasons). It could, however, be
+  viewed by browsers running on the local server machine.
+
+  Details: To enable the details of this specific error message to be viewable
+  on remote machines, please create a tag within a "web.config" configuration
+  file located in the root directory of the current web application. This
+  &lt;customErrors&gt; tag should then have its  "mode" attribute set to "Off".
+  &lt;!-- Web.Config Configuration File --&gt;
+  &lt;configuration&gt;
+	&lt;system.web&gt;
+	  &lt;customErrors mode="Off"/&gt;
+	&lt;/system.web&gt;
+  &lt;/configuration&gt;
+
+  Notes: The current error page you are seeing can be replaced by a custom error
+  page by modifying the "defaultRedirect" attribute of the application's &lt;customErrors&gt;
+  configuration tag to point to a custom error page URL.
+
+  &lt;!-- Web.Config Configuration File --&gt;
+	&lt;configuration&gt;
+	  &lt;system.web&gt;
+		&lt;customErrors mode="RemoteOnly" defaultRedirect="mycustompage.htm"/&gt;
+	  &lt;/system.web&gt;
+  &lt;/configuration&gt;            
+</pre>
+				  </li>
+				</ol>
+			  </li>
+			  <li>local test
+<pre class="hw_code">
+Server Error in '/' Application.
+Access to the path 'PHYSICAL_PATH\App_Data\Composite\ApplicationState\SerializedWorkflows\a4806a7b-de25-417c-b67a-f0285e56c459.bin'
+is denied. 
+</pre>
+			  </li>
+			  <li>solution</li>
+			  <li >
+				<ol>
+				  <li>check ACLs on server IIS management console</li>
+				  <li>Sites + go to appropriate web site + Basic Settings + Security + give full rights to NETWORK SERVICE</li>
+				  <li>not necessary to do it on filesystem (physical folder of the site)</li>
+				</ol>
+			  </li>
+			</ol>
+		  </li>
+		  <li>Framework version</li>
+		  <li >
+			<ol>
+			  <li>local test on web server</li>
+			  <li >
+				<ol>
+				  <li>error
+<pre class="hw_code">
+Server Error in '/' Application.
+  Configuration Error
+  Description: An error occurred during the processing of a configuration file required
+  to service this request. Please review the specific error details below and modify your
+  configuration file appropriately.
+  Parser Error Message: Unrecognized attribute 'targetFramework'. Note that attribute
+  names are case-sensitive.
+  Source Error:
+  Line 6:          &lt;error statusCode="404" redirect="Renderers/FileNotFoundHandler.ashx"/&gt;
+  Line 7:          &lt;/customErrors&gt;
+  Line 8:          &lt;compilation debug="true" targetFramework="4.0"&gt;
+  Line 9:              &lt;assemblies&gt;
+  Line 10:                 &lt;add assembly="System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A"/&gt;
+  Source File: PATH\web.config    Line: 8
+  Version Information: Microsoft .NET Framework Version:2.0.50727.4206; ASP.NET Version:2.0.50727.4209
+</pre>
+				  </li>
+				  <li>Solution
+					<ol>
+					  <li>IIS management console + Application pools + appropriate web site + Properties + change netfx version</li>
+					</ol>
+				  </li>
+				</ol>
+			  </li>
+			</ol>
+		  </li>
+		</ol>
+	  </li>
+	</ol>
+  </body>
+</html>

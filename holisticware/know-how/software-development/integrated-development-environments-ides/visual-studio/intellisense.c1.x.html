@@ -1,0 +1,35 @@
+
+check for android-layout-xml.xsd 
+"%PROGRAMFILES%\Microsoft Visual Studio 10.0\xml\Schemas"
+
+if not there check
+	monodroidcatalog.xml
+
+	<SchemaCatalog xmlns="http://schemas.microsoft.com/xsd/catalog">
+	  <Schema href="%ProgramFiles%/MSBuild/Novell/android-layout-xml.xsd" />
+	  <Schema href="%ProgramFiles%/MSBuild/Novell/schemas.android.com.apk.res.android.xsd" targetNamespace="http://schemas.android.com/apk/res/android" />
+
+	  <Association extension="axml" schema="%ProgramFiles%/MSBuild/Novell/android-layout-xml.xsd" />
+	</SchemaCatalog>
+
+
+%ProgramFiles%/MSBuild/Novell/android-layout-xml.xsd
+
+Check Schema set (add if missing)
+	Visual Studio +/ Xml +/ Schemas +/ 
+
+
+Problems
+  *		In some cases:  
+		the intellisense and schema validation may disappear if there are warnings not been resolved;   
+		like having duplicate complex types defines in different files within the same schema namespace.
+  *		verify %PROGRAMFILES% variable (32/64 bit OS)  
+		this might cause problems
+
+
+
+
+
+http://jameskovacs.com/2007/10/16/enabling-intellisense-for-nhibernate/
+http://www.benday.com/2006/01/15/intellisense-for-the-nhibernate-xml-schemas/
+

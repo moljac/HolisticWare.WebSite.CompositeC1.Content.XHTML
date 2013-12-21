@@ -1,0 +1,290 @@
+<head>
+	<style type="text/css">
+#title-crumbs,body #sites-page-title-header,.sites-tile-name-header,#sites-canvas-main .sites-tile-name-content-1,.sites-tile-name-footer,.sites-subpages,.sites-kix-editor-wrapper,#sites-editor-wrapper{padding-left:10px;padding-right:10px}#sites-page-title-header{color:#000;font-size:22px;padding:3px 10px}#sites-page-title-header{font-size:22px;font-weight:bold;margin:0}#sites-canvas-main{min-height:150px;_height:150px;padding-bottom:5px;padding-top:15px}.sites-canvas-main{background:none}#sites-canvas-main table{margin:0}.sites-layout-hbox{width:100%;table-layout:fixed}#sites-canvas-main .sites-tile-name-content-1,#sites-canvas-main .sites-tile-name-content-2,#sites-canvas-main .sites-tile-name-content-3{padding-top:10px;padding-bottom:10px}.sites-layout-hbox td.sites-layout-tile{vertical-align:top}.sites-layout-tile{padding:3px}td{vertical-align:top}a,a:active,#sites-chrome-everything .goog-tree-item-label a{color:#e41500}code{color:#006000}.sites-embed-align-right-wrapping-on{display:inline;float:right;margin:5px 0 5px 20px}.sites-canvas-main .sites-embed{color:#000;font-size:12px;border-top:1px solid #bebebe;border-right:1px solid #7a8187;border-bottom:1px solid #7a8187;border-left:1px solid #bebebe}.sites-embed-align-right-wrapping-on .sites-embed{display:table-cell}.sites-embed{margin:0 0 6px}#sites-chrome-everything .sites-canvas-main .sites-embed-title{color:#fff;background-color:#bebebe;font-size:12px;border-bottom:1px solid #0067a6;margin:0;background-image:url('http://www.gstatic.com/sites/p/ecfc48/system/app/themes/tron/toolbar-bg.gif');
+background-position:50% top;
+background-repeat:repeat-x
+		}.sites-embed-title{font-size:13px;margin:0;padding:3px 5px;text-align:left}#sites-chrome-everything .sites-canvas-main .sites-embed-content,#sites-chrome-everything .sites-canvas-main .sites-embed-content-notitle{color:#000;background-color:#fff;background-image:url('http://www.gstatic.com/sites/p/ecfc48/system/app/themes/tron/content-bg.gif');
+background-position:50% top;
+background-repeat:repeat-x
+		}.sites-embed-content,.sites-embed-content-notitle{overflow:hidden}.sites-embed-content{text-align:left}.sites-embed-content-textbox{padding:5px;text-align:left}ol{list-style-type:decimal}div.goog-toc ul,#sites-canvas-main .sites-embed ul{line-height:1.5em}</style>
+</head>
+<h3 id="sites-page-title-header" align="left" 
+	xmlns="http://www.w3.org/1999/xhtml">
+	<span id="sites-page-title" dir="ltr">Naming Tips</span></a></h3>
+<div id="sites-canvas-main" class="sites-canvas-main">
+	<div id="sites-canvas-main-content">
+		<table cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox" 
+			xmlns="http://www.w3.org/1999/xhtml">
+			<tr>
+				<td class="sites-layout-tile sites-tile-name-content-1">
+					<div dir="ltr">
+						<span style="font-size: medium;">Choosing the right name is everything.</span> 
+						The correct naming of things makes it easier to learn a system, resolves 
+						ambiguities, dissolves confusion, promotes insight, freshens your breath and 
+						makes you attractive to the opposite sex.<div>
+							<h3><a id="">
+								<a id="TOC-Methods-Classes-and-Variables"></a>Methods, Classes and Variables</a></h3>
+							<div>
+								Coming up with the right name for a function can be just as important as what 
+								that function does.</div>
+							<div>
+								<div>
+									<div>
+										<ul>
+											<li><b>Do not name methods &quot;<font face="'courier new', monospace">ProcessData()</font>&quot;</b><br />
+												You only get to use this method name once per career, because you should have 
+												been fired immediately afterwards. <b>Be specific</b> about what it&#39;s doing 
+												inside; call it <code>ValidateUserCredentials</code> or <code>
+												EliminateDuplicateRequests</code> or <code>ComputeAverageAge</code>, etc.<br />
+												<br />
+											</li>
+											<li><b>Use naming to help you design the program</b><br />
+												Pretend there&#39;s a rule saying &quot;you can never write a
+												<font face="'courier new', monospace">void</font> function&quot;, then think about 
+												all the steps your program makes to transform input into output, then chose 
+												names for those steps so you could make a written sentence with them. These are 
+												now your function names and the sentence is your program&#39;s structure<br />
+												<br />
+											</li>
+											<li><b>If it&#39;s general, it better be generalized</b><br />
+												If you name a class <code>FilterCriteria</code> but it&#39;s really used for 
+												filtering files then it should be called <code>FileFilterCriteria</code>, even 
+												if your program only works on files. FilterCriteria would be the name of an 
+												abstract class<br />
+												<br />
+											</li>
+											<li><b>Avoid discussing hard work</b><br />
+												This is a matter of style, but in the above I used <code>ValidateUserCredentials</code> 
+												and <code>EliminateDuplicateRequests</code>, and yet that sounds like a lot of 
+												hard work. Consider naming functions that work on collections as if they were 
+												properties, like <code>ValidatedUsers</code> and <code>DistinctRequests</code> 
+												to make it sound as if the work has already been done. These could then be 
+												rewritten as dynamic properties and make the glue code easier to read, but also 
+												make you think differently: the program starts to feel more reactive and 
+												functional<br />
+												<br />
+											</li>
+											<li><b>Avoid class names that end with &quot;Manager&quot;</b><br />
+												They make you think of basic algorithms as if they were complicated black-boxes. 
+												&quot;Management&quot; is the statistical allocation of resources to minimize risk and 
+												improve performance, not sorting lists or keeping connections open. Consider
+												<code>SortedList</code> or <code>ConnectionPool<br />
+												<br />
+												</code></li>
+											<li><b>Use singular names for enumerations</b><br />
+												An enumeration/Enum is a list of all possible values for a single entity. Call 
+												it <code>animalType</code> instead of <code>animalTypes</code>. <b>Exception:</b> 
+												combinable enums used as flags (enums assigned powers-of-two values and combined 
+												with a bitwise or), like &quot;<code>BindingFlags</code>&quot; or &quot;<code>RegexOptions</code>&quot;. 
+												In this case using a plural name helps the programmer remember that they can be 
+												combined<br />
+												<br />
+											</li>
+											<li><b>Avoid superlatives</b><br />
+												SuperCollection, FlexiRecord, MegaListView, UltraResolver etc. are wrong. One 
+												day you&#39;ll create a new class that does one more thing, and then you&#39;ll go 
+												groping around for another superlative. After a while you won&#39;t remember which 
+												does what<br />
+												<br />
+											</li>
+											<li><b>Hungarian notation should encode meaning, not type</b><br />
+												<a href="http://en.wikipedia.org/wiki/Hungarian_notation" rel="nofollow">
+												Hungarian notation</a>--if you chose to use it at all--was meant to tell you 
+												about its intended use, not what its datatype is. Don&#39;t use <code>intCounter</code> 
+												or <code>strFirstname</code>, instead use <code>usFirstname</code> for <b>u</b>n<b>s</b>afe 
+												user input, <code>sFirstname</code> for <b>s</b>anitized input, and
+												<a href="http://www.joelonsoftware.com/articles/Wrong.html" rel="nofollow">
+												things like that</a><br />
+												<br />
+											</li>
+											<li><b>Don&#39;t hide behind your names</b><br />
+												Let&#39;s say you clean user input by converting it to UTF-8, normalizing entities 
+												and escaping the quote marks. Don&#39;t do this all in the <code>Escape()</code> 
+												method; you need a <code>ToUTF8()</code> method, a <code>NormalizeEntities()</code> 
+												method, and then an <code>Escape()</code> method. If you want the convenience of 
+												a single method that does it all then make sure it has a vague name that 
+												suggests it&#39;s doing many separate things, like <code>SanitizeInput()<br />
+												<br />
+												</code></li>
+											<li><b>Don&#39;t forget to have a vowel movement</b><br />
+												&quot;f u cn rd ths u cd b a cmptr prgrmmr&quot;. You&#39;d also be wearing glasses after 
+												three years, and a nervous twitch after twelve (trust me). Don&#39;t be afraid to 
+												spell things out properly; this isn&#39;t the era of 40-character terminals anymore<br />
+												<br />
+											</li>
+											<li><b>Consistency, Consistency, Consistency</b><br />
+												Merely being consistent replaces volumes of documentation and months of 
+												training--it&#39;s literally that powerful when applied to a company, department, or 
+												body of code. Your documentation can be more concise, and once a programmer has 
+												learned one program or module he can intuit <i>all</i> of them with little 
+												additional training<br />
+												<br />
+											</li>
+											<li><b>Don&#39;t be afraid to rename</b><br />
+												Sometimes you&#39;ll realize your first choice of name was inappropriate, but if it 
+												isn&#39;t used in a published API then you should strongly consider renaming it even 
+												if your development environment doesn&#39;t make it easy</li>
+										</ul>
+										<h3><a id="">
+											<a id="TOC-Frameworks-Libraries"></a>Frameworks &amp; Libraries</a></h3>
+										<div class="sites-embed-align-right-wrapping-on">
+											<div class="sites-embed-border-on sites-embed" style="width: 300px;">
+												<h4 class="sites-embed-title">
+													On StudlyCaps and _skidmarks</h4>
+												<div class="sites-embed-content sites-embed-type-text">
+													<div class="sites-embed-content-textbox">
+														<div dir="ltr">
+															<div>
+																Take a look around your chosen toolset (language, framework) to see what they 
+																do; <b>When In Rome, Always Do As Romans Do</b>. Otherwise the below are just 
+																some suggestions. The most important thing is to settle on a convention and 
+																follow it consistently.</div>
+															<ol>
+																<li>camelCase for database tables, column names and method variables</li>
+																<li>StudlyCaps for method names and class properties</li>
+																<li>_skidmarks for private fields</li>
+																<li>Under_Scored_Spaces for constants</li>
+																<li>camelCase_pstfx for denoting the <i>kind </i>of data in a database column</li>
+															</ol>
+															<h4>
+																<a id="TOC-Vendor-guidelines"></a>Vendor guidelines</h4>
+															<div>
+																<ul>
+																	<li><a href="http://developer.apple.com/mac/library/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html">
+																		Cocoa guidelines</a> (Apple)</li>
+																	<li><a href="http://msdn.microsoft.com/en-us/library/ms229002(VS.80).aspx">.Net 
+																		Guidelines for Names</a> (Microsoft)</li>
+																	<li><a href="http://java.sun.com/docs/codeconv/html/CodeConventions.doc8.html">Java 
+																		Naming Conventions</a> (Sun)</li>
+																	<li><a href="http://code.google.com/p/google-styleguide/">Google Styleguide</a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div>
+											Your user is a programmer and his biggest problem is discovery. Before 
+											documentation, Namespaces are the first tool to solve this problem.</div>
+										<div>
+											<ul>
+												<li><b>Prefer namespaces instead of &quot;<font face="'courier new', monospace">nsStupidClassPrefix</font>&quot;</b><br />
+													Hopefully your language has namespace support, so use it instead of class name 
+													prefixes. If your language doesn&#39;t have namespaces then go to the developer 
+													community and find out what conventions they use before you invent your own--or 
+													else you&#39;ll make another PHP<br />
+													<br />
+												</li>
+												<li><b>Extend a generic namespace, don&#39;t create
+													<font face="'courier new', monospace">MyCompanyName.Widgets</font></b><br />
+													Creating a root namespace named after your corporation will haunt you. Companies 
+													and brands get renamed, acquired, sued, and so-on. Bonjour was once Rendezvous, 
+													Cocoa was once NeXTstep. Oracle&#39;s Vending Machine division was once Sun 
+													Microsystems</li>
+											</ul>
+										</div>
+										<h3><a id="">
+											<a id="TOC-Databases"></a>Databases</a></h3>
+										<div>
+											Database schemas are meant to model data, so the names you choose need to make 
+											sense in the context of the domain and <i>not</i> for the convenience of the 
+											programmer.</div>
+										<div>
+											<ul>
+												<li><b>Use pluralized names for tables</b><br />
+													Don&#39;t make them singular because you have an ancient ORM and you want the class 
+													names to be singular, too. A table contains many rows so its name should be 
+													pluralized. Call them &quot;<font face="'courier new', monospace">items</font>&quot;, &quot;<font 
+														face="'courier new', monospace">customers</font>&quot;, &quot;<font 
+														face="'courier new', monospace">journalEntries</font>&quot; and so-on, and get a 
+													better ORM<br />
+													<br />
+												</li>
+												<li><b>Use aux_ and meta_ for tables that contain derived data or housekeeping junk<sup>1</sup></b><br />
+													One should assume that any table contains &quot;real&quot; data, but if it contains some 
+													kind of derived data or system housekeeping trivia then you should make it clear 
+													that they&#39;re different in purpose<br />
+													<br />
+												</li>
+												<li><b>Name surrogate primary keys after the table</b><br />
+													If your table is called &quot;<font face="'courier new', monospace">driverLicenses</font>&quot; 
+													and needs an ID column for its primary key, then call it &quot;<font 
+														face="'courier new', monospace">driverLicense_id</font>&quot; instead of just 
+													&quot;id&quot;. When you do this for surrogate keys you&#39;re implicitly giving it a type, so 
+													that &quot;<font face="'courier new', monospace">driverLicense.id</font>&quot; is not the 
+													same thing as &quot;<font face="'courier new', monospace">vehicle.id</font>&quot;. It also 
+													makes it clear what it is in result sets without needing to use aliases, because 
+													if you do use an alias in an app that reads-and-updates then the app would need 
+													some way to know the alias isn&#39;t the real name of the column<br />
+													<br />
+												</li>
+												<li><b>Use a postfix to show the kind of key</b><br />
+													These are used to communicate meta-data that can&#39;t be easily encoded in the 
+													type, domain or constraints, such as ISBN and Dewey Decimal numbers, 
+													social-security numbers, VINs, and so-on.<br />
+													From Joe Celko&#39;s
+													<a href="http://www.amazon.com/gp/product/0120887975?ie=UTF8&amp;tag=synesmedia-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0120887975" 
+														rel="nofollow">SQL Programming Style</a>:<br />
+													<font face="'courier new', monospace">_id</font> for surrogate identities 
+													(GUIDs, Identity/Sequence numbers)<br />
+													<font face="'courier new', monospace">_nbr</font> for a string of digits that 
+													follows a rigorous standard (driver&#39;s license numbers, social-security numbers, 
+													etc.)<br />
+													<font face="'courier new', monospace">_code</font> for standardized codes (eg: 
+													Zip codes, ISO country codes)<br />
+													<font face="'courier new', monospace">_cat</font> for category names<br />
+													<font face="'courier new', monospace">_class</font> for subclassifications<br />
+													<font face="'courier new', monospace">_type</font> for less-formal class names, 
+													such as &quot;motorcycle&quot;, &quot;automobile&quot;, and &quot;taxi&quot; for driver&#39;s license types</li>
+											</ul>
+											<div>
+												<sup>1</sup> you can use whatever prefix/suffix you like, so long as you use a 
+												prefix that your junior programmers will grok easily</div>
+											<h3><a id="">
+												<a id="TOC-Things"></a>Things</a></h3>
+											<div>
+												<ul>
+													<li><b>Name physical things what they are, not what they&#39;re doing</b><br />
+														They set aside the end-caps of the store aisles to display candy, so you used 
+														&quot;c&quot;-for-candy as a postfix for the aisle name in the database. Now they want to 
+														put ice-cream and harlequin romance novels there instead. You should have used 
+														&quot;e&quot;-for-end-cap. Name real things what they <i>are<br />
+														<br />
+														</i></li>
+													<li><b>Name logical things after what they&#39;re doing, not what they are<sup>2</sup></b><br />
+														Your program uses a table to guide the automatic allocation of new products to 
+														shelves by type, but there&#39;s no rule that says they can&#39;t override and mix 
+														product types on the same shelf (they want to stock Star Wars candy next to Star 
+														Wars breakfast cereal). You called the table &quot;<font 
+															face="'courier new', monospace">shelf_types</font>&quot;, but now everyone looks 
+														at the table and thinks they&#39;ll break the program if they mix the stock. You 
+														should have called the table &quot;<font face="'courier new', monospace">shelf_assignment_guides</font>&quot;. 
+														Name imaginary things after what they do<br />
+														<br />
+													</li>
+													<li><b>Avoid the &quot;Category&quot; problem</b><br />
+														Don&#39;t use &quot;Category&quot; as an attribute name, because you&#39;ll soon find yourself 
+														needing to track different kinds of category and nothing to name the attribute 
+														with. Soon you&#39;ll have &quot;type&quot; and &quot;kind&quot; and &quot;variant&quot; and &quot;classification&quot; and 
+														&quot;subcategory&quot; and nobody will know which is used for what. Look for well-known 
+														standards like the Dewey system. Implement a tagging system. And think of 
+														specific classifications, like &quot;FuelEfficiencyGrade&quot;, &quot;PackagingType&quot;, 
+														&quot;AgeGroup&quot;, &quot;Flamability&quot;, &quot;AllergenLevel&quot;, etc.</li>
+												</ul>
+												<div>
+													<sup>2</sup> but you should use context to simplify your names, too. Eg: your 
+													database has two domains, one named <font face="'courier new', monospace">
+													guidance</font>, and the other <font face="'courier new', monospace">inventory</font>.</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

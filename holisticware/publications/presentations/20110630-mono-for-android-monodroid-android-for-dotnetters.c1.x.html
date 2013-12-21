@@ -1,0 +1,1182 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>20110630 Mono for Android (MonoDroid) Android for dotnetters</title>
+Description = all keywords + extra text
+<meta name="Description" content="20110630 Mono for Android (MonoDroid) Android for dotnetters: Microsoft Zagreb DevUG" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: 20110630-mono-for-android-monodroid-android-for-dotnetters
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<!--
+	<link rel="stylesheet" href="~/css/print/pdf.css" />
+	-->
+	<script>
+		document.write
+		(
+			'<link rel="stylesheet" href="~/css/print/'
+		+ (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper'
+		) + '.css" type="text/css" media="print" />');
+	</script>
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<div class="reveal">
+		<div class="slides">
+			<!-- ================================================================================== -->
+			<section>
+				<h1>20110630 Mono for Android (MonoDroid) Android for dotnetters </h1>
+				<h2>Microsoftg Zagreb DevUG <br /> 2011-06-30 <br /> Presentation </h2>
+				<blockquote>
+					<a href="http://holisticware.net">http://holisticware.net</a> 
+					<br /> 
+					presented by Miljenko Cvjetko 
+					<br /> 
+					<a href="http://xamarin.com">http://xamarin.com</a>
+				</blockquote>
+			</section> 
+			<!-- ================================================================================== -->
+
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Components in detail 01</h2>
+
+					<ul>
+						<li>
+							Activities
+							<br />
+							application component that provides a interaction screen (or not)
+							<br />
+							Orchestrates a UI view
+							<br />
+							Applications are composed of 1-to-Many activities
+							<br />
+							One activity marked as main and shown first upon launch
+						</li>
+						<li>
+							Intents
+							<br />
+							messaging facility for late run-time binding between components in the same 
+							or different applications 
+							<br />
+							Eventing mechanism
+							<br />
+							Intent objects are passive data that is of interest to the component that is 
+							receiving the intent
+							<br />
+							Filterable
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Components in detail 02</h2>
+
+					<ul>
+						<li>
+							Services
+							<br />
+							application component that can perform long-running operations in the 
+							background and does not provide a user interface
+							<br />
+							Long lasting background work
+							<br />
+							No UI
+							<br />
+							Like Windows services
+							<br />
+							Possible to bind to an ongoing service and communicate via exposed interface
+							<br />
+							Runs in main application process but doesn’t block other components or UI
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Components in detail 03</h2>
+
+					<ul>
+						<li>
+							Content Providers
+							<br />
+							providers store and retrieve data and make it accessible to all 
+							applications
+							<br />
+							Queryable application data stores
+							<br />
+							Unification: Only way to share data between apps
+							<br />
+							ships with common providers
+							<br />
+							New Provider = app data becomes public
+							<br />
+							Add your data to existing provider
+							<br />
+							Types: Contacts, Mails, SMS, audio, video, images, Documents
+						</li>
+						<img 
+						src="http://cdn.holisticware.net/holisticware/publications/presentations/20110630-mono-for-android-monodroid-android-for-dotnetters/android-content-providers.png" 
+						alt="Android Content Providers" 
+						/>
+
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Components in detail 03</h2>
+
+					<ul>
+						<li>
+							Broadcast receivers
+							<br />
+							broadcast receiver is a component that responds to system-wide broadcast 
+							announcements
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Android Specific</h2>
+
+					<ul>
+						<li>
+							Compiler
+						</li>
+						<li>
+							Mono VM
+						</li>
+						<li>
+							Libraries
+						</li>
+						<li>
+							SDK
+						</li>
+					</ul>
+
+					<h3>Namespaces</h3>
+					<ul>
+						<li>
+							System.*
+							<br />
+							.net BCL
+						</li>
+						<li>
+							Mono.*
+						</li>
+						<li>
+							Android.*
+						</li>
+						<li>
+							java.*
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Resources/Assets 01</h2>
+
+					<ul>
+						<li>
+							External elements/data
+						</li>
+						<li>
+							Resources - more often  (java: ProjectRootDir/res/)
+						</li>
+						<li>
+							Compiled/generated by aresgen  into R.java – strongly typed
+						</li>
+						<li>
+							Accessed through R.Drawable.Id
+						</li>
+						<li>
+							Assets (java: ProjectRootDir/assets/)
+						</li>
+						<li>
+							For raw access (no ability to extract raw data from Resource)
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Resources/Assets 02</h2>
+
+					<table >
+					 <col />
+					 <col />
+					 <col />
+					 <tr >
+					  <td >Function </td>  <td >Path</td><td >programatically</td>
+					 </tr>
+					 <tr>
+					  <td >UI</td>
+					  <td>
+						layout/filename.xml layout-land/ main.axml </td>
+					  <td>
+						// R.layout.filename
+						TextView tv findViewById(Resource.id.nameTextbox);
+					  </td>
+					 </tr>
+					 <tr >
+					  <td>
+						Bitmaps
+					  </td>
+					  <td>
+						drawable/icon.png
+					  </td>
+					  <td >
+					  Drawable d = res.getDrawable(Resource.Drawable.icon)
+					  </td>
+					 </tr>
+					 <tr>
+					  <td >
+						Text
+					  </td>
+					  <td>
+						values/strings.xml
+					  </td>
+					  <td>
+					  String s = getString(Resource.String.hello)
+					  </td>
+					 </tr>
+					</table>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Resources/Assets 03</h2>
+
+					<ul>
+						<li>
+							Abstraction layer which helps decouples code
+						</li>
+						<li>
+							Resources
+							<ul>
+								<li>
+									Images, layout descriptions, binary blobs and string dictionaries
+								</li>
+								<li>
+									Localization
+								</li>
+								<li>
+									Multiple displays
+								</li>
+								<li>
+									Different hardware configurations
+								</li>
+							</ul>
+							
+						</li>
+						<li>
+							Assets + AssetManager
+							<ul>
+								<li>
+									Makes managing assets easier
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>UI</h2>
+					<h3>Android Widgets - Layouts</h3>
+
+					<ul>
+						<li>
+							Defined in xml (*.axml in VS) like XAML, XHTML
+						</li>
+						<li>
+							During build generated as objects
+						</li>
+						<li>
+							Activity contains View[s] and/or ViewGroup[s] have appearance
+						</li>
+						<li>
+							Android.View.View{} 
+							<br />
+							widgets
+							<br />
+							Button, CheckBox, TextView, EditText, AutoComplete, ListView, 
+							ImageView, Gallery, pickers
+						</li>
+						<li>
+							Android.View.ViewGroup{} 
+							<br />
+							specialization, order, orientation
+							<br />
+							LinearLayout, AbsoluteLayout, RelativeLayout, tableLayout, FrameLayout, ScrollView
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>UI</h2>
+					<h3>Activities</h3>
+
+					<ul>
+						<li>
+							Each activity is given a default window to draw in.
+						</li>
+						<li>
+							Content of the window is provided by a hierarchy of views
+						</li>
+						<li>
+							A view hierarchy is placed within an activity's window by the
+							<br />
+							Activity.SetContentView()
+						</li>
+						<li>
+							Activity/View
+							<ul>
+								<li>
+									onCreate
+								</li>
+								<li>
+									onStart
+								</li>
+								<li>
+									onResume
+								</li>
+								<li>
+									onPause
+								</li>
+								<li>
+									onStop
+								</li>
+								<li>
+									onDestroy
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Activity Lifecycle </h2>
+
+					<img 
+					src="http://cdn.holisticware.net/holisticware/publications/presentations/20110630-mono-for-android-monodroid-android-for-dotnetters/android-activity-lifecycle--methods.png" 
+					alt="Android Content Providers" 
+					width="400px" height="500px"
+					/>
+					<img 
+					src="http://cdn.holisticware.net/holisticware/publications/presentations/20110630-mono-for-android-monodroid-android-for-dotnetters/android-activity-lifecycle.png" 
+					alt="Android Content Providers" 
+					width="400px" height="500px"
+					/>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Dalvik VM</h2>
+
+					<ul>
+						<li>
+							Register-based (normal Java VMs are stack based)
+						</li>
+						<li>
+							Requires a .class to .dex transformation
+						</li>
+						<li>
+							Runs multiple VMs efficiently
+						</li>
+						<li>
+							JIT (as of Android 2.2)
+						</li>
+						<li>
+							Each Android Application:
+							<ul>
+								<li>
+									Runs in their own process 
+								</li>
+								<li>
+									Runs on their own VM
+								</li>
+								<li>
+									One of main sources of dispute Oracle vs. Google
+								</li>
+								<li>
+									Java ME – license does not allow changing VM
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Tools</h2>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Android Development Tools</h2>
+
+					<ul>
+						<li>
+							JDK + Android SDK
+						</li>
+						<li>
+							IDE - eclipse
+						</li>
+						<li>
+							UI -  DroidDraw
+						</li>
+						<li>
+							SDK
+							<br />
+							SDK + AVD Manager
+						</li>
+						<li>
+							Android Debug Bridge – adb.exe (cmdline)
+							<br />
+							Interface to Emulator/Device
+						</li>
+						<li>
+							Emulator.exe
+						</li>
+						<li>
+							Build process
+							
+							<ul>
+								<li>
+									Javac (for class files) + dex (.dex files for Dalvik VM)
+								</li>
+								<li>
+									apkbuilder – generates apk (zip file)
+								</li>
+								<li>
+									jarsigner (signing) + zipalign (optimizations)
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Debugging</h2>
+					<ul>
+						<li>
+							Adb + Logging
+						</li>
+						<li>
+							adb logcat
+						</li>
+						<li>
+							android.util.Log
+						</li>
+						<li>
+							Debugging on device
+							<ul>
+								<li>
+									Debugging on device
+								</li>
+								<li>
+									Android SDK + USB drivers
+								</li>
+								<li>
+									Wi-fi, though deployment over USB
+								</li>
+								<li>
+									Update drivers for unrecognized device in Device Manager 
+									with non-google USB drivers (android.bat in SDK dir)
+								</li>
+								<li>
+									Selecting image or device!
+								</li>
+							</ul>
+						</li>
+						<li>
+							Error connecting stderr/stdout
+							<br />
+							check ports IP address, firewall, VS – tools – options
+						</li>
+						<li>
+						</li>
+					</ul>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Deployment</h2>
+
+					<ul>
+						<li>
+							Deploy to 
+							<ul>
+								<li>
+									Android Virtual Device
+								</li>
+								<li>
+									Device: phone || pad
+								</li>
+								<li>
+									Debug capabilities on both
+								</li>
+								<li>
+									Sell (eventually) 
+									<ul>
+										<li>
+											Android Marketplace (Google Play)
+										</li>
+										<li>
+											Amazon App Store
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>References and links</h2>
+
+					<ul>
+						<li>
+							Links
+							<ul>
+								<li>
+									<a href="http://developer.android.com/index.html">
+										http://developer.android.com/index.html
+									</a>
+								</li>
+								<li>
+									<a href="http://www.androiddevelopment.org/">
+										http://www.androiddevelopment.org/
+									</a>
+								</li>
+								<li>
+									<a href="http://www.vogella.de/articles/Android/article.html">
+										http://www.vogella.de/articles/Android/article.html
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+					<p>
+						Opinion (personal):
+					</p>
+					<ul>
+						<li>
+							Pros
+							<ul>
+								<li>
+									Openness
+								</li>
+								<li>
+									Speed of development
+								</li>
+							</ul>
+						</li>
+						<li>
+							Cons 
+							<ul>
+								<li>
+									Openes
+								</li>
+								<li>
+									Fragmentation/Diversity (versions …)
+								</li>
+								<li>
+									Security
+								</li>
+							</ul>
+						</li>								
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin Android ex "Mono for android" ex "Monodroid"</h2>
+
+					<ul>
+						<li>
+							Commercial Product from Novell (was)
+							<br />
+							~$99 student / $399 individual / ~$999 enterprise
+						</li>
+						<li>
+							MonoForAndroid V 1.0.1
+							<br />
+							Is Extension to Android which wraps Android as app framework
+							<br />
+							Contains:
+							<ul>
+								<li>
+									MonoVM vm
+								</li>
+								<li>
+									Managed Mono Libs: RSilverlight, Rdesktop
+								</li>
+								<li>
+									Android and Mono Callable Wrappers
+								</li>
+							</ul>
+						</li>
+						<li>
+						</li>
+					</ul>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Architecture/Stack</h2>
+
+					<a href="http://docs.xamarin.com/guides/android/advanced_topics/architecture">
+					http://docs.xamarin.com/guides/android/advanced_topics/architecture
+					</a>
+
+					<img 
+					src="http://cdn.holisticware.net/holisticware/publications/presentations/20110630-mono-for-android-monodroid-android-for-dotnetters/xamarin-android-architecture.png" 
+					alt="Android Content Providers" 
+					/>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Design ideas Xamarin team has followed 01</h2>
+
+					<ul>
+						<li>
+							Follow the Framework Design Guidelines
+						</li>
+						<li>
+							Allow developers to subclass any Java class
+						</li>
+						<li>
+							Derive from class, call base ctor for chain, c# overriding
+						</li>
+						<li>
+							Common Java tasks easy, hard ones possible
+						</li>
+						<li>
+							JavaBean properties as c# properties
+						</li>
+						<li>
+							Strongly typed API type safety, minimize errors, intellisense, docs, 
+							C# constructs (delegates, lambdas, anonymous methods) instead of 
+							single method interfaces
+						</li>
+						<li>
+							c# delegates for widget events (less cumbersome than java hooking)
+						</li>
+						<li>
+							Mechanism to call Java libs
+						</li>
+						<li>
+							Bindings - Java.util.collections -&gt; System.Collections.Generic
+						</li>
+					</ul>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Design ideas Xamarin team has followed 02</h2>
+
+					<ul>
+						<li>
+							Use Helper classes Android.Runtime.JavaList&lt;T&gt; et al to reduce 
+							marshalling overhead between Mono VM and Dalvik VM
+						</li>
+						<li>
+							Threading  (runnables) Android.Activity.RunOnUIThread()
+						</li>
+						<li>
+							Resources (Resources/drawable-hdpi/* -&gt; Resource object
+						</li>
+						<li>
+							Android constants -&gt; c# enums
+						</li>
+						<li>
+							Android.Runtime.JNIEnv managed wrapper for Java Native 
+							Interface JNI calls
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Tools + Build</h2>
+
+					<ul>
+						<li>
+							Android SDK
+						</li>
+						<li>
+							IDE
+							<ul>
+								<li>
+									Visual Studio 2010 Profesional + 
+								</li>
+								<li>
+									MonoDevelop
+								</li>
+							</ul>
+						</li>
+						<li>
+							Monodroid tools
+
+						</li>
+						<li>
+							VS plug in 
+						</li>
+						<li>
+							Aresgen: resource generator (resgen)
+						</li>
+						<li>
+							mandroid.exe – monodroid.exe
+						</li>
+						<li>
+							Generates ACWs. AndroidManifest.xml and packages app
+						</li>
+						<li>
+							Shared runtime for debugging on emulator 18MB + 
+						</li>
+						<li>
+							Signing needed for devices, slow not part of build
+						</li>
+						<li>
+							AndroidManifest.xml
+							<br />
+							controlled through c# Attributes
+						</li>
+					</ul>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Development</h2>
+
+					<ul>
+						<li>
+							IDE
+							<ul>
+								<li>
+									VS 2010 Professional+  (Windows)
+									<ul>
+										<li>
+											Almost no need to leave VS
+										</li>
+										<li>
+											External tools
+										</li>
+										<li>
+											Project and Item templates
+										</li>
+									</ul>
+								</li>
+								<li>
+									MonoDevelop 2.6 (Windows, Linux, Mac OS X)
+								</li>
+							</ul>
+						</li>
+						<li>
+							Principles
+							<ul>
+								<li>
+									BL – classical (desktop) .net, c#
+								</li>
+								<li>
+									PL – different, but resembles XAML (WPF, SL, SLWP7)
+								</li>
+								<li>
+									Debugging  - Like “normal” debugging in VS
+								</li>
+								<li>
+									Logging (no Console) (android.util.Log)
+<pre>
+Android.Util.Log.Info(“some_tag_for_app”, “message”);
+Android.Util.Log.Warn(“some_tag_for_app”, “message”);
+Android.Util.Log.Error(“some_tag_for_app”, “message”);
+</pre>
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Development diffs</h2>
+					<h3></h3>
+
+					<ul>
+						<li>
+							Android
+							<ul>
+								<li>
+									org.xml.sax.XmlReader
+								</li>
+								<li>
+									org.xml.sax.helpers.Handler
+								</li>
+							</ul>
+						</li>
+						<li>
+							Mono
+<pre>
+XNamespace aw = "http://www.adventure-works.com";
+XElement xmlTree1 = new XElement(aw + "Root",
+	new XElement(aw + "Child1", 1),
+	new XElement(aw + "Child2", 2),
+	new XElement(aw + "Child3", 3),
+	new XElement(aw + "Child4", 4),
+	new XElement(aw + "Child5", 5),
+	new XElement(aw + "Child6", 6)
+);
+</pre>
+<pre>
+XElement xmlTree2 = new XElement(aw + "Root",
+	from el in xmlTree1.Elements()
+	where((int)el &gt;= 3 &amp;&amp; (int)el &lt;= 5)
+	select el;
+</pre>
+						</li>						
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Development</h2>
+					<h3>Pros</h3>
+
+					<ul>
+						<li>
+							Mono supports lots from netfx 3, 3.5 and 4
+						</li>
+						<li>
+							Attributes: no need to edit  AndroidManifest.xml
+						</li>
+						<li>
+							Lambda expressions
+						</li>
+						<li>
+							anonymous delegates
+						</li>
+						<li>
+							LINQ
+						</li>
+						<li>
+							WCF (alpha)
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Tips n Tricks</h2>
+
+					<ul>
+						<li>
+							Principles
+							<ul>
+								<li>
+									Achitecture layers
+									<ul>
+										<li>
+											BL /Model
+											<br />
+											develop as classical (desktop) 
+											<br />
+											tested  in desktop Mono - Mono
+										</li>
+										<li>
+											PL 
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							Do learn Android SDK
+						</li>
+						<li>
+							Tools (need another session)
+						</li>
+						<li>
+							VS  Project Linker
+						</li>
+						<li>
+							VS Productivity power tools
+						</li>
+						<li>
+							VSCommands
+						</li>
+						<li>
+							VS Power Commands
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Pros 1</h2>
+
+					<ul>
+						<li>
+							Platform Multitargeting (application suites)
+							<br />
+							Targets:
+							<ul>
+								<li>
+									Desktop: WF, WPF
+								</li>
+								<li>
+									Web: ASP.net, SIlverlight
+								</li>
+								<li>
+									Mobile: WP7, Android, iOS
+								</li>
+								<li>
+									BL =M in MVC or MVVM % ??? 
+									( assume 30%  with databinding 50%+) 
+									BL code reuse -&gt; single unit tests, less bugs
+								</li>
+							</ul>
+						</li>
+						<li>
+							Mono supports lots from netfx 3, 3.5 and 4
+						</li>
+						<li>
+							lambdas , anonnymous things, LINQ, WCF (alpha)
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Pros 2</h2>
+
+					<ul>
+						<li>
+							Mono for Android story not as compelling as MonoTouch
+						</li>
+						<li>
+							GC, decent IDE, not Objective-C
+						</li>
+						<li>
+							Opportunities for re-use across platforms
+						</li>
+						<li>
+							iOS, Android, Windows Phone 7 non-UI components
+						</li>
+						<li>
+							MonoGame which is a port of XNA
+						</li>
+						<li>
+							Development tooling and environment
+							<ul>
+								<li>
+									Visual Studio
+								</li>
+								<li>
+									MonoDevelop
+								</li>
+								<li>
+									C# vs Java
+								</li>
+							</ul>
+						</li>
+						<li>
+							Friction still due to Java idioms and architecture.
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Cons 1</h2>
+
+					<ul>
+						<li>
+							Performance
+							<br />
+							Time complexity
+							<br />
+							2 VMs: Mono + Java VM – Dalvik  - interop/marshaling very controversial 
+							<br />
+							test results depending on context
+							(UI yes, rest can be avoided)
+						</li>
+							Space Complexity
+							<br />
+							size of APK (mono runtime)
+							<br />
+							No shared runtime (only debug)
+						<li>
+							Release takes time (linker analyzes dependencies)
+						</li>
+						<li>
+							<a href="http://www.koushikdutta.com/2009/01/dalvik-vs-mono.html">
+							http://www.koushikdutta.com/2009/01/dalvik-vs-mono.html
+							</a>
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Cons 2</h2>
+					<ul>
+						<li>
+							Debugging: Slow (some have abandoned because of this)
+						</li>
+						<li>
+							Limitations
+						</li>
+						<li>
+							Java proxy classes generation (automatic) = cannot generate all code!
+						</li>
+						<li>
+							ACW generated based on static analysis of assemblies => no dynamic languages
+						</li>
+						<li>
+							Not native?!?!
+						</li>
+						<li>
+							wraps native Android java libs (java is not native either)
+						</li>
+					</ul>
+				</section>
+				<!-- ............................................................... -->
+
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.Android</h2>
+					<h3>Architecture - Android</h3>
+
+					<img 
+						src="http://cdn.holisticware.net/holisticware/publications/presentations/20131012-the-geek-gathering-xamarin-cross-platform-tools/android-architecture.jpg" 
+						alt="Android Architecture" />
+						<p>
+							Android Architecture
+						</p>
+				</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.Android</h2>
+					<h3>Architecture - Xamarin.Android</h3>
+
+					<img 						src="http://cdn.holisticware.net/holisticware/publications/presentations/20131012-the-geek-gathering-xamarin-cross-platform-tools/android-bionic-c-dalvik-mono.png" 						alt="Android Bionic C, Dalvik, Mono Runtime" 					/>					<p>						Android Bionic C, Dalvik, Mono Runtime					</p>									</section>
+				<!-- ............................................................... -->
+
+				<!-- ............................................................... -->
+				<section>
+					<h2>Xamarin.Android</h2>
+					<h3>Architecture - Xamarin.Android 02</h3>
+
+					<img 
+						src="http://cdn.holisticware.net/holisticware/publications/presentations/20131012-the-geek-gathering-xamarin-cross-platform-tools/architecture-mono-android.png" 
+						alt="Xamarin.Android (Mono for Android) architecture" 
+					/>
+					<p>
+						Xamarin.Android (Mono for Android) architecture
+					</p>
+					
+				</section>
+				<!-- ............................................................... -->
+
+			</section>
+			<!-- ================================================================================== -->
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>Is mono dead?</h2>
+					<h2>The future?</h2>
+						<img 
+						src="http://cdn.holisticware.net/holisticware/publications/presentations/20110630-mono-for-android-monodroid-android-for-dotnetters/mono-rip.png" 
+						alt="Android Content Providers" 
+						/>
+				</section>
+				<!-- ............................................................... -->
+
+			</section>
+			<!-- ================================================================================== -->
+
+			<!-- ================================================================================== -->
+			<section>
+				<!-- ............................................................... -->
+				<section>
+					<h2>	Summary </h2>
+					<h2>??? Questions ???</h2>
+					<blockquote>
+						<a href="http://holisticware.net">http://holisticware.net</a> 
+						<br /> 
+						presented by Miljenko Cvjetko, 
+						<br /> 
+						<a href="http://xamarin.com">http://xamarin.com</a>
+					</blockquote>
+				</section>
+				<!-- ............................................................... -->
+			</section>
+			<!-- ================================================================================== -->
+		</div>
+	</div>
+</body>
+</html>

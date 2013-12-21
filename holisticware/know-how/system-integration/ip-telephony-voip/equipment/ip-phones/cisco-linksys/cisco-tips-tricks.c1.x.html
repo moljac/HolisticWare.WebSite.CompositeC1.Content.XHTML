@@ -1,0 +1,102 @@
+<!--
+C1 generated!!
+<title>Cisco Phones Tips and Tricks</title>
+<meta name="Description" content="Cisco Phones Tips and Tricks" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function xmlns:f="http://www.composite.net/ns/function/1.0" name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords">
+		<f:param name="KeywordsAdditional" value="Cisco, Phones, Tips, Tricks">
+		</f:param>
+		<f:param name="AuthorsAdditional" value="idikic, estrahinja">
+		</f:param>
+		<f:param name="Date" value="2011-02-20">
+		</f:param>
+		<f:param name="Language" value="en">
+		</f:param>
+	</f:function>
+	<h1><a id="">Cisco Phones Tips and Tricks</a></h1>
+	<!-- ================================================================== -->
+
+	<h2><a id="">NAT = NO GLOBALLY (ELASTIX)</a></h2>
+	<blockquote>
+		<p>
+			<em>Important for cisco 7941 and 7970, if set to nat=yes
+				<br />
+				then the phones will be unable to register to
+				<br />
+				PBX.</em>
+		</p>
+		<p>
+			WORK WITH THIS:
+		</p>
+		<pre class="hw_code">
+			mysql -uroot -p`cat /etc/elastix.conf |grep mysqlrootpwd|cut -d &quot;=&quot; -f 2` -D asterisk -e &#39; 
+			update sip set data = &quot;no&quot; where keyword = &quot;nat&quot;&#39;
+		</pre>
+		<p>	
+		OPTIONALLY:
+		</p>
+		<pre class="hw_code">
+		mysql -uroot -p`cat /etc/elastix.conf |grep mysqlrootpwd|cut -d &quot;=&quot; -f 2` -D asterisk -e &#39; 
+		update sip set data = &quot;no&quot; where keyword = &quot;nat&quot;&#39; ;
+		/var/www/html/admin/modules/framework/bin/retrieve_conf
+		</pre>
+	</blockquote>
+	<h2><a id=""> Reset the 7941 and 7961 IP Phones to the Factory Default</a></h2>
+	<blockquote>
+		<h3><a id="">
+			Complete these steps:
+		</a></h3>
+		<p>
+			1.Unplug the power cable from the phone, and then plug in the cable again.
+		</p>
+		<blockquote>
+			<p>
+				The phone begins its power up cycle.</p>
+		</blockquote>
+		<p>
+			2.Immediately press and hold # and while the Headset, Mute, and Speaker buttons
+			begin to flash in sequence, release #.
+		</p>
+		<blockquote>
+			<p>
+				The line buttons flash in sequence in order to indicate that the phone waits for
+				you to enter the key sequence for the reset.</p>
+		</blockquote>
+		<p>
+			3.Press 123456789*0# within 60 seconds after the Headset, Mute, and Speaker buttons
+			begin to flash.</p>
+		<blockquote>
+			<p>
+				If you repeat a key within the sequence, for example, if you press 1223456789*0#,
+				the sequence is still accepted and the phone resets.
+			</p>
+			<p>
+				If you do not complete this key sequence or do not press any keys, after 60 seconds
+				the Headset, Mute, and Speaker buttons no longer flash, and the phone continues
+				with its normal startup process. The phone does not reset.
+			</p>
+			<p>
+				If you enter an invalid key sequence, the buttons no longer flash, and the phone
+				continues with its normal startup process. The phone does not reset.
+			</p>
+			<p>
+				If you enter this key sequence correctly, the phone displays this prompt:</p>
+			<p>
+				upgrading</p>
+		</blockquote>
+		<p>
+			!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		</p>
+		<p>
+			AFTER FACTORY RESET ALL DATA INCLUDING FIRMWARE IS DELETED, THE PHONE WILL NOT BOOT
+			UNLESS VALID TFPT FIRMWARE IMAGE IS PROVIDED</p>
+		<p>
+			!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+	</blockquote>
+</body>
+</html>

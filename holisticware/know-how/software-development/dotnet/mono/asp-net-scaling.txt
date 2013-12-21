@@ -1,0 +1,49 @@
+asp.net scaling
+
+For reference, it went from 150 people/day to 1000+ people/day for a
+while, but the only indication in stats was a 2% rise in CPU usage for
+the major period of increased traffic.
+
+Of course, I also don't use Vanilla ASP.Net either. (
+https://bitbucket.org/earlz/barelymvc ). Either way, I suspect for a
+well written web application, you shouldn't have any problems scaling
+with Mono that you wouldn't have with .Net (of course watching out for
+the differences with IIS and apache/mod_mono though)
+
+On Sat, Nov 17, 2012 at 5:58 PM, Frank Cohen <frankenspank@gmail.com> wrote:
+> I am running mono under apache2/mod_mono.  Currently using it for some low
+> traffic sites, but I am wondering, does it scale?
+
+
+
+
+You could try a load test with something like http://blitz.io/ and see how
+your server handles 250 simultaneous users. I'm not sure how well Apache +
+mod_mono would work but nginx or Cherokee + Mono FastCGI seems to be able
+to handle quite a bit of load.
+
+It's worth noting that http://www.servicestack.net/ is powered by Mono.
+ServiceStack is one of the most popular .NET libraries on Github and their
+site seems to handle things fine. Mozilla's developer wiki (a very popular
+reference for web developers) was also powered by Mono until recently
+(they've now migrated from DekuWiki to their own custom Django wiki system).
+
+
+
+
+I've been playing with Nginx along with Mono FastCGI but I don't have any
+live sites using it at the moment. I do have a PHP site running on Nginx
+and it can handle more many more simultaneous requests compared to Apache
+and mod_php.
+
+As far as I know, nginx was designed from the ground-up to handle large
+amounts of traffic. It has some options for caching, so using its cache
+along with output caching in your ASP.NET site should help with scaling.
+Once you start using nginx's cache, cached pages won't even send a request
+to Mono, they'll be served straight out of RAM (which will give you a
+massive boost in terms of performance).
+
+I like Cherokee more than Nginx, but I've been moving away from it since
+development seems very slow these days and there's a number of bugs that
+have been around for a while. To me, Nginx was the second best, but its
+development is very constant and its market share keeps growing.

@@ -1,0 +1,39 @@
+﻿g to cross compile the pjsip SVN revision 4145 on MacOSX 10.6.8 for Android14-toolchain, 
+but I get an error related to the libSDL library. This issue doesn't occur with the SVN 
+revision 4038. 
+
+Compilation for MacOSX works fine for SVN revision 4145 . Below you are the steps to 
+reproduce the issue. 
+
+
+$ANDROID_NDK
+$HOME/android-ndk-r7/build/tools/make-standalone-toolchain.sh \
+	--platform=android-14 \
+	--install-dir=$HOME/android14-toolchain
+
+$ port installed | grep sdl
+libsdl-devel @1.3.0-6248_0 (active)
+
+
+svn co http://svn.pjsip.org/repos/pjproject/trunk pjproject
+cd pjproject
+curl -O http://lists.pjsip.org/pipermail/pjsip_lists.pjsip.org/attachments/20110324/186c9954/attachment-0001.patch
+patch -p1 < attachment-0001.patch
+autoconf aconfigure.ac >aconfigure
+CC=~/android14-toolchain/bin/arm-linux-androideabi-gcc ./configure \
+	--host=arm-linux-androideabi \
+	--disable-floating-point \
+	--disable-large-filter
+
+make dep
+make
+
+
+
+…
+checking SDL availability..... 1.3.0
+checking for pkg-config... pkg-config
+checking ffmpeg packages...  libavformat libavcodec libswscale libavutil
+checking for v4l2_open in -lv4l2... no
+…
+

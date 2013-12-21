@@ -1,0 +1,8 @@
+As my apps come in for updates I'm adding a "more apps by Dan Sylvester" to the about screen. 
+I have an app in beta testing now with this feature. 
+
+
+//launch market app for me 
+startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=pub:Dan Sylvester") ) ); 
+
+I'm also working on implementing V7 support library share provider.

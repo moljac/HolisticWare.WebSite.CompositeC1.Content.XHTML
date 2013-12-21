@@ -1,0 +1,102 @@
+If your company doesn't have a mobile app yet, you could be missing out on a golden opportunity to tap into new revenue streams. Smartphones and tablets are where today's consumers live. The majority of the 120 million smartphone owners in the U.S. use a shopping or retail app at least once a month, according to a recent Nielsen report. Yours could be one of them.
+
+If you'd like a mobile app that lets customers buy your products -- or simply access products reviews, videos or coupons -- you'll need to hire an experienced developer you trust to custom build it.
+
+Here are 10 key questions to ask mobile app developers to help you choose the right one for the job:
+
+1.Where can I find examples of mobile apps you've developed? 
+Qualified candidates should be eager to provide you with a list of apps they are personally responsible for creating -- or at least played a major role in developing -- complete with links to each in Apple's iOS App Store, BlackBerry App World or Google Play, Google's Android app store.
+
+"That way you can begin to gauge whether or not they have the skills, experience and vision to produce the type of mobile app you're looking for," says Chad Mureta, CEO of App Empire, a San Francisco-based app development firm, and author of App Empire: Make Money, Have a Life, and Let Technology Work for You (Wiley, 2012).
+
+Related: The Basics: 3 Important Tips for Creating Killer Mobile Apps
+
+
+
+Read more: http://www.entrepreneur.com/article/226270#ixzz2QHUfkjMQ
+
+
+
+2. May I have a list of your current and past clients? 
+Unlike reading movie credits, there's typically no way to tell who actually developed an app. This is why speaking directly with candidates' current and former clients can be essential to verifying that the developers actually created the apps they claim to have worked on, Mureta says.
+
+Checking references also gives you an opportunity to ask how reliable, responsive and results-oriented candidates are. For example, you might ask whether they delivered on deadline and within budget, and how well they work under pressure.
+
+Candidates sometimes only offer references who have a favorable opinion of them, says Farhan Thawar, vice president of engineering at Xtreme Labs, an Ontario, Canada-based mobile strategy and product development firm. He suggests visiting a candidate's LinkedIn profile to see if you have any professional colleagues or former co-workers in common. If you do, contact your mutual connections and ask them about their impression of the candidate's experience, capabilities and work ethic.
+
+3. What kind of smartphone do you use?
+This question can provide insight into how passionate and knowledgeable a candidate is about specific mobile platforms, Thawar says. "If you're telling me that you can build an app for an iPhone, then you should have an iPhone, you should be playing with the apps that you are building and also playing with other people's apps on a very regular basis." The same goes for Android and BlackBerry.
+
+4. How can my app make money? 
+If your primary goal is to generate revenue with your app, the developer needs to know exactly how to build in features that will allow you to make money. You could opt for a pay-per-download revenue model, charging, say, between 99 cents and $4.99, depending on how many features your app offers.
+
+If you opt for a free app, be sure the candidate is well versed in how to integrate mobile display ads, in-app purchases or paid subscription services.
+
+5. How will we communicate during the development process? 
+The quality of your app often depends on how clearly and often you communicate your app design and functionality requirements throughout the development process.
+
+Does your app developer prefer to chat in person or via phone, Skype, instant message or email -- and how often? Or does he or she prefer to interact with you using a popular project and task management system like 37signals' Basecamp? How often will he or she provide you with status updates?
+
+Related: 5 Tools for Building a Shopping App
+
+6. What kind of special features can you create? 
+Apps rarely grab consumers' attention without truly innovative and useful features. Figure out the bells and whistles you'd like and then assess your developer's capabilities. For example, can your candidate add 3-D gaming, social media sharing, GPS check-ins or product coupon elements to your app?
+
+7. Who will own the mobile app? 
+Typically the individual or company paying for a mobile app will own the finished product, Mureta says. To be sure you own all the rights to the app you commissioned, you and the app developer should sign a written "copyright assignment" or "work made for hire" contract. The document should establish confidentiality and state that you own the app's design, source code and all of its content.
+
+8. How will you test my app? 
+Generally, the best way to test an app is simply to run it on the smartphone it will be used on. The candidate should provide a thorough explanation of how he or she conducts an extensive beta test to weed out any glitches. If bugs are found, how will the candidate fix them -- and how quickly?
+
+9. Will you submit my mobile app to app stores? 
+After you've approved the beta-tested version of your app, the last step is for the developer to submit it to an app store for approval to be sold there. App submission is often a long, multi-step process that your developer should already know how to successfully navigate.
+
+10. What are your fees and payment terms? 
+Draft a written agreement specifying that you will pay the developer by the hour or with a flat fee. Most developers, like Mureta, ask for a one-time fee upfront. Others require a deposit at the beginning of a project, often for up to half of the estimated total cost, with the balance due when the app is completed.
+
+The most basic mobile apps can start between $1,000 and $5,000, but you could end up spending many times more if you pay a developer by the hour. More complicated mobile apps, including ones that are database driven or involve 3-D gaming, can cost thousands more.
+
+
+
+Read more: http://www.entrepreneur.com/article/226270#ixzz2QHUtiAhq
+
+
+
+
+
+
+
+
+
+
+
+
+Parham Aarabi teaches a graduate course on Advanced Mobile User Interfaces and is the CEO of ModiFace.
+When conceptualizing your mobile app’s user interface, there are a few things that you should keep in mind. Some of the basic things such as clarity of interface, consistency from one view to the next, and making sure that tapping on any button or UI element provides feedback to the user are fairly straightforward and are generally, though not universally, followed by most app designers.
+There are a few things, however, that are often ignored which can equally impact the user experience.  Below are some of these often-ignored UI design elements:
+1 – Expert vs. novice users – the tale of two audiences
+Often, we think of our app users as a ubiquitous set of users with similar intentions and expertise.  However, there are often several distinct user groups with different intentions and levels of expertise.
+Novice users, for example, tend to move slower throughout the application, are prone to making more touch errors, and are more uncertain about the functionality of each button. Expert users, on the other hand, tend to have the app elements memorized and move quickly and with intent throughout the app.
+When creating your app’s user interface, you want to make it efficient enough for your expert users while being informative and simple enough for novice users.
+2 – Ideal button size
+This is a fairly obvious issue.
+Button sizes are generally limited by the size of our fingers, and so if they are too small, users will be unable to touch them accurately.  Button widths below 1cm are harder (and slower) to touch.  Aside from the minimum size, there are some benefits to non-uniform button sizes (they give an indication to novice users as to which button is more important).
+
+As a general rule of thumb, the size of a button should be proportional to the square root of the likelihood that an expert user would need to select it (there are more scientific reasons behind the size-proportional-to-root-probability rule, but that is a discussion for a different day).
+3 – UI location
+Usually, application UI elements are either placed at the bottom of the app (most common) or at the top.
+However, the way most users hold their phone is by using their thumb as the primary finger for touching buttons. If the user is right-handed, the thumb will more easily reach the region at the bottom right of the screen (or, for left-handed users, the bottom left).  Reaching the top screen corner that is opposite to the thumb is much more difficult, and more intrusive with the application flow since the user has to reach over the screen.
+Generally, it is best to keep the primary application buttons at the bottom of the screen, and ideally, to place the more important and often used buttons at the bottom-right corner of the screen.
+4 – Accounting for motion
+The location of buttons is not the only consideration related to how we hold our mobile devices.
+We also need to keep in mind that the thumb generally has a specific flow direction.  For example, for a right-handed person, circular flows with a pivot point at the bottom right of the screen are much easier than linear flows (flowing out radially).
+So if you have a user interface control that requires motion (i.e. a slider, a selection list, etc.), keep in mind how a user is holding the phone and that certain motions are generally more natural for the user.
+5 – How much is too much
+Some applications tend to pack quite a few buttons into each of the application views.
+Now, even if the buttons are of a decent size so that a user can click on them, there is another issue that app designers should be aware of.  The more buttons presented to the user at one time, the more difficult it is for the user to choose one of them (this is especially true for novice users).  It is interesting to note that as an analogy, a touch screen device can be thought of as a communication channel where the goal is to minimize the entropy of the interface (i.e. require the least information from the users for each touch selection).
+Generally, most user-friendly apps tend to have an interface entropy under 3.5 bits (the maximum entropy for an interface is approximately 5.5 bits on an iPhone 5, accounting for average finger size and screen size).  What this essentially means is that you should keep the total number of touchable UI elements to less than 10 per view.
+There is a lot more involved in creating great mobile user interfaces.  But hopefully you will find some of the above suggestions of benefit.
+Parham Aarabi is an Associate Professor of Electrical and Computer Engineering at the University of Toronto, where he teaches a graduate course on Advanced Mobile User Interfaces and directs the Mobile Applications Lab.  He received his Ph.D. in Electrical Engineering from Stanford University, and was twice selected as a Canada Research Chair.  He has been the recipient of MIT’s TR35 “Top Young Innovator” award and the IEEE Mac Van Valkenburg Award.  He is also the founder and CEO of ModiFace Inc., the leading provider of virtual face simulation and virtual try-on technology.
+photo credit: Alexandre Van de Sande via photopin cc
+
+Read more at http://venturebeat.com/2013/04/08/5-tips-for-creating-great-mobile-app-user-interfaces/#ByWdEy0dJjkzlg6c.99 

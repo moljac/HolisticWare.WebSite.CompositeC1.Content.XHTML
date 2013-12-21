@@ -1,0 +1,229 @@
+﻿<!--
+C1 generated!!
+<title>Elastix SCCP (chan_sccp_b) Cisco 7937_7936</title>
+<meta name="Description" content="Elastix SCCP (chan_sccp_b) &amp; Cisco 7937_7936" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<f:param name="KeywordsAdditional" value="Elastix, SCCP, chan_sccp_b, Cisco, 7937, 7936">
+		</f:param>
+		<f:param name="AuthorsAdditional" value="idikic, estrahinja">
+		</f:param>
+		<f:param name="Date" value="2011-02-20">
+		</f:param>
+		<f:param name="Language" value="en">
+		</f:param>
+	</f:function>
+	<h1><a id="">Elastix SCCP (chan_sccp_b) &amp; Cisco 7937_7936</a></h1>
+	<!-- ================================================================== -->
+	<h2><a id="">
+		1. Install Elastix 2.0<br />
+		<br />
+		2. Prerequisites</a></h2>
+	<blockquote>
+		<p>
+			2.1.
+		</p>
+		<blockquote>
+			<p>
+				Enable tftp, dhcp<br />
+				Disable iptables<br />
+				For enable/disable of services use <em>chkconfig</em><br />
+				For starting of services use <em>service</em> [nameofservice] <em>start</em></p>
+		</blockquote>
+		<p>
+			2.2.
+		</p>
+		<blockquote>
+			<p>
+				Update everything<br />
+				<em>yum –y update</em></p>
+		</blockquote>
+	</blockquote>
+	<h2><a id="">
+		3. Upgrading phone firmware</a></h2>
+	<blockquote>
+		<p>
+			3.1. INFO:</p>
+		<blockquote>
+			<p>
+				If your phone already have original Cisco firmware, you can use it!<br />
+			</p>
+		</blockquote>
+		<p>
+			3.2. UPGRADING FIRMWARE</p>
+		<blockquote>
+			<p>
+				In this example we upgraded Cisco 7937 (all the same for 7936)<br />
+				We use this version of firmware apps37sccp.1-4-2-0.bin, if you cant get it,<br />
+				send us email.<br />
+				<br />
+				Put the firmware file and XMLDefault.cnf.xml inside /tftpboot<br />
+				Edit XMLDefault.cnf.xml and insert this line, download example.<br />
+			</p>
+			<pre class="hw_code">
+ &lt;loadInformation431 model=&quot;Cisco Phone 7937&quot;&gt;apps37sccp.1-4-2-0&lt;/loadInformation431&gt;
+			</pre>
+				<p>
+					Cisco 7937 is not using SEP&lt;macaddress&gt;.cnf.xml<br />
+					All of the phone settings are now inside sccp.conf, download example.<br />
+					<br />
+					After everything is setup, reset the phone, press GLOBE button and enter **#<br />
+					If everything is ok your phone sholud boot up into upgrade mode<br />
+					<br />
+					You can monitor everything with following commands:<br />
+					<br />
+					<em>tail –v –f /var/log/messages</em>
+				</p>
+		</blockquote>
+	</blockquote>
+	<h2><a id="">
+		<br />
+		4. Compiling SCCP</a></h2>
+	<blockquote>
+		<p>
+			4.1.Download sccp from http://chan-sccp-b.sourceforge.net/</p>
+		<blockquote>
+			<p>
+				Put all files to /TMP directory of your Elastix server<br />
+				Go to /TMP directory (or one where you put downloaded packages)<br />
+				Extract files<br />
+				<br />
+				Type:<br />
+				<em>./configure<br />
+					make all<br />
+					make install</em></p>
+		</blockquote>
+	</blockquote>
+	<h2><a id="">
+		5. Tweaking to get sccp working as it should</a></h2>
+	<blockquote>
+		<p>
+			5.1. Edit /etc/cyrus.conf and comment out sieve, it should look like this:</p>
+		<blockquote>
+			<p>
+				# UNIX sockets start with a slash and are put into /var/lib/imap/sockets<br />
+				SERVICES {<br />
+				# add or remove based on preferences<br />
+				imap cmd=&quot;imapd&quot; listen=&quot;imap&quot; prefork=5<br />
+				imaps cmd=&quot;imapd -s&quot; listen=&quot;imaps&quot; prefork=1<br />
+				pop3 cmd=&quot;pop3d&quot; listen=&quot;pop3&quot; prefork=3<br />
+				pop3s cmd=&quot;pop3d -s&quot; listen=&quot;pop3s&quot; prefork=1<br />
+				#sieve cmd=&quot;timsieved&quot; listen=&quot;sieve&quot; prefork=0<br />
+			</p>
+		</blockquote>
+		<p>
+			5.2. Make sure that chan_sccp.so exists in the /usr/lib/asterisk/modules<br />
+			<br />
+			5.3. Edit /etc/asterisk/modules.conf, add this to the end of file\:</p>
+		<blockquote>
+			<p>
+				noload =&gt; chan_skinny.so<br />
+				load =&gt; chan_sccp.so<br />
+				load =&gt; res_features.so<br />
+			</p>
+		</blockquote>
+		<p>
+			5.4. Copy sccp.conf to /etc/asterisk/sccp.conf and adapt it to your needs, everything<br />
+			about sccp.conf is explained inside the file sccp.conf<br />
+		</p>
+	</blockquote>
+	<h2><a id="">
+		<br />
+		6. Adding SCCP type extensions to your Elastix (via web gui) and sccp.conf</a></h2>
+	<blockquote>
+		<p>
+			6.1. Elastix web gui</p>
+		<blockquote>
+			<p>
+				PBX – EXTENSIONS – ADD AN EXTENSION – Other (custom) device<br />
+				<br />
+				Under &quot;This device uses custom technology&quot; insert:<br />
+				SCCP/your extension<br />
+				<br />
+				Example: SCCP/101<br />
+				<br />
+				Write down on a piece of paper extensions you just entered, we will need this<br />
+				in our next step.<br />
+			</p>
+		</blockquote>
+		<p>
+			6.2. Setting up your extensions inside sccp.conf</p>
+		<blockquote>
+			<p>
+				Download example of sccp.conf and modify to your needs with extensions from<br />
+				previous step.<br />
+				<br />
+				After everything is set up, issue this command<br />
+				<br />
+				<em>amportal restart</em><br />
+			</p>
+		</blockquote>
+	</blockquote>
+	<h2><a id="">
+		7. Testing SCCP extensions and devices</a></h2>
+	<blockquote>
+		<blockquote>
+			<p>
+				Open up asterisk command prompt, with this command:<br />
+				<br />
+				<em>asterisk -rvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</em><br />
+				<br />
+				Then issue this command:<br />
+				<br />
+				<em>sccp show devices</em><br />
+				<br />
+				It sholud look smoething like this:<br />
+				<br />
+				test*CLI&gt; <em>sccp show devices</em><br />
+				<br />
+				NAME ADDRESS MAC Reg. State<br />
+				======================================== ====================<br />
+				Conference Phone 7936 10.10.20.219 SEP000XXXXXXXXX OK<br />
+				Conference Phone 7937G 10.10.20.237 SEP000XXXXXXXXX OK</p>
+		</blockquote>
+	</blockquote>
+	<h2><a id="">
+		<br />
+		<br />
+		8. DOWNLOADS</a></h2>
+	<blockquote>
+		<blockquote>
+			<p>
+				<a 
+					href="http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/sccp.conf.txt">
+					SCCP.CONF
+				</a> -&gt; adopted for our needs, almost
+				minimal<br />
+				<a 
+					href="http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/sccp_original.conf.txt">
+					SCCP_ORIGINAL.CONF
+				</a> -&gt; original
+				file, with lots of options<br />
+				<a 
+					href="http://cdn.holisticware.net/holisticware/know-how/system-integration/ip-telephony-voip/equipment/ip-phones/cisco-linksys/XMLDefault.cnf.xml.txt"
+					>
+					XMLDefault.cnf.xml
+				</a><br />
+				<br />
+				If you cant get SCCP firmware for 7937 please send us email.<br />
+				<br />
+				Special thanks to Manzurek @ elastix forum<br />
+				<br />
+				Made by Holistic VoIP Wizards<br />
+				<a 
+					href="http://holisticware.net">http://holisticware.net/
+				</a>
+					<br />
+				<br />
+				MORE INFO TO READ:
+				<br />
+				<a href="http://www.igpf.com/?p=248">http://www.igpf.com/?p=248</a></p>
+		</blockquote>
+	</blockquote>
+</body>
+</html>

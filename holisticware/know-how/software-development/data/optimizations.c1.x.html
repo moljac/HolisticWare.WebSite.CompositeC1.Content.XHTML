@@ -1,0 +1,103 @@
+ith this specific application, (which is single threaded), I have a
+"volatile" working set of ~2GB .   By volatile I mean that these are not
+application lifetime objects, rather will be disposed at some point during
+evaluation.
+
+More specifically, I read 1.6TB of data incrementally into 1600 timeseries
+(basically an array of event objects).   Each timeseries only holds a window
+of data (in my case half with 25K items  and half with 5K items).   Once
+each timeseries has overrun by say 1024 elements, the 1024 oldest elements
+are shifted off, for GC.
+
+So the pattern is that there are always 2GB of referenced objects, and
+periodically 1600 x 1024 old objects to be disposed of.    Due to the large
+sizes, it would seem that these older objects get relegated to the main
+heap.   This then requires a much more expensive GC (presumably).
+
+If I understood the sgen algorithm correctly, no matter what the size of the
+nursery (unless was 1.6TB), my working set is going to land in the main heap
+with my object garbage pattern.    I believe this is because if the nursery
+fills, any objects that are still referenced, regardless of age, will be
+moved to the main heap.    Once GC completes, the nursery is empty (maybe
+except pinned objs)?
+
+My objects become garbage in a FIFO pattern and not something LIFO like.
+The garbage "pipeline" is 2GB large, so the nursery fails for this app.
+
+Assuming Boehm is my only choice, If I expand the series window or # of
+series I quickly run into the maximum heap problem with Boehm.
+
+
+
+
+
+
+
+consider optimizing your memory usage. In time
+series data, usually it is best not to keep objects in those arrays
+but rather structs. The time serie itself can be an object but keeping
+large arrays of small objects is very bad performance wise: you waste
+memory due to the internal overhead of an allocation/object and the
+CPU cache will have a very hard time keeping up (because every small
+object access will cause a cache miss). Also obviously the high
+allocation rates will cause many GC collections to happen as you touch
+those. This also will speed up the GC collection time since far fewer
+references need to be traversed/touched.
+
+With arrays of structs, the allocations are likely to be large and go
+into a separate heap. If they aren't that large (because maybe your
+time series only keep a small set of data), they the amount of
+allocations is still dramatically reduced and fixed.
+
+In mine, my time serie keeps arrays of structs (typed on the time
+serie) where those arrays are managed as circular buffers. Cache usage
+is optimal and the number of allocations is reduced. Furthermore,
+since the size is fixed, once it is allocated, no allocation happens
+even if I go through GBs of data.
+
+Keep in mind nothing I said applies to you if your objects in those
+time series are very large and the copy overhead would be too great
+for you. However, I would consider 88 bytes to be small considering
+the potential memory/cpu savings here.
+
+
+
+
+
+
+
+
+
+Have you thought about using weak pointers? Those are already handled
+as a special case by the GC.
+In your pool, you keep weak references such that if a GC happens and
+no real references exist on an object outside of weak references, the
+object will be GCed and all weak references will be invalidated. In
+the event that a real reference exists, nothing changes.
+
+Then in your pool you can check for any invalidated entries and reuse
+those, you could trigger a GC manually in hope of freeing some or you
+could allocate new ones. As you see fit.
+
+Implementing a cache isn't very hard and I believe some might already
+exist in .net (using more or less what I just described).
+
+In .net, weak references are called: System.WeakReference.
+
+As discussed above, a cache like this mostly only makes sense if the
+allocation cost is very large or if you want a maximum fixed amount of
+objects allocated.
+
+
+
+
+
+When I am able to use an object pool I don't really rely on the GC and
+don't really need weak references either.   In one real-time application, I
+cycle through ~ 9 billion objects over the course of a few hours.   The
+working set in this scenario is small.
+
+In the application I was testing with sgen, it is a batch oriented process,
+not real-time.  Hence I rely on the GC in that case.    For latency
+sensitive work am largely using object pools for the objects used at high
+frequency and some structs where appropriate.

@@ -1,0 +1,25 @@
+Windows forms
+
+
+System.Windows.Forms is implemented on Mono. It looks like Windows 95, has rendering issues,
+and is generally user-hostile, but it DOES exist, and is probably more than reasonable for 
+homework purposes. No License is required to use it.
+
+	http://github.com/mono/mono/blob/master/mcs/class/Managed.Windows.Forms
+
+I would _not_ recommend using it for "real"/commercial products. It's largely for 
+compatibility only.
+
+
+
+
+
+
+
+From the (unofficial!) Xamarin perspective, the best _end-user_ experience is native UI code, using the native frameworks, hence MonoTouch.UIKit on iOS, Android.Widgets on Android, MonoMac.* on OS X, System.Windows.* on Windows, Gtk# on Linux, etc.
+
+There is no sane way for a single UI framework to support all those diverse form factors and conventions. It's been tried -- GTK+, Qt, Java/AWT, Java/Swing, Java/SWT, wxWidgets, etc. Hell, at one point MFC supported MacOS (or my mind is playing tricks on me; Google can't verify that!).
+
+At some point you have to bow to history and admit that one UI framework can't rule everything, not for great user experiences.
+
+Sanely supporting multiple front-ends "just" requires designing your app in a UI-anostic fashion (MVC/MVVM/etc.) as opposed to tying your business code willy-nilly into your UI code (which is apparently very common with lots of GUI code).

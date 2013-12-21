@@ -1,0 +1,32 @@
+IDEs
+	MonoDevelop@MacOSX
+	MonoDevelop@Windows	
+	VisualStudio@Windows
+
+network samba smb share
+	MonoTouch project debug start
+		opens and closes
+			TODO: log
+			delete bin + obj dirs
+			recompile
+			start ok
+			
+
+
+bundle path
+When Monotouch deploys your application for debugging, it will create a directory in
+
+..Application Support/iPhone Simulator/User/Applications/{Guid}/
+
+This is your application's base directory. Everything is stored in a bundle, a type of zip 
+file with all the resources and the app in. This monotouch page has all the information you 
+need on the various directories in your application's root directory. To access this you 
+can to it with:
+
+Environment.CurrentDirectory
+
+and also available in:
+
+NSBundle.MainBundle.ResourcePath			
+
+Writing app/bundle files will invalidate 

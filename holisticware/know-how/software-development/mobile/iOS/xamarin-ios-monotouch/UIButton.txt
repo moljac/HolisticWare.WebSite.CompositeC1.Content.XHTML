@@ -1,0 +1,82 @@
+http://stackoverflow.com/questions/9733213/how-to-change-background-color-of-uibutton-in-monotouch/11753717#11753717
+http://stackoverflow.com/questions/9058114/custom-uibutton-color-in-monotouch
+
+http://conceptdev.blogspot.com/2010/08/uiglassbutton-generator-in-monotouch.html
+
+http://stackoverflow.com/questions/6415674/setting-button-color-in-monotouch-dialog
+
+
+
+
+
+
+
+Our application contains numerous data entry forms and, depending on the
+user's capabilities, the state of the data entry form, or the required
+status of a field, we must change the background color of the control to
+improve the user experience. Users don't appreciate it if a button looks
+like it can be pressed, but nothing happens when they do.
+
+If you have tried to change the background color for UIButtons without
+modifying the default properties, you will have discovered that the
+background color doesn't really change. Something happens in the corners,
+but that doesn't really help.
+
+The solution is to change the Button Type from the default Rounded Rect to
+Custom. 
+
+Unfortunately, that change yields a square box that doesn't appear much like
+a button. The solution to this problem is to add code that adjusts the
+corners at runtime:
+
+  theControl.Layer.CornerRadius = 5;
+  theControl.Layer.BorderWidth = 1;
+  theControl.Layer.BorderColor = UIColor.Gray.CGColor;
+
+Because we want a consistent look on all of our data entry controls (we use
+buttons to popup date and picklist views rather than having the user enter
+the data directly), we have a common method that accepts a UIView parameter
+(theControl) and then apply the above code to view. This works well for
+UIButton, UITextField, and UITextView controls.
+
+
+
+
+
+
+
+
+
+
+MVVM
+	https://github.com/RobertKozak/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

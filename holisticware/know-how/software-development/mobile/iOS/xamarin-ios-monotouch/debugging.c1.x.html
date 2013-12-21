@@ -1,0 +1,137 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Debugging in iOS</title>
+Description = all keywords + extra text
+<meta name="Description" content="Debugging in iOS options, tips and tricks" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Debugging in iOS
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="ios, debugging" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>Debugging in iOS</h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	
+	<h2>Tools</h2>
+	<p>
+		Some developers ask users to install the iPhone Configuration Utility 
+		to get the device console output.
+		<br />
+		<a href="http://support.apple.com/kb/DL1465">
+		http://support.apple.com/kb/DL1465
+		</a>
+	</p>
+	<p>
+	</p>
+	<h3>Exception Handling</h3>
+	<p>
+	>      try-catch in my Main, but it didn’t report anything. I need to go back through every piece of code 
+	and ensure a try-catch block is in place everywhere – it should be.
+	
+	In some cases the ObjectiveC exception code plays tricks on MonoTouch and the managed exception handling. 
+	An exception handler in Main should catch all exceptions in the main thread (but as you've seen yourself 
+	it doesn't quite work in these cases).
+
+
+	In this case pretty much the only thing left to do is to try to get the device log.
+	Would  System.AppDomain.CurrentDomain.UnhandledException help to get more info?
+
+	There is no Application class, so no Application.UnhandledException like in Silverlight (MT is superset 
+	right?) and no Application.ThreadException
+	</p>
+
+	<h3>NSLog</h3>
+	<p>
+	What was disabled in iOS5 was stdout/stderr (only redirected to the device console when a device
+	is being used for development), which is not the same as NSLog (always writes to the device console). 
+	<br />
+	Console.Write* was changed to use NSLog, not to a NOP.
+	<br />
+	NSLog works always, even for devices never used for development.
+	</p>
+
+
+	<h3>TesFlightApp</h3>
+	<p>
+	</p>
+
+	<h2>Tips and Tricks</h2>
+	<p>
+	You cannot catch native signals (_sigtramp and the like) with managed try-catch handlers, once you
+	get a native signal something very bad has occurred in the process, and the only sane thing MonoTouch
+	can do is to crash. Unfortunately post-mortem debugging of native crashes is quite hard, usually even 
+	close to impossible without more information due to the fact that the crash ifself may not be close to 
+	the actual bug (you can have a bug that corrupts memory, but not crash until a minute later - 
+	at that point it's impossible to know what happened a minute earlier).
+
+	There are two main methods I use to track down these issues:
+	* Add lots of logging. Log several times for each method you think is relevant. This 
+	  obviously only helps when you're crashing inside your own code.
+	* Create a smaller test case. I comment out / remove code until the crash goes away. Then 
+	  I re-add code until the crash returns, and try to remove a different part of the code. 
+	  Repeat until you've reached a small test case, in which you've either figured out what's 
+	  going on, or if you still don't understand it ask someone else 
+	  (us for instance, in mailing lists / bugzilla).
+
+	</p>
+	<h2>USB and Wifi</h2>
+	<p>
+	switch between usb and wifi debugging (toggle the checkbox in 
+	MonoDevelop's Preferences -> Preferences / Debugger / iPhone Debugger)? 
+	Can you also build your project with verbose output (add "-v -v -v" to the 
+	additional mtouch arguments in the project's iPhone Build options), and then 
+	get the device log (MonoDevelop's menu View -> Pads -> iOS Device Log) 
+	from a failed connection?
+	</p>
+	<pre class="hw_code">
+	</pre>
+	
+	
+	
+	<p>
+The errors are to do with making calls to the web asynchronously i.e. the error is 
+occurring on a different thread to the code that started it, hence your namespace is 
+not displayed. 
+
+ 
+
+I have experienced the first error when the data being returned was large.  My fix was 
+to change my WCF Web API to use paging and then update my RestSharp code (in MonoTouch) 
+to make the web calls while passing the paging parameters.  RestSharp is a library that 
+simplifies making web calls to REST web services as it automatically serialises the data 
+into objects.
+
+
+I’m using the standard Visual Studio calls to the web client – so if I have a method called 
+“Fred” I call “service.Fred()”.I don’t use async, but I do use my own threads so there’s no
+ blocking.
+
+ 
+
+I’ll look into the response property, but it’s a long slow fix – won’t be till we publish to 
+Apple again that I’ll start to get that information, and can then look at fixing it. I can’t 
+reproduce these errors, but they’re happening to a few clients in the field.
+	</p>
+	
+</body>
+</html>
+
+
+
+
+

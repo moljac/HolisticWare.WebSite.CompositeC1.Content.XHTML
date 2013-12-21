@@ -1,0 +1,8 @@
+ build and debug monodevelop.
+1. Fork the repository in Github
+2. git clone forked repository.
+3. git submodule update --init
+4. Open solution file and build whole solution. You may get an error but it is not a problem.
+5. Press Debug and Enjoy.
+
+P. S. If you make a change in extension project build it (Shift + F6) before presing F5 

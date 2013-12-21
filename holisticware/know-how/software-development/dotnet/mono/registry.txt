@@ -1,0 +1,37 @@
+Registry
+
+
+Can we run .Net applications that modifies windows registry by using mono
+from SUSE Linux ?
+
+Mono has a partial registry implementation that only affects Mono
+instances, no system-wide visibility, so most changes in settings
+meaningful in Windows will have no effect whatsoever in the SUSE Linux
+system.
+
+
+What are you trying to achieve? Because simply put; SUSE Linux doesn't
+have the window registry, so you can' t manipulate it.
+
+
+was trying to use 1 windows service using mono on linux. When service
+runs on windows platform it stores its configuration values in 1 registry
+key. I thought ,is it possible that mono will replace all Registry related
+methods to equivalent of registry in linux. I know there is Registry as
+such  in linux,but somewhere linux will be storing its s/w related
+configurations.
+
+
+
+
+*What about writing to the registry? As I understand it, Linux does not
+have a counterpart to the registry. Should I avoid relying on that feature?*
+
+Try to avoid it. Although there would be a emulation for registry in Mono
+too. GNOME does have a registry like mechanism for configuration. But Even
+if gnome has a configuration system similar to the registry, the keys will
+not be equal, so you will probably end up having to do some runtime
+detection, and depending on this load an assembly that has your
+platform-specific hacks.
+
+http://www.mono-project.com/FAQ:_Technical

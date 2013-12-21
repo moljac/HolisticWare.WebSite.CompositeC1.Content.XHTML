@@ -1,0 +1,35 @@
+> I have been developing applications for linux/windows by using mono and gtk-sharp. 
+I wonder if there is a way to get these apps. on android by using monodroid or do i have 
+to use android.sdk?
+
+Short version: No, you should use Mono for Android or the Android SDK.
+
+Long version: There is no GTK+ backend to target Android (afaik). Even if there were, 
+you'd likely need to redo all your layout.
+
+The only way to make this work would be to run an X11 server on the device, and use the 
+normal GTK+ X11 backend. (There _are_ X11 servers on the Android store, so this isn't 
+impossible... Possibly insane, or a _great_ April Fools hack [0], but not impossible...)
+
+There are two problems with this approach:
+
+1. The Mono for Android assemblies are not fully compatible with desktop .NET. They're a 
+superset of Silverlight, so large swaths of classes are missing (e.g. System.Configuration). 
+It may not be possible to run a Gtk# app unchanged w/o recompiling all of Gtk# and your application.
+
+2. A desktop app + X11 will be a _terrible_ user experience.
+
+The sane approach is to separate out your app logic from your GUI code (MVC/MVVM/etc. 
+come in handy here), "port" your core app logic onto Mono for Android, and write a new 
+GUI using Android-native types. This is the approach take by apps such as 
+TouchDraw, iCircuit, and Rdio:
+
+	http://praeclarum.org/post/15789866032/icircuit-code-reuse-part-trois
+	http://blog.xamarin.com/2012/11/27/touchdraw-for-android-now-available/
+
+ - Jon
+
+[0]: http://tech.slashdot.org/story/03/08/26/2042206/gtk-tty-port
+
+Pity the screenshots & source are no longer compatible; it was a GTK+ 2.0 backend for 
+curses support, allowing you to run GTK+ apps on a console w/o a framebuffer or X11.

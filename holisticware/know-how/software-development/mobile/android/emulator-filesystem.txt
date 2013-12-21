@@ -1,0 +1,29 @@
+Emulator 
+
+Wipe data
+	emulator -wipe-data
+	Start Avd =/ Check Wipe User Data
+
+	ADBNAME=MonoForAndroid.x86.API-10-v.2.3.3
+	%USERPROFILE%\.android\avd\ADBNAME.avd\
+	
+	
+	%USERPROFILE%\.android\avd
+
+Filesystem Explorer
+
+	http://developer.android.com/tools/debugging/ddms.html
+
+	%PROGRAMFILES%\Android\android-sdk\
+			tools\
+
+	ddms
+		Device +/ File Explorer +/ 
+	
+File apk
+	Package
+		/data/app/PackageName.apk
+	Files
+		/data/data/PACKAGENAME/chache
+		/data/data/PACKAGENAME/files
+		

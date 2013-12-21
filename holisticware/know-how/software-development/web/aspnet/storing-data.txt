@@ -1,0 +1,69 @@
+session
+	if user based 
+cacjhe
+	If site based
+	
+	
+	For Site Based data, we can use Application object also then question arise 
+	when should we use Application object and When should we use Cache? 
+	
+	
+http://stackoverflow.com/questions/326675/httpruntime-cache-vs-application 
+Just keep in mind to lock the object when update it. 
+Some business rules may require you to lock the object when using it as well. 
+As mentioned in the above URL, static variable is also an option. 
+
+
+Cache or Session to store data. It depends on the type of data, as Lynn Suggested. It also depends on the type of Session you want to use (In Proc, State, SQL), which is closely related to your needs.
+ So, i believe you should focus more on the architecture you are trying to set up.
+ If you need to store data that is going to be application specific, you might want to go for Cache. If you want to use data that are user specific, use Session.
+ But then again, it really depends on what you are trying to do. 
+
+ 
+ 
+ Cache: Prefer cache if you meet one of the following conditions - 
+1. To store application specific data 
+2. Need to set any time expiration policy 
+3. Need to set any dependency like file or SQL dependency 
+
+Session: Prefer session if you meet one of the following conditions - 
+1. To store user specific data 
+2. Life of data is just across multiple page requests 
+
+
+Unless you know the specifics on how the data is being used and how often it changes use session...be careful that the ease of use of session object doesn't hide how your page is consuming data or how often that data needs to change
+
+
+
+
+
+
+For silverlight is a plugin, so you can create a static class for saving information.
+ 
+To share some value between pages, you can use the code below into App.xaml.cs:
+ 
+private static Dictionary<string, object> session = new Dictionary<string, object>(); 
+public static Dictionary<string, object> Session 
+{ 
+get { return session; } 
+set { session = value; } 
+}
+ 
+Then anywhere you can use the below:
+ 
+App.Session["Empty"] = string.Empty;
+ 
+For ObservableCollection, please refer to the link below:
+ 
+http://stackoverflow.com/questions/5073925/problem-storing-a-list-of-objects-in-isolated-storage
+ 
+
+ 
+ 
+ 
+ There is no reason for me to invent a good answer. i think that the answer to this post explains it very well: http://stackoverflow.com/questions/553185/cache-vs-session-vs-cookies
+ 
+ 
+ 
+ 
+ They serve 2 completely different purposes. Session should only be used to store user-specific data. Putting user-specific data into the Cache is a big security risk. The Cache should only contain site-based specific data that is not related to any specific user. Putting site-based data into Session is not a security risk but is a waste of memory

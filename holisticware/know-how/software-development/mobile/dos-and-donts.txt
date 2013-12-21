@@ -1,0 +1,65 @@
+App dos and donts 
+
+IS YOUR APP ABOVE AVERAGE? 7 DOS OF MOBILE APPLICATION DEVELOPMENT 
+POSTED BY VISHAL GUMBER AUG 13 2013 These days, almost every small and 
+large business has started developing a mobile app for itself, so that 
+they can help customers to connect with their favorite brands and 
+services on the go. 
+
+However, not all apps present in the market are great. Have you ever 
+wondered why? This is because great mobile apps have some specific 
+features that make people fall in love with them. 
+
+So, without much ado, here are the 7 must dos of mobile app development 
+
+1. Simple Utility 
+
+The app’s first job is to fulfill the purpose for which it has been 
+designed. And until and unless that happens, there is no point in trying 
+to convince people to use it. Keep it simple, and focus solely on 
+utility and usability, making it efficient in it’s performance. 
+
+Is your app getting user love Is your app getting enough love? Image 
+Source 
+
+2. Customization 
+
+The app must give users scope for customization and personalization, 
+such that they feel connected to it and the brand in their own way. This 
+also increases their interest in using the app regularly. 
+
+3. Feedback Option 
+
+The app must feature some way in which the user can send feedback or 
+report complaints. The idea is to build loyalty by making your users 
+feel that their opinions matter. 
+
+4. App-Device Compatibility 
+
+There is no point in having a great app if it does not function on the 
+user’s device. Customization for different platforms is therefore 
+essential. 
+
+5. Constant Improvement 
+
+Users like it when the app that are constantly updated with new 
+features. Make sure you keep giving them this dose of happiness every 
+now and then. 
+
+6. Include Social Media 
+
+If there is one thing that everyone is hooked to these days, its social 
+media websites. The ease of logging into apps with your social media 
+profiles definitely adds value, and makes your sharing experience easy. 
+
+7. Offline Functions 
+
+It is important for the app to be equally useful, even when the user is 
+not able to connect to the Internet. The app should have the ability to 
+store or display information that the user viewed last, so that he can 
+save it and view quickly even without a net connection. 
+
+So, if you are thinking of launching a new business app, or want to 
+improve your already existing one, then make sure you include these 
+features. Good Luck! 
+

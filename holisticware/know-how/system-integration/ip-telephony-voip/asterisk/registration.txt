@@ -1,0 +1,139 @@
+Registration
+
+Phones cannot register when internet goes down
+
+Check (or set) srvlookup=no in sip.conf.
+ 
+Are you running a DNS proxy internally? Or are you depending on an external DNS server
+to allow the phones to look up the FQDN of your PBX?
+
+
+
+tried before setting srvlookup=no in sip.conf but with no result.
+
+* Michel, the phones are using the fixed internal IP address of my PBX server. Not a FQDN.
+
+
+Does your PBX have a public address? What is the default route for your network?
+
+
+Give me the sip show peers while connected
+
+Name/username Host Dyn Nat ACL Port Status 
+1000/1000 192.168.15.118 D N A 5060 OK (178 ms) 
+1001/1001 192.168.15.120 D N A 5060 OK (178 ms) 
+1002/1002 192.168.15.117 D N A 5060 OK (179 ms)
+
+
+Michel my PBX does not have a public address. I do have a fixed external IP that I can redirect to my server. I have different inboud and outbound routes, mainly an E1 trunk that is not affected by the internet connection.
+
+
+
+our internal phones are connected to your internal PBX with about 178ms. I find that odd. What latency and rrt you get when you ping the internal IPs of the phones from the local PBX? 
+
+If all devices are on the same network - then the internet shouldn't affect anything. Give us the IP of the PBX, it's subnet, gateway and the same of the phones. What phones are you using?
+
+
+
+
+he sip phones are Intelbras Voiper, but the same happens with the softphones. 
+
+[root@server2 ~]# ping 192.168.15.121 
+PING 192.168.15.121 (192.168.15.121) 56(84) bytes of data. 
+64 bytes from 192.168.15.121: icmp_seq=1 ttl=255 time=0.504 ms 
+64 bytes from 192.168.15.121: icmp_seq=2 ttl=255 time=0.512 ms 
+64 bytes from 192.168.15.121: icmp_seq=3 ttl=255 time=0.487 ms 
+64 bytes from 192.168.15.121: icmp_seq=4 ttl=255 time=0.502 ms 
+64 bytes from 192.168.15.121: icmp_seq=5 ttl=255 time=0.489 ms 
+64 bytes from 192.168.15.121: icmp_seq=6 ttl=255 time=0.507 ms 
+64 bytes from 192.168.15.121: icmp_seq=7 ttl=255 time=0.535 ms 
+64 bytes from 192.168.15.121: icmp_seq=8 ttl=255 time=0.509 ms 
+64 bytes from 192.168.15.121: icmp_seq=9 ttl=255 time=0.481 ms 
+64 bytes from 192.168.15.121: icmp_seq=10 ttl=255 time=0.507 ms 
+64 bytes from 192.168.15.121: icmp_seq=11 ttl=255 time=0.536 ms 
+
+--- 192.168.15.121 ping statistics --- 
+11 packets transmitted, 11 received, 0% packet loss, time 10007ms 
+rtt min/avg/max/mdev = 0.481/0.506/0.536/0.023 ms 
+
+
+[root@server2 ~]# route -n 
+Tabela de Roteamento IP do Kernel 
+Destino Roteador MáscaraGen. Opções Métrica Ref Uso Iface 
+192.168.15.0 0.0.0.0 255.255.255.0 U 0 0 0 eth0 
+0.0.0.0 192.168.15.1 0.0.0.0 UG 0 0 0 eth0 
+[root@server2 ~]# route 
+Tabela de Roteamento IP do Kernel 
+Destino Roteador MáscaraGen. Opções Métrica Ref Uso Iface 
+192.168.15.0 * 255.255.255.0 U 0 0 0 eth0 
+default 192.168.15.1 0.0.0.0 UG 0 0 0 eth0 
+[root@server2 ~]# 
+___________ 
+IPPhone 
+IP: 192.168.15.121	
+M�scara de subrede: 255.255.255.0	
+Gateway: 192.168.15.1
+
+
+
+
+
+That looks good. Please provide a "sip show peers" output showing 192.168.15.121 connected to the PBX.
+
+
+
+
+
+1008/1008 192.168.15.121 D N A 5060 OK (179 ms)
+
+
+
+Is the phone at 1008 (192.168.15.121) on the same physical network (LAN) as the PBX? 
+
+Do a "sip show peer 1008" 
+
+Also, do a "traceroute 192.168.15.121" from the PBX and give us your output. I still don't understand why a phone that is on the same network will be connecting at 179ms. My phone is connected to my PBX in the cloud - close to 1000 miles apart and over 10 hops but I have a 121ms peer connection?
+
+
+ traceroute 192.168.15.121 
+traceroute to 192.168.15.121 (192.168.15.121), 30 hops max, 40 byte packets 
+1 192.168.15.121 (192.168.15.121) 6.305 ms 6.305 ms 6.310 ms 
+
+I also have a softphone on my iphone connecting at 5ms but when internet goes down it also loses connection with the server.
+
+
+
+
+
+If all the devices are on the LAN, the internet going down shouldn't affect them. It seems to be more of a networking issue than with Asterisk
+
+
+It's no Asterisk problem. reconfigure your network.
+
+
+
+
+
+
+
+Thi is an Asterisk Know issue my friend, here is the reference 
+
+https://issues.asterisk.org/jira/browse/ASTERISK-21378 . avoid to use DNS name for the registration of your trunk and try to use the IP address
+
+
+
+
+ try avoiding DNS name of your trunk; felt issues in past with that
+ 
+ Is his issue resolved?
+ 
+ 
+ 
+ 
+  Not yet. I do have voip trunks that use DNS. I will replace with their corresponding ip address and let you know.
+  
+  
+  
+  
+  
+  ISSUE RESOLVED! Thank you all, specially @Ambiorix and @Nikhil for providing a simple fix. I just replaced the DNS for its respective IP# on the "host" and "fromdomain" settings of my voip trunks and the problem is gone.

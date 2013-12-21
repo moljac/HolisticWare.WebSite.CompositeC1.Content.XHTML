@@ -1,0 +1,276 @@
+<!--
+C1 generated!!
+<title>Cisco 79xx @ Asterisk</title>
+<meta name="Description" content="Cisco 79xx @ Asterisk" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function xmlns:f="http://www.composite.net/ns/function/1.0" name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords">
+		<f:param name="KeywordsAdditional" value="Cisco, 79xx, Asterisk">
+		</f:param>
+		<f:param name="AuthorsAdditional" value="idikic, estrahinja">
+		</f:param>
+		<f:param name="Date" value="2011-02-20">
+		</f:param>
+		<f:param name="Language" value="en">
+		</f:param>
+	</f:function>
+	<h1><a id="">Cisco 79xx @ Asterisk</a></h1>
+	<!-- ================================================================== -->
+	<p>
+	In brief, this is explanation how to setup very common Cisco 7940 phone on 
+	Asterisk based IP PBX
+	</p>
+	<p>
+	Follow these steps:
+	</p>
+	<ol>
+		<li>
+		visit <a href="http://www.voip-info.org">VoIP-Info.org</a>
+		</li>
+		<li>
+		Flash new firmware
+		</li>
+		<li>
+		Edit config files to match your PBX and desired phone settings
+		</li>
+	</ol>
+
+
+	<h2><a id="">Prerequisites</a></h2>
+	<ol>
+		<li>
+		IP PBX [Asterisk based IP PBX Elastix, Trixbox... with extension already prepared
+		for 7940 phone]
+		</li>
+		<li>
+		TFTP on your network (PBX will do the job)
+		</li>
+		<li>
+		DHCP server (also PBX will do the job)
+		</li>
+		<li>
+		Putty and winSCP are system integrator's friends
+		</li>
+		<li>
+		Cisco 7940 phone :) on POE switch or AC adapter
+		</li>
+		<li>
+		Cisco SIP firmware ( cisco site = pay or google search on ru sites and search
+		from dusk til dawn :) )
+		</li>
+	</ol>
+	<p>
+	First of all there are many firmware versions available. We used 8-12-00, and for
+	now it is OK. 
+	On 
+	<a href="http://www.voip-info.org/search_results/?q=Asterisk%20phone%20cisco%2079xx">
+	voip-info.org
+	</a> 
+	there is overview of every firmware revision with pros and cons.
+	</p>
+	<p>
+	Files needed for this guide:
+	</p>
+	<ol>
+		<li>
+		download SIP firmware (eg 8-12-00)
+		</li>
+		<li>
+		download SIP firmware (eg 8-12-00)
+		</li>
+		<li>
+		extract it to P0S3-8-12-00
+		</li>
+		<li>
+		necessary files;
+			<ul>
+				<li>
+				<a href="~/mm/Know-How/System-Integration/VoIP/SIPDefault.cnf">
+				SipDefault.cnf
+				</a> 
+				- default settings for all phones
+				</li>
+				<li>
+				<a href="~/mm/Know-How/System-Integration/VoIP/SIP0019E8AFAE5A.cnf">
+				SIPmac_addr_of_the_phone.cnf
+				- specific settings for particular phone (case sensitive!!)
+				</a>
+				</li>
+				<li>
+				P0S3-08-2-00.sb2
+				</li>
+				<li>
+				P0S3-08-2-00.sbn
+				</li>
+				<li>
+				P0S3-08-2-00.loads
+				</li>
+				<li>
+				P0S3-08-2-00.bin
+				</li>
+				<li>
+				OS79XX.TXT - revision of fw phone is using (POS3 files are fw files)
+				</li>
+				<li>
+				CTLSEPmac_Addr.tlv
+				</li>
+				<li>
+				SEPmac.cnf.xml
+				</li>
+				<li>
+				MGCmac.cnf
+				</li>
+				<li>
+				Default.xml
+				</li>
+				<li>
+				 <a href="~/mm/Know-How/System-Integration/VoIP/dialplan.xml">
+				 dialplan.xml
+				 </a>
+				</li>
+				<li>
+				Ringlist.dat
+				</li>
+			</ul>
+		</li>
+	</ol>
+	<p>
+	All the magic is happening in SIPmac, SIPDefault for phone config and firmware files
+	for flashing.
+	</p>
+	<ol>
+		<li>
+		Open OS79XX.TXT, check first line, it must be firmware revision.
+		In this case it is &quot;P003-8-12-00&quot; without quotas.
+		</li>
+		<li>
+		Open SipDefault.cnf and configure:
+			<ol>
+				<li>
+				image_version: &quot;POS3-8-12-00&quot; ;in case of that fw version
+				</li>
+				<li>
+				proxy1_address: &quot;IP_of_your_SIP_proxy&quot; ; IP pbx addr
+				</li>
+				<li>
+				proxy_register:1 ;must be 1, otherwise phone won't register
+				</li>
+				<li>
+				tftp_cfg_dir:&quot;./cisco_phone&quot; ; directory in which u put 
+				SIPmac.cnf files
+				</li>
+				<li>
+				whenever wanting to reegister phone to PBX, put IP of PBX. 
+				Also, u have many other settings for buttons, logo...
+				be free to explore.
+				</li>
+			</ol>
+		</li>
+		<li>
+		Open SIPmac file and edit phone settings to match your extension settings on PBX:
+			<ol>
+				<li>
+				image_version: P0S3-8-12-00 ; again must be correct fw version like before
+				</li>
+				<li>
+				phone_label: &quot;MY_CISCO_Phone&quot; ; TEXT in top right corner of phone
+				display
+				</li>
+				<li>
+				line1_displayname: &quot;101&quot; ; name for first line next to line 1 button
+				on the phone
+				</li>
+				<li>
+				line1_shortname:&quot;101&quot;
+				</li>
+				<li>
+				line1_name: 101
+				</li>
+				<li>
+				line1_authname: &quot;101&quot; ; must match with desired PBX extension
+				</li>
+				<li>
+				line1_password: &quot;101&quot; ; must match with desired PBX extension
+				</li>
+				<li>
+				</li>
+			</ol>
+		</li>
+		<li>
+		All the same for another line/extension or leave it blank/UNPROVISIONED
+		</li>
+		<li>
+		Edit your DHCP server and add 7940 phone in
+		</li>
+		<li>
+		Copy files in the root of TFTP, be careful with path for SIPmac.cnf files which
+		is specified inside SIPDefault.cnf
+			<ol>
+				 if you are using other files such as
+				<li>
+				CTLSEP000AB79AD859.tlv
+				</li>
+				<li>
+				SEP000AB79AD859.cnf.xml
+				</li>
+				<li>
+				MGC000AB79AD859.cnf
+				</li>
+				<li>
+				<a href="~/mm/Know-How/System-Integration/VoIP/XMLDefault.cnf.xml">
+				XMLDefault.cnf.xml
+				</a>
+				</li>
+			</ol>
+		</li>
+		<li>
+		Files also must be copied into the same folder with SIPmac.cnf. 
+		If not copied, flashing will end with dead loop known as 
+		<em>&quot;Configuring VLAN&quot;</em>.
+		</li>
+		<li>
+		After copying do a double check that everything is OK with file locations and config
+		files.
+		</li>
+		<li>
+		Prepare a SIP extension in elastix for 7940 with minor difference than with other
+		extensions:
+			<ol>
+				<li>
+				<em>set &quot;nat=no&quot;, &quot;qualify=no&quot;</em>
+				</li>
+			</ol>
+		</li>
+		<li>
+		Do a factory reset on the phone:
+			<ol>
+				<li>
+				While powering up press # and wait for few seconds until LED's are blinking, then
+				</li>
+				<li>
+				enter 123456789*0# and after question about saving network parameters chose &quot;no&quot;
+				</li>
+			</ol>
+		</li>
+		<li>
+		Take a deep breath, watch out your tftp log to see if the phone is pulling files
+		(also DHCP for IP addres).
+		<pre class="hw_code">
+		tail -f /var/log/messages
+		</pre>
+		</li>
+		<li>
+		It can take a two automatic reboot until flashing and configuring is over. 
+		That's all, hope that this writeup didn't miss anything, 
+		if you need help, drop us an email!
+		</li>
+	</ol>		
+	<p>
+	PS: This how to can be a general reference also for 7960 Cisco IP phone.
+	</p>
+</body>
+</html>

@@ -1,0 +1,120 @@
+Implicit and Explicit types (var) 
+
+ personally prefer the explicit approach, since it makes the code cleaner.Internally 
+ I thought that var actually evaluates to the actual type. 
+
+
+
+
+ var should not be confused with VARIANT, _variant_t or interface.
+It is essentially a directive to the compiler to infer the type of the variable from the 
+right-hand side. If the compiler cannot infer the type, then a compile-time error occurs.
+
+From MSDN:
+"Local variables can be given an inferred "type" of var instead of an explicit type. The var 
+keyword instructs the compiler to infer the type of the variable from the expression on the 
+right side of the initialization statement. The inferred type may be a built-in type, an 
+anonymous type, a user-defined type, a type defined in the .NET Framework class library, 
+or any expression" 
+
+
+
+Always use var. There's no reason not to and the compiler will tell you if you have conflicting type issues, which you almost always never will anyway.
+It speeds things up and makes things less error prone while being no less secure due to still strong typing in the compiler. It's a winner. 
+
+
+
+Actually, var does not speed anything up. In fact, using var slows down the compiler as the variable's type must be inferred. There is no difference in run-time performance.
+Posted by Steven Licht 
+
+
+I meant it speeds up coding.
+I'd like to see statistics on how much it slows the compiler down by and how many instances of a 'var' cause a noticeable slow down to confirm your assertion.
+As run-time performance is obviously not affected then it makes sense to use it :) 
+
+
+
+
+ think there should be no noticeable compiler slow down. In any cases, the right hand side expression type must be inferred. Without "var", declared type must be checked against it (potentially dealing with inheritance, implicit conversions...). With "var" the inferred expression can directly be used as for temporaries.
+
+By the way, as there is no major compile time difference, it shouldn't be a pro or cons argument. 
+
+
+
+
+Var defiantly when the type is obvious. As previously stated its easier on the refactoring.
+
+And Resharper is Totally Awesome! I pretty much can't live without it anymore (or at least really really don't want to) 
+
+
+
+
+ see Resharper's preference as justification for using var.
+Given another tool that prefers explicit types, all else being equal,
+would you still use var? 
+
+
+
+
+es, in cases where they type is obvious.
+
+var myVar = someObject; //Not use var since type is unknown by reading
+var myVar = myReturningMethod(); //Not use var since type is unknown by reading
+
+//Use Var, type obvious
+var myVar = new MyObject();
+var myVar = someObject as MyObject;
+var myVar = "someString";
+var myVar = int.Parse("5");
+
+Resharper is not the reason for using var, refactoring ease is the reason. 
+
+
+
+
+
+
+
+
+
+
+DB Connections!!
+
+Firstly, this is counter to ~every MSDN example on using connections, which always scopes the Connection instance:
+
+	// http://msdn.microsoft.com/en-us/library/ff647768.aspx#scalenetchapt12_topic9
+	using (SqlConnection conn = new SqlConnection(connString))
+	{
+		conn.Open();
+		// ...
+	}
+
+This implies that you should instead do:
+
+	static class Database {
+
+		internal static MySqlConnection CreateConnection ()
+		{
+			return new connection ();
+		}
+	}
+
+And narrowly scope your use:
+
+	using (var c = Database.CreateConnection ()) {
+		c.Open ();
+		// ...
+	}
+
+Now, _why_ should you do this? Unfortunately I can't find anything to confirm or deny the following, but this is my recollection from using SQL many years ago...
+
+The reason why is connection-related errors: if (when) you hit a network interruption, the DbConnection instance is unusable afterward, even if the network came back. (Though maybe I needed to .Close() and .Open() to repair the instance? I no longer remember.) I found that the easiest/sanest way to go was to just recreate the Connection instance when needed, and Dispose() of it as soon as possible (relying on lower-level connection pooling if possible).
+
+
+
+
+
+To add to what Jonathan said, trying to reuse the same connection for
+everything can also lead to concurrent access issues, if more than one
+thread accesses the connection at a given time. I've seen such issues when
+using Entity Framework. Besides, creating a new connection is really cheap.

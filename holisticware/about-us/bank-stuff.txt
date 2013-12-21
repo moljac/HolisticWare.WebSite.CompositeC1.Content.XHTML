@@ -1,0 +1,114 @@
+﻿banka
+
+Your local tax ID is the number the tax authority in your country uses to 
+identify tax payers. For example, in the EU, VAT number is a tax ID. 
+AdMob uses industry standard technology to protect the tax information 
+that you send us.
+
+
+Pay via ACH/Wire
+
+	Beneficiary Name:
+	
+	Bank Name:
+	
+	Bank Address:
+	
+	Recipient's Account Number/IBAN:
+		The account number you wish funds to be sent to. Learn more
+		
+	Bank SWIFT Code:
+		A 8 to 11 digit alphanumeric associated with your bank account.
+		
+	
+	
+Pay via PayPal (Is PayPal supported in my country?)
+	PayPal Log-In:
+
+
+
+
+<!--
+
+
+Welcome, 
+
+Puni naziv tvrtke: Kuner-Zagreb d.o.o. za elektroinženjering
+Sjedište tvrtke: Hrvatska, 10430 Samobor, Krležina 11 - pp75
+Adresa skladišta/radione/prodaje: Samoborske Celine bb, 10430 Samobor
+Tvrtka je osnovana 1991. godine i usklađena sa ISO 9001/2000
+MBS: 080121468
+Porezni MB: 3693317
+Odgovorna osoba: direktor tvrtke - Branko Vukić, dipl.el.inž.
+Osnovni ž.r. tvrtke: kod RBA br.2484008-1100200668
+Devizni račun: RBA 700197885826 / SWIFT - RZBHHR2X
+
+Devizni račun: 700100-3607283
+
+Temeljni kapital: 46.000,00 kuna
+
+Član uprave/osnivač: Dr. Ivan Jakopović
+
+
+
+MB: 01119036
+
+Društvo je upisno u registar Trgovačkog suda u Zagrebu
+s matičnim brojem subjekta upisa (MBS) 080003641.
+
+Poslovne banke: Zagrebačka banka, Zagreb
+						   Žiro račun: 2360000-1101235105
+						   Devizni žiro račun: MB: 01119036-000
+														 IBAN: HR8423600001101235105
+														 BIC: ZABAHR2X
+
+						   Varaždinska banka, Varaždin
+						   Žiro račun: 2489004-1131200040
+						   Devizni žiro račun: 70010-1119036
+														 IBAN: HR5824890041131200040
+
+Temeljni kapital društva iznosi 20.000,00 kn i uplaćen je u cijelosti.
+
+Direktor i član uprave: Zrinka Kosovec, direktorica,
+									zastupa društvo pojedinačno i samostalno
+									Zvonko Labaš, prokurist,
+									zastupa društvo pojedinačno i samostalno
+
+
+
+Podaci o tvrtki
+Tvrtka - puni naziv:
+MULTIMEDIALNI KOMPJUTERI proizvodnja informatičke opreme i informatički inžinjering, društvo s ograničenom odgovornošću
+
+Registarski sud:
+Trgovački sud u Zagrebu. Subjekt je upisan kod Trgovačkog suda u Zagrebu pod reg.ul.br. 1-37417
+MBS: 080080026
+
+Skraćeno ime tvrtke:
+MULTIMEDIALNI KOMPJUTERI d.o.o.
+
+Sjedište:
+Zagreb, Poljana J. Brunšmida 5
+
+Pravni oblik:
+društvo s ograničenom odgovornošću
+
+Poslovna banka i žiro-račun:
+Zagrebačka banka d.d., Zagreb – Savska 60
+
+Žiro-račun:
+2360000-1101431099
+
+Devizni račun:
+Zagrebačka Banka DD, Paromlinska 2, 10000 Zagreb
+SWIFT ZABAHRXX
+IBAN KOD: HR8123600001101431099
+
+Temeljni kapital:
+20.000,00 HRK (kuna) - uplaćn u cjelosti
+
+Direktor i član uprave
+Direktor i član uprave je J. Dropulić , zastupa društvo pojedinačno i samostalno
+
+
+-->

@@ -1,0 +1,462 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>External Tools</title>
+Description = all keywords + extra text
+<meta name="Description" content="External Tools in Visual Studio, tips, tricks howtos" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: external-tools
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="external, tools, visual studio" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">External Tools</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<!-- ================================================================== -->
+	<h2><a id="A2">Intro</a></h2>
+	<p>
+		External tools are used for integration with other tools not directly
+		bound with Visual Studio (external appliactions, shells etc).
+		<br />
+		External tools can be exported and/or imported with other Visual Studio 
+		settings.
+	</p>
+	<!-- ================================================================== -->
+	<h2><a id="">Sample</a></h2>
+	<p>
+		Integration of UI WYSIWYG Designer tools for Android:
+		<br />
+		DroidDraw:
+		<br />
+		<img
+			alt="MonoDevelop External Tools - DroidDraw integration"
+			title="MonoDevelop External Tools - DroidDraw integration"
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/visual-studio/external-tools/droiddraw.png"
+			height="465" width="706"
+		/>
+		<br />
+		<a href="/HolisticWare/Know-How/development/Mobile/android/ui-design-tools.aspx">
+			DroidDraw stuff (jar): /HolisticWare/Know-How/development/Mobile/android/ui-design-tools.aspx 
+		</a>
+		<br />
+		Eclipse:
+		<br />
+		<img
+			alt="MonoDevelop External Tools - Eclipse integration"
+			title="MonoDevelop External Tools - Eclipse integration"
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/visual-studio/external-tools/eclipse.png"
+			height="465" width="706"
+		/>
+		<br />
+		<a href="">
+		</a>
+	</p>
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Persisting</a></h2>
+	<p>
+		Persisting external tools can be made through:
+	</p>
+	<ul>
+		<li>
+			registry entries (keys), or
+		</li>
+		<li>
+			Visual Studio settings file *.vssettings. 
+		</li>
+	</ul>
+	<p>
+		This is usually useful to avoid tedious typing in GUI after installations 
+		and/or for settings sharing by teams...
+	</p>
+
+	<!-- ................................................................... -->
+	<h3><a id="">Visual Studio Settings files (vssettings)</a></h3>
+	<p>
+		Visual Studio Settings (Tools / Import and Export Settings)
+		<br />
+		Default Location:
+		<pre class="hw_code">
+		%USERPROFILE%\Documents\Visual Studio 2010\Settings\*.vssettings
+		</pre>
+		<ul>
+			<li>
+				Human readable - XML
+			</li>
+			<li>
+				Additive/Accumulative
+				<br />
+				Partial files only (meaning only subsets of  can be imported back 
+				<br />
+				(sample here SettingsExternalToolsOnly.partial.vssettings with Visual Studio
+				External Tools put it in Default Location):
+				<pre class="hw_code">
+&lt;UserSettings&gt;
+	&lt;ApplicationIdentity version=&quot;10.0&quot;/&gt;
+
+	&lt;Category name=&quot;Environment_Group&quot; RegisteredName=&quot;Environment_Group&quot;&gt;
+		&lt;Category name=&quot;Environment_ExternalTools&quot; Category=&quot;{E8FAE9E8-FBA2-4474-B134-AB0FFCFB291D}&quot; Package=&quot;{DA9FB551-C724-11d0-AE1F-00A0C90FFFC3}&quot; RegisteredName=&quot;Environment_ExternalTools&quot; PackageName=&quot;Visual Studio Environment Package&quot;&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.Command&quot;&gt;cmd.exe&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.Arguments&quot;&gt;%comspec% /k &quot;&quot;C:\Program Files\Microsoft Visual Studio 10.0\VC\vcvarsall.bat&quot;&quot; x86&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.InitialDirectory&quot;&gt;$(ItemDir)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.SourceKeyName&quot;/&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.UseOutputWindow&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.PromptForArguments&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.CloseOnExit&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.IsGUIapp&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.SaveAllDocs&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.UseTaskList&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.Unicode&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.Package&quot;&gt;{00000000-0000-0000-0000-000000000000}&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Visual Studio Command Prompt.NameID&quot;&gt;0&lt;/PropertyValue&gt;
+			
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.Command&quot;&gt;C:\bin\android\droiddraw\droiddraw.exe&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.Arguments&quot;&gt;$(ItemPath)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.InitialDirectory&quot;&gt;$(ItemDir)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.SourceKeyName&quot;/&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.UseOutputWindow&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.PromptForArguments&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.CloseOnExit&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.IsGUIapp&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.SaveAllDocs&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.UseTaskList&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.Unicode&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.Package&quot;&gt;{00000000-0000-0000-0000-000000000000}&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.NameID&quot;&gt;0&lt;/PropertyValue&gt;
+			
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.Command&quot;&gt;C:\bin\eclipse\eclipse.exe&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.Arguments&quot;&gt;--launcher.openFile $(ItemPath)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.InitialDirectory&quot;&gt;$(ItemDir)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.SourceKeyName&quot;/&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.UseOutputWindow&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.PromptForArguments&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.CloseOnExit&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.IsGUIapp&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.SaveAllDocs&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.UseTaskList&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.Unicode&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.Package&quot;&gt;{00000000-0000-0000-0000-000000000000}&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.NameID&quot;&gt;0&lt;/PropertyValue&gt;
+			
+			&lt;!-- 
+				These original are needed too or they will be lost 
+			--&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.Command&quot;&gt;%vsspv_windows_sdk_dir%\bin\NETFX 4.0 Tools\guidgen.exe&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.Arguments&quot;/&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.InitialDirectory&quot;&gt;%vsspv_windows_sdk_dir%\bin\NETFX 4.0 Tools\&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.SourceKeyName&quot;&gt;Create GUID&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.UseOutputWindow&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.PromptForArguments&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.CloseOnExit&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.IsGUIapp&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.SaveAllDocs&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.UseTaskList&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.Unicode&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.Package&quot;&gt;{DA9FB551-C724-11D0-AE1F-00A0C90FFFC3}&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Create &amp;amp;GUID.NameID&quot;&gt;14453&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.Command&quot;&gt;%vsspv_vs_install_directory%\PreEmptive Solutions\Dotfuscator Community Edition\Dotfuscator.exe&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.Arguments&quot;/&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.InitialDirectory&quot;&gt;$(TargetDir)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.SourceKeyName&quot;&gt;Dot&amp;amp;fuscator Software Services&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.UseOutputWindow&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.PromptForArguments&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.CloseOnExit&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.IsGUIapp&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.SaveAllDocs&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.UseTaskList&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.Unicode&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.Package&quot;&gt;{00000000-0000-0000-0000-000000000000}&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Dot&amp;amp;fuscator Software Services.NameID&quot;&gt;0&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.Command&quot;&gt;C:\Program Files\Eazfuscator.NET\Eazfuscator.NET Assistant.exe&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.Arguments&quot;/&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.InitialDirectory&quot;&gt;C:\Program Files\Eazfuscator.NET&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.SourceKeyName&quot;&gt;Ea&amp;amp;zfuscator.NET Assistant&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.UseOutputWindow&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.PromptForArguments&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.CloseOnExit&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.IsGUIapp&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.SaveAllDocs&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.UseTaskList&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.Unicode&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.Package&quot;&gt;{00000000-0000-0000-0000-000000000000}&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Ea&amp;amp;zfuscator.NET Assistant.NameID&quot;&gt;0&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.Command&quot;&gt;%vsspv_vs_install_directory%\Common7\Tools\errlook.exe&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.Arguments&quot;/&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.InitialDirectory&quot;&gt;$(TargetDir)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.SourceKeyName&quot;&gt;Error Loo&amp;amp;kup&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.UseOutputWindow&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.PromptForArguments&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.CloseOnExit&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.IsGUIapp&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.SaveAllDocs&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.UseTaskList&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.Unicode&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.Package&quot;&gt;{1B027A40-8F43-11D0-8D11-00A0C91BC942}&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Error Loo&amp;amp;kup.NameID&quot;&gt;1301&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.Command&quot;&gt;%vsspv_vs_install_directory%\Common7\Tools\AtlTraceTool8.exe&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.Arguments&quot;/&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.InitialDirectory&quot;&gt;%vsspv_vs_install_directory%\Common7\Tools\&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.SourceKeyName&quot;&gt;MFC/ATL &amp;amp;Trace Tool&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.UseOutputWindow&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.PromptForArguments&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.CloseOnExit&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.IsGUIapp&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.SaveAllDocs&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.UseTaskList&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.Unicode&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.Package&quot;&gt;{F1C25864-3097-11D2-A5C5-00C04F7968B4}&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ATL/MFC &amp;amp;Trace Tool.NameID&quot;&gt;10052&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.Command&quot;&gt;%vsspv_vs_install_directory%\Common7\Tools\spyxx.exe&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.Arguments&quot;/&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.InitialDirectory&quot;&gt;%vsspv_vs_install_directory%\Common7\Tools\&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.SourceKeyName&quot;&gt;Sp&amp;amp;y++&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.UseOutputWindow&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.PromptForArguments&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.CloseOnExit&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.IsGUIapp&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.SaveAllDocs&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.UseTaskList&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.Unicode&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.Package&quot;&gt;{F1C25864-3097-11D2-A5C5-00C04F7968B4}&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Spy&amp;amp;++.NameID&quot;&gt;10051&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.Command&quot;&gt;c:\bin\ILspy\ILSpy.exe&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.Arguments&quot;&gt;$(TargetPath)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.InitialDirectory&quot;&gt;$(TargetDir)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.SourceKeyName&quot;/&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.UseOutputWindow&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.PromptForArguments&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.CloseOnExit&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.IsGUIapp&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.SaveAllDocs&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.UseTaskList&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.Unicode&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.Package&quot;&gt;{00000000-0000-0000-0000-000000000000}&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;ILspy Reflector.NameID&quot;&gt;0&lt;/PropertyValue&gt;
+			
+			&lt;!--
+				This defines order in Menu!!!
+			--&gt;
+			&lt;PropertyValue name=&quot;ToolNames&quot;&gt;Visual Studio Command Prompt, Mono4Android DroidDraw, Mono4Android Eclipse, Create &amp;amp;GUID, Dot&amp;amp;fuscator Software Services, Ea&amp;amp;zfuscator.NET Assistant, Error Loo&amp;amp;kup, ATL/MFC &amp;amp;Trace Tool, Spy&amp;amp;++, ILspy Reflector&lt;/PropertyValue&gt;
+		&lt;/Category&gt;
+	&lt;/Category&gt;
+&lt;/UserSettings&gt;
+				</pre>
+			</li>
+		</ul>
+	</p>
+	<!-- ................................................................... -->
+	<h3><a id="A1">Registry</a></h3>
+	<ul>
+		<li>
+			Registry keys
+			<ul>
+				<li>
+					Visual Studio 2005
+					<pre class="hw_code">
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\8.0\External Tools\
+					</pre>
+				</li>
+				<li>
+					Visual Studio 2008
+					<pre class="hw_code">
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\9.0\External Tools\
+					</pre>
+				</li>
+				<li>
+					Visual Studio 2010
+					<pre class="hw_code">
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\External Tools\
+					</pre>
+				</li>
+			</ul>
+		</li>        
+	</ul>
+	<p>
+		Add keys for example:
+	</p>
+	<pre class="hw_code">
+“ToolArg”=”$(ItemPath)”
+“ToolOpt”=dword:00000008
+“ToolCmd”=”notepad.exe”
+“ToolDir”=”$(TargetDir)”
+	</pre>
+	<p>
+		Batch script to backup Registry Entries regarding External Tools:
+	</p>
+	<pre class="hw_code">
+set FILENAME=.\exported_machine.reg
+set KEY="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\External Tools"
+
+regedit.exe ^
+	/e %FILENAME% ^
+	%KEY%
+
+REG EXPORT ^
+	%KEY% ^
+	%FILENAME%
+	
+set FILENAME=.\exported_user.reg
+set KEY="HKEY_CURRENT_USER\SOFTWARE\Microsoft\VisualStudio\10.0\External Tools"
+
+regedit.exe ^
+	/e %FILENAME% ^
+	%KEY%
+
+REG EXPORT ^
+	%KEY% ^
+	%FILENAME%
+	</pre>
+	<p>
+		Generated sample files:
+	</p>
+	<ul>
+		<li>
+			HKLM
+			<pre class="hw_code">
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\External Tools]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\External Tools\Create GUID]
+&quot;ToolCmd&quot;=&quot;c:\\Program Files\\Microsoft SDKs\\Windows\\v7.0A\\bin\\NETFX 4.0 Tools\\guidgen.exe&quot;
+&quot;ToolArg&quot;=&quot;&quot;
+&quot;ToolDir&quot;=&quot;c:\\Program Files\\Microsoft SDKs\\Windows\\v7.0A\\bin\\NETFX 4.0 Tools\\&quot;
+&quot;ToolOpt&quot;=dword:00000001
+&quot;ToolTitlePkg&quot;=&quot;{DA9FB551-C724-11D0-AE1F-00A0C90FFFC3}&quot;
+&quot;ToolTitleResID&quot;=dword:00003875
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\External Tools\Dot&amp;fuscator Software Services]
+&quot;ToolDir&quot;=&quot;$(TargetDir)&quot;
+&quot;ToolCmd&quot;=&quot;C:\\Program Files\\Microsoft Visual Studio 10.0\\PreEmptive Solutions\\Dotfuscator Community Edition\\Dotfuscator.exe&quot;
+&quot;ToolArg&quot;=&quot;&quot;
+&quot;ToolOpt&quot;=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\External Tools\Ea&amp;zfuscator.NET Assistant]
+&quot;ToolArg&quot;=&quot;&quot;
+&quot;ToolCmd&quot;=&quot;C:\\Program Files\\Eazfuscator.NET\\Eazfuscator.NET Assistant.exe&quot;
+&quot;ToolDir&quot;=&quot;C:\\Program Files\\Eazfuscator.NET&quot;
+&quot;ToolOpt&quot;=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\External Tools\Error Loo&amp;kup]
+&quot;ToolCmd&quot;=&quot;c:\\Program Files\\Microsoft Visual Studio 10.0\\Common7\\Tools\\errlook.exe&quot;
+&quot;ToolArg&quot;=&quot;&quot;
+&quot;ToolDir&quot;=&quot;$(TargetDir)&quot;
+&quot;ToolOpt&quot;=dword:00000001
+&quot;ToolTitlePkg&quot;=&quot;{1B027A40-8F43-11D0-8D11-00A0C91BC942}&quot;
+&quot;ToolTitleResID&quot;=dword:00000515
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\External Tools\MFC/ATL &amp;Trace Tool]
+&quot;ToolCmd&quot;=&quot;c:\\Program Files\\Microsoft Visual Studio 10.0\\Common7\\Tools\\AtlTraceTool8.exe&quot;
+&quot;ToolArg&quot;=&quot;&quot;
+&quot;ToolDir&quot;=&quot;c:\\Program Files\\Microsoft Visual Studio 10.0\\Common7\\Tools\\&quot;
+&quot;ToolOpt&quot;=dword:00000001
+&quot;ToolTitlePkg&quot;=&quot;{F1C25864-3097-11D2-A5C5-00C04F7968B4}&quot;
+&quot;ToolTitleResID&quot;=dword:00002744
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\External Tools\Sp&amp;y++]
+&quot;ToolCmd&quot;=&quot;c:\\Program Files\\Microsoft Visual Studio 10.0\\Common7\\Tools\\spyxx.exe&quot;
+&quot;ToolArg&quot;=&quot;&quot;
+&quot;ToolDir&quot;=&quot;c:\\Program Files\\Microsoft Visual Studio 10.0\\Common7\\Tools\\&quot;
+&quot;ToolOpt&quot;=dword:00000001
+&quot;ToolTitlePkg&quot;=&quot;{F1C25864-3097-11D2-A5C5-00C04F7968B4}&quot;
+&quot;ToolTitleResID&quot;=dword:00002743
+			</pre>
+		</li>
+		<li>
+			HKCU
+			<pre class="hw_code">
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\VisualStudio\10.0\External Tools]
+&quot;ToolNumKeys&quot;=dword:0000000a
+&quot;LastMerge&quot;=hex(b):30,2f,a8,bd,34,f6,cc,01
+&quot;ToolTitle0&quot;=&quot;Visual Studio Command Prompt&quot;
+&quot;ToolCmd0&quot;=&quot;cmd.exe&quot;
+&quot;ToolArg0&quot;=&quot;%comspec% /k \&quot;\&quot;C:\\Program Files\\Microsoft Visual Studio 10.0\\VC\\vcvarsall.bat\&quot;\&quot; x86&quot;
+&quot;ToolDir0&quot;=&quot;$(ItemDir)&quot;
+&quot;ToolSourceKey0&quot;=&quot;&quot;
+&quot;ToolOpt0&quot;=dword:00000012
+&quot;ToolTitle1&quot;=&quot;Mono4Android DroidDraw&quot;
+&quot;ToolCmd1&quot;=&quot;C:\\bin\\android\\droiddraw\\droiddraw.exe&quot;
+&quot;ToolArg1&quot;=&quot;$(ItemPath)&quot;
+&quot;ToolDir1&quot;=&quot;$(ItemDir)&quot;
+&quot;ToolSourceKey1&quot;=&quot;&quot;
+&quot;ToolOpt1&quot;=dword:00000011
+&quot;ToolTitle2&quot;=&quot;Mono4Android Eclipse&quot;
+&quot;ToolCmd2&quot;=&quot;C:\\bin\\eclipse\\eclipse.exe&quot;
+&quot;ToolArg2&quot;=&quot;--launcher.openFile $(ItemPath)&quot;
+&quot;ToolDir2&quot;=&quot;$(ItemDir)&quot;
+&quot;ToolSourceKey2&quot;=&quot;&quot;
+&quot;ToolOpt2&quot;=dword:00000011
+&quot;ToolTitlePkg3&quot;=&quot;{DA9FB551-C724-11D0-AE1F-00A0C90FFFC3}&quot;
+&quot;ToolTitleResID3&quot;=dword:00003875
+&quot;ToolTitle3&quot;=&quot;Create &amp;GUID&quot;
+&quot;ToolCmd3&quot;=&quot;c:\\Program Files\\Microsoft SDKs\\Windows\\v7.0A\\bin\\NETFX 4.0 Tools\\guidgen.exe&quot;
+&quot;ToolArg3&quot;=&quot;&quot;
+&quot;ToolDir3&quot;=&quot;c:\\Program Files\\Microsoft SDKs\\Windows\\v7.0A\\bin\\NETFX 4.0 Tools\\&quot;
+&quot;ToolSourceKey3&quot;=&quot;Create GUID&quot;
+&quot;ToolOpt3&quot;=dword:00000011
+&quot;ToolTitle4&quot;=&quot;Dot&amp;fuscator Software Services&quot;
+&quot;ToolCmd4&quot;=&quot;C:\\Program Files\\Microsoft Visual Studio 10.0\\PreEmptive Solutions\\Dotfuscator Community Edition\\Dotfuscator.exe&quot;
+&quot;ToolArg4&quot;=&quot;&quot;
+&quot;ToolDir4&quot;=&quot;$(TargetDir)&quot;
+&quot;ToolSourceKey4&quot;=&quot;Dot&amp;fuscator Software Services&quot;
+&quot;ToolOpt4&quot;=dword:00000011
+&quot;ToolTitle5&quot;=&quot;Ea&amp;zfuscator.NET Assistant&quot;
+&quot;ToolCmd5&quot;=&quot;C:\\Program Files\\Eazfuscator.NET\\Eazfuscator.NET Assistant.exe&quot;
+&quot;ToolArg5&quot;=&quot;&quot;
+&quot;ToolDir5&quot;=&quot;C:\\Program Files\\Eazfuscator.NET&quot;
+&quot;ToolSourceKey5&quot;=&quot;Ea&amp;zfuscator.NET Assistant&quot;
+&quot;ToolOpt5&quot;=dword:00000010
+&quot;ToolTitlePkg6&quot;=&quot;{1B027A40-8F43-11D0-8D11-00A0C91BC942}&quot;
+&quot;ToolTitleResID6&quot;=dword:00000515
+&quot;ToolTitle6&quot;=&quot;Error Loo&amp;kup&quot;
+&quot;ToolCmd6&quot;=&quot;c:\\Program Files\\Microsoft Visual Studio 10.0\\Common7\\Tools\\errlook.exe&quot;
+&quot;ToolArg6&quot;=&quot;&quot;
+&quot;ToolDir6&quot;=&quot;$(TargetDir)&quot;
+&quot;ToolSourceKey6&quot;=&quot;Error Loo&amp;kup&quot;
+&quot;ToolOpt6&quot;=dword:00000011
+&quot;ToolTitlePkg7&quot;=&quot;{F1C25864-3097-11D2-A5C5-00C04F7968B4}&quot;
+&quot;ToolTitleResID7&quot;=dword:00002744
+&quot;ToolTitle7&quot;=&quot;ATL/MFC &amp;Trace Tool&quot;
+&quot;ToolCmd7&quot;=&quot;c:\\Program Files\\Microsoft Visual Studio 10.0\\Common7\\Tools\\AtlTraceTool8.exe&quot;
+&quot;ToolArg7&quot;=&quot;&quot;
+&quot;ToolDir7&quot;=&quot;c:\\Program Files\\Microsoft Visual Studio 10.0\\Common7\\Tools\\&quot;
+&quot;ToolSourceKey7&quot;=&quot;MFC/ATL &amp;Trace Tool&quot;
+&quot;ToolOpt7&quot;=dword:00000011
+&quot;ToolTitlePkg8&quot;=&quot;{F1C25864-3097-11D2-A5C5-00C04F7968B4}&quot;
+&quot;ToolTitleResID8&quot;=dword:00002743
+&quot;ToolTitle8&quot;=&quot;Spy&amp;++&quot;
+&quot;ToolCmd8&quot;=&quot;c:\\Program Files\\Microsoft Visual Studio 10.0\\Common7\\Tools\\spyxx.exe&quot;
+&quot;ToolArg8&quot;=&quot;&quot;
+&quot;ToolDir8&quot;=&quot;c:\\Program Files\\Microsoft Visual Studio 10.0\\Common7\\Tools\\&quot;
+&quot;ToolSourceKey8&quot;=&quot;Sp&amp;y++&quot;
+&quot;ToolOpt8&quot;=dword:00000011
+&quot;ToolTitle9&quot;=&quot;ILspy Reflector&quot;
+&quot;ToolCmd9&quot;=&quot;c:\\bin\\ILspy\\ILSpy.exe&quot;
+&quot;ToolArg9&quot;=&quot;$(TargetPath)&quot;
+&quot;ToolDir9&quot;=&quot;$(TargetDir)&quot;
+&quot;ToolSourceKey9&quot;=&quot;&quot;
+&quot;ToolOpt9&quot;=dword:00000015
+			</pre>
+		</li>
+	</ul>
+
+</body>
+</html>

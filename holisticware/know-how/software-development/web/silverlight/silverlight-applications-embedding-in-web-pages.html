@@ -1,0 +1,803 @@
+<!--
+C1 generated!!
+	<title>Silverlight Applications - Embedding in Web pages</title>
+	<meta name="Description" content="Silverlight Applications - Embedding in Web pages" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="Silverlight, Applications, Embedding, Web, pages" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-03-22" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Silverlight Applications - Embedding in Web pages</a></h1>
+	<!-- ================================================================== -->
+	<p>Date: 2011-03-22</p>
+
+	<h2><a id="">Silverlight Embedding on a Page</a></h2>
+	<p>
+		Gennerally there are several ways to embedd Silverlight Applications on a html page:</p>
+	<ul>
+		<li>
+		<a href="#html_object">html code - object tag</a>
+		</li>
+		<li>
+		<a href="#javascript">javascript</a>
+		</li>
+		<li>
+		<a href="#asp_silverlight">ASP.net server side controls (asp:silverlight control)</a>
+		</li>
+	</ul>
+	<p>
+	Reference:
+	</p>
+	<ul>
+		<li>
+			<a href="http://msdn.microsoft.com/en-us/library/cc838145(v=vs.95).aspx">
+			http://msdn.microsoft.com/en-us/library/cc838145(v=vs.95).aspx
+			</a>
+		</li>
+		<li>
+			<a href="http://developer.yahoo.com/dotnet/silverlight/embeddingobject.html">
+			http://developer.yahoo.com/dotnet/silverlight/embeddingobject.html
+			</a>
+		</li>
+	</ul>
+	<h3><a id=""><a id="html_object" >Embedding with HTML object	tag (Using pure object notation)</a></a></h3>
+	<p>
+		Preffered way in ASP.net 3.5 according to......</p>
+	<h4>
+		Overview<a id="overview0" /></h4>
+	<p>
+		Microsoft recommends using the <code>&lt;object&gt;</code> tag method of embedding
+		a Silverlight application on a web page. This method works in all browsers supported
+		by Silverlight and does not require JavaScript to be enabled. It also provides an
+		easy way to provide fallback content if Silverlight isn't installed.</p>
+	<p>
+		You can also use the <a href="http://developer.yahoo.com/dotnet/silverlight/embedding.html">
+			JavaScript method</a> and helper files if you need greater control over the
+		embedding or install/upgrade process.</p>
+
+	<h4>Using the <code>&lt;object&gt;</code> Tag<a id="objectTag0" /></h4>
+	<p>
+	The following example shows the minimum code required to embed the Silverlight plug-in
+	on a web page using the HTML <code>&lt;object&gt;</code> tag.
+	</p>
+	<pre class="hw_code">
+&lt;object type="application/x-silverlight-2"  
+	data="data:application/x-silverlight,"   
+	width="300" height="300"&gt;  
+	&lt;param name="source" value="/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap"/&gt;  
+&lt;object&gt;  
+</pre>
+	<hr />
+	<p>
+		In most cases, you will want to add additional parameters and HTML elements to provide
+		a complete user experience with increased cross browser support. A more complete
+		sample can be seen at the end of this page.</p>
+	<h5>
+		Parameters</h5>
+	<p>
+		Below is a list of available parameters that can be passed to the plug-in using
+		the <code>&lt;param&gt;</code> tag.</p>
+	<table>
+		<thead>
+			<tr>
+				<th>
+					Parameter
+				</th>
+				<th>
+					Description
+				</th>
+				<th>
+					Type
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					allowHtmlPopupWindow
+				</td>
+				<td>
+					Specifies whether the <code>HtmlPage.PopupWindow</code> method is allowed. Defaults
+					to <code>true</code> for applications in the same domain, otherwise <code>false</code>.
+				</td>
+				<td>
+					Boolean
+				</td>
+			</tr>
+			<tr>
+				<td>
+					autoUpgrade
+				</td>
+				<td>
+					Specifies whether the plug-in should attempt to upgrade if <code>minRuntimeVersion</code>
+					is newer than the current Silverlight version.
+				</td>
+				<td>
+					Boolean
+				</td>
+			</tr>
+			<tr>
+				<td>
+					background
+				</td>
+				<td>
+					Plug-in background color. Default is <code>null</code> (white).
+				</td>
+				<td>
+					<a href="http://msdn.microsoft.com/en-us/library/cc838148(VS.95).aspx">Color with or
+						without alpha (RGB, ScRGB)</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					enablehtmlaccess
+				</td>
+				<td>
+					Specifies whether the plug-in has full access to the browser DOM. Defaults to <code>
+						true</code> for applications in the same domain, otherwise <code>false</code>.
+				</td>
+				<td>
+					Boolean
+				</td>
+			</tr>
+			<tr>
+				<td>
+					initparams
+				</td>
+				<td>
+					User-defined string of parameters.
+				</td>
+				<td>
+					String or comma separated string (SL 1.0), comma separated key=value pairs (SL 2)
+				</td>
+			</tr>
+			<tr>
+				<td>
+					maxframerate
+				</td>
+				<td>
+					Specifies the maximum number of frames per second that the plug-in can render. The
+					default is 60.
+				</td>
+				<td>
+					Integer
+				</td>
+			</tr>
+			<tr>
+				<td>
+					minRuntimeVersion
+				</td>
+				<td>
+					Specifies the earliest version of the Silverlight plug-in required.
+				</td>
+				<td>
+					Version number
+				</td>
+			</tr>
+			<tr>
+				<td>
+					onerror
+				</td>
+				<td>
+					Error handler for parse and native code run-time errors.
+				</td>
+				<td>
+					JavaScript function name
+				</td>
+			</tr>
+			<tr>
+				<td>
+					onfullscreenchanged
+				</td>
+				<td>
+					Function to call when the <code>FullScreen</code> property changes.
+				</td>
+				<td>
+					JavaScript function name
+				</td>
+			</tr>
+			<tr>
+				<td>
+					onload
+				</td>
+				<td>
+					Function to call when the plug-in has finished loading in the DOM.
+				</td>
+				<td>
+					JavaScript function name
+				</td>
+			</tr>
+			<tr>
+				<td>
+					onresize
+				</td>
+				<td>
+					Function to call when the plug-in size changes.
+				</td>
+				<td>
+					JavaScript function name
+				</td>
+			</tr>
+			<tr>
+				<td>
+					onsourcedownloadcomplete
+				</td>
+				<td>
+					Function to call when the source download has completed.
+				</td>
+				<td>
+					JavaScript function name
+				</td>
+			</tr>
+			<tr>
+				<td>
+					onsourcedownloadprogresschanged
+				</td>
+				<td>
+					Function to call when the source download progress changes.
+				</td>
+				<td>
+					JavaScript function name
+				</td>
+			</tr>
+			<tr>
+				<td>
+					source
+				</td>
+				<td>
+					Specifies the address or relative path of either an initial XAML file or XAP.
+				</td>
+				<td>
+					URI
+				</td>
+			</tr>
+			<tr>
+				<td>
+					splashscreensource
+				</td>
+				<td>
+					Specifies a XAML page to use as the splash screen.
+				</td>
+				<td>
+					URI
+				</td>
+			</tr>
+			<tr>
+				<td>
+					windowless
+				</td>
+				<td>
+					Specifies the rendering mode for the plug-in for Windows versions of Silverlight.
+					The default is <code>false</code>.
+				</td>
+				<td>
+					Boolean
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h4>Example<a id="example0"  /></h4>
+	<p>
+		The following example shows a full web page that embeds the Silverlight plug-in
+		and runs a very simple application. It highlights providing basic alternate content
+		when Silverlight isn't installed and also a workaround to prevent Safari from caching
+		the page.</p>
+	<pre class="hw_code">&lt;html&gt;
+&lt;head&gt;
+
+  &lt;title&gt;Sample: Embedding the Silverlight plug-in&lt;/title&gt;
+  &lt;style type="text/css"&gt;
+	html, body { height: 100%; overflow: auto; }
+	body { padding: 0; margin: 0; }
+	#silverlightControlHost { height: 100%; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="silverlightControlHost"&gt;
+	&lt;object data="data:application/x-silverlight,"
+		type="application/x-silverlight-2"
+		width="100%" height="100%"&gt;
+	  &lt;param name="source" value="/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap"/&gt;
+	  &lt;param name="background" value="black" /&gt;
+	  &lt;!-- Set the required version and auto-update option --&gt;
+	  &lt;param name="minRuntimeVersion" value="2.0.31005.0" /&gt;
+	  &lt;param name="autoUpgrade" value="true" /&gt;
+	  &lt;!-- Provide alternate content when Silverlight isn't installed 
+--&gt;
+	  &lt;a href="http://go.microsoft.com/fwlink/?LinkID=124807" 
+		  style="text-decoration: none;"&gt;
+		&lt;img src="http://go.microsoft.com/fwlink/?LinkId=108181"
+			alt="Get Microsoft Silverlight" style="border-style: 
+none"/&gt;
+	  &lt;/a&gt;
+	&lt;/object&gt;
+	&lt;!--  Prevent Safari from caching the page --&gt;
+	&lt;iframe 
+style="visibility:hidden;height:0;width:0;border:0px"&gt;&lt;/iframe&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+	<p>
+		Preffered way in ASP.net 3.5</p>
+	<pre class="hw_code">&lt;div id="silverlightControlHost"&gt;
+&lt;object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%"&gt;
+  &lt;param name="source" value="ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap"/&gt;
+  &lt;param name="onError" value="onSilverlightError" /&gt;
+  &lt;param name="background" value="white" /&gt;
+  &lt;param name="minRuntimeVersion" value="4.0.50826.0" /&gt;
+  &lt;param name="autoUpgrade" value="true" /&gt;
+  &lt;a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0" style="text-decoration:none"&gt;
+  &lt;img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/&gt;
+  &lt;/a&gt;
+&lt;/object&gt;
+&lt;iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/asp:Silverlight&gt;</pre>
+	<h3><a id="">
+		<a id="javascript">Embedding with JavaScript</a></a></h3>
+	<p>
+		This method might have problems if javascript is disabled in browser (on client
+		side).</p>
+	<ul class="topspace">
+		<li ><a href="http://developer.yahoo.com/dotnet/silverlight/embedding.html#overview">
+			Overview</a></li>
+		<li ><a href="http://developer.yahoo.com/dotnet/silverlight/embedding.html#helpers">
+			Using The Helper Files</a></li>
+		<li ><a href="http://developer.yahoo.com/dotnet/silverlight/embedding.html#example">
+			Example</a></li>
+		<li ><a href="http://developer.yahoo.com/dotnet/silverlight/embedding.html#further">
+			Further Reading</a></li>
+	</ul>
+
+	<h4>Overview<a id="overview1" /></h4>
+	<p>
+		Microsoft provides JavaScript helper files that make embedding Silverlight applications
+		on a web page easy. These helper files provide a consistent method for passing in
+		parameters and take care of cross-browser differences in addition to providing users
+		a seamless install experience if they don't have Silverlight installed. These files
+		require JavaScript to be enabled. For a non-JavaScript method, see <a href="http://developer.yahoo.com/dotnet/silverlight/embeddingobject.html">
+			Embedding using the <code>&lt;object&gt;</code> tag</a>.</p>
+	<p>
+		It is important to provide users who don't have Silverlight installed the best possible
+		user experience. This includes providing the user with a preview of the content
+		they will get in return for taking the time to install, keeping them within your
+		page and automatically showing the Silverlight enabled content once the installation
+		has completed. Unfortunately, currently all other browsers except Internet Explorer
+		on Windows will require the user to restart their browser after installation. More
+		details can be found in the <em><a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=F487DF43-1AFB-4F76-82C8-BB5ACBFFBA1B&amp;displaylang=en">
+			Silverlight Installation Experience Guide</a></em> provided by Microsoft.</p>
+	<p>
+		An easy way to test the experience users without Silverlight will get is to use
+		Internet Explorer 7's add-on manager to temporarily disable the Silverlight "<em>Microsoft
+			Silverlight</em>" or "<em>AgControl Class</em>" add-on.</p>
+	
+	
+	<h4> Using the Helper Files<a id="helpers"  /></h4>
+	<h5>
+		Silverlight.js &amp; CreateSilverlight.js</h5>
+	<p>
+		The two helper files Microsoft provides are <code>Silverlight.js</code> and <code>CreateSilverlight.js</code>.
+		The former is the main file you will need, while the latter is an optional encapsulation
+		of the settings that will be passed when the plug-in and application are created.
+		These files, including their localized versions, can be found in the Silverlight
+		SDK <em>Tools</em> folder.</p>
+	<p>
+		<code>Silverlight.js</code> is minified (8kB) and contains the code required to
+		embed the Silverlight plug-in. <code>CreateSilverlight.js</code> on the other hand
+		only contains a call-thru to <code>Silverlight.js</code> with a set of parameters.</p>
+	<p>
+		To embed a Silverlight application on a web page, you will need the following on
+		your page:</p>
+	<ol>
+		<li>A <code>&lt;script&gt;</code> tag that references the <code>Silverlight.js</code>
+			file.</li>
+		<li>An HTML block element, usually a <code>&lt;div&gt;</code> tag, that will contain
+			the Silverlight plug-in and thus the application.</li>
+		<li>A <code>&lt;script&gt;</code> tag that contains code (usually <code>createObjectEx();</code>)
+			to render the plug-in.</li>
+		<li>(Optional) A <code>&lt;script&gt;</code> tag that references the <code>CreateSilverlight.js</code>
+			file.</li>
+	</ol>
+	<p>
+		Since the <code>CreateSilverlight.js</code> file essentially only contains one function,
+		you may want to avoid using this file to minimize unnecessary network calls. Instead,
+		consider including the code directly within your page or, even better, within another
+		external JavaScript file, such as the file where you have your application code.
+		See <a href="http://developer.yahoo.com/performance/rules.html#external">Rule 8 - Make
+			JavaScript and CSS External</a> and the <a href="http://developer.yahoo.com/blogs/ydn/categories/performance/">
+				YDN Performance blog</a> for additional tips.</p>
+	<h5>
+		The Silverlight Class</h5>
+	<p>
+		The <code>Silverlight.js</code> file creates a class named <code>Silverlight</code>
+		that provides methods and properties to create the application on the page and also
+		to help get information about the environment, such as whether Silverlight is installed
+		and which browser is running.</p>
+	<p>
+		The following table lists public properties and methods of the <code>Silverlight</code>
+		class.</p>
+	<table>
+		<tbody>
+			<tr>
+				<th>
+					Name
+				</th>
+				<th>
+					Description
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<code>available</code>
+				</td>
+				<td>
+					A property that returns a Boolean value indicating whether any version Silverlight
+					has been installed.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>createObject(<em>...</em>)</code>
+				</td>
+				<td>
+					Creates a Silverlight application with the given list of parameters.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>createObjectEx(<em>parametersObject</em>)</code>
+				</td>
+				<td>
+					Creates a Silverlight application with parameters given in a JSON dictionary.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>isInstalled(<em>versionString</em>)</code>
+				</td>
+				<td>
+					A method that returns a Boolean value indicating whether the specified <em>version</em>
+					of Silverlight has been installed.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>supportedUserAgent()</code>
+				</td>
+				<td>
+					A method that returns a Boolean value indicating whether the current operating system
+					and browser combination is supported.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>ua.Browser</code>
+				</td>
+				<td>
+					A property that gets a string representing the running browser. Values returned
+					include <code>Firefox</code>, <code>MSIE</code>, and <code>Safari</code>.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>ua.OS</code>
+				</td>
+				<td>
+					A property that gets a string representing the running operating system. Values
+					returned include <code>Unsupported</code>, <code>MacIntel</code>, <code>MacPPC</code>,
+					and <code>Windows</code>.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<h5>
+		The createObject() &amp; createObjectEx() Methods</h5>
+	<p>
+		The <code>createObject</code> and <code>createObjectEx</code> are the methods used
+		to create the Silverlight application on a page. The difference between the two
+		methods is that <code>createObject</code> takes parameters as method arguments in
+		a predefined order and <code>createObjectEx</code> takes a single JSON object with
+		named key-value pairs. Thus <code>createObjectEx</code> is less prone to typing
+		errors and also provides a cleaner way to use built-in default values.</p>
+	<p>
+		The following table lists the required parameters.</p>
+	<table>
+		<tbody>
+			<tr>
+				<th>
+					Name
+				</th>
+				<th>
+					Description
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<code>source</code>
+				</td>
+				<td>
+					The source XAML file or ID of an <a href="http://msdn2.microsoft.com/en-us/library/bb687962.aspx">
+						inline XAML script</a> block prefixed with #.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>parentElement</code>
+				</td>
+				<td>
+					The HTML block element that will contain the application.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>id</code>
+				</td>
+				<td>
+					The HTML element ID for the newly created application.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>properties</code>
+				</td>
+				<td>
+					A JSON object containing initialization properties, such as <code>width</code>,
+					<code>height</code>, and <code>version</code>.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>events</code>
+				</td>
+				<td>
+					A JSON object containing global level event handlers <code>onError</code> and <code>
+						onLoad</code>.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		The detailed method signatures and full list of available parameters that can be
+		set can be found in the
+		<a href="http://msdn2.microsoft.com/en-us/library/bb412401.aspx#Modifying_CreateSilverlight">
+		Silverlight SDK documentation
+		</a>.
+	</p>
+
+
+	<h5>Detecting If Silverlight Is Installed</h5>
+	<p>
+		You can use the <code>Silverlight.isInstalled(<em>version</em>)</code> method to
+		check if the required version of Silverlight is installed on the client. This will
+		allow your site to provide additional information and sample content to users who
+		haven't installed Silverlight yet or don't have the correct version.</p>
+
+
+	<h4>Example<a id="example1" /></h4>
+	<p>
+		The following example loads a Silverlight application from the <code>myApplication.xaml</code>
+		file in the <em>MyApplication</em> folder. If Silverlight isn't installed, it will
+		display a preview image and reattempt to display the application every three seconds
+		until the installation has completed.</p>
+	<pre class="hw_code">&lt;html&gt;  
+  &lt;head&gt;  
+	&lt;title&gt;Simple Silverlight Embedding Sample&lt;/title&gt;  
+	&lt;!-- Include the install/embed helper file --&gt;  
+	&lt;script type="text/javascript" src="/js/Silverlight.js"&gt;&lt;/script&gt;  
+	&lt;style type="text/css"&gt;  
+	  .noSL { padding-top: 30px;  
+		  background: url(MyApplication1/preview.png) no-repeat top left; }  
+	&lt;/style&gt;  
+  &lt;/head&gt;  
+  &lt;body&gt;  
+	&lt;div id="myApplicationHolder" style="width:800px; height:600px" /&gt;  
+	&lt;script type="text/javascript"&gt;  
+  
+	function createMyApplication1() {  
+	  var holder = document.getElementById("myApplicationHolder");  
+		
+	  // Check if Silverlight is installed  
+	  if(Silverlight.isInstalled("1.00") != true) {  
+		// Set a preview image for our application  
+		holder.className = "noSL";  
+		  
+		// Attempt to refresh the Silverlight control after install  
+		setTimeout(createMyApplication1, 3000);  
+	  } else {  
+		// Clear the preview image  
+		holder.className = "";  
+	  }  
+		
+	  // Create a Silverlight application using as many defaults as possible  
+	  Silverlight.createObjectEx({source: "MyApplication1/MyApplication1.xaml",   
+			parentElement: holder,  
+			id: "myApplication",  
+			properties: {  
+			  width: "800",  
+			  height: "600",  
+			  inplaceInstallPrompt: true,  
+			  version: "1.0"},  
+			events: {}  
+			});  
+	}  
+	  
+	// Attempt to create the Silverlight application for the first time  
+	createMyApplication1();  
+  
+	&lt;/script&gt;  
+  &lt;/body&gt;  
+&lt;/html&gt;
+</pre>
+	<h3><a id="">
+		<a id="asp_silverlight"  name="asp_silverlight">ASP.net server
+			side controls (asp:silverlight control)</a></a></h3>
+	<p>
+		This method was used in of Silverlight SDK version 2 and removed in version 3. Method
+		was based on the usage of asp:ScriptManager and asp:Silverlight controls. It can
+		still be used in version 3, but use <a href="#html_object">
+			object notation</a> is preferred,
+	</p>
+	<pre class="hw_code">
+&lt;%@ Page Language="VB" AutoEventWireup="true" %&gt;
+&lt;%@ Register Assembly="System.Web.Silverlight" Namespace="System.Web.UI.SilverlightControls"
+	TagPrefix="asp" %&gt;
+
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html style="height:100%;"&gt;
+&lt;head runat="server"&gt;
+	&lt;title&gt;Test Page For myExample&lt;/title&gt;
+&lt;/head&gt;
+&lt;body style="height:100%;margin:0;"&gt;
+	&lt;form id="form1" runat="server" style="height:100%;"&gt;
+		&lt;asp:ScriptManager ID="ScriptManager1" runat="server"&gt;&lt;/asp:ScriptManager&gt;
+		&lt;div  style="height:100%;"&gt;
+			&lt;asp:Silverlight ID="Xaml1" runat="server" Source="/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap" 
+			MinimumVersion="2.0" Width="100%" Height="100%" /&gt;
+		&lt;/div&gt;
+	&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<pre class="hw_code">
+
+
+
+&lt;object type="application/x-silverlight-2"  
+			data="data:application/x-silverlight,"   
+			width="300" height="300"&gt;  
+	&lt;param name="source" value="SilverlightApplication1.xap"/&gt;  
+&lt;object&gt;  
+
+&lt;html&gt;  
+	&lt;head&gt;  
+		&lt;title&gt;Simple Silverlight Embedding Sample&lt;/title&gt;  
+		&lt;!-- Include the install/embed helper file --&gt;  
+		&lt;script type="text/javascript" src="../../../js/Silverlight.js"&gt;&lt;/script&gt;  
+		&lt;style type="text/css"&gt;  
+			.noSL { padding-top: 30px;  
+					background: url(MyApplication1/preview.png) no-repeat top left; }  
+		&lt;/style&gt;  
+	&lt;/head&gt;  
+	&lt;body&gt;  
+		&lt;div id="myApplicationHolder" style="width:800px; height:600px" /&gt;  
+		&lt;script type="text/javascript"&gt;  
+  
+		function createMyApplication1() {  
+			var holder = document.getElementById("myApplicationHolder");  
+			  
+			// Check if Silverlight is installed  
+			if(Silverlight.isInstalled("1.00") != true) {  
+				// Set a preview image for our application  
+				holder.className = "noSL";  
+				  
+				// Attempt to refresh the Silverlight control after install  
+				setTimeout(createMyApplication1, 3000);  
+			} else {  
+				// Clear the preview image  
+				holder.className = "";  
+			}  
+			  
+			// Create a Silverlight application using as many defaults as possible  
+			Silverlight.createObjectEx({source: "MyApplication1/MyApplication1.xaml",   
+						parentElement: holder,  
+						id: "myApplication",  
+						properties: {  
+							width: "800",  
+							height: "600",  
+							inplaceInstallPrompt: true,  
+							version: "1.0"},  
+						events: {}  
+						});  
+		}  
+		  
+		// Attempt to create the Silverlight application for the first time  
+		createMyApplication1();  
+  
+		&lt;/script&gt;  
+
+</pre>
+
+
+	<hr />
+	<h2><a id="">References</a></h2>
+	<ul>
+		<li>
+			<a href="http://msdn.microsoft.com/en-us/library/cc189004(VS.95).aspx#Y911">
+			http://msdn.microsoft.com/en-us/library/cc189004%28VS.95%29.aspx#Y911
+			</a>
+		</li>
+		<li>
+			Silverlight and DOM
+		</li>
+		<li>HTML bridge
+			<p>
+				<a href="http://www.silverlight.net/learn/quickstarts/htmlbridge/">
+				http://www.silverlight.net/learn/quickstarts/htmlbridge/
+				</a>
+			</p>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<a href="http://msdn2.microsoft.com/en-us/library/bb882214.aspx">
+			Optimizing the Installation Experience
+			</a>
+		</li>
+		<li>
+			<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=F487DF43-1AFB-4F76-82C8-BB5ACBFFBA1B&amp;displaylang=en">
+			Silverlight Installation Experience Guide
+			</a>
+		</li>
+		<li>
+			<a href="http://msdn.microsoft.com/en-us/library/cc189089(VS.95).aspx">
+			How to: Add Silverlight to a Web Page by Using HTML
+			</a>
+		</li>
+	</ul>
+
+	<h3><a id="">Integration through object html tag</a></h3>
+	<p>
+	Recommended by Microsoft:
+	</p>
+	<pre class="hw_code">
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+	 &lt;head&gt;
+		&lt;script type="text/javascript" src="/js/Silverlight.ErrorHandling.uncompressed.20110318.js"/&gt;
+		&lt;script type="text/javascript" src="/js/Silverlight.js"/&gt;
+	&lt;/head&gt;
+	 &lt;body&gt;
+		 &lt;div id="silverlightControlHostDiv"&gt;
+			 &lt;object 
+				id="silverlight_control_host_placeholder_object" 
+				data="data:application/x-silverlight-2," 
+				type="application/x-silverlight-2" width="400%" height="100"
+			&gt;
+				&lt;param name="source" value="/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap"/&gt;
+				&lt;param name="onError" value="onSilverlightError"/&gt;
+				&lt;param name="background" value="transparent"/&gt;
+				&lt;param name="minRuntimeVersion" value="4.0.50826.0"/&gt;
+				&lt;param name="autoUpgrade" value="true"/&gt;
+				 &lt;a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0" 
+					style="text-decoration:none"&gt;
+					&lt;img src="http://go.microsoft.com/fwlink/?LinkId=161376" 
+						alt="Get Microsoft Silverlight" 
+						style="border-style:none"
+					/&gt;
+				&lt;/a&gt;
+			&lt;/object&gt;
+			&lt;iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"/&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+	</pre>
+
+</body>
+</html>

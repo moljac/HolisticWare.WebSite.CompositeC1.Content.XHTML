@@ -1,0 +1,3 @@
+SIP servers
+
+	http://www.kamailio.org/w/

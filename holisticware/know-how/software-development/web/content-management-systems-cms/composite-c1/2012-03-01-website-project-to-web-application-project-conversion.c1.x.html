@@ -1,0 +1,1513 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>2012-03-01 Composite C1 Website to Web Application Conversion - v.3.1</title>
+Description = all keywords + extra text
+<meta name="Description" content="2012-03-01 Composite C1 Website to Web Application Conversion - v.3.1" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: 2012-03-01-composite-c1-website-to-web-application-conversion-v.3.1
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="composite c1, website, web application project, conversion" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2012-03-01" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">2012-03-01 Composite C1 Website to Web Application Conversion - v.3.1</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<p>
+		Date Created: 2012-03-01
+		<br />
+		Date Modified: 2013-01-20
+	</p>
+
+	<p>
+		More about WebSite and WebApplication read here:
+	</p>
+	<ul>
+		<li>
+			<a
+				href="~/HolisticWare/Know-How/development/Web/aspnet/website-to-webapplication-conversion.aspx"
+				>
+				WebSite to WebApplication conversion
+				<br />
+				http://holisticware.net/HolisticWare/Know-How/development/Web/aspnet/website-to-webapplication-conversion.aspx
+			</a>
+		</li>
+	</ul>
+
+	<!-- ================================================================== -->
+	<h2><a id="">2012-03-29 v.3.2. Build=12889  More fixes!</a></h2>
+	
+	<p>
+		Additional issues found:
+	</p>
+	<ul>
+		<li>
+			In 
+			<br />
+			~/Composite/controls/FormsControls/FormUiContainerTemplates/FormUIStandardDialogs/
+			<br />
+			ConfirmDialogExecutionContainer.ascx
+			and 
+			WarningDialogExecutionContainer.ascx
+			<br />
+			share the same code file!
+			<br />
+			<br />
+			<img
+				src="~/mm/holisticware/know-how/development/web/content-management-systems-cms/composite-c1/datetimeselectors-server-unfortunate-error.png"
+				title="Code sharing datetimeselectors server error - unfortunate"
+				alt="Code sharing datetimeselectors server error - unfortunate"
+				height="465" width="706"
+				/>
+			<br />
+			<br />
+			<img
+				src="~/mm/holisticware/know-how/development/web/content-management-systems-cms/composite-c1/datetimeselectors-server-unfortunate-error-details.png"
+				title="Code sharing datetimeselectors server error - unfortunate (details)"
+				alt="Code sharing datetimeselectors server error - unfortunate (details)"
+				height="465" width="706"
+				/>
+			<br />
+			<br />
+			<img
+				src="~/mm/holisticware/know-how/development/web/content-management-systems-cms/composite-c1/datetimeselectors-server-unfortunate-error-log.png"
+				title="Code sharing datetimeselectors server error - unfortunate (log)"
+				alt="Code sharing datetimeselectors server error - unfortunate (log)"
+				height="465" width="706"
+				/>
+			<br />
+			<br />
+		</li>
+		<li>
+			In 
+			<br />
+			~/Composite/controls/FormsControls/FormUiContainerTemplates/FormUiControlTemplates/DateTimeSelectors/
+			<br />
+			DateSelector.ascx
+			and 
+			DateTimeSelector.ascx
+			<br />
+			share the same base class and code file!
+		</li>
+		<li>
+			In Content View +/ Edit Page +/ Preview page tab!
+			<br />
+			Missing CSS (404) for css files
+			<br />
+			<img
+				src="~/mm/holisticware/know-how/development/web/content-management-systems-cms/composite-c1/console-edit-page-preview-no-css-404.png"
+				title="Missing CSS"
+				alt="Missing CSS"
+				height="465" width="706"
+				/>
+		</li>
+	</ul>
+
+	<h3><a id="">Workarounds/patches</a></h3>
+	<p>
+		Patches/fixes for additional issues found:
+		<br />
+		Visual Studio projects as placeholders! Team uses them just as placeholders during copying
+		of patched files.
+		<br />
+		Copy appropriate content/patch from patch project into the root of the Website
+		or WebApplication project.
+		<br />
+		Do the steps for conversion.
+	</p>
+	<ul>
+		<li>
+			In 
+			<br />
+			~/Composite/controls/FormsControls/FormUiContainerTemplates/FormUIStandardDialogs/
+			<br />
+			ConfirmDialogExecutionContainer.ascx
+			and 
+			WarningDialogExecutionContainer.ascx
+			<br />
+			share the same code file!
+			<br />
+			<blockquote>
+				<a
+					href="~/mm/holisticware/know-how/development/web/content-management-systems-cms/composite-c1/HolisticWare.CompositeC1.WebSite.v.3.1.zip"
+				>
+					WebSite patch for conversion
+				</a>
+			</blockquote>
+		</li>
+		<li>
+			In 
+			<br />
+			~/Composite/controls/FormsControls/FormUiContainerTemplates/FormUiControlTemplates/DateTimeSelectors/
+			<br />
+			DateSelector.ascx
+			and 
+			DateTimeSelector.ascx
+			<br />
+			share the same base class and code file!
+			<br />
+			Patch explanation (what was done):
+			<ol>
+				<li>
+					DateSelector.cs copied to DateSelectorBase.cs
+				</li>
+				<li>
+					added 2 classes that inherit from DateSelectorBase
+					<br />
+					DateSelector in DateSelector.cs and DateTimeSelector in DateTimeSelector.cs
+					<br />
+					which inherit from DateSelectorBase
+				</li>
+				<li>
+					Controls references changed
+					<ul>
+						<li>
+							DateSelector.ascx references DateSelector.cs
+						</li>
+						<li>
+							DateTimeSelector.ascx references DateTimeSelector.cs
+						</li>
+					</ul>
+				</li>
+				<li>
+					Generally: Problems could be avoided by naming convention
+					<br />
+					Class.cs
+					<br />
+					Class.ascx or Class.cs.ascx
+					<br />
+					whatever! -  just agree on convention and stick to it!
+				</li>
+			</ol>	
+			<blockquote>
+				<a
+					href="~/mm/holisticware/know-how/development/web/content-management-systems-cms/composite-c1/HolisticWare.CompositeC1.WebApplication.v.3.1.zip"
+				>
+					WebApplication patch for conversion
+				</a>
+			</blockquote>
+		</li>
+	</ul>
+
+	<!-- ================================================================== -->
+	<h2><a id="">2012-03-15 v.3.2. Build=12889</a></h2>
+	<p>
+		Steps:
+	</p>
+	<ol>
+		<li>
+			Add Web Application Project to the Composite C1 solution
+		</li>
+		<li>
+			Select all files except Bin\ folder in Website folder, copy them and
+			paste into Web Application (WebApplication1 - most likely) folder
+		</li>
+		<li>
+			In Web application folder create lib (or similar folder) and copy
+			referenced assemblies from WebSite\Bin\* into this folder.
+		</li>
+		<li>
+			Add references from WebApplication1\lib*.dll folder!
+		</li>
+		<li>
+			Optional: Rebuild
+		</li>
+		<li>
+			Context Menu (Right Click) on WebApplication1 +/ Convert to Web Application
+		</li>
+		<li>
+			Errors like:
+			<pre class="hw_code">
+Error	1	
+	Could not parse the file 'Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\WarningDialogExecutionContainer.ascx'.	
+	\WebApplication1\Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\WarningDialogExecutionContainer.ascx
+	1	
+			</pre>
+			Can be ignored - suggestion is to fix em!
+			<br />
+			Causes (note this might be - OOTT - one of those things -  unexplainable):
+			<ul>
+				<li>
+					pointing to the same CodeBehind file (
+					<br />
+					this case Composite C1:
+					<br />
+					Fix:
+					<br />
+					Both files in:
+					<pre class="hw_code">
+	.\Website\Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\
+					</pre>
+					Exactly:
+					<pre class="hw_code">
+	.\Website\Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\ConfirmDialogExecutionContainer.ascx
+	.\Website\Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\WarningDialogExecutionContainer.ascx
+					</pre>
+					Point to the same CodeBehind file!
+					<br />
+					ConfirmDialogExecutionContainer.ascx:
+					<pre class="hw_code">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;%@ Control Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeFile=&quot;ConfirmDialogExecutionContainer.ascx.cs&quot; Inherits=&quot;Composite_Forms_ConfirmDialogExecutionContainer&quot; %&gt;
+					</pre>
+					WarningDialogExecutionContainer.ascx
+					<pre class="hw_code">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;%@ Control Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeFile=&quot;ConfirmDialogExecutionContainer.ascx.cs&quot; Inherits=&quot;Composite_Forms_ConfirmDialogExecutionContainer&quot; %&gt;
+					</pre>
+					And this causes error during conversion process!
+					<br />
+					<br />
+					Workaround
+					<br />
+					<ol>
+						<li>
+							ConfirmDialogExecutionContainer.ascx.cs 
+							copied to
+							WarningDialogExecutionContainer.ascx.cs
+							<br />
+							Edited WarningDialogExecutionContainer.ascx and 
+							WarningDialogExecutionContainer.ascx.cs, so that CodeBehind,
+							CodeFile and Inherits attributes match!
+						</li>
+					</ol>
+				</li>
+				<li>
+					namespaces (markup and codebehind do not match)
+				</li>
+				<li>
+					Some authors claim: errors happen in most cases an indication of a 
+					syntax error in the ASPX-file. 
+					In many cases there are so many strange errors and warnings in 
+					Visual Studio’s Error List so it is hard to understand what is wrong. 
+					<br />
+					A quick way to get a good error message and be certain that the 
+					designer.cs-file in sync is to first delete it and then regenerating it 
+					by right-clicking the ASPX-file in the Solution Explorer and selecting 
+					“Convert to Web Application”.
+
+					This works in most cases. Either there will be an error one can  
+					understand how to fix or it just regenerates the designer.cs-file.
+				</li>
+			</ul>
+		</li>
+		<li>
+			Rebuild!
+			<br />
+			If OK - Done!
+		</li>
+	</ol>
+	<!-- ================================================================== -->
+	<h2><a id="">2012-03-02 v.3.1. Build</a></h2>
+	<p>
+		http://stackoverflow.com/questions/2548254/generation-of-designer-file-failed-could-not-load-file-or-assembly
+	</p>
+	<pre class="hw_code">
+Error	11	
+	Could not parse the file 'Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\WarningDialogExecutionContainer.ascx'.	
+	.\Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\WarningDialogExecutionContainer.ascx	1	
+	</pre>
+	<!--
+	<p>
+		Do:
+	</p>
+	<pre class="hw_code">
+a) "sometimes" (I could not figure out when exactly yet) the "Convert to Web Application"-trick works 
+for me (but not always)
+
+b) "sometimes" (same as above) it helps to switch to the designer view, change something and save -> 
+*.designer.cs gets regenerated
+
+I usually try several things in no fix order after I added a control to my page until "something" works.
+
+There is a lot of noise about this on the internet but I could not find a "real fix" for it (yet). One 
+thing I read besides the already mentioned is that it could have something to do with (not matching/not existing) namespaces.
+
+When I checked my application there really were no namespace declarartions in the *.cs-files. So I added them 
+(in *.cs and *.aspx) and for some time thought it did the trick. But sadly by now I know that this was not the case...
+
+struggling with this problem all day, and you wouldn't believe what the culprit was. I disabled ReSharper 5.0 and all 
+of a sudden the errors went away. Unbelievable.
+
+Try opening the .designer.cs file and deleting all of it's contents. Close it and then modify your webform/control again - 
+it should be regenerated. It worked for me.
+
+
+c) "Sometimes", this works as well:
+
+Remove the <%@ Register... %> entries
+Save the .AS?X file. Let the designer complain.
+Add the <%@ Register... %> again
+Save again
+[Added Oct-13-2010]:
+d) "Sometimes", as well:
+
+Clear the AS?X file off all but the most basic content.
+Start adding pieces back, one bit a time.
+Save.
+Check that you didn't get the error message.
+Add back a few more pieces. Rinse. Repeat.
+I use a text comparison tool against a back up copy of the AS?X file for this.
+
+I try to avoid adding the controls that cause the error until the very end. I also try to add from the bottom of the page. However, I don't know of a hard rule. It's a gut-feeling exercise.
+
+
+
+To ensure that your web application is OK to deploy, you can see the first lines of the aspx files and check if all CodeFiles are CodeBehind instead. If you see "Codefile=...", it will fail on the deployment machine.
+	</pre>
+	-->
+	<pre class="hw_code">
+Error	12
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\search\search.aspx'.
+	.\Composite\content\views\search\search.aspx	1	
+Error	13
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\trees.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\trees.aspx	1	
+Error	14
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\tabboxes.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\tabboxes.aspx	1	
+Error	15
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\splitboxes.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\splitboxes.aspx	1	
+Error	16
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\special.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\special.aspx	1	
+Error	17
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\persistance.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\persistance.aspx	1	
+Error	18
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\pageeditorfull.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\pageeditorfull.aspx	1	
+Error	19
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\menus.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\menus.aspx	1	
+Error	20
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\memory.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\memory.aspx	1	
+Error	21
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\iebug.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\iebug.aspx	1	
+Error	22
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\icons.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\icons.aspx	1	
+Error	23
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\focus.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\focus.aspx	1	
+Error	24
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\domevents.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\domevents.aspx	1	
+Error	25
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\crawlers.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\crawlers.aspx	1	
+Error	26
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\ui\buttons.aspx'.
+	.\Composite\content\views\dev\developer\tests\ui\buttons.aspx	1	
+Error	27
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\wyswiwygeditors.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\wyswiwygeditors.aspx	1	
+Error	28
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\visualeditors.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\visualeditors.aspx	1	
+Error	29
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\textboxes.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\textboxes.aspx	1	
+Error	30
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\specialdatainputs.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\specialdatainputs.aspx	1	
+Error	31
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\sourceeditors.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\sourceeditors.aspx	1	
+Error	32
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\selectors.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\selectors.aspx	1	
+Error	33
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\relations.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\relations.aspx	1	
+Error	34
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\radiogroups.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\radiogroups.aspx	1	
+Error	35
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\postbackfun.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\postbackfun.aspx	1	
+Error	36
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\lazybindings.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\lazybindings.aspx	1	
+Error	37
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\htmldatadialog.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\htmldatadialog.aspx	1	
+Error	38
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\datainputs.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\datainputs.aspx	1	
+Error	39
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\checkboxes.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\checkboxes.aspx	1	
+Error	40
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\all\fieldsframe.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\all\fieldsframe.aspx	1	
+Error	41
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\views\dev\developer\tests\fields\all\fields.aspx'.
+	.\Composite\content\views\dev\developer\tests\fields\all\fields.aspx	1	
+Error	42
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\wizard\wizard4.aspx'.
+	.\Composite\content\dialogs\tests\wizard\wizard4.aspx	1	
+Error	43
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\wizard\wizard3.aspx'.
+	.\Composite\content\dialogs\tests\wizard\wizard3.aspx	1	
+Error	44
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\wizard\wizard2.aspx'.
+	.\Composite\content\dialogs\tests\wizard\wizard2.aspx	1	
+Error	45
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\wizard\wizard1.aspx'.
+	.\Composite\content\dialogs\tests\wizard\wizard1.aspx	1	
+Error	46
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\subpages\subpagedialog.aspx'.
+	.\Composite\content\dialogs\tests\subpages\subpagedialog.aspx	1	
+Error	47
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\subpages\sub4.aspx'.
+	.\Composite\content\dialogs\tests\subpages\sub4.aspx	1	
+Error	48
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\subpages\sub3.aspx'.
+	.\Composite\content\dialogs\tests\subpages\sub3.aspx	1	
+Error	49
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\subpages\sub2.aspx'.
+	.\Composite\content\dialogs\tests\subpages\sub2.aspx	1	
+Error	50
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\subpages\sub1.aspx'.
+	.\Composite\content\dialogs\tests\subpages\sub1.aspx	1	
+Error	51
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\multipage\page2.aspx'.
+	.\Composite\content\dialogs\tests\multipage\page2.aspx	1	
+Error	52
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\multipage\page1.aspx'.
+	.\Composite\content\dialogs\tests\multipage\page1.aspx	1	
+Error	53
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\forcefitness\forcefitness-basic.aspx'.
+	.\Composite\content\dialogs\tests\forcefitness\forcefitness-basic.aspx	1	
+Error	54
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\forcefitness\forcefitness-advanced.aspx'.
+	.\Composite\content\dialogs\tests\forcefitness\forcefitness-advanced.aspx	1	
+Error	55
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\fixedheight\fixedheightdialog.aspx'.
+	.\Composite\content\dialogs\tests\fixedheight\fixedheightdialog.aspx	1	
+Error	56
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\datadialog\datadialog.aspx'.
+	.\Composite\content\dialogs\tests\datadialog\datadialog.aspx	1	
+Error	57
+	Unable to convert to Web Application format because the page directive is missing in the file
+ 'Composite\content\dialogs\tests\autoheight\autoheightdialog.aspx'.
+	.\Composite\content\dialogs\tests\autoheight\autoheightdialog.aspx	1	
+	</pre>
+
+	<h3><a id="">Batch Script to open files</a></h3>
+	<p>
+		Notepad++ 
+	</p>
+	<pre class="hw_code">
+echo off
+
+::set APPLICATION_FOLDER=..\MVCApplication1
+set APPLICATION_FOLDER=..\WebSite
+
+echo &quot;Add &lt;%@ Page Language=&quot;C#&quot; %&gt;&quot;
+notepad ^
+	%APPLICATION_FOLDER%\Composite\content\views\search\search.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\trees.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\tabboxes.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\splitboxes.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\special.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\persistance.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\pageeditorfull.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\menus.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\memory.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\iebug.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\icons.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\focus.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\domevents.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\crawlers.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\ui\buttons.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\wyswiwygeditors.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\visualeditors.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\textboxes.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\specialdatainputs.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\sourceeditors.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\selectors.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\relations.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\radiogroups.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\postbackfun.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\lazybindings.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\htmldatadialog.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\datainputs.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\checkboxes.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\all\fieldsframe.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\tests\fields\all\fields.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\wizard\wizard4.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\wizard\wizard3.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\wizard\wizard2.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\wizard\wizard1.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\subpages\subpagedialog.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\subpages\sub4.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\subpages\sub3.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\subpages\sub2.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\subpages\sub1.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\multipage\page2.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\multipage\page1.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\forcefitness\forcefitness-basic.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\forcefitness\forcefitness-advanced.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\fixedheight\fixedheightdialog.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\datadialog\datadialog.aspx	^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\tests\autoheight\autoheightdialog.aspx
+	</pre>
+
+
+	<p>
+		If this:
+	</p>
+	<pre class="hw_code">
+Error	11	
+	The type or namespace name 'StyleLoaderControl' could not be found in the global namespace (are you missing an assembly reference?)	
+	.\WebApplicationEmpty1\Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\ConfirmDialogExecutionContainer.ascx.designer.cs	
+	49	23	WebApplicationEmpty1
+	</pre>
+	<p>
+		Convert to Web Application
+	</p>
+
+
+	<p>
+		This??
+	</p>
+	<pre class="hw_code">
+Error	12	
+	Could not parse the file 'Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\WarningDialogExecutionContainer.ascx'.	
+	.\WebApplicationEmpty1\Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\WarningDialogExecutionContainer.ascx	
+	1	
+	</pre>
+	<p>
+		Convert one more time just for fun!?!?!?
+	</p>
+	<p>
+		Rebuild
+	</p>
+	<!-- ================================================================== -->
+	<h2><a id="">2012-03-02 v.3.1. Build</a></h2>
+	<ol>
+		<li>
+			Solution / Context - Right Click / Add New Project / Web / MVC3 Application / Name=MvcApplication
+		</li>
+		<ul>
+			<li>
+				Internet Application
+			</li>
+			<li>
+				Razor
+			</li>
+			<li>
+				HTML5
+			</li>
+		</ul>
+		<li>
+			copy Website\Bin to MvcApplication1\bin-c1\lib
+			<br />
+			Problems Bin/ is used a lot in Composite C1, but it sholud be renamed, 
+			cos Clean will celan it everytime
+			<br />
+			Solution: Pre Build Action!
+			<br />
+			References/Add/Browse: .\MVCApp1\bin\*.*/Open/Add
+		</li>
+		<li>
+			copy Website\* but Bin to MvcApplication1\
+			<ul>
+				<li>
+					App_Data
+				</li>
+				<li>
+					Composite
+				</li>
+				<li>
+					Frontend
+				</li>
+				<li>
+					Renderers
+				</li>
+				<li>
+					default.aspx
+				</li>
+				<li>
+					Global.asax
+				</li>
+				<li>
+					Web.config
+				</li>
+			</ul>
+		</li>
+		<li>
+			Compile 01: 228 Errors - no namespace Composite!
+			<br />
+			MvcApplication1 / References / Context - Right Click / Add References / Browse to: bin-c1-lib\*.dll
+			Compile 02: OK!
+		</li>
+		<li>
+			MvcApplication1 / Context - Right Click / Convert to Web Application Project
+			<br />
+			Warning: This will add Designer and Code behind files!
+			<br />
+			Meaning this makes partial classes! Remember this!
+			<br />
+			Output in single line (sorry that's Visual Studio!!)
+			<pre class="hw_code">
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\updated.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\unsupported.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\unknownbrowser.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\postback.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\dead.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\systemview\systemview.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\start\start.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\seoassist\seoassist.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\help\help.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\generic\generic.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\explorer\explorer.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\editors\permissioneditor\permissioneditor.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\editors\imageeditor\imageeditor.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\dev\viewsource\viewsource.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\dev\systemlog\systemlogoutput.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\dev\systemlog\systemlog.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\dev\icons\files\republicrender.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\dev\icons\files\republic.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\dev\icons\files\harmonyrender.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\dev\icons\files\harmony.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\dev\developer\developer.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\views\browser\browser.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\viewers\sourcecodeviewer\viewsourcecontent.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\stage\stagedeck.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\preview\stop.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\preview\error.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\editors\visualeditor\tinymce.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\table.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\row.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\merge.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\cell.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositelink\link.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositeimage\image.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositecharmap\charmap.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\editors\codemirroreditor\codemirroreditor.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\editors\codemirroreditor\codemirror.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\defaultstart\defaultstart.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\misc\audioloader\audio.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\flow\FlowUiCompletedDialog.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\flow\FlowUiCompleted.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\wysiwygeditor\wysiwygeditordialog.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\wysiwygeditor\mozsecuritynote\mozsecuritynote.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\wysiwygeditor\errors\contenterror.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\webservices\error.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\util\comparestrings\comparestrings.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\treeselector\treeselector.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\treeselector\special\treeactionselector.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\treeselector\special\imageselector.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\translations\translations.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\systemtrees\detailedpaste.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\standard\standard.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\save\saveall.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\postback\postbackdialog.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\options\options.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\multiselector\multiselectordialog.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\imageeditor\scaleimage\scaleimage.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\content\dialogs\about\about.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\compile.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\blank.aspx'.
+Unable to convert to Web Application format because the page directive is missing in the file 'Composite\app.aspx'.
+			</pre>
+		</li>
+		<li>
+			Solution is to add page directives to all those files: &lt;%@ Page %&gt;, because for 
+			conversion page should have Page directive...
+			<br />
+			For lazy bumz like us (don't forget only lazy dev or admin are good ones!) 
+			script in folder besides Website and MvcApplication1 
+			(we call it holisticware-wsp-2-wap dunno why?)
+			<pre class="hw_code">
+echo off
+
+set APPLICATION_FOLDER=..\MVCApplication1
+::set APPLICATION_FOLDER=..\WebSite
+
+notepad ^
+	%APPLICATION_FOLDER%\Composite\updated.aspx ^
+	%APPLICATION_FOLDER%\Composite\unsupported.aspx ^
+	%APPLICATION_FOLDER%\Composite\unknownbrowser.aspx ^
+	%APPLICATION_FOLDER%\Composite\postback.aspx ^
+	%APPLICATION_FOLDER%\Composite\dead.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\systemview\systemview.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\start\start.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\seoassist\seoassist.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\help\help.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\generic\generic.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\explorer\explorer.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\editors\permissioneditor\permissioneditor.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\editors\imageeditor\imageeditor.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\viewsource\viewsource.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\systemlog\systemlogoutput.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\systemlog\systemlog.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\icons\files\republicrender.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\icons\files\republic.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\icons\files\harmonyrender.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\icons\files\harmony.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\dev\developer\developer.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\views\browser\browser.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\viewers\sourcecodeviewer\viewsourcecontent.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\stage\stagedeck.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\preview\stop.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\preview\error.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\editors\visualeditor\tinymce.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\table.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\row.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\merge.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\cell.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositelink\link.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositeimage\image.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositecharmap\charmap.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\editors\codemirroreditor\codemirroreditor.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\editors\codemirroreditor\codemirror.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\defaultstart\defaultstart.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\audioloader\audio.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\flow\FlowUiCompletedDialog.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\flow\FlowUiCompleted.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\wysiwygeditor\wysiwygeditordialog.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\wysiwygeditor\mozsecuritynote\mozsecuritynote.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\wysiwygeditor\errors\contenterror.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\webservices\error.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\util\comparestrings\comparestrings.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\treeselector\treeselector.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\treeselector\special\treeactionselector.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\treeselector\special\imageselector.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\translations\translations.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\systemtrees\detailedpaste.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\standard\standard.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\save\saveall.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\postback\postbackdialog.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\options\options.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\multiselector\multiselectordialog.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\imageeditor\scaleimage\scaleimage.aspx ^
+	%APPLICATION_FOLDER%\Composite\content\dialogs\about\about.aspx ^
+	%APPLICATION_FOLDER%\Composite\compile.aspx ^
+	%APPLICATION_FOLDER%\Composite\blank.aspx ^
+	%APPLICATION_FOLDER%\Composite\app.aspx 
+			</pre>
+			No script for replacement, but could write one...
+			<br />
+			Placement of the Page directive does not matter... can be before xml peramble...
+		</li>
+		<li>
+			Repeat steps 5 and 6 until conversion is successful.
+		</li>
+		<li>
+			Rebuild!
+			<br />
+			Errors right now 
+			<pre class="hw_code">
+Error	1	
+	Expected class, delegate, enum, interface, or struct	
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\StandardDialogExecutionContainer.ascx.cs	
+	13	8	MvcApplication1
+			</pre>
+			are consequence of the multiple conversions on the same Page
+			<pre class="hw_code">
+public partial partial partial class Composite_Forms_StandardDataDialogExecutionContainer : TemplatedUiContainerBase
+			</pre>
+			Conversion process added keyword "partial" twice. Remove one!
+		</li>
+		<li>
+			Rebuild!
+			<br />
+			Errors now:
+			<pre class="hw_code">
+Error	1	
+	The type 'ShowElementInformation_Default' already contains a definition for 'Httpheaders1'	
+	.\MvcApplication1\Composite\content\views\showelementinformation\Default.aspx.design.cs	
+	23	42	MvcApplication1
+Error	2	
+	The type or namespace name 'StyleLoaderControl' could not be found in the global namespace (are you missing an assembly reference?)	
+	.\MvcApplication1\Composite\content\views\showelementinformation\Default.aspx.design.cs	
+	32	23	MvcApplication1
+Error	3	
+	The type 'ShowElementInformation_Default' already contains a definition for 'Styleloader1'	
+	.\MvcApplication1\Composite\content\views\showelementinformation\Default.aspx.design.cs	
+	32	42	MvcApplication1
+Error	4	
+	The type 'ShowElementInformation_Default' already contains a definition for 'Scriptloader1'	
+	.\MvcApplication1\Composite\content\views\showelementinformation\Default.aspx.design.cs	
+	41	43	MvcApplication1
+Error	5	
+	The type 'ShowElementInformation_Default' already contains a definition for 'ElementInformationPlaceHolder'
+	.\MvcApplication1\Composite\content\views\showelementinformation\Default.aspx.design.cs	
+	50	61	MvcApplication1
+			</pre>
+			Solution:
+			<br />
+			Comment those out!
+			<br />
+			In:
+			<br />
+			.\MvcApplication1\Composite\content\views\showelementinformation\Default.aspx.designer.cs
+		</li>
+		<li>
+			Build again:
+			<br />
+			49 errors:
+			<pre class="hw_code">
+Error	12	
+	'CompositeMarkupInOutView' does not contain a definition for 'inMarkupHolder' 
+	and no extension method 'inMarkupHolder' accepting a first argument of type 'CompositeMarkupInOutView' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\controls\Misc\MarkupInOutView.ascx.cs	
+	20	18	MvcApplication1
+Error	13	
+	'CompositePageContentEditor.PageContentEditor' does not contain a definition for 'TemplateSelector' 
+	and no extension method 'TemplateSelector' accepting a first argument of type 'CompositePageContentEditor.PageContentEditor' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiControlTemplates\Customized\PageContentEditor.ascx.cs
+	22	70	MvcApplication1
+Error	14	
+	'CompositeMarkupInOutView' does not contain a definition for 'inMarkupHolder' 
+	and no extension method 'inMarkupHolder' accepting a first argument of type 'CompositeMarkupInOutView' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\controls\Misc\MarkupInOutView.ascx.cs	
+	26	18	MvcApplication1
+Error	15	
+		'CompositeMarkupInOutView' does not contain a definition for 'outMarkupHolder' 
+		and no extension method 'outMarkupHolder' accepting a first argument of type 'CompositeMarkupInOutView' 
+		could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\controls\Misc\MarkupInOutView.ascx.cs
+	27	18	MvcApplication1
+Error	16	
+	'Composite_content_views_log_log' does not contain a definition for 'Pager' 
+	and no extension method 'Pager' accepting a first argument of type 'Composite_content_views_log_log' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\content\views\log\log.aspx.cs	
+	29	14	MvcApplication1
+Error	17	
+	'CompositeMarkupInOutView' does not contain a definition for 'outMarkupHolder' 
+	and no extension method 'outMarkupHolder' accepting a first argument of type 'CompositeMarkupInOutView' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\controls\Misc\MarkupInOutView.ascx.cs
+	30	14	MvcApplication1
+Error	18	
+	'Composite_content_views_log_log' does not contain a definition for 'Pager' 
+	and no extension method 'Pager' accepting a first argument of type 'Composite_content_views_log_log' 
+	could be found (are you missing a using directive or an assembly reference?)
+	.\MvcApplication1\Composite\content\views\log\log.aspx.cs	32	18	MvcApplication1
+Error	19	
+	'Composite_content_views_log_log' does not contain a definition for 'Pager' 
+	and no extension method 'Pager' accepting a first argument of type 'Composite_content_views_log_log' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\content\views\log\log.aspx.cs
+	38	87	MvcApplication1
+Error	20	
+	'Composite_content_views_log_log' does not contain a definition for 'Pager' 
+	and no extension method 'Pager' accepting a first argument of type 'Composite_content_views_log_log' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\content\views\log\log.aspx.cs
+	42	18	MvcApplication1
+Error	21	
+	'CompositePageContentEditor.PageContentEditor' does not contain a definition for 'TemplateSelector' 
+	and no extension method 'TemplateSelector' accepting a first argument of type 'CompositePageContentEditor.PageContentEditor' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiControlTemplates\Customized\PageContentEditor.ascx.cs
+	61	18	MvcApplication1
+Error	22	
+	'CompositePageContentEditor.PageContentEditor' does not contain a definition for 'TemplateSelector' 
+	and no extension method 'TemplateSelector' accepting a first argument of type 'CompositePageContentEditor.PageContentEditor' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiControlTemplates\Customized\PageContentEditor.ascx.cs
+	62	18	MvcApplication1
+Error	23	
+	The name 'DeleteOlderButton' does not exist in the current context	
+	.\MvcApplication1\Composite\content\views\log\log.aspx.cs	
+	63	9	MvcApplication1
+Error	24	
+	'CompositePageContentEditor.PageContentEditor' does not contain a definition for 'TemplateSelector' 
+	and no extension method 'TemplateSelector' accepting a first argument of type 'CompositePageContentEditor.PageContentEditor' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiControlTemplates\Customized\PageContentEditor.ascx.cs	
+	63	18	MvcApplication1
+Error	25	
+	'CompositePageContentEditor.PageContentEditor' does not contain a definition for 'TemplateSelector' 
+	and no extension method 'TemplateSelector' accepting a first argument of type 'CompositePageContentEditor.PageContentEditor' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiControlTemplates\Customized\PageContentEditor.ascx.cs
+	64	18	MvcApplication1
+Error	26	
+	'CompositePageContentEditor.PageContentEditor' does not contain a definition for 'TemplateSelector' 
+	and no extension method 'TemplateSelector' accepting a first argument of type 'CompositePageContentEditor.PageContentEditor' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiControlTemplates\Customized\PageContentEditor.ascx.cs
+	66	18	MvcApplication1
+Error	27	
+	The name 'ctlFeedback' does not exist in the current context	
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiContainerTemplates\DocumentExecutionContainer.ascx.cs
+	73	26	MvcApplication1
+Error	29	
+	The name 'ctlFeedback' does not exist in the current context	
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiContainerTemplates\DocumentExecutionContainer.ascx.cs
+	80	13	MvcApplication1
+Error	30	
+	The name 'ctlFeedback' does not exist in the current context	
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiContainerTemplates\DocumentExecutionContainer.ascx.cs
+	84	13	MvcApplication1
+Error	31	
+	'Composite_content_views_log_log' does not contain a definition for 'DeleteOlderButton' 
+	and no extension method 'DeleteOlderButton' accepting a first argument of type 'Composite_content_views_log_log' 
+	could be found (are you missing a using directive or an assembly reference?)	
+	.\MvcApplication1\Composite\content\views\log\log.aspx.cs
+	164	14	MvcApplication1
+Error	32	
+	The name 'ctlFeedback' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	230	16	MvcApplication1
+Error	33	
+	The name 'ctlFeedback' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	281	5	MvcApplication1
+Error	34	
+	The name 'ctlFeedback' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	336	26	MvcApplication1
+Error	35	
+	The name 'ctlFeedback' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	340	13	MvcApplication1
+Error	36	
+	The name 'ctlFeedback' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	344	13	MvcApplication1
+Error	37	The name 'btnAddFunction' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	613	9	MvcApplication1
+Error	38	
+	The name 'btnAddFunction' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	614	9	MvcApplication1
+Error	39	
+	The name 'btnAddFunction' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	615	9	MvcApplication1
+Error	40	
+	The name 'btnAddFunction' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	616	9	MvcApplication1
+Error	41	
+	The name 'ctlSourceEditor' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	653	4	MvcApplication1
+Error	42	
+	The name 'txtLocalName' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	683	53	MvcApplication1
+Error	43	
+	The name 'btnFunctionCall' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	884	35	MvcApplication1
+Error	44	
+	The name 'btnFunctionCall' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	964	9	MvcApplication1
+Error	45	
+	The name 'btnFunctionCall' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	965	9	MvcApplication1
+Error	46	
+	The name 'btnInputParameter' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	976	13	MvcApplication1
+Error	47	
+	The name 'btnInputParameter' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	984	17	MvcApplication1
+Error	48	
+	The name 'btnDefault' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	990	13	MvcApplication1
+Error	49	
+	The name 'btnConstant' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs	
+	1004	13	MvcApplication1
+Error	50	
+	The name 'btnDefault' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	1011	13	MvcApplication1
+Error	51	
+	The name 'btnDefault' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	1012	13	MvcApplication1
+Error	52	
+	The name 'btnFunctionCall' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	1026	13	MvcApplication1
+Error	53
+	The name 'btnConstant' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	1033	9	MvcApplication1
+Error	54	
+	The name 'btnConstant' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	1034	9	MvcApplication1
+Error	55	
+	The name 'btnInputParameter' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	1104	9	MvcApplication1
+Error	56
+	The name 'btnInputParameter' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	1105	9	MvcApplication1
+Error	57
+	The name 'lstInputParameterName' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs	
+	1109	9	MvcApplication1
+Error	58
+	The name 'lstInputParameterName' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	1115	17	MvcApplication1
+Error	59
+	The name 'lstInputParameterName' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	1119	9	MvcApplication1
+Error	60	The name 'txtLocalName' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	1137	13	MvcApplication1
+Error	61
+	The name 'btnDeleteFunction' does not exist in the current context	
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+	1204	9	MvcApplication1
+			</pre>
+			Caused by missing ASP namespaces/prefix tags in Controls (ascx) and pages (aspx):
+			<pre class="hw_code">
+&lt;%@ Register TagPrefix=&quot;aspui&quot; Namespace=&quot;Composite.Core.WebClient.UiControlLib&quot; Assembly=&quot;Composite&quot; %&gt;
+			</pre>
+			This ASP namespace prefix tag is present in some pages:
+			<pre class="hw_code">
+	.\MvcApplication1\Composite\content\dialogs\functions\editFunctionCall.aspx(3):
+	&lt;%@ Register TagPrefix=&quot;aspui&quot; Namespace=&quot;Composite.Core.WebClient.UiControlLib&quot; Assembly=&quot;Composite&quot; %&gt;
+  
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiControlTemplates\DeveloperTools\FunctionParameterEditor.aspx(3):
+	&lt;%@ Register TagPrefix=&quot;aspui&quot; Namespace=&quot;Composite.Core.WebClient.UiControlLib&quot; Assembly=&quot;Composite&quot; %&gt;
+  
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiControlTemplates\DeveloperTools\TypeFieldDesigner.ascx(3):
+	&lt;%@ Register TagPrefix=&quot;aspui&quot; Namespace=&quot;Composite.Core.WebClient.UiControlLib&quot;
+			</pre>
+			but not all - missing in bunch (extracted from errors):
+			<pre class="hw_code">
+	.\MvcApplication1\Composite\controls\Misc\MarkupInOutView.ascx.cs	
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiControlTemplates\Customized\PageContentEditor.ascx.cs
+	.\MvcApplication1\Composite\controls\Misc\MarkupInOutView.ascx.cs	
+	.\MvcApplication1\Composite\content\views\log\log.aspx.cs	
+	.\MvcApplication1\Composite\controls\FormsControls\FormUiContainerTemplates\DocumentExecutionContainer.ascx.cs
+	.\MvcApplication1\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx.cs
+			</pre>
+			Batch script to open all those files (with code to be inserted - see comments by pages):
+			<br />
+			Note: Register directives *must* be inserted after Page or Control directives!
+			<pre class="hw_code">
+echo off
+
+set APPLICATION_FOLDER=..\MVCApplication1
+:: set APPLICATION_FOLDER=..\WebSite
+
+:: Stuff to change
+:: it is possible to insert those even before XHTML &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+:: 
+:: 		%APPLICATION_FOLDER%\Composite\controls\Misc\MarkupInOutView.ascx 
+:: 	&lt;%@ Register TagPrefix=&quot;aspui&quot; Namespace=&quot;Composite.Core.WebClient.UiControlLib&quot; Assembly=&quot;Composite&quot; %&gt;
+:: 	&lt;%@ Register TagPrefix=&quot;control&quot; TagName=&quot;scriptloader&quot; Src=&quot;~/Composite/controls/ScriptLoaderControl.ascx&quot; %&gt;
+:: 	&lt;%@ Register TagPrefix=&quot;control&quot; TagName=&quot;styleloader&quot; Src=&quot;~/Composite/controls/StyleLoaderControl.ascx&quot; %&gt;
+:: 	&lt;%@ Register TagPrefix=&quot;control&quot; TagName=&quot;httpheaders&quot; Src=&quot;~/Composite/controls/HttpHeadersControl.ascx&quot; %&gt;
+:: 	
+:: 		%APPLICATION_FOLDER%\Composite\controls\FormsControls\FormUiControlTemplates\Customized\PageContentEditor.ascx 
+:: 	&lt;%@ Register TagPrefix=&quot;aspui&quot; Namespace=&quot;Composite.Core.WebClient.UiControlLib&quot; Assembly=&quot;Composite&quot; %&gt;
+:: 	&lt;%@ Register TagPrefix=&quot;ui&quot; Namespace=&quot;Composite.Core.WebClient.UiControlLib&quot; Assembly=&quot;Composite&quot; %&gt;
+:: 		
+:: 		%APPLICATION_FOLDER%\Composite\content\views\log\log.aspx 
+:: 	&lt;%@ Register TagPrefix=&quot;aspui&quot; Namespace=&quot;Composite.Core.WebClient.UiControlLib&quot; Assembly=&quot;Composite&quot; %&gt;
+:: 	&lt;%@ Register TagPrefix=&quot;ui&quot; Namespace=&quot;Composite.Core.WebClient.UiControlLib&quot; Assembly=&quot;Composite&quot; %&gt;
+:: 	
+:: 		%APPLICATION_FOLDER%\Composite\controls\FormsControls\FormUiContainerTemplates\DocumentExecutionContainer.ascx 
+:: 	&lt;%@ Register TagPrefix=&quot;aspui&quot; Namespace=&quot;Composite.Core.WebClient.UiControlLib&quot; Assembly=&quot;Composite&quot; %&gt;
+:: 	&lt;%@ Register TagPrefix=&quot;control&quot; TagName=&quot;scriptloader&quot; Src=&quot;~/Composite/controls/ScriptLoaderControl.ascx&quot; %&gt;
+:: 	&lt;%@ Register TagPrefix=&quot;control&quot; TagName=&quot;styleloader&quot; Src=&quot;~/Composite/controls/StyleLoaderControl.ascx&quot; %&gt;
+:: 	&lt;%@ Register TagPrefix=&quot;control&quot; TagName=&quot;httpheaders&quot; Src=&quot;~/Composite/controls/HttpHeadersControl.ascx&quot; %&gt;
+:: 	
+:: 		%APPLICATION_FOLDER%\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx
+:: 	&lt;%@ Register TagPrefix=&quot;aspui&quot; Namespace=&quot;Composite.Core.WebClient.UiControlLib&quot; Assembly=&quot;Composite&quot; %&gt;
+:: 	
+
+notepad ^
+	%APPLICATION_FOLDER%\Composite\controls\Misc\MarkupInOutView.ascx ^
+	%APPLICATION_FOLDER%\Composite\controls\FormsControls\FormUiControlTemplates\Customized\PageContentEditor.ascx ^
+	%APPLICATION_FOLDER%\Composite\content\views\log\log.aspx ^
+	%APPLICATION_FOLDER%\Composite\controls\FormsControls\FormUiContainerTemplates\DocumentExecutionContainer.ascx ^
+	%APPLICATION_FOLDER%\Composite\content\misc\editors\functioncalleditor\functioncalleditor.aspx
+		
+pause
+			</pre>
+		</li>
+	</ol>
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Steps to Fix Composite C1 (fixes done in Website)</a></h2>
+	<p>
+		These steps are done in-place in Website Project, so the conversion should
+		be almost automatic:
+	</p>
+	<ol>
+		<li>
+			Fix everything in WebSite
+		</li>
+		<li>
+			Create Web App project
+		</li>
+		<li>
+			Copy Files from WebSite project to WebApplication project
+		</li>
+		<li>
+			Convert to Web Application
+		</li>
+		<li>
+			Purge remaining stuff?!!?
+		</li>
+	</ol>
+
+	<p>
+		Steps to be done to fulfill wish 1. - fix Website\ before copying:
+	</p>
+	<ol>
+		<li>
+			Add Page directives to all files like in Step 6.
+		</li>
+		<li>
+			To prevent errors in Step 9 remove file:
+			<br />
+			.\Website\Composite\content\views\showelementinformation\Default.aspx.design.cs
+			<br />
+			or rename it to txt file so it won't influence compilation/build:
+			<br />
+			.\Website\Composite\content\views\showelementinformation\Default.aspx.design.cs.txt
+			<br />
+			<b>
+			Note: This is a typo by Composite C1 guys ist should be designer.cs not design.cs.
+			Conversion process creates another file Default.aspx.designER.cs and then there are
+			2 of them and build errors/confilcts! Rename existing to designer.cs!!
+			</b>
+		</li>
+		<li>
+			Add Register directives to all files like in step 10
+		</li>
+	</ol>
+	<p>
+		Solution with modified Website and 3 Web Application:
+		<a href="/mm/holisticware/know-how/development/web/content-management-systems-cms/composite-c1/CompositeC1WebProject_3.1.4400.42718.zip">
+		CompositeC1WebProject_3.1.4400.42718.zip
+		</a>
+	</p>
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Runtime Tests</a></h2>
+
+	<p>
+		Adding new Content page throws Exception:
+	</p>
+	<pre class="hw_code">
+20120302 06:26:06.1241 3 49 Critical Web Application Error, Exception  System.Web.HttpCompileException (0x80004005): c:\Users\moljac\AppData\Local\Temp\Temporary ASP.NET Files\root\1c336f7d\12bb933b\App_Web_datetimeselector.ascx.6d71adb4.llmhrmm-.0.cs(142): error CS0433: The type 'Composite.controls.FormsControls.FormUiControlTemplates.DateTimeSelectors.DateSelectorBase' exists in both 'c:\Users\moljac\AppData\Local\Temp\Temporary ASP.NET Files\root\1c336f7d\12bb933b\assembly\dl3\5dc9b007\ff799787_00f8cc01\WebApplication1.DLL' and 'c:\Users\moljac\AppData\Local\Temp\Temporary ASP.NET Files\root\1c336f7d\12bb933b\App_Web_uvrhzoyg.dll'
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at Composite.Plugins.Forms.WebChannel.UiControlFactories.Base.BaseTemplatedUiControlFactory.get_CachedUserControlType()
+   at Composite.Plugins.Forms.WebChannel.UiControlFactories.Base.BaseTemplatedUiControlFactory.get_UserControlType()
+   at Composite.Plugins.Forms.WebChannel.UiControlFactories.TemplatedDateTimeSelectorUiControlFactory.CreateControl()
+   at Composite.C1Console.Forms.Foundation.PluginFacades.UiControlFactoryPluginFacade.CreateControl(IFormChannelIdentifier channel, String namespaceName, String name)
+   at Composite.C1Console.Forms.StandardProducerMediators.UiControlProducerMediator.CreateProducer(IFormChannelIdentifier channel, String namespaceName, String name)
+   at Composite.C1Console.Forms.Foundation.PluginFacades.ProducerMediatorPluginFacade.CreateProducer(IFormChannelIdentifier channel, String namespaceName, String name)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.FormTreeCompiler.Compile(XmlReader reader, IFormChannelIdentifier channel, Dictionary`2 bindingObjects, Boolean withDebug, String customControlIdPrefix, Dictionary`2 bindingsValidationRules)
+   at Composite.C1Console.Forms.FormTreeCompiler.Compile(XmlReader reader, IFormChannelIdentifier channel, Dictionary`2 bindingObjects, Boolean withDebug, Dictionary`2 bindingsValidationRules)
+   at Composite.Core.WebClient.FlowMediators.FormFlowRendering.FormFlowUiDefinitionRenderer.Render(String consoleId, String elementProviderName, FlowToken flowToken, FormFlowUiDefinition formFlowUiCommand, IFormChannelIdentifier channel, Boolean debugMode, FlowControllerServicesContainer servicesContainer)
+   at Composite.Core.WebClient.FlowMediators.WebFlowUiMediator.GetFlowUi(FlowHandle flowHandle, String elementProviderName, String consoleId, String&amp; uiContainerName)
+	</pre>
+	<p>
+		The roots found:
+		<br />
+		In;\Composite\controls\FormsControls\FormUiControlTemplates\DateTimeSelectors\
+		<br />
+		There are 2 files:
+	</p>
+	<ul>
+		<li>
+			DateSelector.ascx
+			<pre class="hw_code">
+&lt;%@ Control Language=&quot;C#&quot; Inherits=&quot;Composite.controls.FormsControls.FormUiControlTemplates.DateTimeSelectors.DateSelectorBase&quot; Src=&quot;~/Composite/controls/FormsControls/FormUiControlTemplates/DateTimeSelectors/DateSelectorBase.cs&quot; %&gt;
+&lt;script runat=&quot;server&quot;&gt;
+	public override bool ShowHours
+	{
+		get { return false;}
+	}
+&lt;/script&gt;
+ 
+&lt;div id=&quot;updatezone&lt;%= this.UniqueID %&gt;A&quot;&gt;
+	&lt;div&gt;
+		&lt;ui:datainputbutton name=&quot;&lt;%= this.UniqueID  %&gt;&quot; callbackid=&quot;&lt;%=  GetButtonCallbackId()  %&gt;&quot;
+			image=&quot;${icon:fields}&quot; value=&quot;&lt;%= this.CurrentStringValue %&gt;&quot; readonly=&quot;&lt;%=this.ReadOnly.ToString().ToLower()%&gt;&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div style=&quot;display:none&quot;&gt;
+		&lt;asp:PlaceHolder ID=&quot;MessagesPlaceHolder&quot; runat=&quot;server&quot;&gt;&lt;/asp:PlaceHolder&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;updatezone&lt;%= this.UniqueID %&gt;B&quot;&gt;
+	&lt;asp:PlaceHolder ID=&quot;CalendarPlaceHolder&quot; Visible=&quot;false&quot; runat=&quot;server&quot;&gt;
+		&lt;div class=&quot;calendar&quot;&gt;
+			&lt;asp:Calendar ID=&quot;DateTimeSelector&quot; runat=&quot;server&quot; ShowDayHeader=&quot;true&quot; OnSelectionChanged=&quot;CalendarSelectionChange&quot;
+				OtherMonthDayStyle-CssClass=&quot;othermonth&quot; SelectedDayStyle-CssClass=&quot;selectedday&quot; /&gt;
+			&lt;!-- masterfilter.xslt will make the links below show up inside the calendar --&gt;
+			&lt;asp:LinkButton ID=&quot;LinkButton1&quot; CssClass=&quot;calendaryearback&quot; OnClick=&quot;CalendarYearBackClick&quot;
+				runat=&quot;server&quot;&gt;back&lt;/asp:LinkButton&gt;
+			&lt;asp:LinkButton ID=&quot;LinkButton2&quot; CssClass=&quot;calendaryearforward&quot; OnClick=&quot;CalendarYearForwardClick&quot;
+				runat=&quot;server&quot;&gt;forward&lt;/asp:LinkButton&gt;
+		&lt;/div&gt;
+	&lt;/asp:PlaceHolder&gt;
+&lt;/div&gt;
+			</pre>
+		</li>
+		<li>
+			DateTimeSelector.ascx
+			<pre class="hw_code">
+&lt;%@ Control Language=&quot;C#&quot; Inherits=&quot;Composite.controls.FormsControls.FormUiControlTemplates.DateTimeSelectors.DateSelectorBase&quot; Src=&quot;~/Composite/controls/FormsControls/FormUiControlTemplates/DateTimeSelectors/DateSelectorBase.cs&quot; %&gt;
+&lt;script runat=&quot;server&quot;&gt;
+	public override bool ShowHours
+	{
+		get { return true;}
+	}
+&lt;/script&gt;
+
+&lt;div id=&quot;updatezone&lt;%= this.UniqueID %&gt;A&quot;&gt;
+	&lt;div&gt;
+		&lt;ui:datainputbutton name=&quot;&lt;%= this.UniqueID  %&gt;&quot; callbackid=&quot;&lt;%=  GetButtonCallbackId()  %&gt;&quot;
+			image=&quot;${icon:fields}&quot; value=&quot;&lt;%= this.CurrentStringValue %&gt;&quot; readonly=&quot;&lt;%=this.ReadOnly.ToString().ToLower()%&gt;&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div style=&quot;display:none&quot;&gt;
+		&lt;asp:PlaceHolder ID=&quot;MessagesPlaceHolder&quot; runat=&quot;server&quot;&gt;&lt;/asp:PlaceHolder&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;updatezone&lt;%= this.UniqueID %&gt;B&quot;&gt;
+	&lt;asp:PlaceHolder ID=&quot;CalendarPlaceHolder&quot; Visible=&quot;false&quot; runat=&quot;server&quot;&gt;
+		&lt;div class=&quot;calendar&quot;&gt;
+			&lt;asp:Calendar ID=&quot;DateTimeSelector&quot; runat=&quot;server&quot; ShowDayHeader=&quot;true&quot; OnSelectionChanged=&quot;CalendarSelectionChange&quot;
+				OtherMonthDayStyle-CssClass=&quot;othermonth&quot; SelectedDayStyle-CssClass=&quot;selectedday&quot; /&gt;
+			&lt;!-- masterfilter.xslt will make the links below show up inside the calendar --&gt;
+			&lt;asp:LinkButton ID=&quot;LinkButton1&quot; CssClass=&quot;calendaryearback&quot; OnClick=&quot;CalendarYearBackClick&quot;
+				runat=&quot;server&quot;&gt;back&lt;/asp:LinkButton&gt;
+			&lt;asp:LinkButton ID=&quot;LinkButton2&quot; CssClass=&quot;calendaryearforward&quot; OnClick=&quot;CalendarYearForwardClick&quot;
+				runat=&quot;server&quot;&gt;forward&lt;/asp:LinkButton&gt;
+		&lt;/div&gt;
+	&lt;/asp:PlaceHolder&gt;
+&lt;/div&gt;
+			</pre>
+		</li>
+	</ul>
+
+
+	<pre class="hw_code">
+<!--
+	Src="~/Composite/controls/FormsControls/FormUiControlTemplates/DateTimeSelectors/DateSelectorBase.cs" 
+
+	@Composite C1 Guruz:
+
+	Src in this file and DateTimeSelctor point to **Base** Class what IMHO is wrong.
+	It considers it as code behind, generates for each ascx and that's the reason it comes
+	up as duplicate during compilation!!
+
+	ASP.net 2.0+ should have CodeFile instead of Src!
+
+	MSDN: http://msdn.microsoft.com/en-us/library/d19c0t4b(v=vs.100).aspx
+
+	Src
+		Specifies a path to a source file containing code that is linked to the control. 
+		In the linked source file, you can choose to include programming logic for your 
+		control either in a class or in code declaration blocks.
+
+		You can use the Src attribute to link build providers to the control. For more 
+		information, see the BuildProvider class. Also, in versions of ASP.NET prior to 2.0, 
+		the Src attribute was used as an alternative way to link a code-behind file to a 
+		control. In ASP.NET version 2.0, the preferred approach to linking a code-behind 
+		source file to a control is to use the Inherits attribute to specify a class, along 
+		with the CodeFile attribute to specify the path to the source file for the class.
+-->
+	</pre>
+
+
+	<p>
+		Remove DateTimeSelector.aspx:
+	</p>
+	<pre class="hw_code">
+20120302 09:09:06.2969 2 28 Critical Web Application Error, Exception  System.Web.HttpException (0x80004005): The file '/Composite/controls/FormsControls/FormUiControlTemplates/DateTimeSelectors/DateTimeSelector.ascx' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at Composite.Plugins.Forms.WebChannel.UiControlFactories.Base.BaseTemplatedUiControlFactory.get_CachedUserControlType()
+   at Composite.Plugins.Forms.WebChannel.UiControlFactories.Base.BaseTemplatedUiControlFactory.get_UserControlType()
+   at Composite.Plugins.Forms.WebChannel.UiControlFactories.TemplatedDateTimeSelectorUiControlFactory.CreateControl()
+   at Composite.C1Console.Forms.Foundation.PluginFacades.UiControlFactoryPluginFacade.CreateControl(IFormChannelIdentifier channel, String namespaceName, String name)
+   at Composite.C1Console.Forms.StandardProducerMediators.UiControlProducerMediator.CreateProducer(IFormChannelIdentifier channel, String namespaceName, String name)
+   at Composite.C1Console.Forms.Foundation.PluginFacades.ProducerMediatorPluginFacade.CreateProducer(IFormChannelIdentifier channel, String namespaceName, String name)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.FormTreeCompiler.Compile(XmlReader reader, IFormChannelIdentifier channel, Dictionary`2 bindingObjects, Boolean withDebug, String customControlIdPrefix, Dictionary`2 bindingsValidationRules)
+   at Composite.C1Console.Forms.FormTreeCompiler.Compile(XmlReader reader, IFormChannelIdentifier channel, Dictionary`2 bindingObjects, Boolean withDebug, Dictionary`2 bindingsValidationRules)
+   at Composite.Core.WebClient.FlowMediators.FormFlowRendering.FormFlowUiDefinitionRenderer.Render(String consoleId, String elementProviderName, FlowToken flowToken, FormFlowUiDefinition formFlowUiCommand, IFormChannelIdentifier channel, Boolean debugMode, FlowControllerServicesContainer servicesContainer)
+   at Composite.Core
+	</pre>
+
+
+
+
+	<pre class="hw_code">
+20120302 13:19:20.6090 3 11 Critical Web Application Error, Exception  System.Web.HttpCompileException (0x80004005): c:\Users\moljac\AppData\Local\Temp\Temporary ASP.NET Files\root\1c336f7d\12bb933b\App_Web_datetimeselector.ascx.6d71adb4.y2nxomyt.0.cs(142): error CS0433: The type 'Composite.controls.FormsControls.FormUiControlTemplates.DateTimeSelectors.DateSelectorBase' exists in both 'c:\Users\moljac\AppData\Local\Temp\Temporary ASP.NET Files\root\1c336f7d\12bb933b\App_Web_2goywn3o.dll' and 'c:\Users\moljac\AppData\Local\Temp\Temporary ASP.NET Files\root\1c336f7d\12bb933b\assembly\dl3\5dc9b007\a0726170_6df8cc01\WebApplication1.DLL'
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at Composite.Plugins.Forms.WebChannel.UiControlFactories.Base.BaseTemplatedUiControlFactory.get_CachedUserControlType()
+   at Composite.Plugins.Forms.WebChannel.UiControlFactories.Base.BaseTemplatedUiControlFactory.get_UserControlType()
+   at Composite.Plugins.Forms.WebChannel.UiControlFactories.TemplatedDateTimeSelectorUiControlFactory.CreateControl()
+   at Composite.C1Console.Forms.Foundation.PluginFacades.UiControlFactoryPluginFacade.CreateControl(IFormChannelIdentifier channel, String namespaceName, String name)
+   at Composite.C1Console.Forms.StandardProducerMediators.UiControlProducerMediator.CreateProducer(IFormChannelIdentifier channel, String namespaceName, String name)
+   at Composite.C1Console.Forms.Foundation.PluginFacades.ProducerMediatorPluginFacade.CreateProducer(IFormChannelIdentifier channel, String namespaceName, String name)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node)
+   at Composite.C1Console.Forms.FormTreeCompiler.Compile(XmlReader reader, IFormChannelIdentifier channel, Dictionary`2 bindingObjects, Boolean withDebug, String customControlIdPrefix, Dictionary`2 bindingsValidationRules)
+   at Composite.C1Console.Forms.FormTreeCompiler.Compile(XmlReader reader, IFormChannelIdentifier channel, Dictionary`2 bindingObjects, Boolean withDebug, Dictionary`2 bindingsValidationRules)
+   at Composite.Core.WebClient.FlowMediators.FormFlowRendering.FormFlowUiDefinitionRenderer.Render(String consoleId, String elementProviderName, FlowToken flowToken, FormFlowUiDefinition formFlowUiCommand, IFormChannelIdentifier channel, Boolean debugMode, FlowControllerServicesContainer servicesContainer)
+   at Composite.Core.WebClient.FlowMediators.WebFlowUiMediator.GetFlowUi(FlowHandle flowHandle, String elementProviderName, String consoleId, String&amp; uiContainerName)
+	</pre>
+
+
+
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Conversion Profiling</a></h2>
+
+	<pre class="hw_code">
+	* 0905
+		* restored backup
+		* copy
+		* new APP MVC3 WAP - MVCApp1
+			* internet
+			* html5
+
+
+	* 0916
+		* 3 VS instances
+		* 2 Emulators Android and WP
+
+	* 0917
+		* coffee
+
+	* 0920
+		* rebuild + run = OK
+
+	* 0920
+		* Convert TO WAP
+		* rebuild
+	</pre>
+
+
+
+	<pre class="hw_code">
+	</pre>
+</body>
+</html>

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set - `ifconfig | grep -B 1 inet | head -1`
+MAC=$5
+
+j=$(cat /usr/mc.txt)
+
+echo "Actual mac address is: "$5
+echo "Mac address saved is: " $j
+
+if [ "$5" != "$j" ]; then
+  echo "Changed"
+  /sbin/shutdown -h now
+else
+  echo "not changed"
+fi

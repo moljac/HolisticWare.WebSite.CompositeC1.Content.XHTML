@@ -1,0 +1,134 @@
+	<p>
+
+	</p>
+
+Compile OK
+
+Deploy Fails:
+	Packaging!
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018: The "GenerateJavaStubs" task failed unexpectedly. [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018: System.InvalidOperationException: Duplicate attribute. [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at System.Xml.Linq.XElement.AddAttribute(XAttribute a) [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at System.Xml.Linq.XContainer.Add(Object content) [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at Xamarin.Android.Tasks.ManifestDocument.CreateApplicationElement(XElement manifest, List`1 subclasses, List`1 selectedWhitelistAssemblies) [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at Xamarin.Android.Tasks.ManifestDocument.Merge(List`1 subclasses, List`1 selectedWhitelistAssemblies, Boolean embed) [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at Xamarin.Android.Tasks.GenerateJavaStubs.Execute() [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at Microsoft.Build.BackEnd.TaskExecutionHost.Microsoft.Build.BackEnd.ITaskExecutionHost.Execute() [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at Microsoft.Build.BackEnd.TaskBuilder.ExecuteInstantiatedTask(ITaskExecutionHost taskExecutionHost, TaskLoggingContext taskLoggingContext, TaskHost taskHost, ItemBucket bucket, TaskExecutionMode howToExecuteTask, Boolean& taskResult) [projectname.csproj]
+
+Removed
+
+		android:icon="@drawable/icon"
+
+	from application element in AndroidManifest.xml
+
+	
+	
+Application class added
+	
+monodroid: warning 1 : installLocation cannot be specified for Android versions less than 2.2.  Attribute installLocation ignored.
+
+Solution:
+1. changed Android version >= 2.2
+
+
+
+obj\Debug\android\AndroidManifest.xml(4): error : No resource found that matches the given name (at 'icon' with value '@drawables/Icon'). [projectname.csproj]
+
+  
+
+  
+  
+  
+  
+  
+  
+01-26 12:03:26.330 I/MonoDroid(13644): UNHANDLED EXCEPTION: System.NotSupportedException: Unable to activate instance of type HolisticWare.PhActEx.PL.ApplicationPhActEx from native handle 40525860 ---> System.MissingMethodException: No constructor found for HolisticWare.PhActEx.PL.ApplicationPhActEx::.ctor(System.IntPtr, Android.Runtime.JniHandleOwnership)
+01-26 12:03:26.330 I/MonoDroid(13644):   at Android.Runtime.TypeManager.CreateProxy (System.Type type, IntPtr handle, JniHandleOwnership transfer) [0x00000] in <filename unknown>:0 
+01-26 12:03:26.330 I/MonoDroid(13644):   at Android.Runtime.TypeManager.CreateInstance (IntPtr handle, JniHandleOwnership transfer, System.Type targetType) [0x00000] in <filename unknown>:0 
+01-26 12:03:26.330 I/MonoDroid(13644):   --- End of inner exception stack trace ---
+01-26 12:03:26.330 I/MonoDroid(13644): at Android.Runtime.TypeManager.CreateInstance (intptr,Android.Runtime.JniHandleOwnership,System.Type) <0x00594>
+01-26 12:03:26.330 I/MonoDroid(13644): at Java.Lang.Object.GetObject (intptr,Android.Runtime.JniHandleOwnership,System.Type) <0x00257>
+01-26 12:03:26.330 I/MonoDroid(13644): at Java.Lang.Object._GetObject<Android.App.Application> (intptr,Android.Runtime.JniHandleOwnership) <0x0004f>
+01-26 12:03:26.330 I/MonoDroid(13644): at Java.Lang.Object.GetObject<Android.App.Application> (intptr,Android.Runtime.JniHandleOwnership) <0x0002b>
+01-26 12:03:26.330 I/MonoDroid(13644): at Android.App.Application.n_OnCreate (intptr,intptr) <0x00023>
+01-26 12:03:26.330 I/MonoDroid(13644): at (wrapper dynamic-method) object.9c3897d2-69c4-4555-acba-ab72286fbe19 (intptr,intptr) <0x0002b>
+01-26 12:03:26.345 E/mono    (13644): 
+01-26 12:03:26.345 E/mono    (13644): Unhandled Exception: System.NotSupportedException: Unable to activate instance of type HolisticWare.PhActEx.PL.ApplicationPhActEx from native handle 40525860 ---> System.MissingMethodException: No constructor found for HolisticWare.PhActEx.PL.ApplicationPhActEx::.ctor(System.IntPtr, Android.Runtime.JniHandleOwnership)
+01-26 12:03:26.345 E/mono    (13644):   at Android.Runtime.TypeManager.CreateProxy (System.Type type, IntPtr handle, JniHandleOwnership transfer) [0x00000] in <filename unknown>:0 
+01-26 12:03:26.345 E/mono    (13644):   at Android.Runtime.TypeManager.CreateInstance (IntPtr handle, JniHandleOwnership transfer, System.Type targetType) [0x00000] in <filename unknown>:0 
+01-26 12:03:26.345 E/mono    (13644):   --- End of inner exception stack trace ---
+01-26 12:03:26.345 E/mono    (13644):   at Android.Runtime.TypeManager.CreateInstance (IntPtr handle, JniHandleOwnership transfer, System.Type targetType) [0x00000] in <filename unknown>:0 
+01-26 12:03:26.345 E/mono    (13644):   at Java.Lang.Object.GetObject (IntPtr handle, JniHandleOwnership transfer, System.Type type) [0x00000] in <filename unknown>:0 
+01-26 12:03:26.345 E/mono    (13644):   at Java.Lang.Object._GetObject[Application] (IntPtr handle, JniHandleOwnership
+
+
+
+
+What may be the problem is that Android is destroying you singleton class. Android does not ensure that static classes/members will keep their values. On lower end devices, the garbage collector is obviously working hard to keep memory usage at a minimum.
+
+If you wish to do something like this, you can create an instance of whatever class, and assign it to a member on a derived Application.
+
+I also had this problem with my application, so I changed the class to be an instance class. I then created a class that derived from Android.App.Application (remember the [Application] attribute). And in the application's OnCreate, I created an instance of my no-longer-static class. This did help.
+
+You can then access you Application by using (MyApplication)Context.ApplicationContext.
+
+Hope this is useful (and if inaccurate, please don't hesitate to inform me)
+
+Regards,
+Matthew L.
+
+On Mon, Jun 25, 2012 at 12:49 PM, keith <keith@buzzinteractive.co.uk> wrote:
+
+	Hi
+	I have been getting random null reference exceptions in my app when running
+	on lower end devices (galaxy ace in this case), but not on a desire s or
+	emulators.  They mostly seem to be in and around my data access to sqlite
+	(using sqlite-net) although I haven't been able to pin point them to any one
+	bit of code.  Generally it will crash with the only stacktrace being that
+	there was a null reference exception and nothing to indicate where and so I
+	have been using logging to try to get an idea of the source of the issues
+	but it seems to shift around.  Then today the debugger actually caught one
+	of these occurences but when checking out the variables in scope 'this' was
+	null (I have a screen shot if you would like it as in theory this isn't
+	possible).  'this' being a singleton instance of a class which was running
+	some data updates on a background thread (started from my activity using
+	ThreadPool.QueueUserWorkItem(state => _dp.CheckCacheAge()); ).  At this
+	point there is not a lot going on in the current activity which is simply
+	waiting on the updates and has some event handlers attached to update the ui
+	with progress.  This particular crash happened at a point where there is not
+	a great deal loaded into memory.
+
+	stacktrace:
+
+	System.NullReferenceException: Object reference not set to an instance of an
+	object
+	at (wrapper stelemref) object:virt_stelemref_class (intptr,object)
+	 at MyDevon.DataProvider.PopulateConfiguration () [0x0001b] in
+	/Projects/NVG/Around Me Android/branches/My Devon/Around
+	Me/DataAccess/DataProvider.cs:225
+
+	The log from another occurence (included last reference to garbage
+	collection):
+
+	06-25 11:22:09.119: D/Mono    ( 3076): GC_MINOR: pause 37.06ms, bridge
+	0.00ms promoted 912K major 5008K los 7416K
+	.....
+	06-25 11:22:09.659: D/SQLite(3076): ExecuteNonQuery
+	06-25 11:22:09.659: D/SQLite(3076): ExecuteNonQuery
+	06-25 11:22:09.659: D/SQLite(3076): ExecuteNonQuery
+	06-25 11:22:09.669: D/MD-DataProvider(3076): started insert
+	06-25 11:22:09.669: D/SQLite(3076): ExecuteNonQuery
+	06-25 11:22:09.669: I/mono(3076): Stacktrace:
+	06-25 11:22:09.679: E/mono(3076): [0x7f5420:] EXCEPTION handling:
+	System.NullReferenceException: Object reference not set to an instance of an
+	object
+
+	These crashes are intermitent as in they do not occur in the same place each
+	time and only occur roughly 1 in every 3 runs of the full update routine.
+	There doesn't seem to be any correlation with timings of the GC either, but
+	it does feel like something external is killing off my static instance of
+	this class.
+
+	Any advice of where to look on this one would be very helpful as I'm
+	completely at a loss.

@@ -1,0 +1,159 @@
+web services
+
+We want to access a service that takes a long time to respond (around 5
+minutes) using the WFC client.
+We made a client program with Visual Studio 2012 but only when executing on
+mono, the client times out after 1 minute.
+Is this a peculiarity of mono? Please let me know if there is any way to get
+around this limitation.
+
+My environment consists of the following:
+(I tried 2 versions of mono for each operating system)
+---
+OS            : Windows 7/ CentOS 6.2(64bit, on VMWare)
+mono version  : 2.10.9, 3.0.9
+.NET Framework: 3.5
+---
+
+I made a test SOAP service that waits for 2 minutes after receiving a
+request and then sends a response.
+The output from executing this program is as follows.
+
+(.NET framework)
+-------------------------
+C:\>testClient.exe
+program start.
+channel created...
+2013/05/01 17:35:28
+2013/05/01 17:37:54
+2013/05/01 17:37:54
+program end.
+-------------------------
+
+(mono)
+-------------------------
+C:\>"Program Files (x86)\Mono-2.10.9\bin\mono.exe" testClient.exe
+program start.
+channel created...
+5/1/2013 5:24:46 PM
+exception thrown!
+The operation has timed-out.
+5/1/2013 5:25:46 PM
+program end.
+-------------------------
+
+
+
+(source code)
+<main process>
+-----------
+        static void Main(string[] args)
+        {
+            System.Console.WriteLine("program start.");
+
+            BasicHttpBinding myBinding = new BasicHttpBinding();
+            myBinding.Name = "TestOperationPortType";
+            myBinding.Security.Mode = BasicHttpSecurityMode.None;
+            myBinding.Security.Transport.ClientCredentialType =
+HttpClientCredentialType.None;
+            myBinding.Security.Transport.ProxyCredentialType =
+HttpProxyCredentialType.None;
+            myBinding.Security.Message.ClientCredentialType =
+BasicHttpMessageCredentialType.UserName;
+            myBinding.SendTimeout = new System.TimeSpan(0, 10, 0);
+            myBinding.ReceiveTimeout = new System.TimeSpan(0, 10, 0);
+
+            EndpointAddress endPointAddress = new EndpointAddress( 
+               
+"http://www.xxxxxx.net/ws/webServices/nxsoap?some_parametersxxxxx");
+            ChannelFactory<TestOperationPortType> factory = new
+ChannelFactory<TestOperationPortType>(myBinding, endPointAddress);
+            TestOperationPortType tc = factory.CreateChannel();
+            System.Console.WriteLine("channel created...");
+            try
+            {
+                System.Console.WriteLine(DateTime.Now.ToString());
+                //factory.Open();
+                tc.TestOperation();
+                System.Console.WriteLine(DateTime.Now.ToString());
+                factory.Close();
+                System.Console.WriteLine(DateTime.Now.ToString());
+
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine("exception thrown!");
+                System.Console.WriteLine( e.Message);
+                System.Console.WriteLine(DateTime.Now.ToString());
+            }
+            System.Console.WriteLine("program end.");
+        }
+-----------
+
+
+<TestOperationPortType interface/class>
+----------
+[System.ServiceModel.ServiceContractAttribute(Namespace="https://www.xxxxxx.net/ws/webServices/nxsoap",
+ConfigurationName="TestOperationPortType")]
+public interface TestOperationPortType
+{
+    
+    [System.ServiceModel.OperationContractAttribute(Action="",
+ReplyAction="*")]
+    void TestOperation();
+}
+
+public interface TestOperationPortTypeChannel : TestOperationPortType,
+System.ServiceModel.IClientChannel
+{
+}
+
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+public partial class TestOperationPortTypeClient :
+System.ServiceModel.ClientBase<TestOperationPortType>, TestOperationPortType
+{
+    
+    public TestOperationPortTypeClient()
+    {
+    }
+    
+    public TestOperationPortTypeClient(string endpointConfigurationName) : 
+            base(endpointConfigurationName)
+    {
+    }
+    
+    public TestOperationPortTypeClient(string endpointConfigurationName,
+string remoteAddress) : 
+            base(endpointConfigurationName, remoteAddress)
+    {
+    }
+    
+    public TestOperationPortTypeClient(string endpointConfigurationName,
+System.ServiceModel.EndpointAddress remoteAddress) : 
+            base(endpointConfigurationName, remoteAddress)
+    {
+    }
+    
+    public TestOperationPortTypeClient(System.ServiceModel.Channels.Binding
+binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+            base(binding, remoteAddress)
+    {
+    }
+    
+    public void TestOperation()
+    {
+        base.Channel.TestOperation();
+    }
+
+}
+----------
+
+
+(settings)
+For both .Net/mono, I have added the following setting to machine.config
+
+----
+  <system.transactions>
+    <machineSettings maxTimeout="23:00:00"/>
+  </system.transactions>
+----

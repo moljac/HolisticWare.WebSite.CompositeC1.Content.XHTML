@@ -1,0 +1,10 @@
+"configure --with-tls=pthread CC=clang CXX=clang++" passes
+
+"make" passes
+
+"make check" most tests pass - one failure
+
+"make run-test" most tests pass for mscorlib - 67 not run and then I
+ran into a dependency problem (known and local to my test setup) and
+decided it is not worth investigating further. I am sure it is
+nothing.

@@ -1,0 +1,264 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>HolisticWare Process for websites based on Composite C1</title>
+Description = all keywords + extra text
+<meta name="Description" content="HolisticWare Process for websites based on Composite C1: steps, tips and tricks" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: HolisticWare Process for websites based on Composite C1
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="HolisticWare, Process, websites, Composite C1" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>HolisticWare Process for websites based on Composite C1</h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<!-- ================================================================== -->
+	<h2>Definitions</h2>
+
+	<ul>
+		<li>
+			Template site:
+			<br />
+			Composite C1 site that has: 
+			<ul>
+				<li>
+					passed initialization:
+					<ul>
+						<li>
+							admin data
+						</li>
+						<li>
+							localization/internationalization (console language)
+						</li>
+						<li>
+							website type (bare bones, xhtml based, razor based, master page based)
+						</li>
+					</ul>
+				</li>
+				<li>
+					Installed some of the packages.
+				</li>
+			</ul>
+		</li>
+		<li>
+			Deployment site
+			<br />
+			Website for particular customer (additional packages installed, content)
+		</li>
+	</ul>
+
+
+	<!-- ================================================================== -->
+	<h2>Steps</h2>
+	<p>
+		Some information can be found ont Composite C1 forums:
+		<a href="http://compositec1.codeplex.com/discussions/360288">
+		http://compositec1.codeplex.com/discussions/360288
+		</a>
+	</p>
+	<ol>
+		<li>
+			Basic steps (both for template site and deployment site)
+			<ol>
+				<li>
+					Determine whether Website [project] or WebApplication project
+					<br />
+					<a href="">
+					</a>
+					<ul>
+						<li>
+							If WebApplication project then convert WebSite to WebApplication
+							<br />
+							<a href="">
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					Basic initial SEO stuff:
+					<ol>
+						<li>
+							canonicalization site with and without www should point to the same
+							<br />
+							2 cases
+							<ul>
+								<li>
+									<a href="http://www.holisticware.net">
+										http://www.holisticware.net
+									</a>						
+								</li>
+								<li>
+									<a href="http://holisticware.net">
+										http://holisticware.net
+									</a>
+								</li>
+							</ul>
+							The best solution is with 301 Moved permanently either redirects or url rewrites.
+							(Note: be aware that without 301
+							Options:
+							<ul>
+								Options
+								<li>
+									Redirects - bad!
+									<br />
+									Might cause duplicate content!
+								</li>
+								<li>
+									
+								</li>
+							</ul>
+							IIS howto 
+							<br />
+						</li>
+						<li>
+							URLs lowercase
+							<br />
+							<a href="http://docs.composite.net/Getting-started/Configuration/UrlFormatting">
+								http://docs.composite.net/Getting-started/Configuration/UrlFormatting
+							</a>
+							<br />
+							In ~/App_Data/Composite/Composite.config uncomment UrlFormatters "LowerCase"
+							<br />
+							<pre class="hw_code">
+&lt;configuration&gt; 
+  &lt;Composite.Core.Urls defaultPageUrlProviderName=&quot;Default&quot;&gt; 
+	&lt;PageUrlProviders&gt; 
+	  &lt;add name=&quot;Default&quot; type=&quot;Composite.Plugins.Routing.Pages.DefaultPageUrlProvider, Composite&quot; /&gt; 
+	&lt;/PageUrlProviders&gt; 
+	&lt;UrlFormatters&gt; 
+	  &lt;add name=&quot;StringReplace&quot; type=&quot;Composite.Plugins.Routing.UrlFormatters.StringReplaceUrlFormatter&quot; mandatory=&quot;true&quot;&gt; 
+		&lt;ReplacementRules&gt; 
+		  &lt;add oldValue=&quot; &quot; newValue=&quot;-&quot; /&gt; 
+		  &lt;add oldValue=&quot;?&quot; newValue=&quot;&quot; /&gt; 
+		  &lt;add oldValue=&quot;#&quot; newValue=&quot;&quot; /&gt; 
+		&lt;/ReplacementRules&gt; 
+	  &lt;/add&gt; 
+	  &lt;add 
+		name=&quot;LowerCase&quot; 
+		type=&quot;Composite.Plugins.Routing.UrlFormatters.ToLowerCaseUrlFormatter&quot; 
+		mandatory=&quot;true&quot; 
+		/&gt; 
+	  &lt;add 
+		name=&quot;Aplhabets&quot; 
+		type=&quot;Composite.Plugins.Routing.UrlFormatters.StringReplaceUrlFormatter&quot; 
+		mandatory=&quot;true&quot; 
+		rulesFile=&quot;~/App_Data/Composite/Configuration/UrlFormatting.xml&quot; 
+		/&gt; 
+	&lt;/UrlFormatters&gt; 
+  &lt;/Composite.Core.Urls&gt; 
+&lt;/configuration&gt;
+							</pre>
+						</li>
+						<li>
+							URLs with special characters
+							<br />
+							add StringReplace (is called by default) add parameters only in 
+							~/App_Data/Composite/Configuration/UrlFormatting.xml
+							<br />
+							TODO: Croatian characters (Slovenian, Bosnian, Serbian ...)
+
+							<pre class="hw_code">
+&lt;add 
+	name=&quot;StringReplace&quot; 
+	type=&quot;Composite.Plugins.Routing.UrlFormatters.StringReplaceUrlFormatter&quot; mandatory=&quot;true&quot;&gt; 
+  &lt;ReplacementRules&gt; 
+	&lt;add oldValue=&quot; &quot; newValue=&quot;-&quot; /&gt; 
+	&lt;add oldValue=&quot;?&quot; newValue=&quot;&quot; /&gt; 
+	&lt;add oldValue=&quot;#&quot; newValue=&quot;&quot; /&gt; 
+  &lt;/ReplacementRules&gt; 
+&lt;/add&gt;
+							</pre>
+
+						</li>
+					</ol>
+				</li>
+				<li>
+					Localization/Internalization - add missing languages (Croatian)
+					<ol>
+						<li>
+							in
+						</li>
+					</ol>
+
+				</li>
+				<li>
+					package install (batch install)
+				</li>
+				<li>
+					reset initialization setting for Template page 
+					<br />
+					remove: ~\App_Data\Composite\Configuration\InstallationInformation.xml
+
+					<blockquote>
+					Ensure that 'template site' does not have the file 
+					~\App_Data\Composite\Configuration\InstallationInformation.xml 
+					(the InstallationInformation.xml will be auto created on new sites the first time they run 
+					and this ensure sites individual IDs).
+					<br />
+					The alternative is that you create a C1 Package that roll in the content, templates etc. 
+					The C1 Package approach has the clear advantage that you can roll it across versions.
+					</blockquote>
+				</li>
+			</ol>
+		</li>
+		<li>
+			Point to HolisticWare site:
+			<br />
+			In: ~/App_Data/PageTemplates/*.xml
+			<br />
+			add link to HolisticWare site:
+			<pre class="hw_code">
+		&lt;div class=&quot;twelvecol last&quot;&gt;
+		  &lt;a href=&quot;http://www.composite.net/&quot;&gt;Powered by Composite C1, Free Open Source .NET CMS&lt;/a&gt;
+		  &lt;a href=&quot;http://holisticware.net&quot;&gt;
+			&lt;font color=&quot;red&quot;&gt;  Featured, implemented and optimized by HolisticWare&lt;/font&gt;
+		  &lt;/a&gt;
+		&lt;/div&gt;
+			</pre>
+		</li>
+		<li>
+			Copying Website
+			<ul>
+				<li>
+					not initialized
+				</li>
+				<li>
+					initialized (copy and branch sites)
+					<br />
+					reset initialization setting for Template page 
+					<br />
+				</li>
+			</ul>
+		</li>
+		<li>
+			Installing packages
+			<br />
+			Read more:
+			<br />
+			<a href="~/HolisticWare/Know-How/development/Web/CMS/Composite-C1/holisticware-process-composite-c1-package-installation.aspx">
+				HolisticWare Process Composite C1 package installation
+			</a>
+		</li>
+		
+	</ol>
+
+	<!--
+	http://coffeescript.org/
+	-->
+</body>
+</html>

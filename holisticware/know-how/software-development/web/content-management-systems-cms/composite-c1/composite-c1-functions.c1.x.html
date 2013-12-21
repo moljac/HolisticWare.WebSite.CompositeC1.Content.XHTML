@@ -1,0 +1,238 @@
+2012-04-19
+
+Added 
+	ref toRazorFunctions project
+	ref to System.Web.Helpers (Add reference +/ Assemblies +/ Extensions)
+	
+	
+	
+
+20120419 12:25:21.2075 2  5 Critical Configuration  Could not create type 'CompositeC1Contrib.RazorFunctions.FunctionProvider.RazorFunctionProvider, CompositeC1Contrib.RazorFunctions' 
+20120419 12:25:44.9035 2  5 Verbose GlobalInitializerFacade RGB(194, 252, 131) Finished: Initializing functions (23774 ms)
+20120419 12:25:44.9175 2  5 Critical GlobalInitializerFacade  None
+20120419 12:25:45.0005 2  5 Critical GlobalInitializerFacade  System.Configuration.ConfigurationErrorsException: Type 'CompositeC1Contrib.RazorFunctions.FunctionProvider.RazorFunctionProvider, CompositeC1Contrib.RazorFunctions' could not be created (D:\SRC\CoreCompositeC1\Website\App_Data\Composite\Composite.config line 460)
+   at System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   at System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey, Boolean getLkg, Boolean checkPermission)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   at System.Configuration.Configuration.GetSection(String sectionName)
+   at Composite.Core.Configuration.FileConfigurationSourceImplementation.GetSection(String sectionName) in D:\SRC\CoreCompositeC1\Composite\Core\Configuration\FileConfigurationSourceImplementation.cs:line 70
+   at Composite.Core.Configuration.FileConfigurationSource.GetSection(String sectionName) in D:\SRC\CoreCompositeC1\Composite\Core\Configuration\FileConfigurationSource.cs:line 66
+   at Composite.Functions.Foundation.FunctionContainer.OnGetProviderNames() in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\FunctionContainer.cs:line 36
+   at Composite.Functions.Foundation.MetaFunctionContainer.InitializeAllFunctions(FunctionTypesToReturn functionTypesToReturn, Boolean fireUpdateEvents) in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionContainer.cs:line 163
+   at Composite.Functions.Foundation.MetaFunctionContainer.Initialize(Boolean dynamicTypes) in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionContainer.cs:line 66
+   at Composite.Functions.Foundation.MetaFunctionProviderRegistryImpl.Initialize_PostDataTypes() in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionProviderRegistryImpl.cs:line 226
+   at Composite.Functions.Foundation.MetaFunctionProviderRegistry.Initialize_PostDataTypes() in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionProviderRegistry.cs:line 146
+   at Composite.GlobalInitializerFacade.DoInitialize() in D:\SRC\CoreCompositeC1\Composite\GlobalInitializerFacade.cs:line 249
+   at Composite.GlobalInitializerFacade.InitializeTheSystem() in D:\SRC\CoreCompositeC1\Composite\GlobalInitializerFacade.cs:line 144
+
+20120419 12:25:48.4625 2  5 Verbose GlobalInitializerFacade RGB(194, 252, 131) Writer Lock Releasing (Managed Thread ID: 5, Source: GlobalInitializerFacade.InitializeTheSystem)
+20120419 12:25:48.5445 2  5 Error Application Error  Failed to process 'GET' request to url '/Composite/top.aspx'
+20120419 12:25:48.5655 2  5 Critical Application Error  System.Configuration.ConfigurationErrorsException: Type 'CompositeC1Contrib.RazorFunctions.FunctionProvider.RazorFunctionProvider, CompositeC1Contrib.RazorFunctions' could not be created (D:\SRC\CoreCompositeC1\Website\App_Data\Composite\Composite.config line 460)
+   at System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   at System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey, Boolean getLkg, Boolean checkPermission)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   at System.Configuration.Configuration.GetSection(String sectionName)
+   at Composite.Core.Configuration.FileConfigurationSourceImplementation.GetSection(String sectionName) in D:\SRC\CoreCompositeC1\Composite\Core\Configuration\FileConfigurationSourceImplementation.cs:line 70
+   at Composite.Core.Configuration.FileConfigurationSource.GetSection(String sectionName) in D:\SRC\CoreCompositeC1\Composite\Core\Configuration\FileConfigurationSource.cs:line 66
+   at Composite.Functions.Foundation.FunctionContainer.OnGetProviderNames() in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\FunctionContainer.cs:line 36
+   at Composite.Functions.Foundation.MetaFunctionContainer.InitializeAllFunctions(FunctionTypesToReturn functionTypesToReturn, Boolean fireUpdateEvents) in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionContainer.cs:line 163
+   at Composite.Functions.Foundation.MetaFunctionContainer.Initialize(Boolean dynamicTypes) in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionContainer.cs:line 66
+   at Composite.Functions.Foundation.MetaFunctionProviderRegistryImpl.Initialize_PostDataTypes() in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionProviderRegistryImpl.cs:line 226
+   at Composite.Functions.Foundation.MetaFunctionProviderRegistry.Initialize_PostDataTypes() in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionProviderRegistry.cs:line 146
+   at Composite.GlobalInitializerFacade.DoInitialize() in D:\SRC\CoreCompositeC1\Composite\GlobalInitializerFacade.cs:line 249
+   at Composite.GlobalInitializerFacade.InitializeTheSystem() in D:\SRC\CoreCompositeC1\Composite\GlobalInitializerFacade.cs:line 155
+   at Composite.GlobalInitializerFacade.get_CoreIsInitializedScope() in D:\SRC\CoreCompositeC1\Composite\GlobalInitializerFacade.cs:line 633
+   at Composite.Data.Foundation.DataProviderRegistry.get_AllInterfaces() in D:\SRC\
+
+
+
+
+
+
+
+
+
+
+
+20120419 10:14:54.7275 2 18 Verbose XsltXmlFunction  Finished Loading and compiling /HolisticWare/Layout/CSSFrameworksGridSystems/GridSystem960gsParameterized.xsl (78 ms)
+20120419 10:14:54.8135 2 18 Error PageRenderer  System.ArgumentException: The Function named 'HolisticWare.Layout.CSSFrameworksGridSystems.Rendering.Placeholder' is not known. Ensure it exists with the exact spelling and casing you provided.
+   at Composite.Functions.Foundation.MetaFunctionContainer.GetFunction(String functionName) in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionContainer.cs:line 144
+   at Composite.Functions.Foundation.MetaFunctionProviderRegistryImpl.GetFunction(String name) in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionProviderRegistryImpl.cs:line 135
+   at Composite.Functions.Foundation.MetaFunctionProviderRegistry.GetFunction(String name) in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionProviderRegistry.cs:line 93
+   at Composite.Functions.FunctionFacade.GetFunction(String name) in D:\SRC\CoreCompositeC1\Composite\Functions\FunctionFacade.cs:line 61
+   at Composite.Functions.FunctionTreeBuilder.BuildFunctionRuntimeNode(XElement element) in D:\SRC\CoreCompositeC1\Composite\Functions\FunctionTreeBuilder.cs:line 112
+   at Composite.Functions.FunctionTreeBuilder.Build(XElement element) in D:\SRC\CoreCompositeC1\Composite\Functions\FunctionTreeBuilder.cs:line 46
+   at Composite.Core.WebClient.Renderings.Page.PageRenderer.<>c__DisplayClass18.<ExecuteEmbeddedFunctions>b__14(Int32 i) in D:\SRC\CoreCompositeC1\Composite\Core\WebClient\Renderings\Page\PageRenderer.cs:line 432
+20120419 10:14:54.8545 2 18 Error PageRenderer  System.ArgumentException: The Function named 'HolisticWare.Layout.CSSFrameworksGridSystems.XXXXX' is not known. Ensure it exists with the exact spelling and casing you provided.
+   at Composite.Functions.Foundation.MetaFunctionContainer.GetFunction(String functionName) in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionContainer.cs:line 144
+   at Composite.Functions.Foundation.MetaFunctionProviderRegistryImpl.GetFunction(String name) in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFunctionProviderRegistryImpl.cs:line 135
+   at Composite.Functions.Foundation.MetaFunctionProviderRegistry.GetFunction(String name) in D:\SRC\CoreCompositeC1\Composite\Functions\Foundation\MetaFun
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grid System 960gs
+Error: 
+The Function named 'HolisticWare.Layout.CSSFrameworksGridSystems.Rendering.Placeholder' is not known. 
+Ensure it exists with the exact spelling and casing you provided. 
+Error details: 
+The Function named 'HolisticWare.Layout.CSSFrameworksGridSystems.Rendering.Placeholder' is not known. 
+Ensure it exists with the exact spelling and casing you provided.
+Value of input parameter 'NumberOfColumns': 
+16
+16
+Value of input parameter 'LayoutType': 
+Fluid
+Fluid
+Value of input parameter 'JavaScriptLibrary': 
+JQuery
+JQuery
+Value of input parameter 'PageSpeedOptimized': 
+true
+true
+Value of input parameter 'LayoutDefinitionFunction': 
+HolisticWare.Layout.CSSFrameworksGridSystems.XXXXX
+HolisticWare.Layout.CSSFrameworksGridSystems.XXXXX
+Error: The Function named 'HolisticWare.Layout.CSSFrameworksGridSystems.XXXXX' is not known. 
+Ensure it exists with the exact spelling and casing you provided. 
+Error details: 
+The Function named 'HolisticWare.Layout.CSSFrameworksGridSystems.XXXXX' is not known. 
+Ensure it exists with the exact spelling and casing you provided.
+
+
+
+In page template during save:
+	Template did not validate.
+	The Function named 'HolisticWare.Layout.CSSFrameworksGridSystems.Rendering.Placeholder' is not known. 
+	Ensure it exists with the exact spelling and casing you provided. 
+
+	
+	
+
+Composite C1 call in XSLT:
+						<f:function 
+							name="HolisticWare.Layout.CSSFrameworksGridSystems.Rendering.Placeholder"
+							xmlns:f="http://www.composite.net/ns/function/1.0"
+						>
+							<f:param name="PlaceholderName" value="something"></f:param>
+						</f:function>
+
+						
+	
+	
+c# class + function:
+
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Xml.Linq;
+
+using Composite.Core.WebClient.Renderings.Page;
+using Composite.Data;
+using Composite.Data.Types;
+using Composite.Functions;
+
+
+using CompositeC1Contrib.Web.UI;
+
+namespace HolisticWare.Layout.CSSFrameworksGridSystems
+{
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <see cref="http://docs.composite.net/ASP-NET/CSharpFunctions/Creating-External-C-Functions"/>
+	/// <f:function 
+	///		name="HolisticWare.Layout.CSSFrameworksGridSystems.RenderingPlaceholder" 
+	///		xmlns:f="http://www.composite.net/ns/function/1.0"
+	///		>
+	///	</f:function>
+	public 
+		static 
+		class 
+		Rendering 
+	{
+		[
+		  FunctionParameterDescription
+			(
+			  "PlaceholderName"						// TODO: comment this
+			, "Placeholder name"					// TODO: comment this
+			, "Name of the placeholder to render"	// TODO: comment this
+			)
+		]
+		public static Control Placeholder(string placeholder_name)
+		{
+			var plc = new PlaceHolder();
+
+			var content = DataFacade.GetData<IPagePlaceholderContent>().Single
+				(
+				  p => 
+					  (
+					    p.PageId == PageRenderer.CurrentPageId 
+						&&
+						p.PlaceHolderId == placeholder_name
+					  )
+				);
+			
+			var helper = new PageRendererHelper();
+			var mapper = (IXElementToControlMapper)helper.FunctionContext.XEmbedableMapper;
+			var doc = helper.RenderDocument(content);
+			var body = PageRendererHelper.GetDocumentPart(doc, "body");
+
+			addNodesAsControls(body.Nodes(), plc, mapper);
+
+			var page = HttpContext.Current.CurrentHandler as Page;
+
+			if (page != null)
+			{
+				if (page.Header != null)
+				{
+					var head = PageRendererHelper.GetDocumentPart(doc, "head");
+					if (head != null)
+					{
+						addNodesAsControls(head.Nodes(), page.Header, mapper);
+					}
+				}
+			}
+
+			return plc;
+		}
+
+		private static void addNodesAsControls(IEnumerable<XNode> nodes, Control parent, IXElementToControlMapper mapper)
+		{
+			foreach (var node in nodes)
+			{
+				var c = node.AsAspNetControl(mapper);
+				parent.Controls.Add(c);
+			}
+		}
+	}
+}
+
+
+					

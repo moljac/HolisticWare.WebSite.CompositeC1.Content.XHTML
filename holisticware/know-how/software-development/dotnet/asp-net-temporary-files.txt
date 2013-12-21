@@ -1,0 +1,16 @@
+I'm using Mono + Apache + Ubuntu for ASP.Net and I can't find the temporary
+files folder where compiled aspx pages and code behinds would be. On
+Windows, it's stored at
+"%SystemRoot%\Microsoft.NET\Framework\versionNumber\Temporary ASP.NET Files"
+but I can't find anything like that on my Ubuntu file system.
+
+Check /tmp/www-data-temp-aspnet-0/
+
+On Windows, it's stored at 
+
+"%SYSTEMROOT%\Microsoft.NET\Framework\versionNumber\Temporary ASP.NET Files" 
+"%USERPROFILE%\AppData\Local\Temp\Temporary ASP.NET Files"
+
+but I can't find anything like that on my Ubuntu file system.
+
+Check /tmp/www-data-temp-aspnet-0/

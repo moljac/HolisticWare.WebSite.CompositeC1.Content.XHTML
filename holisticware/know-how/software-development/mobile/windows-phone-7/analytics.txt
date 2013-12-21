@@ -1,0 +1,49 @@
+
+5 Analytics API for Windows Phone Apps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Do you want to keep track of the App statistics, analyze the most frequently used pages or features in your Windows Phone App ?
+ 
+If yes , below are 5 different Analytics API for Windows Phone Apps.
+ 
+1. Microsoft Silverlight Analytics Framework
+ 
+Microsoft Silverlight Analytics Framework is an extensible Web Analytics Framework for Microsoft Silverlight, WPF, and Windows Phone 7 Applications.
+ 
+2. Analytics & Protection for Windows Phone by Preemptive Solutions
+ 
+Analyze, optimize, and secure your Windows Phone 7 applications with the Analytics & Protection for Windows Phone by Preemptive Solutions.
+ 
+
+
+3. Flurry
+ 
+Another Analytics solution for Mobile platform. Flurry currently supports iOS, Android, Blackberry, Windows Phone, Java ME and HTML5.
+ 
+4. mtiks
+ 
+mtiks provides free Mobile App Analytics to developers to better understand their app usage. It currently supports iOS, Windows Phone, Android, BlackBerry etc.
+ 
+5. Google Analytics for Windows Phone
+ 
+Gets the Google Analytics for Windows Phone working for your Windows Phone Apps using the nuget package based on Microsoft Silverlight Analytics Framework

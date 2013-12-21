@@ -1,0 +1,109 @@
+On Linux, you can't listen on any port with a number less than 1024 unless
+you run your app as root. So you'll probably have to either run your app as
+root, or make it listen on a port number higher than 1024 and then redirect
+requests to port 943 using iptables.
+
+There may be another way but I'm unaware of it.
+
+
+On Thu, Feb 14, 2013 at 5:10 PM, acrym <soreric94@gmail.com> wrote:
+
+> I have a socket application that needs to connect on port 943 and port
+> 4530.
+> It works locally but not on mono. The server is implemented with WCF. The
+> error message is "Access Denied: An attempt was made to access a socket in
+> a
+> way forbidden by its access permissions."
+>
+> Does mono block my connections? Or is this another problem? If it does, how
+> can I configure it to allow connections?
+
+
+
+
+
+
+
+
+
+
+
+I have on my website a nice simple way to connect to gmail and pull down 
+emails with it. It worked. However, I've had an email from someone who 
+decided to implement it to say it no longer worked. URL is 
+http://www.all-the-johnsons.co.uk/csharp/email.html
+
+Having looked over the code, it's down to the a TLSSecurity exception 
+when trying to authenticate on the server. I've adjusted the code as 
+follows, but I'm still getting the same error.
+
+Code that failed
+
+SslStream nstream;
+		
+public SslStream Connect(string username, string password)
+{
+    string message;
+    string response;
+    TcpClient tcpClient = new TcpClient();
+    tcpClient.Connect("pop.gmail.com", 995);
+    nstream = new SslStream(tcpClient.GetStream());
+    nstream.AuthenticateAsClient("pop.gmail.com"); // fails
+    response = Response(nstream);
+
+adjusted code
+
+public static bool Validator (object sender, X509Certificate 
+certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+{	
+return true;
+}
+
+public SslStream Connect ()
+{
+string message = "", response = "";
+ServicePointManager.ServerCertificateValidationCallback = Validator;
+TcpClient tcpClient = new TcpClient ();
+tcpClient.Connect ("pop.gmail.com", 995);
+SslStream nstream = new SslStream (tcpClient.GetStream ());
+nstream.AuthenticateAsClient ("pop.gmail.com"); // fail still
+
+Any ideas on what I'm doing wrong?
+
+The exact error is
+System.IO.IOException: The authentication or decryption has failed --> 
+Mono.Security.Protocol.Tls.TlsException: Invalid certificate received 
+from the server
+
+
+
+
+
+
+
+Paul
+\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mm, you're right,
+hard-coding ServicePointManager.ServerCertificateValidationCallback to
+always return true should ignore the SSL/TLS certificate error.
+
+There's an overload for the SslStream constructor that takes
+a RemoteCertificateValidationCallback<http://msdn.microsoft.com/en-us/library/ms145056.aspx>;
+maybe try passing your custom validator delegate to that as well? Perhaps
+the SslStream is ignoring
+the ServicePointManager.ServerCertificateValidationCallback or something
+like that.

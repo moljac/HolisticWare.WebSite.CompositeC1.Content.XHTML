@@ -1,0 +1,21 @@
+mocks
+
+
+Mock-up and UI Design Tools for your mobile apps
+Posted on February 27, 2013 by admin
+
+
+A good app is only as good as its design and ux. Its key to spend the time to iron out the concept, the screen flow and other little details often missed by app developers. Although there is no alternative to hiring a good designer to do the graphics and image work for your mobile app, often times these designers need directions to see your “vision” via an app mock-up.
+
+Here is a list of some mock-up and UI design tools that you can use for your mobile app mock-ups -
+
+justinmind– Rich interactive wireframes to define mobile apps.
+UXPin– User experience design tools for professionals.
+Symbolicons- Simple, precise and awesome vector icons.
+Prototypes – Turn your stackable designs into a tappable iPhone prototype.
+Blueprint – An iPad app for mocking up iPad/iPhone applications.
+Mobility– A free set of mobile UI design elements.
+Android GUI Set – Free Android GUI set including Photoshop files.
+Balsamiq – A rapid wireframing tool.
+
+

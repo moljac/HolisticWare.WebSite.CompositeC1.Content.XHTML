@@ -1,0 +1,225 @@
+﻿http://www.geekchamp.com/articles/building-a-complete-cross--platform-mvvm-app-with-mvvmcross?goback=%2Egde_3407598_member_226088158
+
+http://www.codeproject.com/Articles/566191/MvvmCross-v3-Writing-a-First-App
+
+
+What do you think about MVVM design pattern ? Is it usable in large scale WPF 
+software Is MVVM Foundation(JoshSmithOnWpf) worth a try? 
+
+
+
+
+
+You have asked excellent question! As one of the leading WPF experts in Israel, 
+I can answer you: "There are no alternative to MVVM in WPF world". Why?
+ 1. All of design patterns are about separation. 
+2. MVVM helps to separate presentation (XAML, views), presentation logic 
+(entire application) and model (back-end logic, which may be released as an API, 
+web-services or what ever). So, first, since your views are passive and don't know 
+about any logic, you (or your XAMList) can change it separately. Second, View-Model
+is the whole application in action. You can build unit test in front of the root VM 
+and prove your application is working properly (YES!). Model may serve any different 
+types of clients, e.g. legacy technologies. So you need some kind of separation from 
+Model, anyway. This is VM. What's about a Model? Model may have different logic from 
+target application, may manage data cache for example. So you need to separate it! 
+Also, the mocking. You need to have some option to be disconnected from real data layer 
+to have the option to test the application.
+ 3. Josh Smith have done the best work for MVVM popularization. Anyway his samples are 
+ good, but still samples. To build real WPF application you will need an additional 
+ infrastructure. You will need for modularity, composition, View injection, VM model 
+ life-time services, etc. My company, LogoUI, have built excellent MVVM framework, 
+ which is used in many Israeli companies for WPF and Silverlight development. It 
+ safes at least about 2-3 months of in-house development.
+ 
+I will be very glad to meet you and discuss your use case! 
+
+
+
+
+
+
+Yes it is very useful..especially involves multi-threading/thread pool 
+
+
+
+
+
+consider it a must for any medium/large sized projects. 
+
+
+
+
+
+
+
+MVVM is THE way to go writing WPF and Silverlight. It provides a great way for 
+writing test driven development, since you can test just below the "surface". The
+MVVM pattern is really simple, it's the framework around it that makes things
+more or less useable.
+ 
+I will highly recommend PRISM. I use it for all the projects I can, even it for 
+small ones. It might seem like overkill on small projects, but even small projects 
+has a way of growing over time.
+ 
+MVVMLite is another option - however I find it to be too simple.
+
+
+
+
+
+consider Simplicity and completeness the strengths of MVVM Light... 
+
+
+
+
+
+
+For any WPF/Silverlight/WP7 app you should use MVVM, small or big. But I suggest 
+that you use an opensource framwork to overcome some "basic problems", there are
+many around, personally I preferm MVVMLight, especially for WP7 apps, but there 
+are many others that can be do the job. 
+
+
+
+
+M-V-VM All the way. You may also want to look at using Inversion Of Control, 
+Dependency Injection & SOA With M-V-VM. MVVMLite & CInch are two good frameworks 
+to start with. Happy coding 
+
+
+
+
+
+I agree with everyone that MVVM is a design advancement. Dependency properties are 
+what makes MVVM possible. I used a design that worked well by creating ViewModels 
+that contains state properties (dependency properties) for the app in general and 
+for individual pages. The Visibilty property for groups of controls are bound to 
+particular VM properties, and also use ValueConverters to give the pages total 
+control over when their controls are visible or collapsed.
+ 
+Coding the app was simple using MVVM because the general processing code in the VM 
+concerned itself only doing general processing and setting states. And the UI is 
+completely independent because of binding to data and its automatic reactions to 
+dependency properties and ValuConverters bound to controls. 
+
+
+
+
+
+
+Although, it would take some time to get your head wrapped around the pattern 
+you would appreciate spending time when you start realizing that your UI logics can 
+tested easily by using this pattern.
+ 
+We have been using MVVMLight in an enterprise app without any problems. 
+
+
+
+
+no other way to go... especially if you plan to deploy on multiple devices 
+such as phone 7, silverlight, wpf.... Just make sure that your data access is all 
+done async so that it will play nice with silverlight/phone 7. 
+
+
+
+
+For those who might find this interesting: 
+MVVM is actually a 'platform' specific implementation of the Presentation Model 
+pattern (See here: http://martinfowler.com/eaaDev/PresentationModel.html), specifically 
+for Silverlight and WPF.
+ 
+Here's a quick introduction on the MVVM pattern: 
+The viewmodel is constructed specifically for the view, 
+usually containing ICommand properties and is constructed with repositories 
+and such using DI.
+ 
+The viewmodel also contains instances of one or more data models, which typically 
+consists of POCOs and some calculated fields.
+ 
+The whole idea is to separate the viewmodel from the backing data model, so the 
+interaction happens on the view model (similar to the supervising controller pattern) 
+and data is stored on the model. Typically for CRUDs you would pass in the model 
+(not view model) to the repository. 
+
+
+
+
+
+
+
+
+I wasn't aware that what Shalk said about how the ViewModel handles data was 
+common practice, but I found it to be a good way to keep the Model (the data) 
+unaffected by the ViewModel and View. I created a ViewModel that contains a set 
+of data exactly the way required for a general processing class or for a View. As 
+Shalk said, I then created CRUD methods within the ViewModel that accessed data from 
+the Model by passing it classes of data defined in the Model. At first I thought this
+ was a duplication, but I quickly realized that this is the way to truly isolate the 
+ Model from the rest of the application, and to serve the View with exactly the data 
+ it needs in the proper format. 
+
+
+
+
+
+
+
+
+
+
+
+ We have two teams that independent of each other evaluated the best way to go and we
+ both choose MVVM.
+ 
+I don't really use any MVVM framework though...just a three classes, ObservableObject, 
+ViewModelBase, and RelayCommand.
+ 
+But if you want an MVVM Framework, there are a lot out there. 
+http://www.rhyous.com/2011/07/25/a-quick-overview-of-mvvm/
+
+
+
+
+
+
+
+
+MVVM is great for anything more than a trivial data-entry app. ViewModels let you 
+detach your views from the logic of the program, and keeps that same logic out of the
+Model, where it shouldn't be. 
+
+
+
+
+
+Guys every one has suggested the same which I do have opinion about MVVM. But as far 
+as concern to separate the logic MVVM is not the only UI design pattern. There is an 
+other patter which is MVP (model view presenter), it also separates the logic from 
+view but the difference between MVP and MVVM is 1-* (one to many relation) of a 
+ViewModel with view. Where as MVP is 1-1 (one to one relation) of Presenter class 
+with View. Means you can reuse your ViewModel class logic for an other view. Where 
+is MVP is view specific so you can reuse presenter class in some other different 
+view. For more details please read an article 
+http://msdn.microsoft.com/en-us/magazine/dd419663.aspx as well. 
+
+
+
+
+
+
+would look at MVVM Light but as has been said, they are just extensions, MVVM 
+is the design pattern.
+ 
+KarL Shifflett has some good articles and some MVVM in the box training which 
+you can run in VS2010, it's really good to get started an he's really helpful.
+ 
+http://karlshifflett.wordpress.com/mvvm/
+http://karlshifflett.wordpress.com/2010/11/07/in-the-box-ndash-mvvm-training/
+
+
+
+have been using this pattern since 2009, and it is a very good pattern to 
+work with. It really facilitates separation of UI and logic. Testing your 
+application logic also very simple. It reduces the chances of feature break due to 
+introduction of another one as you can run your test cases to verify the 
+functionality 

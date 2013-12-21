@@ -1,0 +1,122 @@
+<!--
+C1 generated!!
+<title>2011-05-02 Composite C1 svn integration</title>
+<meta name="Description" content="2011-05-02 Composite C1 svn integration" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="2011-05-02, Composite, C1, svn, integration" />
+	  <f:param name="AuthorsAdditional" value="" />
+	  <f:param name="Date" value="2011-05-02" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Composite C1 svn integration</a></h1>
+	<!-- ================================================================== -->
+
+	<p>Date: 2011-05-02</p>
+
+	<p>Modified files paths </p>
+	<ul>
+	  <li>
+		Action=Add page 
+		<pre class="hw_code">
+~/App_Data/Composite/DataStores/Composite.Data.Types.IFlowInformations_public.xml
+~/App_Data/Composite/DataStores/Composite.Data.Types.IPages_administrated_en-US.xml
+~/App_Data/Composite/DataStores/Composite.Data.Types.IPageStructures_public.xml
+~/App_Data/Composite/DataStores/Composite.Data.Types.IUserConsoleInformations_public.xml
+		</pre>
+	  </li>
+	  <li>
+		Action=Publish 
+		<pre class="hw_code">
+~/App_Data/Composite/DataStores/Composite.Data.Types.IFlowInformations_public.xml
+~/App_Data/Composite/DataStores/Composite.Data.Types.IPages_administrated_en-US.xml
+~/App_Data/Composite/DataStores/Composite.Data.Types.IPages_public_en-US.xml
+~/App_Data/Composite/DataStores/Composite.Data.Types.IPageStructures_public.xml
+~/App_Data/Composite/DataStores/Composite.Data.Types.IUserConsoleInformations_public.xml
+		</pre>
+	  </li>
+	</ul>
+
+	<h2><a id="">Included in svn</a></h2>
+
+	<p>
+	~/Bin is usually in ignore list, in Composite C1 it is needed together with assemblies
+	within...
+	</p>
+
+	<h2><a id="">Ignorable paths</a></h2>
+
+	<p>
+	Paths that can be ignored and not into svn (depend upon developer's environment)
+	</p>
+
+	<pre class="hw_code">
+~/App_Data/Composite/Cache/*
+~/App_Data/Composite/Cache/Assemblies/tmp/CMS_FE478193_B66BE7B1_v0002_7c57c1ff-a147-4599-8334-2af512918b31.cs
+~/App_Data/Composite/Cache/Assemblies/CMS_08BBAA0E_CEF6E144_v0002_b52ade33-3796-45e9-8655-ddf1a3c99dcd.cs
+	</pre>
+	<pre class="hw_code">
+	~/App_Data/Composite/Cache/Assemblies/tmp/
+	~/App_Data/Composite/Cache/Assemblies/
+	</pre>
+	<p>
+	Check ApplicationState stuf?????
+	</p>
+
+	<pre class="hw_code">
+
+	I have to prepare 2 proof of concepts CMS sites for our customers. Due to the fact that we are dealing with C1 for the first time the
+
+	   1. websites were first installed locally
+	   2. published
+	   3. published site was copied to IIS application folder on the server.
+	   4. results:
+			 1. site works OK
+			 2. after logging in as admin got following error:
+				Server was unable to process request. ---&gt; Access to the path '&lt;path&gt;\App_Data\Composite\DataStores\Composite.Data.Types.IUserConsoleInformations_public.xml' is denied.
+				composite c1 version: 2.0.3947.24461
+				IIS 7.0 
+
+ 
+
+	Other questions, actually recommendations:
+
+	   1. Due to the fact that at the beginning there will be a lot of custom additions to web site 
+	   (custom web services,silverlight, etc).
+	   2. We are expecting frequent migrations.
+		  How is it best performed backup/restore?
+	   3. What is the best way to migrate content only (simple page no database)?
+	   4. Is it possible/recommended to integrate with source control (svn)? 
+
+
+	You need to give full access to the user running your webapplication to the ~/App_Data folder.
+
+	Since all data and configurations when using xml-store is located in files on the webserver your 
+	backup should be complete by doing backup of your applications root folder. If you want to be a 
+	bit more picky i believe the folders ~/App_Data, ~/Frontend and ~/Composite/InstalledPackages 
+	should do the job.
+
+	For migrating content (using xml files) you copy the ~/App_Data/Composite/DataStores folder 
+	from one machine to another. Be aware that it will overwrite any existing data and cannot 
+	be used for merging changes.
+
+	Personally i have checked the following into my svn when doing development (list is not exhaustive)
+
+		* ~/App_Data/Composite/Composite.config
+		* ~/App_Data/Composite/Configuration/DynamicXmlDataProvider.config
+		* ~/App_Data/Composite/DynamicTypeForms
+		* ~/App_Data/PageTemplates
+		* ~/App_Data/Xslt
+		* ~/Frontend 
+
+	You can also read this thread for discussion about multi user environment 
+	http://compositec1.codeplex.com/Thread/View.aspx?ThreadId=238657
+	</pre>
+
+</body>
+</html>

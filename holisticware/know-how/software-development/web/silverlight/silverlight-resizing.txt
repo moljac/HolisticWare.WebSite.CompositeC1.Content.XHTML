@@ -1,0 +1,3 @@
+http://colinizer.com/2010/01/15/quick-tip-for-scaling-a-silverlight-canvas-on-browser-resizing/
+
+Canvas RebnderTransform

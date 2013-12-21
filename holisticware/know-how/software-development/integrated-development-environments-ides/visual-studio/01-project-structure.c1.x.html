@@ -1,0 +1,977 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Project and Solution Structure on HolisticWare projects</title>
+Description = all keywords + extra text
+<meta name="Description" content="Project and Solution Structure on HolisticWare projects: rules and recommendations (styleguides)" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: project-and-solution-structure-on-holisticware-projects
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="project, solution, structure, holisticWare, projects" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Project and Solution Structure on HolisticWare projects</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<h2><a id="">
+	Recommended Solution structure and Project naming for HolisticWare projects
+	</a></h2>
+	<p>
+	Proposal for Solution and Project structure on HolisticWare project 2011-09.
+	<br />
+	Draft
+	<br />
+	Subject to change!
+	</p>
+	<pre class="hw_code">
+	&lt;Company&gt;.&lt;Project&gt;.&lt;AssemblyType&gt;_&lt;OrderId&gt;_&lt;ArchitectureLayer&gt;_&lt;ApplicationType&gt;_&lt;PlatformTechnologyType&gt;
+	</pre>
+	<ul>
+		<li>
+		AssemblyType := DLL | EXE
+		<br />
+		sort order
+		</li>
+		<li>
+		OrderId (nnn) (n is numeric)
+		<br />
+		main purpose - sort order for Project Linker in Visual Studio Solution Explorer
+		<br />
+		sample: WP7 has currently (2011-09) smallest subset of features, core code located here
+			<ul>
+				<li>
+				0 - Documentation 
+				</li>
+				<li>
+				1 - Data Access
+				</li>
+				<li>
+				2 - Business Logic
+				</li>
+				<li>
+				5 - Presentation Layer
+				</li>
+				<li>
+				8 - Entry point - Main - EXE
+				</li>
+			</ul>
+		</li>
+		<li>
+		ArchitectureLayer := DA | BL | PL
+			<ul>
+				<li>
+				DA - Data Access
+				</li>
+				<li>
+				BL - Business Logic
+				</li>
+				<li>
+				PL - Presentation Layer
+				</li>
+			</ul>
+		</li>
+		<li>
+		ApplicationType := mClnt | dClnt | rClnt | Srvr
+			<ul>
+				<li>
+				mClnt - mobile Client 
+					<ul>
+						<li>
+						iOS - MonoTouch
+						</li>
+						<li>
+						Android - Mono for Android
+						</li>
+						<li>
+						Windows Phone
+						</li>
+					</ul>
+				</li>
+				<li>
+				dClnt - desktop Client (fat Client) Windows Forms | WPF
+				</li>
+				<li>
+				rClnt - rich Client (silverligh)
+				</li>
+				<li>
+				Srvr  - server application (ASP.net)
+				</li>
+			</ul>	
+		</li>
+		<li>
+		PlatformTechnologyType - various
+			<ul>
+				<li>
+				mClnt
+					<ul>
+						<li>
+						M4A
+						<br />
+						Mono for Android
+						</li>
+						<li>
+						MTc
+						<br />
+						MonoTouch (iOS)
+						</li>
+						<li>
+						WPv						
+						<br />
+						Windows Phone v - version (WP7, WP71 - Mango)
+						</li>
+					</ul>
+				</li>
+				<li>
+				dClnt
+					<ul>
+						<li>
+						WF
+						<br />
+						Windows Forms
+						</li>	
+						<li>
+						WPF
+						<br />
+						Windows Presentation Foundation</li>
+					</ul>
+				</li>
+				<li>
+				rClnt
+					<ul>
+						<li>
+						SLv			
+						<br />
+						Silverlight v-version
+						</li>
+					</ul>
+					
+				</li>
+				<li>
+				Server
+					<ul>
+						<li>
+						ASPnetv
+						<br />
+						v-version ASPnet35mvc
+						</li>
+					</ul>
+					
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+
+
+	<h2><a id="">Template List of project based on Core</a></h2>
+	<ul>
+		<li>
+		$Company$.$Project$.DLL_000_DOC
+		</li>
+		<li>
+		$Company$.$Project$.DLL_001_DOC_ProjectStructure
+		</li>
+		<li>
+		$Company$.$Project$.DLL_002_Scripting
+		</li>
+		<li>
+		$Company$.$Project$.DLL_011_DOC_mClnt_WP7
+		</li>
+		<li>
+		$Company$.$Project$.DLL_013_DOC_mClnt_M4A
+		</li>
+		<li>
+		$Company$.$Project$.DLL_071_DOC_Srvr_aspnet20
+		</li>
+		<li>
+		$Company$.$Project$.DLL_121_BL_XSD_POCOs
+		</li>
+		<li>
+		$Company$.$Project$.DLL_211_BL_mClnt_WP7_SL4_netfx4
+		</li>
+		<li>
+		$Company$.$Project$.DLL_213_BL_mClnt_M4A_mono26
+		</li>
+		<li>
+		$Company$.$Project$.DLL_231_BL_rClnt_SL3
+		</li>
+		<li>
+		$Company$.$Project$.DLL_235_BL_wClnt_aspnet20_js
+		</li>
+		<li>
+		$Company$.$Project$.DLL_251_BL_dClnt_netfx2
+		</li>
+		<li>
+		$Company$.$Project$.DLL_252_BL_dClnt_netfx3
+		</li>
+		<li>
+		$Company$.$Project$.DLL_253_BL_dClnt_netfx3_libs_util
+		</li>
+		<li>
+		$Company$.$Project$.DLL_271_BL_Srvr_aspnet20_netfx2
+		</li>
+		<li>
+		$Company$.$Project$.DLL_272_BL_Srvr_aspnet20_netfx3
+		</li>
+		<li>
+		$Company$.$Project$.DLL_273_BL_Srvr_aspnet20_netfx3_libs_util
+		</li>
+		<li>
+		$Company$.$Project$.DLL_511_PL_mClnt_WP7_SL4_netfx4
+		</li>
+		<li>
+		$Company$.$Project$.DLL_513_PL_mClnt_M4A_netfx2
+		</li>
+		<li>
+		$Company$.$Project$.DLL_531_PL_rClnt_SL3
+		</li>
+		<li>
+		$Company$.$Project$.DLL_551_PL_dClnt_WF_netfx2
+		</li>
+		<li>
+		$Company$.$Project$.DLL_553_PL_dClnt_WPF_netfx3
+		</li>
+		<li>
+		$Company$.$Project$.DLL_571_PL_Srvr_aspnet20
+		</li>
+		<li>
+		$Company$.$Project$.DLL_579_PL_Srvr_aspnet30
+		</li>
+
+
+		<li>
+		$Company$.$Project$.EXE_811_PL_mClnt_WP7_SL4_netfx4
+		</li>
+		<li>
+		$Company$.$Project$.EXE_813_PL_mClnt_M4A_netfx2
+		</li>
+		<li>
+		$Company$.$Project$.EXE_831_PL_rClnt_SL3
+		</li>
+		<li>
+		$Company$.$Project$.EXE_851_PL_dClnt_WF_netfx2
+		</li>
+		<li>
+		$Company$.$Project$.EXE_853_PL_dClnt_WPF_netfx3
+		</li>
+		<li>
+		$Company$.$Project$.EXE_871_PL_Srvr_aspnet20
+		</li>
+		<li>
+		$Company$.$Project$.EXE_879_PL_Srvr_aspnet30
+		</li>
+
+
+
+
+		<li>
+		$Company$.$Project$.DLL_901_Xtras_Documentation
+		</li>
+		<li>
+		$Company$.$Project$.DLL_911_Xtras_Deployment
+		</li>
+		<li>
+		$Company$.$Project$.DLL_921_Xtras_Images
+		</li>
+		<li>
+		$Company$.$Project$.DLL_941_Xtras_Setup
+		</li>
+		<li>
+		$Company$.$Project$CompositeC1.DLL_282_BL_Srvr_aspnet35_netfx4_HolisticWare
+		</li>
+		<li>
+		TestMS.$Company$.$Project$.DLL_251_BL_dClnt_netfx2
+		</li>
+		<li>
+		TestsNUnit.$Company$.$Project$.DLL_211_BL_mClnt_WP7_SL4_netfx4
+		</li>
+		<li>
+		TestsNUnit.$Company$.$Project$.DLL_251_BL_dClnt_netfx2
+		</li>
+		<li>
+		TestsNUnit.$Company$.$Project$.DLL_551_PL_dClnt_WF_netfx2
+		</li>
+		<li>
+		TestsXConsoleApplication1
+		</li>
+		<li>
+		TestsXMonoAndroidApplication1
+		</li>
+		<li>
+		TestsXReportsApplication1
+		</li>
+		<li>
+		TestsXSilverlightApplication1
+		</li>
+		<li>
+		TestsXSilverlightNavigationApplication1
+		</li>
+		<li>
+		TestsXWcfService1
+		</li>
+		<li>
+		TestsXWebApplication1
+		</li>
+		<li>
+		TestsXWindowsFormsApplication1
+		</li>
+		<li>
+		TestsXWindowsPhoneApplication1
+		</li>
+		<li>
+		TestsXWindowsPhoneDataBoundApplication1
+		</li>
+		<li>
+		TestsXWindowsPhonePanoramaApplication1
+		</li>
+		<li>
+		TestsXWindowsPhonePivotApplication1
+		</li>
+		<li>
+		TestsXWpfApplication1	
+		</li>
+	</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<h2><a id="">Sample List of projects in Core</a></h2>
+	<ul>
+		<li>
+		Core.DLL_000_DOC
+		</li>
+		<li>
+		Core.DLL_001_DOC_ProjectStructure
+		</li>
+		<li>
+		Core.DLL_002_Scripting
+		</li>
+		<li>
+		Core.DLL_011_DOC_mClnt_WP7
+		</li>
+		<li>
+		Core.DLL_013_DOC_mClnt_M4A
+		</li>
+		<li>
+		Core.DLL_071_DOC_Srvr_aspnet20
+		</li>
+		<li>
+		Core.DLL_121_BL_XSD_POCOs
+		</li>
+		<li>
+		Core.DLL_211_BL_mClnt_WP7_SL4_netfx4
+		</li>
+		<li>
+		Core.DLL_213_BL_mClnt_M4A_mono26
+		</li>
+		<li>
+		Core.DLL_231_BL_rClnt_SL3
+		</li>
+		<li>
+		Core.DLL_235_BL_wClnt_aspnet20_js
+		</li>
+		<li>
+		Core.DLL_251_BL_dClnt_netfx2
+		</li>
+		<li>
+		Core.DLL_252_BL_dClnt_netfx3
+		</li>
+		<li>
+		Core.DLL_253_BL_dClnt_netfx3_libs_util
+		</li>
+		<li>
+		Core.DLL_271_BL_Srvr_aspnet20_netfx2
+		</li>
+		<li>
+		Core.DLL_272_BL_Srvr_aspnet20_netfx3
+		</li>
+		<li>
+		Core.DLL_273_BL_Srvr_aspnet20_netfx3_libs_util
+		</li>
+		<li>
+		Core.DLL_511_PL_mClnt_WP7_SL4_netfx4
+		</li>
+		<li>
+		Core.DLL_513_PL_mClnt_M4A_netfx2
+		</li>
+		<li>
+		Core.DLL_531_PL_rClnt_SL3
+		</li>
+		<li>
+		Core.DLL_551_PL_dClnt_WF_netfx2
+		</li>
+		<li>
+		Core.DLL_553_PL_dClnt_WPF_netfx3
+		</li>
+		<li>
+		Core.DLL_571_PL_Srvr_aspnet20
+		</li>
+		<li>
+		Core.DLL_579_PL_Srvr_aspnet30
+		</li>
+		<li>
+		Core.DLL_901_Xtras_Documentation
+		</li>
+		<li>
+		Core.DLL_911_Xtras_Deployment
+		</li>
+		<li>
+		Core.DLL_921_Xtras_Images
+		</li>
+		<li>
+		Core.DLL_941_Xtras_Setup
+		</li>
+		<li>
+		CoreCompositeC1.DLL_282_BL_Srvr_aspnet35_netfx4_HolisticWare
+		</li>
+		<li>
+		TestMS.Core.DLL_251_BL_dClnt_netfx2
+		</li>
+		<li>
+		TestsNUnit.Core.DLL_211_BL_mClnt_WP7_SL4_netfx4
+		</li>
+		<li>
+		TestsNUnit.Core.DLL_251_BL_dClnt_netfx2
+		</li>
+		<li>
+		TestsNUnit.Core.DLL_551_PL_dClnt_WF_netfx2
+		</li>
+		<li>
+		TestsXConsoleApplication1
+		</li>
+		<li>
+		TestsXMonoAndroidApplication1
+		</li>
+		<li>
+		TestsXReportsApplication1
+		</li>
+		<li>
+		TestsXSilverlightApplication1
+		</li>
+		<li>
+		TestsXSilverlightNavigationApplication1
+		</li>
+		<li>
+		TestsXWcfService1
+		</li>
+		<li>
+		TestsXWebApplication1
+		</li>
+		<li>
+		TestsXWindowsFormsApplication1
+		</li>
+		<li>
+		TestsXWindowsPhoneApplication1
+		</li>
+		<li>
+		TestsXWindowsPhoneDataBoundApplication1
+		</li>
+		<li>
+		TestsXWindowsPhonePanoramaApplication1
+		</li>
+		<li>
+		TestsXWindowsPhonePivotApplication1
+		</li>
+		<li>
+		TestsXWpfApplication1	
+		</li>
+	</ul>
+
+
+
+	<h2><a id="">Steps during creating Projects in Solution</a></h2>
+	<ol>
+		<li>
+		Create projects according to naming recommendations
+		</li>
+		<li>
+		Change default Namespaces
+		<br />
+		Project +/ Properties +/ Default Namespace:
+			<ul>
+				<li>
+				Business Logic
+				<br />
+				Company.Project.BL
+				</li>
+				<li>
+				Presentation Layer 
+				<br />
+				Company.Project.PL
+				</li>
+				<li>
+				Entry Point projects (Main) Presentation Layer Launchers
+				<br />
+				Company.Project.PL
+				</li>
+			</ul>
+		</li>
+		<li>
+		Source code linking: (Visual Studio Project Linker)
+			<ol>
+				<li>
+				BL
+					<ol>
+						<li>
+						Project based on platform with least features should be 'starting' project which will
+						be extended in various subsequent project. 
+						This project is source project in Project Linker terminology to other projects.
+						<br />
+						Note: this project is usually mobile (mClnt)
+						<br />
+						2011-10 Windows Phone because of restrictions (no network stack, sockets). 
+						At this point in time Android and iOS have less imposed restrictions.
+						</li>
+					</ol>
+				</li>
+				<li>
+				PL
+				<br />
+
+				</li>
+			</ol>
+		</li>
+	</ol>
+
+	<h2><a id="">Samples</a></h2>
+
+	<h3><a id="">Core</a></h3>
+
+	<pre>
+Core.DLL_000_DOC
+Core.DLL_001_DOC_ProjectStructure
+Core.DLL_002_Scripting
+Core.DLL_011_DOC_mClnt_WP7
+Core.DLL_013_DOC_mClnt_M4A
+Core.DLL_071_DOC_Srvr_aspnet20
+Core.DLL_121_BL_XSD_POCOs
+Core.DLL_211_BL_mClnt_WP7_SL4_netfx4
+Core.DLL_213_BL_mClnt_M4A_mono26
+Core.DLL_231_BL_rClnt_SL3
+Core.DLL_235_BL_wClnt_aspnet20_js
+Core.DLL_251_BL_dClnt_netfx2
+Core.DLL_252_BL_dClnt_netfx3
+Core.DLL_253_BL_dClnt_netfx3_libs_util
+Core.DLL_271_BL_Srvr_aspnet20_netfx2
+Core.DLL_272_BL_Srvr_aspnet20_netfx3
+Core.DLL_273_BL_Srvr_aspnet20_netfx3_libs_util
+Core.DLL_511_PL_mClnt_WP7_SL4_netfx4
+Core.DLL_513_PL_mClnt_M4A_netfx2
+Core.DLL_531_PL_rClnt_SL3
+Core.DLL_551_PL_dClnt_WF_netfx2
+Core.DLL_553_PL_dClnt_WPF_netfx3
+Core.DLL_571_PL_Srvr_aspnet20
+Core.DLL_579_PL_Srvr_aspnet30
+Core.DLL_901_Xtras_Documentation
+Core.DLL_911_Xtras_Deployment
+Core.DLL_921_Xtras_Images
+Core.DLL_941_Xtras_Setup
+CoreCompositeC1.DLL_282_BL_Srvr_aspnet35_netfx4_HolisticWare
+TestsMS.Core.DLL_251_BL_dClnt_netfx2
+TestsNUnit.Core.DLL_211_BL_mClnt_WP7_SL4_netfx4
+TestsNUnit.Core.DLL_251_BL_dClnt_netfx2
+TestsNUnit.Core.DLL_551_PL_dClnt_WF_netfx2
+TestsXConsoleApplication1
+TestsXMonoAndroidApplication1
+TestsXReportsApplication1
+TestsXSilverlightApplication1
+TestsXSilverlightNavigationApplication1
+TestsXWcfService1
+TestsXWebApplication1
+TestsXWindowsFormsApplication1
+TestsXWindowsPhoneApplication1
+TestsXWindowsPhoneDataBoundApplication1
+TestsXWindowsPhonePanoramaApplication1
+TestsXWindowsPhonePivotApplication1
+TestsXWpfApplication1
+	</pre>
+
+
+
+
+	<h3><a id="">TimePlanner</a></h3>
+	<p>
+	Time planning tools used in other projects...
+	</p>
+	<p>
+		Directories and project files:
+	</p>
+	<pre class="hw_code">
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.sln
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_000_Documentation
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_000_Documentation\HolisticWare.TimeManagement.DLL_000_Documentation.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_211_BL_mClnt_WP7_SL4_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_211_BL_mClnt_WP7_SL4_netfx35\HolisticWare.TimeManagement.DLL_211_BL_mClnt_WP7_SL4_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_213_BL_mClnt_M4A_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_213_BL_mClnt_M4A_netfx35\HolisticWare.TimeManagement.DLL_213_BL_mClnt_M4A_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_231_BL_rClnt_SL3_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_231_BL_rClnt_SL3_netfx35\HolisticWare.TimeManagement.DLL_231_BL_rClnt_SL3_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_251_BL_dClnt_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_251_BL_dClnt_netfx35\HolisticWare.TimeManagement.DLL_251_BL_dClnt_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_271_BL_Srvr_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_271_BL_Srvr_netfx35\HolisticWare.TimeManagement.DLL_271_BL_Srvr_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_511_PL_mClnt_WP7_SL4_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_511_PL_mClnt_WP7_SL4_netfx35\HolisticWare.TimeManagement.DLL_511_PL_mClnt_WP7_SL4_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_513_PL_mClnt_M4A_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_513_PL_mClnt_M4A_netfx35\HolisticWare.TimeManagement.DLL_513_PL_mClnt_M4A_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_531_PL_rClnt_SL3_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_531_PL_rClnt_SL3_netfx35\HolisticWare.TimeManagement.DLL_531_PL_rClnt_SL3_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_551_PL_dClnt_WF_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_551_PL_dClnt_WF_netfx35\HolisticWare.TimeManagement.DLL_551_PL_dClnt_WF_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_552_PL_dClnt_WPF_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_552_PL_dClnt_WPF_netfx35\HolisticWare.TimeManagement.DLL_552_PL_dClnt_WPF_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_571_PL_Srvr_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.DLL_571_PL_Srvr_netfx35\HolisticWare.TimeManagement.DLL_571_PL_Srvr_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_811_PL_mClnt_WP7_SL4_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_811_PL_mClnt_WP7_SL4_netfx35\HolisticWare.TimeManagement.EXE_811_PL_mClnt_WP7_SL4_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_813_PL_mClnt_M4A_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_813_PL_mClnt_M4A_netfx35\HolisticWare.TimeManagement.EXE_813_PL_mClnt_M4A_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_831_PL_rClnt_SL3_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_831_PL_rClnt_SL3_netfx35\HolisticWare.TimeManagement.EXE_831_PL_rClnt_SL3_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_850_PL_dClnt_cmd_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_850_PL_dClnt_cmd_netfx35\HolisticWare.TimeManagement.EXE_850_PL_dClnt_cmd_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_851_PL_dClnt_WF_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_851_PL_dClnt_WF_netfx35\HolisticWare.TimeManagement.EXE_851_PL_dClnt_WF_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_852_PL_dClnt_WPF_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_852_PL_dClnt_WPF_netfx35\HolisticWare.TimeManagement.EXE_852_PL_dClnt_WPF_netfx35.csproj
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_871_PL_Srvr_ASPnet35_netfx35
+.\HolisticWare.TimeManagement\HolisticWare.TimeManagement.EXE_871_PL_Srvr_ASPnet35_netfx35\HolisticWare.TimeManagement.EXE_871_PL_Srvr_ASPnet35_netfx35.csproj
+	</pre>
+	<p>
+	Solution file:
+	</p>
+	<pre class="hw_code">
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.DLL_000_Documentation", "HolisticWare.TimeManagement.DLL_000_Documentation\HolisticWare.TimeManagement.DLL_000_Documentation.csproj", "{3C846213-3989-40E2-8E4C-16CB07779687}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.DLL_211_BL_mClnt_WP7_SL4_netfx35", "HolisticWare.TimeManagement.DLL_211_BL_mClnt_WP7_SL4_netfx35\HolisticWare.TimeManagement.DLL_211_BL_mClnt_WP7_SL4_netfx35.csproj", "{085EF48E-81B8-41CE-BCFA-23166240660A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.DLL_213_BL_mClnt_M4A_netfx35", "HolisticWare.TimeManagement.DLL_213_BL_mClnt_M4A_netfx35\HolisticWare.TimeManagement.DLL_213_BL_mClnt_M4A_netfx35.csproj", "{10393008-1E97-4754-98F0-1AD7AC8BB006}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.DLL_231_BL_rClnt_SL3_netfx35", "HolisticWare.TimeManagement.DLL_231_BL_rClnt_SL3_netfx35\HolisticWare.TimeManagement.DLL_231_BL_rClnt_SL3_netfx35.csproj", "{D4720E8B-0FF5-4FC3-9474-C4146566A2D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.DLL_251_BL_dClnt_netfx35", "HolisticWare.TimeManagement.DLL_251_BL_dClnt_netfx35\HolisticWare.TimeManagement.DLL_251_BL_dClnt_netfx35.csproj", "{3E0FFC11-F8DC-4197-9CEB-6F0BFE7FEEB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.DLL_271_BL_Srvr_netfx35", "HolisticWare.TimeManagement.DLL_271_BL_Srvr_netfx35\HolisticWare.TimeManagement.DLL_271_BL_Srvr_netfx35.csproj", "{375633EE-8996-41A9-9A11-FCCD94F5C7D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.DLL_511_PL_mClnt_WP7_SL4_netfx35", "HolisticWare.TimeManagement.DLL_511_PL_mClnt_WP7_SL4_netfx35\HolisticWare.TimeManagement.DLL_511_PL_mClnt_WP7_SL4_netfx35.csproj", "{EB0CF5B8-84DD-4E5A-8739-9DDDBD2788A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.DLL_513_PL_mClnt_M4A_netfx35", "HolisticWare.TimeManagement.DLL_513_PL_mClnt_M4A_netfx35\HolisticWare.TimeManagement.DLL_513_PL_mClnt_M4A_netfx35.csproj", "{ABEA5EBD-8E95-4FDE-A77F-CE02AFAB0A83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.DLL_531_PL_rClnt_SL3_netfx35", "HolisticWare.TimeManagement.DLL_531_PL_rClnt_SL3_netfx35\HolisticWare.TimeManagement.DLL_531_PL_rClnt_SL3_netfx35.csproj", "{DE23E84F-2DF6-4C6F-B23B-714C313483B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.DLL_551_PL_dClnt_WF_netfx35", "HolisticWare.TimeManagement.DLL_551_PL_dClnt_WF_netfx35\HolisticWare.TimeManagement.DLL_551_PL_dClnt_WF_netfx35.csproj", "{B81B8EF3-CC37-4CFF-9C9C-D2004E837C8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.DLL_552_PL_dClnt_WPF_netfx35", "HolisticWare.TimeManagement.DLL_552_PL_dClnt_WPF_netfx35\HolisticWare.TimeManagement.DLL_552_PL_dClnt_WPF_netfx35.csproj", "{253FA713-8138-494A-A0C3-197BAF54E0B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.DLL_571_PL_Srvr_netfx35", "HolisticWare.TimeManagement.DLL_571_PL_Srvr_netfx35\HolisticWare.TimeManagement.DLL_571_PL_Srvr_netfx35.csproj", "{E920B1EA-2AFB-47F0-87B4-87AD1D61E02C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.EXE_811_PL_mClnt_WP7_SL4_netfx35", "HolisticWare.TimeManagement.EXE_811_PL_mClnt_WP7_SL4_netfx35\HolisticWare.TimeManagement.EXE_811_PL_mClnt_WP7_SL4_netfx35.csproj", "{36FFCD63-0438-488A-B8CD-07B030866002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.EXE_813_PL_mClnt_M4A_netfx35", "HolisticWare.TimeManagement.EXE_813_PL_mClnt_M4A_netfx35\HolisticWare.TimeManagement.EXE_813_PL_mClnt_M4A_netfx35.csproj", "{70D636AD-D30F-4BE0-92A8-B061FEE8D1F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.EXE_831_PL_rClnt_SL3_netfx35", "HolisticWare.TimeManagement.EXE_831_PL_rClnt_SL3_netfx35\HolisticWare.TimeManagement.EXE_831_PL_rClnt_SL3_netfx35.csproj", "{7304AB3F-95CF-4884-95B8-64DDC39D5545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.EXE_850_PL_dClnt_cmd_netfx35", "HolisticWare.TimeManagement.EXE_850_PL_dClnt_cmd_netfx35\HolisticWare.TimeManagement.EXE_850_PL_dClnt_cmd_netfx35.csproj", "{3FE2CBCE-6D47-49D4-8AF8-F6B18E3019DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.EXE_851_PL_dClnt_WF_netfx35", "HolisticWare.TimeManagement.EXE_851_PL_dClnt_WF_netfx35\HolisticWare.TimeManagement.EXE_851_PL_dClnt_WF_netfx35.csproj", "{FF6D973D-ACA2-4353-BA20-F9F8D6E81BBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.EXE_852_PL_dClnt_WPF_netfx35", "HolisticWare.TimeManagement.EXE_852_PL_dClnt_WPF_netfx35\HolisticWare.TimeManagement.EXE_852_PL_dClnt_WPF_netfx35.csproj", "{8610DD39-5E1A-411E-89D1-315543E7D484}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.TimeManagement.EXE_871_PL_Srvr_ASPnet35_netfx35", "HolisticWare.TimeManagement.EXE_871_PL_Srvr_ASPnet35_netfx35\HolisticWare.TimeManagement.EXE_871_PL_Srvr_ASPnet35_netfx35.csproj", "{C2D4CA66-0443-4866-B0F1-21F39C6BB20F}"
+EndProject
+	</pre>
+
+	<h3><a id="">AddVertizer</a></h3>
+	<p>
+	Misspelled by purpose. Project that adds Advertising features to projects.
+	</p>
+	<pre class="hw_code">
+	</pre>
+
+
+
+	<h2><a id="">Multi-project solution sample</a></h2>
+	<p>
+	Mutli-project Visual Studio 
+	<a href="">
+	Howto	
+	</a>
+	and 
+	<a href="">
+	template (with some issues).
+	</a>
+	Directory list (and vstemplate file):
+	</p>
+
+	<pre class="hw_code">
+Company.Project.DLL_000_Documentation
+Company.Project.DLL_211_BL_mClnt_WP7_SL4_netfx35
+Company.Project.DLL_213_BL_mClnt_M4A_netfx35
+Company.Project.DLL_231_BL_rClnt_SL3_netfx35
+Company.Project.DLL_251_BL_dClnt_netfx35
+Company.Project.DLL_271_BL_Srvr_netfx35
+Company.Project.DLL_511_PL_mClnt_WP7_SL4_netfx35
+Company.Project.DLL_513_PL_mClnt_M4A_netfx35
+Company.Project.DLL_531_PL_rClnt_SL3_netfx35
+Company.Project.DLL_551_PL_dClnt_WF_netfx35
+Company.Project.DLL_552_PL_dClnt_WPF_netfx35
+Company.Project.DLL_571_PL_Srvr_netfx35
+Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35
+Company.Project.EXE_813_PL_mClnt_M4A_netfx35
+Company.Project.EXE_831_PL_rClnt_SL3_netfx35
+Company.Project.EXE_850_PL_dClnt_cmd_netfx35
+Company.Project.EXE_851_PL_dClnt_WF_netfx35
+Company.Project.EXE_852_PL_dClnt_WPF_netfx35
+Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35
+MultiTargetSolution.vstemplate
+	</pre>
+	<p>
+	Complete file list:
+	</p>
+	<pre class="hw_code">
+.\MultiTargetSolution\MultiTargetSolution.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_000_Documentation
+.\MultiTargetSolution\Company.Project.DLL_211_BL_mClnt_WP7_SL4_netfx35
+.\MultiTargetSolution\Company.Project.DLL_213_BL_mClnt_M4A_netfx35
+.\MultiTargetSolution\Company.Project.DLL_231_BL_rClnt_SL3_netfx35
+.\MultiTargetSolution\Company.Project.DLL_251_BL_dClnt_netfx35
+.\MultiTargetSolution\Company.Project.DLL_271_BL_Srvr_netfx35
+.\MultiTargetSolution\Company.Project.DLL_511_PL_mClnt_WP7_SL4_netfx35
+.\MultiTargetSolution\Company.Project.DLL_513_PL_mClnt_M4A_netfx35
+.\MultiTargetSolution\Company.Project.DLL_531_PL_rClnt_SL3_netfx35
+.\MultiTargetSolution\Company.Project.DLL_551_PL_dClnt_WF_netfx35
+.\MultiTargetSolution\Company.Project.DLL_552_PL_dClnt_WPF_netfx35
+.\MultiTargetSolution\Company.Project.DLL_571_PL_Srvr_netfx35
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35
+.\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35
+.\MultiTargetSolution\Company.Project.EXE_850_PL_dClnt_cmd_netfx35
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35
+.\MultiTargetSolution\Company.Project.DLL_000_Documentation\Company.Project.DLL_000_Documentation.csproj
+.\MultiTargetSolution\Company.Project.DLL_000_Documentation\Company.Project.DLL_000_Documentation.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_000_Documentation\features-references.html
+.\MultiTargetSolution\Company.Project.DLL_000_Documentation\requirements-development-infrastructure.html
+.\MultiTargetSolution\Company.Project.DLL_000_Documentation\rules-and-recommendations.html
+.\MultiTargetSolution\Company.Project.DLL_000_Documentation\rules-and-recommendations.timeplanner.html
+.\MultiTargetSolution\Company.Project.DLL_000_Documentation\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.DLL_211_BL_mClnt_WP7_SL4_netfx35\Company.Project.DLL_211_BL_mClnt_WP7_SL4_netfx35.csproj
+.\MultiTargetSolution\Company.Project.DLL_211_BL_mClnt_WP7_SL4_netfx35\Company.Project.DLL_211_BL_mClnt_WP7_SL4_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_211_BL_mClnt_WP7_SL4_netfx35\Properties
+.\MultiTargetSolution\Company.Project.DLL_211_BL_mClnt_WP7_SL4_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.DLL_211_BL_mClnt_WP7_SL4_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.DLL_213_BL_mClnt_M4A_netfx35\Company.Project.DLL_213_BL_mClnt_M4A_netfx35.csproj
+.\MultiTargetSolution\Company.Project.DLL_213_BL_mClnt_M4A_netfx35\Company.Project.DLL_213_BL_mClnt_M4A_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_213_BL_mClnt_M4A_netfx35\Properties
+.\MultiTargetSolution\Company.Project.DLL_213_BL_mClnt_M4A_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.DLL_213_BL_mClnt_M4A_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.DLL_231_BL_rClnt_SL3_netfx35\Company.Project.DLL_231_BL_rClnt_SL3_netfx35.csproj
+.\MultiTargetSolution\Company.Project.DLL_231_BL_rClnt_SL3_netfx35\Company.Project.DLL_231_BL_rClnt_SL3_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_231_BL_rClnt_SL3_netfx35\Properties
+.\MultiTargetSolution\Company.Project.DLL_231_BL_rClnt_SL3_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.DLL_231_BL_rClnt_SL3_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.DLL_251_BL_dClnt_netfx35\Company.Project.DLL_251_BL_dClnt_netfx35.csproj
+.\MultiTargetSolution\Company.Project.DLL_251_BL_dClnt_netfx35\Company.Project.DLL_251_BL_dClnt_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_251_BL_dClnt_netfx35\Properties
+.\MultiTargetSolution\Company.Project.DLL_251_BL_dClnt_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.DLL_251_BL_dClnt_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.DLL_271_BL_Srvr_netfx35\Company.Project.DLL_271_BL_Srvr_netfx35.csproj
+.\MultiTargetSolution\Company.Project.DLL_271_BL_Srvr_netfx35\Company.Project.DLL_271_BL_Srvr_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_271_BL_Srvr_netfx35\Properties
+.\MultiTargetSolution\Company.Project.DLL_271_BL_Srvr_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.DLL_271_BL_Srvr_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.DLL_511_PL_mClnt_WP7_SL4_netfx35\Company.Project.DLL_511_PL_mClnt_WP7_SL4_netfx35.csproj
+.\MultiTargetSolution\Company.Project.DLL_511_PL_mClnt_WP7_SL4_netfx35\Company.Project.DLL_511_PL_mClnt_WP7_SL4_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_511_PL_mClnt_WP7_SL4_netfx35\Properties
+.\MultiTargetSolution\Company.Project.DLL_511_PL_mClnt_WP7_SL4_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.DLL_511_PL_mClnt_WP7_SL4_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.DLL_513_PL_mClnt_M4A_netfx35\Company.Project.DLL_513_PL_mClnt_M4A_netfx35.csproj
+.\MultiTargetSolution\Company.Project.DLL_513_PL_mClnt_M4A_netfx35\Company.Project.DLL_513_PL_mClnt_M4A_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_513_PL_mClnt_M4A_netfx35\Properties
+.\MultiTargetSolution\Company.Project.DLL_513_PL_mClnt_M4A_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.DLL_513_PL_mClnt_M4A_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.DLL_531_PL_rClnt_SL3_netfx35\Company.Project.DLL_531_PL_rClnt_SL3_netfx35.csproj
+.\MultiTargetSolution\Company.Project.DLL_531_PL_rClnt_SL3_netfx35\Company.Project.DLL_531_PL_rClnt_SL3_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_531_PL_rClnt_SL3_netfx35\Properties
+.\MultiTargetSolution\Company.Project.DLL_531_PL_rClnt_SL3_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.DLL_531_PL_rClnt_SL3_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.DLL_551_PL_dClnt_WF_netfx35\Company.Project.DLL_551_PL_dClnt_WF_netfx35.csproj
+.\MultiTargetSolution\Company.Project.DLL_551_PL_dClnt_WF_netfx35\Company.Project.DLL_551_PL_dClnt_WF_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_551_PL_dClnt_WF_netfx35\Properties
+.\MultiTargetSolution\Company.Project.DLL_551_PL_dClnt_WF_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.DLL_551_PL_dClnt_WF_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.DLL_552_PL_dClnt_WPF_netfx35\Company.Project.DLL_552_PL_dClnt_WPF_netfx35.csproj
+.\MultiTargetSolution\Company.Project.DLL_552_PL_dClnt_WPF_netfx35\Company.Project.DLL_552_PL_dClnt_WPF_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_552_PL_dClnt_WPF_netfx35\Properties
+.\MultiTargetSolution\Company.Project.DLL_552_PL_dClnt_WPF_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.DLL_552_PL_dClnt_WPF_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.DLL_552_PL_dClnt_WPF_netfx35\Properties\Resources.Designer.cs
+.\MultiTargetSolution\Company.Project.DLL_552_PL_dClnt_WPF_netfx35\Properties\Resources.resx
+.\MultiTargetSolution\Company.Project.DLL_552_PL_dClnt_WPF_netfx35\Properties\Settings.Designer.cs
+.\MultiTargetSolution\Company.Project.DLL_552_PL_dClnt_WPF_netfx35\Properties\Settings.settings
+.\MultiTargetSolution\Company.Project.DLL_571_PL_Srvr_netfx35\Company.Project.DLL_571_PL_Srvr_netfx35.csproj
+.\MultiTargetSolution\Company.Project.DLL_571_PL_Srvr_netfx35\Company.Project.DLL_571_PL_Srvr_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.DLL_571_PL_Srvr_netfx35\Properties
+.\MultiTargetSolution\Company.Project.DLL_571_PL_Srvr_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.DLL_571_PL_Srvr_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\App.xaml
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\App.xaml.cs
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\ApplicationIcon.png
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\Background.png
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35.csproj
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\MainPage.xaml
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\MainPage.xaml.cs
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\PanoramaBackground.png
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\Properties
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\SampleData
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\SplashScreenImage.jpg
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\ViewModels
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\Properties\AppManifest.xml
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\Properties\WMAppManifest.xml
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\SampleData\MainViewModelSampleData.xaml
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\ViewModels\ItemViewModel.cs
+.\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\ViewModels\MainViewModel.cs
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Activity1.cs
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Assets
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Company.Project.EXE_813_PL_mClnt_M4A_netfx35.csproj
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Company.Project.EXE_813_PL_mClnt_M4A_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Properties
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Resources
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Assets\AboutAssets.txt
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Resources\AboutResources.txt
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Resources\Drawable
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Resources\Layout
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Resources\Resource.Designer.cs
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Resources\Values
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Resources\Drawable\Icon.png
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Resources\Layout\Main.axml
+.\MultiTargetSolution\Company.Project.EXE_813_PL_mClnt_M4A_netfx35\Resources\Values\Strings.xml
+.\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35\App.xaml
+.\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35\App.xaml.cs
+.\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35\Company.Project.EXE_831_PL_rClnt_SL3_netfx35.csproj
+.\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35\Company.Project.EXE_831_PL_rClnt_SL3_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35\MainPage.xaml
+.\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35\MainPage.xaml.cs
+.\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35\Properties
+.\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35\Properties\AppManifest.xml
+.\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.EXE_850_PL_dClnt_cmd_netfx35\Company.Project.EXE_850_PL_dClnt_cmd_netfx35.csproj
+.\MultiTargetSolution\Company.Project.EXE_850_PL_dClnt_cmd_netfx35\Company.Project.EXE_850_PL_dClnt_cmd_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.EXE_850_PL_dClnt_cmd_netfx35\Program.cs
+.\MultiTargetSolution\Company.Project.EXE_850_PL_dClnt_cmd_netfx35\Properties
+.\MultiTargetSolution\Company.Project.EXE_850_PL_dClnt_cmd_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.EXE_850_PL_dClnt_cmd_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35\Company.Project.EXE_851_PL_dClnt_WF_netfx35.csproj
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35\Company.Project.EXE_851_PL_dClnt_WF_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35\Form1.cs
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35\Form1.Designer.cs
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35\Program.cs
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35\Properties
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35\Properties\Resources.Designer.cs
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35\Properties\Resources.resx
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35\Properties\Settings.Designer.cs
+.\MultiTargetSolution\Company.Project.EXE_851_PL_dClnt_WF_netfx35\Properties\Settings.settings
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\App.xaml
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\App.xaml.cs
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\Company.Project.EXE_852_PL_dClnt_WPF_netfx35.csproj
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\Company.Project.EXE_852_PL_dClnt_WPF_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\MainWindow.xaml
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\MainWindow.xaml.cs
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\Properties
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\Properties\AssemblyInfo.cs
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\Properties\Resources.Designer.cs
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\Properties\Resources.resx
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\Properties\Settings.Designer.cs
+.\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\Properties\Settings.settings
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\ClientBin
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\Company.Project.EXE_831_PL_rClnt_SL3_netfx35TestPage.aspx
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\Company.Project.EXE_831_PL_rClnt_SL3_netfx35TestPage.html
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35.csproj
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35.vstemplate
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\Properties
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\Silverlight.js
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\Web.config
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\Web.Debug.config
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\Web.Release.config
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\__TemplateIcon.ico
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\ClientBin\Company.Project.EXE_831_PL_rClnt_SL3_netfx35.xap
+.\MultiTargetSolution\Company.Project.EXE_871_PL_Srvr_ASPnet35_netfx35\Properties\AssemblyInfo.cs
+	</pre>
+
+
+
+
+
+	<h2><a id="">TODO</a></h2>
+	<ul>
+		<li>
+			Core
+		</li>
+		<li>
+			Gonix
+		</li>
+		<li>
+			Getafisk
+			<p>
+			</p>
+			<!--
+			<a href=""></a>
+			-->
+		</li>
+		<li>
+			Iknunabula
+			<!--
+			<a href="~/HolisticWare/Applications/Default.aspx">Application</a>
+			-->
+		</li>
+		<li>
+			ExceptZilla
+		</li>
+		<!--
+		<li>
+			<a href="~/HolisticWare/Applications/Default.aspx">Application</a>
+		</li>
+		<li>
+			<a href="~/HolisticWare/Applications/WebServiceExceptilla.asmx">API.SOAP</a>
+		</li>
+		-->
+	</ul>
+</body>
+</html>

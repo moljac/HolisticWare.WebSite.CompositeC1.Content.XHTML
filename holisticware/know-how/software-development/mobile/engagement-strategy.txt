@@ -1,0 +1,186 @@
+How to Develop an Engagement Strategy That Brings Users Back to Your App 
+
+inShare 27 Editor’s Note: This is a guest post by John Clancy from 
+(www.appstoremarketingpro.com). 
+
+If you’re like many of today’s top developers you’re giving away your 
+app for free and relying on making money on the back end. But if you’re 
+not combining that business model with a well thought out engagement 
+strategy you’re crippling your potential. 
+
+Undoubtedly, before you even contemplate your engagement strategy, you 
+first need to build an app that people actually want to use. Follow that 
+up with a killer marketing plan and PR that generates some good buzz in 
+the media and you’ve got the basis for success. 
+
+But to really hit a home run you’ve got to think about how you’re going 
+to create an always-on connection with your users to ensure that your 
+app has a permanent spot on their mobile desktop. 
+
+Here are some tips to help you start thinking about your engagement 
+strategy: 
+
+Provide superior customer support. By respecting your customers and 
+letting them know that you’re listening and keeping your promises, 
+you’ll quickly build a loyal following. People who love your company 
+will want to support you, not only by purchasing your in-app offers but 
+also by becoming disciples who spread the word about your app. 
+
+Develop a schedule of updates. Whether it’s introducing more stages, 
+characters, chapters, features or add-ons, give your users more to look 
+forward to and, subsequently, come back to. As you gather more users 
+solicit feedback from them and use that information to continuously 
+improve your app. The knock on effect is that these updates will also 
+show potential customers that you’re focused on improving the quality of 
+your app and you’re not just a “fly by night” developer. 
+
+Build a community. Equip your users with more than one way to share your 
+app’s content. For instance, integrate sharing buttons in your app at 
+the point of completion of an activity and prompt users to share. Or, 
+alternatively, incentivize users to “like’ your Facebook page or post on 
+other social media sites in exchange for “soft currency” such as being 
+able to access content or features, play new stages, get additional 
+coins or receive “hints” that help users advance their play. 
+
+Hold a contest. The purpose of a contest is to get your users and 
+potential customers using your app and telling others about it. Your 
+contest should therefore include elements or rules that encourage people 
+to use your app or share its content in order to participate. For 
+instance, if you have an app that lets users enhance their photographs, 
+hold a monthly photo contest, with the proviso that entrants must use 
+your app to take and edit their pictures. 
+
+Send push notifications. Push notifications are short text messages, 
+videos, pictures or external links that are sent directly to users based 
+on app usage and segmentation statistics. They’re great for re-engaging 
+users who have not interacted with your app in a pre-determined period. 
+At the same time they allow you to keep users informed with timely and 
+relevant content. Notifications can range from surveys and lifecycle 
+rewards, to review requests and upgrade, up-sell or cross-sell 
+notifications. 
+
+Build an in-app loyalty program. Integrate your existing loyalty program 
+into your app. Customers notice and appreciate consistency across all 
+channels and reward companies that provide it through loyalty. A 
+well-executed in-app loyalty program can: 1) attract new customers who 
+don’t normally participate in loyalty programs, and; 2) help existing 
+customers take advantage of your loyalty program more often by being 
+able to conveniently access accumulated points or redeem rewards 
+directly from your app. If you don’t have a loyalty program, maybe this 
+is the time to create one. 
+
+Produce “Appisodes”. An appisode is a TV show, video clip, game, comic 
+or other editorial content delivered as a serial story through a user’s 
+device. If your app has new levels of play, new themes or other regular 
+updates that you can easily turn into episodes that users are eager to 
+buy/receive through in-app purchases or as a regular update, then you 
+are on to something really good. 
+
+As the old marketing adage states, “keeping customers is much cheaper 
+than finding new ones.” So don’t get trapped in the numbers game. Think 
+long-term and build a sustainable business model with apps that people 
+want to buy and use over and over again. 
+
+And remember, if your app isn’t generating engagement, it isn’t 
+generating revenue. 
+
+Author Bio 
+
+John Clancy is an Internet Marketing Consultant, the Managing Director 
+and co-founder of Crop Duster Media, a Lecturer at in Holland University 
+in Amsterdam and author of App Marketing Pro 
+(www.appstoremarketingpro.com), a 4-part “do-it-yourself” guide to 
+marketing apps. John has over 25 years of experience in marketing and 
+communications with a proven record of developing and implementing 
+successful Internet and mobile marketing strategies for both startups 
+and established firms. His clients are based in Europe, the Middle East 
+and the Americas. You can reach John at john@cropdustermedia.com. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4 Reasons Why Users Uninstall Your Mobile App 
+
+Vishal Gumber on August 19, 2013 with 0 Comments inShare 13 In recent 
+times, many mobile apps have started to annoy people more, either 
+because of poor functions or because of poor user retention strategies. 
+It is important for mobile app developers to realize that their apps 
+should be adding convenience to people’s lives rather than irritating 
+them, which would eventually cause them to uninstall the app. 
+
+After all, apps are meant to make a user’s life easy on the go, and any 
+apps that annoy users defeat the very purpose of their existence. 
+
+Here are a few things that most mobile app developers need to consider 
+and reevaluate: 
+
+1. Focus On Proper Updates To The User 
+
+Most mobile apps these days have started to cheat on the concept of push 
+notifications. They send useless, unnecessary updates via push 
+notifications, which only annoy the user with extra noise, and don’t 
+serve the purpose of alerting the user for good purposes. 
+
+This needs to be checked on, and the user should receive updates or 
+notifications that truly attract him to using the app. Moreover, these 
+updates need to be timed well. 
+
+2. Focus On Creating Value 
+
+Value creation and quality of the app are important factors that 
+determine user retention. There is no point in creating apps that don’t 
+add any value, ease or comfort to a user’s life. Mobile app developers 
+must constantly keep a check on market trends, and should understand 
+what the user demands are. 
+
+3. Use Analytics 
+
+User behavior, patterns and preferences need to be well understood by 
+mobile app developers if they want users to continue using their app. 
+It’s important to adapt to what the users like. Some analytics tools 
+also help app developers to understand whether push notifications are 
+working well or not. 
+
+Overall, this kind of information is important to constantly upgrading 
+and improving the app, so that users feel like using it more. 
+
+4. Don’t Be Pushy 
+
+Mobile app developers need to understand in general that they can’t be 
+pushy with their users. If a user has downloaded an app, he/she will use 
+it as per his convenience and pace. 
+
+Forcing or pushing the user to use the app more than they’d like to can 
+cause them to get irritated and annoyed. Needless to say, when the app 
+is not keeping the user happy, they will delete it. 
+
+It’s high time that mobile app developers reevaluate the techniques with 
+which they want to hold their users. Otherwise, there would be no point 
+in developing apps in the first place. If developers don’t improve 
+design, functionality and other things related to the app as per the 
+users demands, then they would face issues in retaining them. 
+
+In recent times, it has been noticed that users uninstall apps very 
+quickly if they don’t find them to be good enough. And considering that 
+the market has a lot of competition these days, if one mobile app 
+developer doesn’t do a good job, somebody else will do it and will gain 
+the users in that process. 
+
+So it’s essential for all mobile app developers to understand these 
+market games as well. 
+
+- See more at: 
+http://appclover.com/4-reasons-users-uninstall-mobile-app/?goback=%2Egde 
+_2013391_member_267077219#%21 
+

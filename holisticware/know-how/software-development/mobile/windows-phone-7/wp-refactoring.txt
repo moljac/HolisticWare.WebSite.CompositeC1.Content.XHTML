@@ -1,0 +1,21 @@
+App does not start
+
+VS Output window:
+
+'UI Task' (Managed): Loaded 'C:\Program Files\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\mscorlib.dll'
+'UI Task' (Managed): Loaded 'System.Windows.RuntimeHost.dll'
+'UI Task' (Managed): Loaded 'System.dll'
+'UI Task' (Managed): Loaded 'System.Windows.dll'
+'UI Task' (Managed): Loaded 'System.Net.dll'
+'UI Task' (Managed): Loaded 'System.Core.dll'
+'UI Task' (Managed): Loaded 'System.Xml.dll'
+'UI Task' (Managed): Loaded '\Applications\Install\E1D2D5FD-7E58-4232-9774-98905304F562\Install\MonoMobile.XSample.WP.dll', Symbols loaded.
+'UI Task' (Managed): Loaded 'Microsoft.Phone.dll'
+'UI Task' (Managed): Loaded 'Microsoft.Phone.Interop.dll'
+The thread '<No Name>' (0xec4003a) has exited with code 0 (0x0).
+The thread '<No Name>' (0xf9b002a) has exited with code 0 (0x0).
+The program '[256049198] UI Task: Managed' has exited with code 0 (0x0).
+
+
+
+

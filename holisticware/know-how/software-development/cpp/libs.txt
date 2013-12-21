@@ -1,0 +1,96 @@
+	Qt
+	blitz++
+	boost
+	eigen - linear algebra
+	armadillo
+	uBLAS
+
+
+
+User interface (e.g, wxWidgets, Qt)
+Database
+General purpose (e.g. Boost, Loki, STL)
+Threading
+Testing
+Network/sockets
+
+
+
+
+
+UI
+Qt
+wxWidgets
+GTK
+Database
+SOCI
+General Purpose
+Boost
+POCO
+Loki
+STL (of course)
+Qt
+Threading
+Boost.Thread
+Testing
+Boost.Test
+Google Test
+Networking
+ACE
+Boost.Asio
+Audio
+FMOD
+Imaging
+Boost.GIL
+OpenCV
+CImg
+DevIL
+Logging
+log4cxx
+Pantheios
+Multimedia
+SDL
+3D
+OGRE
+Design
+IoC Frameworks
+PocoCapsule
+Hypodermic
+
+
+
+
+Sorry for repeating some of the stuff already written, but:
+
+UI: Qt
+Database: SOCI
+General purpose: Boost, Loki, STLSoft Libraries, ASL
+Threading: Boost.Thread
+Testing: Boost.Test
+Build tools: Boost.Build, SCons
+
+
+Adaptive Communication Environment (ACE) is a cross-platform OO network 
+programming toolkit written in C++. Wikipedia has a good description.
+
+
+
+The STL (Standard Template Library) should be provided by all decent C++ 
+compilers. If you don't know it, you should. If you think you don't need 
+it, it's fine if you have good reasons, but you have to know it first anyway.
+
+Boost ( http://www.boost.org ) is a big set of libraries that is complementary
+to the STL. Most of the STL additions are first provided in Boost before 
+getting to the official standard library status. Most of the time, you find 
+in Boost what you need when it's related to general algorithms/structures. 
+The main exception is GUI lib.
+
+A tiny alternative to Boost is POCO ( http://pocoproject.org/ ). It provides 
+some of the most essential libraries that are already in Boost, but implemented 
+in another way, easier to read an learn if you're not yet a C++ specialist. 
+It's not as "complete" (or "with as much variety" should I say) than Boost, 
+but it's sometime interesting. Learn a bit about it to know your choices.
+
+For GUI, as other suggested, in C++, QT might be the more useful GUI 
+(and other tools) library at the moment. Alternatives are wxWidgets and 
+GTK (gtkmm) for the more known.

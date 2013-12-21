@@ -1,0 +1,33 @@
+searched over all Internet for good GTK# based charting library, which
+could be fully integrated to Monodevelop and his GUI designer. 
+I've found ZedGraph, but it was poorly documented, and without integration
+to GUI designer. That is true for NPlot and NPlot.Gtk too.
+Could anybody recommend a library, which would meet all my requirements?
+
+http://netcontrols.org/nplot/wiki/index.php?n=Main.Documentation
+
+
+
+on't think there's a library that meets your criteria, at least not a free one.  
+I've conducted similar searches in the past and come up empty.  To try to meet some of 
+my needs I forked NPlot and started a new project which I call Florence (I told the NPlot 
+creators what I was interested in doing, and they asked me to rebrand rather than do it 
+under the NPlot name).  You can find it here: https://github.com/scottstephens/Florence
+
+I've found the NPlot charting functionality to be sufficient, the two capabilities that 
+I wanted were to be able to write charting code that could work within either WinForms or
+Gtk# widgets, and to add an imperative API (so that it would be convenient to call plotting 
+code from the C# REPL).  Unfortunately, it's not even close to finished.  It works as well 
+as NPlot, just with the addition of an imperative API, and with a lot of the code more 
+cleanly separated between tookit-specific and toolkit-agnostic pieces than the NPlot code
+was.  But it still only works with WinForms, as I haven't implemented any of the Gtk# 
+backends yet.  Anyway, not even close to being a polished solution to your problem, 
+but if you're willing to put some coding effort into solving your problem, this might 
+get you closer than starting from scratch.
+
+
+ glad there's at least one other person in the universe who thinks the idea is a good one :-) 
+ If/when I get around to finishing the work I'll let you know.  It's not on the active to-do
+ list right now, partially because there are some mono bugs that make my end goal impossible, 
+ even if I was to finish the Florence part of it.  So I wouldn't count on this any time soon, 
+ but I am still interested in the project and hope to finish it at some point.

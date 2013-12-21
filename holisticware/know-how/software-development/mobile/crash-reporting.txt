@@ -1,0 +1,7 @@
+Crash Reporting
+
+number of packages 
+	crashlytics 
+	crittercism 
+	
+that have that covered pretty well. 

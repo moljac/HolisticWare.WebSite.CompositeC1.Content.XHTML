@@ -1,0 +1,996 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Compplete Development cycle with Xamarin cross platform tools</title>
+Description = all keywords + extra text
+<meta name="Description" content="Compplete Development cycle with Xamarin cross platform tools CASE 25 Presentation" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Compplete Development cycle with Xamarin cross platform tools
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- ================================================================================== -->
+				<section>
+					<h1>
+						Complete development process with Xamarin cross-platform tools
+					</h1>
+					<h2>
+						CASE 25 Conference 2013-06-12
+						<br />
+						Applications Testing - Web and Mobile 
+					</h2>
+					<p>
+						<a href="http://holisticware.net">http://holisticware.net</a>
+						<br />
+						presented by M.Cvjetko
+						<br />
+						<a href="http://xamarin.com">http://xamarin.com</a>
+					</p>
+				</section>
+
+
+				<!-- ================================================================================== -->
+				<section>
+
+					<!-- ............................................................... -->
+					<section>
+						<h2>Xamarin philosophy and concepts - 1</h2>
+
+						<ul>
+							<li>
+								democratized c# - brought it to other platforms
+							</li>
+							<li>
+								brought .net Base Class Libraries (BCL) to other platforms
+								enabling .net developers 
+							</li>
+							<li>
+								.net developers
+								<ul>
+									<li>
+										work with known tools (VS) on new platforms
+									</li>
+									<li>
+										BCL - familiar APIs
+									</li>
+								</ul>
+							</li>
+							<li>
+								revolves around native programming paradigms - UI
+								<br />
+								projected native API - libraries and frameworks into c#
+								<br />
+								"full native APIs – no compromise"
+							</li>
+							<li>
+								“write once run many” - does not work with UI
+								<br />
+								c# (.net) is now what java used to be - maybe even more
+							</li>
+							<li>
+								 wraps (binds with bindings) platform’s native APIs 
+								 <br />
+								 (wrapped - similar concepts to p-Invoke, r-p-Invoke)
+							</li>
+						</ul>
+					</section>
+
+
+					<!-- ............................................................... -->
+					<section>
+						<h2>Xamarin philosophy and concepts - 2</h2>
+
+						<ul>
+							<li style="color: Red">
+								2013-04-16 Evolve Conference: "Delighting Developers"
+							</li>
+
+
+							<li>
+								possible to "share code across Android, iOS, Mac, Windows Phone, Windows RT, Windows"
+								<br />
+								not completely truth - Linux?!?
+							</li>
+							<li>
+								allows sharing code across these platforms while keeping native performance and UX
+							</li>
+						</ul>
+
+						<ul>
+							<li>
+								cross platform .net - mono
+								<ul>
+									<li style="color: Red" >
+										mobile - currently main focus
+									</li>
+									<li>
+										server - ASP.net on non-windows server OS
+										<!--
+										<br />
+										ASP.net MVC 2 - out of the box 
+										<br />
+										ASP.net MVC 4 - a bit tweaking
+										-->
+									</li>
+									<li>
+										desktop
+										<ul>
+											<li>
+												MacOSX - focus 
+												<br />
+												2.6 * 10^9 devices capable to run apps written in c# 
+												<br />
+												66 * 10^6  MacOSX
+											</li>
+											<li>
+												Linux
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+
+					</section>
+
+					<!-- ............................................................... -->
+					<section>
+						<h2>Xamarin philosophy and concepts - 3</h2>
+
+						<ul>
+							<li>
+								recommendation - work with native UI
+								<ul>
+									<li>
+										Windows - Windows Forms, WPF
+									</li>
+									<li>
+										Mac OS X - Cocoa (MonoMac, Xamarin.Mac)
+									</li>
+									<li>
+										Linux - GTK (GTK#)
+									</li>
+									<li>
+										iOS - Cocoa Touch (Xamarin.iOS, MonoTouch)
+									</li>
+									<li>
+										Android - Android (Xamarin.Android)
+									</li>
+								</ul>
+							</li>
+							<li>
+								<div style="color: Red">
+								Questionnaires - Feedback important
+								</div>
+								Open Source background
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- ================================================================================== -->
+				<section>
+
+					<!-- ............................................................... -->
+					<section>
+						<h2>Xamarin 2.0 - 1</h2>
+
+						<ul>
+							<li>
+								2012-02-20 
+							</li>
+							<li>
+								Rebranding APIs
+								<ul>
+									<li>
+										Xamarin.iOS - MonoTouch
+									</li>
+									<li>
+										Xamarin.Android - Mono For Android
+									</li>
+								</ul>
+							</li>
+							<li>
+								Redesign - IDE
+							</li>
+						</ul>
+					</section>
+
+					<!-- ............................................................... -->
+					<section>
+						<h2>Xamarin 2.0 - 2</h2>
+
+						<h3>Xamarin Studio XS - new MonoDevelop</h3>
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/xamarin-studio.jpg" 
+							alt="Xamarin Studio"
+						/>
+					</section>
+
+					<!-- ............................................................... -->
+					<section>
+						<h2>Xamarin 2.0 - 3</h2>
+
+						<h3>Pre-built app components and Xamarin Component store</h3>
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/xamarin-component-store.png" 
+							alt="Xamarin Studio"
+							height="600px"
+						/>
+						
+					</section>
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Xamarin 2.0 - 4</h2>
+						<h3>Development of iOS apps in C# with Visual Studio</h3>
+
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/visual-studio-ios.png" 
+							alt="Visual Studio iOS development and debugging"
+							height="300px"
+						/>
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/visual-studio-ios-setup.png" 
+							alt="Visual Studio iOS development and debugging"
+							height="300px"
+						/>
+						
+					</section>
+
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Xamarin 2.0 - 5</h2>
+						<h3>New pricing model</h3>
+
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/xamarin-pricing.png" 
+							alt="Xamarin Pricing"
+							height="600px"
+						/>
+					</section>
+
+				</section>
+
+				<!-- ================================================================================== -->
+				<section>
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Evolve Conference 2013 - 1</h2>
+
+						<h3>Announcements</h3>
+
+						<a href=" http://xamarin.com/evolve/2013">
+						 http://xamarin.com/evolve/2013
+						 </a>
+						<ul>
+							<li>
+								2013-04-16 1st conference - 600 devs 
+							</li>
+							<li>
+								Keynote - Miguel de Icaza, Nat Friedman
+							</li>
+							<li>
+								announcements:
+								<ol>
+									<li>
+										C# 5 Async and F# support 
+										<br />
+										<a href="http://xamarin.com/evolve/2013#keynote-24:47">
+										http://xamarin.com/evolve/2013#keynote-24:47
+										</a>
+										
+									</li>
+									<li>
+										iOS Designer (no more XCode) 
+										<br />
+										<a href="http://xamarin.com/evolve/2013#keynote-52:34">
+										http://xamarin.com/evolve/2013#keynote-52:34
+										</a>
+									</li>
+									<li>
+										State of Mobile Testing 
+										<br />
+										<a href="http://xamarin.com/evolve/2013#keynote-72:12">
+										http://xamarin.com/evolve/2013#keynote-72:12
+										</a>
+										
+									</li>
+									<li>
+										Xamarin Test Cloud 
+										<br />
+										<a href="http://xamarin.com/evolve/2013#keynote-80:44">
+										http://xamarin.com/evolve/2013#keynote-80:44
+										</a>
+										
+									</li>
+								</ol>
+								
+
+
+
+
+							</li>
+						</ul>
+					</section>
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Evolve Conference 2013 - 2</h2>
+
+						<h3>async c# v.5 - .net 4.5</h3>
+
+						<pre style="font-size: medium">
+public async Task&lt;int&gt; ExampleMethodAsync()
+{
+	var httpClient = new HttpClient();
+	
+	// The following line activates GetStringAsync, which is an asynchronous method.
+	Task&lt;string&gt; contentsTask = httpClient.GetStringAsync(&quot;http://msdn.microsoft.com&quot;);
+	
+	// While the task is active, you can do other work.
+	ResultsTextBox.Text += &quot;Doing other work before awaiting contentsTask. . . . .\n&quot;;
+					
+	// When you await contentsTask, execution in ExampleMethodAsync is suspended,
+	// and control returns to the caller, StartButton_Click.
+	string contents = await contentsTask;
+			
+	// After contentTask completes, you can calculate the length of the string.
+	int exampleInt = contents.Length;
+					
+	//// You can combine the previous sequence into a single statement.
+	//int exampleInt = (await httpClient.GetStringAsync(&quot;http://msdn.microsoft.com&quot;)).Length;
+							
+	ResultsTextBox.Text += &quot;Preparing to finish ExampleMethodAsync.\n&quot;;
+	// After the following return statement, any method that&#39;s awaiting
+	// ExampleMethodAsync (in this case, StartButton_Click) can get the integer result.
+	
+	return exampleInt;
+}
+</pre>
+					</section>
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Evolve Conference 2013 - 3</h2>
+
+						<h3>F#</h3>
+
+						<blockquote>
+						open-source, strongly typed, multi-paradigm programming language 
+						encompassing functional, imperative and object-oriented programming 
+						techniques
+						</blockquote>
+						<pre style="font-size: medium">
+		let rec factorial n = 
+			if n = 0 
+			then 1 
+			else n * factorial (n - 1)
+		System.Console.WriteLine(factorial anInt)
+
+						</pre>
+					</section>
+
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Evolve Conference 2013 - 3</h2>
+
+						<h3>iOS Desinger</h3>
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/xamarin-ios-designer.png" 
+							alt="iOS Designer"
+							height="600px"
+						/>
+
+					</section>
+
+				</section>
+
+				<!-- ================================================================================== -->
+				<section>
+
+					<!-- ............................................................... -->
+					<section>
+						<h2>Testing 1</h2>
+
+						<h3>Test in Cloud</h3>
+						<ul>
+							<li>
+								services ideal for cloud:
+								<ul>
+									<li>
+										communication (mail, IM), 
+									</li>
+									<li>
+									 public data - marketing PR - web servers (portals), 
+									</li>
+									<li>
+									non-critical documentation, 
+									</li>
+									<li style="color: Red">
+										application testing.
+									</li>
+								</ul>
+								
+							</li>
+							<li>
+								Cloud offers following advantages: 
+								<br />
+								no Cap-Ex, cost and energy savings (green computing), 
+								<br />
+								scalability (elasticity)
+								<br />
+								Competitiveness and Environment friendly .
+								Flexibility, Disaster recovery, Automatic updates, 
+								Collaboration, Mobile workers, Document control, Security
+							</li>
+							<li>
+								Questionnaires analysis
+							</li>
+						</ul>
+
+					</section>
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Testing 2</h2>
+
+						<h3>HolisticWare Testing</h3>
+
+						<p>
+							Typical startup in Croatia (no money at all, seeking for free ["dzaba", "mukte"] offers)
+						</p>
+						<blockquote>
+							Improvise, Adapt and Overcome
+							<br />
+							US Marines Motto 
+						</blockquote>
+						<p>
+							HolisticWare team uses cloud technology for testing
+							<br />
+							predominant for web application testing 
+							<br />
+							team is using free cloud PAAS services which support .net as a testing platforms for 
+							.net and mono ASP.net applications.
+						</p>
+
+						<small>
+						<ul>
+							<li>
+								Amazon Web Services (AWS)
+								<br />
+								<a 
+									href="http://mono-aspnet-mvc4-aws.holisticware.org/"
+									style="font-size: smaller"
+									>
+								http://mono-aspnet-mvc4-aws.holisticware.org/
+								</a>
+							</li>
+							<li>
+								Iron Foundry (Cloud Foundry, Tier 3)
+								<br />
+								<a 
+									href="http://ironfoundry.org/"
+									style="font-size: smaller"
+									>
+								http://ironfoundry.org/
+								</a>
+								<br />
+								<a 
+									href="http://mono-aspnet-mvc4-aws.ironfoundry.me/"
+									style="font-size: smaller"
+									>
+								http://mono-aspnet-mvc4-aws.ironfoundry.me/
+								</a>
+								<br />
+								<a 
+									href="http://holisticware-ft-compositec1.ironfoundry.me/holisticware/layout/presentations/reveal-js"
+									style="font-size: smaller"
+									>
+								http://holisticware-ft-compositec1.ironfoundry.me/holisticware/layout/presentations
+								</a>								
+							</li>
+							<li>
+								AppHarbor 
+								<br />
+								<a 
+									href="https://appharbor.com/"
+									style="font-size: smaller"
+									>
+								https://appharbor.com/
+								</a>	
+								<br />
+								<a 
+									href="http://destination4me.apphb.com/"
+									style="font-size: smaller"
+									>
+								http://destination4me.apphb.com/
+								</a>								
+							</li>
+							<li>
+								Azure
+							</li>
+						</ul>	
+						</small>
+						
+					</section>
+
+
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Testing 3</h2>
+
+						<h3>Testing mobile apps 1</h3>
+
+						<ul>
+							<li>
+								On mobile quality is hard, thus testing is very important.
+							</li>
+							<li>
+								Mobile users are picky/spoiled
+							</li>
+							<li>
+								the store: bugs hurt application lowering the ratings,
+								forcing users to move to other applications 
+							</li>
+							<li>
+								enterprise apps: engagement goes down and project fails
+							</li>
+							<li>
+								Sheer numbers - permutations - complexity
+								<small>
+								<ul>
+									<li>
+										Android:
+										<br />
+										5+ OS versions
+										<br />
+										devices: n * 10^2 (8 vendors)
+										<br />
+										27 screen sizes
+										<br />
+										20 languages
+									</li>
+									<li>
+										iOS: 
+										<br />
+										3 OS versions (iOS 6, 5, 4)
+										<br />
+										8 devices, but expensive
+										<br />
+										20 languages
+									</li>
+								</ul>
+								</small>
+							</li>
+						</ul>
+
+						<p>
+						Mike Shaver Facebook’s Engineering Director: 
+						<br />
+						“Top 100 Android devices covered only 1 / 3 Facebook mobile users”
+						</p>
+					</section>
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Testing 4</h2>
+
+						<h3>Testing mobile apps 2</h3>
+						<p>
+							Development challenges:
+						</p>
+						<ul>
+							<li>
+								fast moving tech
+							</li>
+							<li>
+								Regressions (dev cycle 6 weeks on desktop 6 months)
+							</li>
+							<li>
+								store influence (feedback, rating)
+							</li>
+						</ul>
+
+						<p>
+							Testing options:
+						</p>
+						<ul>
+							<li>
+								unit testing (no full coverage - only libraries/utilities)
+							</li>
+							<li>
+								manual testing - mostly used and the most simplified version
+								<br />
+								<small>
+									install app on the device and test it
+									<br />
+									less simplified - team of testers + spreadsheets with bugs periodically
+								</small>
+									<br />
+									advanced - beta testing (Testflight, The BetaFamily, Hockeyapp)
+							</li>
+							<li>
+								automated UI testing
+							</li>
+						</ul>
+					</section>
+
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Testing 5</h2>
+
+						<h3>Testing mobile apps 3</h3>
+
+						<p>
+							Automated tests
+						</p>
+
+						<ul>
+							<li>
+								BDD behavior driven development and testing
+							</li>
+							<li>
+								scripting UI interaction, simulate user interaction, 
+								robots doing manual testing
+							</li>
+							<li>
+								testlabs expensive and hard to setup (only for Android devices $8k/month)
+							</li>
+							<li>
+								difficult to write sophisticated and realistic scripts
+							</li>
+							<li>
+								tests are fragile (image recognition)
+							</li>
+							<li>
+								user interfaces for the tools - very bad
+							</li>
+						</ul>
+
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/testing-quadrant-CropperCapture[28].png" 
+							alt="Testing Quadrant"
+							height="200px"
+						/>
+					</section>
+
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Testing 6</h2>
+
+						<h3>Testing mobile apps automagically</h3>
+
+						<p>
+							Goal
+						</p>
+						<ul>
+							<li>
+								testing apps on the UI level -  behaviour
+							</li>
+							<li>
+								test on real devices - hardware  (  device != hardware )
+							</li>
+							<li>
+								resilient to small UI changes (widget/control position)
+							</li>
+							<li>
+								easy (learning curve), fast jump start, fun to use, UX
+							</li>
+						</ul>
+						<p>
+							Recommended professional testing practices:
+						</p>
+						<ul>
+							<li>
+								unit testing
+							</li>
+							<li>
+								automated acceptance testing
+							</li>
+							<li>
+								automated UI (behavior) testing
+							</li>
+							<li>
+								continuous builds
+							</li>
+							<li>
+								continuous testing
+							</li>
+						</ul>
+					</section>
+				</section>
+
+
+				<!-- ================================================================================== -->
+				<section>
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Xamarin Test Cloud 1</h2>
+
+						<h3>Evolve Announcement 2013-04-16</h3>
+
+						<ul>
+							<li>
+								Xamarin Test Cloud XTC - available 2013 Q3
+							</li>
+							<li>
+								 Xamarin acquired Less Painfull 
+								 <a href="https://www.lesspainful.com">
+								 https://www.lesspainful.com
+								 </a>
+							</li>
+							<li>
+								Features:
+								<ul>
+									<li>
+										works with simulators/emulators devices
+									</li>
+									<li>
+										quick and easy integration - Xamarin App Explorer
+									</li>
+									<li>
+										Continuous Integration
+									</li>
+									<li>
+										reporting
+									</li>
+									<li>
+										Fragmentation tests 
+										(combinations of devices, form-factors (screen sizes),  OS Versions)
+									</li>
+									<li>
+										object based UI testing
+									</li>
+									<li>
+										scripting - Calabash
+										<ul>
+											<li>
+												currently Ruby
+											</li>
+											<li>
+												C# (in beta)
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Xamarin Test Cloud 2</h2>
+
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/xamarin-test-cloud-error.png" 
+							alt="Xamarin Test Cloud Errors"
+							height="180px"
+						/>
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/xamarin-test-cloud-exception-CropperCapture[28].png" 
+							alt="Xamarin Test Cloud Exception"
+							height="180px"
+						/>
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/xamarin-test-cloud-device-drilldown-CropperCapture[28].png" 
+							alt="Xamarin Test Cloud DrillDown"
+							height="180pxpx"
+						/>
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/xamarin-test-cloud-device-drilldown-exception-CropperCapture[28].png" 
+							alt="Xamarin Test Cloud Reports"
+							height="180px"
+						/>
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/xamarin-test-cloud-reports.png" 
+							alt="Xamarin Test Cloud Reports"
+							height="180px"
+						/>
+												
+				</section>
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Xamarin Test Cloud 3</h2>
+						<h3>Internals</h3>
+
+						<p>
+							XTC
+						</p>
+						<ul>
+							<li>
+								based on Calabash
+								<a href="http://calaba.sh/">
+									http://calaba.sh/
+								</a>
+								<br /> 
+								open-source automated UI testing script framework  
+							</li>
+							<li>
+								based on Cucumber 
+								<a href="http://cukes.info/">
+									http://cukes.info/
+								</a>
+							</li>
+							<li>
+								and Martin Fowler’s Business Readable Domain Specification Language
+							</li>
+							<li>
+								Similar ideas can be found in NBehave, 
+								<br />
+								.net implementation for BDD -  Behavior Driven Development and Testing.
+
+							</li>
+						</ul>
+						</section>
+
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Xamarin Test Cloud 4</h2>
+						<h3>Calabash</h3>
+
+						<ul>
+							<li>
+								min purpose is to support BDD (Behavior Driven Development)
+							</li>
+							<li>
+								that tests are written in plain text only
+							</li>
+							<li>
+								BDD recommends use of: specifications, use-cases, feature-lists
+							</li>
+							<li>
+								BDD discourages: that anyone (management) writes tests
+							</li>
+							<li>
+								test should be readable and understandable by project and team members
+							</li>
+							<li>
+								should improve and encourage communication
+							</li>
+							<li>
+								open-source scripting framework written in objective-c, java, ruby
+							</li>
+						</ul>
+						 
+					</section>
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Xamarin Test Cloud 5</h2>
+						<h3>Calabash architecture</h3>
+
+						<pre>
+Feature: Trades
+  Scenario: Selectable Trading Order Types
+	Given I am logged in as "Cathy"
+	When I go to the Trading Orders Screen
+	Then it should display the Trading Orders order by Id
+						</pre>
+
+						<pre>
+[Test()]
+public void ShouldBeAbleToPlaceLimitOrders ()
+{
+	EnterInto ("Username", "cathy@bussiness.com");
+	EnterInto ("Password", "xkal38723@2");
+	Tap ("Log In");
+	AwaitScreenWithTitle ("Place Order");
+	AssertButton ("Limit");
+	Screenshot (label: "Place limit order");
+}
+						</pre>
+
+						<img 
+							src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/calabash-architecture-CropperCapture[28].png" 
+							alt="Xamarin Test Cloud Reports"
+							height="180px"
+						/>
+
+					</section>
+
+					     <!-- ............................................................... -->
+					<section>
+						<h2>Xamarin Test Cloud 6</h2>
+						<h3>References Links</h3>
+
+						<ul>
+							<li>
+								<a href="http://xamarin.com/test-cloud">
+								http://xamarin.com/test-cloud
+								</a>
+							</li>
+							<li>
+								<a href="http://xamarin.com/evolve/2013#keynote-80:44">
+								http://xamarin.com/evolve/2013#keynote-80:44
+								</a>
+							</li>
+							<li>
+								<a href="http://www.martinfowler.com/bliki/BusinessReadableDSL.html">
+								http://www.martinfowler.com/bliki/BusinessReadableDSL.html
+								</a>
+							</li>
+							<li>
+								<a href="https://github.com/calabash/">
+								https://github.com/calabash/
+								</a>
+							</li>
+							<li>
+								<a href="http://nbehave.org/">
+								http://nbehave.org/
+								</a>
+							</li>
+							<li>
+								<a href="https://github.com/nbehave/NBehave">
+								https://github.com/nbehave/NBehave
+								</a>
+							</li>
+							<li>
+								<a href="http://vadimdev.blogspot.com/2011/04/getting-started-with-bdd-using-nbehave.html">
+								http://vadimdev.blogspot.com/2011/04/getting-started-with-bdd-using-nbehave.html
+								</a>
+							</li>
+							<li>
+								<a href="http://www.specflow.org/specflownew/">
+								http://www.specflow.org/specflownew/
+								</a>
+							</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<!-- ================================================================================== -->
+				<section>
+					<h2>Summary</h2>
+					<p style="text-align:center">
+						Team HolisticWare
+						<br />
+						<a href="http://holisticware.net">
+						http://holisticware.net
+						</a>
+					</p>
+					<ul >
+						<li>
+							Ivan Đikić
+						</li>
+						<li>
+							Bruno Balabušić
+						</li>
+						<li>
+							Emilije Strahinja
+						</li>
+						<li>
+							Miljenko Cvjetko
+						</li>
+					</ul>
+					<p>
+					</p>
+
+					<h2> Thanks </h2>
+					<p>
+					</p>
+					<h2> ???Questions??? </h2>
+				</section>
+
+			</div>
+		</div>
+
+
+</body>
+</html>

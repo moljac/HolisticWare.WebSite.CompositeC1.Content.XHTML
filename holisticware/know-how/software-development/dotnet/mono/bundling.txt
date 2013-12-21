@@ -1,0 +1,23 @@
+Bundling
+
+
+ith regards to embedding the Mono runtime into an executable, I have seen
+the following commands on the web:
+
+mkbundle --deps --config-dir "./lib" MyApp.exe
+
+cc -arch i386 -mmacosx-version-min=10.5 -I /opt/local/include/glib-2.0 -I
+/opt/local/lib/glib-2.0/include -g -o MyApp -Wall temp.c `pkg-config
+--cflags --libs mono` temp.o
+
+I understand what the first command is doing, but what is the purpose of the
+second command?  It appears to me that it is using the clang compiler to
+link the mono runtime with MyApp.exe, but isn't that redundant as mkbundle
+does this as well?
+
+
+
+The second command is compiling a stub "C" program that embeds the
+assemblies and which is linked against Mono's runtime library.
+Its output is the actual executable that you can invoke like a
+native program.

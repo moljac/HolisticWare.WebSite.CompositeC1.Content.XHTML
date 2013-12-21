@@ -1,0 +1,54 @@
+httpwebrequest-webexception-certificate
+
+
+The Error:
+
+System.Net.WebException() Error getting response stream (Write: The
+authentication or decryption has failed.): SendFailure
+   at System.Net.HttpWebRequest.EndGetRequestStream (IAsyncResult
+asyncResult) [0x00000] in <filename unknown>:0 
+  at System.Net.HttpWebRequest.GetRequestStream () [0x00000] in <filename
+unknown>:0 
+
+This works when run using .net, but fails at  request.GetRequestStream() as
+shown both on a Windows7 box running mono 2.10.8 and on Linux (Ubuntu 12.04)
+on both an x86 box and on ARM (Beagle).
+
+Googling suggests that a certificate issue might cause it to fail at
+WebRequest.Create(URL), but that does not seem to be the same problem.
+
+I also tried using CredentialCache, but I understand that using "Digest"
+with CredentialCache forces MD5, and the server API I am accessing uses SHA
+256, not MD5. (the hashed password and userID are embedded in the
+JsonRequest)
+
+
+
+Solution:
+
+
+apparently it was the same certificates issue, just a different error
+message. Solution was:
+
+Add:
+
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
+( other than X509 these may have already been present - didn't check)
+
+In the class constructor:
+
+ServicePointManager.ServerCertificateValidationCallback = new
+RemoteCertificateValidationCallback(DummyCertValidationCb); 
+
+and the call back itself:
+
+public static bool DummyCertValidationCb(object sender, X509Certificate
+certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+	   // we could actually test for a valid certificate here but in this case
+we don't care....
+            return true;
+        } 
+

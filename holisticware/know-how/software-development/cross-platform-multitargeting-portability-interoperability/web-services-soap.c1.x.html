@@ -1,0 +1,270 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Web Services SOAP client references (proxies)</title>
+Description = all keywords + extra text
+<meta name="Description" content="Web Services SOAP client references (proxies) : tips and tricks for cross platform sharing in .net/mono" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Web Services SOAP client references (proxies)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Web Services, SOAP, client, references, proxies, cross platform, sharing, .net, mono" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2013-03-10" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>Web Services SOAP client references (proxies)</h1>
+	<p>
+		Date created: 2013-03-10
+		<br>
+		Date modified: 2013-03-10
+	</p>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<!-- ================================================================== -->
+	<h2> Create reference</h2>
+
+	<ul>
+		<li>
+			for Mono profiles (m desktop, mobile) - create .net 2.0 type reference
+			<br />
+			Advanced ...
+			<br />
+			screenshot
+		</li>
+		<li>
+			Visual Studio 2010 creates Properties/Configuration in Reference.cs
+			<br />
+			for Mono Mobile - replace with bare string
+		</li>
+	</ul>
+
+	<p>
+		csproj file after adding web reference (proxy)
+		<br />
+		Note: Web Reference is scattered through several ItemGroup[s]!
+	</p>
+	<pre class="hw_code">
+	&lt;ItemGroup&gt;
+		&lt;Compile Include=&quot;Web References\TestUploader.Uploader.FileUploader\Reference.cs&quot;&gt;
+			&lt;AutoGen&gt;True&lt;/AutoGen&gt;
+			&lt;DesignTime&gt;True&lt;/DesignTime&gt;
+			&lt;DependentUpon&gt;Reference.map&lt;/DependentUpon&gt;
+		&lt;/Compile&gt;
+	    .....
+
+		&lt;None Include=&quot;Web References\TestUploader.Uploader.FileUploader\Reference.map&quot;&gt;
+			&lt;Generator&gt;MSDiscoCodeGenerator&lt;/Generator&gt;
+			&lt;LastGenOutput&gt;Reference.cs&lt;/LastGenOutput&gt;
+		&lt;/None&gt;
+		&lt;None Include=&quot;Web References\TestUploader.Uploader.FileUploader\WebServiceFileUploader.wsdl&quot; /&gt;
+	&lt;/ItemGroup&gt;
+	&lt;ItemGroup&gt;
+		&lt;WCFMetadata Include=&quot;Service References\&quot; /&gt;
+	&lt;/ItemGroup&gt;
+	&lt;ItemGroup&gt;
+		&lt;WebReferences Include=&quot;Web References\&quot; /&gt;
+	&lt;/ItemGroup&gt;
+	&lt;ItemGroup&gt;
+		&lt;WebReferenceUrl Include=&quot;http://localhost:21886/WebServiceFileUploader.asmx&quot;&gt;
+			&lt;UrlBehavior&gt;Dynamic&lt;/UrlBehavior&gt;
+			&lt;RelPath&gt;Web References\TestUploader.Uploader.FileUploader\&lt;/RelPath&gt;
+			&lt;UpdateFromURL&gt;http://localhost:21886/WebServiceFileUploader.asmx&lt;/UpdateFromURL&gt;
+			&lt;ServiceLocationURL /&gt;
+			&lt;CachedDynamicPropName /&gt;
+			&lt;CachedAppSettingsObjectName&gt;Settings&lt;/CachedAppSettingsObjectName&gt;
+			&lt;CachedSettingsPropName&gt;HolisticWare_SlideShow_EXE_WF_TestUploader_Uploader_FileUploader_WebServiceFileUploader&lt;/CachedSettingsPropName&gt;
+		&lt;/WebReferenceUrl&gt;
+	&lt;/ItemGroup&gt;
+	&lt;ItemGroup&gt;
+		&lt;None Include=&quot;Web References\TestUploader.Uploader.FileUploader\WebServiceFileUploader.disco&quot; /&gt;
+	&lt;/ItemGroup&gt;
+	</pre>
+
+	<p>
+		csproj file after manual intervention/editing:
+		<br />
+		Merge Web Reference into single ItemGroup
+	</p>
+	<pre class="hw_code">
+	&lt;ItemGroup&gt;
+		&lt;WebReferences Include=&quot;Web References\&quot; /&gt;
+		&lt;Compile Include=&quot;Web References\TestUploader.Uploader.FileUploader\Reference.cs&quot;&gt;
+			&lt;AutoGen&gt;True&lt;/AutoGen&gt;
+			&lt;DesignTime&gt;True&lt;/DesignTime&gt;
+			&lt;DependentUpon&gt;Reference.map&lt;/DependentUpon&gt;
+		&lt;/Compile&gt;
+		&lt;None Include=&quot;Web References\TestUploader.Uploader.FileUploader\Reference.map&quot;&gt;
+			&lt;Generator&gt;MSDiscoCodeGenerator&lt;/Generator&gt;
+			&lt;LastGenOutput&gt;Reference.cs&lt;/LastGenOutput&gt;
+		&lt;/None&gt;
+		&lt;None Include=&quot;Web References\TestUploader.Uploader.FileUploader\WebServiceFileUploader.wsdl&quot; /&gt;
+			&lt;UrlBehavior&gt;Dynamic&lt;/UrlBehavior&gt;
+			&lt;RelPath&gt;Web References\TestUploader.Uploader.FileUploader\&lt;/RelPath&gt;
+			&lt;UpdateFromURL&gt;http://localhost:21886/WebServiceFileUploader.asmx&lt;/UpdateFromURL&gt;
+			&lt;ServiceLocationURL /&gt;
+			&lt;CachedDynamicPropName /&gt;
+			&lt;CachedAppSettingsObjectName&gt;Settings&lt;/CachedAppSettingsObjectName&gt;
+			&lt;CachedSettingsPropName&gt;HolisticWare_SlideShow_EXE_WF_TestUploader_Uploader_FileUploader_WebServiceFileUploader&lt;/CachedSettingsPropName&gt;
+		&lt;/WebReferenceUrl&gt;
+		&lt;None Include=&quot;Web References\TestUploader.Uploader.FileUploader\WebServiceFileUploader.disco&quot; /&gt;
+	&lt;/ItemGroup&gt;
+	</pre>
+
+
+	<pre class="hw_code">
+	&lt;ItemGroup&gt;
+		&lt;WebReferences Include=&quot;Web References\&quot; /&gt;
+		&lt;Compile Include=&quot;..\SOURCE_PROJECT\Web References\TestUploader.Uploader.FileUploader\Reference.cs&quot;&gt;
+			&lt;AutoGen&gt;True&lt;/AutoGen&gt;
+			&lt;DesignTime&gt;True&lt;/DesignTime&gt;
+			&lt;DependentUpon&gt;Reference.map&lt;/DependentUpon&gt;
+			&lt;Link&gt;Web References\TestUploader.Uploader.FileUploader\Reference.cs&lt;/Link&gt;
+		&lt;/Compile&gt;
+		&lt;None Include=&quot;..\SOURCE_PROJECT\Web References\TestUploader.Uploader.FileUploader\Reference.map&quot;&gt;
+			&lt;Generator&gt;MSDiscoCodeGenerator&lt;/Generator&gt;
+			&lt;LastGenOutput&gt;Reference.cs&lt;/LastGenOutput&gt;
+			&lt;Link&gt;Web References\TestUploader.Uploader.FileUploader\Reference.map&lt;/Link&gt;
+		&lt;/None&gt;
+		&lt;None Include=&quot;..\SOURCE_PROJECT\Web References\TestUploader.Uploader.FileUploader\WebServiceFileUploader.wsdl&quot; /&gt;
+			&lt;UrlBehavior&gt;Dynamic&lt;/UrlBehavior&gt;
+			&lt;RelPath&gt;Web References\TestUploader.Uploader.FileUploader\&lt;/RelPath&gt;
+			&lt;UpdateFromURL&gt;http://localhost:21886/WebServiceFileUploader.asmx&lt;/UpdateFromURL&gt;
+			&lt;ServiceLocationURL /&gt;
+			&lt;CachedDynamicPropName /&gt;
+			&lt;CachedAppSettingsObjectName&gt;Settings&lt;/CachedAppSettingsObjectName&gt;
+			&lt;CachedSettingsPropName&gt;HolisticWare_SlideShow_EXE_WF_TestUploader_Uploader_FileUploader_WebServiceFileUploader&lt;/CachedSettingsPropName&gt;
+			&lt;Link&gt;Web References\TestUploader.Uploader.FileUploader\WebServiceFileUploader.wsdl&lt;/Link&gt;
+		&lt;/WebReferenceUrl&gt;
+		&lt;None Include=&quot;..\SOURCE_PROJECT\Web References\TestUploader.Uploader.FileUploader\WebServiceFileUploader.disco&quot; &gt;
+			&lt;Link&gt;Web References\TestUploader.Uploader.FileUploader\WebServiceFileUploader.disco&lt;/Link&gt;
+		&lt;/None&gt;
+	&lt;/ItemGroup&gt;
+	</pre>
+
+</body>
+</html>
+it is possible to share code from desktop Web Service SOAP Client/Proxy with
+Mono for Android  and MonoTouch, becaue all 3 platforms have 
+System.Web.Services.dll assembly available.
+
+	c# Windiws/Desktop Assembly/DLL BusinessLogic layer
+	add Web Service 
+		Advanced +/ .net 2 ...
+	
+	
+	c# Mono for Android Assembly/DLL BusinessLogic layer
+
+		<!--
+			Web References might be created with MonoDevelop
+			Grouping in one ItemGroup
+			
+			Excerpt from MA csproj after addin Web Service in MD
+			....
+			
+		-->
+		
+		<Compile Include="Web References\Destination4MeService\Reference.cs">
+		  <AutoGen>True</AutoGen>
+		  <DesignTime>True</DesignTime>
+		  <DependentUpon>Reference.map</DependentUpon>
+		</Compile>
+	  </ItemGroup>
+	  <ItemGroup>
+		<None Include="Web References\Destination4MeService\Category.datasource">
+		  <DependentUpon>Reference.map</DependentUpon>
+		</None>
+		<None Include="Web References\Destination4MeService\Destination.datasource">
+		  <DependentUpon>Reference.map</DependentUpon>
+		</None>
+		<None Include="Web References\Destination4MeService\Destination4Me.wsdl" />
+		<None Include="Web References\Destination4MeService\Reference.map">
+		  <Generator>MSDiscoCodeGenerator</Generator>
+		  <LastGenOutput>Reference.cs</LastGenOutput>
+		</None>
+	  </ItemGroup>
+	  <ItemGroup>
+		<WebReferences Include="Web References\" />
+	  </ItemGroup>
+	  
+	  
+	  
+	  This can be reorganized in one ItemGroup
+	  
+	  <ItemGroup>
+		<WebReferences Include="Web References\" />
+		<Compile Include="Web References\Destination4MeService\Reference.cs">
+		  <AutoGen>True</AutoGen>
+		  <DesignTime>True</DesignTime>
+		  <DependentUpon>Reference.map</DependentUpon>
+		</Compile>
+		<None Include="Web References\Destination4MeService\Category.datasource">
+		  <DependentUpon>Reference.map</DependentUpon>
+		</None>
+		<None Include="Web References\Destination4MeService\Destination.datasource">
+		  <DependentUpon>Reference.map</DependentUpon>
+		</None>
+		<None Include="Web References\Destination4MeService\Destination4Me.wsdl" />
+		<None Include="Web References\Destination4MeService\Reference.map">
+		  <Generator>MSDiscoCodeGenerator</Generator>
+		  <LastGenOutput>Reference.cs</LastGenOutput>
+		</None>
+	  </ItemGroup>
+	  
+	  
+		More code reuse - link with Web Service references from desktop project  
+		Add link to ref project [links and Project linker]
+	
+		<Compile Include="..\HolisticWare.Destination4Me.DLL_BL_mc_WP\Destination4ME\Query.cs">
+		  <Link>Destination4ME\Query.cs</Link>
+		</Compile>
+
+		Copy from other csproj, edit a bit and paste in MA csproj:
+		Note: Linking will fail (issue warning if there is file on file system)
+		
+		
+	  <ItemGroup>
+		<Compile Include="..\HolisticWare.Destination4Me.DLL_BL_dc_WF_ASPNET\Web References\Destination4MeService\Reference.cs">
+		  <Link>Web References\Destination4MeService\Reference.cs</Link>
+		  <AutoGen>True</AutoGen>
+		  <DesignTime>True</DesignTime>
+		  <DependentUpon>Reference.map</DependentUpon>
+		</Compile>
+		<None Include="..\HolisticWare.Destination4Me.DLL_BL_dc_WF_ASPNET\Web References\Destination4MeService\Category.datasource">
+		  <Link>Web References\Destination4MeService\Category.datasource</Link>
+		  <DependentUpon>Reference.map</DependentUpon>
+		</None>
+		<None Include="..\HolisticWare.Destination4Me.DLL_BL_dc_WF_ASPNET\Web References\Destination4MeService\Destination.datasource">
+		  <Link>Web References\Destination4MeService\Destination.datasource</Link>
+		  <DependentUpon>Reference.map</DependentUpon>
+		</None>
+		<None Include="..\HolisticWare.Destination4Me.DLL_BL_dc_WF_ASPNET\Web References\Destination4MeService\Destination4Me.wsdl">
+		  <Link>Web References\Destination4MeService\Destination4Me.wsdl</Link>
+		  <SubType>Designer</SubType>
+		</None>
+		<None Include="..\HolisticWare.Destination4Me.DLL_BL_dc_WF_ASPNET\Web References\Destination4MeService\Reference.map">
+		  <Link>Web References\Destination4MeService\Reference.map</Link>
+		  <Generator>MSDiscoCodeGenerator</Generator>
+		  <LastGenOutput>Reference.cs</LastGenOutput>
+		</None>
+	  </ItemGroup>
+	
+	
+	
+		In proxy constructor remove access to Settings:
+		
+		public Destination4Me() {
+
+			// MA and MT cannot deal with Settings
+			// this.Url = global::HolisticWare.Destination4Me.BusinessLogic.Properties.Settings.Default.HolisticWare_Destination4Me_Destination4MeService_Destination4Me;
+			this.Url = "http://destination4me.apphb.com/Destination4Me.asmx";

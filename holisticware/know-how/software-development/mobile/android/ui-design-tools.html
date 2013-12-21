@@ -1,0 +1,487 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>UI Design Tools</title>
+Description = all keywords + extra text
+<meta name="Description" content="UI Design Tools for Android devices" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: ui-design-tools
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Android, USB, drivers, devices" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">UI design tools</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<p>
+		There are no integrated Visual Designers (WYSIWYG), so integration in Visual
+		Studio is done through External Tools.
+		<br />
+		For flexible integration External Tools need command line options/arguments
+		of called application.
+		<br />
+		For more info about External Tools used by HolisticWare team see:
+		<br />
+		<a href="/HolisticWare/Know-How/development/visual-studio/external-tools.aspx">
+		/HolisticWare/Know-How/development/visual-studio/external-tools.aspx
+		</a>
+	</p>
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">DroidDraw</a></h2>
+	<p>
+		Good tool, standalone and web, but no commandline (2011-06), so team has filed feature 
+		request to get commandline option for loading [a]xml layout. 
+		<br />
+		<a href="http://code.google.com/p/droiddraw/issues/detail?can=2&amp;q=223&amp;id=223">
+		DroidDraw issues archive: Commandline options 
+		(http://code.google.com/p/droiddraw/issues/detail?can=2&amp;q=223&amp;id=223)
+		</a>
+		<br />
+		In this case integration in Visual Studio no biggy.
+		<br />
+		Commandline accepts only *.xml, so the java code in 2 files was done in order
+		to accept *.axml files...
+	</p>
+	<p>
+		2012-02-26
+		<br />
+		<a href="/mm/holisticware/know-how/development/mobile/android/droiddraw.jar">
+			droiddraw.jar
+		</a>
+	</p>
+	<pre class="hw_code">
+@echo off
+
+
+set DIR=D:\SRC\HolisticWare\HolisticWare_Inkunabula\HolisticWare.Inkunabula.EXE_723_ClntMob_MDrd\Resources\Layout
+
+d:
+cd  %DIR%
+dir 
+
+java -jar D:\SRC\java\droiddraw.jar Main.axml
+java -jar D:\SRC\java\droiddraw.jar Main.xml
+
+pause
+	</pre>
+	<pre class="hw_code">
+	D:\android\droiddraw.holisticware>droiddraw.exe .\Resources\Layout\TrainingExercise.axml
+	</pre>
+
+
+	<!-- ................................................................... -->
+	<h3><a id="">Shell Integration</a></h3>
+	<p>
+		Registry entry for Default Application for .axml files:
+	</p>    
+	<pre class="hw_code">
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.axml]
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.axml\OpenWithList]
+"a"="c:\bin\android\droiddraw\droiddraw.exe"
+"MRUList"="a"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.axml\OpenWithProgids]
+"holisticware.monoandroid.v1"=hex(0):
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.axml\UserChoice]
+"Progid"="holisticware.monoandroid.v1"
+
+	</pre>
+
+
+	<!-- ................................................................... -->
+	<h3><a id="">IDE Integration</a></h3>
+	<p>
+		Through External Tools:
+	</p>
+	<ul>
+		<li>
+			<a href="">
+				Visual Studio / Tools / External Tools
+			</a>
+		</li>
+		<li>
+			<a href="">
+				MonoDevelop / Tools / External Tools
+			</a>
+		</li>
+	</ul>
+	<pre class="hw_code">
+&lt;UserSettings&gt;
+	&lt;ApplicationIdentity version=&quot;10.0&quot;/&gt;
+
+	&lt;Category name=&quot;Environment_Group&quot; RegisteredName=&quot;Environment_Group&quot;&gt;
+		&lt;Category name=&quot;Environment_ExternalTools&quot; Category=&quot;{E8FAE9E8-FBA2-4474-B134-AB0FFCFB291D}&quot; Package=&quot;{DA9FB551-C724-11d0-AE1F-00A0C90FFFC3}&quot; RegisteredName=&quot;Environment_ExternalTools&quot; PackageName=&quot;Visual Studio Environment Package&quot;&gt;
+			
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.Command&quot;&gt;C:\bin\android\droiddraw\droiddraw.exe&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.Arguments&quot;&gt;$(ItemPath)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.InitialDirectory&quot;&gt;$(ItemDir)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.SourceKeyName&quot;/&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.UseOutputWindow&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.PromptForArguments&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.CloseOnExit&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.IsGUIapp&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.SaveAllDocs&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.UseTaskList&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.Unicode&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.Package&quot;&gt;{00000000-0000-0000-0000-000000000000}&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android DroidDraw.NameID&quot;&gt;0&lt;/PropertyValue&gt;
+			
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.Command&quot;&gt;C:\bin\eclipse\eclipse.exe&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.Arguments&quot;&gt;--launcher.openFile $(ItemPath)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.InitialDirectory&quot;&gt;$(ItemDir)&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.SourceKeyName&quot;/&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.UseOutputWindow&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.PromptForArguments&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.CloseOnExit&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.IsGUIapp&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.SaveAllDocs&quot;&gt;true&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.UseTaskList&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.Unicode&quot;&gt;false&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.Package&quot;&gt;{00000000-0000-0000-0000-000000000000}&lt;/PropertyValue&gt;
+			&lt;PropertyValue name=&quot;Mono4Android Eclipse.NameID&quot;&gt;0&lt;/PropertyValue&gt;
+			
+			&lt;!-- 
+				These original are needed too or they will be lost 
+			--&gt;
+			
+			&lt;!--
+				This defines order in Menu!!!
+			--&gt;
+			&lt;PropertyValue name=&quot;ToolNames&quot;&gt;Mono4Android DroidDraw, Mono4Android Eclipse&lt;/PropertyValue&gt;
+		&lt;/Category&gt;
+	&lt;/Category&gt;
+&lt;/UserSettings&gt;
+	</pre>
+	
+	<img 
+		alt="Visual Studio DroidDraw integration with External Tools"
+		title="Visual Studio DroidDraw integration with External Tools"
+		src="/mm/holisticware/know-how/development/mobile/android/visual-studio-external-tools-droiddraw.png"
+		height="465" width="706"
+	 />
+
+	<p>
+		Files:
+	</p>
+	<ul>
+		<li>
+			<a href="/mm/holisticware/know-how/development/mobile/android/SettingsExternalToolsOnly.partial.vssettings.txt">
+				Visual Studio settings files (Warning for old settings not to be removed!)
+			</a>
+		</li>
+	</ul>
+
+	<!-- ================================================================== -->
+	<h2><a id="">Eclipse with Android Development Toolkit (ADT)</a></h2>
+	<p>
+		Still looking for command line to load android resource layout xml file into
+		editor to get WYSIWYG Design.
+		<br />
+		With following line only loading as plain XML is possible>
+	</p>
+	<pre class="hw_code">
+echo off
+set DIR=%USERPROFILE%\workspace\ActivityNavigation\res\layout
+cd %DIR%
+
+C:\bin\eclipse\eclipse.exe --launcher.openFile main.xml
+
+pause
+	</pre>
+	<p>
+		The problem is: xml/axml file is loaded as plain xml in Eclipse without Design View.
+		<br />
+		Anyone?
+	</p>
+
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">AppInventor</a></h2>
+	<p>
+	Google's project seems to be almost dead.
+	</p>
+
+
+
+	<!-- ====================================================================================== -->
+	<h2><a id="">Problems</a></h2>
+	<!-- ................................................................... -->
+	<h3><a id="">DroidDraw with some layouts</a></h3>
+	<p>
+		TODO: move to DroidDraw file and report bugs when enough cases!!!
+	</p>
+	<p>
+		Exceptions for some layouts!
+		<br />
+		TODO!
+		<br />
+		ScreenShots!
+		<br />
+		<br />
+		<br />
+	</p>
+	<pre class="hw_code">
+Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
+		at org.droiddraw.property.WidthProperty.getIntValue(WidthProperty.java:16)
+		at org.droiddraw.widget.GridView.paint(GridView.java:65)
+		at org.droiddraw.gui.LayoutPainter.paint(LayoutPainter.java:30)
+		at org.droiddraw.gui.LayoutPainter.paint(LayoutPainter.java:27)
+		at org.droiddraw.gui.ScrollViewPainter.paint(ScrollViewPainter.java:22)
+		at org.droiddraw.gui.Viewer.paint(Viewer.java:87)
+		at org.droiddraw.gui.Viewer.paint(Viewer.java:162)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JSplitPane.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JLayeredPane.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paintToOffscreen(Unknown Source)
+		at javax.swing.RepaintManager$PaintManager.paintDoubleBuffered(Unknown Source)
+		at javax.swing.RepaintManager$PaintManager.paint(Unknown Source)
+		at javax.swing.RepaintManager.paint(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at java.awt.GraphicsCallback$PaintCallback.run(Unknown Source)
+		at sun.awt.SunGraphicsCallback.runOneComponent(Unknown Source)
+		at sun.awt.SunGraphicsCallback.runComponents(Unknown Source)
+		at java.awt.Container.paint(Unknown Source)
+		at java.awt.Window.paint(Unknown Source)
+		at javax.swing.RepaintManager.paintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.paintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.prePaintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.access$700(Unknown Source)
+		at javax.swing.RepaintManager$ProcessingRunnable.run(Unknown Source)
+		at java.awt.event.InvocationEvent.dispatch(Unknown Source)
+		at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+		at java.awt.EventQueue.access$000(Unknown Source)
+		at java.awt.EventQueue$1.run(Unknown Source)
+		at java.awt.EventQueue$1.run(Unknown Source)
+		at java.security.AccessController.doPrivileged(Native Method)
+		at java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+		at java.awt.EventQueue.dispatchEvent(Unknown Source)
+		at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+		at java.awt.EventDispatchThread.run(Unknown Source)
+Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
+		at org.droiddraw.property.WidthProperty.getIntValue(WidthProperty.java:16)
+		at org.droiddraw.widget.GridView.paint(GridView.java:65)
+		at org.droiddraw.gui.LayoutPainter.paint(LayoutPainter.java:30)
+		at org.droiddraw.gui.LayoutPainter.paint(LayoutPainter.java:27)
+		at org.droiddraw.gui.ScrollViewPainter.paint(ScrollViewPainter.java:22)
+		at org.droiddraw.gui.Viewer.paint(Viewer.java:87)
+		at org.droiddraw.gui.Viewer.paint(Viewer.java:162)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JSplitPane.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JLayeredPane.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paintToOffscreen(Unknown Source)
+		at javax.swing.RepaintManager$PaintManager.paintDoubleBuffered(Unknown Source)
+		at javax.swing.RepaintManager$PaintManager.paint(Unknown Source)
+		at javax.swing.RepaintManager.paint(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at java.awt.GraphicsCallback$PaintCallback.run(Unknown Source)
+		at sun.awt.SunGraphicsCallback.runOneComponent(Unknown Source)
+		at sun.awt.SunGraphicsCallback.runComponents(Unknown Source)
+		at java.awt.Container.paint(Unknown Source)
+		at java.awt.Window.paint(Unknown Source)
+		at javax.swing.RepaintManager.paintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.paintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.prePaintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.access$700(Unknown Source)
+		at javax.swing.RepaintManager$ProcessingRunnable.run(Unknown Source)
+		at java.awt.event.InvocationEvent.dispatch(Unknown Source)
+		at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+		at java.awt.EventQueue.access$000(Unknown Source)
+		at java.awt.EventQueue$1.run(Unknown Source)
+		at java.awt.EventQueue$1.run(Unknown Source)
+		at java.security.AccessController.doPrivileged(Native Method)
+		at java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+		at java.awt.EventQueue.dispatchEvent(Unknown Source)
+		at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+		at java.awt.EventDispatchThread.run(Unknown Source)
+Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
+		at org.droiddraw.property.WidthProperty.getIntValue(WidthProperty.java:16)
+		at org.droiddraw.widget.GridView.paint(GridView.java:65)
+		at org.droiddraw.gui.LayoutPainter.paint(LayoutPainter.java:30)
+		at org.droiddraw.gui.LayoutPainter.paint(LayoutPainter.java:27)
+		at org.droiddraw.gui.ScrollViewPainter.paint(ScrollViewPainter.java:22)
+		at org.droiddraw.gui.Viewer.paint(Viewer.java:87)
+		at org.droiddraw.gui.Viewer.paint(Viewer.java:162)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JSplitPane.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintToOffscreen(Unknown Source)
+		at javax.swing.RepaintManager$PaintManager.paintDoubleBuffered(Unknown Source)
+		at javax.swing.RepaintManager$PaintManager.paint(Unknown Source)
+		at javax.swing.RepaintManager.paint(Unknown Source)
+		at javax.swing.JComponent._paintImmediately(Unknown Source)
+		at javax.swing.JComponent.paintImmediately(Unknown Source)
+		at javax.swing.RepaintManager.paintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.paintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.prePaintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.access$700(Unknown Source)
+		at javax.swing.RepaintManager$ProcessingRunnable.run(Unknown Source)
+		at java.awt.event.InvocationEvent.dispatch(Unknown Source)
+		at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+		at java.awt.EventQueue.access$000(Unknown Source)
+		at java.awt.EventQueue$1.run(Unknown Source)
+		at java.awt.EventQueue$1.run(Unknown Source)
+		at java.security.AccessController.doPrivileged(Native Method)
+		at java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+		at java.awt.EventQueue.dispatchEvent(Unknown Source)
+		at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+		at java.awt.EventDispatchThread.run(Unknown Source)
+Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
+		at org.droiddraw.property.WidthProperty.getIntValue(WidthProperty.java:16)
+		at org.droiddraw.widget.GridView.paint(GridView.java:65)
+		at org.droiddraw.gui.LayoutPainter.paint(LayoutPainter.java:30)
+		at org.droiddraw.gui.LayoutPainter.paint(LayoutPainter.java:27)
+		at org.droiddraw.gui.ScrollViewPainter.paint(ScrollViewPainter.java:22)
+		at org.droiddraw.gui.Viewer.paint(Viewer.java:87)
+		at org.droiddraw.gui.Viewer.paint(Viewer.java:162)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JSplitPane.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JLayeredPane.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paintToOffscreen(Unknown Source)
+		at javax.swing.RepaintManager$PaintManager.paintDoubleBuffered(Unknown Source)
+		at javax.swing.RepaintManager$PaintManager.paint(Unknown Source)
+		at javax.swing.RepaintManager.paint(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at java.awt.GraphicsCallback$PaintCallback.run(Unknown Source)
+		at sun.awt.SunGraphicsCallback.runOneComponent(Unknown Source)
+		at sun.awt.SunGraphicsCallback.runComponents(Unknown Source)
+		at java.awt.Container.paint(Unknown Source)
+		at java.awt.Window.paint(Unknown Source)
+		at javax.swing.RepaintManager.paintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.paintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.prePaintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.access$700(Unknown Source)
+		at javax.swing.RepaintManager$ProcessingRunnable.run(Unknown Source)
+		at java.awt.event.InvocationEvent.dispatch(Unknown Source)
+		at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+		at java.awt.EventQueue.access$000(Unknown Source)
+		at java.awt.EventQueue$1.run(Unknown Source)
+		at java.awt.EventQueue$1.run(Unknown Source)
+		at java.security.AccessController.doPrivileged(Native Method)
+		at java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+		at java.awt.EventQueue.dispatchEvent(Unknown Source)
+		at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+		at java.awt.EventDispatchThread.run(Unknown Source)
+Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
+		at org.droiddraw.property.WidthProperty.getIntValue(WidthProperty.java:16)
+		at org.droiddraw.widget.GridView.paint(GridView.java:65)
+		at org.droiddraw.gui.LayoutPainter.paint(LayoutPainter.java:30)
+		at org.droiddraw.gui.LayoutPainter.paint(LayoutPainter.java:27)
+		at org.droiddraw.gui.ScrollViewPainter.paint(ScrollViewPainter.java:22)
+		at org.droiddraw.gui.Viewer.paint(Viewer.java:87)
+		at org.droiddraw.gui.Viewer.paint(Viewer.java:162)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JSplitPane.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at javax.swing.JLayeredPane.paint(Unknown Source)
+		at javax.swing.JComponent.paintChildren(Unknown Source)
+		at javax.swing.JComponent.paintToOffscreen(Unknown Source)
+		at javax.swing.RepaintManager$PaintManager.paintDoubleBuffered(Unknown Source)
+		at javax.swing.RepaintManager$PaintManager.paint(Unknown Source)
+		at javax.swing.RepaintManager.paint(Unknown Source)
+		at javax.swing.JComponent.paint(Unknown Source)
+		at java.awt.GraphicsCallback$PaintCallback.run(Unknown Source)
+		at sun.awt.SunGraphicsCallback.runOneComponent(Unknown Source)
+		at sun.awt.SunGraphicsCallback.runComponents(Unknown Source)
+		at java.awt.Container.paint(Unknown Source)
+		at java.awt.Window.paint(Unknown Source)
+		at javax.swing.RepaintManager.paintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.paintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.prePaintDirtyRegions(Unknown Source)
+		at javax.swing.RepaintManager.access$700(Unknown Source)
+		at javax.swing.RepaintManager$ProcessingRunnable.run(Unknown Source)
+		at java.awt.event.InvocationEvent.dispatch(Unknown Source)
+		at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+		at java.awt.EventQueue.access$000(Unknown Source)
+		at java.awt.EventQueue$1.run(Unknown Source)
+		at java.awt.EventQueue$1.run(Unknown Source)
+		at java.security.AccessController.doPrivileged(Native Method)
+		at java.security.AccessControlContext$1.doIntersectionPrivilege(Unknown Source)
+		at java.awt.EventQueue.dispatchEvent(Unknown Source)
+		at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+		at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+		at java.awt.EventDispatchThread.run(Unknown Source)
+	</pre>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+http://www.sooperarticles.com/communications-articles/mobile-application 
+s-articles/dos-donts-mobile-app-development-1234715.html#%21 
+
+Dos and Don'ts of Mobile App Development By Vikash Patra on August 12, 
+2013 0 Mobile App Development is the buzz term these days that has 
+created waves in the tech savvy world. Companies offering their services 
+in this domain have almost sprawled like mushrooms in the recent past 
+years and it is still the beginning. In the forthcoming times, this 
+craze is all set to amaze even a bigger and better customer base round 
+the globe. However, amid the fast-paced mobile development market, much 
+goes into satisfying towering demands of the market and abiding by the 
+persistent ask of technology upheaval. A slight lapse and you are 
+dragged way behind in the competition. It is therefore important to take 
+care of certain dos and don'ts before venturing into this prospective 
+field. Here are some of them. 
+
+Dos 
+
+Thorough research work: A mobile app that projects fresh idea is likely 
+to entice the users more often than the other apps that are just a 
+replica of an existing one. Hence, a keen research work comprising 
+market study, consumer behavior analysis and market trends is important. 
+Once the brainstorming work reaches its completion, chances are better 
+for a virgin concept to break the ice in the hot market. 
+
+Maximize the use of smartphone features: The modern day smartphones 
+comprise a host of enticing features such as 3G, high pixel back camera, 
+decent front camera, speech recognition system, GPS, and so on. To 
+develop a mobile app that could utilize all such capabilities of the 
+device is sure to make the application a popular affair among the users. 
+
+Maximum user experience: Customer satisfaction rules the roost while 
+providing almost any service, and the same holds with mobile 
+development. Programmers can equip the apps with multiple facilities to 
+lure the users. Some feasible practices may include incorporating 
+features to track real time data in case of a sports or weather app, 
+proper working of the app in offline mode as well if it belongs to 
+navigation field, and so on. 
+
+Don'ts 
+
+Avoid copying UI: To some extent, migration is fine, but copying the 
+entire desktop application to mobile devices is a very discouraging act. 
+The requirements for software development differ from desktops to 
+smartphones and tabs. A web application that works flawlessly on a 
+computer is likely to crash out on a mobile phone if the developer does 
+not give attention to a befitting user interface. Hence, it is way 
+better to create a brand new app with the old idea rather than messing 
+up with application porting hassles. 
+
+Platform abundance: For startups or small to medium size companies, 
+restricting the technology domains is the need of the hour. Most of the 
+app developers try foraying into multiple mobile platforms at once in 
+the wake of raking in exponential returns. However, a big chunk of such 
+ambitious developers come a cropper owing to the lack of apt resources 
+and infrastructure. A better solution in this regard is therefore to use 
+only one or at the most two mobile platforms. Adhering to this practice 
+helps companies to keep a regular check on financial constraints and 
+also minimizes the chances of monetary loss in case of low app 
+popularity. 
+
+Feature profusion: An app can do quite well even if it has few but 
+effective features. Too much experiment may leave the application with 
+limited facilities, less appeal and even lesser takers. Hence, at least 
+for the maiden release, it is better not to toy around with the app idea 
+and keep it as simple and beneficial as possible. Users often prefer 
+installing mobile applications that concentrate on a specific task, 
+instead of those performing multitasking. 
+
+To develop an interactive and equally successful mobile app, it is 
+necessary to adhere to certain dos and don'ts. Once the developers take 
+care of all such points, chances are better for their mobile application 
+development endeavors to fetch rich dividends in terms of surging 
+popularity and better ROI. 
+
+Read more: Dos and Don'ts of Mobile App Development 
+http://www.sooperarticles.com/communications-articles/mobile-application 
+s-articles/dos-donts-mobile-app-development-1234715.html#ixzz2bvuIK4gy 
+Follow us: @SooperArticles on Twitter | SooperArticles on Facebook 
+

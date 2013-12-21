@@ -1,0 +1,82 @@
+IP calc
+
+	Name: ipcalc++
+
+	Features:
+	1. ipcalc
+	2. subnet supernet calc
+	3. macaddres
+		1. scan
+		2. list
+		3. dhcpd generation
+	4. function
+		1. enter network
+		
+	Windows Phone 7
+
+		http://www.freewarepocketpc.net/ppc-tag-ip_calc.html
+		http://screencast.com/t/YmYxMzIz
+		http://wp7.apphab.com/ip-calculator-by-itlackey/
+		http://wp7.apphab.com/ip-calculator-by-lamex-software/
+		http://wp7.apphab.com/subnet-calculator-by-bitconsortium/
+		http://wp7.apphab.com/subcalc-subnet-calculator-by-zachary-stewart/
+		http://wp7.apphab.com/subcalc-subnet-calculator-by-zachary-stewart/
+		http://www.windowsphoneapplist.com/ip_calculator-a21500/screens.html
+		http://www.appsfuze.com/applications/windowsphone.tools/ip-calculator,16970
+		http://www.mobiletopsoft.com/pocket-pc/download-ip-calculator-2-1.html
+		http://wp7freeware.com/subnet-calculator-for-windows-phone-7/
+		http://www.xda-developers.com/windows-mobile/windows-phone-7-subnet-calculator/
+	http://www.freewarepocketpc.net/ppc-download-newton-ip-calculator-v1-36.html
+	
+	
+	Android
+		http://www.androidzoom.com/android_applications/tools/ip-calculator-ipv4-and-ipv6_hmpn.html
+		http://www.androidzoom.com/android_applications/tools/ip-network-calculator_wmnd.html
+		http://www.androidzoom.com/android_applications/tools/ip-address-calculator_yon.html
+		http://www.androidzoom.com/android_applications/tools/ip-address-calculator-donate_yks.html
+		http://www.androidzoom.com/android_applications/tools/ip-calculator-samsung_nlti.html
+		http://www.androidzoom.com/android_applications/tools/ip-machine_cuyw.html
+		http://www.androidzoom.com/android_applications/productivity/ip-app-the-ipv4-calculator_bawvi.html
+		http://www.androidzoom.com/android_applications/tools/ip-subnetsupernet-calculator_gagf.html
+		http://www.androidzoom.com/android_applications/tools/ip-calculator-classic-ipv64_sbvl.html
+	
+
+
+
+
+
+	
+	You can use WifiManager.getConnectionInfo().getIpAddress().
+
+You can convert this to a String with:
+
+    private static String ipAddressToString(int addr) {
+        StringBuffer buf = new StringBuffer();
+        buf.append(addr  & 0xff).append('.').
+            append((addr >>>= 8) & 0xff).append('.').
+            append((addr >>>= 8) & 0xff).append('.').
+            append((addr >>>= 8) & 0xff);
+        return buf.toString();
+    }
+
+	
+	
+	 WiFiManager wifi = (WifiManager) getSystemService(WIFI_SERVICE);
+        DhcpInfo info = wifi.getDhcpInfo();
+	
+	
+	DhcpInfo has all the WiFi configurations. Of course you have to add the
+permissions below to the manifest. I'm not sure you need both but it worked
+with those.
+
+<uses-permission
+android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+<uses-permission
+android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+
+	
+	
+	
+	
+	
+	

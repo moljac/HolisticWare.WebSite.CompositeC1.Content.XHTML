@@ -1,0 +1,21 @@
+I just installed 3.0.5 and I can't get gmcs to run. What's more, I can't
+even
+find the gmcs executable. Mono is found no problem.
+
+I've tried adding the bin dir to the path myself, I've tried the command
+prompt from the Start menu, and I've tried installing to a dir with no
+spaces--just to be sure.
+
+Here is the error:
+'gmcs' is not recognized as an internal or external command, operable
+program or batch file.
+
+What's the executable? .bat? .exe? And where is it supposed to install?
+
+Thanks in advance for your help.
+
+
+
+Have you tried "mcs -sdk:2"? Mono 2.11 merged all the compilers into the
+one unified compiler, and now gmcs is a shell script that simply calls mcs
+(at least on Linux).

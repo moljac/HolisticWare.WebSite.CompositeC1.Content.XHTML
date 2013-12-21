@@ -1,0 +1,92 @@
+Which is the best Session or Cache for Enterprise Application?
+Hi,
+
+I need your help i am .net web developer on C#. I use session in my web 
+application which is use useful for me. But recently my company is start 
+Enterprise Project. As you all now that there is lot of data process in 
+enterprise i can't use session because it make my application slow and 
+heavy. I was wondering to use cache. 
+So please suggest me that...
+
+1). Cache is better or not? 
+2). If not what should i use to make my web application save and fast?
+3). Also if any one have tutorial which could help me to hold data in cache 
+please forward to me.
+
+
+
+Cache is better when:
+your original data source might change during the runtime, 
+you predict the application will run low on memory and 
+you want to store temporary data that you don't need the entire lifespan.
+
+* Sessions are memory intensive and have 20 minute by default expiration 
+time so use session state to store important data that you need across 
+the lifespan of the application.
+
+* http://msdn.microsoft.com/en-us/library/h30h475z%28v=vs.100%29.aspx
+* http://msdn.microsoft.com/en-us/library/zd1ysf1y%28v=vs.100%29.aspx
+
+Apart from these two there are other options such as cookies, query strings, 
+hidden fields and custom page state persisters.
+
+
+
+check out memcached, I thing there is a version for Windows. That is a 
+distruted cache that may work for a web app behind a load balancer.
+
+
+
+ink you should first understand caching before you decide whether to use 
+it or not.
+
+You might think you do, but I suggest you read the following anyways:
+
+http://en.wikipedia.org/wiki/Cache_(computing)
+
+Once you familiarize yourself with it, you will be better equipped to 
+decide when to use it and how to use it.
+
+That being said, in a nutshell, you should use cache to reduce response 
+time on time-resource-intensive operations. For instance, let's say you 
+have a table with country codes. How often does that change? well, probably 
+not often, so this would be a great candidate for caching. Instead of pulling 
+all the countries every time you need to populate a combo box, store the 
+countries in some sort of cache the first time you fetch them and then use 
+the cache from there on.
+
+Now, on to what sort of cache...
+
+One of the most time-resource-intensive operations is accessing data from 
+disk. In the example above, you would load the data only once from your 
+database and store it in a cache provider that utilizes something faster 
+than a disk, such as memory. As @Aris mentioned, memcached is a great option 
+since it not only stores stuff in memory, but it also does it in a distributed 
+way (multiple locations). I happen to know there is a version for Windows. I 
+have used it in the past and it works great.
+
+Make sure to define a cache refreshing strategy so that when the underlying 
+data source (e.g. country table) changes, your cache is updated as well.
+
+One thing I would strongly recommend though is that you create an abstraction 
+and hide the details of the cache implementation. That way you can switch 
+caching types transparently in the background without impacting the application.
+
+In the end, there is nothing magical about caching. Instead of performing 
+the same HEAVY operation over and over again, you essentially do it once 
+and store the results somewhere for fast access. That's all there is to it.
+
+
+
+
+Cache will be always good choice if you have Static data in the application 
+like City, state etc. and large data.
+
+Session is just for maintain the stage of application. and share data within 
+the application. Creating more session object will be lead for performance 
+issue. Even putting larger data in session object also.
+
+So better to choose between session or caching, use both feature in your 
+application based on your requirement.
+
+Both are best at there place :)

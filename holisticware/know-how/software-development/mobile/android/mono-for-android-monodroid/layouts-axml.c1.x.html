@@ -1,0 +1,157 @@
+hey guys,
+i'm trying to use following axml Code:
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:id="@+id/tableLayout1"
+        android:layout_height="115dp"
+        android:layout_marginLeft="5dp">
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:text="@string/lbEqID"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="0"
+                android:id="@+id/lbEqID" />
+            <TextView
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="1"
+                android:id="@+id/lbEqIDVar"
+                android:layout_marginLeft="10dp" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:text="@string/lbTaskID"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="0"
+                android:id="@+id/lbTaskID" />
+            <TextView
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="1"
+                android:id="@+id/lbTaskIDVar"
+                android:layout_marginLeft="10dp" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:text="@string/lbEqDesc"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="0"
+                android:id="@+id/lbEqDesc" />
+            <TextView
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="1"
+                android:id="@+id/lbEqDescVar"
+                android:layout_marginLeft="10dp" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_marginBottom="5dp">
+            <TextView
+                android:text="@string/lbTaskDesc"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="0"
+                android:id="@+id/lbTaskDesc" />
+            <TextView
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="1"
+                android:id="@+id/lbTaskDescVar"
+                android:layout_marginLeft="10dp" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow5">
+            <TextView
+                android:text="@string/lbTaskDate"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="0"
+                android:id="@+id/lbTaskDate" />
+            <TextView
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_column="1"
+                android:id="@+id/textView25"
+                android:layout_marginLeft="10dp" />
+        </TableRow>
+    </TableLayout>
+    <TabHost
+        android:layout_width="fill_parent"
+        android:id="@+id/tabHost1"
+        android:layout_weight="3">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/linearLayout1">
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_weight="5">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout2" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout3" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout4" />
+            </FrameLayout>
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </TabHost>
+</LinearLayout>
+
+but everytime the activity that is using this layout, will force the app to
+crash. i get this exception:
+Java.Lang.RuntimeException: Binary XML file line #1: You must supply a
+layout_height attribute.
+
+but what does that mean? i have other layouts working which have the exact
+same line 1...to 7....
+weird is, that VS doesn't accept any layout_height entrys wheter its like
+wrap_content or sth like 20px/dp/sp. trying this throws another exception at
+me:
+Property value is invalid.
+Details:
+Object reference not set to an instance of an object.
+
+
+
+
+
+Check your elements for width and height, I see a lot of them missing
+the attributes.
+
+Especially in the TabHost section.
+
+
+
+yeah i just identified that the missing heights were the problem.... i
+thought the weight would replace them completely, but now i know i have to
+set sth. like wrap_content. however thanks for your help^^
+
+
+
+
+Weight does not automagically replace the heights, but you can just set them to 0dp as stated in the docs:

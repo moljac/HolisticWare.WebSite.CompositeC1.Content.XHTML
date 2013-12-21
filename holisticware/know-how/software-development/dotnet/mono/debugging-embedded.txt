@@ -1,0 +1,26 @@
+debugging embedded 
+
+- I'm now able to generate the mdb file by compiling with MonoDevelop. 
+But I had to install Mono 3.0.1 for Windows in order to add a new .NET 
+runtimes in MonoDevelop. But I'm currently building my own Mono version 
+since I need it to be in x64. Is it the right way to do it our mixing 
+the use of these two mono versions is wrong? 
+
+2- I'm now able to attach the MonoDevelop to my mono domain but when a 
+breakpoint is triggered, my main app crashed on: - Unhandled exception 
+at 0x774d8e3d in engine.exe: 0xC0000005: Access violation writing 
+location 0x00000000000c0a98 and I got the following message in 
+MonoDevelop - System.NullReferenceException has been thrown. have just 
+worked on this topic this morning. You will find a nice article about 
+this right there : 
+http://www.jeffongames.com/2012/03/debugging-embedded-mono/ 
+
+IIRC, MS.NET compiler generates .pdb files, while Mono's generates .mdb 
+files. So using MonoDevelop + MS.NET won't help. Use MonoDevelop in 
+Linux, or install Mono for Windows (and configure MonoDevelop to build 
+with Mono, not .NET). 
+
+You can also use pdb2mdb which ships with mono: 
+
+https://github.com/mono/mono/tree/master/mcs/tools/pdb2mdb 
+

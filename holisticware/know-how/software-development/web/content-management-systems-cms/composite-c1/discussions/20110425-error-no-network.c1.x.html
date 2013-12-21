@@ -1,0 +1,93 @@
+<!--
+C1 generated!!
+<title>Composite C1 error when no network</title>
+<meta name="Description" content="Composite C1 error when no network" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="Composite C1 error when no network" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-04-18" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Composite C1 error when no network</a></h1>
+	<!-- ================================================================== -->
+
+	<h2><a id="">
+	<a id="Exception-C1-console-no-network">
+		2011-04-24 C1 Console (Start Composite) without network
+	</a>
+	</a></h2>
+
+	<p>
+	Error if network is absent.
+	Opening C1 Console through:
+	http://localhost:3984/Composite/default.aspx + Start Composite
+	</p>
+	<pre class="hw_code">
+	Website_v2.1\Composite\controls\ScriptLoaderControl.ascx.cs
+	line=192 
+	line_content: System.Threading.Tasks.Task task = System.Threading.Tasks.Task.Factory.StartNew(() =&gt; loaded = System.Xml.Linq.XDocument.Load(uri));
+	</pre>
+
+	<p>
+	Exception data:
+	</p>
+	<pre class="hw_code">
+	System.Net.WebException was unhandled by user code
+	  Message=The remote name could not be resolved: 'c1console.composite.net'
+	  Source=System
+	  StackTrace:
+		   at System.Net.HttpWebRequest.GetResponse()
+		   at System.Xml.XmlDownloadManager.GetNonFileStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+		   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+		   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+		   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+		   at System.Xml.XmlReader.Create(String inputUri, XmlReaderSettings settings, XmlParserContext inputContext)
+		   at System.Xml.XmlReader.Create(String inputUri, XmlReaderSettings settings)
+		   at System.Xml.Linq.XDocument.Load(String uri, LoadOptions options)
+		   at System.Xml.Linq.XDocument.Load(String uri)
+		   at ScriptLoaderControl.&lt;&gt;c__DisplayClass1.&lt;_HasServerToServerConnection&gt;b__0() in d:\SRC\HolisticWare\HolisticWare_Web_CMS_C1\Website_v2.1\Composite\controls\ScriptLoaderControl.ascx.cs:line 192
+		   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+		   at System.Threading.Tasks.Task.InnerInvoke()
+		   at System.Threading.Tasks.Task.Execute()
+	  InnerException: 
+	</pre>
+	<p>
+	Code:
+	</p>
+	<pre class="hw_code">
+	private bool _HasServerToServerConnection()
+	{
+		bool result = false;
+		try
+		{
+			string uri = ConfigurationManager.AppSettings["Composite.StartPage.Url"];
+
+			XDocument loaded = null;
+		
+			// Exception occurs in line below!!
+			System.Threading.Tasks.Task task = System.Threading.Tasks.Task.Factory.StartNew(() =&gt; loaded = System.Xml.Linq.XDocument.Load(uri));
+
+			task.Wait(2500);
+			if (task.IsCompleted)
+			{
+				XElement titleElement = loaded.Descendants(Composite.Core.Xml.Namespaces.Xhtml + "title").FirstOrDefault();
+				result = (titleElement != null &amp;&amp; titleElement.Value == "Start");
+			}
+		}
+		catch (Exception) { }
+		return result;
+	}
+	</pre>
+	
+	<h2><a id="">Additional tests</a></h2>
+
+
+
+</body>
+</html>

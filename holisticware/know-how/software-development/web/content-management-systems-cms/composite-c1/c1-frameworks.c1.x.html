@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://www.composite.net/ns/function/1.0"
+	xmlns:lang="http://www.composite.net/ns/localization/1.0"
+	xmlns:rendering="http://www.composite.net/ns/rendering/1.0"
+	xmlns:asp="http://www.composite.net/ns/asp.net/controls"
+	>
+	<f:function name="Composite.Web.Html.Template.LangAttribute" />
+	<head>
+		<title>
+			<rendering:page.title />
+		</title>
+		<f:function name="Composite.Web.Html.Template.CommonMetaTags" />
+		<rendering:page.metatag.description />
+		<link rel="stylesheet" type="text/css" href="~/Frontend/Styles/VisualEditor.common.css" />
+	</head>
+	<body>
+		<!--
+		<div style="float:right; width:10em">
+			<f:function name="Composite.Pages.QuickSitemap" />
+		</div>
+		-->
+		<h1><rendering:page.title /></h1>
+		<h2><rendering:page.description /></h2>
+		<!--
+			HolisticWare team has
+		<f:function
+			name="HolisticWare.Layout.CSSFrameworksGridSystems.Rendering.Placeholder"
+			xmlns:f="http://www.composite.net/ns/function/1.0"
+		>
+			<f:param name="PlaceholderName" value="something"></f:param>
+		</f:function>
+		<rendering:placeholder id="content" title="Content" default="true" />
+		-->
+		<hr/>
+		<!--
+		In order to present placeholders in Visual Editor <rendering:placeholder> must be defined in template
+		So attempts to implement as C1 functions and C1 Razor functions are abandoned!
+
+		<function name="Holisticware.Layout.Rendering.Placeholder">
+									<param name="PlaceholderName" value="something"/>
+						</function>
+
+<function name="HolisticWare.Rendering">
+	<param name="PlaceholderId" value="something"/>
+</function>
+		-->
+		<hr/>
+
+		<f:function
+			name="HolisticWare.Layout.CSSFrameworksGridSystems.GridSystem960gsParameterized"
+			xmlns:f="http://www.composite.net/ns/function/1.0">
+				<!--
+				remove parameter
+				-->
+			<f:param name="NumberOfColumns" value="16" />
+			<f:param name="LayoutType" value="Fluid" />
+			<f:param name="JavaScriptLibrary" value="JQuery" />
+			<f:param name="PageSpeedOptimized" value="True" />
+			<!--
+				XSLT Function name (fully qualified - namespace included) that defines layout for the grid system
+
+				Remove parameter
+			-->
+			<f:param name="LayoutDefinitionFunction" value="HolisticWare.Layout.CSSFrameworksGridSystems.Layout960gsGridWithSingleContentPlaceholder" />
+			<!--
+			<f:param name="LayoutDefinitionFunction" value="Layout960gsGridWithSingleContentPlaceholder" />
+			<f:param name="LayoutDefinitionFunction" value="" />
+			-->
+	  </f:function>
+
+	<div class="container_16">
+		<div class="grid_16">
+			<h1 id="branding"><a href="/Home/960gs-original">960gs (Grid System) in Composite C1</a></h1>
+			<rendering:placeholder id="HeaderRow1" title="HeaderRow1" default="false" />
+		</div>
+		<div class="clear"></div>
+		<div class="grid_16">
+			<rendering:placeholder id="HeaderRow2" title="HeaderRow2" default="false" />
+		</div>
+		<div class="clear"></div>
+		<div class="grid_4">
+			<rendering:placeholder id="ContentLeftSitemap" title="ContentLeftSitemap" default="false" />
+		</div>
+		<div class="grid_12">
+			<rendering:placeholder id="ContentRightMain" title="ContentRightMain" default="true" />
+		</div>
+		<div class="clear"></div>
+
+		<div id="footer_site_info" class="grid_16">
+			<div class="box">
+			<p>Fluid 960 Grid System, created by <a href="http://www.domain7.com/WhoWeAre/StephenBau.html">Stephen Bau</a>, based on the <a href="http://960.gs/">960 Grid System</a> by <a href="http://sonspring.com/journal/960-grid-system">Nathan Smith</a>. Released under the <a href="/Home/960gs-original/licenses/GPL_license.txt">GPL</a> / <a href="/Home/960gs-original/licenses/MIT_license.txt">MIT</a><a href="/Home/960gs-original/README.txt">Licenses</a>.</p>
+			</div>
+		</div>
+	</div>
+
+
+	</body>
+</html>

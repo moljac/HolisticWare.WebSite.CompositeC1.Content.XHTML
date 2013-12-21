@@ -1,0 +1,160 @@
+
+Make sure the following is in your targets within the csproj file:
+
+<NoStdLib>true</NoStdLib>
+
+Or you can do this via the VS IDE.  Project Properties - Build - Advanced -
+Do not reference mscorlib.dll checkbox
+
+
+
+
+
+
+In folder unpack MonoTouch...
+
+Project (Context Menu/ Right Click) +/ Porperties +/ Reference Paths +/ Browse to folder +/ Add
+
+<ProjectName>.csproj.user
+	source control yes/no depends on project!!
+
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<ReferencePath>D:\SRC\Core_2011\Core.DLL_201_BL_mClnt_CrossPlatform_MobileAPI_Xamarin\lib\</ReferencePath>
+  </PropertyGroup>
+</Project>
+
+or 
+
+relative
+	..\HolisticWare.Tr4ck3r.DLL_0_AssemblyReferences\MonoTouch\
+
+
+
+
+
+
+Download and run the vsix-package from the github page.
+Copy the MonoTouch binaries from your Mac development environment to your Visual Studio 2010 
+development environment. 
+
+Copy all the files from 
+	/Developer/MonoTouch/usr/lib/mono/2.1/ 
+on your Mac 
+to Windows box
+	%PROGRAMFILES%\Reference Assemblies\Microsoft\Framework\.NETFramework\
+	
+	create folder
+		v1.0\
+	sample on one of team's workstations:
+		v3.5\
+		v4.0\
+
+	.
+Add a RedistList-folder under your newly created v1.0-folder. 
+Download the FrameworkList.xml file and add it to theRedistList-folder.
+
+http://cloud.github.com/downloads/follesoe/VSMonoTouch/FrameworkList.xml
+
+------------------------------------------------------------------------------
+<FileList Redist="v1.0" Name="v1.0" IncludeFramework="v4.0"></FileList>
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://www.openmakesoftware.com/insights/accessing-unmodeled-visual-studio-project-data-programmatically/
+
+
+
+
+
+
+Any FULL list of known project type Guids, included Sharepoint projects?
+
+How can I get ProjectTypeGuids programmatically for my EnvDTE.Project in C# ?
+
+References:
+
+List of known project type Guids
+http://www.mztools.com/articles/2008/mz2008017.aspx
+
+What is the significance of ProjectTypeGuids tag in the visual studio project file
+http://social.msdn.microsoft.com/Forums/en/vsx/thread/d9d05cdc-96a1-4044-95d8-a4f8885a660a
+
+What is the significance of ProjectTypeGuids tag in the visual studio project file
+
+http://www.mztools.com/articles/2007/MZ2007016.aspx
+
+
+
+
+
+
+
+See:
+
+HOWTO: Get the project flavor (subtype) of a Visual Studio project from an add-in
+
+http://www.mztools.com/Articles/2007/MZ2007016.aspx
+
+There is no full list since everyone can create new project types, that's the reason GUIDs are used.
+
+You can create SharePoint 2010 projects and get the Guids, that's how I got that list.
+
+Mathias Herbaux:
+
+If you can get IVsSolution instance, you can have all GUID that compose your projcet:
+
+  public bool IsTypedProject(IVsSolution solution, EnvDTE.Project project)
+        {
+            IVsHierarchy hierarchy;
+            solution.GetProjectOfUniqueName(project.UniqueName, out hierarchy);
+            IVsAggregatableProjectCorrected AP;
+            AP = hierarchy as IVsAggregatableProjectCorrected;
+            string projTypeGuids = string.Empty;
+            if (AP != null)
+            {
+                AP.GetAggregateProjectTypeGuids(out projTypeGuids);
+                if (projTypeGuids.ToUpper().Contains("YOUR_GUID".ToUpper()))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+Maybe you can can request service like this :
+
+(IVsSolution)ServiceProvider.GetService(typeof(SVsSolution))
+References:
+http://social.msdn.microsoft.com/Forums/da-DK/vsx/thread/bf18037e-479a-4ca8-ae64-81ee39652d7
+
+
+
+
+
+
+
+
+
+http://msdn.microsoft.com/en-us/library/microsoft.build.buildengine.aspx
+
+
+
+
+C:\Program Files\Microsoft Visual Studio 10.0\Common7\IDE\ProjectTemplatesCache\VisualBasic\Windows\1033\WindowsApplication.zip\windowsapplication.vstemplate

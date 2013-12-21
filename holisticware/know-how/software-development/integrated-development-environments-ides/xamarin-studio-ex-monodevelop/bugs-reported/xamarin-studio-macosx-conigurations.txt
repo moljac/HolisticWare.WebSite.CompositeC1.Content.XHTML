@@ -1,0 +1,35 @@
+XS4 v.4.0.1. build 9 iOS library - no iOS specific build configurations
+
+Hi we are extracting our cross-platform shared code to something like
+Xamarin.API and just created solution (empty) on MacOSX addded MT library, but
+there are no build configs specific to iOS (Ad-Hoc and AppStore, iPhone and iPhoneSimulator).
+ 
+Xamarin.iOS plugin for VS adds configs to library.
+
+Configs must be added manually in Seolution /+ Options +/ Cnofigurations after MT/iOS
+application project is added to solution or to solution referenceing this solution...
+
+Actions
+
+1. Add iOS/MT library to existing [blank] solution
+2. choose other projects
+3. pick solution sln file
+
+setup
+
+* 	MacOSX Mountain Lion
+* 	XS 4.0.1 build 9
+
+
+Setup:
+
+* 	XS4 v.4.0.1. build 9 
+* 	MacOSX Moun
+
+
+regards
+
+mel
+
+Posted also:
+http://forums.xamarin.com/discussion/2061/xs4-ios-library-no-ios-specific-build-configurations

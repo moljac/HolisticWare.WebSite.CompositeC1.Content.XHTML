@@ -1,0 +1,173 @@
+<!--
+C1 generated!!
+<title>2011-04-15 Composite C1 XSLT functions</title>
+<meta name="Description" content="2011-04-15 Composite C1 XSLT functions" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="2011-04-15, Composite, C1 XSLT, functions" />
+	  <f:param name="AuthorsAdditional" value="" />
+	  <f:param name="Date" value="2011-04-15" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">2011-04-15 Composite C1 XSLT functions</a></h1>
+	<!-- ================================================================== -->
+
+	<p>Date: 2011-04-15</p>
+	<p>
+	This howto is based on developing XSLT function for embedding Silverlight 
+	appliction into C1 composite content page.
+	See....
+	</p>
+
+
+	<h2><a id="">Create XSLT function without parameters</a></h2>
+
+	<ol>
+		<li>C1 Console - Prespective/Tab: Functions - XSLT functions - Add XSLT function</li>
+		<li>Start with parameterless XSLT function</li>
+	</ol>
+	<pre class="hw_code">
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt;;;
+	&lt;xsl:stylesheet version="1.0" 
+			xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+			xmlns:in="http://www.composite.net/ns/transformation/input/1.0" 
+			xmlns:lang="http://www.composite.net/ns/localization/1.0" 
+			xmlns:f="http://www.composite.net/ns/function/1.0" 
+			xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsl in lang f"&gt;
+	  &lt;xsl:template match="/"&gt;
+			&lt;html&gt;
+			  &lt;head&gt;
+			&lt;!-- markup placed here will be shown in the head section of the rendered page --&gt;
+					&lt;script type="text/javascript" src="/js/Silverlight.ErrorHandling.uncompressed.20110318.js"&gt;&lt;/script&gt;
+					&lt;script type="text/javascript" src="/js/Silverlight.js"&gt;&lt;/script&gt;
+			  &lt;/head&gt;
+			  &lt;body&gt;
+					&lt;!-- markup placed here will be the output of this rendering --&gt;
+					&lt;!--
+					&lt;div&gt;
+					  Value of input parameter 'TestParam': 
+					  &lt;xsl:value-of select="/in:inputs/in:param[@name='Input parameter name']" /&gt;
+					&lt;/div&gt;
+					&lt;div&gt;
+					  Value of function call 'TestCall': 
+					  &lt;xsl:value-of select="/in:inputs/in:result[@name='Function call local name']" /&gt;
+					&lt;/div&gt;
+					--&gt;
+					&lt;div id="silverlightControlHostDiv"&gt;
+					  &lt;object 
+							id="silverlight_contro_host_placeholder_object" 
+							data="data:application/x-silverlight-2," 
+							type="application/x-silverlight-2" 
+							width="400%" height="100"
+					&gt;
+							&lt;param name="source" value="/ClientBin/HolisticWare.WWWLogo.EXE_SL3.xap" /&gt;
+							&lt;param name="onError" value="onSilverlightError" /&gt;
+							&lt;param name="background" value="transparent" /&gt;
+							&lt;param name="minRuntimeVersion" value="4.0.50826.0" /&gt;
+							&lt;param name="autoUpgrade" value="true" /&gt;
+							&lt;a href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0" 
+									style="text-decoration:none"&gt;
+									&lt;img src="http://go.microsoft.com/fwlink/?LinkId=161376" 
+											alt="Get Microsoft Silverlight" style="border-style:none" /&gt;
+							&lt;/a&gt;
+					 &lt;/object&gt;
+					  &lt;iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"&gt;&lt;/iframe&gt;
+					&lt;/div&gt;
+			  &lt;/body&gt;
+			&lt;/html&gt;
+	  &lt;/xsl:template&gt;
+	&lt;/xsl:stylesheet&gt;
+	</pre>
+	<p>
+	After adding patrameters and deciding which parameters are required/mandatory 
+	(in C1 have no default value) XSLT looks like:
+	</p>
+
+	<h2><a id="">C1 XSLT Function to inject/embed Silverlight Object/Application</a></h2>
+
+	<p>
+	Functions + XSLT + Add function
+	</p>
+	<pre class="hw_code">
+	Name=SilverlightPlayerObjectHost
+	NameSpace=HolisticWare.Silverlight
+	OutputType=XHTML
+	</pre>
+
+	<p>
+	Input parameters: 
+	</p>
+	<pre class="hw_code">
+	</pre>
+
+	<p>
+	Input parameters required (have no defaults!): 
+	</p>
+	<pre class="hw_code">
+	</pre>
+
+	<h2><a id="">C1 silverlight</a></h2>
+
+	<pre class="hw_code">
+	Error: Missing parameter &#39;SourceXAP&#39; (type of System.String)
+		Error details:
+	</pre>
+
+	<h2><a id="">
+		C1 tips and tricks</a></h2>
+	<ul>
+		<li>single asp:form tag per page! </li>
+		<li>include javascript for silverlight! </li>
+		<li>Beware of the paths for the XAP package
+			<ul>
+				<li>Absolute path for apps located in the ClientBin directory int hte root of the website
+					<pre class="hw_code">/ClientBin/HolisticWare.WWW.EXE_SL4.xap</pre>
+				</li>
+				<li>Relative paths for apps located in the directory of the hostin page! Possible??
+					<pre class="hw_code">ClientBin/HolisticWare.WWW.EXE_SL4.xap</pre>
+				</li>
+				<li>test ~
+					<pre class="hw_code"> /ClientBin/HolisticWare.WWW.EXE_SL4.xap </pre>
+				</li>
+				<li>
+					<p>
+						xap path absolute! no ~???</p>
+				</li>
+			</ul>
+		</li>
+		<li>create CustomUserControl /li&gt; </li>
+		<li>
+			FireFox issue 
+			<a href="http://forums.silverlight.net/forums/t/24648.aspx">
+			http://forums.silverlight.net/forums/t/24648.aspx
+			</a>
+		</li>
+		<li>
+			<a href="http://docs.composite.net/C1/ASP-NET/Form.aspx">
+			http://docs.composite.net/C1/ASP-NET/Form.aspx
+			</a>
+		</li>
+	</ul>
+
+	<h3><a id="">No asp:ScriptManager and asp:Silverlight</a></h3>
+
+	<p>
+	Embedding 
+	<a href="http://msdn.microsoft.com/en-us/library/cc838145(v=vs.95).aspx">
+	http://msdn.microsoft.com/en-us/library/cc838145(v=vs.95).aspx</a>
+	</p>
+	<pre class="hw_code">
+	&lt;asp:Silverlight ID="Xaml1" runat="server" 
+	Source="/ClientBin/HolisticWare.WWW.EXE_SL4.xap" 
+	MinimumVersion="2.0.30523" 
+	Width="100%" 
+	Height="100%" /&gt;
+	</pre>
+
+</body>
+</html>

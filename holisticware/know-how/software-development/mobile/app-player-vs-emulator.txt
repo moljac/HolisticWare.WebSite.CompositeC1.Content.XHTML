@@ -1,0 +1,76 @@
+AppPlayers Vs Emulators (?)
+
+
+http://www.bluestacks.com/app-player.html
+
+
+
+
+
+SmartPhone and Tablet apps have created a new segment (a marketing term used by Kotler) in IT. Installing the apps directly from the AppMarket on your smartphone/tablet may not be safe (though its a signed binary) as it can perform malicious activities (as simple as sharing the contacts without your knowledge).
+
+There are various App-Players (software) in the market which provide the environment to test the binary in its environment before one decides to put it on physical smartphone/tablet. On the otherside you also have Emulators (usually comes with Phone SDK) which provide the same running environment of smartphone/tablet.
+
+1) Which one you prefer to test the Apps (AppPlayer or Emulators) and why ?
+
+2) Which are your favourite AppPlayer/Emulator and why ?
+
+
+
+
+
+For the development I do I use an application called SoTI pocket controller. It allows me to tether the device I'm working with to my PC, but open and interact with an on-screen window just as though it was an emulator style device. 
+
+I have a USB hub attached to my window ledge, quite a few meters away from my PC (Attached by a 10 meter USB Cable) this allows me to place the device on the window ledge where it gets an incredibly good view of the open sky, so I get great signal for service and GPS. 
+
+I have 3 or 4 devices of the same at any given time. 
+
+One is a test bed device (IE: Anything goes) 
+
+One is a development device (IE: debugging and dev) 
+
+One is a proving / Staging device (IE: almost final build, but with other software not running) 
+
+One is final build (IE: This is the device that is provisioned and set up identically to a final production device that the software will go on) 
+
+During proof of concept phase, all development is done on the test bed device, with out any worries as to the OS getting trashed, or data getting leaked. This device is expected to need to be re-flashed maybe even replaced often. 
+
+Once a proof of concept is developed and the code is known, development and debugging is moved to the development device, this is essentially a stable proof of concept device, with no extra software on it other than the base OS. 
+
+Once development is complete, and we are ready to test, then things are moved to the proving / staging device. This device is provisioned with everything the final device will have on but won't necessarily have all the full software configured and running correctly. 
+
+Once testing is complete, and we may have moved back to the development machine and come back to this point to fix anything found, we move onto final build and send copies out for beta testing. 
+
+Emulators are great for a quick test or proof of concept, but there are a miss-leading way of doing things in the mobile market. Mobile devices are so diverse that you simply cannot rely on an emulated environment for anything other than graphical design and layout. The ONLY time in any mobile dev I do that uses emulators is if I have to outsource UI design to a 3rd party designer. What I'll typically do in that case is set the designer up with an emulator so they have an idea of screen resolution and device size. 
+
+I've had too many projects fall apart over the years because an emulated environment has told me something should work, when in actual fact when it's came time to run on real hardware it's failed miserably. 
+
+
+As for devices, many people might say "But Shawty how can we afford 1 device, never mind 4" 
+
+It's easy. If your client want's the product bad enough, then he / she will provide them. Remember Mobile is big business these days, a lot of these companies doing mobile apps now have already done their homework and added up how much ROI they can make on doing this, their not going into this blind, trust me. 
+
+The client provides the hardware, and after the project is finished, the client gets the hardware back, it's as simple as that. 
+
+Iv'e had allsorts of weird and wonderful mobile devices on my desk before now, including supermarket pricing guns, archaeologists survey devices and mine gas detectors as well as standard mobile phones.
+8 days ago• Like
+
+
+
+
+Shawty uses REAL AppPlayer (the device itself). No more Emulation. :-)
+
+
+
+
+
+ exploring 'BlueStack' AppPlayer for Android.
+ 
+ 
+ 
+ 
+ 
+ do, in fact another good thing about too, is that I can also demonstrate software running on real devices via a skype screen share or other similar technology.
+ 
+ 
+ 

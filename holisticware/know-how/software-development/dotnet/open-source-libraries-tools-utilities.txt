@@ -1,0 +1,89 @@
+source code control
+	svn
+		sourceforge
+		codeplex
+		google code
+	git
+		github
+	mercurial (hg)
+		bitbucket
+		codeplex
+
+Action									distribued			centralized		
+get/pull code to local storage			git clone url		svn checkout url
+										hg clone url
+										
+update local copy						git pull 			svn update
+										git fetch
+										hg pull
+										
+save to local copy						git add 			-
+										git commit
+										hg add
+										hg commit
+
+
+save to remote repository				git push 			svn commit
+										hg push
+
+										
+package management
+	NuGet
+	
+	
+IoC/DI
+	StructureMap
+	Ninject
+	Castle Winsdor
+	Autofac
+	Unity
+	
+Logging
+	Elmah	- errors/exceptions
+	Nlog
+	Log4Net
+	
+Mapping
+	AutoMapper
+
+Validation
+	FluentValidation
+	
+ASP.net
+	debugging/performance
+		Glimpse
+	MVC
+		FubuMVC
+		OpenRasta
+		Nancy
+		Kayak
+		
+	REST
+		RestSharp
+		ServiceStack
+		
+	Protocols
+		ProtoBuffers
+		
+UI
+	MVVMLight
+	Caluburn.Micro
+	Prism
+	
+DB
+	NHibernate
+	FluentNHibernate
+	ConfOrm
+	Simple.Data
+	Massive
+	Dapper
+	RavenDB
+	
+TextSearch
+	Lucene.Net
+	
+Testing
+	Nunit
+	MBUnit
+	xUnit.net
+	

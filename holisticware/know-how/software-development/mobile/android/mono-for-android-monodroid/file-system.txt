@@ -1,0 +1,135 @@
+
+
+On Oct 22, 2012, at 4:47 PM, was <skylogdev@btconnect.com> wrote:
+> As I'm not familiar with unix permissions, is there a way of changing the permissions for the App.AppName folder?
+
+Yes: with the chmod(2) system call [0, 1]. (Insert rant about how C# actually allows you to do things like this, while it's not easy in Java w/o using JNI).
+
+> I looked at using permission: MODE_WORLD_READABLE and MODE_WORLD_WRITEABLE, but these aren't available in the MfA 4.2.6 Required Permissions list.
+
+1. They're not permissions, they're integer constants for use with e.g. Context.OpenFileOutput().
+2. MODE_WORLD_READABLE is mapped to the Android.Content.FileCreationMode.WorldReadable enum value [2].
+
+> I'm also not sure they would fix the problem anyway.
+
+Using FileCerationMode.WorldReadable would workaround the problem: Context.OpenFileOutput() allows you to specify the FileCreationMode, which sets the Unix mode for that specific file (at creation time, iirc):
+
+	using (var o = new StreamWriter(OpenFileOutput("foo.txt", FileCreationMode.WorldReadable)))
+		o.WriteLine ("Hello, world!"); 
+
+The file created in that fashion will be in a directory that by default can't be listed:
+
+	$ adb shell ls -l /data/data/Scratch.PublicFiles/files
+	opendir failed, Permission denied 
+
+However, if you know the name of the file you can read it:
+
+	$ adb shell cat /data/data/Scratch.PublicFiles/files/foo.txt
+	Hello, world!
+
+This may in fact be suitable for your purposes, and has an added "security" benefit (obfuscation) that the names of the files aren't determined easily.
+
+There is another interesting Context method that takes a FileCreationMode: Context.GetDir(string, FileCreationMode) [3]. This will create a new directory, but what's interesting is two things:
+
+1. The directory it creates isn't a child of Context.FilesDir:
+
+	var d = GetDir ("foo", FileCreationMode.WorldReadable | FileCreationMode.WorldWriteable);
+	Console.WriteLine ("Created: {0}", d.AbsolutePath);
+	// Created: /data/data/Scratch.PublicFiles/app_foo
+
+Notice that the directory name gets an "app_" prefix.
+
+2. The only way (that I've found) to create a file with a specific set of permissions is Context.OpenFileOutput(), and Context.OpenFileOutput() doesn't allow you to specify sub-directories. Consequently the only way to use the above "app_foo" directory is via normal System.IO methods, which creates files with the default process umask, which is no good here:
+
+	// C# code
+	var bar = Path.Combine (d.AbsolutePath, "bar.txt");
+	using (var o = File.AppendText (bar))
+		o.WriteLine ("managed foo/bar.txt contents");
+
+	# verification...
+	$ adb shell ls -l /data/data/Scratch.PublicFiles/app_foo
+	-rw------- u0_a62   u0_a62         58 2012-10-23 21:50 bar.txt
+
+We can't do anything with that file; the "other" permissions are "---", aka "nothing".
+
+This makes Context.GetDir() + create-file rather worthless unless you subsequently change the file's permissions:
+
+		int p666 = LinuxUtils.Syscall.S_IRUSR | LinuxUtils.Syscall.S_IWUSR | \
+			LinuxUtils.Syscall.S_IRGRP | LinuxUtils.Syscall.S_IWGRP | \
+			LinuxUtils.Syscall.S_IROTH | LinuxUtils.Syscall.S_IWOTH;
+		LinuxUtils.Syscall.chmod (bar, p666);
+
+Given that the above is (1) ugly, and (2) requires a bit of support code ([0]), the easiest path is to accept the inability to use `ls`, use Context.OpenFileOutput(), and just "know" which files you can read or write.
+
+ - Jon
+
+[0] 
+	namespace LinuxUtils {
+		using System.Runtime.InteropServices;
+
+		static class Syscall {
+
+			public const int S_IRWXU = 0x1C0; // 00700
+			public const int S_IRUSR = 0x100; // 00400
+			public const int S_IWUSR = 0x080; // 00200
+			public const int S_IXUSR = 0x040; // 00100
+
+			public const int S_IRWXG = 0x038; // 00070
+			public const int S_IRGRP = 0x020; // 00040
+			public const int S_IWGRP = 0x010; // 00020
+			public const int S_IXGRP = 0x008; // 00010
+
+			public const int S_IRWXO = 0x007; // 00007
+			public const int S_IROTH = 0x004; // 00004
+			public const int S_IWOTH = 0x002; // 00002
+			public const int S_IXOTH = 0x001; // 00001
+
+			[DllImport ("c")]
+			public static extern int chmod (string path, int mode);
+		}
+	}
+
+[1] This will change the permissions of /data/data/@PACKAGE_NAME@/files so that it's world readable and world writable, using [0]:
+
+	LinuxUtils.Syscall.chmod (FilesDir.AbsolutePath, LinuxUtils.Syscall.S_IRWXU | LinuxUtils.Syscall.S_IRWXG | LinuxUtils.Syscall.S_IRWXO); 
+
+[2] http://androidapi.xamarin.com/?link=T:Android.Content.FileCreationMode
+
+[3] http://androidapi.xamarin.com/monodoc.ashx?link=M%3aAndroid.Content.Context.GetDir(System.String%2cAndroid.Content.FileCreationMode)
+
+Looking at the options, it seems that:
+
+        using (var o = new StreamWriter(OpenFileOutput("appname.db",
+FileCreationMode.WorldReadable))) 
+ 
+should solve the problem. However, I'm not familiar with StreamWriter and
+how to use it to copy the Assets empty sqlite database file - say appname.db
+- to: /data/data/Scratch.PublicFiles/files/appname.db? I then need to
+pull/push this file to/from the PC using. for example:
+
+"C:\Program Files (x86)\Appname\adb.exe" pull
+data/data/Scratch.PublicFiles/files/appname.db "C:\Program Files
+(x86)\AppName"
+
+Currently, I use Filestream for that purpose which, of course, doesn't have
+a FileCreationMode parameter.
+
+
+After some xperimentation, I found using:
+
+ $ adb shell cat /data/data/App.AppName/files/appname.db
+
+to copy the file to the PC results in a slightly larger file that cannot be
+opened by the PC's sqlite database (RazorSQL), while the file received
+using:
+
+adb pull /data/data/App.AppName/files/appname.db 
+
+can be. So, I don't think the StreamWriter method will work as it looks like
+I can only use the ADB pull/push commands. I guess the 2nd
+(LinuxUtils.Syscall.chmod ...) method is the only one which will work?
+Although I'm not sure how setting the file's permission will allow access to
+it using ADB pull/push if the device is denying permission to the app's
+folder itself?
+
+Andrew

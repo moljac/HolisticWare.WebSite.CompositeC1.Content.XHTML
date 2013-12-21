@@ -1,0 +1,99 @@
+Marketing - popularity
+
+http://australianappreneur.com.au/how-to-get-your-app-featured-on-the-app-store/?goback=%2Egde_69893_member_239341695
+
+How do you get downloads?
+I'm teamed up with a buddy to make an app. This isn't a fun little project, we want it to be a legitimate business. 
+
+In start ups there's the saying "cash is king". Well if cash is king then in an app startup downloads have to be the prince. 
+
+I want to utilize my time and resources, both of which are finite, as efficiently as possible to get people to my app. 
+
+How do you guys do it? What are the ways you get people to download your apps? What are some strategies amateurs might use that are totally ineffective?
+
+
+
+
+ Talk to the press.
+ 
+ 
+ 
+ • it is so very very difficult. the latest release of my app, "iPlan myTime" is getting great feedbacks on iTune store, but the numbers of downloads are low as I am not getting any exposure and I am not advertising. I had very little joy with the press, which I was disappointed and surprised with. 
+So even if you have a good app, it is difficult. Be warned.
+
+Roman Hošek • Try to get in some reviews on mobile oriented sites/forums, you will get valuable feedback from another point of view and get in readers minds as "I can use this app for this, I will try it" because as user you usually dont search market for keywords and get through bunch of apps and descriptions, but look for verified solution for your task - and reviews are great for this.
+
+
+Babu Kishore • In app downloads, there's a critical mass that works. To achieve that critical mass, one needs to do inbound marketing, social media marketing effectively. And yes, do some PR push as well. The point is - if your app is truly exceptional, no matter how less money you spend on promoting it, it will be downloaded by millions since its "truly exceptional" and either creates value, or solves a problem, or does both. Instagram has 0 push, when it went on to reach millions of downloads in a few weeks, and so was the 400X growth of Pinterest and so on.
+
+How to get downloads is a wrong question.
+It should be - does my app truly provide value?
+does my app solve some problem?
+does my app do both well?
+
+
+David Rainwater • It's getting to that point that I'm interested in though. For the sake of learning let's say my app passes your last three questions with flying colors. If people don't know it exists they can't download it though. 
+
+Getting your initial following, What are effective strategies to pick up your first hundred or thousand downloads?
+1 day ago• Like
+ 
+Follow kerwin
+kerwin kin • @babu you are certainly correct i think your apps must provide some value to whoever is buying the app. It must aswell solve problems of the individual. @ david the best way is social media hey market it while in development, tell people about it, have a wokrking demo explain to people what exactly this app does for it users. Use facebook, twitter, google plus, you tube. make videos about your app have a website that explains it more to the consumer. I know its not a direct strathergy but it gives u a idea hope it helps
+1 day ago• Like
+ 
+Follow Juris
+Juris Žagars • There are quite many inspirational books in the market (e.g.Amazon) on how to become successful appreneur. In those books you will find quite a set of different techniques to use which address the question about getting enough downloads and make your app go viral. Of course, one thing is to read book another to be successful in using those advices in a proper way. Good luck!
+1 day ago• Like
+ 
+Follow Reza
+Reza Farhad • Would also like to point out that one challenge is to get initial interest, and second is to maintain it over a period of time.
+1 day ago• Like1
+ 
+Follow Ashutosh
+Ashutosh Sovani • I have worked with many App owners to develop apps. But I know that they have tied up with professional media marketing companies after the app got launched on the app store/s. These marketing companies ran campaigns for the app owners and guaranteed a few hundreds/thousands of all downloads. Please send a message if you want to know a couple of companies that provide such services. And I will be happy to refer them to you.
+
+
+
+
+Dean Kloter • Create a QR code for your App - put it everywhere along with the URL address(es) of where the app is located (Apple App store, Google Play store,etc). Utilize facebook & twitter as well as sharing on blogs and email blasts!
+1 day ago• Like
+ 
+Follow Joseph
+Joseph Carrigan MBA • One of the problems with a QR code is that it takes you to 1 place. If that is the iStore and you have an Android phone, you just had a failure.
+
+We (Pogo Corporation) deliver native SDK apps for our clients (iPhone, Android and Blackberry) as a managed service. Our clients (such as food service) have restaurants and locations. We provide them with a QR code and a client branded URL that takes their customers to our own provisioning engine which automatically detects which device they have and automatically installs the correct software or directs them to the appropriate app store page where all they need to do is click 'install app'.
+
+The lesson from this is you have two problems to face - you need to get the word out, then you have to effectively deliver the app. You can spend millions on advertising to everyone, or you can be targetted (like our food service stores) and offer your app solution right where people are likely to use it. Now for actual delivery, not an easy solution as the different app stores have yet to begin to play nice. Make sure it is as easy and as clear as possible.
+1 day ago• Like
+ 
+Follow Ryan
+Ryan Miller • A QR Code could take you to a webpage that auto-detects platform, then redirects based on detected platform (iOS, Android, BBOS, etc).
+1 day ago• Like
+ 
+Follow Sergio
+Sergio Alonso Fernández • I would also suggest you to look into forums or find comments where people have already asked for any feature that your app has. Announce a coming release, follow up those threads and create expectation!
+1 day ago• Like
+ 
+Follow Ryan
+Ryan Miller • I have had a lot of success with the TouchArcade community, granted this is only relevant for game apps. They are thirsty for quality games and happy to tell you all about what they like and don't like. Strategic distribution of promo codes to sneezers (people who will talk about your app, write and post reviews, bloggers) can increase visibility dramatically.
+1 day ago• Like
+ 
+Follow Dean
+Dean Kloter • A QR code can be designed to go to both the Apple store or the Google Play store. It will decipher which phone you are using and take you to the appropriate store.
+
+
+
+Feedback is _priceless_ If you want better reviews, fix the issues your users have pointed out BEFORE you expose it to more people, then your current users will become fans and change their review. Communicate with those users, and get feedback (offer a free app for their time)
+14 hours ago• Like
+ 
+Follow roman
+roman mbwasi • You need bucket loads of cash to get downloads, sometimes it happens organically but that's more luck than anything else, reviews generally don't do much. 
+
+To get into the top 100 apps on Apples AppStore will cost you somewhere in the $10,000/day range, and you need to sustain this for at least 3 days to get ranked, check out this great article from devs who ran some experiments http://fairladymedia.com/2010/01/08/buying-your-way-into-the-app-stores-top-25/ 
+
+Once you have a few stressful apps then you can cross advertise in your own apps, saving you some money. 
+
+Its very difficult to make a real business out of Apps, most apps(60%!) don't break even.
+
+
+

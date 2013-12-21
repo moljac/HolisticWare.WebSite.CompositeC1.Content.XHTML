@@ -1,0 +1,23 @@
+Installation problems - 
+	
+	Symptoms:
+	Check your Android SDK path, if it's not located in "C:\android-sdk-windows" you 
+	might encounter this problem.
+
+	Moving it there might resolve, I've had issues with capitalisation on layouts also.. 
+	good luck!
+
+	
+	Causes:
+	
+	Compile errors:
+	 Error 1 The "Novell.MonoDroid.Build.Tasks.AndroidComputeResPaths" task could not be loaded 
+	 from the assembly C:\Program Files (x86)\MSBuild\Novell\Novell.MonoDroid.Build.Tasks.dll. 
+	 Could not load file or assembly 'Mono.Cecil, Version=0.9.4.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756' 
+	 or one of its dependencies.
+	
+	Solution:
+		uninstall MfA.
+		Delete the  MSBuild/Novell directory.
+		cclean
+		Reinstall MfA.

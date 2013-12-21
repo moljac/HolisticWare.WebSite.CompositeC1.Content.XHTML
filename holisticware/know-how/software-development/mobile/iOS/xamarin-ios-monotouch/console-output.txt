@@ -1,0 +1,7 @@
+
+    But aren't device logs disabled in productive builds since some ios5 update?  I thought Console.Write() was changed to a NOP?
+
+
+What was disabled in iOS5 was stdout/stderr (only redirected to the device console when a device is being used for development), which is not the same as NSLog (always writes to the device console). Console.Write* was changed to use NSLog, not to a NOP.
+
+AFAIK NSLog works always, even for devices never used for development.

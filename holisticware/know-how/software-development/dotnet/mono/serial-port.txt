@@ -1,0 +1,105 @@
+have used the Mono SerialPort code to talk to the Arduino [1] (and
+the Fluke2 + Scribbler robot [2]) without issues. There seems to be a
+bit more of a delay when compared to our CPython + pyserial API, but
+this version is in IronPython on Mono using the Mono SerialPort API.
+This works on Linux, Mac, and Windows.
+
+> What would it take to implement the DataRecievedEvent ?
+
+It would be super great if someone implemented it (for Unix and Windows).
+
+-Doug
+
+[1] - http://blog.roboteducation.org/node/47
+[2] - http://calicoproject.org/Calico_Myro
+
+> ________________________________
+> From: Daniel Hughes <trampster@gmail.com>
+> To: Doug Blank <doug.blank@gmail.com>
+> Cc: monodevelop-list@lists.ximian.com; daviesl5000 <davies-lee@sky.com>
+> Sent: Sunday, September 23, 2012 5:30 PM
+> Subject: Re: [MonoDevelop] Missing System.IO.Ports?
+>
+> We found that on mono for windows we would lose data. We didn't investigate
+> this to closely because we use ms .net on windows anyway.
+>
+> Once we rewrote our code to not rely on the DataRecievedEvent it worked fine
+> on mono for linux.
+>
+> Cheers,
+> Daniel Hughes
+>
+> On Mon, Sep 24, 2012 at 1:32 AM, Doug Blank <doug.blank@gmail.com> wrote:
+>
+> On Sun, Sep 23, 2012 at 2:18 AM, Daniel Hughes <trampster@gmail.com> wrote:
+>> The System.IO.Ports namespace is in System.dll
+>>
+>> However before you go to far you should be aware that mono does not have
+>> an
+>> implementation for event driven serial. And they have no plans to
+>> implement
+>> it. At my work we had to rewrite our serial layer to work around this. You
+>> should also be aware that serial coms is known to not work on mono for
+>> windows.
+>
+> We have been using Mono, SerialPort from System.IO.Ports, and COM
+> ports on Windows without problems.
+>
+> It may be that on older Windows (eg, XP) that we had to prefix the
+> "COM" with "\\.\" for ports greater than 9.
+>
+> -Doug
+>
+>> Best of luck,
+>> Daniel Hughes
+>>
+>>
+>>
+>> On Sat, Sep 22, 2012 at 9:46 AM, daviesl5000 <davies-lee@sky.com> wrote:
+>>>
+>>> Hi,
+>>>
+>>> I'm new to mono (not C#). I tried porting one of my window apps to Linux
+>>> (Ubuntu) Mono (2.8). However when selecting "Edit Reference" in the
+>>> project
+>>> solution I can find all the modules required by project except
+>>> Serial.IO.Ports?
+>>>
+>>> Is there something required in Linux in addition to the IDE to add
+>>> Serial.IO.Port support?
+
+
+
+
+
+GetPortNames() returns an array of available serial ports on the system.  I was
+a little surprised to find that it failed to show /dev/ttyACM0 on my system.
+ttyACM* is where (at least on my system, Mint 14) various serial-over-USB
+devices end up, in this case my Arduino and the RP6, an atmega32-based robot.
+It's easy enough to work around with a symlink, but that doesn't make for very
+portable code.
+
+Browsing the source for Mono 2.11 and 3.0.4 it looks like GetPortNames() on
+Linux searches for /dev/ttyS* and /dev/ttyUSB*, ignoring /dev/ttyACM*.  The
+kernel docs (https://www.kernel.org/doc/Documentation/usb/acm.txt) inform me
+that /dev/ttyACM* is intended for serial modems, so presumably it's more widely
+useful than just for Arduino et al.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Connect Arduino (or various other devices)
+2. Call System.IO.Ports.SerialPort.GetPortNames()
+3. Observe return value.
+Actual Results:  
+The returned array of String contains only /dev/ttyS* entries. There are no
+/dev/USB* devices on my system, so that absence is expected.
+
+Expected Results:  
+The returned array of String should have included the /dev/ttyACM0 entry that
+is present on my system.
+
+I'm using Mono 2.10.8, but the source for 3.0.2 contains the same issue. I'm
+not sure why these devices are presented as ACM, which is apparently a protocol
+for serial modems - but a quick search indicates that at least the Arduino
+serial interface is commonly presented as /dev/ttyACM*.

@@ -1,0 +1,24 @@
+Sure. You have to kill all ".svn" folders. They are hidden. Run this in Terminal. It will delete all those folder recursively.
+
+find . -name ".svn" -type d -exec rm -rf {} \; 
+
+René
+
+
+Am 24.08.2012 um 14:21 schrieb jowi <j.wiersma17@chello.nl>:
+
+> Some time ago i've experimented with github as version control, but i could
+> never get it to work properly. So i've stopped using it. That is, i dont
+> check in or out or commit etc.
+>
+> But since a few weeks i've built an unRAID server, and i've installed a
+> subversion server/repository on it, and i can use this perfectly from my
+> Windows PC using Visual Studio and the nice ankhsvn plugin and TortoiseSVN
+> as well.
+>
+> But now i want to use this subversion repository from my Mac Mini with
+> Monodevelop, but whatever i do, if i want to add or publish (?) my solution
+> to svn, MD keeps nagging me about the fact that my 'projects' folder
+> allready belongs to another repository, i assume github. How can i remove
+> github or github references? Are there some files i can delete? Or should i
+> use another 'projects' folder?

@@ -1,0 +1,121 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Projects as Placeholders</title>
+Description = all keywords + extra text
+<meta name="Description" content="Projects as Placeholders" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: projects-as-placeholders
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Visual, studio, project, placeholders" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Projects as Placeholders</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<!-- ================================================================== -->
+	<h2><a id=""></a></h2>
+
+	<p>
+		In order to keep ongoing work together as technology evolves (learning mobile development
+		with Xamarin tools) in Core there is one project that holds:
+	</p>
+	<ul>
+		<li>
+			snippets
+		</li>
+		<li>
+			project/solution and item templates
+		</li>
+	</ul>
+	<p>
+		When the whole Core solution is recompiled in this project there is an error:
+	</p>
+	<pre class="hw_code">
+c:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFX.targets(269,9): 
+	error MC6000: 
+	Project file must include the .NET Framework assembly 'WindowsBase, PresentationCore, PresentationFramework' in the reference list.
+Done executing task "MarkupCompilePass1" -- FAILED. (TaskId:49)
+Done building target "MarkupCompilePass1" in project "Core.EXE_951_Xtras_IDE.csproj" -- FAILED.: (TargetId:75)
+	</pre>
+
+	<p>
+		This project is simple DLL used as placeholder for files, so deep in directory structure
+		it contains xaml files (Output):
+	</p>
+	<pre class="hw_code">
+  Recompiled XAML file : 'D:\SRC\Core_2011\Core.EXE_951_Xtras_IDE\VisualStudio\2010\templates\vs_original\WPFCustomControl\Generic.xaml'. (TaskId:49)
+  Recompiled XAML file : 'D:\SRC\Core_2011\Core.EXE_951_Xtras_IDE\VisualStudio\2010\templates\vs_original\WPFPage\Page1.xaml'. (TaskId:49)
+  Recompiled XAML file : 'D:\SRC\Core_2011\Core.EXE_951_Xtras_IDE\VisualStudio\2010\templates\vs_original\WPFUserControl\UserControl1.xaml'. (TaskId:49)
+  Recompiled XAML file : 'D:\SRC\Core_2011\Core.EXE_951_Xtras_IDE\VisualStudio\2010\templates\vs_original\WPFWindow\Window1.xaml'. (TaskId:49)
+  Recompiled XAML file : 'D:\SRC\Core_2011\Core.EXE_951_Xtras_IDE\VisualStudio\2010\templates\working\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\App.xaml'. (TaskId:49)
+  Recompiled XAML file : 'D:\SRC\Core_2011\Core.EXE_951_Xtras_IDE\VisualStudio\2010\templates\working\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\MainPage.xaml'. (TaskId:49)
+  Recompiled XAML file : 'D:\SRC\Core_2011\Core.EXE_951_Xtras_IDE\VisualStudio\2010\templates\working\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\SampleData\MainViewModelSampleData.xaml'. (TaskId:49)
+  Recompiled XAML file : 'D:\SRC\Core_2011\Core.EXE_951_Xtras_IDE\VisualStudio\2010\templates\working\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35\App.xaml'. (TaskId:49)
+  Recompiled XAML file : 'D:\SRC\Core_2011\Core.EXE_951_Xtras_IDE\VisualStudio\2010\templates\working\MultiTargetSolution\Company.Project.EXE_831_PL_rClnt_SL3_netfx35\MainPage.xaml'. (TaskId:49)
+  Recompiled XAML file : 'D:\SRC\Core_2011\Core.EXE_951_Xtras_IDE\VisualStudio\2010\templates\working\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\App.xaml'. (TaskId:49)
+  Recompiled XAML file : 'D:\SRC\Core_2011\Core.EXE_951_Xtras_IDE\VisualStudio\2010\templates\working\MultiTargetSolution\Company.Project.EXE_852_PL_dClnt_WPF_netfx35\MainWindow.xaml'. (TaskId:49)
+	</pre>
+
+	<h3><a id="">Solution</a></h3>
+	<p>
+		Changing Build Action from Page to None or Content 
+	</p>
+	<pre class="hw_code">
+	&lt;Page Include=&quot;VisualStudio\2010\templates\ProjectTemplates\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\App.xaml&quot;&gt;
+	  &lt;Generator&gt;MSBuild:Compile&lt;/Generator&gt;
+	  &lt;SubType&gt;Designer&lt;/SubType&gt;
+	&lt;/Page&gt;
+	</pre>
+	<p>
+		Changes item in project to:
+	</p>
+	<pre class="hw_code">
+	&lt;None Include=&quot;VisualStudio\2010\templates\ProjectTemplates\MultiTargetSolution\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\App.xaml&quot;&gt;
+	  &lt;Generator&gt;MSBuild:Compile&lt;/Generator&gt;
+	  &lt;SubType&gt;Designer&lt;/SubType&gt;
+	&lt;/None&gt;		
+	</pre>
+	<p>
+		This influences Core project (content placeholder, but not the projects deep in folder structure
+		used as solution template).
+	</p>
+
+
+	<h3><a id="">Problem</a></h3>
+	<pre>
+Error	13	
+	Library project file cannot specify ApplicationDefinition element.	
+	c:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFX.targets	
+	269	9	Core.DLL_051_Xtras_IDEs
+Error	14	
+	The project file contains a property value that is not valid.	
+	c:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFX.targets	
+	269	9	Core.DLL_051_Xtras_IDEs
+	</pre>
+
+	<h3><a id="">Solution</a></h3>
+	<p>
+		Change Framework from 
+			.net framework 4.0 client profile 
+			to 
+			.net framework 2.0
+	</p>
+	<pre>
+	</pre>
+</body>
+</html>
+ 

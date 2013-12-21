@@ -1,0 +1,18 @@
+Is there a nice simple way to get the default email address associated with a device? 
+
+I've had a look and while there are a couple of answers on stackoverload, none of them 
+seem to get anyhere.
+
+For example the one here 
+http://stackoverflow.com/questions/2112965/how-to-get-the-android-devices-primary-e-mail-address 
+- answer 1, method A) can't be used as the Pattern enum isn't available and I can't 
+use method 2 as the target is Gingerbread.
+
+The Patterns class is under Android.Util namespace.
+
+See here: http://androidapi.xamarin.com/?link=P%3aAndroid.Util.Patterns.EmailAddress.
+
+
+
+
+

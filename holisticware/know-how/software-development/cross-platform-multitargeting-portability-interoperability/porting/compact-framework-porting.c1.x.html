@@ -1,0 +1,101 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Compact framework porting</title>
+Description = all keywords + extra text
+<meta name="Description" content="Compact framework porting tips, tricks" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: compact-framework-porting
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Compact, framework, smart device, porting" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2012-07-15" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>Compact framework porting</h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<h2>Compact Framework/Smart Device porting</h2>
+	<ol>
+		<li>
+			Make Visual Studio 2010 load project
+			<ol>
+				<li>
+					Project Flave - guid
+					see:
+				</li>
+				<li>
+					Project file changes
+				</li>
+			</ol>
+		</li>
+		<li>
+			Create Windows Forms project and copy all forms from CF project to this one
+		</li>
+		<li>
+		</li>
+	</ol>
+	<h2>SqlServer CE porting to SqlLite</h2>
+	<p>
+	Steps:
+	</p>
+	<ul>
+		<li>
+			Fixing type mismatch through:
+			<ul>
+				<li>
+					String replacement
+					<pre class="hw_code">
+					Replace("SqlCe", "Sqlite");
+					</pre>
+
+					<pre class="hw_code">
+					Replace("System.Data.SqlDbType", "System.Data.DbType");
+					</pre>
+				</li>
+				<li>
+					Aliases (using T=FullyQuallifiedType;):
+					<pre class="hw_code">
+			// alias
+			using
+					</pre>
+				</li>
+			</ul>
+
+
+
+		</li>
+		<li></li>
+		<li>
+			DbType.Image is missing - replace with:??
+		</li>
+		<li>
+			Create missing classes:
+			<a
+				href="http://msdn.microsoft.com/en-us/library/system.data.sqlserverce.sqlceengine(v=vs.80).aspx"
+				>
+				SqlCeEngine
+				<br />
+				http://msdn.microsoft.com/en-us/library/system.data.sqlserverce.sqlceengine(v=vs.80).aspx
+				</a>
+			<pre class="hw_code">
+		// mc++ SqlCeEngine SQLEngine = new SqlCeEngine(connString);
+		SqliteEngine SQLEngine = new SqliteEngine(connString);	
+			</pre>
+		</li>
+	</ul>
+</body>
+</html>
+
+

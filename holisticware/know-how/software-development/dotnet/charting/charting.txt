@@ -1,0 +1,55 @@
+
+Mobile apps pricing 
+	http://148apps.biz/app-marketing-101-pricing-your-iphone-app-art-and-science/
+	http://create.msdn.com/en-US/home/faq
+	http://www.google.com/support/androidmarket/developer/bin/answer.py?hl=en&answer=138412
+	http://www.google.com/support/androidmarket/developer/
+	http://forum.net.hr/forums/t/313377.aspx
+	http://www.offshore-professional.com/en/index.html
+	
+Mobile apps changing prices
+	http://www.iphonedevsdk.com/forum/promotion-techniques/40953-change-app-price.html
+	http://forums.create.msdn.com/forums/p/65572/65572.aspx
+	
+	http://www.netokracija.com/kako-prodati-iphone-android-3771
+	
+
+
+Localization/globalization
+	Android setting properties
+	
+		adb shell 'setprop persist.sys.language en; setprop
+		persist.sys.country GB; stop; sleep 5; start'
+
+		would change the locale to en_GB. You can also pass system properties
+		when starting the emulator:
+
+		emulator -avd MonoDroid -prop persist.sys.language=en -prop
+		persist.sys.country=GB
+	
+
+	
+	
+	
+	
+http://forum.umbraco.org/yaf_postst3934_Compress-HTTP-CSS-and-SCRIPTS-for-faster-umbraco-sites.aspx
+http://vaibhavkamath.info/post/3134658280/http-compression	
+	
+
+	
+http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/jquery-ui.js
+http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/jquery-ui.min.js	
+	
+	
+http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.js
+http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js
+http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate-vsdoc.js
+http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/additional-methods.js
+http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/additional-methods.min.js
+	
+	
+	
+	
+	
+	
+	

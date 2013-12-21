@@ -1,0 +1,140 @@
+<head>
+	<style type="text/css">
+#title-crumbs,body #sites-page-title-header,.sites-tile-name-header,#sites-canvas-main .sites-tile-name-content-1,.sites-tile-name-footer,.sites-subpages,.sites-kix-editor-wrapper,#sites-editor-wrapper{padding-left:10px;padding-right:10px}#sites-page-title-header{color:#000;font-size:22px;padding:3px 10px}#sites-page-title-header{font-size:22px;font-weight:bold;margin:0}#sites-canvas-main{min-height:150px;_height:150px;padding-bottom:5px;padding-top:15px}.sites-canvas-main{background:none}#sites-canvas-main table{margin:0}.sites-layout-hbox{width:100%;table-layout:fixed}#sites-canvas-main .sites-tile-name-content-1,#sites-canvas-main .sites-tile-name-content-2,#sites-canvas-main .sites-tile-name-content-3{padding-top:10px;padding-bottom:10px}.sites-layout-hbox td.sites-layout-tile{vertical-align:top}.sites-layout-tile{padding:3px}td{vertical-align:top}code{color:#006000}a,a:active,#sites-chrome-everything .goog-tree-item-label a{color:#e41500}</style>
+</head>
+<h3 id="sites-page-title-header" align="left" 
+	xmlns="http://www.w3.org/1999/xhtml">
+	<span id="sites-page-title" dir="ltr">OOP Tips</span></a></h3>
+<div id="sites-canvas-main" class="sites-canvas-main">
+	<div id="sites-canvas-main-content">
+		<table cellspacing="0" class="sites-layout-name-one-column sites-layout-hbox" 
+			xmlns="http://www.w3.org/1999/xhtml">
+			<tr>
+				<td class="sites-layout-tile sites-tile-name-content-1">
+					<div dir="ltr">
+						<ul>
+							<li><b>Model the verbs first, then the nouns</b><br />
+								Design classes that represent <i>requests, transfers, responses</i> and so-on. 
+								Don&#39;t begin by creating classes for <i>customer, employee, vehicle</i> until 
+								your progress with the verbs has made it clear what properties and behavior 
+								needs to be in them, and what doesn&#39;t<br />
+								<br />
+							</li>
+							<li><b>Model the solution, not the feature</b><br />
+								If you&#39;re making classes like <i>ReportPrinter</i> or <i>ProfitCalculator</i> 
+								then you&#39;re doing it wrong. You want a <i>Report</i> class and a <i>Printer</i> 
+								class, or a <i>Ledger</i> class and a <i>ProfitAndLossReport</i> class<br />
+								<br />
+							</li>
+							<li><b>The domain is not reality</b><br />
+								A &quot;domain&quot; is an imaginary representation of the problem for the sake of 
+								constructing a solution. Sometimes you don&#39;t need an object for &quot;person&quot; if 
+								&quot;transaction&quot; is what you&#39;re really dealing with. Unless you&#39;re writing a sequel 
+								to The Sims, you will want to model an abstract world that has been contrived to 
+								represent what the software is meant to do<br />
+								<br />
+							</li>
+							<li><b><code>Report.ToPrinter()</code> is wrong, </b>
+								<span style="font-weight: bold;"><code>Report.ToPostscript()</code> is right</span><br />
+								Do not do <code>Report.ToPrinter(Laserjet)</code>, do
+								<font face="arial, sans-serif"><code>Laserjet.Print(Report)</code>and have the 
+								Print() method accept an object that implements a ToPostscript (or ToPDF) 
+								interface. Data classes should have methods that serialize their contents to 
+								well-known intermediate formats (strings, csv, XML and so-on) in order to write 
+								themselves to output devices. They shouldn&#39;t have code that&#39;s specific to any 
+								particular output device<br />
+								<br />
+								</font></li>
+							<li><b><code>Customer.ToPostscript()</code> is wrong, <code>Laserjet.Print(new 
+								CustomerReport(Customer))</code> is right</b><br />
+								The more abstract the concept is, the less it should assume how it&#39;ll be used. A
+								<i>Report</i> can presume to be printed and need a way to render itself in a 
+								common printer format, but a <i>Customer</i> object could be used for far more. 
+								Create classes that wrap abstract data to give them concrete purposes on demand<br />
+								<br />
+							</li>
+							<li><b>Inheritance is not how you reuse code</b><br />
+								Inheritance is how you show &quot;<i>is a&quot;</i> relationships in your taxonomy of 
+								data, it only accidentally has the benefit of reusing code. Do not create 
+								abstract classes just to cram utility functions in them. Inheritance is a 
+								mechanism that <i>enables</i> ways of code reuse by boiling down the essentials 
+								of a data-type to the minimum a particular method needs to work with it. For 
+								example, the next tip:<br />
+								<br />
+							</li>
+							<li><b><code>public void Print(Report myReport)</code> is wrong, <code>public void 
+								Print(IPrintable myDocument)</code> is right</b><br />
+								Don&#39;t be afraid to use as many interfaces as you need to show the ways an object 
+								can interact with other parts of the program. Interfaces should also be as 
+								minimal and specific as possible, and it is not unusual for some classes to 
+								implement as many as 5 or 6 of them<br />
+								<br />
+							</li>
+							<li><b><i>Car</i> does not inherit from <i>ParkingLot</i></b><br />
+								Only use inheritance if the descendant class is truly a <i>kind of</i> parent 
+								class. If you&#39;re trying to join the two concepts together, consider using <i>
+								composition</i> so that ParkingLot has a <i>collection of</i> Car objects<br />
+								<br />
+							</li>
+							<li><b>Methods hate state</b><br />
+								Unless it imports, exports, or modifies the state of an object, every class&#39;s 
+								methods should be given what they need only as parameters in the method call. Do 
+								not do <code>private void ProcessData()</code>, do <code>private bool 
+								ProcessData(out IEnumerable input)</code>, even if <i>input</i> is a property or 
+								field of the same class. During refactoring, you&#39;ll figure out where ProcessData 
+								should really live, and it&#39;ll be easier to move it there<br />
+								<br />
+							</li>
+							<li><b>Classes shouldn&#39;t be peg-boards</b><br />
+								Publicly <i>gettable</i> properties are fine, and in some cases it&#39;s also 
+								necessary to have a publicly <i>settable</i> property, too. But before you make 
+								too many of them, think about whether the value of the property can be passed in 
+								the constructor or calculated from other data the class already has<br />
+								<br />
+							</li>
+							<li><b>Look for opportunities to keep it <code>static</code></b><br />
+								Many persistence layers (filesystems, databases, etc) already do caching for 
+								you, so why cache it again in the state of an instantiated object? Look for 
+								situations where it makes sense to have a <code>static</code> class with get/set 
+								methods that take the entity&#39;s ID as a parameter. Here are some examples:<ul>
+									<li>Counters that return/update an integer value to disk (the filesystem or drive 
+										controller will likely store the entire file in cache)</li>
+									<li>Lookup / configuration tables (your DBM will cache the most frequently requested 
+										rows)</li>
+									<li>Entities that don&#39;t have children, or aren&#39;t part of a tree or graph structure<br />
+										<br />
+									</li>
+								</ul>
+							</li>
+							<li><b>Dogs should know it&#39;s not bacon</b><br />
+								Input validation should be performed within the property setters of the objects 
+								that are encapsulating the input (and not the constructors), but they should 
+								only use the resources that are immediately available to them for it; ie: don&#39;t 
+								stash database connections around in your entity classes just so you can check a 
+								lookup table; in such cases you&#39;d pass that back to another layer<br />
+								<br />
+							</li>
+							<li><b>Tables are not classes</b><br />
+								As convenient as it may be to have ActiveRecords, you should not just run an
+								<a href="http://www.yacoset.com/Home/glossary">ORM</a> over all your database 
+								tables and call it a day. The most appropriate relational model for your data 
+								will not fit the most appropriate <i>object</i> model for the same data. Your 
+								class for <i>Order</i> should not just contain the same properties as your <i>
+								orders</i> table has for columns, it should know what constitutes a valid order 
+								(do the totals add up?) and what state it&#39;s in (pending, paid, shipped, etc). It 
+								may even hide data that&#39;s visible in the database but out-of-scope for the 
+								program, yet expose data that&#39;s in a separate store and <i>is</i> in scope<ul>
+									<li><b>Use an ORM that makes <code>partial</code> classes</b><br />
+										LINQ-to-SQL and other Object-Relational Mappers will generate a class for every 
+										table, but those classes will be <code>partial</code>. Start putting relevant 
+										logic and <a href="http://en.wikipedia.org/wiki/Law_of_Demeter" rel="nofollow">
+										Law-Of-Demeter</a> shortcuts into your custom side of the partial class</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

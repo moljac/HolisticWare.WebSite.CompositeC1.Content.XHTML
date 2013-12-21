@@ -1,0 +1,162 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Mono for Android, AndroidManifest.xml and Visual Studio weird problems</title>
+Description = all keywords + extra text
+<meta name="Description" content="Mono for Android, AndroidManifest.xml and Visual Studio weird problems, how to solve" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: mono-for-android-android-manifest-and-visual-studio-weird-problems
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="windows, phone, reminiscence" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Mono for Android, AndroidManifest.xml and Visual Studio weird problems</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<p>
+	Got back to mobile development (M4A and MonoTouch) after a while working on Composite C1 stuff, 
+	especially on German translation of Composite C1. 
+	<ul>
+		<li>
+			<a href="http://www.holisticware.net/HolisticWare/News.aspx?story=2011.12.12:HolisticWare+Spetznaz+team+-+contributed+German+localization">
+			http://www.holisticware.net/HolisticWare/News.aspx?story=2011.12.12:HolisticWare+Spetznaz+team+-+contributed+German+localization
+			</a>
+		</li>
+		<li>
+			<a href="http://twitpic.com/7so9ol">
+			http://twitpic.com/7so9ol
+			</a>
+		</li>
+		<li>
+			<a href="http://t.co/9Thbi0Tt">
+			http://t.co/9Thbi0Tt
+			</a>
+		</li>
+		<li>
+			<a href="http://twitter.com/compositec1">
+			http://twitter.com/compositec1</a>
+		</li>
+		<li>
+			<a href="http://www.facebook.com/CompositeC1">
+			http://www.facebook.com/CompositeC1
+			</a>
+		</li>
+	</ul>
+	There is still Croatian, Bosnian and Serbian version to finish and some nice features
+	that I plan to ease work on Web Sites, but I had to switch just to clear my mind.
+	</p>
+
+	<p>
+	Reopened old solution for our Getafisk project and short writeup what happened:
+	</p>
+
+
+	<h3><a id="">Symptoms</a></h3>
+	<ol>
+		<li>
+			Added new-clean MonoForAndroid project to existing VS solution
+			<ol>
+				<li>
+					Run/Debug button is disabled.
+					<br />
+					Right click on project gives me no opportunity to run/debug
+					<br />
+					Only options are (as admin, normal user, other user),
+					<br />
+					but those are from VS commands pro
+					</li>
+			</ol>
+			<ol>
+				<li>
+					Properties +/ Tab[Android Manifest]
+					<br />
+					Exception:
+					<br />
+					An error occurred trying to load the page.
+					<br />
+					Not implemented (Exception from HRESULT: 0x80004001 (E_NOTIMPL))
+					<br />
+					<br />
+					Usually here there is hyperlink for adding AndroidManifes.xml file
+					if one does not exists.
+					<br />
+				</li>
+			</ol>
+		</li>
+		<li>Visited older test project
+			<ol>
+				<li>
+					Run/Debug button is enabled. 
+					<br />
+					Deployment is possible and in  Build Log in VS there is Deploying to device 100%
+					<br />
+					Nothing is deployed on device, app never starts. 
+					<br />
+					In adb.log there were some errors (GPS related and some other,
+					<br />
+				</li>
+			</ol>
+		</li>
+	</ol>
+
+	<h3><a id="">Suspicion</a></h3>
+	<p>
+	Before Christmas holidays there was a lot done with Mono Mobile API. Tests and development.
+	In order to extend Mono Mobile API  , 
+	</p>
+	<ul>
+		<li>
+		reverse-engineered API with ILSpy (just to see source)
+		<br />
+		ILSpy - new tool to put on the list... This SwissKnife extracts even comments?!?!?!
+		</li>
+		<li>
+		spilt it into projects with help of Project Linker
+		</li>
+		<li>
+		Added Windows Phone rudimentary API for Geolocation.
+		<br />
+		But the test could not be made without Mango, cos emulator that comes with Mango SDK
+		has GeoLocation "mocking"/simulation.
+		<br />
+		... and (shame) at that point team had no devices to test with... 
+		<br />
+		Thanks to my Bro
+		<a href="http://www.studio-sac.net">
+		www.studio-sac.net
+		</a>
+		the team has right now several iPhones and Samsung Galaxy II S...
+		</li>
+	</ul>
+	<p>
+	Assumptions are that Mango installation messed something up with VS and M4A.
+	</p>
+
+	<h3><a id="">Resolution</a></h3>
+
+	<ol>
+		<li>
+			Reinstalled latest version of Mono For Android
+		</li>
+		<li>
+			Run CCleaner registry clean
+		</li>
+		<li>
+			rebooted - did not try without it, maybe it could work
+		</li>
+	</ol>
+</body>
+</html>

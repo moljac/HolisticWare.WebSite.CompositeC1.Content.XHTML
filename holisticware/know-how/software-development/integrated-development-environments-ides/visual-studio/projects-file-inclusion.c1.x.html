@@ -1,0 +1,148 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Projects and File Inclusion Patterns</title>
+Description = all keywords + extra text
+<meta name="Description" content="Projects and File Inclusion Patterns: tips and tricks - wildcards etc" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: projects-file-inclusion-patterns
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="visual, studio, projects, file, inclusion, patterns, wildcards" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2013-04-05" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>Projects and file inclusion patterns</h1>
+	<p>
+		Date created: 2013-04-05
+		<br/>
+		Date modified: 2013-04-05
+	</p>
+	<p>
+		Valuable information for web development especially during conversions of WebSites to Web Application
+		projects like in the case of Composite C1. Namely Websites do not rely on project files.
+	</p>
+	<p>
+		Other usage is for front-end developers which do not need Visual Studio and its project files, so
+		sometimes files in use by front-end developers might not be part of build (which is controlled
+		by project (csproj) file).
+	</p>
+	<p>
+		"Include in Project" for folders/directories does not use this (wildcard) approach, but enumerates
+		each file in folder and subfolders and adds it to project file.
+	</p>
+	<p>
+		For known project (folder/directosy) structures user can modify our project file to 
+		automatically include the files below the folders. This can be done with wildcards
+	   in Include attribute (references).
+	   <br />
+	   Patterns must be added to project file (project file manually edited) once - when folder
+	   is created.
+	</p>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<!-- ================================================================== -->
+	<h2>Patterns</h2>
+
+	<p>
+		Note: xml element can be Compile (for cs files), Content (for content), None, etc
+	</p>
+	<ul>
+		<li>
+			Single file
+			<pre class="hw_code">
+			&lt;Compile Include=&quot;code.cs&quot; /&gt; 
+			</pre>
+		</li>
+		<li>
+			List of files
+			<pre class="hw_code">
+			&lt;Compile Include=&quot;code01.cs;code02.cs&quot; /&gt; 
+			</pre>
+		</li>
+		<li>
+			All files in folder 
+			<pre class="hw_code">
+			&lt;Content Include=&quot;Path\To\Folder\*.*&quot; /&gt; 
+			</pre>
+		</li>
+		<li>
+			All files in folder and subfolders (below a  specific folder)
+			<pre class="hw_code">
+			&lt;Content Include=&quot;Path\To\Folder\**&quot; /&gt; 
+			</pre>
+		</li>
+		<li>
+			All files with suffix in folder and subfolders
+			<pre class="hw_code">
+			&lt;Content Include=&quot;Path\To\Folder\\**\*.suffix&quot; /&gt; 
+			</pre>
+		</li>
+		<li>
+			All files folders with suffix
+			<pre class="hw_code">
+			&lt;Content Include=&quot;Path\To\Folder\**\*suffix\*.*&quot; /&gt; 
+			</pre>
+			<pre class="hw_code">
+			&lt;Content Include=&quot;Path\To\Folder\**\*suffix\*&quot; /&gt; 
+			</pre>
+		</li>
+		<li>
+		</li>
+	</ul>
+
+</body>
+</html>
+
+<!--
+	http://greenicicleblog.com/2010/12/01/link-whole-directories-into-visual-studio-projects/
+	http://stackoverflow.com/questions/2000197/visual-studio-macro-find-files-that-arent-included-in-the-project
+
+   <Content Include="App_Data\Composite\Packages\01292282-3cb3-4d87-851f-da49ef547f8a\info.xml" />
+	<Content Include="App_Data\Composite\Packages\3ac4add7-aabe-400c-b6d0-907d35dd5545\info.xml" />
+	<Content Include="App_Data\Composite\Packages\3ac4add7-aabe-400c-b6d0-907d35dd5545\uninstall.xml" />
+	<Content Include="App_Data\Composite\Packages\9b6b0ea9-1f21-4692-aff8-bc9dd33cabec\info.xml">
+	  <SubType>Designer</SubType>
+	</Content>
+	<Content Include="App_Data\Composite\Packages\9c15dc7c-dd11-441a-a4c3-49313ad761f2\info.xml" />
+	<Content Include="App_Data\Composite\Packages\9c15dc7c-dd11-441a-a4c3-49313ad761f2\uninstall.xml" />
+	<Content Include="App_Data\Composite\Packages\bab8e662-1cf0-46db-bd93-95bdd0e59b35\info.xml" />
+	<Content Include="App_Data\Composite\Packages\bab8e662-1cf0-46db-bd93-95bdd0e59b35\uninstall.xml" />
+	<Content Include="App_Data\Composite\Packages\d73bef12-e605-4d98-a5d4-ea5ae24f8862\info.xml" />
+	<Content Include="App_Data\Composite\Packages\d73bef12-e605-4d98-a5d4-ea5ae24f8862\uninstall.xml" />
+	<Content Include="App_Data\Composite\Packages\f5e8484a-8c90-4b68-a263-3f1f174d42a5\info.xml" />
+	<Content Include="App_Data\Composite\Packages\f5e8484a-8c90-4b68-a263-3f1f174d42a5\uninstall.xml" />
+	<Folder Include="App_Data\Composite\PackageLicenses\" />
+	<Folder Include="App_Data\Composite\Packages\06c320f5-b068-46c2-8433-597d4d56f67e\Binaries\" />
+	<Folder Include="App_Data\Composite\Packages\3ac4add7-aabe-400c-b6d0-907d35dd5545\Binaries\" />
+	<Folder Include="App_Data\Composite\Packages\9b6b0ea9-1f21-4692-aff8-bc9dd33cabec\Binaries\" />
+	<Folder Include="App_Data\Composite\Packages\9c15dc7c-dd11-441a-a4c3-49313ad761f2\Binaries\" />
+	<Folder Include="App_Data\Composite\Packages\bab8e662-1cf0-46db-bd93-95bdd0e59b35\Binaries\" />
+	<Folder Include="App_Data\Composite\Packages\d73bef12-e605-4d98-a5d4-ea5ae24f8862\Binaries\" />
+	<Folder Include="App_Data\Composite\Packages\f5e8484a-8c90-4b68-a263-3f1f174d42a5\Binaries\" />
+	<None Include="App_Data\Composite\Packages\01292282-3cb3-4d87-851f-da49ef547f8a\installed" />
+	<Content Include="App_Data\Composite\Packages\01292282-3cb3-4d87-851f-da49ef547f8a\package.zip" />
+	<None Include="App_Data\Composite\Packages\3ac4add7-aabe-400c-b6d0-907d35dd5545\installed" />
+	<Content Include="App_Data\Composite\Packages\3ac4add7-aabe-400c-b6d0-907d35dd5545\package.zip" />
+	<None Include="App_Data\Composite\Packages\9b6b0ea9-1f21-4692-aff8-bc9dd33cabec\installed" />
+	<Content Include="App_Data\Composite\Packages\9b6b0ea9-1f21-4692-aff8-bc9dd33cabec\package.zip" />
+	<None Include="App_Data\Composite\Packages\9c15dc7c-dd11-441a-a4c3-49313ad761f2\installed" />
+	<Content Include="App_Data\Composite\Packages\9c15dc7c-dd11-441a-a4c3-49313ad761f2\package.zip" />
+	<None Include="App_Data\Composite\Packages\bab8e662-1cf0-46db-bd93-95bdd0e59b35\installed" />
+	<Content Include="App_Data\Composite\Packages\bab8e662-1cf0-46db-bd93-95bdd0e59b35\package.zip" />
+	<None Include="App_Data\Composite\Packages\d73bef12-e605-4d98-a5d4-ea5ae24f8862\installed" />
+	<Content Include="App_Data\Composite\Packages\d73bef12-e605-4d98-a5d4-ea5ae24f8862\package.zip" />
+	<None Include="App_Data\Composite\Packages\f5e8484a-8c90-4b68-a263-3f1f174d42a5\installed" />
+	<Content Include="App_Data\Composite\Packages\f5e8484a-8c90-4b68-a263-3f1f174d42a5\package.zip" />
+-->

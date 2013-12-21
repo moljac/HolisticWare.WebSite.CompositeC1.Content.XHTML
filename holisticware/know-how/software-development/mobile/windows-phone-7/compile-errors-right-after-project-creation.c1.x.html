@@ -1,0 +1,178 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Compile Errors after Project creation in Windows Phone project</title>
+Description = all keywords + extra text
+<meta name="Description" content="Compile Errors after Project creation in Windows Phone project in Windows Phone Manifest" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: compile-errors-after-project-creation-in-windows-phone-project
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="windows phone, manifest, compile, errors, project creation" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Compile Errors after Project creation in Windows Phone project in Windows Phone project</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<h2><a id="">Symptoms</a></h2>
+	<p>
+	If compilation errors are encountered right after project creation the reason might be in
+	restrictions imposed by Windows Phone manifest file WMAppManifest.xml.
+	<br />
+	Error might look like:
+	</p>
+	<pre class="hw_code">
+Error:
+	Error	2	Manifest validation fails: Error code: ValidationInvalidAuthor	
+	C:\Program Files\MSBuild\Microsoft\Silverlight for Phone\v4.0\Microsoft.Phone.PreImport.targets	38	9	
+	$(ProjectName)
+	</pre>
+	<p>
+	Or
+	</p>
+	<pre class="hw_code">
+Error	1	
+	Manifest validation fails: Error code: ValidationSchemaValidation	
+	C:\Program Files\MSBuild\Microsoft\Silverlight for Phone\v4.0\Microsoft.Phone.PreImport.targets	38	9	
+	$(ProjectName)
+	</pre>
+
+	<p>
+	Error above is result of following warning:
+	</p>
+	<pre class="hw_code">
+Warning	5	
+	The 'TokenID' attribute is invalid - 
+	The value 'Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35Token' is invalid 
+	according to its datatype 'String' - 
+	The actual length is greater than the MaxLength value.	
+	.\Company.Project.EXE_811_PL_mClnt_WP7_SL4_netfx35\Properties\WMAppManifest.xml	23	30	
+	$(ProjectName)
+	</pre>
+	<p>
+	A little bit investigation and experimenting pointed out that some attributes to were
+	too long:
+	</p>
+	<ul>
+		<li>
+		Author
+		</li>
+		<li>
+		Description
+		</li>
+		<li>
+		Publisher
+		</li>
+	</ul>
+	<p>
+	So the Errors are:
+	</p>
+	<ul>
+		<li>
+		ValidationInvalidPublisher
+		</li>
+		<li>
+		ValidationInvalidAuthor
+		</li>
+		<li>
+		ValidationInvalidTitle
+		</li>
+		<li>
+		ValidationSchemaValidation
+		</li>
+	</ul>
+	<p>
+	Sample WMAppManifest.xml that causes problems:
+	</p>
+	<pre class="hw_code">
+&lt;Deployment xmlns=&quot;http://schemas.microsoft.com/windowsphone/2009/deployment&quot; AppPlatformVersion=&quot;7.0&quot;&gt;
+  &lt;App xmlns=&quot;&quot; ProductID=&quot;{b69d81f3-b399-45e1-87b4-51e192789000}&quot; 
+	   Title=&quot;HolisticWare_GoNIX.EXE_BL_092ClntMob_WinPhone_SL4netfx35&quot; 
+	   RuntimeType=&quot;Silverlight&quot; 
+	   Version=&quot;1.0.0.0&quot; 
+	   Genre=&quot;apps.normal&quot;  
+	   Author=&quot;HolisticWare.GoNix teamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;
+	   Description=&quot;Sample descriptionaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot; 
+	   Publisher=&quot;HolisticWareaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;
+	   &gt;
+	</pre>
+
+
+	<h2><a id="">Cure</a></h2>
+	<p>
+	Solution to this problem is to obey the law - Manifest attributes restrictions. 
+	Some say undocumented "features":
+	</p>
+	<ul>
+		<li>
+		Title
+		</li>
+		<li>
+		 Author
+		</li>
+		<li>
+		Description
+		</li>
+		<li>
+		Publisher
+		</li>
+		<li>
+		Token
+		</li>
+	</ul>
+	<pre class="hw_code">
+	&lt;PrimaryToken TokenID=&quot;HolisticWare.TimeManagement.EXE_811_PL_mClnt_WP7_SL4_netfx35Token&quot; TaskName=&quot;_default&quot;&gt;
+	</pre>
+	<p>
+		and
+	</p>
+	<pre class="hw_code">
+	&lt;App xmlns=&quot;&quot; 
+	ProductID=&quot;{d0a86cb7-3a5c-41c2-af4b-3386721f5c96}&quot; 
+	Title=&quot;HolisticWare.TimeManagement&quot; 
+	RuntimeType=&quot;Silverlight&quot; Version=&quot;1.0.0.0&quot; 
+	Genre=&quot;apps.normal&quot;  
+	Author=&quot;HolisticWare author&quot; 
+	Description=&quot;Sample description&quot; 
+	Publisher=&quot;HolisticWare&quot;
+&gt;
+	</pre>
+	<p>
+	Googling returned restrictions (check this for Mango!!!!):
+	</p>
+	<ul>
+		<li>
+		Publisher = 50 characters
+			</li>
+		<li>
+		Author = 50 characters
+		</li>
+		<li>
+		Title = 80 characters
+		</li>
+	</ul>
+
+
+
+	<h2><a id="">References</a></h2>
+
+	<p>
+	<a href="http://digitaltransfusion.net/2010/09/21/wp7-manifest-validation-fails/">
+	http://digitaltransfusion.net/2010/09/21/wp7-manifest-validation-fails/
+	</a>
+	</p>
+
+</body>
+</html>

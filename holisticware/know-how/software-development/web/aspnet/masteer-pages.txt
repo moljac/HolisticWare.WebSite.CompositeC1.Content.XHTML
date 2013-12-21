@@ -1,0 +1,98 @@
+Master pages work as container controls, that is, they hold and contain other "controls" 
+within them, in this case, the other "controls" are content pages (you could also have 
+sub-master pages, so, master pages could also contain other master pages). 
+
+When you have a page that is made up out of (at least) one master page and a content page, 
+the web server "blends" the code from both pages (the master and the content) to create 
+in run-time a resulting single web page, the actual outcome of a merge. 
+
+That single (run-time) web page is sent to the browser: the actual merge is easy to verify 
+from the browser with the use of the "View Source" option. 
+
+
+
+Let say your URL is Default.aspx (this is the Content Page). 
+It will call one or more Master Page(s). 
+In turn the Content start to load. 
+Please see what you find from a search about "ASP.Net Page Event", it should describe 
+how this complex sequence of event occur. It is rather powerful, I find. Yet, I still 
+do have problems with mixing and matching them, particularly when playing with data 
+(where my logic was formed working on WPF and SilverLight and lead me to some hard 
+hair pulling).
+
+
+
+confused about is not the use, but the process that .NET uses to merge them. It says 
+Merge Master into Content, followed by Merge Content into Master. Is one or other of 
+them not redundant? what is it doing? Followed by Render merged page. Which merged page, 
+the Master with the Content Merged or the Content with the Master merged, or some other 
+mix. 
+
+If you ask me to create Master Pages and Content Pages and Nested Master pages, I 
+will have not one diddly squat of a problem. I do that all of the time without issue. 
+But in order to pass the exam, I need to understand fully the process that .NET uses to 
+merge the pages, and that, I cannot get. 
+
+If someone told me it Merges the Master into the Content then Renders the result. then I 
+would understand. But it isn't, It merges the Master into the Content THEN the Content into 
+the Master THEN Renders the result. What is going on there?
+
+
+
+It lies in the way Init and Load work in the opposite directions to each other. 
+
+The page created in memory which I will call the Merge Page is made by taking the Control 
+Tree of the Content Page and Merging the Control Tree of the Master Page. 
+
+At this point you have a control tree but the controls have not been set. 
+
+Next the controls are set in the merge page; first from the Master Page then from the 
+Content Page 
+
+Then the Merge Page is rendered.
+
+
+
+The best representation I have found on ASP.Net event life cycle, including master, page 
+and page controls, is the diagram in this blog post: 
+http://spazzarama.com/2009/02/04/aspnet-lifecycle/ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

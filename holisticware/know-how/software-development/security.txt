@@ -1,0 +1,55 @@
+Before hiring a mobile development team and beginning the development process, it is important not to overlook the security of your future application. Confidential information exposure, theft and blackmail are just a few of the unfortunate consequences a poorly designed and implemented mobile app security system can lead to.
+
+Protecting your future users and your company’s reputation is a serious concern that requires additional efforts and resources. To ensure maximum security, consider the following tips.
+
+1. Risks evaluation
+Thoughtful evaluation of risks is the first step that will help you decide whether to accept residual risks or take an active role to minimize them. The three major questions you should ask yourself are: What are the risks? What will be the losses? What are the vulnerabilities of the app?
+
+2. The continuity of security implementation
+When it comes to mobile app security, there is no magic spell a developer can cast to make the app unhackable once the development phase is over. Security is a process. It should start during the planning phase, go through code review and implementation stage, as well as performing penetration tests before release.
+
+3. The Principle of Least Privilege
+Designing an app, require only those permissions that are absolutely necessary for the core purpose of your app. Do not make your users wonder “why does this compass app need access to my SMS messages, anyway?”. Attentive users are likely to avoid apps which request permissions exceeding the apps’ functions.
+
+4. Input validation
+While PCs have tons of antivirus software to detect and isolate malicious components, mobile devices generally don't have any. Make sure that your developers implement proper input checks, validating that the input is what is expected, no more and no less, before the app starts processing it.
+
+5. Secure authentication
+When designing an authentication system, pay particular attention to two peculiarities of mobile devices: episodic sessions and inconvenient way to type text. Taking this into account, a proper investigation of all potential risks should take place to find a balance between usability and security. The necessity to type a challenging succession of symbols can reduce user satisfaction and ultimately their loyalty to the company.
+
+6. Strong passwords
+Besides reducing the chance of hacker’s access to user's data, passwords affects the strength of encryption. As you may know, strength of encryption rests on the strength of the key, while the key itself is often — and it should be — protected with the help of algorithms that employ user's input data.
+
+7. Password strength checkers
+Users tend to choose weak yet convenient and fast to type passwords rather than tolerate the turmoil of entering secure passwords each time to unlock their device. Therefore if security is one of the major priorities for your project, don't trust users and consider implementing a password strength checker.
+
+8. Data protection
+Choose what data you actually need to store: the less you store, the less you need to protect. For the data storing of which is a must for your project, insist that it should be encrypted and the encryption key should be entered each time by the user, or at least not be stored on the device.
+
+9. Remote wipe
+A wipe is a useful and effective technique, of data protection but it is not a panacea. It can be easily unarmed by simply turning the device or Internet connection off.
+
+10. Data encryption
+The word “encryption” tends to be used as a synonym to secure solutions, yet the amount of stolen and deciphered credit card numbers keeps growing every year. Thus, a critical question to consider isn’t which encryption technique to use but rather how to implement it properly.
+
+11. Encryption keys protection
+To protect encryption keys, it’s not enough to rely only on standard platform measures, such as iOS' Keychain and Android's SharedPreferences file. The first things you should discuss with developers is the possibility of storing the key outside the device.
+
+12. The risks of cloud services
+If you chose cloud services as an outside storage, don’t forget that they should be used with caution. Even though cloud services have many advantages, the cloud is not always the best solution in terms of security. Even if you work with the leading service providers, like Amazon Web Services, Rackspace Inc., Savvis (CenturyLink) or Equinix, their services don't always comply with high security demands. If security is among your top priorities, we strongly recommend to use your company's own servers.
+
+13. HTTPS
+There is always risk of information interception when transferring data through the Internet, e.i. through some sniffer device. Using SSL security protocol over an ordinary HTTP connection helps to reduce the risk because it implies that data would be encrypted.
+
+14. Secure Bluetooth connection
+Bluetooth provides only device-level security services, not user-level, and cannot limit access to sensitive data to authorized users. Therefore, developers should provide appropriate security controls that offer identity-level security features, such as user authentication and user authorization.
+
+15. Logging: Use with caution
+Before releasing your app you should make sure that there is no confidential information in the logs. The best solution is to enable separate logs for debugging and release versions.
+
+16. Be testing
+Testing is a common and mandatory procedure and hardly any app can be considered finished without proper testing. However, if your application involves a high degree of risk (e.g. it allows customers to trade stocks they own) you should add penetration testing to your list. During such testing, also known as ethical hacking, testers act as attackers and attempt to compromise the application. 
+
+And more...
+
+This is just a brisk overview of some issues. The scope of security issues is very broad. To learn about these topics in more detail, please download our free eBook  —  Best Practices for Developing Secure Mobile Applications.

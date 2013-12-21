@@ -1,0 +1,59 @@
+OWIN
+
+http://owin.org
+http://www.tugberkugurlu.com/archive/getting-started-with-owin-and-the-katana-stack
+https://github.com/tugberkugurlu/OwinSamples/tree/master/HelloWorldOwin
+
+https://github.com/owin/owin-hosting
+https://katanaproject.codeplex.com/
+http://vimeo.com/57007898
+
+
+Lightwight web frameworks
+	Nancy
+	Fooboo
+	kayak
+	OpenRasta
+	SimpleWeb
+		ServiceStack
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

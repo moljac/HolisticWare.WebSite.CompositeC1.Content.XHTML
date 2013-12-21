@@ -1,0 +1,7 @@
+
+In 
+	Core.PresentationUserIntrerFace.MA
+
+http://blog.xamarin.com/android-tricks-fadeimageview/
+http://blog.xamarin.com/android-tricks-insettextview/
+http://blog.xamarin.com/android-tricks-automatic-icon-shading-with-cocoa-like-template-images/

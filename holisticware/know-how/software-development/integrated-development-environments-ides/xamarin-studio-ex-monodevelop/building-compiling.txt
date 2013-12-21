@@ -1,0 +1,16 @@
+Building Compiling MonoDevelop 
+
+http://monodevelop.com/Developers/Articles/Building_MonoDevelop_on_Ubuntu
+
+from git.
+This might not have to do with monodevelop itself but I hope there are
+others here that successfully have compiled monodevelop on Ubuntu.
+
+This has been working for a long time:
+cd monodevelop
+git pull
+git submodule init
+git submodule update
+git reset --hard
+./configure --profile=core --prefix=/usr/local
+make clean && make && make run

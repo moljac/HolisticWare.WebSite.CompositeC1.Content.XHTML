@@ -1,0 +1,122 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Android Resources</title>
+Description = all keywords + extra text
+<meta name="Description" content="Android Resources - tips and tricks" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Resources
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Android, resources" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Android Resources</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<h2><a id="">Naming</a></h2>
+	<p>
+		MonoForAndroid
+		<br />
+		Resources (Layout definitions [a]xml) with multiple extensions 
+		(more than 1 dot in the name) are not allowed!
+		<br />
+		filename.ext2.ext1.ext
+		<br />
+		Use '_' instead
+		<br />
+		filename_ext2_ext1.ext
+
+	</p>
+	<pre class="hw_code">
+	</pre>
+
+
+
+	<h2><a id="">Layout Subfolders</a></h2>
+	<p>
+	2012-01 for complex projects subfolders in layout folder are not supported.
+	</p>
+	<p>Possible workarounds:
+	</p>
+	<ul>
+		<li>
+			Linking files on filesystem:
+			<ul>
+				<li>
+					Windows (Vista+ - Vista and above)
+					<pre class="hw_code">
+MKLINK [[/D] | [/H] | [/J]] Link Target
+
+		/D      Creates a directory symbolic link.  Default is a file
+				symbolic link.
+		/H      Creates a hard link instead of a symbolic link.
+		/J      Creates a Directory Junction.
+		Link    specifies the new symbolic link name.
+		Target  specifies the path (relative or absolute) that the new link
+				refers to.
+					</pre>
+				</li>
+				<li>
+					Unixoides
+					<pre class="hw_code">
+ln -s
+					</pre>
+				</li>
+			</ul>
+		</li>
+		<li>
+			Linking files in IDE: 
+			<ul>
+				<li>
+					Visual Studio [Mono for Android]
+					<ol>
+						<li>
+							Organize files in subfolders on filesystem
+						</li>
+						<li>
+							In Layout Directory Use:
+							<br />
+							Project +/ Add Existing Item +/ 
+						</li>
+					</ol>	
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<h2><a id="">Code Behind in Layout folder</a></h2>
+	<p>
+	Adding c# source file (.cs) in Resources\Layout folder causes error:
+	</p>
+	<pre class="hw_code">
+	Error	7	Resource entry Activityname is already defined.	activityname.axml.cs	1	ProjectName
+	</pre>
+	<p>
+	Cause:
+	<br />
+	Adding anything (with Add New Item or copy/paste) into Resources\Layout directory changes
+	items Build Action to AndroidResource. This is defined in Visual Studio plugin.
+	</p>
+	<p>
+	Workaround:
+	<br />
+	After adding in Properties of the item (.cs) file change Build Action to Compile, or
+	use 
+	HolisticWare Project Items for Mono 4 Android.
+	</p>
+</body>
+</html>

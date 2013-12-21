@@ -1,0 +1,37 @@
+e a look at these three. Spend a little time getting familiar with each one. Then choose the one you like the best. 
+
+log4net 
+http://logging.apache.org/log4net/ 
+
+ELMAH 
+http://code.google.com/p/elmah/ 
+
+Microsoft Logging Application Block 
+http://msdn.microsoft.com/en-us/library/ff664569(v=pandp.50).aspx
+
+
+
+ojects) and can output to a very wide of destinations. Mind you there are a lot of other logging applications - the commercial (they're selling their own logging s/w) site http://www.dotnetlogging.com/ has a quite comprehensive list.
+
+
+martinspect is good for logging and analyzing the recorded logging data. 
+http://www.gurock.com/smartinspect/
+
+
+ WCF is anywhere in your stack, I highly recommend extending WCF's built in Activity Tracing ( http://msdn.microsoft.com/en-us/library/ms730342.aspx - specifically check out the link about End-toEnd Tracing). As someone who had a hand in its development during WCF 3.0 timeframe, I can say that simply dumping exceptions and their callstacks to an external datastore is often not enough to effectively debug many issues in web services of any complexity. You often need additional data around context, threading, server state, etc. The Activity Tracing features were created with this in mind and included a robust extensibility model. It is highly configurable through [app/web].config files and can redirect tracing data to any backing store through listeners. There is also a GUI based browser that ships with WCF that knows how to correlate Activity Trace output with WCF's built in Message Logs. When web service solutions get complex it is an invaluable tool to be able to correlate an unexpected behavior to a series of events (traces) all the way back to the client that include actual message contents on the wire and at all layers on both sides of the conversation. However, I may be a bit biased since I was part of the team that wrote the infrastructure and personally owned the features during the later part of the WCF 3.0 dev cycle (meant in the spirit of full disclosure).
+ 
+ 
+ 
+ cross our applications use Log4net, NLog and MS Enterprise Logging framework. But in the last 6 months one of our architects found this amazing tool called "ReflectInsight .NET Logging Framework". We generate a ton of log files across 20+ applications. The one thing we always hated was we can log the issue but couldn’t trace how it originally got there. There’s just too much noise from other log items. We needed something better and yet still preserve our existing legacy frameworks (i.e. Log4net, NLog and MS Enterprise Logging framework, etc.).
+
+http://insightextensions.codeplex.com/ 
+
+Furthermore, ReflectInsight allows us to reroute our legacy logging frameworks to its framework with easy and no code change. It’s just a matter of configuration. However, this framework in itself is so powerful, incredibly fast, with an amazing architecture for extensibility. You can create your own listeners if necessary and reroute messages across different servers. In addition, it has an amazing Live and Log Viewers to filter and analysis where the issues have taken place. Literally, you can deduce and isolate the problem within minutes. The real nice thing about ReflectInsight is the Rich Details that it logs. Image how great it is that you can now log well formatted Xml, well formatted Exceptions, Images, Binary Blobs, Datasets/Tables, Collections, UTC time localization, etc.
+
+http://reflectsoftware.com/
+
+
+Nlog
+
+
+http://www.dotnetlogging.com/comparison/

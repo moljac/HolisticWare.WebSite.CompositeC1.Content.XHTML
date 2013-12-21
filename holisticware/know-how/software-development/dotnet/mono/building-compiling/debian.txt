@@ -1,0 +1,6 @@
+You need to run apt-get install build-essential to get the tools to 
+build, but it looks like you got this working :) Download XSP from Git 
+rather than from the tarball, as the tarball is out of date. You need at 
+least XSP 3 as it has some bug fixes not included in 2.10. You need to 
+download and compile libgdiplus separately, similarly to XSP. 
+

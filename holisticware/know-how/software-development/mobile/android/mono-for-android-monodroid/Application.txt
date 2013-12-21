@@ -1,0 +1,59 @@
+Compile OK
+
+Deploy Fails:
+	Packaging!
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018: The "GenerateJavaStubs" task failed unexpectedly. [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018: System.InvalidOperationException: Duplicate attribute. [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at System.Xml.Linq.XElement.AddAttribute(XAttribute a) [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at System.Xml.Linq.XContainer.Add(Object content) [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at Xamarin.Android.Tasks.ManifestDocument.CreateApplicationElement(XElement manifest, List`1 subclasses, List`1 selectedWhitelistAssemblies) [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at Xamarin.Android.Tasks.ManifestDocument.Merge(List`1 subclasses, List`1 selectedWhitelistAssemblies, Boolean embed) [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at Xamarin.Android.Tasks.GenerateJavaStubs.Execute() [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at Microsoft.Build.BackEnd.TaskExecutionHost.Microsoft.Build.BackEnd.ITaskExecutionHost.Execute() [projectname.csproj]
+C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets(595,3): error MSB4018:    at Microsoft.Build.BackEnd.TaskBuilder.ExecuteInstantiatedTask(ITaskExecutionHost taskExecutionHost, TaskLoggingContext taskLoggingContext, TaskHost taskHost, ItemBucket bucket, TaskExecutionMode howToExecuteTask, Boolean& taskResult) [projectname.csproj]
+
+Removed
+
+		android:icon="@drawable/icon"
+
+	from application element in AndroidManifest.xml
+
+	
+	
+Application class added
+	
+monodroid: warning 1 : installLocation cannot be specified for Android versions less than 2.2.  Attribute installLocation ignored.
+
+Solution:
+1. changed Android version >= 2.2
+
+
+
+obj\Debug\android\AndroidManifest.xml(4): error : No resource found that matches the given name (at 'icon' with value '@drawables/Icon'). [projectname.csproj]
+
+  
+
+  
+  
+  
+  
+  
+  
+01-26 12:03:26.330 I/MonoDroid(13644): UNHANDLED EXCEPTION: System.NotSupportedException: Unable to activate instance of type HolisticWare.PhActEx.PL.ApplicationPhActEx from native handle 40525860 ---> System.MissingMethodException: No constructor found for HolisticWare.PhActEx.PL.ApplicationPhActEx::.ctor(System.IntPtr, Android.Runtime.JniHandleOwnership)
+01-26 12:03:26.330 I/MonoDroid(13644):   at Android.Runtime.TypeManager.CreateProxy (System.Type type, IntPtr handle, JniHandleOwnership transfer) [0x00000] in <filename unknown>:0 
+01-26 12:03:26.330 I/MonoDroid(13644):   at Android.Runtime.TypeManager.CreateInstance (IntPtr handle, JniHandleOwnership transfer, System.Type targetType) [0x00000] in <filename unknown>:0 
+01-26 12:03:26.330 I/MonoDroid(13644):   --- End of inner exception stack trace ---
+01-26 12:03:26.330 I/MonoDroid(13644): at Android.Runtime.TypeManager.CreateInstance (intptr,Android.Runtime.JniHandleOwnership,System.Type) <0x00594>
+01-26 12:03:26.330 I/MonoDroid(13644): at Java.Lang.Object.GetObject (intptr,Android.Runtime.JniHandleOwnership,System.Type) <0x00257>
+01-26 12:03:26.330 I/MonoDroid(13644): at Java.Lang.Object._GetObject<Android.App.Application> (intptr,Android.Runtime.JniHandleOwnership) <0x0004f>
+01-26 12:03:26.330 I/MonoDroid(13644): at Java.Lang.Object.GetObject<Android.App.Application> (intptr,Android.Runtime.JniHandleOwnership) <0x0002b>
+01-26 12:03:26.330 I/MonoDroid(13644): at Android.App.Application.n_OnCreate (intptr,intptr) <0x00023>
+01-26 12:03:26.330 I/MonoDroid(13644): at (wrapper dynamic-method) object.9c3897d2-69c4-4555-acba-ab72286fbe19 (intptr,intptr) <0x0002b>
+01-26 12:03:26.345 E/mono    (13644): 
+01-26 12:03:26.345 E/mono    (13644): Unhandled Exception: System.NotSupportedException: Unable to activate instance of type HolisticWare.PhActEx.PL.ApplicationPhActEx from native handle 40525860 ---> System.MissingMethodException: No constructor found for HolisticWare.PhActEx.PL.ApplicationPhActEx::.ctor(System.IntPtr, Android.Runtime.JniHandleOwnership)
+01-26 12:03:26.345 E/mono    (13644):   at Android.Runtime.TypeManager.CreateProxy (System.Type type, IntPtr handle, JniHandleOwnership transfer) [0x00000] in <filename unknown>:0 
+01-26 12:03:26.345 E/mono    (13644):   at Android.Runtime.TypeManager.CreateInstance (IntPtr handle, JniHandleOwnership transfer, System.Type targetType) [0x00000] in <filename unknown>:0 
+01-26 12:03:26.345 E/mono    (13644):   --- End of inner exception stack trace ---
+01-26 12:03:26.345 E/mono    (13644):   at Android.Runtime.TypeManager.CreateInstance (IntPtr handle, JniHandleOwnership transfer, System.Type targetType) [0x00000] in <filename unknown>:0 
+01-26 12:03:26.345 E/mono    (13644):   at Java.Lang.Object.GetObject (IntPtr handle, JniHandleOwnership transfer, System.Type type) [0x00000] in <filename unknown>:0 
+01-26 12:03:26.345 E/mono    (13644):   at Java.Lang.Object._GetObject[Application] (IntPtr handle, JniHandleOwnership

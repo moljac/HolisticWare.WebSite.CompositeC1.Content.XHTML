@@ -1,0 +1,26 @@
+Installation
+
+for Ubuntu packages see Debian packages:
+
+To install mono: 
+
+http://www.nat.li/linux/how-to-install-mono-2-11-2-on-debian-squeeze
+<http://www.nat.li/linux/how-to-install-mono-2-11-2-on-debian-squeeze>  
+
+
+
+> Now, I'd like to download and install the mono-develop IDE, but I'm scared
+> to use apt-get or synaptic since the Ubuntu standard installation install an
+> old version of mono and furthermore doesn't install the shared libraries
+> into /usr/lib.
+
+Yes, the distro packages for mono tend to claim whole ownership over things in
+/usr. For this reason there is the "parallel mono environment" which lets you
+build and install a whole mono installation in any folder you wish.
+
+http://www.mono-project.com/Parallel_Mono_Environments
+
+If you are on ubuntu or debian I have a set of packages that you can install
+that wind up in /opt/mono and wont mess up your distro's mono/cil stuff.
+
+http://inorton.wordpress.com/2013/03/13/mono-3-0-6-gtk3-and-monodevelop-4-0/

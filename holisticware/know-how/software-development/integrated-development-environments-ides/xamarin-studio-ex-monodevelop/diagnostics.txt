@@ -1,0 +1,15 @@
+## Log files ##
+
++ 	Windows %LOCALAPPDATA%\XamarinStudio-{VERSION}\Logs. 
++ 	Mac OS X $HOME/Library/Logs/XamarinStudio-{VERSION}.
+
+
+
+
+Could you please obtain a trace of the hung process? To do this, when Xamarin Studio 
+hangs, open a terminal, and run the command killall -QUIT XamarinStudio. This will not 
+terminate Xamarin Studio, but will cause it to write stacktraces of all its threads 
+to its log file.
+
+Then, please file a bug and attach the log file (from ~/Library/Logs/XamarinStudio-4.0) 
+and full version details from the About dialog.

@@ -1,0 +1,217 @@
+﻿<UserSettings>
+	<ApplicationIdentity version="10.0"/>
+
+	<!--
+	  Installation (import)
+	  Tools 
+		+/ Import and Export Settings 
+		+/ Import selected environment settings
+		+/ No, just imports new settings, overwriting my current settings
+		+/ Browse
+		+/ select this file	  
+	-->
+	<Category name="Environment_Group" RegisteredName="Environment_Group">
+		<Category name="Environment_ExternalTools" Category="{E8FAE9E8-FBA2-4474-B134-AB0FFCFB291D}" Package="{DA9FB551-C724-11d0-AE1F-00A0C90FFFC3}" RegisteredName="Environment_ExternalTools" PackageName="Visual Studio Environment Package">
+		  <PropertyValue name="Visual Studio Command Prompt.Command">cmd.exe</PropertyValue>
+		  <PropertyValue name="Visual Studio Command Prompt.Arguments">%comspec% /k ""C:\Program Files\Microsoft Visual Studio 10.0\VC\vcvarsall.bat"" x86</PropertyValue>
+		  <PropertyValue name="Visual Studio Command Prompt.InitialDirectory">$(ItemDir)</PropertyValue>
+		  <PropertyValue name="Visual Studio Command Prompt.SourceKeyName"/>
+		  <PropertyValue name="Visual Studio Command Prompt.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="Visual Studio Command Prompt.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="Visual Studio Command Prompt.CloseOnExit">true</PropertyValue>
+		  <PropertyValue name="Visual Studio Command Prompt.IsGUIapp">false</PropertyValue>
+		  <PropertyValue name="Visual Studio Command Prompt.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="Visual Studio Command Prompt.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="Visual Studio Command Prompt.Unicode">false</PropertyValue>
+		  <PropertyValue name="Visual Studio Command Prompt.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+		  <PropertyValue name="Visual Studio Command Prompt.NameID">0</PropertyValue>
+		  
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.Command">cmd.exe</PropertyValue>
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.Arguments">%comspec% /k </PropertyValue>
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.InitialDirectory">%PROGRAMFILES%\Android\android-sdk-windows\platform-tools</PropertyValue>
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.SourceKeyName"/>
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.CloseOnExit">true</PropertyValue>
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.IsGUIapp">false</PropertyValue>
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.Unicode">false</PropertyValue>
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+		  <PropertyValue name="Mono4Android Android Debug Bridge adb.NameID">0</PropertyValue>
+
+		  <PropertyValue name="ILspy Reflector.Command">c:\bin\ILspy\ILSpy.exe</PropertyValue>
+		  <PropertyValue name="ILspy Reflector.Arguments">$(TargetPath)</PropertyValue>
+		  <PropertyValue name="ILspy Reflector.InitialDirectory">$(TargetDir)</PropertyValue>
+		  <PropertyValue name="ILspy Reflector.SourceKeyName"/>
+		  <PropertyValue name="ILspy Reflector.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="ILspy Reflector.PromptForArguments">true</PropertyValue>
+		  <PropertyValue name="ILspy Reflector.CloseOnExit">false</PropertyValue>
+		  <PropertyValue name="ILspy Reflector.IsGUIapp">true</PropertyValue>
+		  <PropertyValue name="ILspy Reflector.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="ILspy Reflector.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="ILspy Reflector.Unicode">false</PropertyValue>
+		  <PropertyValue name="ILspy Reflector.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+		  <PropertyValue name="ILspy Reflector.NameID">0</PropertyValue>
+
+		  <PropertyValue name="Run Batch File and Quit.Command">%ComSpec%</PropertyValue>
+		  <PropertyValue name="Run Batch File and Quit.Arguments">/C $(ItemPath)</PropertyValue>
+		  <PropertyValue name="Run Batch File and Quit.InitialDirectory">$(ItemDir)</PropertyValue>
+		  <PropertyValue name="Run Batch File and Quit.SourceKeyName"/>
+		  <PropertyValue name="Run Batch File and Quit.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="Run Batch File and Quit.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="Run Batch File and Quit.CloseOnExit">true</PropertyValue>
+		  <PropertyValue name="Run Batch File and Quit.IsGUIapp">false</PropertyValue>
+		  <PropertyValue name="Run Batch File and Quit.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="Run Batch File and Quit.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="Run Batch File and Quit.Unicode">false</PropertyValue>
+		  <PropertyValue name="Run Batch File and Quit.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+		  <PropertyValue name="Run Batch File and Quit.NameID">0</PropertyValue>
+
+		  <PropertyValue name="Run Batch File and Remain.Command">%COMSPEC%</PropertyValue>
+		  <PropertyValue name="Run Batch File and Remain.Arguments">/K $(ItemPath)</PropertyValue>
+		  <PropertyValue name="Run Batch File and Remain.InitialDirectory">$(ItemDir)</PropertyValue>
+		  <PropertyValue name="Run Batch File and Remain.SourceKeyName"/>
+		  <PropertyValue name="Run Batch File and Remain.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="Run Batch File and Remain.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="Run Batch File and Remain.CloseOnExit">true</PropertyValue>
+		  <PropertyValue name="Run Batch File and Remain.IsGUIapp">false</PropertyValue>
+		  <PropertyValue name="Run Batch File and Remain.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="Run Batch File and Remain.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="Run Batch File and Remain.Unicode">false</PropertyValue>
+		  <PropertyValue name="Run Batch File and Remain.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+		  <PropertyValue name="Run Batch File and Remain.NameID">0</PropertyValue>
+
+		  <PropertyValue name="ASP.net Temporary Files Location.Command">explorer.exe</PropertyValue>
+		  <PropertyValue name="ASP.net Temporary Files Location.Arguments">/e,/root,"%USERPROFILE%\AppData\Local\Temp\Temporary ASP.NET Files"</PropertyValue>
+		  <PropertyValue name="ASP.net Temporary Files Location.InitialDirectory">$(ProjectDir)</PropertyValue>
+		  <PropertyValue name="ASP.net Temporary Files Location.SourceKeyName"/>
+		  <PropertyValue name="ASP.net Temporary Files Location.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="ASP.net Temporary Files Location.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="ASP.net Temporary Files Location.CloseOnExit">false</PropertyValue>
+		  <PropertyValue name="ASP.net Temporary Files Location.IsGUIapp">true</PropertyValue>
+		  <PropertyValue name="ASP.net Temporary Files Location.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="ASP.net Temporary Files Location.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="ASP.net Temporary Files Location.Unicode">false</PropertyValue>
+		  <PropertyValue name="ASP.net Temporary Files Location.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+		  <PropertyValue name="ASP.net Temporary Files Location.NameID">0</PropertyValue>
+
+		  <PropertyValue name="Mono4Android DroidDraw.Command">C:\bin\android\droiddraw\droiddraw.exe</PropertyValue>
+		  <PropertyValue name="Mono4Android DroidDraw.Arguments">$(ItemPath)</PropertyValue>
+		  <PropertyValue name="Mono4Android DroidDraw.InitialDirectory">$(ItemDir)</PropertyValue>
+		  <PropertyValue name="Mono4Android DroidDraw.SourceKeyName"/>
+		  <PropertyValue name="Mono4Android DroidDraw.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="Mono4Android DroidDraw.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="Mono4Android DroidDraw.CloseOnExit">false</PropertyValue>
+		  <PropertyValue name="Mono4Android DroidDraw.IsGUIapp">true</PropertyValue>
+		  <PropertyValue name="Mono4Android DroidDraw.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="Mono4Android DroidDraw.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="Mono4Android DroidDraw.Unicode">false</PropertyValue>
+		  <PropertyValue name="Mono4Android DroidDraw.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+		  <PropertyValue name="Mono4Android DroidDraw.NameID">0</PropertyValue>
+		  
+		  <PropertyValue name="Mono4Android Eclipse.Command">C:\bin\eclipse\eclipse.exe</PropertyValue>
+		  <PropertyValue name="Mono4Android Eclipse.Arguments">--launcher.openFile $(ItemPath)</PropertyValue>
+		  <PropertyValue name="Mono4Android Eclipse.InitialDirectory">$(ItemDir)</PropertyValue>
+		  <PropertyValue name="Mono4Android Eclipse.SourceKeyName"/>
+		  <PropertyValue name="Mono4Android Eclipse.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="Mono4Android Eclipse.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="Mono4Android Eclipse.CloseOnExit">false</PropertyValue>
+		  <PropertyValue name="Mono4Android Eclipse.IsGUIapp">true</PropertyValue>
+		  <PropertyValue name="Mono4Android Eclipse.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="Mono4Android Eclipse.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="Mono4Android Eclipse.Unicode">false</PropertyValue>
+		  <PropertyValue name="Mono4Android Eclipse.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+		  <PropertyValue name="Mono4Android Eclipse.NameID">0</PropertyValue>
+		  
+		  <!-- Visual Studio original leave those or they will be removed -->
+		  <PropertyValue name="Create &amp;GUID.Command">%vsspv_windows_sdk_dir%\bin\NETFX 4.0 Tools\guidgen.exe</PropertyValue>
+		  <PropertyValue name="Create &amp;GUID.Arguments"/>
+		  <PropertyValue name="Create &amp;GUID.InitialDirectory">%vsspv_windows_sdk_dir%\bin\NETFX 4.0 Tools\</PropertyValue>
+		  <PropertyValue name="Create &amp;GUID.SourceKeyName">Create GUID</PropertyValue>
+		  <PropertyValue name="Create &amp;GUID.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="Create &amp;GUID.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="Create &amp;GUID.CloseOnExit">false</PropertyValue>
+		  <PropertyValue name="Create &amp;GUID.IsGUIapp">true</PropertyValue>
+		  <PropertyValue name="Create &amp;GUID.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="Create &amp;GUID.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="Create &amp;GUID.Unicode">false</PropertyValue>
+		  <PropertyValue name="Create &amp;GUID.Package">{DA9FB551-C724-11D0-AE1F-00A0C90FFFC3}</PropertyValue>
+		  <PropertyValue name="Create &amp;GUID.NameID">14453</PropertyValue>
+		  
+		  <PropertyValue name="Dot&amp;fuscator Software Services.Command">%vsspv_vs_install_directory%\PreEmptive Solutions\Dotfuscator Community Edition\Dotfuscator.exe</PropertyValue>
+		  <PropertyValue name="Dot&amp;fuscator Software Services.Arguments"/>
+		  <PropertyValue name="Dot&amp;fuscator Software Services.InitialDirectory">$(TargetDir)</PropertyValue>
+		  <PropertyValue name="Dot&amp;fuscator Software Services.SourceKeyName">Dot&amp;fuscator Software Services</PropertyValue>
+		  <PropertyValue name="Dot&amp;fuscator Software Services.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="Dot&amp;fuscator Software Services.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="Dot&amp;fuscator Software Services.CloseOnExit">false</PropertyValue>
+		  <PropertyValue name="Dot&amp;fuscator Software Services.IsGUIapp">true</PropertyValue>
+		  <PropertyValue name="Dot&amp;fuscator Software Services.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="Dot&amp;fuscator Software Services.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="Dot&amp;fuscator Software Services.Unicode">false</PropertyValue>
+		  <PropertyValue name="Dot&amp;fuscator Software Services.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+		  <PropertyValue name="Dot&amp;fuscator Software Services.NameID">0</PropertyValue>
+		  
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.Command">C:\Program Files\Eazfuscator.NET\Eazfuscator.NET Assistant.exe</PropertyValue>
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.Arguments"/>
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.InitialDirectory">C:\Program Files\Eazfuscator.NET</PropertyValue>
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.SourceKeyName">Ea&amp;zfuscator.NET Assistant</PropertyValue>
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.CloseOnExit">false</PropertyValue>
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.IsGUIapp">false</PropertyValue>
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.Unicode">false</PropertyValue>
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.Package">{00000000-0000-0000-0000-000000000000}</PropertyValue>
+		  <PropertyValue name="Ea&amp;zfuscator.NET Assistant.NameID">0</PropertyValue>
+		  
+		  <PropertyValue name="Error Loo&amp;kup.Command">%vsspv_vs_install_directory%\Common7\Tools\errlook.exe</PropertyValue>
+		  <PropertyValue name="Error Loo&amp;kup.Arguments"/>
+		  <PropertyValue name="Error Loo&amp;kup.InitialDirectory">$(TargetDir)</PropertyValue>
+		  <PropertyValue name="Error Loo&amp;kup.SourceKeyName">Error Loo&amp;kup</PropertyValue>
+		  <PropertyValue name="Error Loo&amp;kup.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="Error Loo&amp;kup.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="Error Loo&amp;kup.CloseOnExit">false</PropertyValue>
+		  <PropertyValue name="Error Loo&amp;kup.IsGUIapp">true</PropertyValue>
+		  <PropertyValue name="Error Loo&amp;kup.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="Error Loo&amp;kup.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="Error Loo&amp;kup.Unicode">false</PropertyValue>
+		  <PropertyValue name="Error Loo&amp;kup.Package">{1B027A40-8F43-11D0-8D11-00A0C91BC942}</PropertyValue>
+		  <PropertyValue name="Error Loo&amp;kup.NameID">1301</PropertyValue>
+		  
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.Command">%vsspv_vs_install_directory%\Common7\Tools\AtlTraceTool8.exe</PropertyValue>
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.Arguments"/>
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.InitialDirectory">%vsspv_vs_install_directory%\Common7\Tools\</PropertyValue>
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.SourceKeyName">MFC/ATL &amp;Trace Tool</PropertyValue>
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.CloseOnExit">false</PropertyValue>
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.IsGUIapp">true</PropertyValue>
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.Unicode">false</PropertyValue>
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.Package">{F1C25864-3097-11D2-A5C5-00C04F7968B4}</PropertyValue>
+		  <PropertyValue name="ATL/MFC &amp;Trace Tool.NameID">10052</PropertyValue>
+
+		  <PropertyValue name="Spy&amp;++.Command">%vsspv_vs_install_directory%\Common7\Tools\spyxx.exe</PropertyValue>
+		  <PropertyValue name="Spy&amp;++.Arguments"/>
+		  <PropertyValue name="Spy&amp;++.InitialDirectory">%vsspv_vs_install_directory%\Common7\Tools\</PropertyValue>
+		  <PropertyValue name="Spy&amp;++.SourceKeyName">Sp&amp;y++</PropertyValue>
+		  <PropertyValue name="Spy&amp;++.UseOutputWindow">false</PropertyValue>
+		  <PropertyValue name="Spy&amp;++.PromptForArguments">false</PropertyValue>
+		  <PropertyValue name="Spy&amp;++.CloseOnExit">false</PropertyValue>
+		  <PropertyValue name="Spy&amp;++.IsGUIapp">true</PropertyValue>
+		  <PropertyValue name="Spy&amp;++.SaveAllDocs">true</PropertyValue>
+		  <PropertyValue name="Spy&amp;++.UseTaskList">false</PropertyValue>
+		  <PropertyValue name="Spy&amp;++.Unicode">false</PropertyValue>
+		  <PropertyValue name="Spy&amp;++.Package">{F1C25864-3097-11D2-A5C5-00C04F7968B4}</PropertyValue>
+		  <PropertyValue name="Spy&amp;++.NameID">10051</PropertyValue>
+
+		  
+		  <!-- Defining order of items in menu-->
+		  <PropertyValue name="ToolNames">Visual Studio Command Prompt, Mono4Android Android Debug Bridge adb, ILspy Reflector, Run Batch File and Quit, Run Batch File and Remain, ASP.net Temporary Files Location, Mono4Android DroidDraw, Mono4Android Eclipse, Create &amp;GUID, Dot&amp;fuscator Software Services, Ea&amp;zfuscator.NET Assistant, Error Loo&amp;kup, ATL/MFC &amp;Trace Tool, Spy&amp;++</PropertyValue>
+		</Category>
+	</Category>
+</UserSettings>

@@ -1,0 +1,29 @@
+Let me explain what I mean by .. 'not cross platform' ... The fact is that the WinJS 
+library isn't really intended for web development. Unlike jQuery, Prototype, YUI, Dojo etc. 
+It's designed to allow web apps (pages) to incorporate Win8 Metro features and functionality. 
+Therefore, its not really much help in building sites and pages for browsers others than 
+IE10 Metro.
+ 
+The other issue is that many web devs wouldn't touch Windows development with a ten foot 
+chopstick! Their focus is the web only ..or .. perhaps making their sites look good on 
+mobile browsers .. or .. something like PhoneGap (Adobe) and SenchaTouch.
+ 
+So HTML/CSS/WinJS for building web apps is gonna be a tough sell for non-MS devs. 
+
+
+
+
+
+
+
+
+
+
+
+
+Deploying D:\SRC\libraries-holisticware\git[github.com]\MonoMobile.Dialog\XSample.WP.moljac\Bin\Debug\Xample.WP.moljac.xap...
+Connecting to Windows Phone Emulator - 512 MB...
+Deployment of application to device failed.
+The RPC server is unavailable.
+Canceling Deployment...
+Build has been canceled.

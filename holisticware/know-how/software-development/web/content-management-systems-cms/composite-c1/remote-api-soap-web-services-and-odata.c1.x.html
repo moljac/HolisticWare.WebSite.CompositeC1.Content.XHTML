@@ -1,0 +1,118 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Service Layer - Remote APIs</title>
+Description = all keywords + extra text
+<meta name="Description" content="Service Layer - Remote APIs : Web Services (SOAP), REST, OData, WebSockets" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Remote APIs
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Remote APIs, Web Services, SOAP), REST, OData, WebSockets" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2012-12-10" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>Remote APIs</h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+
+
+	<!-- ================================================================== -->
+	<h2>APIS</h2>
+	<p>
+		Exposing data and enabling function/method calls across process boundaries.
+	</p>
+
+	
+	<!-- ================================================================== -->
+	<h2>Samples</h2>
+
+	<ul>
+		<li>
+			<a
+				href="~/RemoteAPI/WebServiceSOAP/Composite.News.NewsList.ashx"
+				>
+				ASHX ~/RemoteAPI/WebServiceSOAP/Composite.News.NewsList.ashx
+			</a>
+		</li>
+		<li>
+			<a
+				href="~/RemoteAPI/WebServiceSOAP/News.asmx"
+				>
+				ASMX ~/RemoteAPI/WebServiceSOAP/News.asmx
+			</a>
+		</li>
+		<li>
+			<a
+				href="~/RemoteAPI/WebServiceSOAP/NewsWebService.asmx"
+				>
+				ASMX ~/RemoteAPI/WebServiceSOAP/NewsWebService.asmx
+			</a>
+		</li>
+		<li>
+			<a
+				href="~/RemoteAPI/WebServiceSOAP/WebServiceNews.asmx"
+				>
+				ASMX ~/RemoteAPI/WebServiceSOAP/WebServiceNews.asmx
+			</a>
+		</li>
+		<li>
+			<a
+				href="~/RemoteAPI/OData/OData.svc"
+				>
+				OData ~/RemoteAPI/OData/OData.svc
+			</a>
+		</li>
+	</ul>
+
+
+
+	<pre class="hw_code">
+validate a user using
+
+Composite.C1Console.Security.UserValidationFacade.FormValidateUser(username, password);
+
+ 
+
+This call will set a cookie on the current request and the 
+validity of this cookie can be verified by this call
+
+	Composite.C1Console.Security.UserValidationFacade.IsLoggedIn()
+
+To get the username for a user that have been validated earlier use
+
+	Composite.C1Console.Security.UserValidationFacade.GetUsername()
+
+ 
+
+OData/SOAP client behaviour:
+
+
+1.       Given user name and password call a service which call FormValidateUser
+2.       On the client, if this call returns true, keep authentication cookie and send 
+		 it along all further requests
+a.       On server, for data functions use IsLoggedIn to verify you have an authenticated user
+		
+		
+If you need to match read/write address to a specific data element (as defined in the tree) 
+let me know – I can’t remember the specific calls in my head, but it is possible to check 
+if a given user has edit access to a data item etc.
+
+
+Let me know if this is helpful or you are looking for something else.
+	</pre>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+Mobile users less tolerant, more demanding than desktop users
+By a MCD columnist
+January 18, 2013
+
+By Eran Kinsbruner
+
+Apple users have already downloaded applications from its App Store more than 25 billion times and that number continues to grow. Today, there are more than 1.3 million apps in the market for customers to choose from, but many of them prove to be unsuccessful.
+
+There are a few common pitfalls and quality issues most fall into, many of which can be avoided with proper testing and considerations.
+
+It is crucial for vendors to engage in proper testing and app monitoring as vendors are exposing their brand to an enormous market that comes with many risks.
+
+Expectations
+Mobile users expect high quality experiences and accessibility from their mobile devices. Marketers should also keep performance and usability in mind.
+
+
+
+In order to be successful in mobile marketing, the brand must be able to deliver on this expectation.
+
+As one of the most popular sites on the Web, Facebook has a large audience with very little tolerance for mistakes.
+
+The social media giant’s mobile app rated poorly in Google Play with 3 stars. According to reviews, this is due to shortcomings in usability and performance.
+
+For example, uploading photos via Facebook’s mobile app is difficult for users. The app closes frequently, there are problems with simply posting a status and invisible comments are top reasons for consumer frustration.
+
+Essentially, Facebook did not deliver on meeting the user’s expectations.
+
+The difference between the company’s Web site behavior and mobile is huge.
+
+When looking at its Web presence, Facebook users are able to share statuses, as well as upload photos easily and quickly.
+
+Facebook is finally beginning to introduce these features to its mobile app, which was originally launched for iOS in 2007. However, it is still not 100 percent feature compliant with the Web after launching five years ago.
+
+The lack of basic features in the first deployment of the app and even subsequent updates created a problem for users because they expect Web sites to translate well into the app environment.
+
+Common pitfalls
+In order to satisfy app users and avoid the problem Facebook had, it is important to note and avoid the common problems and pitfalls companies have when launching apps.
+
+Mobile application vendors must consider the following guidelines when testing:
+
+• Compatibility – It is crucial to ensure applications will not crash in specific scenarios or on specific operating systems. The way to do this is through a proper cloud-based testing strategy. As new devices come out, apps should be prepared to provide backward/forward compatibility across older – and newer – versions, testing all devices and flavors.
+
+• Usability and Functionality – Researches have shown that the user has a grace period of 30-60 seconds when first using the mobile application, which will result in either adopting the application or moving to a different available application. The app should be easy to navigate and as close to the web interface as possible.
+
+• Portability – You must test across different operating systems (i.e. Android 2.3, 3.x, 4.x) and across different device families – screen resolution and form factors. Of course, testing must be done on both smartphones and tablets – the applications can act very differently upon implementation.
+
+• Monitoring – As mobile testing and updates are more frequent, mobile apps should be monitored constantly. This is especially crucial for business-critical applications and web-based applications. Flagging a problem can avoid a lot of user frustration.
+
+Essentially, mobile users are less tolerant and much more demanding than desktop users.
+
+App vendors must consider this lack of patience and test along the proper guidelines.
+
+Not all app vendors are taking these user reviews seriously and using the app store feedback constructively.
+
+To avoid making the same mistakes over again, app vendors should consider the user and test for usability, compatibility and performance, and monitor for any problems that could arise.
+
+For the mobile marketer, this seamless transition from the Web interface to the mobile app will result in happy users, which are crucial to their marketing initiatives.

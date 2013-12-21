@@ -1,0 +1,22 @@
+Filenames 
+	iOS filenames are case SenSitIvE.
+
+Summary:
+	FromBundle
+		synchronous.
+		can only load images that you include with your application
+		provides no built-in caching
+	FromFile
+		asynchronous
+		lazy-loading
+		can load images from an external location
+		provides automatic cache an image after it is loaded.
+
+usage recommendation:
+	use UIImage.FromFile when loading several images at one time, 
+	since it lazy-loads images asynchronously.
+
+	use UIImage.FromBundle only when loading the same image repeatedly.
+
+
+http://docs.xamarin.com/ios/tutorials/Working_with_Images

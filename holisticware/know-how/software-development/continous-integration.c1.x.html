@@ -1,0 +1,33 @@
+Cruise Control and Team City, and to be honest I found them each as good as each other, esp for normal MVC.
+ 
+Cruise Control's web interface is a lot simpler than Team City's by TC's has more options, and you can pull it as an XML feed etc into your own apps in case you want to make your own build monitor.
+ 
+They both have their strengths and weaknesses and in equal measures. 
+
+I've not really done the set up thing, I've just used them as a user, but I did start digging into MS-Build scripts and since each of them use MSBuild then customizing for specific scenarios is relatively trivial, esp when you start integrating other toolkits to help with things like DB deployment.
+ 
+ 
+ 
+ www.finalbuilder.com , its easy to learn (compared to CC) and at the same time very powerful so you can extend it by developing scripts in Powershell or even C# if needed. 
+ 
+ 
+ TeamCity is great, and the latest version (7.0) can even be used as a NuGet feed server. The two tutorials online that really got me going with TeamCity are these:
+ 
+http://www.troyhunt.com/2010/11/you-deploying-it-wrong-teamcity.html
+ 
+and
+ 
+http://www.diaryofaninja.com/blog/2010/05/09/automated-site-deployments-with-teamcity-deployment-projects-amp-svn
+ 
+And DimeCasts has a video, too:
+ http://www.dimecasts.net/Casts/ByTag/Team%20City
+ 
+ 
+ In addition to the tools mentioned above, If you do care about code quality analysis I would like to mention Atlassian Bamboo combined with Sonar. While TeamCIty with some of its plugins installed does a good job of analyzing .NET code I've managed to get information about lines of code, comments, cyclomatic complexity etc. only in Sonar. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,35 @@
+ave a current application that I will be be expanding on. The current
+application has a sqlite db that stores some data and I want to add to it.
+The data I am going to add will be sensitive information.  
+
+If the database is in the /Library/ directory, is encryption needed? What
+does encrypting the DB stop since everything will be in a sandbox? 
+
+Are there build in ways to encrypt the db? 
+
+
+Depends on how secure you want it to be - the sandbox (plus curated app store) generally means other applications can never hack at/steal your data, and in the /Library/ folder end-users generally won't find it either.
+However, if the phone/device was stolen, unencrypted files are fairly simple for someone to find (eg. using PhoneDisk, doesn't require jailbreaking). So if you want to protect the data even if a phone is lost or stolen, considering encryption is probably a good idea. 
+
+There's nothing "built-in" to Xamarin to do that, but there is a component available to purchase on the store 
+
+SQLCipher
+https://components.xamarin.com/view/sqlcipher-for-xamarin/
+
+
+
+> If the database is in the /Library/ directory, is encryption needed? What
+> does encrypting the DB stop since everything will be in a sandbox? 
+
+Yes, if you have sensitive data, then you should use encryption. Maybe your app is in a sandbox, but you dont know if the device has been jailbroken or a bug in the iOS system has been found, so if you want to keep the confidential data confidential, use encryption.
+
+> Are there build in ways to encrypt the db? 
+
+I cant ensure under iOS because i did not used it, but usually, sqlite allows you to encrypt a database just giving a password to the connection before creating the database, in this way, when the db is created its encripted with the given password.
+
+Here you have some examples under .net, maybe those will help you find the way its done on monotouch 
+
+http://sqlite.phxsoftware.com/forums/t/130.aspx
+
+
+

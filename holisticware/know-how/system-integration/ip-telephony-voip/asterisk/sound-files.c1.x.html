@@ -1,0 +1,73 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Sound Files</title>
+Description = all keywords + extra text
+<meta name="Description" content="Sound Files in Asterisk" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: sound-files
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="sound, files, asterisk" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2012-03-01" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Sound Files</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Conversion</a></h2>
+	<pre class="hw_code">
+Asterisk is actually able to convert a .wav file into any format for which it has a codec.
+ 
+On the command line, simply run:
+ 
+asterisk -x "file convert inputfile.wav outputfile.alaw"
+ 
+...this would convert your wav file into an A-Law format file.
+ 
+Alternatively, the program sox (available on Linux) is able to convert to/from loads of formats.
+ 
+check out http://www.voip-info.org/wiki/view/Convert+WAV+audio+files+for+use+in+Asterisk for more methods and examples.
+ 
+Hope this helps.
+
+#sox input.wav -r 8000 -c 1 -s -w output.wav resample -ql 
+
+
+
+http://striker24x7.blogspot.in/2012/02/wavmp3-to-g729-ulaw-alaw-gsm-converter.html#!/2012/02/wavmp3-to-g729-ulaw-alaw-gsm-converter.html
+	</pre>
+
+	<!-- ================================================================== -->
+	<h2><a id="">FreePBX based Systems (Trixbox, Elastix, SwitchVox)</a></h2>
+
+	<p>
+		For FreePBX based systems, besides Asterisk script add:
+	</p>
+	<ul>
+		<li>
+			sox
+		</li>
+		<li>
+			Audacity
+			<br />
+		</li>
+		<li>
+		</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,157 @@
+ ObservableCollection was moved from Windows.Base to System and
+TypeForwardedTo and TypeForwardedFrom tags were added to the relevant source
+code. ObservableCollection is serializable but when done on a Windows system
+using .NET >= 3 the serialized object will still contain the WindowsBase,
+Version=3.0.0.0, Culture=Neutral, PublicKeyToken=31bf3856ad364e35 data but
+Mono will use System. Hence, if you serialize on Mono and then try and
+deserialize on .NET then you get an error message:
+
+Error when trying to deserialize with ObservableCollection:?Unable to find
+assembly?'System'.
+
+Should the serializer use the forwarded information to ensure compatibility
+with older programs (and with what .NET does)?
+
+ In addition, Windows serializes a variable name _busyCount whereas Mono
+defines _count.
+ 
+ Also, I note that BindingList serialization on Mono has different and
+missing variable names compared to the .NET equivalent. For example,
+allow_new is allowNew in .NET. In addition, do those serialized variables
+need to be public or should they be declared as private?
+
+ A test case may be found at http://pastebin.com/sRFjhWka
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+MS.NET 4.0 beta was using the information gathered from
+TypeForwardedFrom during serialization. Odds are that this
+still applies.
+
+Then Mono's binary serialization machinery should be changed
+to pay attention to this attribute during de/serialization,
+maybe in class/corlib/System.Runtime.Serialization/ObjectManager.cs.
+
+>   In addition, Windows serializes a variable name _busyCount whereas Mono
+> defines _count.
+>
+>   Also, I note that BindingList serialization on Mono has different and
+> missing variable names compared to the .NET equivalent. For example,
+> allow_new is allowNew in .NET. In addition, do those serialized variables
+> need to be public or should they be declared as private?
+
+They must have the same visibility as in MS.NET.
+
+Usually, when a class does not implement ISerializable, Mono's
+implementation must be changed to match MS down to member naming.
+It's a tedious work given that we don't look at MS' source code...
+
+
+
+
+
+
+
+
+Shouldn't it be possible to extract "clean room" serialization 
+descriptors from the MS implementation without having to look at the source?
+
+Extracting that into some kind of stable text format then would enable 
+automated comparisons, no?
+
+
+Best Regards, David
+
+
+
+
+
+This sounds like a job for the XML serializer (eg.
+http://geekswithblogs.net/TimH/archive/2006/02/09/68857.aspx). You should
+be able to use an XML deserializer (either the standard .NET one or a
+custom one) to parse your XML into objects. Mapping XML to objects is
+pretty common and a XML deserializer should be able to do most of the work
+for you. 
+
+Otherwise, I'd suggest using LINQ to XML instead. Use XElement.Load to load
+the XML file, file.Descendants("GirlRecord") to get the records and
+record.Element("FirstName") to get the value.
+
+
+On Thu, Mar 14, 2013 at 2:58 AM, Paul Johnson
+<paul@all-the-johnsons.co.uk>wrote:
+
+> Hi,
+>
+> Got a small XML issue I could do with some help on.
+>
+> I have an XML file that looks like this
+>
+> <GirlRecord>
+> <FirstName>Girly</FirstName>
+> <LastName>Girl</LastName>
+> ...
+> </GirlRecord>
+>
+> The GirlRecord can contain upto 50 different fields - it doesn't have to
+> contain all of them (so a record with 26 fields is fine).
+>
+> I have a containing class which looks like this
+>
+> public class GirlRecords
+> {
+>    public GirlRecords(){}
+>
+>    public string FirstName
+>    {get;set;}
+>    public string LastName
+>    {get;set;}
+>
+>    // and so on
+> }
+>
+> To load the XML file back in, my code looks like this
+>
+> private List<GirlRecords> ReadInGirlRecords()
+>         {
+>             List<GirlRecords> toReturn = new List<GirlRecords>();
+>             GirlRecords aff = null;
+>             int m = 0;
+>             string localPath = Path.Combine(path, "GirlRecords.xml");
+>             if (!File.Exists(localPath))
+>                 return toReturn;
+>             using (XmlReader reader = XmlReader.Create(localPath))
+>             {
+>                 aff = new GirlRecords();
+>                 while (reader.Read())
+>                 {
+>                     if (reader.IsStartElement())
+>                     {
+>                         switch (reader.Name)
+>                         {
+>                             case "FirstName":
+>                                 reader.Read();
+>                                 aff.FirstName = reader.Value;
+>                                 break;
+>                             case "LastName":
+>                                 reader.Read();
+>                                 aff.LastName = reader.Value;
+>                                 break;
+>
+> The problem is that to add to the List, I need to find the terminating
+> </GirlRecord> and act on that.
+>
+> Question is, how do I do that? Should I use XmlReadInner or ReadOuter or
+> is there a better way?
+>
+> Paul
+>
+> --
+> "Space," it says, "is big. Really big. You just won't believe how vastly,
+> hugely, mindbogglingly big it is. I mean, you may think it's a long way
+> down the road to the chemist's, but that's just peanuts to space, listen..."
+> Hitch Hikers Guide to the Galaxy, a truly remarkable book!

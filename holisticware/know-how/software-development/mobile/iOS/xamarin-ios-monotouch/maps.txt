@@ -1,0 +1,12 @@
+     display a Google Maps view in the app itself and there's also
+    functionality to launch the external Maps app. Will either of these work in
+    iOS 6?
+
+
+The API hasn't changed at all, you do it the exact same way you used to with the Google 
+maps and in iOS6 it'll use the Apple maps.
+
+In other words: you don't have to do anything at all to make the Apple maps work if you 
+already have the Google maps working.
+
+Rolf

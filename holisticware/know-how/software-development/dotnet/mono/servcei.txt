@@ -1,0 +1,46 @@
+Services
+
+
+> Is there a way to specify the GC used when running a service using
+> mono-service? --gc=sgen works when invoking mono directly, but how do I do
+> this through mono-service?
+
+With the MONO_OPTIONS environment variable:
+
+MONO_OPTIONS=--gc=sgen mono-service ...
+
+
+
+> i have installed mono on SUSE Linux enterprise 11. I have 1 .net application
+> created from visual studio 2008,  this application actually creates 1
+> windows service when executed on windows OS machine. This application takes
+> 1 argument "i" for installing service. (Example: MyService.exe -i). i want
+> to same thing on SUSE Linux machine. How can i do this using mono ?
+
+Services under mono are run within the mono-service.exe host, which acts 
+as svchost process for your service.
+
+For a nice example how to use it, see this Stackoverflow answer:
+
+   http://stackoverflow.com/a/1234761/4918
+
+   
+   
+ BUT, i cannot deploy any mono service, There isn't any response message 
+when i was running that command at blow: 
+
+"mono-service2 --debug -l:<lock file here> <assembly file here>" 
+
+No reason, No response, No errors, The only one result is that my 
+service has not start yet!!!!! 
+
+I had tried to use gdb to DEBUG /usr/lib/mono/2.0/mono-service.exe, BUT 
+it doesn't works at gdb, because of it said: "cannot execute binary 
+file...." 
+
+I had already got some clues that can use "mono 
+/usr/lib/mono/2.0/mono-service.exe <assembly file here>" to DEBUG, BUT i 
+still cannot get any valuable information to points out that, where is 
+the error point. 
+
+

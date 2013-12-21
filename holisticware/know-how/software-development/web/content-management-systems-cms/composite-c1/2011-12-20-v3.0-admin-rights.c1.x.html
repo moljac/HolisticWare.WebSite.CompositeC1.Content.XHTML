@@ -1,0 +1,59 @@
+Problem: Failed to map the path '/'. 
+
+
+Server Error in '/Website_v3.0' Application.
+--------------------------------------------------------------------------------
+
+Failed to map the path '/'. 
+Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code. 
+
+Exception Details: System.InvalidOperationException: Failed to map the path '/'.
+
+Source Error: 
+
+An unhandled exception was generated during the execution of the current web request. Information regarding the origin and location of the exception can be identified using the exception stack trace below.  
+
+Stack Trace: 
+
+
+[InvalidOperationException: Failed to map the path '/'.]
+   System.Web.Configuration.ProcessHostConfigUtils.MapPathActual(String siteName, VirtualPath path) +314
+   System.Web.Configuration.ProcessHostMapPath.MapPathCaching(String siteID, VirtualPath path) +1864
+   System.Web.Configuration.ProcessHostMapPath.GetPathConfigFilenameWorker(String siteID, VirtualPath path, String& directory, String& baseName) +46
+   System.Web.Configuration.ProcessHostMapPath.System.Web.Configuration.IConfigMapPath.GetPathConfigFilename(String siteID, String path, String& directory, String& baseName) +69
+   System.Web.Configuration.HostingPreferredMapPath.GetPathConfigFilename(String siteID, String path, String& directory, String& baseName) +104
+   System.Web.Configuration.WebConfigurationHost.GetStreamName(String configPath) +200
+   System.Configuration.Internal.DelegatingConfigHost.GetStreamName(String configPath) +20
+   System.Configuration.BaseConfigurationRecord.InitConfigFromFile() +196
+
+[ConfigurationErrorsException: An error occurred loading a configuration file: Failed to map the path '/'.]
+   System.Configuration.ConfigurationSchemaErrors.ThrowIfErrors(Boolean ignoreLocal) +75
+   System.Configuration.BaseConfigurationRecord.ThrowIfParseErrors(ConfigurationSchemaErrors schemaErrors) +47
+   System.Configuration.BaseConfigurationRecord.ThrowIfInitErrors() +12
+   System.Configuration.Configuration..ctor(String locationSubPath, Type typeConfigHost, Object[] hostInitConfigurationParams) +318
+   System.Configuration.Internal.InternalConfigConfigurationFactory.System.Configuration.Internal.IInternalConfigConfigurationFactory.Create(Type typeConfigHost, Object[] hostInitConfigurationParams) +30
+   System.Web.Configuration.WebConfigurationHost.OpenConfiguration(WebLevel webLevel, ConfigurationFileMap fileMap, VirtualPath path, String site, String locationSubPath, String server, String userName, String password, IntPtr tokenHandle) +704
+   System.Web.Configuration.WebConfigurationManager.OpenWebConfigurationImpl(WebLevel webLevel, ConfigurationFileMap fileMap, String path, String site, String locationSubPath, String server, String userName, String password, IntPtr userToken) +65
+   System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration(String path) +63
+   Composite.Core.Routing.Pages.C1PageRouteHandler..cctor() +188
+
+[TypeInitializationException: The type initializer for 'Composite.Core.Routing.Pages.C1PageRouteHandler' threw an exception.]
+   Composite.Core.Routing.Pages.C1PageRouteHandler..ctor() +0
+   Composite.Core.Routing.Pages.C1PageRoute.GetRouteData() +114
+   Composite.Core.Routing.Pages.C1PageRoute.SeoFriendlyRedirect(HttpContextBase context, String url) +365
+   Composite.Core.Routing.Pages.C1PageRoute.GetRouteData(HttpContextBase context) +1523
+   System.Web.Routing.RouteCollection.GetRouteData(HttpContextBase httpContext) +473
+   System.Web.Routing.UrlRoutingModule.PostResolveRequestCache(HttpContextBase context) +76
+   System.Web.Routing.UrlRoutingModule.OnApplicationPostResolveRequestCache(Object sender, EventArgs e) +127
+   System.Web.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute() +220
+   System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) +120
+
+ 
+
+
+--------------------------------------------------------------------------------
+Version Information: Microsoft .NET Framework Version:4.0.30319; ASP.NET Version:4.0.30319.237 
+
+
+
+

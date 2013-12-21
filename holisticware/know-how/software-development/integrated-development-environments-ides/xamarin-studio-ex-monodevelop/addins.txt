@@ -1,0 +1,5 @@
+Addins
+
+http://monodevelop.com/Developers/Articles/Publishing_an_Addin
+
+http://monogame.codeplex.com/releases/view/102870

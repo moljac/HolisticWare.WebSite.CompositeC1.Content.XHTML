@@ -1,0 +1,295 @@
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://blog.fredrikhaglund.se/blog/2007/11/27/generation-of-designer-file-failed/
+
+
+
+
+
+	
+Conversion
+
+
+Error     1     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\updated.aspx'.     
+MvcApplication1\Composite\updated.aspx     1     
+Error     2     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\unsupported.aspx'.     
+MvcApplication1\Composite\unsupported.aspx     1     
+Error     3     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\unknownbrowser.aspx'.     
+MvcApplication1\Composite\unknownbrowser.aspx     1     
+Error     4     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\postback.aspx'.     
+MvcApplication1\Composite\postback.aspx     1     
+Error     5     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\dead.aspx'.     
+MvcApplication1\Composite\dead.aspx     1     
+Error     6     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\systemview\systemview.aspx'.     
+MvcApplication1\Composite\content\views\systemview\systemview.aspx     1     
+Error     7     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\start\start.aspx'.     
+MvcApplication1\Composite\content\views\start\start.aspx     1     
+Error     8     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\seoassist\seoassist.aspx'.     
+MvcApplication1\Composite\content\views\seoassist\seoassist.aspx     1     
+Error     9     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\help\help.aspx'.     
+MvcApplication1\Composite\content\views\help\help.aspx     1     
+Error     10     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\generic\generic.aspx'.     
+MvcApplication1\Composite\content\views\generic\generic.aspx     1     
+Error     11     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\explorer\explorer.aspx'.     
+MvcApplication1\Composite\content\views\explorer\explorer.aspx     1     
+Error     12     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\editors\permissioneditor\permissioneditor.aspx'.     
+MvcApplication1\Composite\content\views\editors\permissioneditor\permissioneditor.aspx     1     
+Error     13     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\editors\imageeditor\imageeditor.aspx'.     
+MvcApplication1\Composite\content\views\editors\imageeditor\imageeditor.aspx     1     
+Error     14     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\dev\viewsource\viewsource.aspx'.     
+MvcApplication1\Composite\content\views\dev\viewsource\viewsource.aspx     1     
+Error     15     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\dev\systemlog\systemlogoutput.aspx'.     
+MvcApplication1\Composite\content\views\dev\systemlog\systemlogoutput.aspx     1     
+Error     16     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\dev\systemlog\systemlog.aspx'.     
+MvcApplication1\Composite\content\views\dev\systemlog\systemlog.aspx     1     
+Error     17     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\dev\icons\files\republicrender.aspx'.     
+MvcApplication1\Composite\content\views\dev\icons\files\republicrender.aspx     1     
+Error     18     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\dev\icons\files\republic.aspx'.     
+MvcApplication1\Composite\content\views\dev\icons\files\republic.aspx     1     
+Error     19     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\dev\icons\files\harmonyrender.aspx'.     
+MvcApplication1\Composite\content\views\dev\icons\files\harmonyrender.aspx     1     
+Error     20     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\dev\icons\files\harmony.aspx'.     
+MvcApplication1\Composite\content\views\dev\icons\files\harmony.aspx     1     
+Error     21     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\dev\developer\developer.aspx'.     
+MvcApplication1\Composite\content\views\dev\developer\developer.aspx     1     
+Error     22     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\views\browser\browser.aspx'.     
+MvcApplication1\Composite\content\views\browser\browser.aspx     1     
+Error     23     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\viewers\sourcecodeviewer\viewsourcecontent.aspx'.     
+MvcApplication1\Composite\content\misc\viewers\sourcecodeviewer\viewsourcecontent.aspx     1     
+Error     24     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\stage\stagedeck.aspx'.     
+MvcApplication1\Composite\content\misc\stage\stagedeck.aspx     1     
+Error     25     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\preview\stop.aspx'.     
+MvcApplication1\Composite\content\misc\preview\stop.aspx     1     
+Error     26     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\preview\error.aspx'.     
+MvcApplication1\Composite\content\misc\preview\error.aspx     1     
+Error     27     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\editors\visualeditor\tinymce.aspx'.     
+MvcApplication1\Composite\content\misc\editors\visualeditor\tinymce.aspx     1     
+Error     28     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\table.aspx'.     
+MvcApplication1\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\table.aspx     1     
+Error     29     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\row.aspx'.     
+MvcApplication1\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\row.aspx     1     
+Error     30     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\merge.aspx'.     
+MvcApplication1\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\merge.aspx     1     
+Error     31     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\cell.aspx'.     
+MvcApplication1\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositetable\cell.aspx     1     
+Error     32     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositelink\link.aspx'.     
+MvcApplication1\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositelink\link.aspx     1     
+Error     33     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositeimage\image.aspx'.     
+MvcApplication1\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositeimage\image.aspx     1     
+Error     34     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositecharmap\charmap.aspx'.     
+MvcApplication1\Composite\content\misc\editors\visualeditor\tiny_mce\plugins\compositecharmap\charmap.aspx     1     
+Error     35     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\editors\codemirroreditor\codemirroreditor.aspx'.     
+MvcApplication1\Composite\content\misc\editors\codemirroreditor\codemirroreditor.aspx     1     
+Error     36     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\editors\codemirroreditor\codemirror.aspx'.     
+MvcApplication1\Composite\content\misc\editors\codemirroreditor\codemirror.aspx     1     
+Error     37     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\defaultstart\defaultstart.aspx'.     
+MvcApplication1\Composite\content\misc\defaultstart\defaultstart.aspx     1     
+Error     38     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\audioloader\audio.aspx'.     
+MvcApplication1\Composite\content\misc\audioloader\audio.aspx     1     
+Error     39     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\flow\FlowUiCompletedDialog.aspx'.     
+MvcApplication1\Composite\content\flow\FlowUiCompletedDialog.aspx     1     
+Error     40     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\flow\FlowUiCompleted.aspx'.     
+MvcApplication1\Composite\content\flow\FlowUiCompleted.aspx     1     
+Error     41     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\wysiwygeditor\wysiwygeditordialog.aspx'.     
+MvcApplication1\Composite\content\dialogs\wysiwygeditor\wysiwygeditordialog.aspx     1     
+Error     42     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\wysiwygeditor\mozsecuritynote\mozsecuritynote.aspx'.     
+MvcApplication1\Composite\content\dialogs\wysiwygeditor\mozsecuritynote\mozsecuritynote.aspx     1     
+Error     43     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\wysiwygeditor\errors\contenterror.aspx'.     
+MvcApplication1\Composite\content\dialogs\wysiwygeditor\errors\contenterror.aspx     1     
+Error     44     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\webservices\error.aspx'.     
+MvcApplication1\Composite\content\dialogs\webservices\error.aspx     1     
+Error     45     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\util\comparestrings\comparestrings.aspx'.     
+MvcApplication1\Composite\content\dialogs\util\comparestrings\comparestrings.aspx     1     
+Error     46     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\treeselector\treeselector.aspx'.     
+MvcApplication1\Composite\content\dialogs\treeselector\treeselector.aspx     1     
+Error     47     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\treeselector\special\treeactionselector.aspx'.     
+MvcApplication1\Composite\content\dialogs\treeselector\special\treeactionselector.aspx     1     
+Error     48     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\treeselector\special\imageselector.aspx'.     
+MvcApplication1\Composite\content\dialogs\treeselector\special\imageselector.aspx     1     
+Error     49     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\translations\translations.aspx'.     
+MvcApplication1\Composite\content\dialogs\translations\translations.aspx     1     
+Error     50     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\systemtrees\detailedpaste.aspx'.     
+MvcApplication1\Composite\content\dialogs\systemtrees\detailedpaste.aspx     1     
+Error     51     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\standard\standard.aspx'.     
+MvcApplication1\Composite\content\dialogs\standard\standard.aspx     1     
+Error     52     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\save\saveall.aspx'.     
+MvcApplication1\Composite\content\dialogs\save\saveall.aspx     1     
+Error     53     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\postback\postbackdialog.aspx'.     
+MvcApplication1\Composite\content\dialogs\postback\postbackdialog.aspx     1     
+Error     54     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\options\options.aspx'.     
+MvcApplication1\Composite\content\dialogs\options\options.aspx     1     
+Error     55     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\multiselector\multiselectordialog.aspx'.     
+MvcApplication1\Composite\content\dialogs\multiselector\multiselectordialog.aspx     1     
+Error     56     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\imageeditor\scaleimage\scaleimage.aspx'.     
+MvcApplication1\Composite\content\dialogs\imageeditor\scaleimage\scaleimage.aspx     1     
+Error     57     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\about\about.aspx'.     
+MvcApplication1\Composite\content\dialogs\about\about.aspx     1     
+Error     58     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\compile.aspx'.     
+MvcApplication1\Composite\compile.aspx     1     
+Error     59     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\blank.aspx'.     
+MvcApplication1\Composite\blank.aspx     1     
+Error     60     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\app.aspx'.     
+MvcApplication1\Composite\app.aspx     1     
+
+
+
+Tried for brute force (w/o intelligence) insertion of Page directive:
+
+Error	1	There can be only one 'page' directive.	.\Website\Composite\updated.aspx	2	
+Error	2	There can be only one 'page' directive.	.\Website\Composite\updated.aspx	3	
+Error	3	There can be only one 'page' directive.	.\Website\Composite\updated.aspx	4	
+
+No go!
+
+So more intelligent sed script is gonna be needed!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Error     1256     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\defaultstart\defaultstart.aspx'.     
+MvcApplication1\Composite\content\misc\defaultstart\defaultstart.aspx     1     
+Error     1257     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\audioloader\audio.aspx'.     
+MvcApplication1\Composite\content\misc\audioloader\audio.aspx     1     
+Error     1258     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\wysiwygeditor\errors\contenterror.aspx'.     
+MvcApplication1\Composite\content\dialogs\wysiwygeditor\errors\contenterror.aspx     1     
+Error     1259     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\treeselector\special\treeactionselector.aspx'.     
+MvcApplication1\Composite\content\dialogs\treeselector\special\treeactionselector.aspx     1     
+Error     1260     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\treeselector\special\imageselector.aspx'.     
+MvcApplication1\Composite\content\dialogs\treeselector\special\imageselector.aspx     1     
+Error     1290     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\defaultstart\defaultstart.aspx'.     
+MvcApplication1\Composite\content\misc\defaultstart\defaultstart.aspx     1     
+Error     1291     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\misc\audioloader\audio.aspx'.     
+MvcApplication1\Composite\content\misc\audioloader\audio.aspx     1     
+Error     1292     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\wysiwygeditor\errors\contenterror.aspx'.     
+MvcApplication1\Composite\content\dialogs\wysiwygeditor\errors\contenterror.aspx     1     
+Error     1293     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\treeselector\special\treeactionselector.aspx'.     
+MvcApplication1\Composite\content\dialogs\treeselector\special\treeactionselector.aspx     1     
+Error     1294     Unable to convert to Web Application format because the page directive is missing in the file 
+'Composite\content\dialogs\treeselector\special\imageselector.aspx'.     
+MvcApplication1\Composite\content\dialogs\treeselector\special\imageselector.aspx     1     
+
+
+
+No xml tag
+MvcApplication1\Composite\content\misc\viewers\sourcecodeviewer\viewsourcecontent.aspx
+
+
+
+
+
+
+ASCX
+<%@ Register TagPrefix="aspui" Namespace="Composite.Core.WebClient.UiControlLib" Assembly="Composite" %>
+
+
+
+
+
+
+
+Error     1     The type 'ShowElementInformation_Default' already contains a definition for 'Httpheaders1'     MvcApplication1\Composite\content\views\showelementinformation\Default.aspx.designer.cs     21     42     MvcApplication1
+Error     2     The type 'ShowElementInformation_Default' already contains a definition for 'Styleloader1'     MvcApplication1\Composite\content\views\showelementinformation\Default.aspx.designer.cs     30     61     MvcApplication1
+Error     3     The type or namespace name 'StyleLoaderControl' could not be found in the global namespace (are you missing an assembly reference?)     MvcApplication1\Composite\content\views\showelementinformation\Default.aspx.design.cs     32     23     MvcApplication1
+Error     4     The type 'ShowElementInformation_Default' already contains a definition for 'Scriptloader1'     MvcApplication1\Composite\content\views\showelementinformation\Default.aspx.designer.cs     39     43     MvcApplication1
+Error     5     The type 'ShowElementInformation_Default' already contains a definition for 'ElementInformationPlaceHolder'     MvcApplication1\Composite\content\views\showelementinformation\Default.aspx.designer.cs     48     61     MvcApplication1

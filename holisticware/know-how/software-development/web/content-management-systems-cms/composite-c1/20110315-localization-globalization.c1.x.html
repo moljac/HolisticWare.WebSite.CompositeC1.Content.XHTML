@@ -1,0 +1,270 @@
+<!--
+C1 generated!!
+<title>2011-03-15 Composite C1 Localization Globalization</title>
+<meta name="Description" content="2011-03-15 Composite C1 Localization Globalization" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="2011-03-15, Composite,C1, Localization, Globalization" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-03-15" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">2011-03-15 Composite C1 Localization Globalization</a></h1>
+	<!-- ================================================================== -->
+	<p>Date: 2011-03-15</p>
+	
+	<h2><a id="">Enable Composite C1 for additional languages</a></h2>
+	<p>
+	Composite C1 console (Content Editors, Admins, Developers) open up:
+	</p>
+	<pre class="hw_code">
+System &gt; / &gt; App_Data &gt; Composite &gt; DataStores &gt; Composite.Data.Types.IWhiteListedLocale_Published.xml	
+	</pre>
+	<p>
+	Visual Studio (for Developers) go to file:
+	</p>
+	<pre class="hw_code">
+~\App_Data\Composite\DataStores\Composite.Data.Types.IWhiteListedLocale_Published.xml
+	</pre>
+	<p>
+	where ~ is application/website root.
+	</p>
+	<p>
+	Edit file (in C1 Console or Visual Studio):
+	</p>
+	<p>
+	To change default language of the site (not English)<br/>
+	Change language in the C1 Console (down/right/status bar)<br/>
+	Content &gt; WebSite &gt; add
+	</p>
+	<pre class="hw_code">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;WhiteListedLocales&gt;
+  &lt;WhiteListedLocale CultureName=&quot;de-DE&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;fr-BE&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;it-IT&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;da-DK&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;nl-BE&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;fr-FR&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;uk-UA&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;en-US&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;kl-GL&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;ru-RU&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;nl-NL&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;sv-SE&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;en-GB&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;es-ES&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;nb-NO&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;fi-FI&quot; /&gt;
+&lt;/WhiteListedLocales&gt;
+	</pre>
+	<p>
+	Add line for the cultures needed (ISO 639 and ISO 3166-1 alpha-2 codes)
+	<br />
+	<a href="http://en.wikipedia.org/wiki/Internationalization_and_localization">
+	http://en.wikipedia.org/wiki/Internationalization_and_localization
+	</a>
+	<br />
+	<a href="http://en.wikipedia.org/wiki/Locale">
+	http://en.wikipedia.org/wiki/Locale
+	</a>
+	</p>
+	<pre class="hw_code">
+	  &lt;WhiteListedLocale CultureName=&quot;hr-HR&quot; /&gt;
+	</pre>
+	
+	<p>
+	So it looks something like:
+	</p>
+	<pre class="hw_code">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;WhiteListedLocales&gt;
+  &lt;WhiteListedLocale CultureName=&quot;de-DE&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;fr-BE&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;it-IT&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;da-DK&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;nl-BE&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;fr-FR&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;uk-UA&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;en-US&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;kl-GL&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;ru-RU&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;nl-NL&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;sv-SE&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;en-GB&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;es-ES&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;nb-NO&quot; /&gt;
+  &lt;WhiteListedLocale CultureName=&quot;fi-FI&quot; /&gt;
+  &lt;!-- HolisticWare: additional languages --&gt;
+  &lt;WhiteListedLocale CultureName=&quot;hr-HR&quot; /&gt;
+&lt;/WhiteListedLocales&gt;
+	</pre>
+	<p>
+	Enable language!!!!
+	</p>
+	<pre class="hw_code">
+	System &gt; Languages &gt; Add Lanuage
+	</pre>
+	<p>
+	in folder:
+	</p>
+	<pre class="hw_code">
+	~\App_Data\Composite\DataStores\
+	</pre>
+	<p>
+	Creates file for Pages in that language!
+	</p>
+	<pre class="hw_code">	
+	Composite.Data.Types.IPage_Published_hr-HR.xml
+	Composite.Data.Types.IPage_Unpublished_hr-HR.xml
+	Composite.Data.Types.IPagePlaceholderContent_Published_hr-HR.xml
+	Composite.Data.Types.IPagePlaceholderContent_Unpublished_hr-HR.xml
+	</pre>
+
+	<h2><a id="">Localization in C1</a></h2>
+	<p>
+	Docummentation about Localization and Globalization in C1:
+	<ul>
+		<li>
+		<a href="http://compositec1.codeplex.com/discussions/232624?ProjectName=compositec1">
+		http://compositec1.codeplex.com/discussions/232624?ProjectName=compositec1
+		</a>
+		<br />
+		<a href="http://compositec1.codeplex.com/discussions/235983?ProjectName=compositec1">
+		http://compositec1.codeplex.com/discussions/235983?ProjectName=compositec1
+		</a>
+		</li>
+		<li>
+		</li>
+	</ul>
+	</p>
+	
+	
+	<h2><a id="">Quick solution</a></h2>
+	<p>
+	In the file:
+	</p>
+	<pre class="hw_code">
+~\App_Data\Composite\DataStores\Composite.Data.Types.IWhiteListedLocales_public.xml
+	</pre>
+	<p>
+	add lines for the cultures what you need, for example:
+	</p>
+	<pre class="hw_code">
+&lt;WhiteListedLocale CultureName="hr-HR" /&gt;
+&lt;WhiteListedLocale CultureName="ja-JP" /&gt;
+&lt;WhiteListedLocale CultureName="zh-CN" /&gt;
+	</pre>
+	<p>
+	Restart your console.
+	</p>
+	<p>
+	Able to add languages above on the
+	<br />
+	System =&gt; Languages =&gt; Add language
+	</p>
+	<p>Changes influenced:</p>
+	<ul>
+	  <li>
+		<pre class="hw_code">~\App_Data\Composite\DataStores\Composite.Data.Types.IWhiteListedLocales_public.xml</pre>
+		<ul>
+		  <li>
+			<pre class="hw_code">
+			&lt;WhiteListedLocale CultureName="hr-HR" /&gt;
+			</pre>
+		  </li>
+		</ul>
+	  </li>
+	  <li>
+		<pre class="hw_code">
+		~\App_Data\Composite\DataStores\Composite.Data.Types.ISystemActiveLocales_public.xml
+		</pre>
+		<ul>
+		  <li>
+			<pre class="hw_code">
+			&lt;SystemActiveLocale Id="50abd9f6-02df-4596-81a2-04ae44b20699" CultureName="hr-HR" UrlMappingName="hr" IsDefault="false" /&gt;
+			</pre>
+		  </li>
+		</ul>
+	  </li>
+	  <li>
+		<pre class="hw_code">
+		~\App_Data\Composite\DataStores\Composite.Data.Types.IUserActiveLocales_public.xml
+		</pre>
+		<ul>
+		  <li>
+			<pre class="hw_code">
+			&lt;UserActiveLocale Id="57031f9c-e741-4ff4-88f1-72694d9eda36" Username="admin" CultureName="hr-HR" /&gt;
+			</pre>
+		  </li>
+		</ul>
+	  </li>
+	</ul>
+	<p>
+	View pages:
+	<br />
+	On the top of them, near top navigation, automatically appeared language switch button.
+	Language button text is "In Danish"e core(for all pages).
+	<br />
+	Not very important since correctly working English/Russian switcher by installing
+	LanguageSwitcher package and adding its function into
+	page template, just curious.
+	<br />
+	Seems to be a hard coding in demo site markup - to fix it go to the "Functions"
+	perspective and open ;
+	Quick and edit it.
+	<br />
+	In there you will find the strings and.
+	In there you will find the strings and language codes that is reacted upon (edit it).
+	h "In Croatian").
+	</p>
+
+	<h3><a id="">Switching between languages</a></h3>
+
+	<p>
+	Case 1:
+	<br />
+	Let say we start with english website, but decide to switch to german at some point in time?
+	</p>
+	<p>
+	Press &quot;edit&quot; on the language, and edit url mappings, setting&nbsp;&quot;en&quot; 
+	for English, and &quot;&quot; to German will do it
+	</p>
+	<p>
+	Setting deafualt language in System perspective 
+	<br />
+	Language &gt; Set as default. 
+	</p>
+	<p>
+		It has 2 effects.
+		<ol>
+			<li>
+			Default language is console default language, thus each new page will be added
+			in defalt language (when user is logged in console).
+			</li>
+			<li>
+			When accessing website there will be a redirect to the first root page 
+			that belongs to the default language, unless there other settings 
+			(f.e. host name bindings) when you access the website only by a host name.
+			</li>
+		</ol>
+	</p>
+
+	<h2><a id="">Url configuration for localization/globalization</a></h2>
+
+	<p>
+	Url configuration enables customizing urls like:
+	</p>	
+	<pre class="hw_code">
+		http://ip/					// for German
+		http://ip/en/				// for English
+	</pre>
+
+
+  </body>
+</html>

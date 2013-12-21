@@ -1,0 +1,73 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>	</title>
+Description = all keywords + extra text
+<meta name="Description" content="Version Detection of Mono For Android" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: version-detection
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="version, detection" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2012-05-03" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Version Detection</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<p>
+		Version is detected with mandroid CLI app.
+	</p>
+
+> C:\Program Files\Android\android-sdk-windows\platform-tools>cd "%PROGRAMFILES%\MSBuild\Novell\"
+> C:\Program Files\MSBuild\Novell>mandroid.exe --version
+Oops; 
+> but in the folder there is file called Version with content 4.1.1 and date April 25
+> 
+	<!-- ================================================================== -->
+	<h2><a id="">Windows</a></h2>
+	<p>
+		Calling command:
+	</p>
+	<pre class="hw_code">
+>cd "%PROGRAMFILES%\MSBuild\Novell\"
+>mandroid.exe --version
+	</pre>
+	<p>
+	will work on OS X...but that won't help on Windows!!!
+	Because, mandroid.exe is a winexe, and thus can't write to the terminal. 
+	</p>
+	<p>
+	Redirect to file works:
+	</p>
+	<p>
+		Otherwise in the same folder there is file called Version (file timestamp 
+		should be latest installation) with version in it.
+		<br />
+		The Version file also contains the version information, and is used by IDEs 
+		to enable version-specific functionality. 
+		User shouldn't delete it, but user can rely on the contents to contain the 
+		version number. 
+		<br />
+		[re]moving this file and doing mandroid.exe --verision does not regenerate 
+		the file.
+	</p>
+	<!-- ================================================================== -->
+	<h2><a id="">MacOSX</a></h2>
+
+	<pre class="hw_code">
+/Developer/MonoAndroid/usr/bin/mandroid
+	</pre>
+</body>
+</html>

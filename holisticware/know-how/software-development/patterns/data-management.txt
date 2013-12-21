@@ -1,0 +1,102 @@
+Design Pattern for Lookup values that can change - but must not be applied historically?
+Any good design patterns for the following - using Status as an exemplar?
+
+It's a common pattern to have, say, a Status "lookup" table and hold a "StatusID" as a foreign key in tables which need to record Status for an entity.
+
+In my current project some property of a Status can be changed by the business - but any data already using that Status must NOT reflect the change.
+
+For example: 
+Status = "Process Step 1" and Status Priority = 7
+
+on 01-01-2013 The business changes this to:
+Status = "Process Step 1" and Status Priority = 6 << changed priority
+
+When a user filters say a report for Status = "Process Step 1" they want to see all relevant data. 
+And to see that:
+Data prior to 01-01-2013 has Status Priority = 7
+Data from 01-01-2013 has Status Priority = 6
+
+
+
+
+you are thinking of a data management technique rather than a design pattern. 
+
+Investigate "change tracking" and "row versioning" within the data warehouse or even the auditing arenas. 
+
+This is a fairly common requirement for change management or general data management that any and all changes to a row are tracked for period of the event as well as triggering entity (person, automation, other trigger, etc.). 
+
+But I am unaware of a design pattern in which this is the goal.
+
+
+
+
+ don't think change tracking fits the bill? Or at least I can't see how. 
+
+What is needed - in effect - is to have 
+* a Status 
+* with many Priorities 
+* Priorities distinguishable by their "effective from" and "effective to" date 
+* whilst retaining the ability to query for that Status irrespective of the Priority 
+
+I suspect an intermediate - Status_Priority - table is a possible solution. Is there a more elegant solution? 
+
+On another matter = "Design patterns" is a term that can apply to anything - not just code? Or even software?
+
+
+
+
+
+Just a quick thinking, yes may use a Priority Table which keeps records by dates. But this can force you to keep the priorities for each single day, and this means you will need extra workload. 
+Why you do not keep also priorities in Status table? This should work.
+
+
+
+
+elieve you're looking for the State Design Pattern but may be overkill for what you're trying accomplish. If all you're trying to do is pull back some basic data from a SELECT, then keep it that simple.
+
+
+
+
+
+
+This is a common situation where data created at a point in time (much like a paper form) needs to remain that way forever. Database normalization is the enemy here because everyone gets into the habit of thinking all look-ups must be kept in one table and only a foreign key should go into the other. This doesn't always match up with reality. 
+The bigger challenge here, though, is likely the user base. Why are they changing it? Is this a new business process that is getting the kinks worked out? If so, then it is understandable. But if the process is long-standing, the idea of changing values like this may not be well thought out since any change is going to have an impact on all historical data semantically if not literally. 
+
+A good business analysis needs to happen in situations like this to really discuss "is it the value that appears on the screen you want to change or is it the meaning behind the value?" There is a huge difference. 
+
+Typically, when I see values like your example "priority 7", they immediately make me suspect the thought that went into it. "Hey, did you know we are at priority 7 now?" "Whew, I thought we were at 6." I mean, seems extremely arbitrary. (I know, I am jumping to conclusions but just trying to illustrate a point.) If the values are used to color-code a graph or do some internal workflow routing, perhaps only those components need adjusting and not the underlying data. You see what I am getting at? Really examine what the values are used for before agreeing to change them. If not, you may end up changing them back and forth to suit each "efficiency expert's" whimsy until the users have mangled the true value of the data. 
+
+Now, practically, I have approached this problem in two ways over the years, some of it influenced by my long-ago Lotus Notes development (a truly non-relational data store). 
+
+One: Denormalize the data fields that come from lookups. Store the actual value from the lookup table into the composite record. If the only way values get into the table is through the user interface and/or some web services, do a constraint test there. It is much easier to maintain that interlocking all of these primary keys in the db. DBAs love to argue over this but they don't have to deal with software customization nearly as much as UI and BO developers do. And how are the changes going to happen to the db if there is no access to it directly? Not everything needs a PK-FK. 
+
+Two: Your DBAs wag the dog so let's placate them by adding an 'Active' flag to the lookup table. Now, the historical value's key stays in the table, the lookups only show 'Active=1' values, and the users can flip-flop their process until the paint rubs off the number pad. 
+
+Personally, I like method 1 because a) it is much easier to generate reports when the values are stored in the composite record, b) it's easier to send the records around and edit them (think Ajax) when the value = the value, c) viewing the composite records' raw info reveals much more meaningful information (although, for security reasons, we might not always want that, I guess) and d) when I am populating a drop-down and the existing value is not currently in the list of active choices, I just add it at run-time. 
+
+I know this isn't a definitive analysis on "State Design Pattern" and all kinds of other "patterns" but this is just my personal experience from building hundreds of applications over the years. I hope it at least serves as some food for thought and helps you come to a decision about what will work best for you.
+
+
+
+
+
+It was just an example I gave. 
+
+In real life there are often "Static" values we put into look up tables whose MEANING changes with time - perhaps because the business process changes, or for legal or other outside changes. 
+
+Actually I think this is quite common and using a single ID-Value lookup table simply does not support the business model
+
+
+
+
+
+VAT = Value Added Tax, a government imposed Sales Tax with several rates - Z = zero, N = normal, I = Insurance, etc 
+
+The Rate Codes remain (very) static - but the VAT Rate changes from time to time, In the UK we changed the Standard Rate from 12.5% to 15% and then to 2-0% over a decade. 
+
+(BTW the changes were supposed to be temporary...............
+
+
+
+
+http://www.linkedin.com/groups/Design-Pattern-Lookup-values-that-40949.S.221027719?view=&srchtype=discussedNews&gid=40949&item=221027719&type=member&trk=eml-anet_dig-b_pd-ttl-hdp&ut=1U0topVGbcX5E1

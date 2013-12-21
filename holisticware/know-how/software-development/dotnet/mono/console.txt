@@ -1,0 +1,15 @@
+console
+
+
+> My scenario is windows app hosting mono3.0.1 runtime. I wanted to add REPL
+> functionality, so I've used AllocConsole to open console window. However,
+> calls to Console static methods do not produce any result, as if
+
+Try this:
+
+Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
+Console.SetError(new StreamWriter(Console.OpenStandardError()));
+Console.SetIn(new StreamReader(Console.OpenStandardInput()));
+
+This should reset the console streams in the context of the
+newly allocated console.

@@ -1,0 +1,74 @@
+tinymessenger
+	1 cs file
+
+iOS MonoTouch
+	
+
+	
+
+features
+	add files as link - batch
+	copy paste as link
+	project change notifications
+	
+	Visual Studio Project linker
+	VSCommands
+		notification of project changes	when switching between mac and windows
+			filenames
+		Grouping items – you can group and ungroup items using IDE, something you would normally need to edit project file (DependentUpon)			
+		Ungrouping items
+		Custom Grouping – you can choose any of the selected items to be a new root for others:
+		Locate in solution – some people don’t like auto tracking of current item in solution explorer but would like to locate current item on demand. It’s now easy to achieve, simply rightclick in code editor, select ‘Locate in Solution’ from context menu and current item will be highlighted in solution explorer.
+		Open in Expression Blend – open project in Expression Blend directly from Visual Studio interface
+		Copy/Paste As Link
+		Copy/Paste References – supports assembly, project and ActiveX references
+		Build Summary
+		Open File Location
+		Search Online
+		Attach To Local IIS
+		Copy Full Path
+		Build Startup Projects
+		Open Command Prompt
+		Thumbnails in IDE Navigator (Ctrl + Tab)
+		Zooming
+		Show All Items
+		Get Assembly Full Name
+
+	Power Commands
+		Enable/Disable PowerCommands in Options dialog
+		Format document on save / Remove and Sort Usings on save
+		Clear All Panes
+		Copy Path
+		Email CodeSnippet
+		Insert Guid Attribute
+		Show All Files
+		Undo Close
+		Collapse Projects
+		Copy Class
+		Paste Class
+		Copy References
+		Paste References
+		Copy As Project Reference
+		Edit Project File
+		Open Containing folder
+		Open Command Prompt
+		Unload Projects
+		Reload Projects
+		Remove and Sort Usings
+		Extract Constant
+		Clear Recent File List
+		Clear Recent Project List
+		Transform Templates
+		Close All		
+		
+		
+		
+		
+		
+Other plugins
+	CodeCompare
+	Tagible T4 editor
+	RegEx editor
+	
+	
+https://github.com/RobertKozak/MonoMobile.Views

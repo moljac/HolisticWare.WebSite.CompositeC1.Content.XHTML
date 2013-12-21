@@ -1,0 +1,37 @@
+Starting
+
+Intent intent = new Intent();
+intent.SetClass(this, typeof(SomeActivityType));
+// intent.SetClassName(this, "SomeActivityType");   // nothing
+this.StartActivity(intent);
+
+this.StartActivity(typeof(SomeActivityType));
+
+
+
+
+switch views pretty easily, but I just couldn’t seem to change activities 
+without generating an error.  Finally, I found a combination that worked 
+for me.  
+The code below is working inside Activity1 and then switches to Activity2 
+(following the selection of a menu item).
+
+
+Intent intent = new Intent(this.BaseContext, (Java.Lang.Class) new Activity2().Class); 
+intent.AddFlags(ActivityFlags.NewTask); 
+StartActivity(intent);
+
+
+
+    Intent i = new Intent();
+                i.SetClass(this, typeof(CustomList));
+                i.AddFlags(ActivityFlags.NewTask);
+                i.PutExtra("TwitterId", UserId);
+                StartActivity(i);
+				
+				
+				
+In the code that is receiving the data, the code to retrieve the Twitter id is:
+
+string twitterId = Intent.GetStringExtra("TwitterId"); 
+The call to GetStringExtra() returns the value passed on the key.

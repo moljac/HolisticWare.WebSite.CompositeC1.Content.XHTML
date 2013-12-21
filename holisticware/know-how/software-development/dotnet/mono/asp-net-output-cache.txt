@@ -1,0 +1,31 @@
+Just doing some tests using the ASP.NET OutputCache I'm running into strange
+behaviour for pages that are instructed to be cached publicly using the
+OutputCache directory - e.g. consider the following basic page:
+
+<%@ Page Language="C#" EnableSessionState="false" %>
+<%@ OutputCache Duration="20" Location="Any" VaryByParam="*" %>
+<html>
+<body>
+Sample Output <% =DateTime.Now%>
+</body>
+</html>
+
+This results in a page to be cached publicly (on any location) - causing the
+page to include the Cache-Control header with a 'public' value and the
+appropriate expiry setting. The .NET ASP.NET output cache stores the page in
+the cache and only re-executes the page after 20 seconds (given the setting
+above). Any page served from the .NET output cache also gets the correct
+'Cache-Control: public' header - with an adjusted expiry value. This all
+works as expected under Windows.
+
+However Mono (a recent 3.0.x build on CentOS 6) does use its output cache,
+BUT a (publicly cached) page served from the output cache is decorated with
+an incorrect 'Cache-Control: private' header - preventing this page from
+being cached properly. As soon as the output cache page content expires, the
+correct 'public' cache header suddenly re-appears.
+
+The effect can easily be observed by using the page above, loading it and
+then refreshing it in your browser while sniffing the HTTP traffic.
+
+This looks like a bug in the MONO ASP.NET output cache module - am I
+overlooking something?

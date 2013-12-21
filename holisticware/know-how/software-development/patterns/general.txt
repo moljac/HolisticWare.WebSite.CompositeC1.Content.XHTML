@@ -1,0 +1,608 @@
+ what are the most useful patterns ? The ones any .Net person should know.
+ 
+ Abstract factory, lazy initialization, singleton, facade, strategy, template method. 
+
+Actually I think any .NET developer should know all patterns from the "Gang of Four", 
+at list understand them.
+
+
+
+MVC
+
+
+Mvc, MVP, strategy, factory. Those are probably the ones I use most, but 
+I'm also still in the process of learning about them.
+
+
+Agreed, MVP, factory and MVVM are commonly used patterns.
+
+
+
+ Factory, Abstract, Repository, MVVM,MVP are mostly used
+ 
+ 
+ MVC, Singleton,Factory, MVVM, Abstract
+ 
+ 
+ 
+ Depends if by 'know' you mean 'Be able to implement without reference to any external source' 
+ or 'Understand the need for and be able to recognise situations where they may be applicable'. 
+
+If the first, then really the list is pretty short; if the second, then the list is pretty long. 
+
+Given all the source material available within seconds I don't think there's too much value in 
+memorising a multitude of implementations. Better to use any study time you have to expose 
+yourself to new patterns/practices/technologies so you can increase the length of that second list!
+
+
+
+
+ "engineers" most know about most of Patterns , i think those Patterns are very useful for you : 
+http://www.codeproject.com/Articles/455228/Design-Patterns-3-of-3-Behavioral-Design-Patterns
+
+
+
+It all depends on the kind of application being implemented and in what kind of context it is to 
+be deployed and maintained. I've seen some of the most horrible examples of projects where people 
+think they are doing things right just by implementing the "right" patterns and they end up with 
+an un-maintainable source-code for the complexity of the application just because of these 
+patterns.
+
+As in life in general, learn, AND MOST IMPORTANT, understand WHEN to implement them. Patterns 
+themselves are useless if you don't know when to use them :)
+
+
+
+
+ think depend on situation, kind of program you're develop and others 
+parameters. But in many situations, is not rare to use facade and 
+abstract. agree with Mathew Clark. In general my answer would be: "the 
+more the better" meaning that if you have a knowledge and understanding 
+of a multitude of patterns you can easily identify when one is necessary 
+and which one and get the details instantly from google. 
+
+As already noted, the GoF book is an invaluable resource, as well as 
+"Patterns of Enterprise Application Architecture" by Martin Fowler 
+("Head First Design Patterns" is also a nice reference book) 
+
+It goes without saying that depending on your seniority level you are 
+expected to know certain patterns: Repository, Factory, Singleton, MVC, 
+MVVM, Strategy. 
+
+Also, I would like to underline that the knowledge of design patterns is 
+not related to the platform: so .NET, RoR or Java is irrelevant in my 
+opinion. 
+
+say that the dependency injection pattern is probably the most important 
+since it allows mocking, followed by the strategy pattern. I also find 
+myself using the decorator pattern, repository pattern, singleton 
+pattern, MVC, and MVVM. This is a good reference: 
+http://www.dofactory.com/Patterns/Patterns.aspx 
+
+This is also nice for a quick reference. 
+http://www.dzone.com/links/printable_gof_design_patterns_quick_reference 
+_card.html 
+
+fully agree with Leandro, that's a refreshing perspective having come 
+across organizations that are locked into one pattern or technology 
+(common phenomenon with MongoDB) and preach it like its gospel. 
+
+
+
+
+
+
+
+
+
+
+ 
+
+Importan patterns 
+
+Abstract factory, lazy initialization, singleton, facade, strategy, 
+template method. 
+
+Actually I think any .NET developer should know all patterns from the 
+"Gang of Four", at list understand them. 
+
+MVC 
+
+Mvc, MVP, strategy, factory. Those are probably the ones I use most, but 
+I'm also still in the process of learning about them. 
+
+Them' being design patterns in general. 
+
+Agreed, MVP, factory and MVVM are commonly used patterns. 
+
+Factory, Abstract, Repository, MVVM,MVP are mostly used MVC, 
+Singleton,Factory, MVVM, Abstract Depends if by 'know' you mean 'Be able 
+to implement without reference to any external source' or 'Understand 
+the need for and be able to recognise situations where they may be 
+applicable'. 
+
+If the first, then really the list is pretty short; if the second, then 
+the list is pretty long. 
+
+Given all the source material available within seconds I don't think 
+there's too much value in memorising a multitude of implementations. 
+Better to use any study time you have to expose yourself to new 
+patterns/practices/technologies so you can increase the length of that 
+second list! 
+
+think "engineers" most know about most of Patterns , i think those 
+Patterns are very useful for you : 
+http://www.codeproject.com/Articles/455228/Design-Patterns-3-of-3-Behavi 
+oral-Design-Patterns 
+
+It all depends on the kind of application being implemented and in what 
+kind of context it is to be deployed and maintained. I've seen some of 
+the most horrible examples of projects where people think they are doing 
+things right just by implementing the "right" patterns and they end up 
+with an un-maintainable source-code for the complexity of the 
+application just because of these patterns. 
+
+As in life in general, learn, AND MOST IMPORTANT, understand WHEN to 
+implement them. Patterns themselves are useless if you don't know when 
+to use them :) 
+
+I think depend on situation, kind of program you're develop and others 
+parameters. But in many situations, is not rare to use facade and 
+abstract. 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ I agree with Mathew Clark. In general my answer would be: "the more the better" 
+ meaning that if you have a knowledge and understanding of a multitude of patterns 
+ you can easily identify when one is necessary and which one and get the details 
+ instantly from google. 
+
+As already noted, the GoF book is an invaluable resource, as well as 
+"Patterns of Enterprise Application Architecture" by Martin Fowler 
+("Head First Design Patterns" is also a nice reference book) 
+
+It goes without saying that depending on your seniority level you are 
+expected to know certain patterns: Repository, Factory, Singleton, MVC, 
+MVVM, Strategy. 
+
+Also, I would like to underline that the knowledge of design patterns is 
+not related to the platform: so .NET, RoR or Java is irrelevant in my 
+opinion. 
+
+
+
+
+
+
+
+
+I would say that the dependency injection pattern is probably the most 
+important since it allows mocking, followed by the strategy pattern. I 
+also find myself using the decorator pattern, repository pattern, 
+singleton pattern, MVC, and MVVM. This is a good reference: 
+http://www.dofactory.com/Patterns/Patterns.aspx
+
+This is also nice for a quick reference. 
+http://www.dzone.com/links/printable_gof_design_patterns_quick_reference_card.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ I fully agree with Leandro, that's a refreshing perspective having come across 
+ organizations that are locked into one pattern or technology (common phenomenon with 
+ MongoDB) and preach it like its gospel.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  A design pattern is a way of organizing program logic, presentation and data in a way that best leverages the platform and typically conforms to best practices. 
+
+A few design patterns that have been helpful to me have been: 
+
+MVVM- or Model-View-ViewModel. This pattern suggests that you construct your code in such a way as to separate the data (the model) from the presentation (the view) and the program logic (the viewmodel) that binds the data to the presentation layer. It lends itself to easy templating, commanding and data binding of models to views with all of the interaction happening in the viewmodel layer. 
+
+MVC - Model-View-Controller. This pattern is similar to MVVM, but where in MVVM you would typically use a single view model for a single page of functionality within a page (sometimes dolling larger chunks of work or bindings to sub-viewmodels, a controller usually handles functionality of an entire set of features a scope of like functionality. This can be broken down into areas as well, but applications with many controllers are usually all on the same basic functional level, whereas viewmodels, if there are more than one, typically live in a hierarchy. 
+
+Unobtrusive Javascript: This is a pattern in javascript which replaces the commonplace methods of putting script events inside html elements and instead binds events and properties to those elements at page runtime. The benefits of this pattern are much cleaner html code and much less upkeep on pages that no longer need hundreds or thousands of pages if the signature on one javascript function changes. 
+
+In short, patterns help make your life easier by giving you a structure for developing your applications that best conforms to the programming paradigms of whatever language you're using.
+
+
+
+
+
+Other design patterns include (from GoF): 
+Abstract Factory, Singleton, Facade, Mediator, 
+Observer, Command, Proxy, Builder, Chain of Responsibility
+
+
+Design patterns help implement a solution using an object orientated software design approach. If you are interested in studying design patterns then I suggest a good starting point would be the following:
+
+http://compare.ebay.co.uk/like/180992692853?var=lv&ltyp=AllFixedPriceItemTypes&var=sbar&adtype=pla&crdt=0#
+
+This book explains some common, and not so common design patterns. You will see patterns such as singleton, flyweight and adapters and abstract patterns such as abstract factory. I hope this helps as attempting to describe this topic in full would take a while.
+
+
+
+
+That is the original GoF book (Gamma, Helm, Johnson, Vlissides). 
+There is "Design Patterns In C#" by Steven John Metsker. Also published by Addison-Wesley. Basically same patterns, just done in C#. 
+http://www.amazon.com/Design-Patterns-C-Software/dp/0321718933/ref=sr_1_2?ie=UTF8&qid=1360919882&sr=8-2&keywords=design+patterns+metsker
+
+Metsker also authored "Design Patterns In Java".
+
+
+
+would advise to read Head First Design Patterns (http://www.amazon.com/First-Design-Patterns-Elisabeth-Freeman/dp/0596007124/ref=sr_1_1?ie=UTF8&qid=1360922822&sr=8-1&keywords=Head+First+Design+Patterns) 
+It's simple, funny, easy to read and has all the info you need to know about design patterns. I read it much later than GoF and found it very interesting, especially how information is presented in the book.
+
+
+
+
+ Design patterns are simply programming methodologies that helps with designing projects that are easily maintainable, reusable in a very elegant way... For a beginner this is a very nice start point... http://www.dofactory.com/Patterns/Patterns.aspx . Really helped me and i guess it will help u too
+ 
+ 
+ 
+ 
+ 
+ • http://net.tutsplus.com/articles/general/a-beginners-guide-to-design-patterns/
+ 
+ 
+ 
+ 
+Design patterns can be thought of best practices or set of principles which helps us to solve some commonly occuring problems. 
+
+They are broadly classified into 
+1.Creational 
+2.Structural 
+3.Behavirol 
+
+Creational Design patterns can be: Singleton, Builder, Factory, Prototype 
+
+Structural Design patterns can be: Facade, Adapter, Bridge, Composite, Flyweight, Proxy, Observer, Adapter 
+
+Behavirol Design patterns can be: Template, Chain of responsibility, Iterator, Mediator,Memento Design Pattern
+
+
+
+
+
+
+
+As everyone has said, they are a set of practices, principles or ... well ... commonly recurring patterns that come up in software design and development. And they are everywhere. For example, ADO.NET's different database adapters are an example of a ... you guessed it ... adapter pattern. In ASP.NET, you have various providers for different services (membership providers, for example, can point to a database, active directory or something completely custom) and are examples of the provider pattern (very similar to an adapter). They are ways of tackling common issues in software. 
+But ... more than that, they are also a language for communicating software design and construction. It's far easier and more efficient to say "We'll use an adapter to connect system a with systems b" than to say "We'll have a common interface that translates calls from System A to System B in such a way that we can replace System B without impacting System A".
+
+
+
+
+Design patterns provide well-known and tested solutions to usual "problems".
+
+I recommend these excellent books:
+
+Design Patterns: Elements of Reusable Object-Oriented Software 
+http://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/ref=sr_1_1?s=books&ie=UTF8&qid=1361185407&sr=1-1&keywords=design+patterns
+
+Patterns of Enterprise Application Architecture 
+http://martinfowler.com/books/eaa.html
+
+
+
+
+
+
+
+ Design Patterns: "just about any programming problem has already been solved by people smarter than you... might as well follow their approach!"
+
++1 for "Head First Design Patterns" and if you are a ASP.NET developer:
+
+"Professional ASP.NET Design Patterns"
+http://www.amazon.com/Professional-ASP-NET-Design-Patterns-Millett/dp/0470292784/ref=sr_1_1?s=books&ie=UTF8&qid=1361207289&sr=1-1&keywords=asp.net+design+patterns
+
+
+
+
+
+Design patterns is a set of abstract solutions for abstract tasks. Frequently used by mediocres to increase self-praise and show 'pro' for employer. Every professional programmer FIRST looks at task and NEXT finds solution. Design patterns going inside out: first you see heap of solutions and next you try to apply every solution to your task. 
+Second shortcoming is DP was "invented" long time ago to be applied with ugly sh*t like C++. Using modern C# or even Smalltalk you can skip half of these "patterns", because they are useless for these powerful languages. 
+And third, it's just a hype - no any pattern can replace your "must have" capability to solve any task.
+
+
+
+While there are some truths to what said, in principle I have to disagree with you.
+Yes, there are some that might try to 'cut corners' and just copy-paste pattern implementations without really understanding them, but the greatest benefit that I've seen since starting learning about them is that I try very hard now NOT to write 'spaghetti' code, if nothing else, knowing them has help me improve my own coding practices, which if you develop by yourself that might not be much of a problem, but If you do work as part of a team and you expect others to understand what you are doing, then certain design patterns provide a sort of 'standardized' methodology that others can follow.
+
+and DP was not 'invented' in the strict meaning of the word, more like they were 'recognized' by very smart people as common ways to solving problems that many were using,
+
+
+
+
+
+
+jumping around DP is not necessary to explain my team what is solution for specific task, right? 
+Second, "smart people" hardly need all those schemas to create proper solution. 
+DP is a good thing in ABSTRACT meaning. But for real development it's just a "set of advices" you can read in toilet for professional grow - nothing more. 
+PS 
+Hype around DP - that's an evil. http://www.codinghorror.com/blog/2005/09/head-first-design-patterns.html
+
+
+
+
+
+
+@igor, it really pains me to do this but remember patterns are how we learn, remember and implement functionality, it's how your mother remembers how to bake a cake and how you recognise one type of cookie from another. To simply dismiss this as toilet reading highlights your immaturity as a developer. I don't know how you instruct or teach your team but if you don't recognise patterns as an everyday life occurrence then I guess you teach them the same thing every day. Patterns are an essential part of life development and its now we distinguish one routine from another. To simply rubbish the work of others who have applied themselves to identify and label these routines is senseless.
+
+
+
+
+
+why do you get so worked up abut this? 
+is it really that hard to believe that some people might have benefit from those practices? 
+See I think you made up your mind about patterns before really learning about how to use some of them is your solutions, because if you really did then you'll know that they provide is just guidelines, nobody forces you to go a specific path, you use what you can and throw the rest, like everything else in this life.. 
+And I do not count myself among the smart people, I know there are some out there smarter than me, why is it so bad to read how they solve problems?
+
+
+
+
+Actually this point of view is quite common and this comes from evolution of understanding DP (I saw this several times): 
+1. Developer knows nothing about DP 
+2. Developer reads nice book and becomes big fun of DP. At this point I can avow that some of developers start to see DP in everything and start to adopt requirement to DP and this leads to spagetti code 
+3. Because of 2nd point developer hates DP (and because in internet a lot of articles why do not need to use DP written by guys who just pass point 2) and I saw a lot of them 
+4. After considering that not possible to know DP and not to use them (because right usage of DP really helps a lot) finally developer starts to use them in good manner, select right DP (if really need to use DP) and adopt them to requirements. 
+
+In my team everybody knows DP and it really helps in communication. "There we have to use state. Initialize it with factory." And this words generate more than 10 drawings. (Actually I even don't say this. My team smart enought to design classes by themself :) ) 
+
+In my practice I saw both borders and those who do things too complicated by using abstraction and DP everywhere (this is nightmare if you inherit the code) and those who do something like this: 
+public void Do(){ 
+swith(stateId) 
+case 1: 
+ExecuteCreated(); 
+stateId = 2; 
+break; 
+case 2: 
+ExecuteInProcess(); 
+stateId = 3; 
+break; 
+case 3: 
+... 4,5..20 
+} 
+
+Before to use DP (actually before to do anything) think twice and they will be your good friends.
+
+
+
+
+
+ I think everyone has discussed what the GOF patterns are and how you may find these useful above. For me it was the book that allowed me to properly understand the SOLID principle, like every other book it gives you examples of how to apply these principles. 
+
+As @Juri mentioned it does improve communication as it does set a standard between developers. There are some patterns which simply can be abused and often are which will lead to code smells but DP can't be blamed for peoples misinterpretations and poor coding. For example the Singleton class is widely used by beginners and is often a red flag showing other developers that this person clearly doesn't understand the principles taught by this book when used incorrectly. 
+
+There are possibly only a hand full of patterns that you will use regularly the rest are just there to explain how the SOLID principle can be applied in different applications to solve a problem without code smells (when used in the right situation of course). 
+
+Learn them, understand the principles. Pick a handful of patterns that you believe are useful and use them. For me my most commonly used are Factory Method, Strategy design patterns in .NET development. 
+
+Also remember that many high level languages like .NET will apply the same design patterns in the class library. The observer pattern for example is a publish/subscriber pattern which is what Events do in .NET. All this book will do is solidify your understandings on subjects you may already know and how you would develop the same solution in languages that possibly don't have Events (which is less likely these days). One of my favourite quotes from the book Code Complete "Program into Your Language, Not in it", the iterator pattern is already applied to .NET collections, so be grateful what .NET has to offer as there are already implemented examples of the above pattern.
+
+
+
+
+
+would like to suggest similar to Juri and Joseph to read out Head First Design Patterns. Learning by doing with clear concept & fun. http://www.amazon.com/First-Design-Patterns-Elisabeth-Freeman/dp/0596007124/ref=sr_1_1?ie=UTF8&qid=1360922822&sr=8-1&keywords=Head+First+Design+Patterns
+
+
+
+
+
+ Without adding to the confusion, any pattern is simply that...a pattern. What happens over time is that you, as well as other developers, write code to do certain tasks the same way, over and over. What emerges is a pattern of logic that ends up being the most efficient way of performing those same tasks. The GOF guys mentioned above wrote the definitive reference on patterns, and should be required reading for all architects and programmers, but there are other articles and websites devoted to programming patterns as well; and some are very good. The real advantage of knowing these patterns (and knowing them well), is that when confronted with a new problem, you will instantly recognize that a certain pattern (or combination of patterns) offers the best solution and you'll be able to write very solid code by implementing that pattern.
+
+Some caveats:
+
+* Don't confuse a pattern with an implementation. For example, do you think a MVVM pattern is limited to silverlight and WPF? Can a view model be build using C# in a WebForms application? How about embedded C or in Java? Think again...its just a pattern.
+
+* Don't be lured into thinking that the ONLY patterns out there are the ones which have been written about by the GOF (MVVM for example, is a pattern, IMO).
+
+* Ignore #2 above and try to keep your implementations within the well defined patterns.
+
+For an introduction to patterns, take a look at the dofactory.com website: http://www.dofactory.com/Patterns/Patterns.aspx. They have really good examples written in C#. After reading a few of the patterns and examples, you'll see that some of your code has implemented these patterns without you even knowing it.
+
+Also, wikipedia has some good information on these design patterns.
+
+
+
+
+otally agree with J. Robert Tryon and possibly the best way of looking at patterns. The problem that is solved by patterns is organizing your code in the best possible way.
+
+
+
+
+Design Pattern is a re-usable, high quality solution to a given requirement, task or recurring problem. Further, it does not comprise of a complete solution that may be instantly converted to a code component, rather it provides a framework for how to solve a problem.
+
+
+n my opinion you should first read and understand the OOP Design Principles, then come to the subject of design patterns. 
+The big question that OOP design principles tries to answer is to make your software flexible enough to handle the requirement changes (which never freezed) in a way that should be cost effective, needs minimum effort and should be maintable easily. 
+So we can define Design Patterns in this way: Design patterns are the techniques or mechanisms to apply the OOP Design Principles in your software according to the requirements. 
+Following are the other important points: 
+1. Design Pattern is the REUSE of DESIGN for specific design issue faced in the implementation of almost every software, so can be applied to every software whenever a design problem matches with what that pattern addressed. 
+2. Abstractions is the KEY (also can say abstractions represents the design of the software) in OOP to apply the design princilples, so is the case with Design Patterns. 
+3. An example is to apply OOP Dependency Inversion Principle, we can use either Abstract Factory Design Pattern or Dependency Injection. In my opninion Dependency Injection is better way to apply Dependency Inversion Principle as it gives more flexibility and control. There are also several Dependency Injection frameworks available. In these days, most Application platforms are incorporating Dependency Injection to plug their components and as well as the custom developed components.
+
+
+
+
+respectfully disagree with Danish's comment. You do not have to have an understanding of OOP or any object oriented architecture in order to take advantage of design patterns. I'm a big SOA fan and have basically left OOP/OOA behind. The design patterns can be used in any language, with or without using an object-oriented approach. That's the beauty of using design patterns - they are like the constant of the universe and "never" change. 
+
+I'd even go so far as to say that understanding design patterns is part of your understanding of overall understanding of design principles (even OOP design principles), and should be part of your foundation. That's not saying that you cannot build good software without a solid understanding of design patterns, you can, but if you do understand them, then your solutions will be based on solid, repeatable, and well defined patterns used across the industry. 
+
+That being said, some of the design patterns fit nicely into C# and many other object oriented languages. 
+
+(disclaimer: I never say "never", so please take my comments with a grain of salt).
+
+
+
+
+
+
+ways consult http://www.oodesign.com/, which has a comprehensive list of Design Patterns. I would just add that a Design Pattern is a commonly occurring reusable piece in software system that provides a certain set of functionality. A pattern should have the following characteristics: Useful solution, Reusable, and Contextual. Based on how they are to be used, patterns are primarily categorized as: Creational (to define mechanisms for instantiating objects; the implementation of the creational pattern is responsible for managing the lifecycle of the instantiated object), Structural (the composition of objects and their organization to obtain new and varied functionality), and Behavioral (interaction between different objects).
+
+
+
+
+
+
+The biggest value of design patterns, especially GoF, would be to force someone to think in terms of collaborative objects, i.e. it's an educational tool. All the problems of the world can't be solved with a few design patterns. To try and define the problem so that it fits the use of specific design patterns, would the same as letting technology dictate the shape of business. 
+
+Design patterns do make the intention of code much clearer, if you can recognise the patterns.
+
+
+
+
+
+Respectfully, I did not say to take ADVANTAGE of design patterns, it is necessary to understand OOP. The point is this to undestand the art of software design the questions raised and addressed by OOP Design Principles are very important to grasp what are the goals and purposes of software designs. These questions applied to every methodology other than OOP as well and need to get answered by them. For example, SOA achitecture also applied the concept of Design by Contracts which is the same as OOP Dependency Inversion Principle. Further to this to implement SOA, OOP is helpful and infact used heavily like we can see in case of SOA stacks e.g. WCF and ASP.NET Web Services Framework. 
+Also Design Pattern is the solution of DESIGN PROBLEM if applicable not every problem faced in writing softwares.
+
+
+
+
+ It is important to separate design principles and design patterns:
+
+Software design principle: Principle provides us guideline. Principle says what is right and what is wrong. It doesn't tell us how to solve problem. It just gives some guideline so that we can design good software and avoid bad design. Example would be SOLID design principles.
+
+Software design pattern: Pattern is a general reusable solution to a commonly occurring problem within a given context in software design. Some patterns are Factory Pattern, Decorator Pattern, Repository Pattern.
+
+This is my favorite explanation of these terms and is taken from this article:http://www.codeproject.com/Articles/538536/A-curry-of-Dependency-Inversion-Principle-DIP-Inve
+
+
+
+
+
+
+ Is anyone surprised by a little acrimony showing up on a "what is design patterns" thread? I would say that they're a useful tool, but only a tool. I did a contract years ago at a big shop that would routinely reject good designs because it didn't fit in a GoF description nicely. So, they're a useful starting point that every developer should know, and also a common language for discussing code engineering. But they are only a starting point. 
+
+Also useful is anti-patterns. Basically when the code you're writing looks like one of these patterns, you're probably getting yourself into trouble. You might want to read up about those as well.
+
+
+
+
+ Its a way to organize reoccuring programming techniques for programmers who are unable to think on their own. Kinda like taking the concept of Bubble Search into obsession.
+
+
+
+
+
+Now all the poor programmers who really just like to just study programming, postulate about it, theorize about it, act like they know everything about it instead of cut code...come out and attack me.
+2 hours ago
+ 
+Michael
+Michael F. • The problem with people is that they get into the mind set there must be a pattern for the problem and try to design the code from the inside out as was earlier stated. People don't think anymore and that is the real crux of the problem. DP's are tools but any major craftsmen will tell its the innovative way you use the tool that will determine how well your art really is. Sure you can spit out DP's all day long but that one case where the DP doesn't exactly fit right will give you trouble all day long and for the next month if you can't think for yourself. 
+
+The author's of GoF are just giving an example it is not meant to be a one size fits all solution. And that's where most programmers get bogged down. They see the problem know how to solve it but when they try to implement it they can't. Why because they don't think. I once went up to a teacher who had no idea what a Bubble Sort was but knew it if I explained it to him. Sure you can get bogged down with terminology all day long but you also have to know what is behind the terms. People don't think anymore. I think that is the reason for some of the consternation behind this. People aren't being trained to think for themselves anymore. They are trained to follow steps and when something falls outside of the purview of those steps, that's when things go awry and things get bad reputations. 
+
+I understand both sides and I see the advantages to learning DP's but I also see the disadvantages as people get stuck trying to figure out why this or that particular DP is not working when it only needs a modification. However, modification to the DP's aren't really taught so people get stuck which is the main reason why people are negative about this subject. 
+
+@Marc - Google may be your friend but you have to know what you are looking up first before you look it up. Otherwise you might as well bang your head against the keyboard or pray a thousand monkeys can actually write Shakespeare.
+
+
+
+
+
+
+Mike S. • Michael, while I've definitely seen people use design patterns to beat others up with a false sense of intellectual superiority, I don't think that it's necessary to throw the baby out with the bath water. Design patterns can't be applied to every problem, and shouldn't be applied to things in a shoe horn kind of way, but arguably if you're forcing your solution to fit a pattern, it's probably not the right pattern. 
+
+I don't know if I can agree with your point of view (which appears to equate it to architectural masturbation, correct me if I'm wrong) ... Continued
+1 hour ago
+ 
+Mike
+Mike S. • but I've been in your shoes and of your opinion. I got beaten up with design patterns (both rightly and wrongly) but eventually have seen that a properly applied patterns can ease development and maintenance. 
+
+I'd encourage you to take a closer look while not under deadline and see if you can find a pattern that works for your style of development. That's what worked for me.
+1 hour ago
+ 
+Igor
+Igor S. • 2+2 = 4 
+3+3 = 6 
+Why nobody copy my patterns, hey, smarties! They are absolutely true. 
+Looks too easy? Yep, because you already know how to solve "+" expressions in general.
+Now look again at your "patterns" - do you think you "know" a billion dollars solution? Nah... not one cent more than my "2+2". THAT's a difference between DP fanboys and real programmers.
+1 hour ago
+ 
+Michael
+Michael B. • @Michael...." People don't think anymore and that is the real crux of the problem." Exactly !!! This entire generation is the "lazy" generation..I have kids to prove it. It is very frustrating. An entitlement society. They are looking for an app they can just download to do their job.
+1 hour ago
+ 
+J. Robert
+J. Robert T. • Hey! There's Igor's billion dollar solution! An app for our kids which just does their jobs!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Juri K. • @Michael, @Igor, 
+Gentlemens, I have impression that you've found somewhere in the thread statement that DP should be used everywhere, in every project and in every line of code. That's not true! Almost everybody in the thread says that you should be carefull with DP. 
+If your position is don't be fun of DP, I fully agree. If your position don't use them, don't read about them, don't even know about them, I don't understand this, because I'm pretty sure that you do.
+39 minutes ago
+ 
+Marko
+Marko M. • Michael, you are correct to a point. The other side of the medal is that we live in a society/system where time is money. In other words thinking takes time and companies we work for usually want everything done yesterday. So with that in mind, a lot of people fall to what you describe which is following the pattern that will get you results quickly. And patterns are called "patterns" because they will probably cover 95-99% of your real life cases out there. For the remainder you are correct, you need to think it out yourself. 
+
+Bottom line I reject to accept your claim that this is somehow fault of the people. The problem lies in capitalism and competition between companies and it trickles down to the average Joe Programmer who has to do whatever is necessary to survive. So he uses patterns because they help him get the job done faster.
+32 minutes ago
+ 
+Juri
+Juri K. • @Marko. Please don't say this. DP applicable in 1-5% of cases, otherwise this leads to HelloWorld using patterns (http://taskinoor.wordpress.com/2011/09/21/the-abuse-of-design-patterns-in-writing-a-hello-world-program/) :)
+26 minutes ago
+ 
+J. Robert
+J. Robert T. • I feel this discussion has degraded a little. Design patterns are a legitimate architectural concept and are not only used by "smarties" nor "lazy" folks just to satisfy their capitalist bosses. And just because somebody asks a question doesn't mean they don't think, either. Haven't we all been helped in our careers by more experienced, smarter people than we are? Haven't we all built crappy code, just because a solution wasn't immediately apparent? Now its our turn to help out the up-n-comers with answers to questions over which they may struggle or not completely understand after reading a wikipedia article or a few google'd sites. 
+
+Understanding design patterns helps us write solid code. Period. I think for a living, and still use a lot of patterns in most of my solutions, if not all of them in one way or another.
+
+
+
+
+
+
+
+
+ 
+ 

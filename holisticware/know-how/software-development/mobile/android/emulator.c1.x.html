@@ -1,0 +1,346 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Emulator</title>
+Description = all keywords + extra text
+<meta name="Description" content="Emulator facts, tips, tricks" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Application Preferences (Settings)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="androis, emulator" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-01-20" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Emulator</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<!-- ================================================================== -->
+	<h2>Speeding up Development - x86 emulator</h2>
+	<p>
+		In 2012 Q1 Google added x86 emulator in  platform tools r17.  
+		Using an x86 emulator is much faster than the ARM based emulators traditionally 
+		used when doing Android development
+	</p>
+	<ol>
+		<li>
+			 start Android SDK Manager ("%PROGRAMFILES%\Android\android-sdk-windows\SDK Manager.exe")
+		</li>
+		<li>
+			install (if not installed)
+			<ul>
+				<li>
+					under API 10 - Android 2.3.3 +/  "Intel Atom x86 System Image by Intel Corporation"
+				</li>
+				<li>
+					under Extras +/ "Intel Hardware Accelerated Execution Manager"
+				</li>
+			</ul>
+		</li>
+		<li>
+			run  IntelHAXM.exe (IntelHAXM.dmg on MacOSX) installer located in the Android SDK folder 
+			under extras/intel/Hardware_Accelerated_Execution_Manager/.
+		</li>
+		<li>
+			create virtual device with following data
+			<ul>
+				<li>
+					target:Intel Atom x86 System Image by Intel Corporation (API 10)
+				</li>
+			</ul>
+		</li>
+		<li>
+			set project build config in IDEs to support x86
+			<ul>
+				<li>
+					VS +/ Project Properties +/ Application +/ Supported Architectures +/ x86=true (checked)
+				</li>
+				<li>
+					MD +/ Project Options +/ Mono for Android Build +/ Supported APIs +/ x86=true (checked)
+				</li>
+			</ul>     
+		</li>
+		<li>
+			run app in IDE (F5) chose avd (device) created above
+		</li>
+	</ol>
+
+	 
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Android Virtual Device (Machine, Image) - AVD</a></h2>
+	<ul>
+		<li>
+			Location: 
+			<pre class="hw_code">
+%USERPROFILE%\.android\avd\$name_avd$
+			</pre>
+		</li>
+		<li>
+			Internet access:
+			<br />
+			Does the emulator have internet access?  
+			Emulator will sometimes startup without internet access.  
+			The shortcut key for this is f8 to toggle the access.
+		</li>
+	</ul>
+	<p>
+	</p>
+	<p>
+	</p>
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Connectivity</a></h2>	
+	<p>
+		WebView widget in application cannot show webpage.
+	</p>
+	<p>
+	This is usually because the emulator doesn't have networking enabled. 
+	Check this by launching the Browser app within the emulator and try to view a web page.
+	</p>
+	<p>
+	If Browser cannot connect to a URL, networking must be need to enabled. 
+	F8 will toggle network connectivity within the emulator.
+	</p>
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Reset - factory reset</a></h2>
+
+	<p>
+		<a
+		href="http://developer.android.com/guide/developing/tools/emulator.html"
+		>
+		http://developer.android.com/guide/developing/tools/emulator.html
+		</a>
+	</p>
+	<ul>		
+		<li>
+			Manually
+			Applications +/ Settings +/ Privacy +/ Factory Data Reset
+		</li>
+		<li>
+			Resetting data
+			<pre class="hw_code">
+:: Reset the current user-data disk image (that is, the file specified by -datadir and -data, 
+:: or the default file). The emulator deletes all data from the user data image file, 
+:: then copies the contents of the file at -inidata data to the image file before starting			
+
+emulator -avd $avd_name -wipe-data
+			</pre>
+		</li>
+		<li>
+			Loading user data disk images
+			<pre class="hw_code">
+:: When resetting the user-data image (through -wipe-data), copy the contents of this file 
+:: to the new user-data disk image. By default, the emulator copies the $system$/userdata.img.
+:: 
+:: Optionally, you can specify a path relative to the current working directory. 
+:: See also -wipe-data. For more information on disk images, use -help-disk-images
+
+emulator -avd $avd_name -initdata $filepath
+			</pre>
+		</li>
+		<li>
+			`emulator -avd` doesn't take a full path to the AVD name. 
+			It just takes a base filename, which is a filename within (on machine) 
+			%USERPROFILE%\.android\avd directory/folder.
+			<br />
+			The "avd" directory will contain files with a .ini extension.
+			`emulator -avd` command-line will lack the .ini file extension.
+			<br />
+			Sample (with presence of %USERPROFILE%\.android\avd\Run_Emulator(with Boot Animation).ini)
+			<pre class="hw_code">
+			emulator -avd "Run_Emulator(with Boot Animation)" -partition-size 512
+			</pre>
+			Create ini files with image within the Android Emulator Manager.
+			<br />
+			(Visual Studio Tools +/ Start Android Emulator Manager.
+		</li>
+	</ul>
+
+	<!-- ================================================================== -->
+	<h2><a id="mount-rw">Mounting partition in read-write mode in Android</a></h2>
+	<ol>
+		<li>
+			check mounts
+			<pre class="hw_code">
+adb shell
+			</pre>
+		</li>
+		<li>
+			See mounted devices and mount points in device's shell:
+			<pre class="hw_code">
+su
+mount
+			</pre>
+			sample output from emulator:
+			<pre class="hw_code">
+mount
+rootfs / rootfs ro 0 0
+tmpfs /dev tmpfs rw,mode=755 0 0
+devpts /dev/pts devpts rw,mode=600 0 0
+proc /proc proc rw 0 0
+sysfs /sys sysfs rw 0 0
+tmpfs /mnt/asec tmpfs rw,mode=755,gid=1000 0 0
+tmpfs /mnt/obb tmpfs rw,mode=755,gid=1000 0 0
+/dev/block/mtdblock0 /system yaffs2 ro 0 0
+/dev/block/mtdblock1 /data yaffs2 rw,nosuid,nodev 0 0
+/dev/block/mtdblock2 /cache yaffs2 rw,nosuid,nodev 0 0
+/dev/block/vold/179:0 /mnt/sdcard vfat rw,dirsync,nosuid,nodev,noexec,uid=1000,gid=1015,fmask=0702,dmask=0702,allow_utim
+e=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0
+/dev/block/vold/179:0 /mnt/secure/asec vfat rw,dirsync,nosuid,nodev,noexec,uid=1000,gid=1015,fmask=0702,dmask=0702,allow
+_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0
+tmpfs /mnt/sdcard/.android_secure tmpfs ro,size=0k,mode=000 0 0
+			</pre>
+		</li>
+		<li>
+			Remember device for certain mount point (dir):
+			<br />
+			In sample device=/dev/block/mtdblock0 for mount point=/system
+		</li>
+		<li>
+			remount read/write
+			<pre class="hw_code">
+mount -o remount,rw -t yaffs2 /dev/block/mtdblock0 /system
+			</pre>
+		</li>
+		<li>
+			make subfolder of mount point writable (sample fonts):
+			<pre class="hw_code">
+chmod 777 /system/fonts
+			</pre>
+		</li>
+		<li>
+			Leave shell and adb:
+			<pre class="hw_code">
+exit
+exit
+			</pre>
+		</li>
+	</ol>
+	<p>
+		Note: for security reasons revert step 5. Rest will be remounted in default settings
+		after boot.
+	</p>
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Market</a></h2>
+
+<!--
+android emulator + Android Market App....
+
+http://techdroid.kbeanie.com/2009/11/android-market-on-emulator.html
+http://www.tech-recipes.com/rx/10004/accessing-android-market-from-android-sdk/
+http://makingmoneywithandroid.com/2011/04/how-to-run-android-market-on-the-emulator/
+
+-->	
+	<ol>
+		<li>
+			Mount /system in read-write mode 
+			(see: <a href="#mount-rw">Mounting partition in read-write mode in Android</a>
+		</li>
+		<li>
+			Modify build.prop in order to prevent freezing of market downloads
+			<ol>
+				<li>
+					Get the file with push:
+					<pre class="hw_code">
+adb pull /system/build.prop
+					</pre>
+				</li>
+				<li>
+					Modify build prop:
+					<pre class="hw_code">
+notepad build.prop
+					</pre>
+				</li>
+				<li>
+					Write build.prop to device with push:
+					<pre class="hw_code">
+adb push build.prop /system/
+					</pre>
+				</li>
+			</ol>
+		</li>
+		<li>
+			install the Market application ‘Vending.apk’ from 
+			<a
+			 href="http://forum.xda-developers.com/showthread.php?t=718350">
+			 http://forum.xda-developers.com/showthread.php?t=718350
+			</a>
+		</li>
+		<li>
+			Install Google Services framework - prerequisite for Google Play 
+			(Android market)!
+			<a 
+				href="http://dl.dropbox.com/u/9952546/GoogleServicesFramework.apk">
+			GoogleServcesFramework.apk http://dl.dropbox.com/u/9952546/GoogleServicesFramework.apk
+			</a>
+		</li>
+		<li>
+			Push both these .apk to the device. 
+			<pre class="hw_code">
+adb push Vending.apk /system/app/
+adb push GoogleServicesFramework.apk /system/app/.
+			</pre>
+		</li>
+		<li>
+			Delete the SdkSetup.apk from the device, otherwise the emulator will be reverted 
+			back to its original state!
+			<pre class="hw_code">
+adb shell rm /system/app/SdkSetup.apk
+			</pre>
+		</li>
+		<li>
+			Close the emulator. 
+		</li>
+		<li>
+			Delete the images from ‘%userprofile%/.android/avd/AVDNAME.avd
+			<ul>
+				<li>
+					userdata.img
+				</li>
+				<li>
+					userdata-qemu.img
+				</li>
+				<li>
+					cache.img
+				</li>
+				<li>
+				</li>
+			</ul>
+		</li>
+		<li>
+			Start the emulator (from Android SDK and AVD Manager)
+		</li>
+		<li>
+			Google play (Android Market) should be available on the emulator now. 
+			On opening there will be prompt to connect with Google account. 
+			Connect with Google account and install your favorite apps on the emulator.
+		</li>
+	</ol>
+
+
+
+	<h2>Google APIs on x86 emulator (Google maps)</h2>
+
+	http://38911bytes.blogspot.de/2012/03/how-to-use-google-maps-api-in-android.html
+
+</body>
+</html>

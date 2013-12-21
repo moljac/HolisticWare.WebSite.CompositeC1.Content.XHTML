@@ -1,0 +1,138 @@
+This approach will not work. You may not get an exception, you may
+just end up looping forever inside the dictionary. This is not a
+theoretical issue, it is something which does happen in the wild when
+you mutate a dictionary while iterating it.
+
+Alan
+
+On 13 February 2013 16:08, edward.harvey.mono
+<edward.harvey.mono@clevertrove.com> wrote:
+> I have a dictionary, and I want to read it from one thread, while possibly
+> modifying it from another thread.  In the event when one thread modifies it
+> while another thread is enumerating it, I actually *want* the change to
+> occur, and I want the enumerating thread to be aware a change has occurred.
+>
+>
+>
+> The best way I know is to let the exception occur, and simply handle the
+> exception.
+>
+>
+>
+> Problem is, the exception type is InvalidOperationException, which is pretty
+> generic.  So I need to handle InvalidOperationException, and look inside it,
+> to see if "Collection was modified" is the cause of the exception.  Right
+> now, the only way I know to do it is like this:
+>
+>
+>
+>            catch (InvalidOperationException e)
+>
+>             {
+>
+>                 if (e.Message == "Collection was modified; enumeration
+> operation may not execute.")
+>
+>
+>
+> This seems a little kludgy...  First of all, can I be guaranteed the string
+> will remain exactly the same, across platforms, and different versions of
+> .Net and mono?  Second of all, it's a string comparison.  If it works, I
+> don't mind it.  It will happen rarely enough that I'm willing to pay the
+> performance of string comparisons.  The important goal is to accurately and
+> reliably catch the right exception, on different platforms.
+
+
+
+> This approach will not work. You may not get an exception, you may
+> just end up looping forever inside the dictionary. This is not a
+> theoretical issue, it is something which does happen in the wild when
+> you mutate a dictionary while iterating it.
+
+Oh crap, thank you for bringing it up... So I think what you're saying 
+is that I can't rely on the exception at all (nevermind the details of 
+identifying why the exception was raised). In reality, I simply have to 
+implement some form of locking or inter-thread communication. 
+
+So, given that I want the iterating thread to get interrupted, and I 
+don't want to block the writing thread, it means I'm not going to lock() 
+the dictionary. Even if I use a ConcurrentDictionary, that just means 
+the data all remains intact and no exceptions are thrown; it still 
+doesn't provide any communciation mechanism to signal the iterating 
+thread that any change has occurred. 
+
+So I'm thinking, I create a dictionary serial number, and every time I 
+write to the dictionary, I Interlocked.Increment the serial number. (Or, 
+put the dictionary inside a class that includes an int, and lock() the 
+class to atomically perform the increment and dictionary modification). 
+That way, my iterating thread can in the beginning detect the value of 
+the serial, and notice the serial has increased while inside the loop, 
+so the iterating thread can then be aware somebody has updated the 
+dictionary. 
+
+
+
+
+
+
+
+
+
+
+
+Edward - build a queue of updates, have the iterating thread review the
+queue at the end of an iteration, then have the iterating thread do the
+updates and start anther iteration.
+
+
+
+
+
+
+
+
+
+
+
+You could do it with a ConcurrentDictionary and a 'serial' as you've
+described. ConcurrentDictionary makes it safe for you to read and
+write simultaenously, the serial lets you bail out of your iteration
+when the dictionary is modified.
+
+Another alternative is to clone the entire dictionary every time you
+want modify it and then you can just replace the old one with the new
+modified one. You can bail out of your iteration if the dictionary
+you're iterating over is not the same as the current one. However if
+the dictionary is large and changes are frequent, this might use a lot
+of memory.
+
+Finally, you can use locking and hope for the best. You could do
+something like https://gist.github.com/alanmcgovern/e7fb05c07d6bb84b2595
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+As per the 'thread safety' section of the documentation, your code is
+invalid: http://msdn.microsoft.com/en-us/library/xfhwa508.aspx. This
+kind of change will not make it safe to use the dictionary in a
+read/write way from multiple threads, especially not when you have
+multiple cores and multiple unshared caches for those CPU cores.
+
+Hashtable is documented to support multiple readers with at most 1
+writer. If you require those semantics, you should use a hashtable not
+a Dictionary. If you require a threadsafe dictionary class, you either
+need to roll your own or use ConcurrentDictionary. This is the only
+realistic way of having thread safe code.

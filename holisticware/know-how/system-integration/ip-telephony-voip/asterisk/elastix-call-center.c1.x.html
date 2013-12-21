@@ -1,0 +1,198 @@
+﻿<!--
+C1 generated!!
+<title>Elastix Call Centre</title>
+<meta name="Description" content="Elastix Call Centre" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function xmlns:f="http://www.composite.net/ns/function/1.0" name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords">
+		<f:param name="KeywordsAdditional" value="Elastix Call Centre">
+		</f:param>
+		<f:param name="AuthorsAdditional" value="idikic, estrahinja">
+		</f:param>
+		<f:param name="Date" value="2011-02-20">
+		</f:param>
+		<f:param name="Language" value="en">
+		</f:param>
+	</f:function>
+	<h1><a id="">Elastix Call Centre</a></h1>
+	<!-- ================================================================== -->
+	<h2><a id="">1. Go to https://ip_address_of_Elastix(PBX)</a></h2>
+	<blockquote>
+		<p>
+			admin*
+			<br />
+			palosanto*
+		</p>
+	</blockquote>
+	<blockquote>
+		<p>
+			*depends on version of Elastix</p>
+	</blockquote>
+	<h2><a id="">2. Call Center – Configuration</a></h2>
+	<blockquote>
+		<p>
+			Under asterisk user: <em>admin</em><br />
+			Under Asterisk Password: <em>elastix456</em><br />
+			Asterisk Password Confirm: <em>elastix456</em>
+		</p>
+		<p>
+			Mark <em>&quot;Enable dialer debug&quot;</em><br />
+			Push <em>&quot;Start&quot;</em> button on the bottom center of the screen to start
+			dialer service</p>
+		<p>
+			After everything is set-up press <em>&quot;Save&quot;</em> button in the left top
+			corner of the screen</p>
+	</blockquote>
+	<h2><a id="">
+		3. Call Center – Agents – New Agent</a></h2>
+	<blockquote>
+		<p>
+			*just to be sure use 4 digits as &quot;Agent Number&quot; (eg 1001 not 1)<br />
+			*remember password (use only digits)</p>
+		<p>
+			After you entered desired info press <em>&quot;Save&quot;</em> button in the left
+			top corner of the screen</p>
+	</blockquote>
+	<h2><a id="">
+		4. System – User Management
+	</a></h2>
+	<blockquote>
+		<p>
+			Press <em>&quot;Groups&quot;</em> on the right side and <em>&quot;Create New Group&quot;</em>
+			in the center of the screen. Groups are used to define permissions for the users
+			of the Call Center, you can choose what, lets say group Agents can do or view.</p>
+		<p>
+			We will create group Agents, group description will be AgentsCallCenter, press<em> &quot;Apply
+				Changes&quot;</em> when you are done.</p>
+		<p>
+			Press <em>&quot;Group Permissions&quot;</em>, choose group Agents on the right side
+			of the screen, and then press<em> &quot;Show&quot;</em>, you will see what options
+			group Agents is allowed to see, choose desired options, for this how to we will
+			choose only Calendar, Agent Console and Forms.</p>
+	</blockquote>
+
+	<h2><a id="">
+		5. PBX – Queues (left side of the screen) – Add Queue</a></h2>
+	<blockquote>
+		<p>
+			*Queue Number, use 4 digits<br />
+			*Under field Static Agents, you must enter one or more agents number created in
+			step 3 but in this format:</p>
+		<p>
+			A[agent number without [] ],0</p>
+		<p>
+			Eg.<br />
+			A1000,0<br />
+			A1004,0</p>
+		<p>
+			After you set-up everything as you like, press<em> &quot;Submit Changes&quot;</em>
+			on the bottom of the screen followed by <em>&quot;Apply Configuration Changes&quot;</em>
+			on the top of the screen.</p>
+	</blockquote>
+	<h2><a id="">
+		6. Call Center – Breaks</a></h2>
+	<blockquote>
+		<p>
+			*used for time off</p>
+	</blockquote>
+	<h2><a id="">
+		7. Call Center – Forms</a></h2>
+	<blockquote>
+		<p>
+			Forms are used for entering customer date during campaign, you should create form
+			depending of your campaign needs.
+		</p>
+	</blockquote>
+	<h2><a id="">
+		8. Call Center - Outgoing Calls – Create New Campaign</a></h2>
+	<blockquote>
+		<p>
+			Used for managing and creating campaigns.</p>
+		<p>
+			All fields marked with red are mandatory.</p>
+		<p>
+			Trunk – By Dialplan</p>
+		<p>
+			Retries – how much should be number dialed before going to the next one</p>
+		<p>
+			Call File : very important, it is used for importing telephone numbers and data
+			to the campaign, and must be in the following format (*.csv)<br />
+		</p>
+		<p>
+			Scripts is used during the call for help remembering the campaign
+		</p>
+		<p>
+			&quot;My name is Petra, did you know that in Croatia, annualy XX percent of houses
+			near .... are destroyed because of fire .... &quot;</p>
+	</blockquote>
+	<h2><a id="">
+		9. EXTRAS DEBUGGING</a></h2>
+	<blockquote>
+		<p>
+			#<em>service elastixdialer status</em><br />
+			#<em>tail –f /opt/elastix/dialer/dialerd.log</em></p>
+	</blockquote>
+	<h2><a id="">
+		10. GENERAL</a></h2>
+	<blockquote>
+		<h3><a id="">
+			To start outhoing calls from Call Center you need to setup few things :</a></h3>
+		<p>
+			- First you need to define agents who will make the calls (eg. Agent John Doe, ag.
+			Number 1001)</p>
+		<p>
+			- Second is to define quees. In quees you define what Agents will be used in specific
+			campaign. Actually you create a group of agents for certain or specific campaign.
+			You can have multiple Quess or just one Quee with all your agents, depending of
+			your needs. In example, if you have 2 outgoing campaigns and 7 Agents – you can
+			scheduale 3 of your agents to work on first campaign and other 4 on other one. In
+			next steps, when you are creating outgoing campaign you can assign specific quees
+			to desired campaign.
+		</p>
+		<p>
+			- Third is to make CSV file, so called &quot;calling file&quot;. In calling file
+			you define what telephone numbers will be dialed in campaign (number, &quot;name&quot;,
+			&quot;address&quot;). You define one calling file for each campaign.</p>
+		<p>
+			- Then you need to design Form. Form is something that will your Agent fill out
+			during the conversation with the client (eg. His or her sex, date of birth, notes,
+			occupation...)</p>
+		<p>
+			- Create outgoing campaign is to define what, who, when... In there you are &quot;connecting&quot;
+			these things: forms (data collected from customes), calling file (who'm i'm gonna
+			call), quees (which agnets will do the call ), script (what will they say) and you
+			have additional options; start and end date, start time and end time.<br />
+		</p>
+
+		<h3><a id="">
+			Additional operation for Call Center is;</a></h3>
+		<p>
+			- Configure Call Center module to connect with Elastix
+		</p>
+		<p>
+			- Define Agent users for elastix (note this: for elastix, not for Call center!).
+		</p>
+		<blockquote>
+			<p>
+				The thing is: If you are an agent you will have two logins: First you point your
+				browser to elastix https://ip_address_of_Elastix(PBX) and login with Agent credentials.Its
+				recommended to define Agent users with restricted privilegies, so that they can't
+				see and mess with PBX or Call Center configuration.
+			</p>
+			<p>
+				After Agent's login to elastix they see Agent's console where they need to enter
+				their 4 digit agent number and their extension. Agent can be on whatever extension.
+				For example, Agent 1 can do his campaign from extension 100 and 105. After loging
+				in, agents console will appear. Call centre will automatically start outgoing campaign
+				- dial desired numbers from CSV and assign calls to desired agents that you defind
+				in quees. Also, Agnet will have his form to fill and he can see his script. More
+				available options are break and call transfer.
+			</p>
+		</blockquote>
+	</blockquote>
+</body>
+</html>

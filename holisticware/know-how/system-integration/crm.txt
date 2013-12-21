@@ -1,0 +1,6 @@
+http://coeveryforwp.codeplex.com/
+
+
+indows Phone is a free CRM Windows Phone application. It will allow you to easy filter Lead, Opportunity, Contract and Quote which belong to yourself. Also it will allow you to change the status and edit comment.
+
+You can find more cases on our website: http://www.novasoftware.com/Developer/WindowsPhone.aspx?utm_source=codeplex&utm_medium=post&utm_campaign=Jon

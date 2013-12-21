@@ -1,0 +1,54 @@
+esizing images with the same c# code on windows and linux and the results on 
+linux are worse. Just a bit less than acceptable.
+What should I do to get comparable good results?
+
+What I'm doing right now:
+
+ image.RotateFlip(System.Drawing.RotateFlipType.Rotate180FlipNone);
+ image.RotateFlip(System.Drawing.RotateFlipType.Rotate180FlipNone);
+
+var resized  =  resizedImage = image.GetThumbnailImage(width, height, null, IntPtr.Zero);
+
+ var encoderParameters = new EncoderParameters(1);
+ encoderParameters.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 90);
+
+saving...
+
+Or is this the way to go?
+http://www.toptensoftware.com/Articles/17/High-Quality-Image-Resampling-in-Mono-Linux
+
+
+
+
+Microsoft's .NET Framework uses GDI+ (which is a part of Windows) whereas Mono uses libgdiplus 
+which is a wrapper around the Cairo graphics library. This is why you're seeing differences 
+between the two.
+
+The link you posted uses the ImageMagick library, which is something I'd recommend if you're 
+not happy with the quality of the System.Drawing output. ImageMagick (or GraphicsMagick, which 
+is a fork of it) is what I use with PHP and Node.js and it works pretty well. If you don't want 
+to mess around with P/Invoke and native libraries, you could just use System.Diagnostics.Process 
+to run ImageMagick. Just get it working perfectly from the command-line, and then copy the 
+command into your app :).
+
+See the ImageMagick docs: http://www.imagemagick.org/Usage/resize/#resize
+
+Thank you both for your fast answers! I'm using now the technique described in your blog article
+and it works fine. :) My ImageMagick downsized jpeg images are still a tiny bit less sharp than 
+GDI+ but filesize is also smaller like 30-40%. I'm happy with that for now! Image resizing seems 
+to be a big topic anyways if I look at that ImageMagick documentation about that.
+
+
+
+You could try GraphicsMagick - It's a fork of ImageMagick that has had some tweaks done. Not 
+sure if any of the tweaks relate to quality. I think there's a whole bunch of options you can 
+use that might help, too.
+
+Glad to hear you got it working, though!
+
+
+
+
+
+http://www.toptensoftware.com/Articles/17/High-Quality-Image-Resampling-in-Mono-Linux
+http://www.codeproject.com/Articles/17852/ImageMagick-in-VB-NET

@@ -1,0 +1,364 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Eclipse</title>
+Description = all keywords + extra text
+<meta name="Description" content="Eclipse howtos, tips and tricks" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: eclipse
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="eclipse" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Eclipse</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<p>
+		Some of the HolisticWare team members have experience with java development
+		and eclipse, but today the team uses eclipse for:
+	</p>
+	<ul>
+		<li>
+			Android development and tests of proof-of-concepts,
+		</li>
+		<li>
+			integration of some Android Development Toolkit tools in Visual Studio.
+		</li>
+		<li>
+			native development for android,			
+		</li>
+		<li>
+			etc..
+		</li>
+	</ul>
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Plugins</a></h2>
+
+	<h3><a id="">StartExlporer</a></h3>
+	<p>
+		<a href="http://startexplorer.sourceforge.net/update/ ">
+			http://startexplorer.sourceforge.net/update/ 
+		</a>
+		StartExplorer offers a tight integration of system file manager (Windows Explorer, 
+		Gnome Nautilus, KDE Konqueror, Mac Finder, ...) and the shell (cmd.exe, Linux/Mac 
+		terminal) in Eclipse. 
+	</p>
+	<p>
+		 Every now and then when working with Eclipse you'd like to examine a file or a 
+		folder inside the Eclipse workspace with your file manager or open a shell/cmd.exe 
+		in this location. Or you edit a file in Eclipse and would like to open the parent 
+		folder of this file in the file manager or shell. Or the file you are editing 
+		contains a string which references another file in the filesystem and you would 
+		like to do some of the things mentioned above with that referenced file. 
+   </p>
+   <p>
+		This plug-in gives you a convenient way to do all this by adding a few entries 
+		to Eclipse's context menus. Last but not the least this plug-in offers a tighter 
+		integration of the clip board, so copying a file's/folder's path to the clip 
+		board is only two mouse clicks
+   </p>
+   <ul>
+		<li>
+			Start file manager in selected folder from Eclipse Package Explorer/Project 
+			Explorer/Navigator
+		</li>
+		<li>
+			Start shell in selected folder from Eclipse Package Explorer/Project 
+			Explorer/Navigator
+		</li>
+		<li>
+			Start the default system app for any file from Eclipse Package Explorer/Project 
+			Explorer/Navigator
+		</li>
+		<li>
+			From Eclipse Package Explorer/Project Explorer/Navigator, copy any resource's 
+			path directly to the clipboard, without having to select it manually in the 
+			Properties dialog
+		</li>
+		<li>
+			Define custom commands and execute them on any resource in the Eclipse Package 
+			Explorer/Project Explorer/Navigator
+		</li>
+		<li>
+			Do all of the above for multiple selected files/folders
+		</li>
+		<li>
+			Select a text region in any Eclipse editor; if the selected text is a file system 
+			path, start a file manager in this location
+		</li>
+		<li>
+			Select a text region in any Eclipse editor; if the selected text is a file system 
+			path, start a shell in this location
+		</li>
+		<li>
+			Select a text region in any Eclipse editor; if the selected text is a file system 
+			path, start the default system application for this file            
+		</li>
+		<li>
+			Define custom commands and execute them on the file/folder represented by the current
+			selection in any Eclipse editor         
+		</li>
+		<li>
+			Select a text region in any Eclipse editor and pass the selected text to any 
+			application in your system
+		</li>
+   </ul>
+
+	<!-- ================================================================== -->
+	<h2><a id="">Integration with Visual Studio</a></h2>
+	<p>
+		Development for Android with Mono For Android from Visual Studio and
+		MonoDevelop lacks tools for WYSIWYG design of UI -  Android layouts.
+		<br />
+		There are several WYSIWYG Tools for Android UI development, but 2 most
+		important are:
+	</p>
+	<ul>
+		<li>
+			Eclipse with ADT (Android Development Toolkit)
+			<ul>
+				<li>
+					Eclipse
+				</li>
+				<li>
+					ADT
+				</li>
+			</ul>
+			and
+		</li>
+		<li>
+			DroidDraw
+		</li>
+	</ul>
+
+	<!-- ============================================================================================ -->
+   <h2><a id="">Command Line</a></h2>
+	<p>
+		Command Line arguments are necessary for integration with Visual Studio as External tool.
+	</p>   
+
+	<!-- ............................................................................................ -->
+	<h3><a id="">Loading axml files</a></h3>
+	<p>
+		Android xml files with axml extension are not known to Eclipse by default.
+		<br />
+			<img
+				alt=""
+				title=""
+				src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-axml-unsupported-loaded-from-commandline.png"
+				height="465" width="706"
+			/>
+	</p>
+	<p>
+		Adding axml file extensions to Eclipse filetype associations:
+		<br />
+		<img
+			alt=""
+			title=""
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-add-filetype-association-axml.png"
+			height="465" width="706"
+		/>
+	</p>
+
+	<!-- ............................................................................................ -->
+	<h3><a id="">Loading Android layouts (xml|axml) from commandline</a></h3>
+	<p>
+		Loading from commandline cannot detect that xml or axml are Android Layouts (sort of: no context!).
+	</p>
+
+	<blockquote>
+		Eclipse gurus?!?!
+		<br />
+		Anyone?!
+	</blockquote>
+
+	<pre class="hw_code">
+cd %USERPROFILE%\workspace\ActivityNavigation\res\layout
+
+C:\bin\eclipse\eclipse.exe --launcher.openFile main.xml 
+
+C:\Users\moljac\workspace\ActivityNavigation\res\layout>c:\bin\eclipse\eclipse.exe --launcher.openFile main.xml
+		</pre>
+	<p>
+		<img
+			alt="Android Layout xml file loaded from commandline as plain xml source"
+			title="Android Layout xml file loaded from commandline as plain xml source"
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-android-layout-xml-loaded-from-commandline-source.png"
+			height="465" width="706"
+		/>
+		<br />
+		<img
+			alt="Android Layout xml file loaded from commandline as plain xml designer"
+			title="Android Layout xml file loaded from commandline as plain xml designer"
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-android-layout-xml-loaded-from-commandline-designer.png"
+			height="465" width="706"
+		/>
+		<br />
+		<br />
+		If loaded from Android Project (context):
+		<br />
+		<br />
+		<img
+			alt="Android Layout xml file loaded from project designer"
+			title="Android Layout xml file loaded from project designer"
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-android-layout-xml-loaded-from-project-design-layout.png"
+			height="465" width="706"
+		/>
+	</p>
+	<p>
+		Similar for axml files:
+	</p>
+	<pre class="hw_code">
+cd %USERPROFILE%\workspace\ActivityNavigation\res\layout
+
+C:\bin\eclipse\eclipse.exe --launcher.openFile main.axml 
+
+C:\Users\moljac\workspace\ActivityNavigation\res\layout>c:\bin\eclipse\eclipse.exe --launcher.openFile main.axml
+	</pre>
+	<p>
+		<br />
+		<img
+			alt="Android Layout axml file loaded from commandline as plain xml source"
+			title="Android Layout axml file loaded from commandline as plain xml source"
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-axml-loaded-from-commandline-source.png"
+			height="465" width="706"
+		/>
+		<br />
+		<img
+			alt="Android Layout axml file loaded from commandline as plain xml designer"
+			title="Android Layout axml file loaded from commandline as plain xml designer"
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-axml-loaded-from-commandline-design.png"
+			height="465" width="706"
+		/>
+		<br />
+		<br />
+		If loaded from Android Project (context):
+		<br />
+		<br />
+		<img
+			alt="Android Layout axml file loaded from project designer"
+			title="Android Layout axml file loaded from project designer"
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-axml-loaded-from-context-android-project-design.png"
+			height="465" width="706"
+		/>
+
+	</p>
+
+
+	<!-- ...................................................................................... -->
+	<h3><a id="">Conclusion + TODOs:</a></h3>        
+   <ul>
+		<li>
+			Usage: DroidDraw and Eclipse integration in Visual Studio
+		</li>
+		<li>
+			TODO:
+			<br />
+			Eclipse Loading from commandline in Android Project context, so that [a]xml
+			is properly loaded and not as plain xml.
+		</li>
+		<li>
+		<!--
+		Duplicates
+		<img
+			alt=""
+			title=""
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-axml-loaded-from-commandline.png"
+			height="465" width="706"
+		/>
+		<br />
+		<img
+			alt=""
+			title=""
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-axml-loaded-from-commandline.png"
+			height="465" width="706"
+		/>
+		<br />
+		<img
+			alt=""
+			title=""
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-axml-loaded-from-context-android-project.png"
+			height="465" width="706"
+		/>
+		<br />
+		<img
+			alt=""
+			title=""
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-axml-loaded-from-commandline-source.png"
+			height="465" width="706"
+		/>
+		<br />
+		<img
+			alt=""
+			title=""
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-axml-loaded-from-commandline-design.png"
+			height="465" width="706"
+		/>
+		<br />
+		<img
+			alt=""
+			title=""
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-axml-loaded-from-commandline.png"
+			height="465" width="706"
+		/>
+		<br />
+
+		<br />
+		<img
+			alt=""
+			title=""
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-xml-loaded-from-commandline-design.png"
+			height="465" width="706"
+		/>
+		<br />
+		<img
+			alt=""
+			title=""
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-xml-loaded-from-commandline-source.png"
+			height="465" width="706"
+		/>
+		<br />
+		<img
+			alt=""
+			title=""
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-xml-loaded-from-commandline.png"
+			height="465" width="706"
+		/>
+		<br />
+		<img
+			alt=""
+			title=""
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-xml-loaded-from-context-android-project-design.png"
+			height="465" width="706"
+		/>
+		<br />
+		<img
+			alt=""
+			title=""
+			src="/mm/holisticware/know-how/development/integrated-development-environments-ides/eclipse/eclipse-adt-axml-loaded-from-android-project-01.png"
+			height="465" width="706"
+		/>
+		-->
+		</li>
+
+   </ul>
+
+
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!--
+C1 generated!!
+<title>Composite C1 XHTML paste in Content</title>
+<meta name="Description" content="Composite C1 XHTML paste in Content" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="Composite, C1, XHTML, paste, Content" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-04-18" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Composite C1 XHTML paste in Content</a></h1>
+	<!-- ================================================================== -->
+
+	<a id="Exception-paste-XHTML-in-content">
+		<h2><a id="">
+		2011-04-24 Exception when pasting XHTML in Content Editor in Source View Mode
+		</a></h2>
+	</a>
+
+	<p>
+		Pasting following XHTML code:
+	</p>
+
+	<pre class="hw_code">
+&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+	&lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
+	&lt;title&gt;C1 Composite Sample error&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+	</pre>
+	<p>
+	Causes exception in:
+	</p>
+
+	<pre class="hw_code">
+	\Website_v2.1\Composite\services\WysiwygEditor\XhtmlTransformations.asmx
+	line 234
+
+		[WebMethod]
+		public XhtmlTransformationResult StructuredContentToTinyContent(string htmlFragment)
+		{
+			try
+			{
+				string warnings = "";
+				string XhtmlPassSsltPath = Server.MapPath("..\\..\\transformations\\WysiwygEditor_StructuredContentToTinyContent.xsl");
+
+				string html = WrapInnerBody(htmlFragment);
+
+				XDocument xml = MarkupTransformationServices.TidyXml(html);
+
+				IEnumerable&lt;XElement&gt; functionRoots = xml.Descendants(Namespaces.Function10 + "function").Where(f =&gt; f.Ancestors(Namespaces.Function10 + "function").Count() == 0);
+				foreach (var functionElement in functionRoots.ToList())
+				{
+					functionElement.ReplaceWith(GetImageTagForFunctionCall(functionElement));
+				}
+
+				IEnumerable&lt;XElement&gt; dataFieldReferences = xml.Descendants(Namespaces.DynamicData10 + "fieldreference");
+				foreach (var referenceElement in dataFieldReferences.ToList())
+				{
+					referenceElement.ReplaceWith(GetImageTagForDynamicDataFieldReference(referenceElement));
+				}
+
+				Dictionary&lt;string, string&gt; xsltParameters = new Dictionary&lt;string, string&gt;();
+				xsltParameters.Add("requestapppath", UrlUtils.PublicRootPath);
+
+				XDocument structuredResult = MarkupTransformationServices.RepairXhtmlAndTransform(xml.ToString(), XhtmlPassSsltPath, xsltParameters, out warnings);
+
+				string bodyInnerXhtml = MarkupTransformationServices.OutputBodyDescendants(structuredResult);
+
+				XhtmlTransformationResult result = new XhtmlTransformationResult();
+				result.Warnings = warnings;
+				result.XhtmlFragment = bodyInnerXhtml.Replace("\xA0", _nbspNumeric).Replace(_nbsp, _nbspNumeric);
+
+				return result;
+			}
+			catch (Exception ex)
+			{
+				LoggingService.LogError("XhtmlTransformation", ex.ToString());
+				// exception thrown here
+				throw;
+			}
+		}
+
+
+System.Xml.XmlException was unhandled by user code
+  Message=Unexpected XML declaration. The XML declaration must be the first node in the document, 
+  and no white space characters are allowed to appear before it. 
+  Line 8, position 3.
+  Source=System.Xml
+  LineNumber=8
+  LinePosition=3
+  SourceUri=""
+  StackTrace:
+	   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+	   at System.Xml.XmlTextReaderImpl.Throw(String res, String arg)
+	   at System.Xml.XmlTextReaderImpl.ParsePI(StringBuilder piInDtdStringBuilder)
+	   at System.Xml.XmlTextReaderImpl.ParsePI()
+	   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+	   at System.Xml.XmlTextReaderImpl.Read()
+	   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r)
+	   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r, LoadOptions o)
+	   at System.Xml.Linq.XDocument.Load(XmlReader reader, LoadOptions options)
+	   at System.Xml.Linq.XDocument.Parse(String text, LoadOptions options)
+	   at System.Xml.Linq.XDocument.Parse(String text)
+	   at Composite.Core.WebClient.Services.WysiwygEditor.MarkupTransformationServices.TidyXml(String xmlMarkup)
+	   at Composite.Services.XhtmlTransformations.StructuredContentToTinyContent(String htmlFragment) in path\Website_v2.1\Composite\services\WysiwygEditor\XhtmlTransformations.asmx:line 234
+  InnerException: 	
+  </pre>
+	<p>
+		Stepping further with debugger got C1 console altert error: &quot;Error in source 
+		code: Unknown error&quot;
+	</p>
+
+	<blockquote>
+	Note: switching from Source View to Visual purges html (removes) 
+	<code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;</code>
+	</blockquote>
+
+	<p>
+	Pasting following code in Source view of the Content page and saving does not throw exception
+	</p>
+	<pre class="hw_code">
+&lt;!--
+C1 generated!!
+&lt;title&gt;Title max 65 char all keywords&lt;/title&gt;
+&lt;meta name="Description" content="Description all keywords" /&gt;
+--&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+	&lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;	
+</pre>	
+
+	<p>
+		Or adding whitespace in the firs line of code (space or tab before 
+		<code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;</code>
+	</p>
+
+	<pre class="hw_code">
+  &lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+	&lt;meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /&gt;
+	&lt;title&gt;C1 Composite Sample error&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;	
+	</pre>
+	<p>
+	Does not throw an Exception but alert comes up in C1 console
+	</p>
+	<blockquote>
+	Unexpected xml declaration. Xml declaration must be first node in the document and no 
+	whitespace characters are allowed to appear before it. Line 1 position 4.
+	</blockquote>
+
+	<p>
+	The encoding part was superfluous and I see confusing...
+	</p>
+	<p>
+	The problem was
+	</p>
+	<p>
+	Following XHTML code snippet was paste by user from some other editor. I know
+	that encoding and thus &lt;?xml version="1.0" encoding="iso-8859-1"?&gt; is optional
+	for valid XHTML, but they have pasted it and obtained error.
+	After investigation here is what we found...
+	</p>
+	<p>
+	XHTMLSnippet1
+	</p>
+	<pre class="hw_code">
+	&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+	&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+		&lt;head&gt;
+			&lt;title&gt;C1 Composite Sample error&lt;/title&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+		&lt;/body&gt;
+	&lt;/html&gt; 
+	</pre>
+
+	<h3><a id="">Scenario 1:</a></h3>	
+		<ol>
+			<li>Paste XHTMLSnippet1 in source view of the content page</li>
+			<li>press Save</li>
+		</ol>
+	<p>
+	Causes exception 
+	</p>
+	<pre class="hw_code">
+System.Xml.XmlException was unhandled by user code
+  Message=Unexpected XML declaration. The XML declaration must be the first node 
+  in the document, and no white space characters are allowed to appear before it. 
+  Line 7, position 3.
+  Source=System.Xml
+  LineNumber=7
+  LinePosition=3
+  SourceUri=""
+  StackTrace:
+	   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+	   at System.Xml.XmlTextReaderImpl.Throw(String res, String arg)
+	   at System.Xml.XmlTextReaderImpl.ParsePI(StringBuilder piInDtdStringBuilder)
+	   at System.Xml.XmlTextReaderImpl.ParsePI()
+	   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+	   at System.Xml.XmlTextReaderImpl.Read()
+	   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r)
+	   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r, LoadOptions o)
+	   at System.Xml.Linq.XDocument.Load(XmlReader reader, LoadOptions options)
+	   at System.Xml.Linq.XDocument.Parse(String text, LoadOptions options)
+	   at System.Xml.Linq.XDocument.Parse(String text)
+	   at Composite.Core.WebClient.Services.WysiwygEditor.MarkupTransformationServices.TidyXml(String xmlMarkup)
+	   at Composite.Services.XhtmlTransformations.StructuredContentToTinyContent
+	   (String htmlFragment) in Website_v2.1\Composite\services\WysiwygEditor\XhtmlTransformations.asmx:line 234
+  InnerException: 
+
+in 		Website_v2.1\Composite\services\WysiwygEditor\XhtmlTransformations.asmx
+line:	234
+	</pre>
+	<p>
+	This exception is caught and rethrown, so the user is presented with
+	</p>
+	<blockquote>
+	Error in source Code.
+	Unknown Error
+	</blockquote>
+
+	<h3><a id="">Scenario 2:</a></h3>
+	<ol>
+		<li>Paste XHTMLSnippet1 in source view of the content page</li>
+		<li>press Visual to go to Visual view</li>
+		<li>press Save</li>
+		<li>press Source to go to Source view</li>
+	</ol>
+	<p>
+	Result: <code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;</code> is 
+	removed from content?!?!
+	</p>
+	<p>
+	This is a little bit confusing that save causes error and switching between
+	views and then saving is ok with removal of offending code....
+	</p>
+
+
+</body>
+</html>

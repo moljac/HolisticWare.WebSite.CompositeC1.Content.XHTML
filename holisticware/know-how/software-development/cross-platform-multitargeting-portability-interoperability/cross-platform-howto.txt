@@ -1,0 +1,171 @@
+Cross Platform HowTo Tips and Tricks for code sharing
+
+	http://www.mono-project.com/Gendarme.Rules.Portability
+	
+For any app
+	make default namespaces the same.
+	By default it is project name and if differentiating projects by names change this.
+
+From MT to MA
+
+Startup
+	Main.cs -> class Appliaction 
+		problem - not partial
+		
+	Better solution use AppDelegate it is partial
+		<BLName> something like Models, BusinessLogicObjects, BusinessObjects ....
+		add AppDelegate.BusinesLogic.cs
+		
+	on MA side add Activity called with no
+		UI 
+		axml
+		
+
+
+Debugging
+
+	Debug.WriteLine in Release
+	
+	no. If you don't define the DEBUG preprocessor symbol, any calls to Debug.* will be 
+	removed by the compiler due to the [Conditional("DEBUG")] attribute being applied.
+
+	You might want to consider Trace.WriteLine or other logging techniques though.
+	define DEBUG - 
+		don't have to do it assembly wide. 
+		define it only in the source files that you want. 
+	
+
+	
+	So if you want debug logging from a particular class you can define DEBUG just for that source file.
+
+		#define DEBUG
+		using System.Diagnostics;
+
+		...
+
+		class Logger
+		{
+			void Log( string msg ){ Debug.WriteLine( msg ); }
+		}	
+	
+	
+	Use Trace  
+		why removed in Mono??
+		
+	it is called ConditionalAttribute and it is already there: Debug.WriteLine() calls are removed
+	entirely when you compile in Release mode.
+
+	It is declared like this:
+
+	[ConditionalAttribute("DEBUG")]
+	public static void WriteLine(string message)
+		
+		
+		
+		
+		
+		
+bool runningInDebug = false;
+
+#if DEBUG
+
+runningInDebug = true;
+
+#endif		
+		
+		
+		
+		
+		
+		
+		
+		
+	While most of these suggestions are acceptable, I think that you should
+use reflection to determine whether or not the assembly has the Debuggable
+attribute attached to it. Most compilers (should) attach this to any
+assembly compiled in debug mode. The C# compiler definitely does, and I
+think it would be safe to say that the other .NET compilers issued by MS do
+as well.
+
+In order to determine whether or not the assembly was compiled in debug
+mode, get the Debuggable attribute from the assembly.
+
+Assuming that you have an Assembly instance, this is how you would do
+it:
+
+// The assembly is in a variable named assembly.
+object[] attributes =
+assembly.GetCustomAttributes(typeof(DebuggableAttr ibute), true);
+
+// If the array is null, or has length of zero, then it is not debuggable.
+if (!(attributes == null || attributes.length == 0))
+{
+// It is debuggable, figure out the level.
+DebuggableAttribute debug = (DebuggableAttribute) attributes[0];
+
+// At this point, you can access the DebuggingFlags property to
+determine the level of debugging.
+}
+
+
+
+	
+	
+	http://docs.xamarin.com/guides/ios/application_fundamentals/working_with_the_file_system
+	http://ibboard.co.uk/Programming/mono-special-folders.html
+	
+	http://stackoverflow.com/questions/5599057/alternative-to-console-writeline-for-log-tracing
+	http://stackoverflow.com/questions/4618419/debug-writeline-equivalent-in-monotouch-monodroid
+	http://www.infoq.com/articles/monotouch-debugging
+	http://nicksnettravels.builttoroam.com/post/2011/04/10/Windows-Phone-7-Android-and-iOS-with-Mono-IV-File-Access.aspx
+	
+	for iOS
+		enable FileSharing
+		
+		
+	Location
+		Environment.SpecialFolders.Public
+		
+	Trace 
+		does not exist...
+		why?
+		
+	Debug.
+		is it removed in runtime?
+		
+	e equivalent to Debug.WriteLine for MonoTouch or MonoDroid?
+
+Here's a guide for MonoDroid: http://monodroid.net/Documentation/Guides/Android_Debug_Log
+For MonoTouch, Console.WriteLine will show up in MonoDevelop and in the logs from your iOS device.
+
+For MonoDroid, you can use the Android.Util.Log class to log debug, info, errors etc that you can view from the Android Debug Bridge's logcat (adb logcat). An example would be something like this to log an info message : Android.Util.Log.Info("Barcode", "Scan button pressed.")
+
+
+Mono for Android provides Debug.WriteLine(), as does MonoTouch, so I'm not sure why you need a workaround.
+
+Debug.WriteLine() is visible within MonoDevelop (when debugging) and is also copied to the Android Debug Log with the mono-stdout tag. System.Console output is also copied to the Android Debug Log with the mono-stdout (Console.Out) and mono-stderr (Console.Error) tags.
+
+System.Console.WriteLine with both Monotouch and Monodroid for debug output.
+
+
+ take advantage of C#'s [Conditional] support in the language.
+
+You add this attribute to methods, like this:
+
+class Util { 
+     [Conditional ("DEBUG")]
+     void Log (string msg)
+     { 
+         Console.WriteLine (msg);
+     }
+ }
+This lets you write code like this:
+
+ Util.Log ("Starting");
+ DoSomething ();
+ Util.Log ("Ending");
+If the symbol DEBUG is defined, the code above compiles the three lines, but if the symbol is not defined, the compiler will only generate code for DoSomething.
+
+This lets you keep the debugging code in your program, and switch it on/off by the use of a compiler define.
+
+Then you add DEBUG as one of your defines to your DEBUG profiles. The same technique can be applied for other configuration builds, you could use the above for Simulator vs Device or Debug vs AppStore vs AdHoc

@@ -1,0 +1,6 @@
+Functions
+	xslt 
+		~/App_Data/PageTemplates		
+Page Tmeplates (xml) (xhtml)
+	xml (xhtml)
+		~/App_Data/Xslt/<Namespace>.<Function>.

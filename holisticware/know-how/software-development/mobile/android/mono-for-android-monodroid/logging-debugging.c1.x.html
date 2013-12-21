@@ -1,0 +1,175 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Logging and Debugging</title>
+Description = all keywords + extra text
+<meta name="Description" content="Logging and Debugging" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: logging-debugging
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="c1, content, template, Keywords" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Logging and Debugging</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<h2><a id=""></a></h2>
+	<pre class="hw_code">
+	adb shell setprop debug.mono.trace all
+
+
+	[0] Tracing is problematic as it's not fully stable on ARM, and thus not entirely dependable, 
+	e.g. I've seen OverflowExceptions generated strictly because tracing is enabled.
+
+	Ideally you should minimize what gets traced; see the --trace docs at:
+
+	http://docs.go-mono.com/?link=man%3amono(1)
+
+	</pre>
+	
+	Diagnostics
+	Enable
+	   adb shell setprop debug.mono.env MONO_LOG_LEVEL=info
+	   adb shell setprop debug.mono.log gref,gc
+
+	Discable
+	Just set them to the empty string:
+
+	adb shell setprop debug.mono.env ''
+	adb shell setprop debug.mono.log ''	
+
+
+
+
+
+
+	
+	Any chance you can try running on a Jelly Bean target? It's possible that mono 
+	is writing a message to stderr, and Jelly Bean (finally!) copies 
+	stdout/stderr messages to logcat...
+
+	Otherwise, if you can easily reproduce this I'd suggest enabling runtime tracing 
+	to see where it gets before things die:
+
+	# http://docs.xamarin.com/android/advanced_topics/diagnostics
+	adb shell setprop debug.mono.trace all
+
+Note: tracing is known to be not entirely stable, particularly around System.Net...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Serious help needed - I really haven't a clue what's going on
+
+I updated the android-sdk-windows   - cant really recall what exactly changed in 
+that update but since then when I run a build I get
+
+"aapt.exe" exited with code one
+
+Pointing to line 460 in  Novell.Monodroid.Common.Targets
+
+e.g these lines
+
+<!-- Run aapt to generate R.java -->
+
+	   <Aapt
+
+			  AndroidSdkDirectory="$(_AndroidSdkDirectory)"
+
+			  JavaPlatformJarPath="$(JavaPlatformJarPath)"
+
+ 
+
+ 
+
+It is the AndroidSDKDirectory it seems to fail on
+
+I have un installed the android-sdk-windows    and reinstalled it  ( a painful task if 
+ever there was one)
+
+I've checked the path to the Androdi-sdk-windows in VS2010 - no issue there
+
+As its all tied up with Java its not as if I can revert to a previous version of the  
+sln file either
+
+ 
+
+Can anyone help  - I'm desperate
+
+
+
+
+
+
+Enable diagnostic MSBuild output: 
+Tools > Options... > Projects and Solutions > Build and Run > MSBuild project build output verbosity: Diagnostic
+
+Clean + Rebuild your solution.
+
+The MSBuild output is visible in View > Output pad. Look through the MSBuild output and look 
+for "aapt"; the actual aapt-generated error should be (somewhere) in there. What is it?
+
+
+Thanks Jonathan
+The error was - it was objecting to a graphics file which had spaces in  the
+name.
+You might ask why this worked on previous builds? Well I remember once just
+after updating the android-sdk using monodevelop instead of VS2010.
+It appears that MonoDevelop has changed the build flags on several files
+from none to content or build.
+The offending graphics file was not part of this project but had acquired
+content flag.	
+
+
+	<h2>Debugging</h2>
+	
+	<p>
+		If in project file  (.csproj), the Debug <PropertyGroup/> section contains:
+	</p>
+	<pre>
+	&lt;AndroidUseSharedRuntime&gt;False&lt;/AndroidUseSharedRuntime&gt;
+	&lt;EmbedAssembliesIntoApk&gt;True&lt;/EmbedAssembliesIntoApk&gt;
+
+	</pre>
+	<p>
+	That will disable the shared runtime, slow down app reinstall/turnaround, 
+	and in general isn't recommended for Debug builds.
+	</p>
+	<p>
+		Even JP had no answer:
+		have to wonder if debugging requires the shared runtime. I don't know... :-/
+	</p>
+	<p>
+		Some people report can debug release builds (non shared runtime) on my device 
+		(barring the constant debugger timeouts).
+	</p>
+
+
+	<p>
+		Release app with the shared runtime enabled, which is not a supported configuration
+	</p>
+</body>
+</html>

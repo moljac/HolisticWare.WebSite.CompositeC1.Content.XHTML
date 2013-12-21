@@ -1,0 +1,131 @@
+
+wo razor
+
+removed
+	copy "$(TargetPath)" "$(ProjectDir)..\bin\"
+	copy "$(TargetPath)" "$(ProjectDir)..\Website\bin\"
+	
+	
+	copy "$(TargetPath)" "$(ProjectDir)..\bin\"
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Microsoft (R) ASP.NET Compilation Tool version 4.0.30319.17929
+Utility to precompile an ASP.NET application
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+(0): warning : The following assembly has dependencies on a version of the .NET Framework that is higher than the target and might not load correctly during runtime causing a failure: Composite, Version=4.0.4703.14070, Culture=neutral, PublicKeyToken=null. The dependencies are: System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a; System.Configuration.Install, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a. You should either ensure that the dependent assembly is correct for the target framework, or ensure that the target framework you are addressing is that of the dependent assembly.
+/Composite/controls/FormsControls/FormUiControlTemplates/DateTimeSelectors/DateSelector.ascx(1): error ASPPARSE: The file '/Composite/controls/FormsControls/FormUiControlTemplates/DateTimeSelectors/DateSelector.cs' does not exist.
+
+[HttpException]: The file '/Composite/controls/FormsControls/FormUiControlTemplates/DateTimeSelectors/DateSelector.cs' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResult(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean ensureIsUpToDate)
+   at System.Web.UI.TemplateParser.ImportSourceFile(VirtualPath virtualPath)
+   at System.Web.UI.TemplateParser.PostProcessMainDirectiveAttributes(IDictionary parseData)
+
+[HttpParseException]: The file '/Composite/controls/FormsControls/FormUiControlTemplates/DateTimeSelectors/DateSelector.cs' does not exist.
+   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   at System.Web.UI.TemplateParser.ParseReader(StreamReader reader, VirtualPath virtualPath)
+   at System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   at System.Web.UI.TemplateParser.ParseInternal()
+   at System.Web.UI.TemplateParser.Parse()
+   at System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.WebDirectoryBatchCompiler.CompileNonDependentBuildProviders(ICollection buildProviders)
+
+[HttpParseException]: The file '/Composite/controls/FormsControls/FormUiControlTemplates/DateTimeSelectors/DateSelector.cs' does not exist.
+   at System.Web.Compilation.WebDirectoryBatchCompiler.Process()
+   at System.Web.Compilation.BuildManager.BatchCompileWebDirectoryInternal(VirtualDirectory vdir, Boolean ignoreErrors)
+   at System.Web.Compilation.BuildManager.BatchCompileWebDirectory(VirtualDirectory vdir, VirtualPath virtualDir, Boolean ignoreErrors)
+   at System.Web.Compilation.BuildManager.PrecompileWebDirectoriesRecursive(VirtualDirectory vdir, Boolean topLevel)
+   at System.Web.Compilation.BuildManager.PrecompileWebDirectoriesRecursive(VirtualDirectory vdir, Boolean topLevel)
+   at System.Web.Compilation.BuildManager.PrecompileWebDirectoriesRecursive(VirtualDirectory vdir, Boolean topLevel)
+   at System.Web.Compilation.BuildManager.PrecompileWebDirectoriesRecursive(VirtualDirectory vdir, Boolean topLevel)
+   at System.Web.Compilation.BuildManager.PrecompileWebDirectoriesRecursive(VirtualDirectory vdir, Boolean topLevel)
+   at System.Web.Compilation.BuildManager.PrecompileWebDirectoriesRecursive(VirtualDirectory vdir, Boolean topLevel)
+   at System.Web.Compilation.BuildManager.PrecompileAppInternal(VirtualPath startingVirtualDir, IEnumerable`1 excludedVirtualPaths)
+   at System.Web.Compilation.BuildManager.PrecompileApp(VirtualPath startingVirtualDir, IEnumerable`1 excludedVirtualPaths)
+   at System.Web.Compilation.BuildManager.PrecompileApp(ClientBuildManagerCallback callback, IEnumerable`1 excludedVirtualPaths)
+   at System.Web.Compilation.BuildManagerHost.PrecompileApp(ClientBuildManagerCallback callback, List`1 excludedVirtualPaths)
+   at System.Web.Compilation.BuildManagerHost.PrecompileApp(ClientBuildManagerCallback callback, List`1 excludedVirtualPaths)
+   at System.Web.Compilation.ClientBuildManager.PrecompileApplication(ClientBuildManagerCallback callback, Boolean forceCleanBuild)
+   at System.Web.Compilation.ClientBuildManager.PrecompileApplication(ClientBuildManagerCallback callback)
+   at System.Web.Compilation.Precompiler.Main(String[] args)
+
+
+
+
+Website precompilation failed with exit code 1. Precompilation can optionally be disabled in application settings
+
+
+
+<%@ Control Language="C#" Inherits="Composite.controls.FormsControls.FormUiControlTemplates.DateTimeSelectors.DateSelectorBase" 
+Src="~/Composite/controls/FormsControls/FormUiControlTemplates/DateTimeSelectors/DateSelector.cs" %>
+
+replaced with:
+
+<%@ Control Language="C#" Inherits="Composite.controls.FormsControls.FormUiControlTemplates.DateTimeSelectors.DateSelectorBase" 
+Src="~/Composite/controls/FormsControls/FormUiControlTemplates/DateTimeSelectors/DateSelector.cs" %>
+<!--
+<%@ Control Language="C#" Inherits="Composite.controls.FormsControls.FormUiControlTemplates.DateTimeSelectors.DateSelectorBase" 
+Codebehind="DateSelector.cs" %>
+-->
+
+Microsoft (R) ASP.NET Compilation Tool version 4.0.30319.17929
+Utility to precompile an ASP.NET application
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+(0): warning : The following assembly has dependencies on a version of the .NET Framework that is higher than the target and might not load correctly during runtime causing a failure: Composite, Version=4.0.4703.15498, Culture=neutral, PublicKeyToken=null. The dependencies are: System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a; System.Configuration.Install, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a. You should either ensure that the dependent assembly is correct for the target framework, or ensure that the target framework you are addressing is that of the dependent assembly.
+/Composite/controls/FormsControls/FormUiControlTemplates/DateTimeSelectors/DateSelector.ascx(4): error ASPPARSE: There can be only one 'control' directive.
+
+[HttpException]: There can be only one 'control' directive.
+
+
+[HttpParseException]: There can be only one 'control' directive.
+   at System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   at System.Web.UI.TemplateParser.ParseReader(StreamReader reader, VirtualPath virtualPath)
+   at System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   at System.Web.UI.TemplateParser.ParseInternal()
+   at System.Web.UI.TemplateParser.Parse()
+   at System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.WebDirectoryBatchCompiler.CompileNonDependentBuildProviders(ICollection buildProviders)
+
+[HttpParseException]: There can be only one 'control' directive.
+   at System.Web.Compilation.WebDirectoryBatchCompiler.Process()
+   at System.Web.Compilation.BuildManager.BatchCompileWebDirectoryInternal(VirtualDirectory vdir, Boolean ignoreErrors)
+   at System.Web.Compilation.BuildManager.BatchCompileWebDirectory(VirtualDirectory vdir, VirtualPath virtualDir, Boolean ignoreErrors)
+   at System.Web.Compilation.BuildManager.PrecompileWebDirectoriesRecursive(VirtualDirectory vdir, Boolean topLevel)
+   at System.Web.Compilation.BuildManager.PrecompileWebDirectoriesRecursive(VirtualDirectory vdir, Boolean topLevel)
+   at System.Web.Compilation.BuildManager.PrecompileWebDirectoriesRecursive(VirtualDirectory vdir, Boolean topLevel)
+   at System.Web.Compilation.BuildManager.PrecompileWebDirectoriesRecursive(VirtualDirectory vdir, Boolean topLevel)
+   at System.Web.Compilation.BuildManager.PrecompileWebDirectoriesRecursive(VirtualDirectory vdir, Boolean topLevel)
+   at System.Web.Compilation.BuildManager.PrecompileWebDirectoriesRecursive(VirtualDirectory vdir, Boolean topLevel)
+   at System.Web.Compilation.BuildManager.PrecompileAppInternal(VirtualPath startingVirtualDir, IEnumerable`1 excludedVirtualPaths)
+   at System.Web.Compilation.BuildManager.PrecompileApp(VirtualPath startingVirtualDir, IEnumerable`1 excludedVirtualPaths)
+   at System.Web.Compilation.BuildManager.PrecompileApp(ClientBuildManagerCallback callback, IEnumerable`1 excludedVirtualPaths)
+   at System.Web.Compilation.BuildManagerHost.PrecompileApp(ClientBuildManagerCallback callback, List`1 excludedVirtualPaths)
+   at System.Web.Compilation.BuildManagerHost.PrecompileApp(ClientBuildManagerCallback callback, List`1 excludedVirtualPaths)
+   at System.Web.Compilation.ClientBuildManager.PrecompileApplication(ClientBuildManagerCallback callback, Boolean forceCleanBuild)
+   at System.Web.Compilation.ClientBuildManager.PrecompileApplication(ClientBuildManagerCallback callback)
+   at System.Web.Compilation.Precompiler.Main(String[] args)
+
+
+
+
+Website precompilation failed with exit code 1. Precompilation can optionally be disabled in application settings
+
+
+
+

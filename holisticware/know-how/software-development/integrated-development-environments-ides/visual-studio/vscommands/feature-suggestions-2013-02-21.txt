@@ -1,0 +1,12 @@
+# Feature suggestions 2013-02-21 #
+
++ 	Special folder (Web Services, Service References, Properties) operations  	
+	+ 	copy/paste   
+	+ 	copy as link/paste as link
++ 	Project renaming gives option to rename containig folder to retain VS policy  
+	<ProjectName>\<ProjectName>.csproj
+	
+	
+Did  You manage to implement "partialization" (making existing class partial)?
+
+

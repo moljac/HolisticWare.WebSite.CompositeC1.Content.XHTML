@@ -1,0 +1,24 @@
+>   I noticed that when the app starts the first HttpWebRequest chooses the
+> active network.
+>
+>   But the subsequent requests seems to be using the network which was picked
+> at the start and *does not react to the network changes*.
+>
+>   For example:
+>   I do the first request on WiFi.
+>   Then I switch WiFi off and turn 3G on.
+>   The request are not going through the 3g but keep trying to use WiFi.
+>   And vice-versa for 3g-> WiFi change.
+>
+>   The equivalent java code works as I would expect (the request are using
+> the selected network).
+>
+>   Is that a bug? Is there a workaround?
+
+It could be related to how requests use ServicePoints and then (try
+to) reuse connections.
+
+I think that a simple workaround is to do something like this for your
+request object:
+    HttpWebRequest req = ......;
+    req.KeepAlive = false;

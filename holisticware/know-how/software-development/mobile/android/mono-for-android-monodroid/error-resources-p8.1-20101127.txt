@@ -1,0 +1,1171 @@
+------ Build started: Project: MonoDroidApplication1, Configuration: Debug Any CPU ------
+D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\Activity1.cs(22,28): error CS0117: 'MonoDroidApplication1.Resource' does not contain a definition for 'layout'
+
+Compile complete -- 1 errors, 0 warnings
+Build started 2010.11.27 16:17:00.
+Environment at start of build:
+MSBuildExtensionsPath32 = C:\Program Files\MSBuild
+MSBuildExtensionsPath = C:\Program Files\MSBuild
+LOCALAPPDATA = C:\Users\moljac\AppData\Local
+ALLUSERSPROFILE = C:\ProgramData
+APPDATA = C:\Users\moljac\AppData\Roaming
+CLASSPATH = .;C:\Program Files\Java\jre6\lib\ext\QTJava.zip
+CommonProgramFiles = C:\Program Files\Common Files
+COMPUTERNAME = MOLJAC-PC
+ComSpec = C:\Windows\system32\cmd.exe
+CONNECTION_NAME = Wireless Network Connection
+Cor_Enable_Profiling = 0
+DNS1 = 10.1.0.11
+DNS2 = 10.0.1.1
+FP_NO_HOST_CHECK = NO
+GATEWAY_ROUTER = 10.66.66.193
+GTK_BASEPATH = C:\Program Files\GtkSharp\2.12\
+HOMEDRIVE = C:
+HOMEPATH = \Users\moljac
+IP = 10.11.11.11
+IP_PERSONAL = 192.168.1.193
+IP_TARGET = 192.168.11.251
+LOGONSERVER = \\MOLJAC-PC
+NETWORK = 10.0.0.0/8
+NETWORK_MASK = 255.0.0.0
+NUMBER_OF_PROCESSORS = 2
+OS = Windows_NT
+Path = C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files\PC Connectivity Solution\;C::\bat;C::\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files\Microsoft SQL Server\90\Tools\binn\;C:\Program Files\Broadcom\Broadcom 802.11\Driver;C:\Program Files\ActivIdentity\ActivClient\;C:\Program Files\GtkSharp\2.12\bin;C:\Program Files\MySQL\MySQL Server 5.1\bin;%NARRANGE%;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft Moles\bin\;C:\Program Files\Google\Google Apps Migration\;C:\Program Files\Microsoft Pex\bin\;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\Intel\DMIX;C:\Program Files\Aladdin\eToken\PKIClient\x32;C:\Program Files\Windows Live\Shared;C:\Program Files\Nmap
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PROCESSOR_ARCHITECTURE = x86
+PROCESSOR_IDENTIFIER = x86 Family 6 Model 23 Stepping 6, GenuineIntel
+PROCESSOR_LEVEL = 6
+PROCESSOR_REVISION = 1706
+ProgramData = C:\ProgramData
+ProgramFiles = C:\Program Files
+PSModulePath = C:\Windows\system32\WindowsPowerShell\v1.0\Modules\
+PUBLIC = C:\Users\Public
+QTJAVA = C:\Program Files\Java\jre6\lib\ext\QTJava.zip
+SESSIONNAME = Console
+SystemDrive = C:
+SystemRoot = C:\Windows
+TEMP = C:\Users\moljac\AppData\Local\Temp
+TMP = C:\Users\moljac\AppData\Local\Temp
+USERDOMAIN = moljac-PC
+USERNAME = moljac
+USERPROFILE = C:\Users\moljac
+VBOX_INSTALL_PATH = C:\Program Files\Oracle\VirtualBox\
+VisualStudioDir = C:\Users\moljac\Documents\Visual Studio 2010
+VS100COMNTOOLS = C:\Program Files\Microsoft Visual Studio 10.0\Common7\Tools\
+windir = C:\Windows
+WIX = C:\Program Files\Windows Installer XML v3.5\
+XNAGSShared = C:\Program Files\Common Files\Microsoft Shared\XNA\
+XNAGSv4 = C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\
+__COMPAT_LAYER = ElevateCreateProcess 
+
+Initial Properties:
+__COMPAT_LAYER = ElevateCreateProcess 
+_AndroidResgenFlagFile = obj\Debug\R.cs.flag
+_AndroidSdkDirectory = C:\android-sdk-windows\
+_AndroidToolsDirectory = C:\android-sdk-windows\tools\
+_ApkDebugKeyStore = obj\Debug\debug.keystore
+_DebugSymbolsProduced = false
+_DeploymentApplicationManifestIdentity = Native.MonoDroidApplication1
+_DeploymentBuiltUpdateInterval = 0
+_DeploymentBuiltUpdateIntervalUnits = Days
+_DeploymentDeployManifestIdentity = MonoDroidApplication1.application
+_DeploymentFileMappingExtension = 
+_DeploymentTargetApplicationManifestFileName = Native.MonoDroidApplication1.manifest
+_DeploymentUrl = 
+_DocumentationFileProduced = false
+_FrameworkVersion40Path = C:\Windows\Microsoft.NET\Framework\v4.0.30319
+_FullFrameworkReferenceAssemblyPaths = C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\
+_GetChildProjectCopyToOutputDirectoryItems = true
+_IntermediatePdbFile = obj\Debug\MonoDroidApplication1.pdb
+_InvalidConfigurationMessageText = The OutputPath property is not set for project 'MonoDroidApplication1.csproj'.  Please check to make sure that you have specified a valid combination of Configuration and Platform for this project.  Configuration='Debug'  Platform='AnyCPU'.  This error may also appear if some other project is trying to follow a project-to-project reference to this project, this project has been unloaded or is not included in the solution, and the referencing project does not build using the same or an equivalent Configuration or Platform.
+_JavaSdkDirectory = C:\Program Files\Java\jdk1.6.0_22\
+_MonoDroidInstallDirectory = C:\Program Files\MSBuild\Novell\
+_MonoDroidToolsDirectory = C:\Program Files\MSBuild\Novell\
+_OriginalConfiguration = Debug
+_OriginalPlatform = AnyCPU
+_ProjectDefaultTargets = Build
+_ResolveReferenceDependencies = false
+_SGenDllCreated = false
+_SGenDllName = MonoDroidApplication1.XmlSerializers.dll
+_SGenGenerateSerializationAssembliesConfig = Off
+_TargetFrameworkDirectories = C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\
+_UploadFlagFile = obj\Debug\uploadflags.txt
+AllowedReferenceAssemblyFileExtensions = 
+			.dll;
+			.exe
+		
+AllowedReferenceRelatedFileExtensions = 
+		
+			.pdb;
+			.xml
+		;
+		.dll.mdb;
+		.exe.mdb
+	
+ALLUSERSPROFILE = C:\ProgramData
+AndroidManifest = Properties\AndroidManifest.xml
+AndroidResgenFile = Resources\Resource.Designer.cs
+AndroidResgenNamespace = MonoDroidApplication1
+AndroidSdkDirectory = C:\android-sdk-windows\
+AndroidSupportedAbis = armeabi
+AndroidUseSharedRuntime = true
+APPDATA = C:\Users\moljac\AppData\Roaming
+AppDesignerFolder = Properties
+AssemblyFoldersSuffix = AssemblyFoldersEx
+AssemblyName = MonoDroidApplication1
+AssemblySearchPaths = 
+			{CandidateAssemblyFiles};
+			;
+			{HintPathFromItem};
+			{TargetFrameworkDirectory};
+			{Registry:Software\Microsoft\MonoDroid,v2.0,AssemblyFoldersEx};
+			{AssemblyFolders};
+			{GAC};
+			{RawFileName};
+			bin\Debug\
+		
+AssignTargetPathsDependsOn = 
+AutoUnifyAssemblyReferences = true
+AvailablePlatforms = Any CPU,x86,x64,Itanium
+BaseIntermediateOutputPath = obj\
+BuildCompileAction = Build
+BuildDependsOn = 
+		UpdateAndroidAssets;
+		UpdateAndroidResources;
+		
+		  DevartEntityDeploy;
+		  
+			BeforeBuild;
+			CoreBuild;
+			AfterBuild
+		;
+		;
+	
+BuildGenerateSourcesAction = Build
+BuildingInsideVisualStudio = true
+BuildingProject = true
+BuildInParallel = true
+BuildLinkAction = Build
+BuildProjectReferences = true
+BuiltProjectOutputGroupDependsOn = PrepareForBuild
+CLASSPATH = .;C:\Program Files\Java\jre6\lib\ext\QTJava.zip
+CleanDependsOn = 
+		
+			BeforeClean;
+			UnmanagedUnregistration;
+			CoreClean;
+			CleanReferencedProjects;
+			CleanPublishFolder;
+			AfterClean
+		;
+		_CleanMonoDroidIntermediateDir;
+	
+CleanFile = MonoDroidApplication1.csproj.FileListAbsolute.txt
+CodeAnalysisApplyLogFileXsl = false
+CodeAnalysisFailOnMissingRules = false
+CodeAnalysisForceOutput = true
+CodeAnalysisGenerateSuccessFile = true
+CodeAnalysisIgnoreGeneratedCode = true
+CodeAnalysisIgnoreInvalidTargets = true
+CodeAnalysisInputAssembly = bin\Debug\MonoDroidApplication1.dll
+CodeAnalysisLogFile = bin\Debug\MonoDroidApplication1.dll.CodeAnalysisLog.xml
+CodeAnalysisModuleSuppressionsFile = GlobalSuppressions.cs
+CodeAnalysisOutputToConsole = false
+CodeAnalysisOverrideRuleVisibilities = false
+CodeAnalysisPath = C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\
+CodeAnalysisQuiet = false
+CodeAnalysisRuleDirectories = ;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules
+CodeAnalysisRuleSet = MinimumRecommendedRules.ruleset
+CodeAnalysisRuleSetDirectories = ;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets
+CodeAnalysisSaveMessagesToReport = Active
+CodeAnalysisSearchGlobalAssemblyCache = true
+CodeAnalysisStaticAnalysisDirectory = C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\
+CodeAnalysisSucceededFile = bin\Debug\MonoDroidApplication1.dll.lastcodeanalysissucceeded
+CodeAnalysisSummary = false
+CodeAnalysisTargets = C:\Program Files\MSBuild\Microsoft\VisualStudio\v10.0\CodeAnalysis\Microsoft.CodeAnalysis.targets
+CodeAnalysisTimeout = 120
+CodeAnalysisTreatWarningsAsErrors = false
+CodeAnalysisUpdateProject = false
+CodeAnalysisUseTypeNameInSuppression = true
+CodeAnalysisVerbose = false
+CommonProgramFiles = C:\Program Files\Common Files
+CompileDependsOn = 
+			ResolveReferences;
+			ResolveKeySource;
+			SetWin32ManifestProperties;
+			_GenerateCompileInputs;
+			BeforeCompile;
+			_TimeStampBeforeCompile;
+			CoreCompile;
+			_TimeStampAfterCompile;
+			AfterCompile
+		
+CompileLicxFilesDependsOn = 
+CompileRdlFilesDependsOn = PrepareRdlFiles;RunRdlCompiler
+CompileTimeSandboxedOM = C:\Program Files\MSBuild\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.SharePoint.dll
+ComputeIntermediateSatelliteAssembliesDependsOn = 
+			CreateManifestResourceNames
+		
+COMPUTERNAME = MOLJAC-PC
+ComReferenceExecuteAsTool = false
+ComReferenceNoClassMembers = false
+ComSpec = C:\Windows\system32\cmd.exe
+Configuration = Debug
+ConfigurationName = Debug
+CONNECTION_NAME = Wireless Network Connection
+ContentFilesProjectOutputGroupDependsOn = PrepareForBuild;AssignTargetPaths
+Cor_Enable_Profiling = 0
+CoreBuildDependsOn = 
+			BuildOnlySettings;
+			PrepareForBuild;
+			PreBuildEvent;
+			ResolveReferences;
+			PrepareResources;
+			ResolveKeySource;
+			Compile;
+			UnmanagedUnregistration;
+			GenerateSerializationAssemblies;
+			CreateSatelliteAssemblies;
+			GenerateManifests;
+			GetTargetPath;
+			PrepareForRun;
+			UnmanagedRegistration;
+			IncrementalClean;
+			PostBuildEvent
+		
+CoreCleanDependsOn = 
+CoreCompileDependsOn = _ComputeNonExistentFileProperty
+CoreResGenDependsOn = 
+CreateCustomManifestResourceNamesDependsOn = 
+CreateHardLinksForCopyAdditionalFilesIfPossible = false
+CreateManifestResourceNamesDependsOn = 
+CreateSatelliteAssembliesDependsOn = 
+			_GenerateSatelliteAssemblyInputs;
+			ComputeIntermediateSatelliteAssemblies;
+			GenerateSatelliteAssemblies
+		
+CurrentSolutionConfigurationContents = <SolutionConfiguration>
+<ProjectConfiguration Project="{378fa50f-787f-4fa9-817e-f86a09392aa8}" AbsolutePath="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.DLL_BL_022ClntMob_WinPhone_SL4netfx35\HolisticWare_GoNIX.DLL_BL_022ClntMob_WinPhone_SL4netfx35.csproj">Debug|AnyCPU</ProjectConfiguration>
+<ProjectConfiguration Project="{7b48d852-4b2b-43ea-bc49-5d09fe888c99}" AbsolutePath="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.DLL_BL_024ClntMob_MonoDroidP7_netfx35\HolisticWare_GoNIX.DLL_BL_024ClntMob_MonoDroidP7_netfx35.csproj">Debug|AnyCPU</ProjectConfiguration>
+<ProjectConfiguration Project="{ce25e23c-19a1-4724-b654-4b2a435a7433}" AbsolutePath="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.DLL_BL_032ClntRich_SL4netfx35\HolisticWare_GoNIX.DLL_BL_032ClntRich_SL4netfx35.csproj">Debug|AnyCPU</ProjectConfiguration>
+<ProjectConfiguration Project="{f6c4516f-7c0b-4625-a85d-16b575a1c723}" AbsolutePath="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.DLL_PL_052ClntMob_WinPhone_SL4netfx35\HolisticWare_GoNIX.DLL_PL_052ClntMob_WinPhone_SL4netfx35.csproj">Debug|AnyCPU</ProjectConfiguration>
+<ProjectConfiguration Project="{2158509a-abcb-4bc3-a7c5-6747bf6b66bb}" AbsolutePath="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.DLL_PL_054ClntMob_MonoDroidP7_netfx35\HolisticWare_GoNIX.DLL_PL_054ClntMob_MonoDroidP7_netfx35.csproj">Debug|AnyCPU</ProjectConfiguration>
+<ProjectConfiguration Project="{2e696784-0d3e-4a05-b674-3d10c5caccc9}" AbsolutePath="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.EXE_PL_092ClntMob_WinPhone_SL4netfx35\HolisticWare_GoNIX.EXE_PL_092ClntMob_WinPhone_SL4netfx35.csproj">Debug|AnyCPU</ProjectConfiguration>
+<ProjectConfiguration Project="{baec0154-5dc0-4051-bbec-7d69d24e44e4}" AbsolutePath="D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj">Debug|AnyCPU</ProjectConfiguration>
+<ProjectConfiguration Project="{2977a873-b64b-46a2-8da1-4419e245d71c}" AbsolutePath="D:\SRC\HolisticWare\HolisticWare_GoNIX\OpenGLApplication1\OpenGLApplication1.csproj">Debug|AnyCPU</ProjectConfiguration>
+<ProjectConfiguration Project="{ff001882-6b67-4c12-9df8-4a37a3203b6e}" AbsolutePath="D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare_GoNIX.EXE_PL_094ClntMob_MonoDroidP7_netfx35\HolisticWare_GoNIX.EXE_PL_094ClntMob_MonoDroidP7_netfx35.csproj">Debug|AnyCPU</ProjectConfiguration>
+<ProjectConfiguration Project="{4e103b11-2f4e-42a1-b09a-bec8773596e5}" AbsolutePath="D:\SRC\HolisticWare\HolisticWare_GoNIX\WindowsPhoneApplication1\WindowsPhoneApplication1.csproj">Debug|AnyCPU</ProjectConfiguration>
+</SolutionConfiguration>
+CustomAfterMicrosoftCommonTargets = C:\Program Files\MSBuild\v4.0\Custom.After.Microsoft.Common.targets
+CustomBeforeMicrosoftCommonTargets = C:\Program Files\MSBuild\v4.0\Custom.Before.Microsoft.Common.targets
+DebugSymbols = true
+DebugSymbolsProjectOutputGroupDependsOn = 
+DebugType = full
+DefaultLanguageSourceExtension = .cs
+DefineConstants = DEBUG;TRACE
+DelaySign = 
+DesignTimeResolveAssemblyReferencesDependsOn = 
+		GetFrameworkPaths;
+		GetReferenceAssemblyPaths;
+		ResolveReferences
+	  
+DevartEntityDeployDependsOn = 
+DevEnvDir = c:\Program Files\Microsoft Visual Studio 10.0\Common7\IDE\
+DNS1 = 10.1.0.11
+DNS2 = 10.0.1.1
+DocumentationProjectOutputGroupDependsOn = 
+EmbeddedWin32Manifest = C:\Windows\Microsoft.NET\Framework\v4.0.30319\default.win32manifest
+ErrorReport = prompt
+FileAlignment = 512
+FP_NO_HOST_CHECK = NO
+Framework20Dir = @(_TargetFramework20DirectoryItem)
+Framework30Dir = @(_TargetFramework30DirectoryItem)
+Framework35Dir = @(_TargetFramework35DirectoryItem)
+Framework40Dir = @(_TargetFramework40DirectoryItem)
+FrameworkDir = @(_TargetFramework20DirectoryItem)
+FrameworkPathOverride = C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0
+FrameworkRegistryBase = Software\Microsoft\MonoDroid
+FrameworkSDKDir = @(_TargetFrameworkSDKDirectoryItem)
+FrameworkSDKRoot = C:\Program Files\Microsoft SDKs\Windows\v7.0A\
+FullDeploy = true
+FullReferenceAssemblyNames = Full
+GATEWAY_ROUTER = 10.66.66.193
+GenerateManifestsDependsOn = 
+			SetWin32ManifestProperties;
+			GenerateApplicationManifest;
+			GenerateDeploymentManifest
+		
+GenerateTargetFrameworkAttribute = true
+GetCopyToOutputDirectoryItemsDependsOn = 
+			AssignTargetPaths;
+			_SplitProjectReferencesByFileExistence
+		
+GetFrameworkPathsDependsOn = 
+GetTargetPathDependsOn = 
+GTK_BASEPATH = C:\Program Files\GtkSharp\2.12\
+HOMEDRIVE = C:
+HOMEPATH = \Users\moljac
+ImportByWildcardAfterMicrosoftCommonTargets = true
+ImportByWildcardAfterMicrosoftCSharpTargets = true
+ImportByWildcardBeforeMicrosoftCommonTargets = true
+ImportByWildcardBeforeMicrosoftCSharpTargets = true
+ImportDevartEntityDeploy = false
+IntermediateOutputPath = obj\Debug\
+IP = 10.11.11.11
+IP_PERSONAL = 192.168.1.193
+IP_TARGET = 192.168.11.251
+JavaSdkDirectory = C:\Program Files\Java\jdk1.6.0_22
+Language = C#
+LOCALAPPDATA = C:\Users\moljac\AppData\Local
+LOGONSERVER = \\MOLJAC-PC
+MaxTargetPath = 100
+MinimalRebuildFromTracking = true
+MonoDroidAssetsDirIntermediate = obj\Debug\assets\
+MonoDroidAssetsPrefix = Assets
+MonoDroidInstallDirectory = C:\Program Files\MSBuild\Novell
+MonoDroidIntermediate = obj\Debug\
+MonoDroidResDirIntermediate = obj\Debug\res\
+MonoDroidResourcePrefix = Resources
+MonoDroidVersion = v1.0
+MSBuildAllProjects = ;C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.CSharp.Targets;D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj;C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets;D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj.user
+MSBuildBinPath = C:\Windows\Microsoft.NET\Framework\v4.0.30319
+MSBuildExtensionsPath = C:\Program Files\MSBuild
+MSBuildExtensionsPath32 = C:\Program Files\MSBuild
+MSBuildLastTaskResult = true
+MSBuildNodeCount = 1
+MSBuildProgramFiles32 = C:\Program Files
+MSBuildProjectDefaultTargets = Build
+MSBuildProjectDirectory = D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1
+MSBuildProjectDirectoryNoRoot = SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1
+MSBuildProjectExtension = .csproj
+MSBuildProjectFile = MonoDroidApplication1.csproj
+MSBuildProjectFullPath = D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj
+MSBuildProjectName = MonoDroidApplication1
+MSBuildRuntimeVersion = 4.0.30319
+MSBuildStartupDirectory = D:\SRC\HolisticWare\HolisticWare_GoNIX
+MSBuildToolsPath = C:\Windows\Microsoft.NET\Framework\v4.0.30319
+MSBuildToolsPath32 = C:\Windows\Microsoft.NET\Framework\v4.0.30319\
+MSBuildToolsRoot = C:\Windows\Microsoft.NET\Framework\
+MSBuildToolsVersion = 4.0
+MsTestToolsTargets = C:\Program Files\MSBuild\Microsoft\VisualStudio\v10.0\TeamTest\Microsoft.TeamTest.targets
+NETWORK = 10.0.0.0/8
+NETWORK_MASK = 255.0.0.0
+NoCompilerStandardLib = true
+NonExistentFile = __NonExistentSubDir__\__NonExistentFile__
+NoWarn = ;1701;1702
+NUMBER_OF_PROCESSORS = 2
+Optimize = false
+OS = Windows_NT
+OutDir = bin\Debug\
+OutputPath = bin\Debug\
+OutputType = Library
+OverwriteReadOnlyFiles = false
+Path = C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files\PC Connectivity Solution\;C::\bat;C::\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Program Files\ATI Technologies\ATI.ACE\Core-Static;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files\Microsoft SQL Server\90\Tools\binn\;C:\Program Files\Broadcom\Broadcom 802.11\Driver;C:\Program Files\ActivIdentity\ActivClient\;C:\Program Files\GtkSharp\2.12\bin;C:\Program Files\MySQL\MySQL Server 5.1\bin;%NARRANGE%;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft Moles\bin\;C:\Program Files\Google\Google Apps Migration\;C:\Program Files\Microsoft Pex\bin\;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\Intel\DMIX;C:\Program Files\Aladdin\eToken\PKIClient\x32;C:\Program Files\Windows Live\Shared;C:\Program Files\Nmap
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+Platform = AnyCPU
+PlatformName = AnyCPU
+PostBuildEventDependsOn = 
+PreBuildEventDependsOn = 
+PrepareForBuildDependsOn = GetFrameworkPaths;GetReferenceAssemblyPaths
+PrepareForRunDependsOn = 
+		
+		
+			CopyFilesToOutputDirectory
+		;RunCodeAnalysis;
+		ConvertDebuggingFiles;
+	;
+		PackageForAndroid;
+	
+PrepareResourceNamesDependsOn = 
+			AssignTargetPaths;
+			SplitResourcesByCulture;
+			CreateManifestResourceNames;
+			CreateCustomManifestResourceNames
+		
+PrepareResourcesDependsOn = 
+			PrepareResourceNames;
+			ResGen;
+			CompileLicxFiles
+		;CompileRdlFiles
+PROCESSOR_ARCHITECTURE = x86
+PROCESSOR_IDENTIFIER = x86 Family 6 Model 23 Stepping 6, GenuineIntel
+PROCESSOR_LEVEL = 6
+PROCESSOR_REVISION = 1706
+ProcessorArchitecture = 
+ProductVersion = 8.0.30703
+ProgramData = C:\ProgramData
+ProgramFiles = C:\Program Files
+ProjectDesignTimeAssemblyResolutionSearchPaths =  
+			{CandidateAssemblyFiles}; 
+			; 
+			{HintPathFromItem}; 
+			{TargetFrameworkDirectory};            
+			{Registry:Software\Microsoft\MonoDroid,v2.0,AssemblyFoldersEx}; 
+			{RawFileName}; 
+			D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\bin\Debug\ 
+		
+ProjectDir = D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\
+ProjectExt = .csproj
+ProjectFileName = MonoDroidApplication1.csproj
+ProjectFlavor = Client
+ProjectGuid = {BAEC0154-5DC0-4051-BBEC-7D69D24E44E4}
+ProjectName = MonoDroidApplication1
+ProjectPath = D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj
+ProjectTypeGuids = {EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}
+PSModulePath = C:\Windows\system32\WindowsPowerShell\v1.0\Modules\
+PUBLIC = C:\Users\Public
+PublishableProject = 
+PublishBuildDependsOn = 
+			BuildOnlySettings;
+			PrepareForBuild;
+			ResolveReferences;
+			PrepareResources;
+			ResolveKeySource;
+			GenerateSerializationAssemblies;
+			CreateSatelliteAssemblies;
+		
+PublishDependsOn = 
+			_DeploymentUnpublishable
+		
+PublishDir = bin\Debug\app.publish\
+PublishOnlyDependsOn = 
+			SetGenerateManifests;
+			PublishBuild;
+			BeforePublish;
+			GenerateManifests;
+			CopyFilesToOutputDirectory;
+			CleanPublishFolder;
+			_CopyFilesToPublishFolder;
+			_DeploymentGenerateBootstrapper;
+			ResolveKeySource;
+			_DeploymentSignClickOnceDeployment;
+			AfterPublish
+		
+QTJAVA = C:\Program Files\Java\jre6\lib\ext\QTJava.zip
+RebuildDependsOn = 
+			BeforeRebuild;
+			Clean;
+			Build;
+			AfterRebuild;
+		
+RemoveAssemblyFoldersIfNoTargetFramework = true
+ReportingServicesTargets = C:\Program Files\MSBuild\Microsoft\VisualStudio\v10.0\ReportingServices\Microsoft.ReportingServices.targets
+ResGenDependsOn = ResolveAssemblyReferences;SplitResourcesByCulture;BeforeResGen;CoreResGen;AfterResGen
+ResGenExecuteAsTool = false
+ResolveAssemblyReferencesDependsOn = 
+			GetFrameworkPaths;
+			GetReferenceAssemblyPaths;
+			PrepareForBuild
+		
+ResolveAssemblyReferencesSilent = false
+ResolveAssemblyReferencesStateFile = obj\Debug\ResolveAssemblyReference.cache
+ResolveReferencesDependsOn = 
+	  
+		  BeforeResolveReferences;
+		  AssignProjectConfiguration;
+		  ResolveProjectReferences;
+		  ResolveNativeReferences;
+		  ResolveAssemblyReferences;
+		  ResolveComReferences;
+		  AfterResolveReferences
+		;
+	  ResolveTestReferences
+	
+RootNamespace = MonoDroidApplication1
+RunCodeAnalysisDependsOn = ;Compile
+RunCodeAnalysisInputs = bin\Debug\MonoDroidApplication1.dll
+RunCodeAnalysisOnce = FALSE
+RunDependsOn = 
+SatelliteDllsProjectOutputGroupDependsOn = PrepareForBuild;PrepareResourceNames
+SchemaVersion = 2.0
+SDK35ToolsPath = C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\
+SDK40ToolsPath = C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\NETFX 4.0 Tools\
+SESSIONNAME = Console
+SGenFilesOutputGroupDependsOn = 
+SGenShouldGenerateSerializer = true
+SGenUseProxyTypes = true
+SkipCopyUnchangedFiles = true
+SolutionDir = D:\SRC\HolisticWare\HolisticWare_GoNIX\
+SolutionExt = .sln
+SolutionFileName = HolisticWare.GoNIX.sln
+SolutionName = HolisticWare.GoNIX
+SolutionPath = D:\SRC\HolisticWare\HolisticWare_GoNIX\HolisticWare.GoNIX.sln
+SourceFilesProjectOutputGroupDependsOn = PrepareForBuild;AssignTargetPaths
+SystemDrive = C:
+SystemRoot = C:\Windows
+TargetCulture = *
+TargetDeployManifestFileName = MonoDroidApplication1.application
+TargetDir = D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\bin\Debug\
+TargetedFrameworkDir = @(_TargetedFrameworkDirectoryItem)
+TargetExt = .dll
+TargetFileName = MonoDroidApplication1.dll
+TargetFrameworkDirectory = C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\;;
+TargetFrameworkIdentifier = MonoDroid
+TargetFrameworkMoniker = MonoDroid,Version=v2.0
+TargetFrameworkMonikerAssemblyAttributesPath = C:\Users\moljac\AppData\Local\Temp\MonoDroid,Version=v2.0.AssemblyAttributes.cs
+TargetFrameworkMonikerAssemblyAttributeText = 
+// <autogenerated />
+using System;
+using System.Reflection;
+[assembly: global::System.Runtime.Versioning.TargetFrameworkAttribute("MonoDroid,Version=v2.0", FrameworkDisplayName = "MonoDroid Profile")]
+		
+TargetFrameworkMonikerDisplayName = MonoDroid Profile
+TargetFrameworkVersion = v2.0
+TargetName = MonoDroidApplication1
+TargetPath = D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\bin\Debug\MonoDroidApplication1.dll
+TEMP = C:\Users\moljac\AppData\Local\Temp
+TMP = C:\Users\moljac\AppData\Local\Temp
+TrackerLogDirectory = obj\Debug\
+TrackFileAccess = true
+UnmanagedRegistrationDependsOn = 
+UnmanagedUnregistrationDependsOn = 
+UseCommonOutputDirectory = false
+UseHostCompilerIfAvailable = true
+USERDOMAIN = moljac-PC
+USERNAME = moljac
+USERPROFILE = C:\Users\moljac
+UseSourcePath = true
+VBOX_INSTALL_PATH = C:\Program Files\Oracle\VirtualBox\
+VCTargetsPath = C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\
+VisualStudioDir = C:\Users\moljac\Documents\Visual Studio 2010
+VS100COMNTOOLS = C:\Program Files\Microsoft Visual Studio 10.0\Common7\Tools\
+VSIDEResolvedNonMSBuildProjectOutputs = <VSIDEResolvedNonMSBuildProjectOutputs />
+WarningLevel = 4
+WebReference_EnableLegacyEventingModel = false
+WebReference_EnableProperties = true
+WebReference_EnableSQLTypes = true
+Win32Manifest = 
+windir = C:\Windows
+WIX = C:\Program Files\Windows Installer XML v3.5\
+XNAGSShared = C:\Program Files\Common Files\Microsoft Shared\XNA\
+XNAGSv4 = C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\
+YieldDuringToolExecution = true
+
+Initial Items:
+_AndroidResourceDest
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\drawable-hdpi\icon.png
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\drawable-ldpi\icon.png
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\drawable-mdpi\icon.png
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\layout\main.xml
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\values\strings.xml
+_ApplicationManifestFinal
+	bin\Debug\Native.MonoDroidApplication1.manifest
+		TargetPath = Native.MonoDroidApplication1.manifest
+_CleanCurrentFileWrites
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\ResolveAssemblyReference.cache
+_CleanCurrentFileWritesInIntermediate
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\ResolveAssemblyReference.cache
+_CleanCurrentFileWritesWithNoReferences
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\ResolveAssemblyReference.cache
+_CleanPriorFileWrites
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\ResolveAssemblyReference.cache
+_CleanUnfilteredPriorFileWrites
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\ResolveAssemblyReference.cache
+_CleanUniqueFileWrites
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\ResolveAssemblyReference.cache
+_DebugSymbolsIntermediatePath
+	obj\Debug\MonoDroidApplication1.pdb
+_DebugSymbolsOutputPath
+	bin\Debug\MonoDroidApplication1.pdb
+_DeploymentManifestEntryPoint
+	obj\Debug\MonoDroidApplication1.dll
+		TargetPath = MonoDroidApplication1.dll
+_ExplicitReference
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\mscorlib.dll
+_NoneWithTargetPath
+	Assets\AboutAssets.txt
+		OriginalItemSpec = Assets\AboutAssets.txt
+		TargetPath = Assets\AboutAssets.txt
+	Resources\AboutResources.txt
+		OriginalItemSpec = Resources\AboutResources.txt
+		TargetPath = Resources\AboutResources.txt
+_OutputPathItem
+	bin\Debug\
+_ReferenceInstalledAssemblyDirectory
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\
+_ResolveAssemblyReferenceResolvedFiles
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\Mono.Android.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+		OriginalItemSpec = Mono.Android
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\mscorlib.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+		OriginalItemSpec = mscorlib
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Core.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = System.Core, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+		OriginalItemSpec = System.Core
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = System, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+		OriginalItemSpec = System
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = System.Xml, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+		OriginalItemSpec = System.Xml
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.Linq.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+		OriginalItemSpec = System.Xml.Linq
+		Version = 
+_ResolveAssemblyReferenceResolvedFilesAbsolute
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\Mono.Android.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+		OriginalItemSpec = Mono.Android
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\mscorlib.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+		OriginalItemSpec = mscorlib
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Core.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = System.Core, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+		OriginalItemSpec = System.Core
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = System, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+		OriginalItemSpec = System
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = System.Xml, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+		OriginalItemSpec = System.Xml
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.Linq.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+		OriginalItemSpec = System.Xml.Linq
+		Version = 
+_ResolveComReferenceCache
+	obj\Debug\MonoDroidApplication1.csproj.ResolveComReference.cache
+_UnmanagedRegistrationCache
+	obj\MonoDroidApplication1.csproj.UnmanagedRegistration.cache
+AndroidResource
+	Resources\drawable-hdpi\icon.png
+	Resources\drawable-ldpi\icon.png
+	Resources\drawable-mdpi\icon.png
+	Resources\layout\main.xml
+		SubType = Designer
+	Resources\values\strings.xml
+AppConfigFileDestination
+	bin\Debug\MonoDroidApplication1.dll.config
+ApplicationManifest
+	obj\Debug\Native.MonoDroidApplication1.manifest
+		TargetPath = Native.MonoDroidApplication1.manifest
+AvailableItemName
+	AndroidAsset
+	AndroidJavaSource
+	AndroidNativeLibrary
+	AndroidResource
+	CodeAnalysisDictionary
+	DevartEntityDeploy
+BuiltProjectOutputGroupKeyOutput
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\MonoDroidApplication1.dll
+		IsKeyOutput = true
+		FinalOutputPath = D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\bin\Debug\MonoDroidApplication1.dll
+		TargetPath = MonoDroidApplication1.dll
+Compile
+	Activity1.cs
+	C:\Users\moljac\AppData\Local\Temp\MonoDroid,Version=v2.0.AssemblyAttributes.cs
+	Properties\AssemblyInfo.cs
+	Resources\Resource.Designer.cs
+DebugSymbolsProjectOutputGroupOutput
+	D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\MonoDroidApplication1.pdb
+		FinalOutputPath = D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\bin\Debug\MonoDroidApplication1.pdb
+		TargetPath = MonoDroidApplication1.pdb
+DeployManifest
+	obj\Debug\MonoDroidApplication1.application
+		TargetPath = MonoDroidApplication1.application
+FileWrites
+	obj\Debug\ResolveAssemblyReference.cache
+IntermediateAssembly
+	obj\Debug\MonoDroidApplication1.dll
+None
+	Assets\AboutAssets.txt
+	Resources\AboutResources.txt
+Reference
+	Mono.Android
+	mscorlib
+	System
+	System.Core
+	System.Xml
+	System.Xml.Linq
+ReferencePath
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\Mono.Android.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+		OriginalItemSpec = Mono.Android
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\mscorlib.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+		OriginalItemSpec = mscorlib
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Core.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = System.Core, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+		OriginalItemSpec = System.Core
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = System, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+		OriginalItemSpec = System
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = System.Xml, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e
+		OriginalItemSpec = System.Xml
+		Version = 
+	C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.Linq.dll
+		ResolvedFrom = {TargetFrameworkDirectory}
+		CopyLocal = false
+		FusionName = System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+		OriginalItemSpec = System.Xml.Linq
+		Version = 
+
+Building with tools version "4.0".
+Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:2)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (entry point):
+Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
+Task "Message" (TaskId:2)
+  Configuration=Debug (TaskId:2)
+Done executing task "Message". (TaskId:2)
+Task "Message" (TaskId:3)
+  Platform=AnyCPU (TaskId:3)
+Done executing task "Message". (TaskId:3)
+Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('bin\Debug\' != '' and !HasTrailingSlash('bin\Debug\')).
+Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
+Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('obj\Debug\' != '' and !HasTrailingSlash('obj\Debug\')).
+Done building target "_CheckForInvalidConfigurationAndPlatform" in project "MonoDroidApplication1.csproj".: (TargetId:2)
+Target "_ComputeAndroidAssetsPaths: (TargetId:3)" in file "C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "UpdateAndroidAssets" depends on it):
+Using "AndroidComputeResPaths" task from assembly "C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Build.Tasks.dll".
+Task "AndroidComputeResPaths" (TaskId:4)
+Done executing task "AndroidComputeResPaths". (TaskId:4)
+Done building target "_ComputeAndroidAssetsPaths" in project "MonoDroidApplication1.csproj".: (TargetId:3)
+Target "_GenerateAndroidAssetsDir: (TargetId:4)" in file "C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "UpdateAndroidAssets" depends on it):
+Skipping target "_GenerateAndroidAssetsDir" because it has no outputs.
+Though the target has declared its outputs, the output specification only references empty properties and/or empty item lists.
+Done building target "_GenerateAndroidAssetsDir" in project "MonoDroidApplication1.csproj".: (TargetId:4)
+Target "UpdateAndroidAssets: (TargetId:5)" in file "C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "Build" depends on it):
+Done building target "UpdateAndroidAssets" in project "MonoDroidApplication1.csproj".: (TargetId:5)
+Target "_ComputeAndroidResourcePaths: (TargetId:6)" in file "C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "UpdateAndroidResources" depends on it):
+Task "AndroidComputeResPaths" (TaskId:5)
+Done executing task "AndroidComputeResPaths". (TaskId:5)
+Done building target "_ComputeAndroidResourcePaths" in project "MonoDroidApplication1.csproj".: (TargetId:6)
+Target "_GenerateAndroidResourceDir: (TargetId:7)" in file "C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "UpdateAndroidResources" depends on it):
+Building target "_GenerateAndroidResourceDir" completely.
+Input file "Resources\layout\main.xml" is newer than output file "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\drawable-hdpi\icon.png".
+Task "MakeDir" (TaskId:6)
+Done executing task "MakeDir". (TaskId:6)
+Task "Copy" (TaskId:7)
+  Did not copy from file "Resources\layout\main.xml" to file "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\layout\main.xml" because the "SkipUnchangedFiles" parameter was set to "true" in the project and the files' sizes and timestamps match. (TaskId:7)
+  Did not copy from file "Resources\values\strings.xml" to file "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\values\strings.xml" because the "SkipUnchangedFiles" parameter was set to "true" in the project and the files' sizes and timestamps match. (TaskId:7)
+  Did not copy from file "Resources\drawable-hdpi\icon.png" to file "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\drawable-hdpi\icon.png" because the "SkipUnchangedFiles" parameter was set to "true" in the project and the files' sizes and timestamps match. (TaskId:7)
+  Did not copy from file "Resources\drawable-ldpi\icon.png" to file "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\drawable-ldpi\icon.png" because the "SkipUnchangedFiles" parameter was set to "true" in the project and the files' sizes and timestamps match. (TaskId:7)
+  Did not copy from file "Resources\drawable-mdpi\icon.png" to file "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\drawable-mdpi\icon.png" because the "SkipUnchangedFiles" parameter was set to "true" in the project and the files' sizes and timestamps match. (TaskId:7)
+Done executing task "Copy". (TaskId:7)
+Using "RemoveUnknownFiles" task from assembly "C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Build.Tasks.dll".
+Task "RemoveUnknownFiles" (TaskId:8)
+Done executing task "RemoveUnknownFiles". (TaskId:8)
+Done building target "_GenerateAndroidResourceDir" in project "MonoDroidApplication1.csproj".: (TargetId:7)
+Target "_ResolveMonoDroidSdks: (TargetId:8)" in file "C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "_UpdateAndroidResgen" depends on it):
+Using "ResolveSdks" task from assembly "C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Build.Tasks.dll".
+Task "ResolveSdks" (TaskId:9)
+Done executing task "ResolveSdks". (TaskId:9)
+Task "Error" skipped, due to false condition; ('$(MonoDroidInstallDirectory)'=='') was evaluated as ('C:\Program Files\MSBuild\Novell'=='').
+Task "Error" skipped, due to false condition; ('$(AndroidSdkDirectory)'=='') was evaluated as ('C:\android-sdk-windows\'=='').
+Task "Error" skipped, due to false condition; ('$(JavaSdkDirectory)'=='') was evaluated as ('C:\Program Files\Java\jdk1.6.0_22'=='').
+Task "CreateProperty" (TaskId:10)
+Done executing task "CreateProperty". (TaskId:10)
+Task "CreateProperty" (TaskId:11)
+Done executing task "CreateProperty". (TaskId:11)
+Task "CreateProperty" (TaskId:12)
+Done executing task "CreateProperty". (TaskId:12)
+Task "CreateProperty" (TaskId:13)
+Done executing task "CreateProperty". (TaskId:13)
+Task "CreateProperty" (TaskId:14)
+Done executing task "CreateProperty". (TaskId:14)
+Task "CreateProperty" (TaskId:15)
+Done executing task "CreateProperty". (TaskId:15)
+Task "Message" (TaskId:16)
+  MonoDroid SDK: C:\Program Files\MSBuild\Novell\ (TaskId:16)
+Done executing task "Message". (TaskId:16)
+Task "Message" (TaskId:17)
+  Android SDK: C:\android-sdk-windows\ (TaskId:17)
+Done executing task "Message". (TaskId:17)
+Task "Message" (TaskId:18)
+  Java SDK: C:\Program Files\Java\jdk1.6.0_22\ (TaskId:18)
+Done executing task "Message". (TaskId:18)
+Task "CreateProperty" skipped, due to false condition; ('$(OS)' == 'Unix') was evaluated as ('Windows_NT' == 'Unix').
+Task "CreateProperty" (TaskId:19)
+Done executing task "CreateProperty". (TaskId:19)
+Task "CreateProperty" (TaskId:20)
+Done executing task "CreateProperty". (TaskId:20)
+Done building target "_ResolveMonoDroidSdks" in project "MonoDroidApplication1.csproj".: (TargetId:8)
+Target "_UpdateAndroidResgen: (TargetId:9)" in file "C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "UpdateAndroidResources" depends on it):
+Skipping target "_UpdateAndroidResgen" because all output files are up-to-date with respect to the input files.
+Input files: D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\layout\main.xml;D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\values\strings.xml;D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\drawable-hdpi\icon.png;D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\drawable-ldpi\icon.png;D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\obj\Debug\res\drawable-mdpi\icon.png;C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.CSharp.Targets;D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj;C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets;D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj.user
+Output files: obj\Debug\R.cs.flag
+Done building target "_UpdateAndroidResgen" in project "MonoDroidApplication1.csproj".: (TargetId:9)
+Target "UpdateAndroidResources: (TargetId:10)" in file "C:\Program Files\MSBuild\Novell\Novell.MonoDroid.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "Build" depends on it):
+Done building target "UpdateAndroidResources" in project "MonoDroidApplication1.csproj".: (TargetId:10)
+Target "DevartEntityDeploy: (TargetId:11)" in file "C:\Program Files\MSBuild\Devart\v3.5\Devart.Data.Entity.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "Build" depends on it):
+Using "DevartEntityDeploy" task from assembly "C:\Program Files\MSBuild\Devart\v3.5\Devart.Data.Entity.Build.Tasks.dll".
+Task "DevartEntityDeploy" (TaskId:21)
+  DevartEntityDeploy succeeded for 0 items. (TaskId:21)
+Done executing task "DevartEntityDeploy". (TaskId:21)
+Done building target "DevartEntityDeploy" in project "MonoDroidApplication1.csproj".: (TargetId:11)
+Target "BeforeBuild: (TargetId:12)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "Build" depends on it):
+Done building target "BeforeBuild" in project "MonoDroidApplication1.csproj".: (TargetId:12)
+Target "BuildOnlySettings: (TargetId:13)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "CoreBuild" depends on it):
+Done building target "BuildOnlySettings" in project "MonoDroidApplication1.csproj".: (TargetId:13)
+Target "GetFrameworkPaths" skipped, due to false condition; ('$(OS)' == 'Unix') was evaluated as ('Windows_NT' == 'Unix').
+Target "GetReferenceAssemblyPaths: (TargetId:14)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "PrepareForBuild" depends on it):
+Task "GetReferenceAssemblyPaths" (TaskId:22)
+Done executing task "GetReferenceAssemblyPaths". (TaskId:22)
+Done building target "GetReferenceAssemblyPaths" in project "MonoDroidApplication1.csproj".: (TargetId:14)
+Target "PrepareForBuild: (TargetId:15)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "CoreBuild" depends on it):
+Task "FindAppConfigFile" (TaskId:23)
+Done executing task "FindAppConfigFile". (TaskId:23)
+Task "MakeDir" (TaskId:24)
+Done executing task "MakeDir". (TaskId:24)
+Done building target "PrepareForBuild" in project "MonoDroidApplication1.csproj".: (TargetId:15)
+Target "PreBuildEvent" skipped, due to false condition; ('$(PreBuildEvent)'!='') was evaluated as (''!='').
+Target "BeforeResolveReferences: (TargetId:16)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "ResolveReferences" depends on it):
+Done building target "BeforeResolveReferences" in project "MonoDroidApplication1.csproj".: (TargetId:16)
+Target "AssignProjectConfiguration" skipped, due to false condition; ('@(ProjectReference)'!='') was evaluated as (''!='').
+Target "AssignProjectConfiguration" skipped, due to false condition; ('@(ProjectReference)'!='') was evaluated as (''!='').
+Target "_SplitProjectReferencesByFileExistence: (TargetId:17)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "ResolveProjectReferences" depends on it):
+Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as ('true'=='true' and ''!='').
+Done building target "_SplitProjectReferencesByFileExistence" in project "MonoDroidApplication1.csproj".: (TargetId:17)
+Target "ResolveProjectReferences: (TargetId:18)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "ResolveReferences" depends on it):
+Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and ('true' == 'true' or 'true' != 'true') and '' != '').
+Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'true' != 'true' and 'true' == 'true' and '' != '').
+Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingProject)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'true' == 'true' and '' != '').
+Task "Warning" skipped, due to false condition; ('@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceNonexistent)' != '') was evaluated as ('' != '' and '' != '').
+Done building target "ResolveProjectReferences" in project "MonoDroidApplication1.csproj".: (TargetId:18)
+Target "ResolveNativeReferences" skipped, due to false condition; ('@(NativeReference)'!='') was evaluated as (''!='').
+Target "GetFrameworkPaths" skipped, due to false condition; ('$(OS)' == 'Unix') was evaluated as ('Windows_NT' == 'Unix').
+Target "GetReferenceAssemblyPaths" skipped. Previously built successfully.
+Target "PrepareForBuild" skipped. Previously built successfully.
+Target "ResolveAssemblyReferences: (TargetId:19)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "ResolveReferences" depends on it):
+Task "ResolveAssemblyReference" (TaskId:25)
+  TargetFrameworkMoniker: (TaskId:25)
+	  MonoDroid,Version=v2.0 (TaskId:25)
+  TargetFrameworkMonikerDisplayName: (TaskId:25)
+	  MonoDroid Profile (TaskId:25)
+  TargetedRuntimeVersion: (TaskId:25)
+	  v4.0.30319 (TaskId:25)
+  Assemblies: (TaskId:25)
+	  Mono.Android (TaskId:25)
+	  mscorlib (TaskId:25)
+	  System (TaskId:25)
+	  System.Core (TaskId:25)
+	  System.Xml.Linq (TaskId:25)
+	  System.Xml (TaskId:25)
+  AssemblyFiles: (TaskId:25)
+	  C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\mscorlib.dll (TaskId:25)
+  CandidateAssemblyFiles: (TaskId:25)
+  TargetFrameworkDirectories: (TaskId:25)
+	  C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\ (TaskId:25)
+  InstalledAssemblyTables: (TaskId:25)
+  IgnoreInstalledAssemblyTable: (TaskId:25)
+	  False (TaskId:25)
+  SearchPaths: (TaskId:25)
+	  {CandidateAssemblyFiles} (TaskId:25)
+	  {HintPathFromItem} (TaskId:25)
+	  {TargetFrameworkDirectory} (TaskId:25)
+	  {Registry:Software\Microsoft\MonoDroid,v2.0,AssemblyFoldersEx} (TaskId:25)
+	  {AssemblyFolders} (TaskId:25)
+	  {GAC} (TaskId:25)
+	  {RawFileName} (TaskId:25)
+	  bin\Debug\ (TaskId:25)
+  AllowedAssemblyExtensions: (TaskId:25)
+	  .dll (TaskId:25)
+	  .exe (TaskId:25)
+  AllowedRelatedFileExtensions: (TaskId:25)
+	  .pdb (TaskId:25)
+	  .xml (TaskId:25)
+	  .dll.mdb (TaskId:25)
+	  .exe.mdb (TaskId:25)
+  AppConfigFile: (TaskId:25)
+	   (TaskId:25)
+  AutoUnify: (TaskId:25)
+	  True (TaskId:25)
+  CopyLocalDependenciesWhenParentReferenceInGac: (TaskId:25)
+	  True (TaskId:25)
+  FindDependencies: (TaskId:25)
+	  True (TaskId:25)
+  TargetProcessorArchitecture: (TaskId:25)
+	   (TaskId:25)
+  StateFile: (TaskId:25)
+	  obj\Debug\ResolveAssemblyReference.cache (TaskId:25)
+  InstalledAssemblySubsetTables: (TaskId:25)
+  IgnoreInstalledAssemblySubsetTable: (TaskId:25)
+	  False (TaskId:25)
+  TargetFrameworkSubsets: (TaskId:25)
+  FullTargetFrameworkSubsetNames: (TaskId:25)
+	  Full (TaskId:25)
+  ProfileName: (TaskId:25)
+	   (TaskId:25)
+  ProfileFullFrameworkFolders: (TaskId:25)
+	  C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\ (TaskId:25)
+  LatestTargetFrameworkDirectories: (TaskId:25)
+  ProfileTablesLocation: (TaskId:25)
+  Primary reference "mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e". (TaskId:25)
+	  Resolved file path is "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\mscorlib.dll". (TaskId:25)
+	  Reference found at search path location "{TargetFrameworkDirectory}". (TaskId:25)
+		  For SearchPath "{TargetFrameworkDirectory}". (TaskId:25)
+		  Considered "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\mscorlib.exe", but it didn't exist. (TaskId:25)
+	  This reference is not "CopyLocal" because it's in a Frameworks directory. (TaskId:25)
+  Primary reference "Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null". (TaskId:25)
+	  Resolved file path is "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\Mono.Android.dll". (TaskId:25)
+	  Reference found at search path location "{TargetFrameworkDirectory}". (TaskId:25)
+		  For SearchPath "{TargetFrameworkDirectory}". (TaskId:25)
+		  Considered "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\Mono.Android.exe", but it didn't exist. (TaskId:25)
+	  This reference is not "CopyLocal" because it's in a Frameworks directory. (TaskId:25)
+  Primary reference "System, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e". (TaskId:25)
+	  Resolved file path is "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.dll". (TaskId:25)
+	  Reference found at search path location "{TargetFrameworkDirectory}". (TaskId:25)
+		  For SearchPath "{TargetFrameworkDirectory}". (TaskId:25)
+		  Considered "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.exe", but it didn't exist. (TaskId:25)
+	  This reference is not "CopyLocal" because it's in a Frameworks directory. (TaskId:25)
+  Primary reference "System.Core, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e". (TaskId:25)
+	  Resolved file path is "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Core.dll". (TaskId:25)
+	  Reference found at search path location "{TargetFrameworkDirectory}". (TaskId:25)
+		  For SearchPath "{TargetFrameworkDirectory}". (TaskId:25)
+		  Considered "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Core.exe", but it didn't exist. (TaskId:25)
+	  This reference is not "CopyLocal" because it's in a Frameworks directory. (TaskId:25)
+  Primary reference "System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35". (TaskId:25)
+	  Resolved file path is "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.Linq.dll". (TaskId:25)
+	  Reference found at search path location "{TargetFrameworkDirectory}". (TaskId:25)
+		  For SearchPath "{TargetFrameworkDirectory}". (TaskId:25)
+		  Considered "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.Linq.exe", but it didn't exist. (TaskId:25)
+	  This reference is not "CopyLocal" because it's in a Frameworks directory. (TaskId:25)
+  Primary reference "System.Xml, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e". (TaskId:25)
+	  Resolved file path is "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.dll". (TaskId:25)
+	  Reference found at search path location "{TargetFrameworkDirectory}". (TaskId:25)
+		  For SearchPath "{TargetFrameworkDirectory}". (TaskId:25)
+		  Considered "C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.exe", but it didn't exist. (TaskId:25)
+	  This reference is not "CopyLocal" because it's in a Frameworks directory. (TaskId:25)
+Done executing task "ResolveAssemblyReference". (TaskId:25)
+Done building target "ResolveAssemblyReferences" in project "MonoDroidApplication1.csproj".: (TargetId:19)
+Target "ResolveComReferences" skipped, due to false condition; ('@(COMReference)'!='' or '@(COMFileReference)'!='') was evaluated as (''!='' or ''!='').
+Target "AfterResolveReferences: (TargetId:20)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "ResolveReferences" depends on it):
+Done building target "AfterResolveReferences" in project "MonoDroidApplication1.csproj".: (TargetId:20)
+Target "ResolveTestReferences" skipped, due to false condition; ('@(Shadow)'!='') was evaluated as (''!='').
+Target "ResolveReferences: (TargetId:21)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "CoreBuild" depends on it):
+Done building target "ResolveReferences" in project "MonoDroidApplication1.csproj".: (TargetId:21)
+Target "AssignTargetPaths: (TargetId:22)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "PrepareResourceNames" depends on it):
+Task "AssignTargetPath" (TaskId:26)
+Done executing task "AssignTargetPath". (TaskId:26)
+Task "AssignTargetPath" (TaskId:27)
+Done executing task "AssignTargetPath". (TaskId:27)
+Task "AssignTargetPath" (TaskId:28)
+Done executing task "AssignTargetPath". (TaskId:28)
+Task "AssignTargetPath" (TaskId:29)
+Done executing task "AssignTargetPath". (TaskId:29)
+Task "AssignTargetPath" skipped, due to false condition; ('@(_DeploymentBaseManifestWithTargetPath)'=='' and '%(None.Extension)'=='.manifest') was evaluated as (''=='' and '.txt'=='.manifest').
+Done building target "AssignTargetPaths" in project "MonoDroidApplication1.csproj".: (TargetId:22)
+Target "AssignTargetPaths" skipped. Previously built successfully.
+Target "SplitResourcesByCulture: (TargetId:23)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "PrepareResourceNames" depends on it):
+Task "Warning" skipped, due to false condition; ('@(ResxWithNoCulture)'!='') was evaluated as (''!='').
+Task "Warning" skipped, due to false condition; ('@(ResxWithCulture)'!='') was evaluated as (''!='').
+Task "Warning" skipped, due to false condition; ('@(NonResxWithCulture)'!='') was evaluated as (''!='').
+Task "Warning" skipped, due to false condition; ('@(NonResxWithNoCulture)'!='') was evaluated as (''!='').
+Task "AssignCulture" (TaskId:30)
+Done executing task "AssignCulture". (TaskId:30)
+Done building target "SplitResourcesByCulture" in project "MonoDroidApplication1.csproj".: (TargetId:23)
+Target "CreateManifestResourceNames" skipped, due to false condition; ('@(EmbeddedResource)' != '') was evaluated as ('' != '').
+Target "CreateCustomManifestResourceNames: (TargetId:24)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "PrepareResourceNames" depends on it):
+Done building target "CreateCustomManifestResourceNames" in project "MonoDroidApplication1.csproj".: (TargetId:24)
+Target "PrepareResourceNames: (TargetId:25)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "PrepareResources" depends on it):
+Done building target "PrepareResourceNames" in project "MonoDroidApplication1.csproj".: (TargetId:25)
+Target "ResolveAssemblyReferences" skipped. Previously built successfully.
+Target "SplitResourcesByCulture" skipped. Previously built successfully.
+Target "BeforeResGen: (TargetId:26)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "ResGen" depends on it):
+Done building target "BeforeResGen" in project "MonoDroidApplication1.csproj".: (TargetId:26)
+Target "CoreResGen: (TargetId:27)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "ResGen" depends on it):
+Task "GenerateResource" skipped, due to false condition; ('%(EmbeddedResource.Type)' == 'Resx' and '%(EmbeddedResource.GenerateResource)' != 'false') was evaluated as ('' == 'Resx' and '' != 'false').
+Done building target "CoreResGen" in project "MonoDroidApplication1.csproj".: (TargetId:27)
+Target "AfterResGen: (TargetId:28)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "ResGen" depends on it):
+Done building target "AfterResGen" in project "MonoDroidApplication1.csproj".: (TargetId:28)
+Target "ResGen: (TargetId:29)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "PrepareResources" depends on it):
+Done building target "ResGen" in project "MonoDroidApplication1.csproj".: (TargetId:29)
+Target "CompileLicxFiles" skipped, due to false condition; ('@(_LicxFile)'!='') was evaluated as (''!='').
+Target "PrepareRdlFiles: (TargetId:30)" in file "C:\Program Files\MSBuild\Microsoft\VisualStudio\v10.0\ReportingServices\Microsoft.ReportingServices.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "CompileRdlFiles" depends on it):
+Task "CreateItem" skipped, due to false condition; ('%(Extension)'=='.rdlc') was evaluated as (''=='.rdlc').
+Done building target "PrepareRdlFiles" in project "MonoDroidApplication1.csproj".: (TargetId:30)
+Target "RunRdlCompiler" skipped, due to false condition; ('@(RdlFile)'!='') was evaluated as (''!='').
+Target "CompileRdlFiles: (TargetId:31)" in file "C:\Program Files\MSBuild\Microsoft\VisualStudio\v10.0\ReportingServices\Microsoft.ReportingServices.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "PrepareResources" depends on it):
+Done building target "CompileRdlFiles" in project "MonoDroidApplication1.csproj".: (TargetId:31)
+Target "PrepareResources: (TargetId:32)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "CoreBuild" depends on it):
+Done building target "PrepareResources" in project "MonoDroidApplication1.csproj".: (TargetId:32)
+Target "ResolveKeySource" skipped, due to false condition; ($(SignManifests) == 'true' or $(SignAssembly) == 'true') was evaluated as ( == 'true' or  == 'true').
+Target "ResolveReferences" skipped. Previously built successfully.
+Target "ResolveKeySource" skipped, due to false condition; ($(SignManifests) == 'true' or $(SignAssembly) == 'true') was evaluated as ( == 'true' or  == 'true').
+Target "ResolveComReferences" skipped, due to false condition; ('@(COMReference)'!='' or '@(COMFileReference)'!='') was evaluated as (''!='' or ''!='').
+Target "ResolveNativeReferences" skipped, due to false condition; ('@(NativeReference)'!='') was evaluated as (''!='').
+Target "_SetExternalWin32ManifestProperties" skipped, due to false condition; ('$(GenerateClickOnceManifests)'=='true' or '@(NativeReference)'!='' or '@(ResolvedIsolatedComModules)'!='') was evaluated as (''=='true' or ''!='' or ''!='').
+Target "_SetEmbeddedWin32ManifestProperties: (TargetId:33)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "SetWin32ManifestProperties" depends on it):
+Task "GetFrameworkPath" (TaskId:31)
+Done executing task "GetFrameworkPath". (TaskId:31)
+Done building target "_SetEmbeddedWin32ManifestProperties" in project "MonoDroidApplication1.csproj".: (TargetId:33)
+Target "SetWin32ManifestProperties: (TargetId:34)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "Compile" depends on it):
+Done building target "SetWin32ManifestProperties" in project "MonoDroidApplication1.csproj".: (TargetId:34)
+Target "_GenerateCompileInputs: (TargetId:35)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "Compile" depends on it):
+Task "Warning" skipped, due to false condition; ('@(ManifestResourceWithNoCulture)'!='' and '%(ManifestResourceWithNoCulture.EmittedForCompatibilityOnly)'=='') was evaluated as (''!='' and ''=='').
+Task "Warning" skipped, due to false condition; ('@(ManifestNonResxWithNoCultureOnDisk)'!='' and '%(ManifestNonResxWithNoCultureOnDisk.EmittedForCompatibilityOnly)'=='') was evaluated as (''!='' and ''=='').
+Done building target "_GenerateCompileInputs" in project "MonoDroidApplication1.csproj".: (TargetId:35)
+Target "PrepareForBuild" skipped. Previously built successfully.
+Target "GetReferenceAssemblyPaths" skipped. Previously built successfully.
+Target "_SetTargetFrameworkMonikerAttribute: (TargetId:36)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.CSharp.Targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "GenerateTargetFrameworkMonikerAttribute" depends on it):
+Done building target "_SetTargetFrameworkMonikerAttribute" in project "MonoDroidApplication1.csproj".: (TargetId:36)
+Target "GenerateTargetFrameworkMonikerAttribute: (TargetId:37)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "BeforeCompile" depends on it):
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+Input files: C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets
+Output files: C:\Users\moljac\AppData\Local\Temp\MonoDroid,Version=v2.0.AssemblyAttributes.cs
+Done building target "GenerateTargetFrameworkMonikerAttribute" in project "MonoDroidApplication1.csproj".: (TargetId:37)
+Target "GenerateAdditionalSources" skipped, due to false condition; ('@(AssemblyAttributes)' != '' and '$(GenerateAdditionalSources)' == 'true') was evaluated as ('' != '' and '' == 'true').
+Target "BeforeCompile: (TargetId:38)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "Compile" depends on it):
+Done building target "BeforeCompile" in project "MonoDroidApplication1.csproj".: (TargetId:38)
+Target "_TimeStampBeforeCompile" skipped, due to false condition; ('$(RunPostBuildEvent)'=='OnOutputUpdated' or ('$(RegisterForComInterop)'=='true' and '$(OutputType)'=='library')) was evaluated as (''=='OnOutputUpdated' or (''=='true' and 'Library'=='library')).
+Target "_ComputeNonExistentFileProperty: (TargetId:39)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "CoreCompile" depends on it):
+Done building target "_ComputeNonExistentFileProperty" in project "MonoDroidApplication1.csproj".: (TargetId:39)
+Target "ModifySharePointReference" skipped, due to false condition; ('$(SkipPowerToolSandboxedCompile)' == '' AND '$(SandboxedSolution)' != 'false' AND '$(ProjectTypeGuids.Contains("{BB1F664B-9266-4fd6-B973-E1E44974B511}"))' == 'true') was evaluated as ('' == '' AND '' != 'false' AND 'False' == 'true').
+Target "CoreCompile: (TargetId:40)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.CSharp.Targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "Compile" depends on it):
+Building target "CoreCompile" completely.
+Output file "obj\Debug\MonoDroidApplication1.dll" does not exist.
+Task "Csc" (TaskId:32)
+  C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:DEBUG;TRACE /reference:"C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\Mono.Android.dll" /reference:"C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\mscorlib.dll" /reference:"C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Core.dll" /reference:"C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.dll" /reference:"C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.dll" /reference:"C:\Program Files\Reference Assemblies\Microsoft\Framework\MonoDroid\v2.0\System.Xml.Linq.dll" /debug+ /debug:full /filealign:512 /optimize- /out:obj\Debug\MonoDroidApplication1.dll /target:library Activity1.cs Resources\Resource.Designer.cs Properties\AssemblyInfo.cs "C:\Users\moljac\AppData\Local\Temp\MonoDroid,Version=v2.0.AssemblyAttributes.cs" (TaskId:32)
+Done executing task "Csc" -- FAILED. (TaskId:32)
+Done building target "CoreCompile" in project "MonoDroidApplication1.csproj" -- FAILED.: (TargetId:40)
+Target "_CheckForCompileOutputs: (TargetId:41)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "_CleanGetCurrentAndPriorFileWrites" depends on it):
+Done building target "_CheckForCompileOutputs" in project "MonoDroidApplication1.csproj".: (TargetId:41)
+Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Off' == 'On' or (''!='' and 'Off' == 'Auto')).
+Target "_CleanGetCurrentAndPriorFileWrites: (TargetId:42)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "_CleanRecordFileWrites" depends on it):
+Task "ReadLinesFromFile" (TaskId:33)
+Done executing task "ReadLinesFromFile". (TaskId:33)
+Task "ConvertToAbsolutePath" (TaskId:34)
+Done executing task "ConvertToAbsolutePath". (TaskId:34)
+Task "FindUnderPath" (TaskId:35)
+  Comparison path is "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1". (TaskId:35)
+Done executing task "FindUnderPath". (TaskId:35)
+Task "FindUnderPath" (TaskId:36)
+  Comparison path is "bin\Debug\". (TaskId:36)
+Done executing task "FindUnderPath". (TaskId:36)
+Task "FindUnderPath" (TaskId:37)
+  Comparison path is "obj\Debug\". (TaskId:37)
+Done executing task "FindUnderPath". (TaskId:37)
+Task "RemoveDuplicates" (TaskId:38)
+Done executing task "RemoveDuplicates". (TaskId:38)
+Done building target "_CleanGetCurrentAndPriorFileWrites" in project "MonoDroidApplication1.csproj".: (TargetId:42)
+Target "_CleanRecordFileWrites: (TargetId:43)" in file "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" from project "D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj" (target "CoreBuild" depends on it):
+Task "RemoveDuplicates" (TaskId:39)
+Done executing task "RemoveDuplicates". (TaskId:39)
+Task "MakeDir" (TaskId:40)
+Done executing task "MakeDir". (TaskId:40)
+Using "WriteLinesToFile" task from assembly "Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Task "WriteLinesToFile" (TaskId:41)
+Done executing task "WriteLinesToFile". (TaskId:41)
+Done building target "_CleanRecordFileWrites" in project "MonoDroidApplication1.csproj".: (TargetId:43)
+
+Project Performance Summary:
+	  982 ms  D:\SRC\HolisticWare\HolisticWare_GoNIX\MonoDroidApplication1\MonoDroidApplication1.csproj   1 calls
+
+Target Performance Summary:
+		0 ms  BeforeResGen                               1 calls
+		0 ms  ResolveReferences                          1 calls
+		0 ms  BeforeBuild                                1 calls
+		0 ms  DevartEntityDeploy                         1 calls
+		0 ms  _ComputeNonExistentFileProperty            1 calls
+		0 ms  GetReferenceAssemblyPaths                  1 calls
+		0 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
+		0 ms  ResGen                                     1 calls
+		0 ms  CreateCustomManifestResourceNames          1 calls
+		0 ms  CoreResGen                                 1 calls
+		0 ms  PrepareRdlFiles                            1 calls
+		0 ms  _GenerateAndroidAssetsDir                  1 calls
+		0 ms  CompileRdlFiles                            1 calls
+		0 ms  SplitResourcesByCulture                    1 calls
+		0 ms  AfterResGen                                1 calls
+		0 ms  AfterResolveReferences                     1 calls
+		0 ms  _GenerateCompileInputs                     1 calls
+		0 ms  UpdateAndroidResources                     1 calls
+		0 ms  SetWin32ManifestProperties                 1 calls
+		0 ms  GenerateTargetFrameworkMonikerAttribute    1 calls
+		0 ms  PrepareResourceNames                       1 calls
+		0 ms  BeforeResolveReferences                    1 calls
+		0 ms  BeforeCompile                              1 calls
+		0 ms  BuildOnlySettings                          1 calls
+		0 ms  PrepareResources                           1 calls
+		0 ms  UpdateAndroidAssets                        1 calls
+		0 ms  _SplitProjectReferencesByFileExistence     1 calls
+		1 ms  ResolveProjectReferences                   1 calls
+		1 ms  _CheckForCompileOutputs                    1 calls
+		1 ms  _UpdateAndroidResgen                       1 calls
+		1 ms  _ComputeAndroidResourcePaths               1 calls
+		1 ms  _SetTargetFrameworkMonikerAttribute        1 calls
+		1 ms  _SetEmbeddedWin32ManifestProperties        1 calls
+		1 ms  PrepareForBuild                            1 calls
+		1 ms  AssignTargetPaths                          1 calls
+		2 ms  _CleanRecordFileWrites                     1 calls
+		6 ms  ResolveAssemblyReferences                  1 calls
+		7 ms  _ResolveMonoDroidSdks                      1 calls
+		7 ms  _CleanGetCurrentAndPriorFileWrites         1 calls
+	  115 ms  _GenerateAndroidResourceDir                1 calls
+	  182 ms  _ComputeAndroidAssetsPaths                 1 calls
+	  652 ms  CoreCompile                                1 calls
+
+Task Performance Summary:
+		0 ms  AssignCulture                              1 calls
+		0 ms  FindAppConfigFile                          1 calls
+		0 ms  GetReferenceAssemblyPaths                  1 calls
+		0 ms  CreateProperty                             8 calls
+		0 ms  FindUnderPath                              3 calls
+		0 ms  RemoveDuplicates                           2 calls
+		0 ms  DevartEntityDeploy                         1 calls
+		0 ms  GetFrameworkPath                           1 calls
+		0 ms  Message                                    5 calls
+		1 ms  ConvertToAbsolutePath                      1 calls
+		1 ms  AssignTargetPath                           4 calls
+		1 ms  WriteLinesToFile                           1 calls
+		1 ms  Copy                                       1 calls
+		1 ms  MakeDir                                    3 calls
+		5 ms  AndroidComputeResPaths                     2 calls
+		5 ms  ResolveSdks                                1 calls
+		6 ms  ReadLinesFromFile                          1 calls
+		6 ms  ResolveAssemblyReference                   1 calls
+	   84 ms  RemoveUnknownFiles                         1 calls
+	  652 ms  Csc                                        1 calls
+
+Build FAILED.
+
+Time Elapsed 00:00:00.98
+Build has been canceled.

@@ -1,0 +1,19 @@
+BTW - The way I got monodevelop to run was as follows:
+1) Set up a parallel build environemnt (installed mono with a prefix 
+directory and setup environment with shell script) so it installed 'local'..
+2) ran make/make install
+3) went into old /usr/lib/mono/gac, and ran something like
+find . -name *.dll -print| xargs -n1 gacutil /i
+4) went back into mono build directory and reran make install so it 
+would overwrite any old mono dlls, and presumably re-register them (not 
+sure this was necessary, but it might have been).
+5) then ran "mono /usr/lib/monodevelop/bin/MonoDevelop.exe' with local 
+copy of mono.
+
+
+
+
+Windows
+	Mono.Addins +/ download +/ externals ...
+	VS +/ nuget +/ NRefactory
+	VS +/ nuget +/ IKVM

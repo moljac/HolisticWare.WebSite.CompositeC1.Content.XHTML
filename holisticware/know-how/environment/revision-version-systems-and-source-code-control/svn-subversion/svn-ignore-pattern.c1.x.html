@@ -1,0 +1,146 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>SVN ignore patterns</title>
+Description = all keywords + extra text
+<meta name="Description" content="SVN ignore patterns used on HolisticWare projects" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: SVN ignore patterns
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="svn, ignore, patterns, projects" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2013-02-20" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>SVN ignore patterns</h1>
+	<p>
+		Date created: 2013-02-20
+		<br />
+		Date modified: 2013-02-20
+	</p>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<!-- ================================================================== -->
+	<h2>
+	</h2>
+	<pre class="hw_code">
+Timestamp preservation
+	1. create repository on server
+	2. check out into dir
+	3. copy structure (directories and files) to checked out directory
+	4. commit
+
+	
+Unversion directory or project
+
+	“Export” command.  This will make a copy of the files in a new location 
+	without all those pesky .svn folders.   
+	To ‘unversion’ something but don’t want a copy – simply do an “export” and 
+	when Tortoise asks for the “folder to export to” simply select the same 
+	folder your working copy is in! Tortoise will proceed to remove all the 
+	.svn folders.
+
+
+Igonre Patterns
+*.o *.lo *.la #*# .*.rej *.rej
+.*~ *~ .#* .DS_Store thumbs.db
+*.bak *.class *.exe *.dll
+*.mine *.obj *.ncb *.lib *.log
+*.idb *.pdb *.ilk *.msi* .res *.pch *.suo
+*.exp *.*~ *.~* ~*.* cvs  CVS .CVS .cvs
+[Rr]elease [Dd]ebug */obj */[Rr]elease */[Dd]ebug
+ignore Ignore [bB]in  [oO]bj
+*.suo *.csproj.user *.user
+*.err logs *.log  *.LOG
+*.g.vb *.g.cs *.baml *.GenerateResource.Cache *.cache
+*.tmp *.temp
+[Dd]esktop.ini [Tt]humbs.db
+[tT]emp [tT]empPE
+*.resharper *.vspscc *.vsssccc *.scc
+*ReSharper */ReSharper */ReSharper. *.resharperoptions
+*.db *.bak  *.snk
+output TestResults
+Ankh.Load
+
+Single row
+
+*.o *.lo *.la #*# .*.rej *.rej .*~ *~ .#* .DS_Store thumbs.db *.bak *.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk *.msi* .res *.pch *.suo *.exp *.*~ *.~* ~*.* cvs  CVS .CVS .cvs [Rr]elease [Dd]ebug */obj */[Rr]elease */[Dd]ebug ignore Ignore [bB]in  [oO]bj *.suo *.csproj.user *.user *.err logs *.log  *.LOG *.g.vb *.g.cs *.baml *.GenerateResource.Cache *.cache *.tmp *.temp [Dd]esktop.ini [Tt]humbs.db [tT]emp [tT]empPE *.resharper *.vspscc *.vsssccc *.scc *ReSharper */ReSharper */ReSharper. *.resharperoptions *.db *.bak  *.snk output TestResults Ankh.Load
+
+
+
+*.o *.lo *.la #*# .*.rej *.rej
+.*~ *~ .#* .DS_Store thumbs.db 
+Thumbs.db *.bak *.class *.exe *.dll
+*.mine *.obj *.ncb *.lib *.log 
+*.idb *.pdb *.ilk *.msi* .res *.pch *.suo 
+*.exp *.*~ *.~* ~*.* cvs  CVS .CVS .cvs  
+release Release debug Debug
+ignore Ignore bin Bin obj  Obj
+*.csproj.user *.user
+
+*.tmp *.temp
+
+WPF
+*.g.vb *.g.cs *.baml *.GenerateResource.Cache *.cache
+
+SL
+*.xap
+
+*.ReSharper
+_ReSharper.* *.resharper.user
+
+*.o *.lo .la ## .*.rej .rej .~ ~ .# .DS_Store thumbs.db Thumbs.db *.bak
+*.class *.exe *.dll *.mine *.obj *.ncb *.lib *.log *.idb *.pdb *.ilk 
+.msi .res *.pch *.suo *.exp .~ .~ ~. cvs
+CVS .CVS .cvs release Release debug
+Debug ignore Ignore bin Bin obj Obj
+*.csproj.user *.user 
+
+Linux
+*.o *.so *.a *.la 
+
+Visual Studio
+*/bin */obj */Release */Debug bin obj 
+*.suo *.user
+*.err *.log *.LOG *.snk
+*.obj *.bin *.dll *.exe *.pdb [tT]emp [tT]empPE 
+Ankh.Load Ankh*.*
+thumbs.db *.resharper *.vspscc *.vsssccc *.scc 
+*/_ReSharper* */_ReSharper.* *.resharperoptions *_ReSharper*
+*.db *.bak logs output TestResults 
+*.crunchsolution.* *.crunchproject.*
+
+Windows
+desktop.ini thumbs.db
+
+vc++
+*.ncb ipch *.sdf
+
+MacOSX
+.DS_Store
+
+Eclipse
+bin
+.*
+
+Emacs/Vim
+~~ ## #*# *~
+
+MonoDevelop
+
+
+CompositeC1
+	</pre>
+</body>
+</html>

@@ -1,0 +1,23 @@
+Tips n Tricks
+
+System.Threading.ThreadAbortException: Thread was being aborted. How to fix this ???
+System.Threading.ThreadAbortException: Thread was being aborted.
+at System.Threading.Thread.AbortInternal()
+at System.Threading.Thread.Abort(Object stateInfo)
+at System.Web.HttpResponse.End()
+at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+at System.Web.HttpResponse.Redirect(String url)
+at Admin_Syllabus.btnSubmit_Click(Object sender, EventArgs e) in e:\Admin\4545454545.aspx.cs:line 75
+
+
+
+ • it is a normal exception when you redirect to another URL
+4 days ago• Like
+ Wissam Tannous
+Follow Wissam
+Wissam Tannous • when you use Response.Redirect send the second parameter false 
+ex:Response.Redirect(url,false);
+
+
+ don't put Response.Redirect into try block
+ 

@@ -1,0 +1,23 @@
+status
+
+
+Read the rest of the thread.
+
+http://lists.ximian.com/pipermail/mono-list/2012-October/049099.html
+
+http://lists.ximian.com/pipermail/mono-list/2012-November/049101.html
+
+http://lists.ximian.com/pipermail/mono-list/2012-November/049102.html
+
+http://lists.ximian.com/pipermail/mono-list/2012-November/049111.html
+
+
+Welcome.  What you're looking for is the mono-tools plugin for visual studio 
+on windows.  Install visual studio, and this plugin, and mono for windows.  
+This will allow you to write code, debug as usual in .Net, and then click 
+a special Mono menu inside Visual Studio, and Run or Debug in mono on windows.
+
+Also look for monotools-server.  You run this on linux/mac/whatever, and you
+ connect to it remotely via the same Mono menu in visual studio.  Remotely run 
+ or debug in mono on a remote non-windows system, while you are sitting 
+ comfortably inside visual studio debugger the whole time.

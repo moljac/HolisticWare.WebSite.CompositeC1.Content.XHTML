@@ -1,0 +1,10 @@
+video converters
+	free (from best to worst Bug 2012-11)
+		Media Coder
+		FreeMake Video Converter
+		VSDC free video converter
+		Format factory
+		TEncoder Video Converter
+		VidCoder
+		Handbrake
+		

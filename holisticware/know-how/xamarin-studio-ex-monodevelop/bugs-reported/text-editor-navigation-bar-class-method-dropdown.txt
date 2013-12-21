@@ -1,0 +1,6 @@
+Text Editor-->All Languages Check "Navigation Bar."
+
+Dropdown/ComboBox in editor for class/method selection
+
+* depends on cursor position
+* partial classes - does not show members in other files

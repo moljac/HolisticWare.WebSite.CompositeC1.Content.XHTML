@@ -1,0 +1,148 @@
+<!--
+C1 generated!!
+<title>Mono installation on Ubuntu Server on Apache</title>
+<meta name="Description" content="Mono v2.10.2 installation on Ubuntu Server 11.4 on Apache" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="Mono, installation, Ubuntu Server, Apache" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-04-18" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Mono v2.10.2 installation on Ubuntu Server 11.4 on Apache</a></h1>
+	<!-- ===========================================================================  -->
+	<p>
+	Script:
+	</p>	
+<pre class="hw_code">
+#!/bin/bash -e
+
+#!!!!!!!!!!!!! execute this script with ROOT privileges !!!!!!!!!!!!!
+# setting up apache web server to handle MONO
+
+# Before executing, change permissions of this script
+# chmod 755 ./install_mono-2.10.2_apache.sh
+
+# The install process copied a mod_mono.conf to the directory: 
+#    /etc/apache2. 
+# Enable this by moving it to 
+#    /etc/apache2/mods-available 
+# and creating a link to that file at 
+#    /etc/apache2/mods-enabled
+
+cd /etc/apache2
+sudo mv mod_mono.conf mods-avail*
+sudo ln -s \
+		/etc/apache2/mods-available/mod_mono.conf \
+		/etc/apache2/mods-enabled/mono.conf
+
+# restart apache server
+sudo service apache2 restart
+
+# NOTE: 
+# using 
+#   mod-mono-server2 for Asp.Net 2.0-3.5 runtime. 
+# other choice: 
+#   mod-mono-server4 for Asp.Net 4.0 runtime
+# or 
+#   mod-mono-server for Asp.Net 1.0-1.1 runtime.
+#
+# more: http://go-mono.com/config-mod-mono/
+# create your virtual host/application config file and paste it inside 
+# VirtualHostConfiguration [&quot; &quot;] bellow ....
+   
+# after creating config file, change MonoServerPath name_of_your_server 
+# &quot;/opt/mono-2.10/bin/mod-mono-server2&quot;
+# with correct path to mod-mono-server[x]. x is the version of mod-mono-server.
+# To locate the correct path to mod_mono_server, use updatedb, and locate ...
+
+# Also, another important thing is:
+# MonoSetEnv xx.yy.ww.zz MONO_IOMAP=all;LD_LIBRARY_PATH=/opt/mono-2.10/lib:$LD_LIBRARY_PATH;PATH=/opt/mono-2.10/bin:$PATH
+# its used to provide a correct path to mono libraries, change that with install location, 
+# or leave as is if you use installation this script.
+
+# If using server for multiple pages, so to access different pages on 
+# the same IP address you need to assign different port to each site, to 
+# accomplish  that, it is needed to edit ports.conf, and add this for each port:
+#  NameVirtualHost *:8080
+#  Listen 8080
+# 
+# more info: http://httpd.apache.org/docs/2.2/vhosts/examples.html
+
+VirtualHostConfiguration=&quot;
+&lt;VirtualHost *:8080&gt;
+   ServerName 83.139.107.115
+   ServerAdmin info@holisticware.com
+   DocumentRoot /opt/mono-2.10/lib/xsp/test/
+   # MonoServerPath can be changed to specify which version of ASP.NET is hosted
+   # mod-mono-server1 = ASP.NET 1.1 / mod-mono-server2 = ASP.NET 2.0
+   # For SUSE Linux Enterprise Mono Extension, uncomment the line below:
+   # MonoServerPath xx.yy.ww.zz &quot;/opt/novell/mono/bin/mod-mono-server2&quot;
+   # For Mono on openSUSE, uncomment the line below instead:
+   MonoServerPath xx.yy.ww.zz &quot;/opt/mono-2.10/bin/mod-mono-server2&quot;
+   
+   # To obtain line numbers in stack traces you need to do two things: 
+   # 1) Enable Debug code generation in your page by using the Debug=&quot;true&quot; 
+   #    page directive, or by setting &lt;compilation debug=&quot;true&quot; /&gt; in the 
+   #    application's Web.config
+   # 2) Uncomment the MonoDebug true directive below to enable mod_mono debugging
+   MonoDebug xx.yy.ww.zz true
+   
+   # The MONO_IOMAP environment variable can be configured to provide platform abstraction
+   # for file access in Linux.  Valid values for MONO_IOMAP are:
+   #    case
+   #    drive
+   #    all
+   # Uncomment the line below to alter file access behavior for the configured application
+   MonoSetEnv xx.yy.ww.zz MONO_IOMAP=all;LD_LIBRARY_PATH=/opt/mono-2.10/lib:$LD_LIBRARY_PATH;PATH=/opt/mono-2.10/bin:$PATH
+   #
+   # Additional environment variables can be set for this server instance using 
+   # the MonoSetEnv directive.  MonoSetEnv takes a string of 'name=value' pairs 
+   # separated by semicolons.  For instance, to enable platform abstraction *and* 
+   # use Mono's old regular expression interpreter (which is slower, but has a
+   # shorter setup time), uncomment the line below instead:
+   # MonoSetEnv xx.yy.ww.zz MONO_IOMAP=all;MONO_OLD_RX=1
+
+	MonoApplications xx.yy.ww.zz &quot;/:/opt/mono-2.10/lib/xsp/test/&quot;
+	&lt;Location &quot;/&quot;&gt;
+	   Allow from all
+	   Order allow,deny
+	   MonoSetServerAlias xx.yy.ww.zz
+	   SetHandler mono
+	   SetOutputFilter DEFLATE
+	   SetEnvIfNoCase Request_URI &quot;\.(?:gif|jpe?g|png)$&quot; no-gzip dont-vary
+	&lt;/Location&gt;
+	&lt;IfModule mod_deflate.c&gt;
+		AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript
+	&lt;/IfModule&gt;
+&lt;/VirtualHost&gt;
+&quot;
+
+# NOTE: Link name is prefixed with 001 since Apache loads configuration files in alphabetical 
+# order. 
+# Its not necessary for this scenario, but if running multiple virtual hosts and want a 
+# default one, this is good to know. 
+# Makes your default VirtualHost load first.
+
+echo &quot;$VirtualHostConfiguration&quot; \
+	&gt; /etc/apache2/sites-available/holisticware_mono_test.conf
+
+cd /etc/apache2/sites-en*
+
+ln -s \
+	../sites-available/holisticware_mono_test.conf \
+	&quot;001-holisticware.mono.test.conf&quot;
+
+service apache2 restart
+
+# Lots of information that are presented here were collected throughout the 
+# internet, but this page was most helpful
+# http://www.integratedwebsystems.com/
+</pre>
+</body>
+</html>

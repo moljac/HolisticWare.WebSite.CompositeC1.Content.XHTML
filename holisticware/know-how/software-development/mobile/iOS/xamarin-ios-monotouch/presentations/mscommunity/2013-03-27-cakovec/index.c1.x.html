@@ -1,0 +1,1995 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>Xamarin.iOS - MonoTouch</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML" />
+		<meta name="author" content="Hakim El Hattab" />
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="css/reveal.min.css" />
+		<link rel="stylesheet" href="css/theme/default.css" id="theme" />
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css" />
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script type="text/javascript">
+			document.write
+			(
+				'<link rel="stylesheet" href="css/print/'
+				+
+				(
+					window.location.search.match(/print-pdf/gi)
+					? 'pdf' : 'paper'
+				)
+				+
+				'.css" type="text/css" media="print"/>'
+			);
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>
+						Xamarin.iOS
+						<br/>
+						AKA
+						<br />
+						MonoTouch
+					</h1>
+					<h2>
+						iOS devices
+						<br />
+						iPhone, iPad and iPod <br />
+						for .net/c# developers
+					</h2>
+					<p>
+						<a href="http://xamarin.com">http://xamarin.com</a>
+						<br />
+						presented by I.Dikic + M.Cvjetko
+						<br />
+						<a href="http://holisticware.net">http://holisticware.net</a>
+					</p>
+				</section>
+				<!--
+				============================================================================================================
+				-->
+				<section>
+					<h2>Agenda</h2>
+
+					<ul>
+						<li>
+							not commercial, technical info
+						</li>
+						<li>
+							subjective/personal opinion about great and promising technology
+						</li>
+						<li>
+							2 parts
+							<ul>
+								<li>
+									information (this slides)
+								</li>
+								<li>
+									practical - hands on lab
+								</li>								
+							</ul>
+						</li>
+						<li>
+							a lot of info - "fjuling" (fueling)
+						</li>
+						<li>
+							if (headache == true) grab_beer();
+						</li>
+						<li>
+							<a href="https://docs.google.com/a/holisticware.com/spreadsheet/viewform?formkey=dDEwOWF6Q29aQjJlWklEVXM3S2NBd2c6MQ">
+							Few questions
+							</a>
+						</li>
+					</ul>
+				</section>
+				<!--
+				============================================================================================================
+				-->
+				<section>
+					<h2>HolisticWare - About Us</h2>
+
+					<ul>
+						<li>
+							Founded 2007-10
+						</li>
+						<li>
+							Activities
+							<ul>
+								<li>
+									System Integration - VoIP - asterisk
+									<br />
+									recession killed all activities
+								</li>
+								<li>
+									Development - enterprise (line of business) apps
+									<br />
+									Mobile in 2010 Android later iOS
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<!--
+				============================================================================================================
+				-->
+				<section>
+					<section>
+						<h2>Mobile development</h2>
+						<h3>Types</h3>
+						<ul>
+							<li>
+								Native
+								<p class="red">
+								Vendor's choice
+								</p>
+								<ul>
+							<li>
+								iOS
+								<ul>
+									<li>
+										language = objective-c, c, c++
+									</li>
+									<li>
+										IDE = XCode
+									</li>
+								</ul>
+							</li>
+							<li>
+								Android
+								<ul>
+									<li>
+										language = java, c, c++
+									</li>
+									<li>
+										IDE = Eclipse
+									</li>
+								</ul>
+							</li>
+							<li>
+								Windows Phone
+								<ul>
+									<li>
+										language = c#, VB
+									</li>
+									<li>
+										IDE = Visual Studio
+									</li>
+								</ul>
+							</li>
+						</ul>
+							</li>
+							<li>
+								hybrid: html5 + javascript + css
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Mobile development</h2>
+						<h3>Types Pros-Cons</h3>
+						<ul>
+							<li>
+								Native
+								<br />
+								Pros: performance, user experience
+								<br />
+								Cons: not portable, learning curve
+							</li>
+							<li>
+								Hybrid
+								<br />
+								Pros: portable, reusing knowledge/skills
+								<br />
+								Cons: performance, difficult to tune and tweak
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Mobile development</h2>
+						<h3>Motivation</h3>
+
+						<ul>
+							<li>
+								Bigger market / more market-share => more opportunities
+							</li>
+							<li>
+								niche - enterprise (line-of_business) apps to come
+							</li>
+							<li>
+								motivation for cross platform tools
+								<br />
+								My/Our day here in Croatia is 24hrs.
+								<br />
+								(Maybe on poles in summer more...).
+								<br />
+								<big>
+									Is it possible to **master** **all** of it?
+								</big>
+							</li>
+						</ul>
+
+						<p>
+						</p>		
+					</section>
+
+					<section>
+						<h2>Mobile Development</h2>
+						<h3>Cross platform tools</h3>
+
+						<p>
+						all approaches end up in native code (Apple restrictions)
+						</p>
+						<ul>							
+							<li>
+								native
+								<br />
+								for sure - native look n feel
+							</li>
+							<li>
+								hybrid - (HTML5 based = HTML5 + CSS + Javascript)
+
+								<br />
+								look n feel UX consistent on all platforms (same look and feel)
+								<br />
+								<ul>
+									<li>
+										PhoneGap / Cordova
+									</li>
+									<li>
+										Sencha Touch
+									</li>
+								</ul>
+							</li>
+							<li>
+								sub-native
+								<br />
+								p-Invoke and r-p-Invoke (embedding) native or not?!?
+								<br />
+								If yes then Xamarin concept is native native look n feel
+								<ul>
+									<li>
+										Titanium Appcelerator
+									</li>
+									<li>
+										Adobe Air
+									</li>
+									<li style="color: Red">
+										Xamarin.*
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>	
+
+				</section>
+
+				<!--
+				============================================================================================================
+				-->
+				<section>
+					<section>
+						<h2>Xamarin</h2>
+						<h3>Concepts 01</h3>
+
+						<p>
+							... way of thinking ... 
+							<br />
+							(excerpts from videos, interviews, press-releases)
+						</p>
+						<ul>
+							<li>
+								"Democratizing c# - taken C# across all platforms
+								C# and .NET for Android, iOS and Mac" 
+								<br />
+								not only (Linux, Windows..)
+							</li>
+							<li>
+								exposed Base Class Libraries (BCL) to non-Windows platforms 
+								<br />
+								iOS, Android, Linux,Mac OS X, 
+								<br />
+								so developers can work with familiar API
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Xamarin</h2>
+						<h3>Concepts 02</h3>
+						<ul>
+							<li>
+								native 
+								<br />
+								"projected native API - libraries and frameworks into c#"
+								<ul>
+									<li>
+										"Full native APIs – no compromise"
+									</li>
+									<li>
+										write once run many (does not work with UI - ugliness)
+									</li>
+									<li>
+										Native APIs (bound/bindings, wrapped p-Invoke, r-p-Invoke)
+									</li>
+									<li>
+										<ul>
+											<small>
+											<li>
+												Windows - WPF, Windows Forms
+											</li>
+											<li>
+												Cocoa - MacOSX
+											</li>
+											<li>
+												GTK# - Linux
+											</li>
+											<li>
+												iOS (Cocoa touch) - Xamarin.iOS
+											</li>
+											<li>
+												Android Xamarin.Android
+											</li>
+										</small>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								"Share code across Android, iOS, Mac, Windows Phone, Windows RT, Windows"
+							</li>
+							<li>
+								"Only platform that allows sharing code across these platforms 
+								while keeping native performance and UX"
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<!--
+				============================================================================================================
+				-->
+				<section>
+					<section>
+						<h2>iOS</h2>
+						<h3>Basics</h3>
+
+						<p>
+						4 abstraction layers (from lower layers to higher)
+						</p>							
+						<ul>
+							<li>
+								Core OS
+							</li>
+							<li>
+								Core Services
+							</li>
+							<li>
+								Media
+							</li>
+							<li>
+								Cocoa Touch
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>iOS</h2>
+						<h3>Core OS layer</h3>
+						<ul>
+							<li>
+								Mobile OSX based on Darwin (open source OS derived from NestSTEP, BSD) 
+							</li>
+							<li>
+								Mach 3.0 micro-kernel
+							</li>
+							<li>
+								Components:
+								<ul>
+									<li>
+										FileSystem
+									</li>
+									<li>
+										Sockets
+									</li>
+									<li>
+										Security
+									</li>
+									<li>
+										Power Management
+									</li>
+									<li>
+										Bonjour
+									</li>
+									<li>
+										Keychain access
+									</li>
+									<li>
+										Certificates
+									</li>
+								</ul>
+							</li>								
+						</ul>
+					</section>
+
+					<section>
+						<h2>iOS</h2>
+						<h3>Core Services layer</h3>
+						
+						<ul>
+							<li>
+								Collections
+							</li>
+							<li>
+								AddresBook
+							</li>
+							<li>
+								Networking
+							</li>
+							<li>
+								 Net Services
+							</li>
+							<li>
+								Core Location
+							</li>
+							<li>
+								File Access
+							</li>
+							<li>
+								SQLite
+							</li>
+							<li>
+								URL utilities
+							</li>
+							<li>
+								Threading
+							</li>
+							<li>
+								Preferences
+							</li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h2>iOS</h2>
+						<h3>Media layer</h3>
+
+						<ul>
+							<li>
+								Core Audio (Recording and Mixing)
+							</li>
+							<li>
+								Core Video (Recording, Playback)
+							</li>
+							<li>
+								OpenGL
+							</li>
+							<li>
+								Quartz (2D)
+							</li>
+							<li>
+								Images (png, jpg, tif)
+							</li>
+							<li>
+								PDF
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>iOS</h2>
+						<h3>Cocoa Touch layer </h3>
+						
+						<p>
+							UI implemented through UIKit 
+							<br />
+							(special interest for .net developers)
+						</p>
+
+						<ul>
+							<li>
+								Multi Touch
+							</li>
+							<li>
+								Views and Controls (class hierarchy)
+							</li>
+							<li>
+								Localization
+							</li>
+							<li>
+								WebView
+							</li>
+							<li>
+								Map Kit
+							</li>
+							<li>
+								Image Picker
+							</li>
+							<li>
+								Camera
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>iOS</h2>
+						<h3>Cocoa Touch UIKit details</h3>
+
+						<ul>
+							<li>
+								Cocoa Framework
+								<ul>
+									<li>
+										set/collection of frameworks for application development
+										<ul>
+											<li>
+												Cocoa Touch - iOS
+											</li>
+											<li>
+												Cocoa - Mac OSX (desktop)
+											</li>
+										</ul>
+									</li>
+									<li>
+										Contains:
+										<ul>
+											<li>
+												Foundation ~ Base Class Library
+												<ul>
+													<li>
+														Core Foundation (CF prefix)
+														<br />
+														c APIs
+													</li>
+													<li>
+														Next Step (NS prefix)
+														<br />
+														objective-c API
+														<br />
+														(NSArray,NSString... )
+													</li>
+												</ul>
+											</li>
+											<li>
+												UIKit (UI prefix) ~ Windows Forms, WPF
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>iOS</h2>
+						<h3>Programming</h3>
+
+						<ul>
+							<li>
+								Objective-C and Xcode
+							</li>
+							<li>
+								nice-to-have: 
+								<ul>
+									<li>
+										objective-c literacy 
+									</li>
+									<li>
+										knowledge/understanding - Apple documentation/samples
+
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>iOS</h2>
+						<h3>Objective-C</h3>
+
+						<pre>
+#import &lt;Foundation/Foundation.h&gt;
+ 
+@interface ScaryBugData : NSObject
+ 
+@property (strong) NSString *title;
+@property (assign) float rating;
+ 
+- (id)initWithTitle:(NSString*)title rating:(float)rating;
+ 
+@end
+						</pre>
+
+						<pre>
+#import "ScaryBugData.h"
+ 
+@implementation ScaryBugData
+ 
+@synthesize title = _title;
+@synthesize rating = _rating;
+ 
+- (id)initWithTitle:(NSString*)title rating:(float)rating {
+	if ((self = [super init])) {
+		self.title = title;
+		self.rating = rating;
+	}
+	return self;
+}
+ 
+@end
+						</pre>
+					</section>
+
+					<section>
+						<h2>iOS</h2>
+						<h3>Xcode</h3>
+
+					</section>
+				</section>
+
+				<!--
+				============================================================================================================
+				-->
+				<section>
+					<section>
+						<h2>UIKit for .net developers</h2>
+						<h3> Basics</h3>
+
+						<ul>
+							<li>
+								UI framework like Windows Forms/WPF
+							</li>
+							<li>
+								Design pattern used - MVC (Model View Controller)
+							</li>
+							<li>
+								most used classes
+								<ul>
+									<li>
+										UIViewController and its derived/specialized subclasses
+										<br />
+										UIViewController contains UIViews
+										<ul>
+											<li>
+												UINavigationController
+											</li>
+											<li>
+												UITableViewController
+											</li>
+										</ul>
+									</li>
+									<li>
+										UIView
+										<ul>
+											<li>
+												Derived classes:
+												<ul>
+													<li>
+														UILabel -> Control -> UIView
+													</li>
+													<li>
+														UIButton -> Control -> UIView
+													</li>
+													<li>
+														UITextView -> Control -> UIView
+													</li>
+													<li>
+														UIImageView -> Control -> UIView
+													</li>
+													<li>
+														UIWebView -> Control -> UIView
+													</li>
+												</ul>
+											</li>
+											<li>
+												UIView can contain SubViews (collections of UIViews)
+											</li>
+										</ul>
+										
+									</li>
+								</ul>
+							</li>
+
+						</ul>
+					</section>
+
+					<section>
+						<h2>UIKit for .net developers</h2>
+						<h3>Details</h3>
+
+						<ul>
+							<li>
+								just to know where is what (class hierarchy)
+								<div style="font-size: x-large">
+									UIButton -> UIControl -> UIView -> UIResponder -> NSObject
+								</div>
+							</li>
+							<li>
+								NSObject ~ object (System.Object)
+								<br />
+								top level type
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>UIKit for .net developers</h2>
+						<h3>MVC</h3>
+
+						<p>
+							UIKit concepts visual - Model View Controller
+						</p>
+						<img src="/img/mvc-01-Screen Shot 2013-03-21 at 2.09.14 PM.png" alt="" />
+					</section>
+
+					<section>
+						<h2>UIKit for .net developers</h2>
+						<h3>MVC</h3>
+						<img src="/img/mvc-02-Screen Shot 2013-03-21 at 2.09.02 PM.png" alt="" />
+
+					</section>
+					<section>
+						<h3>MVC - Details 1</h3>
+						<ul>
+							<li>
+								Model
+								<ul>
+									<li>
+										Business Logic - POCO (plain old c# objects)
+									</li>
+									<li>
+										data management, encapsulates data/properties and
+										behavior/methods
+									</li>
+								</ul>
+							</li>
+							<li>
+								View
+								<ul>
+									<li>
+										Objects for building Presentation Layer/User Interface
+									</li>
+									<li>
+										members of UIKit
+									</li>
+									<li>
+										every Control/Widget/View inherits from UIView
+									</li>
+									<li>
+										Capability of drawing on the canvas/presenting
+									</li>
+									<li>
+										respond to user interaction
+									</li>
+									<li>
+										Initialization != drawing presenting
+										<br />
+										To show object add as subview to existing UI
+									</li>
+									<li>
+										UIWindow - top level UI object,
+										<br />
+										UIViewControllers
+									</li>
+									<li>
+										All Views are children (contained in) Window thus building hierarchy.
+									</li>
+								</ul>
+							</li>						
+						</ul>
+					</section>
+
+					<section>
+						<h3>MVC - Details 2</h3>
+						<ul>
+							<li>
+								Controller
+								<ul>
+									<li>
+										core of the application
+									</li>
+									<li>
+										handles interaction between UI layer (presentation) and POCO
+									</li>
+									<li>
+										contains most of the code and functionality
+									</li>
+									<li>
+										Tasks - responsibilities
+										<ol>
+											<li>
+												initialization and positioning of the UIView objects in UI
+											</li>
+											<li>
+												layout and rotation change management
+											</li>
+											<li>
+												event management - touch, swipe, shakes ...
+											</li>
+											<li>
+												propagating events and user interactions to Models (Business Logic)
+											</li>
+											<li>
+												responding to events from Model and refreshing UI (presentation)
+											</li>
+										</ol>
+									</li>
+									<li>
+										controller instances have UIView property for top-level UIView
+										with UI content
+									</li>
+								</ul>
+							</li>
+							<li>
+								usage: first one to display (it's contained UIView) is created in AppDelegate instance
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<img src="/img/xcode-uikit-views-01-Screen Shot 2013-03-21 at 3.18.29 PM.png" />
+						<img src="/img/xcode-uikit-views-02-Screen Shot 2013-03-21 at 3.16.42 PM.png" />
+					</section>
+					<section>
+						<img src="/img/xcode-uikit-views-03-Screen Shot 2013-03-21 at 3.17.33 PM.png" />
+						<img src="/img/xcode-uikit-views-04-Screen Shot 2013-03-21 at 3.20.27 PM.png" />
+					</section>
+
+
+					<section>
+
+						<h3>Application Lifecycle 1</h3>
+
+						<ol>
+							<li>
+								static Main - entry point
+							</li>
+							<li>
+								UIApplication.Main(args, null, "AppDelegate")
+							</li>
+							<li>
+								AppDelegate is app entry point - usually single instance.
+								<pre>
+[Register ("AppDelegate")]
+public partial class AppDelegate : UIApplicationDelegate
+								</pre>
+							</li>
+							<li>
+								FinishedLaunching
+								<pre>
+AppDelegate.FinishedLaunching(UIApplication app, NSDictionary options)
+{
+	// adding UIViewController (root) to UIWindow
+}
+								</pre>
+							</li>
+						</ol>
+					</section>
+
+					<section>
+
+						<h3>Application Lifecycle 2</h3>
+
+						<pre>
+public override bool FinishedLaunching (UIApplication app, NSDictionary options)
+{
+	// create a new window instance based on the screen size
+	window = new UIWindow (UIScreen.MainScreen.Bounds);
+	
+	// If you have defined a root view controller, set it here:
+	// window.RootViewController = myViewController;
+
+	//1. Add new file -> iPhoneViewController
+	//	new Screen (Controller) with xib file and code behind
+	//  inherits from UIViewController
+	MainScreenViewController vc = new MainScreenViewController();
+
+	//Navigation controller
+	UINavigationController nc = new UINavigationController(vc);
+
+	this.window.RootViewController = nc;
+	//------------------------------------------------------------	
+	
+	// make the window visible
+	window.MakeKeyAndVisible ();
+	
+	return true;
+}
+						</pre>
+					</section>
+
+				</section>
+
+				<!--
+				============================================================================================================
+				-->
+				<section>
+					<section>
+						<h2>Xamarin.iOS - MonoTouch</h2>
+						<h3>Basics</h3>
+
+						<ul>
+							<li>
+								based on Mono ~ Mono Mobile profile
+								<ul>
+									<li>
+										Mono Mobile profile =
+										<ul>
+											<li>
+												Silverlight 4/5 profile
+												<br />
+												current/old
+												<ul>
+													<li>
+														- System.Configuration
+													</li>
+													<li>
+														- Microsoft.Win32.Registry
+													</li>
+													<li>
+														+ some features Silverlight removed (sync methods)
+													</li>
+												</ul>
+											</li>
+											<li>
+												based on .net 4.5 profile
+												<br />
+												new 2013-04-  Evolve conference
+											</li>
+											<!--
+											http://blog.xamarin.com/brave-new-async-mobile-world/
+											http://msdn.microsoft.com/en-us/library/dd799517.aspx
+											http://msdn.microsoft.com/en-us/library/vstudio/hh191443.aspx
+											https://gist.github.com/kumpera/5137005
+											https://gist.github.com/kumpera/5137002
+
+"Mono Mobile Profile" link is misleading. When it says "based on Silverlight", it means
+"the assemblies that were provided with MonoTouch were based on the Silverlight APIs for those assemblies."
+
+For example, MonoTouch was originally based upon the Silverlight 2.0 profile, which lacked the
+DllImportAttribute custom attribute (it was not added until Silverlight 3.0). MonoTouch added it back.
+
+No version of Silverlight provides System.Data.dll. MonoTouch provided it so that it could also provide Mono.Data.Sqlite.dll.
+
+Meanwhile, Silverlight had some assemblies such as System.Windows.dll, which MonoTouch did not provide.
+
+So what is meant by "based on Silverlight" is that, for the assemblies that were provided, those assemblies
+started from the Silverlight profile.
+
+This does not mean, and never did mean, that existing Silverlight code could run as-is, unchanged,
+as many features such as XAML were never provided.
+
+The "Mono Mobile Profile" takes this historical "MonoTouch profile", further extends it, and uses it
+across Xamarin.Android, Xamarin.iOS, and Xamarin.Mac.
+											-->
+										</ul>
+									</li>
+									<li>
+										<!--
+										<a href="#" class="image navigate-down">
+											<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow" />
+										</a>
+										-->
+										.net devlopers use BCL classes so deep knowledge of NS 
+										framework is not mandatory
+									</li>
+								</ul>
+								<br />
+							</li>
+							<li>
+							
+							</li>
+						</ul>		
+					</section>
+
+					<section>
+						<h2>Mono</h2>
+						<h3>Basics</h3>
+
+						<p>
+							open source implementation of Microsoft .net for non-Windows/Microsoft platforms
+						</p>
+						<ul>
+							<li>
+								.net CLR, tools (compilers), Base Class Libraries, frameworks,
+								IDE (MonoDevelop, Xamarin Studio)
+								on non-Windows platforms (Linux, MacOSX)
+							</li>
+							<li>
+								open source project
+								<br />
+								<a href="http://mono-project.com">http://mono-project.com</a>
+							</li>
+							<li>
+								cross-platform (unixoides like: Linux, MacOSX, Android, iOS)
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Mono</h2>
+						<h3>Coverage</h3>
+
+						<ul>
+							<li>
+								How much is implemented? - A lot
+							</li>							
+							<li>
+								Not implemented - Windows platform specific stuff
+							</li>
+							<ul>
+								<li >
+									WPF - no plans (DirextX, hardware acceleration)
+								</li>
+								<li>
+									System.Management
+								</li>
+								<li>
+									Registry - only basic support
+								</li>
+								<li>
+									WWF - future plan
+								</li>
+							</ul>
+							<li>
+								Recently included (since Microsoft has published/open sourced some code)
+							</li>							
+							<ul style="">
+								<li>
+									Entity Framework
+								</li>
+							</ul>
+							<li>
+								Partially implemented (be aware)
+							</li>
+							<ul>
+								<li>
+									WCF
+								</li>
+							</ul>
+							<li>
+								Planned
+							</li>
+							<ul>
+								<li>
+									OData server side - relies on Entity Framework
+								</li>
+							</ul>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Mono</h2>
+						<h3> Coverage - continued</h3>
+						<ul>
+							<li>
+								Definition: MonoTouch and Mono for Android are supersets of Silverlight profile
+								<ul>
+									<li>
+										.net 2.0 - almost all of it
+										<ul>
+											<li>
+												Generics
+											</li>
+										</ul>
+									</li>
+									<li>
+										.net 3.5
+										<ul>
+											<li>
+												Linq
+											</li>
+											<li>
+												WCF partial
+											</li>
+										</ul>
+									</li>
+									<li>
+										ADO.net API for SQLlite
+									</li>
+									<li>
+										Silverlight API
+									</li>
+									<li>
+										wrapped native APIs (iOS and Android)
+										<br />
+										similar to PInvoke
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Mono - Historical facts</h2>
+						<ul>
+							<li>
+								Mono (team) related
+								<ol>
+									<li>
+										Ximian
+									</li>
+									<li>
+										Novell 2003
+									</li>
+									<li>
+										Attachmate 2010-11
+										<br />
+										2011-04 layoffs
+									</li>
+									<li>
+										Xamarin 2011-05-16
+										<br />
+										Novell granted all rights (perpetual licence) to Xamarin for
+										Mono, Mono for Android (Monodroid), MonoTouch
+									</li>
+								</ol>
+							</li>
+							<li>
+								MonoTouch
+								<ol>
+									<li>
+										2010-09 Apple removed 3rd party tool prohibition
+									</li>
+								</ol>
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<!--
+				============================================================================================================
+				-->
+				<section>
+					<section>
+						<h2>Xamarin.iOS - MonoTouch</h2>
+						<h3>Internals</h3>
+
+						<ol>
+							<li>
+								compiles c# => MSIL => native ARM code
+								<br />
+								AOT, ahead of time compiler ~ ngen.exe
+							</li>
+							<li>
+								**native**  applications for iPhone, iPad, iPod
+								<br />
+								MSIL is compiled like objective-c into native code (ARM)
+							</li>
+							<li>
+								dynamic features not allowed (by Apple) - no Code.Emit and similar
+							</li>
+							<li>
+								runtime is embedded into package/bundle
+								<br />
+								influence on the package size
+							</li>
+							<li>
+								linker - optimizing unused code (removal)
+								<br />
+								both on SDK and user assemblies
+								<br />
+								IL code is compiled to native and removed from managed assemblies
+								<br />
+								only metadata is pertained in assemblies
+							</li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>Xamarin.iOS </h2>
+						<h3>Internals - Restrictions</h3>
+
+						<ol>
+							<li>
+								Apple restrictions (kernel) - not available (forbidden)
+								<ul>
+									<li>
+										no jitter - everything is compiled
+										<br />
+										Ahead of Time Compilation (static compilation)
+										<br />
+										similar like manually invoking ngen.exe
+									</li>
+									<li>
+										no dynamic code generation (Dynamic Language Runtime - DLR + DynamicObject)
+										<br />
+										CodeDom - Code.Emit
+									</li>
+								</ul>
+							</li>
+							<li>
+								Limited - reduced
+								<ul>
+									<li>
+										Reflection
+									</li>
+									<li>
+										Memory Management
+									</li>
+									<li>
+										PInvoke
+									</li>
+								</ul>
+							</li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>Xamarin.iOS </h2>
+						<h3>Internals - Garbage Collection</h3>
+
+						<ol>
+							<li>
+								iOS uses RetainCounts
+								<br />
+								<small>
+								RetainCounts : ReferenceCounts : MemoryPointers != Dealloc Pointers	
+								</small>
+							</li>
+							<li>
+								MonoTouch runtime handles Garbage collection
+								<br />
+								handled by managed code embedded in bundle/package
+								<br />
+								AutoRelease is created for everything on main thread and derived child threads
+							</li>
+						</ol>
+					</section>
+				</section>
+
+
+				<!--
+				============================================================================================================
+				-->
+				<section>
+					<section>
+						<h2>Xamarin.iOS - Development</h2>
+						<h3>Prerequisites</h3>
+
+						<ul>
+							<li>
+								Mac + Mac OSX (Leopard, Snow Leopard, Lion, Mountain Lion)
+								<br />
+								Mac - Intel (PPC - no go)
+							</li>
+							<li>
+								iOS SDK
+							</li>
+							<li>
+								XCode
+							</li>
+							<li>
+								Apple Developer account
+							</li>
+							<li>
+								knowledge about Apple developer restrictions, Human Interface Guidelins (HIG)
+							</li>
+							<li>
+								Xamarin Studio - was Monodevelop							
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Xamarin.iOS - Development</h2>
+						<h3>Installation</h3>
+
+						<ul>
+							<li>
+								from version to version easier
+							</li>
+							<li>
+								<a href="http://ios.xamarin.com">http://ios.xamarin.com</a>
+								<br />
+								<a href="http://xamarin.com/monotouch">http://xamarin.com/monotouch </a>
+							</li>
+							<li>
+								<ul>
+									<li>
+										iOS SDK (XCode, simulator)
+									</li>
+									<li>
+										Mono
+									</li>
+									<li>
+										Xamarin Studio/MonoDevelop
+									</li>
+									<li>
+										Xamarin.iOS (MonoTouch)
+									</li>
+									<li>
+										Apple certificates for device deployment
+									</li>
+									<li>
+										iPhone/iPad configuration utility
+									</li>
+									<li>
+										Accounts on TestFlight or similar services
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2>Pricing</h2>
+
+					<ul>
+						<li>
+							changed recently
+						</li>
+						<li>
+							<a href="https://store.xamarin.com/">https://store.xamarin.com/</a>
+						</li>
+						<li>
+							<ul>
+								<li>
+									Free $0
+									<ul>
+										<li>
+											deploy to device (new)
+										</li>
+										<li>
+											 restriction - app size
+										</li>
+									</ul>
+								</li>
+								<li>
+									Inide $299 (per platform per developer)
+									<ul>
+										<li>
+											 unlimited app size
+										</li>
+									</ul>
+								</li>
+								<li>
+									Business $999 (per platform per developer)
+									<br />
+									most popular
+								</li>
+								<li>
+									Enterprise $1899 (per platform per developer)
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!--
+				============================================================================================================
+				-->
+				<section>
+					<section>
+						<h2>Tools and Environment</h2>
+						<h3>General</h3>
+
+						<ul>
+							<li>
+								environment switching
+								<ul>
+									<li>
+										network share
+									</li>
+									<li>
+										Version Control System (git, svn)	
+									</li>
+									<li>
+										Virtualization
+									</li>
+								</ul>
+							</li>
+							<li>
+								VCS or dVCS (distributed - preferred) clients (git, mercurial, svn)
+							</li>
+							<li>
+								IDE 
+								<ul>
+									<li>
+										Windows - Visual Studio 2010/2012, 
+									</li>
+									<li>
+										MacOSX Xcode and Xamarin Studio
+									</li>
+								</ul>
+							</li>
+							<li>
+								Package/Application distribution (testing) service
+								<ul>
+									<li>
+										<a href="https://testflightapp.com/">
+											TestFlight https://testflightapp.com/
+										</a>
+									</li>
+									<li>
+										<a href="http://thebetafamily.com/">
+											The Beta Family http://thebetafamily.com/
+										</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Tools and Environment</h2>
+						<h3> Mac OS X</h3>
+
+						<ul>
+							<li>
+								Xamarin Studio 
+							</li>
+							<li>
+								XCode (and tools like Profiler, Certificate Manager)
+							</li>
+							<li>
+								Sublime text editor
+							</li>
+							<li>
+								DiskAid - iPhone Browsing
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Tools and Environment</h2>
+						<h3> Windows - Visual Studio 1 </h3>
+
+						<ul>
+							<li>
+								PowerCommands for Visual Studio 2010
+							</li>
+							<li>
+								Productivity Tools
+							</li>
+							<li>
+								Microsoft Practices Project Linker
+								<br />
+								HolisticWare modification with exclude patterns
+								<br />
+								<small>
+								<a href="https://github.com/moljac/ProjectLinker">
+								https://github.com/moljac/ProjectLinker
+								</a>
+								</small>
+							</li>
+							<li>
+								MonoFlave2010
+								<br />
+								Project flave (flavor) AddIn 
+								<br />
+								for opening various project types (GUID)
+								<br />
+								HolisticWare modification with Windows Mobile (CF and SmartDevice)
+								<br />
+								<small>
+								<a href="https://github.com/moljac/MonoVersalProjectFlavesForVisualStudio2010">
+								https://github.com/moljac/MonoVersalProjectFlavesForVisualStudio2010
+								</a>
+								</small>
+							</li>
+							<li>
+								VSCommands
+								<br />
+								"special edition" from Jarek Kardas 
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<!--
+				============================================================================================================
+				-->
+				<section>
+					<section>
+						<h2>References</h2>
+
+						<h3>Documentaion</h3>
+						<ul>
+							<small>
+								<li>
+									<a href="http://docs.xamarin.com/guides">							
+									Guides (HowTos, Tutorials)
+									http://docs.xamarin.com/guides
+									</a>
+								</li>
+								<li>
+									<a href="http://docs.xamarin.com/recipes">	
+									Recipes http://docs.xamarin.com/recipes
+									</a>
+								</li>
+								<li>
+									<a href="http://iosapi.xamarin.com/">	
+									API (iOS) http://iosapi.xamarin.com/
+									</a>
+								</li>
+								<li>
+									<a href="http://docs.xamarin.com/samples-all">	
+									Samples http://docs.xamarin.com/samples-all
+									</a>
+								</li>
+								<li>
+									<a href="http://xamarin.com/seminars">	
+									Seminars http://xamarin.com/seminars
+									</a>
+									<br />									
+									<a href="http://www.youtube.com/XamarinHQ">	
+									YouTube Channel http://www.youtube.com/XamarinHQ
+									</a>									
+								</li>
+								<li>
+									<a href="http://forums.xamarin.com/">	
+									Forums http://forums.xamarin.com/
+									</a>
+								</li>
+								<li>
+									<a href="http://components.xamarin.com/">	
+									Components http://components.xamarin.com/
+									</a>
+								</li>								
+							</small>
+						</ul>
+					</section>
+					<section>
+						<h3>Videos</h3>
+						<ul>
+							<small>
+								<li>
+									<a href="http://xamarin.com/evolve/2013">
+										Evolve 2013 Keynote http://xamarin.com/evolve/2013
+									</a>
+								
+								</li>
+								<li>
+									<a href="http://channel9.msdn.com/Blogs/Charles/Miguel-de-Icaza-Mono-Open-Source-Visual-Studio-and-Xamarin">
+									Xamarin Evolve 2013-04-16 Miguel de Icaza: Mono, Open Source, Visual Studio, and Xamarin
+									</a>
+								</li>
+							</small>
+						</ul>
+					</section>
+					<section>
+						<h2>Books</h2>
+							<ul>
+								<li>
+									Learning MonoTouch: A Hands-on Guide to Building iOS Applications with C# and .NET 
+									(Developer's Library) 
+									<br />
+									by Michael Bluestein
+								</li>
+								<li>
+									iOS Development using MonoTouch Cookbook 
+									<br />
+									by Dimitris Tavlikos	
+								</li>
+								<li>
+									Professional iPhone Programming with MonoTouch and .NET/C# 
+									<br />
+									by Wallace B. McClure, Rory Blyth, Craig Dunn and Chris Hardy
+								</li>
+								<li>
+									Developing C# Apps for iPhone and iPad using MonoTouch: 
+									iOS Apps Development for .NET Developers 
+									<br />
+									by Bryan Costanich
+								</li>
+								<li>
+									Migrating to iPhone and iPad for .NET Developers 
+									<br />
+									by Mark Mamone
+								</li>
+							</ul>
+					</section>
+					<section>
+						<h2>Slideware references</h2>
+						<ul>
+							<li>
+								Xamarin.iOS / MonoTouch
+								<ul>
+									<small>
+										<li>
+											<a href="https://speakerdeck.com/kouphax/monotouch-c-ios-good-times">
+											https://speakerdeck.com/kouphax/monotouch-c-ios-good-times
+											</a>
+										</li>
+										<li>
+											<a href="http://www.slideshare.net/conceptdev/crossplatform-mobile-dev-with-mono">
+											http://www.slideshare.net/conceptdev/crossplatform-mobile-dev-with-mono
+											</a>
+										</li>
+										<li>
+											<a href="http://www.slideshare.net/mecurioJ/a-lap-around-monotouch">
+											http://www.slideshare.net/mecurioJ/a-lap-around-monotouch
+											</a>
+										</li>
+										<li>
+											<a href="http://www.slideshare.net/chrisntr/c-on-the-iphone-with-monotouch-glasgow">
+											http://www.slideshare.net/chrisntr/c-on-the-iphone-with-monotouch-glasgow
+											</a>
+										</li>
+										<li>
+											<a href="http://www.slideshare.net/chrisntr/introduction-to-monotouch-and-monodroidmono-for-android">
+											http://www.slideshare.net/chrisntr/introduction-to-monotouch-and-monodroidmono-for-android
+											</a>
+										</li>
+										<li>
+											<a href="http://www.slideshare.net/mikebluestein/intro-to-monotouch">
+											http://www.slideshare.net/mikebluestein/intro-to-monotouch
+											</a>
+										</li>
+										<li>
+											<a href="http://www.slideshare.net/chrisntr/c-on-the-iphone-with-monotouch-at-ddd8-reading">
+											http://www.slideshare.net/chrisntr/c-on-the-iphone-with-monotouch-at-ddd8-reading
+											</a>
+										</li>
+									</small>							
+								</ul>
+							</li>
+							<li>
+								Cross platform
+								<ul>
+									<small>
+										<li>
+											<a href="http://www.slideshare.net/docluv/i-like-i-phone-and-android-but-know-net">
+											http://www.slideshare.net/docluv/i-like-i-phone-and-android-but-know-net
+											</a>
+										</li>
+										<li>
+											<a href="http://www.slideshare.net/chrisntr/wp7-droid-iphone-oh-my">
+											http://www.slideshare.net/chrisntr/wp7-droid-iphone-oh-my
+											</a>
+										</li>
+										<li>
+											<a href="https://speakerdeck.com/chrisntr/ios-6-with-monotouch-6">
+											https://speakerdeck.com/chrisntr/ios-6-with-monotouch-6
+											</a>
+										</li>
+									</small>
+								</ul>
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2>Thanks</h2>
+					<h2>Questions?</h2>
+					<h2>Wishes?</h2>
+				</section>
+			</div>
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<script type="text/javascript" src="lib/js/head.min.js"></script>
+		<script type="text/javascript" src="js/reveal.min.js"></script>
+
+		<script type="text/javascript">
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
+
+
+<!--
+				<section>
+					<h2>Point of View</h2>
+					<p>
+						Press <strong>ESC</strong> to enter the slide overview. Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+					</p>
+				</section>
+
+				<section>
+					<h2>rvl.io</h2>
+					<p>
+						If you don't like writing slides in HTML you can use the online editor <a href="http://www.rvl.io" target="_blank">rvl.io</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Works in Mobile Safari</h2>
+					<p>
+						Try it out! You can swipe through the slides and pinch your way to the overview.
+					</p>
+				</section>
+
+				<section>
+					<h2>Marvelous Unordered List</h2>
+					<ul>
+						<li>No order here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fantastic Ordered List</h2>
+					<ol>
+						<li>One is smaller than...</li>
+						<li>Two is smaller than...</li>
+						<li>Three!</li>
+					</ol>
+				</section>
+
+				<section data-markdown="">
+					<script type="text/template">
+						## Markdown support
+
+						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+
+							<section data-markdown="">
+							  ## Markdown support
+
+							  For those of you who like that sort of thing.
+							  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+							</section>
+					</script>
+				</section>
+
+				<section id="transitions">
+					<h2>Transition Styles</h2>
+					<p>
+						You can select from different transitions, like: <br />
+						<a href="?transition=cube#/transitions">Cube</a> -
+						<a href="?transition=page#/transitions">Page</a> -
+						<a href="?transition=concave#/transitions">Concave</a> -
+						<a href="?transition=zoom#/transitions">Zoom</a> -
+						<a href="?transition=linear#/transitions">Linear</a> -
+						<a href="?transition=fade#/transitions">Fade</a> -
+						<a href="?transition=none#/transitions">None</a> -
+						<a href="?#/transitions">Default</a>
+					</p>
+				</section>
+
+				<section id="themes">
+					<h2>Themes</h2>
+					<p>
+						Reveal.js comes with a few themes built in: <br />
+						<a href="?theme=sky#/themes">Sky</a> -
+						<a href="?theme=beige#/themes">Beige</a> -
+						<a href="?theme=simple#/themes">Simple</a> -
+						<a href="?theme=serif#/themes">Serif</a> -
+						<a href="?theme=night#/themes">Night</a> -
+						<a href="?#/themes">Default</a>
+					</p>
+					<p>
+						<small>
+							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<section data-state="alert">
+						<h2>Global State</h2>
+						<p>
+							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
+							will be added as a class to the document element when the slide is open. This lets you
+							apply broader style changes, like switching the background.
+						</p>
+						<a href="#" class="image navigate-down">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow" />
+						</a>
+					</section>
+					<section data-state="blackout">
+						<h2>"blackout"</h2>
+						<a href="#" class="image navigate-down">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow" />
+						</a>
+					</section>
+					<section data-state="soothe">
+						<h2>"soothe"</h2>
+						<a href="#" class="image navigate-next">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(-90deg);" />
+						</a>
+					</section>
+				</section>
+
+				<section data-state="customevent">
+					<h2>Custom Events</h2>
+					<p>
+						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
+					</p>
+					<pre><code contenteditable="" style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
+	console.log( '"customevent" has fired' );
+} );
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Clever Quotes</h2>
+					<p>
+						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						The nice thing about standards is that there are so many to choose from</q> and block:
+					</p>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code contenteditable="">
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+	var nodes = document.querySelectorAll( selector );
+
+	for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+	  var node = nodes[i];
+
+	  if( !node.className ) ) {
+		node.className += ' roll';
+	  }
+	};
+  }
+}
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+				<section>
+					<h2>Intergalactic Interconnections</h2>
+					<p>
+						You can link between slides internally,
+						<a href="#/2/3">like this</a>.
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Fragmented Views</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<ol>
+							<li class="fragment"><code>any type</code></li>
+							<li class="fragment"><em>of view</em></li>
+							<li class="fragment"><strong>fragments</strong></li>
+						</ol>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's a few styles of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment roll-in">roll-in</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-green">highlight-green</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Spectacular image!</h2>
+					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
+						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny" />
+					</a>
+				</section>
+
+				<section>
+					<h2>Export to PDF</h2>
+					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
+					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen=""> </iframe>
+					<script>
+						document.getElementById('slideshare').attributeName = 'allowfullscreen';
+					</script>
+				</section>
+
+				<section>
+					<h2>Take a Moment</h2>
+					<p>
+						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
+						during a presentation.
+					</p>
+				</section>
+
+				<section>
+					<h2>Stellar Links</h2>
+					<ul>
+						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
+						<li><a href="http://hakim.se/projects/reveal-js">Leave feedback on my site</a></li>
+						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>It's free</h2>
+					<p>
+						reveal.js and <a href="http://www.rvl.io">rvl.io</a> are entirely free but if you'd like to support the projects you can donate below.
+						Donations will go towards hosting and domain costs.
+					</p>
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+						<input type="hidden" name="cmd" value="_donations" />
+						<input type="hidden" name="business" value="hakim.elhattab@gmail.com" />
+						<input type="hidden" name="lc" value="US" />
+						<input type="hidden" name="item_name" value="reveal.js / rvl.io" />
+						<input type="hidden" name="no_note" value="0" />
+						<input type="hidden" name="currency_code" value="USD" />
+						<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest" />
+						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+					</form>
+				</section>
+
+				<section>
+					<h1>THE END</h1>
+					<h3>BY Hakim El Hattab / hakim.se</h3>
+				</section>
+-->

@@ -1,0 +1,114 @@
+need to follow the instructions in the README you find in channels/h323 in the source code. 
+Pay attention to the version numbers of PWLIB and OPENH323. 
+Ensure your environment variables are set to the right directories. 
+After you compiled h323.o in the h323 directory you can "make menuselect" in the 
+main directory of the source tree and within channels you should be able to add chan_h323.
+ 
+Another option might be to enable ooh323 within the Add-Ons in "make menuselect" 
+however I've never tried to go down that route. 
+
+
+
+
+You can follow the following steps to configure h323 :- 
+OOH323 installation with Asterisk :-
+ 
+* First install pwlib
+ 
+cd pwlib_v1_10_3 
+./configure 
+make opt 
+make install
+ 
+Follow the following steps before installing ooh323:- 
+/usr/src/kernel/<linux version>/include/linux/compiler.h into 
+/usr/include/linux
+export PWLIBDIR=/usr/local/src/pwlib_v1_10_3 
+cp $PWLIBDIR/lib/libpt_linux_x86_r.so.1.10.3 /usr/lib
+ 
+(We copy the shared library manually into the system folder.
+ 
+It is very important that you set the PWLIBDIR to your path, 
+othewise OpenH323 will not find it.)
+ 
+
+* cd openh323_v1_18_0
+ 
+./configure 
+make opt 
+make install 
+export OPENH323DIR=/usr/local/src/openh323_v1_18_0 
+cp $OPENH323DIR/lib/libh323_linux_x86_r.so.1.18.0 /usr/lib 
+cd ..
+ 
+* asterisk-1.4.12.1
+ 
+./configure 
+make menuselect 
+make 
+make install 
+make samples 
+make config
+ 
+and also check 
+https://docs.google.com/document/d/13WfH_1WOsJqvhHdpxTe3EdvgGRJGVq1ilgFCnaiXqUA/edit?hl=en_US
+
+
+
+
+
+also you need to check version of your gcc in README file. i found that some versions 
+of gcc (from 4.x branch) didn't compiled pwlib. And i was needed to reinstall server to 
+older version of centos 
+
+
+
+recent update: 
+i had already setup completely the h323 trunks (OOH323) but i have call issues. 
+
+1. call from asterisk to avaya extension is successful but no audio. 
+2. call from avaya to asterisk extension failed and i have this error 
+denial event 1220: Recovery on timer expiry 
+
+what went wrong? 
+
+
+avaya is in my LAN.. asterisk is hosted (VPS).. i know the issue is mostly because of 
+NAT traversal.
+some claimed their setup work.. but i suspect because both are in the same network. 
+ 
+ 
+ 
+ 
+ First you must resolve and be sure that is not NAT issue.
+ If is not, then it must work without any problem
+ Have you in your ooh323 exactly IP address of your interface?
+ In my case it was problem, it better always to provide exactly IP address.
+ 
+
+ 
+ 
+ Am using Asterisk 1.6.2.20 and using the exact IP address (public) for both. 
+
+I can call my Avaya extension from asterisk but getting no audio. 
+can't call from Avaya to asterisk.. gettting error "denial event 1220: 
+Recovery on timer expiry"
+ 
+This is also an ongoing debate on the Avaya group because of contradicting 
+opinion on whats causing the issue.
+ 
+I can't find any other problem except that it might be because of NAT.. 
+
+I tried using VPN but i can't seem to make VPN work in Linux. 
+
+
+
+
+
+
+
+In both calls the problem is in timer. Because the remote end did not 
+respond to a message within the ISDN time constraints. 
+Packet loss or packet delay in the network meaning the message either 
+never got there or got back. You need to check a signaling port 
+on both of stations. 

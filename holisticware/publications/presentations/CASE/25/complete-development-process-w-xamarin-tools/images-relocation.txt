@@ -1,0 +1,4 @@
+Replace
+		src="./images/
+	with
+	src="/h0l15t1cw4r3/layout/presentations/reveal-js/complete-development-process-w-xamarin-tools/images/

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;
+      charset=ISO-8859-1">
+    <title></title>
+  </head>
+  <body lang="en-us" xml:lang="en-us">
+    <h1><a id="">Windows XP</a></h1>
+    <br>
+    <h2><a id="">Login as Administrator</a></h2>
+    <p> login as built-in Administrator in Safe Mode only. For XP
+      Professional, press CTRL + ALT + DEL twice at the Welcome Screen
+      and input your Administrator password in the classic logon window
+      that appears. </p>
+    <pre>Method 2 - Manual registry edit
+Click Start, Run and type Regedit.exe
+Navigate to the following key:
+HKEY_LOCAL_MACHINE \ SOFTWARE \ Microsoft \ Windows NT \ CurrentVersion \ Winlogon \ SpecialAccounts \ UserList
+
+Use the File, Export option to backup the key
+Create a new DWORD Value named Administrator
+Double-click Administrator, and set 1 as its data
+Exit the Registry Editor.
+For Windows XP Home Edition
+While you can configure Windows XP Home Edition to show 
+Administrator account in the Welcome Screen, you cannot login as 
+Administrator in Normal mode. Visit the following link for more 
+information:
+</pre>
+  </body>
+</html>

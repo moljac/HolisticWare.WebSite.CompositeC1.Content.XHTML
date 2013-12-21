@@ -1,0 +1,432 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>HolisticWare Process Composite C1 package installation</title>
+Description = all keywords + extra text
+<meta name="Description" content="HolisticWare Process Composite C1 package installation: steps, tips and tricks" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: holisticware-process-compositec1-package-installation
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="HolisticWare, Process, websites, Composite C1, packages, installation" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>HolisticWare Process Composite C1 package installation</h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<!-- ================================================================== -->
+	<h2>Steps</h2>
+	<ol>
+		<li>
+			manual
+			<br />
+			<a href="http://users.composite.net/Superuser/Packages">
+				http://users.composite.net/Superuser/Packages
+			</a>
+			<br />
+			<a href="http://users.composite.net/Superuser/Packages/InstallPackage">
+				http://users.composite.net/Superuser/Packages/InstallPackage
+			</a>
+			<br />
+			<a href="http://c1packages.codeplex.com/">
+				http://c1packages.codeplex.com/
+			</a>
+		</li>
+		<li>
+			batch install
+			<ol>
+				<li>
+					Check-out out packages from codeplex
+					<br />
+					<a href="http://docs.composite.net/Packages">
+						http://docs.composite.net/Packages
+					</a>			
+				</li>
+				<li>
+					wrote batch that collects all zips in one folder AutoInstallPackages
+				</li>
+				<li>
+					copy folder to  ~/App_Data/Composite/
+				</li>
+				<li>
+					start website
+					<br />
+					http://msdn.microsoft.com/en-us/library/xee0c8y7.aspx
+					<br />
+					<pre class="hw_code">
+					devenv Composite.sln /Rebuild
+					devenv Composite.sln /Run
+					</pre>
+				</li>
+				<li>
+					script currently developed
+					<pre class="hw_code">
+:: holisticware-proces-packages-install-batch.bat
+@echo off
+setlocal EnableDelayedExpansion
+
+set PREFIX=.\appharbor\v4-mvc2
+set PREFIX_PACKAGES_AUOTINSTALL=%PREFIX%\WebAppMVC2empty\App_Data\Composite\AutoInstallPackages\
+set COMPOSITEC1_PACKAGES_SRC=..\CMS-CompositeC1\2-packages\c1packages
+
+call "%PROGRAMFILES%\Microsoft Visual Studio 10.0\VC\vcvarsall.bat"
+
+echo =====================================================================================
+echo copying packages
+
+:: dir /s /b %COMPOSITEC1_PACKAGES_SRC%\*.zip
+
+:: 	echo =======================================================================
+:: 	set FILENAME_PATH_ZIP=%%f
+:: 	set FILENAME=%%~nf
+:: 	set FILENAME_W_EXT=%%~nxf
+:: ::set DIRNAME=!FILENAME_PATH:.svg=!  No renaming
+:: ::set DIRNAME="!FILENAME_PATH_ZIP!.holisticware-imagemagick-generated.tmp"
+:: 
+:: 	echo FILENAME_PATH_ZIP=!FILENAME_PATH_ZIP!
+:: 	echo FILENAME=!FILENAME!
+:: 	echo FILENAME_W_EXT=!FILENAME_W_EXT!
+:: 	echo DIRNAME="!DIRNAME!"
+:: 	
+:: 	xcopy %%f .
+:: )
+
+echo ---------------------------------------------------------------------------------------
+set PACKAGES_TO_INSTALL=^
+	Composite.AspNet.MvcPlayer\Composite.AspNet.MvcPlayer\Release\Composite.AspNet.MvcPlayer.zip ^
+	
+	
+rmdir /y %PREFIX_PACKAGES_AUOTINSTALL%\
+mkdir %PREFIX_PACKAGES_AUOTINSTALL%\
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+
+for %%p IN (%PACKAGES_TO_INSTALL%) DO (
+	echo "package=" %%p
+	xcopy /q /y %COMPOSITEC1_PACKAGES_SRC%\%%p %PREFIX_PACKAGES_AUOTINSTALL%
+	
+)
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+devenv %PREFIX%\CompositeC1.sln /RunExit
+
+echo 
+echo 
+echo 
+echo  press any key to continue installation
+pause
+echo ---------------------------------------------------------------------------------------
+set PACKAGES_TO_INSTALL=^
+	Composite.Community.AddThis\Composite.Community.AddThis\Release\Composite.Community.AddThis.zip ^
+	Composite.Community.Blog\Composite.Community.Blog.Package\Release\Composite.Community.Blog.zip ^
+	Composite.Community.Disqus.Comments\Composite.Community.Disqus.Comments\Release\Composite.Community.Disqus.Comments.zip ^
+	Composite.Community.Facebook.Comments\Composite.Community.Facebook.Comments\Release\Composite.Community.Facebook.Comments.zip ^
+	Composite.Community.Facebook.LikeBox\Composite.Community.Facebook.LikeBox\Release\Composite.Community.Facebook.LikeBox.zip ^
+	Composite.Community.Facebook.LikeButton\Composite.Community.Facebook.LikeButton\Release\Composite.Community.Facebook.LikeButton.zip ^
+	Composite.Community.Facebook.Pages\Release\Composite.Community.Facebook.Pages.zip ^
+	Composite.Community.Forum.Nabble\Composite.Community.Forum.Nabble\Release\Composite.Community.Forum.Nabble.zip ^
+	Composite.Community.Google.Plusone\Composite.Community.Google.Plusone\Release\Composite.Community.Google.Plusone.zip ^
+	Composite.Community.OpenID\Composite.Community.OpenID.Package\Release\Composite.Community.OpenID.zip ^
+	Composite.Community.PageComments\Composite.Community.PageComments.Package\Release\Composite.Community.PageComments.zip ^
+	Composite.Community.QuickPoll\Composite.Community.QuickPoll\Release\Composite.Community.QuickPoll.zip ^
+	Composite.Community.Raty\Composite.Community.Raty\Release\Composite.Community.Raty.zip ^
+	Composite.Community.TellAFriend\Composite.Community.TellAFriend.Package\Release\Composite.Community.TellAFriend.zip ^
+	Composite.Community.Twitter.FeedAggregator\Composite.Community.Twitter.FeedAggregator.Package\Release\Composite.Community.Twitter.FeedAggregator.zip ^
+	Composite.Community.UserEcho.FeedbackWidget\Release\Composite.Community.UserEcho.FeedbackWidget.zip ^
+	Composite.Community.WIF\Composite.Community.WIF\Release\Composite.Community.WIF.zip ^
+	Composite.Community.Wiki.SimpleWiki\Composite.Community.Wiki.SimpleWiki\Release\Composite.Community.Wiki.SimpleWiki.zip ^
+
+
+
+rmdir /y %PREFIX_PACKAGES_AUOTINSTALL%\
+mkdir %PREFIX_PACKAGES_AUOTINSTALL%\
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+
+for %%p IN (%PACKAGES_TO_INSTALL%) DO (
+	echo "package=" %%p
+	xcopy /q /y %COMPOSITEC1_PACKAGES_SRC%\%%p %PREFIX_PACKAGES_AUOTINSTALL%
+	
+)
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+devenv %PREFIX%\CompositeC1.sln /RunExit
+
+echo 
+echo 
+echo 
+echo  press any key to continue installation
+pause
+echo ---------------------------------------------------------------------------------------
+set PACKAGES_TO_INSTALL=^
+	Composite.Feeds.RssReader\Composite.Feeds.RssReader\Release\Composite.Feeds.RssReader.zip ^
+	Composite.Feeds.TwitterReader\Composite.Feeds.TwitterReader\Release\Composite.Feeds.TwitterReader.zip ^
+	Composite.Forms.ContactForm\Composite.Forms.ContactForm\Release\Composite.Forms.ContactForm.zip ^
+	Composite.Forms.FormSubmitHandler\Composite.Forms.FormSubmitHandler.Package\Release\Composite.Forms.FormSubmitHandler.zip ^
+	Composite.Forms.FormSubmitHandler\Composite.Forms.FormSubmitHandler.Package\Release\1.2SP5\Composite.Forms.FormSubmitHandler.zip ^
+	Composite.Forms.JotForm\Composite.Forms.JotForm\Release\Composite.Forms.JotForm.zip ^
+	Composite.Forms.Renderer\Composite.Forms.Renderer.FileUpload.Package\Release\Composite.Forms.Renderer.FileUpload.zip ^
+	Composite.Forms.Renderer\Composite.Forms.Renderer.Package\Release\Composite.Forms.Renderer.zip ^
+	Composite.Lists.EventCalendar\Composite.Lists.EventCalendar\Release\Composite.Lists.EventCalendar.zip ^
+	Composite.Lists.FAQ\Composite.Lists.FAQ\Release\Composite.Lists.FAQ.zip ^
+	Composite.Localization.MicrosoftTranslatorWidget\Composite.Localization.MicrosoftTranslatorWidget\Release\Composite.Localization.MicrosoftTranslatorWidget.zip ^
+
+
+
+rmdir /y %PREFIX_PACKAGES_AUOTINSTALL%\
+mkdir %PREFIX_PACKAGES_AUOTINSTALL%\
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+
+for %%p IN (%PACKAGES_TO_INSTALL%) DO (
+	echo "package=" %%p
+	xcopy /q /y %COMPOSITEC1_PACKAGES_SRC%\%%p %PREFIX_PACKAGES_AUOTINSTALL%
+	
+)
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+devenv %PREFIX%\CompositeC1.sln /RunExit
+
+echo 
+echo 
+echo 
+echo  press any key to continue installation
+pause
+echo ---------------------------------------------------------------------------------------
+set PACKAGES_TO_INSTALL=^
+	Composite.Media.FlashViewer\Composite.Media.FlashViewer\Release\Composite.Media.FlashViewer.zip ^
+	Composite.Media.ImageGallery.ADGallery\Composite.Media.ImageGallery.ADGallery\Release\Composite.Media.ImageGallery.ADGallery.zip ^
+	Composite.Media.ImageGallery.Facebook\Composite.Media.ImageGallery.Facebook\Release\Composite.Media.ImageGallery.Facebook.zip ^
+	Composite.Media.ImageGallery.Flickr\Composite.Media.ImageGallery.Flickr\Release\Composite.Media.ImageGallery.Flickr.zip ^
+	Composite.Media.ImageGallery.Picasa\Composite.Media.ImageGallery.Picasa\Release\Composite.Media.ImageGallery.Picasa.zip ^
+	Composite.Media.ImageGallery.Slimbox2\Release\Composite.Media.ImageGallery.Slimbox2.zip ^
+	Composite.Media.ImageRotator\Composite.Media.ImageRotator\Release\Composite.Media.ImageRotator.zip ^
+	Composite.Media.IssuuPlayer\Composite.Media.IssuuPlayer.Package\Release\Composite.Media.IssuuPlayer.zip ^
+	Composite.Media.NivoSlider\Composite.Media.NivoSlider\Release\Composite.Media.NivoSlider.zip ^
+	Composite.Media.SilverlightPlayer\Composite.Media.SilverlightPlayer\Release\Composite.Media.SilverlightPlayer.zip ^
+	Composite.Media.YouTube\Composite.Media.YouTube\Release\Composite.Media.YouTube.zip ^
+	Composite.Media.YouTubeChannel\Release\Composite.Media.YouTubeChannel.zip ^
+
+
+
+rmdir /y %PREFIX_PACKAGES_AUOTINSTALL%\
+mkdir %PREFIX_PACKAGES_AUOTINSTALL%\
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+
+for %%p IN (%PACKAGES_TO_INSTALL%) DO (
+	echo "package=" %%p
+	xcopy /q /y %COMPOSITEC1_PACKAGES_SRC%\%%p %PREFIX_PACKAGES_AUOTINSTALL%
+	
+)
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+devenv %PREFIX%\CompositeC1.sln /RunExit
+
+echo 
+echo 
+echo 
+echo  press any key to continue installation
+pause
+echo ---------------------------------------------------------------------------------------
+set PACKAGES_TO_INSTALL=^
+	Composite.Navigation.Distributed.Razor\Release\Composite.Navigation.Distributed.Razor.zip ^
+	Composite.Navigation.Distributed.XSLT\Composite.Navigation.Distributed.XSLT\Release\Composite.Navigation.Distributed.XSLT.zip ^
+	Composite.Navigation.DropDown\Composite.Navigation.DropDown\Release\Composite.Navigation.DropDown.zip ^
+	Composite.Navigation.HttpsEnforcer\Composite.Navigation.HttpsEnforcer\Release\Composite.Navigation.HttpsEnforcer.zip ^
+	Composite.Navigation.LanguageSwitcher.Razor\Release\Composite.Navigation.LanguageSwitcher.Razor.zip ^
+	Composite.Navigation.LanguageSwitcher.XSLT\Composite.Navigation.LanguageSwitcher.XSLT\Release\Composite.Navigation.LanguageSwitcher.XSLT.zip ^
+	Composite.Navigation.LevelSitemap.Razor\Release\Composite.Navigation.LevelSitemap.Razor.zip ^
+	Composite.Navigation.LevelSitemap.XSLT\Composite.Navigation.LevelSitemap.XSLT\Release\Composite.Navigation.LevelSitemap.XSLT.zip ^
+	Composite.Navigation.Path\Composite.Navigation.Path\Release\Composite.Navigation.Path.zip ^
+	Composite.Navigation.Quickmap\Composite.Navigation.Quickmap\Release\Composite.Navigation.Quickmap.zip ^
+	Composite.Navigation.SlidingSidebar\Composite.Navigation.SlidingSidebar\Release\Composite.Navigation.SlidingSidebar.zip ^
+	Composite.Navigation.Tabs\Composite.Navigation.Tabs\Release\Composite.Navigation.Tabs.zip ^
+
+
+
+rmdir /y %PREFIX_PACKAGES_AUOTINSTALL%\
+mkdir %PREFIX_PACKAGES_AUOTINSTALL%\
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+
+for %%p IN (%PACKAGES_TO_INSTALL%) DO (
+	echo "package=" %%p
+	xcopy /q /y %COMPOSITEC1_PACKAGES_SRC%\%%p %PREFIX_PACKAGES_AUOTINSTALL%
+	
+)
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+devenv %PREFIX%\CompositeC1.sln /RunExit
+
+echo 
+echo 
+echo 
+echo  press any key to continue installation
+pause
+echo ---------------------------------------------------------------------------------------
+set PACKAGES_TO_INSTALL=^
+	Composite.News\Composite.News.Package\Release\Composite.News.zip ^
+	Composite.Search.GoogleCustomSearch\Composite.Search.GoogleCustomSearch\Release\Composite.Search.GoogleCustomSearch.zip ^
+	Composite.Search.GoogleSiteSearch\Composite.Search.GoogleSiteSearch\Release\Composite.Search.GoogleSiteSearch.zip ^
+	Composite.Search.MicrosoftSearchServer\Composite.Search.MicrosoftSearchServer\Release\Composite.Search.MicrosoftSearchServer.zip ^
+	Composite.Search.SEO.Sitemap\Composite.Search.SEO.Sitemap\Release\Composite.Search.SEO.Sitemap.zip ^
+	Composite.Search.SimplePageSearch\Composite.Search.SimplePageSearch\Release\Composite.Search.SimplePageSearch.zip ^
+
+
+
+rmdir /y %PREFIX_PACKAGES_AUOTINSTALL%\
+mkdir %PREFIX_PACKAGES_AUOTINSTALL%\
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+
+for %%p IN (%PACKAGES_TO_INSTALL%) DO (
+	echo "package=" %%p
+	xcopy /q /y %COMPOSITEC1_PACKAGES_SRC%\%%p %PREFIX_PACKAGES_AUOTINSTALL%
+	
+)
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+devenv %PREFIX%\CompositeC1.sln /RunExit
+
+echo 
+echo 
+echo 
+echo  press any key to continue installation
+pause
+echo ---------------------------------------------------------------------------------------
+set PACKAGES_TO_INSTALL=^
+	Composite.Tools.AzureBlobVerifier\Composite.Tools.AzureBlobVerifier.Package\Release\Composite.Tools.AzureBlobVerifier.zip ^
+	Composite.Tools.DataStoreMigrator\Composite.Tools.DataStoreMigrator\Release\Composite.Tools.DataStoreMigrator.zip ^
+	Composite.Tools.FrontendLocalizer\Composite.Tools.FrontendLocalizer\Release\Composite.Tools.FrontendLocalizer.zip ^
+	Composite.Tools.LegacyUrlHandler\Composite.Tools.LegacyUrlHandler.Package\Release\Composite.Tools.LegacyUrlHandler.zip ^
+	Composite.Tools.PackageCreator\Composite.Tools.PackageCreator.Package\Release\Composite.Tools.PackageCreator.zip ^
+	Composite.Tools.PackageServer\Composite.Tools.PackageServer\Release\Composite.Tools.PackageServer.zip ^
+	Composite.Tools.PagePrintCommand\Composite.Tools.PagePrintCommand\Release\Composite.Tools.PagePrintCommand.zip ^
+
+
+
+rmdir /y %PREFIX_PACKAGES_AUOTINSTALL%\
+mkdir %PREFIX_PACKAGES_AUOTINSTALL%\
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+
+for %%p IN (%PACKAGES_TO_INSTALL%) DO (
+	echo "package=" %%p
+	xcopy /q /y %COMPOSITEC1_PACKAGES_SRC%\%%p %PREFIX_PACKAGES_AUOTINSTALL%
+	
+)
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+devenv %PREFIX%\CompositeC1.sln /RunExit
+
+echo 
+echo 
+echo 
+echo  press any key to continue installation
+pause
+echo ---------------------------------------------------------------------------------------
+set PACKAGES_TO_INSTALL=^
+	Composite.Tools.XmlBasedSiteBackup\Composite.Tools.XmlBasedSiteBackup\Release\Composite.Tools.XmlBasedSiteBackup.zip ^
+	Composite.Web.Css.Less\Composite.Web.Css.Less\Release\Composite.Web.Css.Less.zip ^
+	Composite.Web.Html.IFrame\Composite.Web.Html.IFrame\Release\Composite.Web.Html.IFrame.zip ^
+	Composite.Web.Html.Lightbox\Release\Composite.Web.Html.Lightbox.zip ^
+	Composite.Web.Html.Meta.OpenGraphProtocol\Release\Composite.Web.Html.Meta.OpenGraphProtocol.zip ^
+	Composite.Web.Html.Scroller\Release\Composite.Web.Html.Scroller.zip ^
+	Composite.Web.Html.SyntaxHighlighter\Release\Composite.Web.Html.SyntaxHighlighter.zip ^
+	Composite.Web.Maps.GoogleMaps\Composite.Web.Maps.GoogleMaps\Release\Composite.Web.Maps.GoogleMaps.zip ^
+
+
+
+rmdir /y %PREFIX_PACKAGES_AUOTINSTALL%\
+mkdir %PREFIX_PACKAGES_AUOTINSTALL%\
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+
+for %%p IN (%PACKAGES_TO_INSTALL%) DO (
+	echo "package=" %%p
+	xcopy /q /y %COMPOSITEC1_PACKAGES_SRC%\%%p %PREFIX_PACKAGES_AUOTINSTALL%
+	
+)
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+devenv %PREFIX%\CompositeC1.sln /RunExit
+
+echo 
+echo 
+echo 
+echo  press any key to continue installation
+pause
+echo ---------------------------------------------------------------------------------------
+set PACKAGES_TO_INSTALL=^
+	Contribution.CompositeC1Contrib.Core\Release\Contribution.CompositeC1Contrib.Core.zip ^
+	Contribution.HolisticWare.SilverlightPlayer\Contribution.HolisticWare.SilverlightPlayer\Release\Contribution.HolisticWare.SilverlightPlayer.zip ^
+
+
+rmdir /y %PREFIX_PACKAGES_AUOTINSTALL%\
+mkdir %PREFIX_PACKAGES_AUOTINSTALL%\
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+
+for %%p IN (%PACKAGES_TO_INSTALL%) DO (
+	echo "package=" %%p
+	xcopy /q /y %COMPOSITEC1_PACKAGES_SRC%\%%p %PREFIX_PACKAGES_AUOTINSTALL%
+	
+)
+dir %PREFIX_PACKAGES_AUOTINSTALL%\
+devenv %PREFIX%\CompositeC1.sln /RunExit
+
+echo 
+echo 
+echo 
+echo  press any key to continue installation
+pause
+
+	
+echo =====================================================================================
+echo deploying packages
+echo starting Composite  with devenv
+
+
+
+msbuild %PREFIX%\CompositeC1.sln ^
+		/p:Configuration=Release ^
+		/property:OutDir=%PREFIX%\build-output-release\
+
+devenv %PREFIX%\CompositeC1.sln /RunExit
+
+
+
+
+@IF %ERRORLEVEL% NEQ 0 PAUSE
+					</pre>
+				</li>
+				<li>
+					wait
+					<br />
+					approx 15min for Composite.Community packages only
+				</li>
+				<li>
+					Order of installation
+					<ol>
+						<li>
+							url:
+							http://c1packages.codeplex.com/
+						</li>
+						<li>
+							Basic
+							<ul>
+								<li>
+									ASP.net MVC3
+									http://www.asp.net/mvc/mvc3
+
+								</li>
+								<li>
+									need more?
+								</li>
+							</ul>
+						</li>
+					</ol>
+				</li>
+			</ol>
+		</li>
+	</ol>
+
+</body>
+</html>

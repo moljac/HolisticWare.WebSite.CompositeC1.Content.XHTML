@@ -1,0 +1,26 @@
+PopOVer (PopUp Bubble with Pointer)
+
+Normally those would be done using the UIPopover class, which is part of 
+the iOS SDK. However, that class does not work on the iPhone. Apple 
+doesn't think you should have popovers like that on the iPhone because 
+they don't work very well on a small screen. Some apps (like the facebook 
+app) have apparently implemented their own method of doing the same thing. 
+If you really want to use one then there are various open source 
+reimplementations, but you should also consider doing something else 
+instead if your popover is large (I don't consider the Facebook example a 
+good UI).
+
+ave a look at https://github.com/anujb/Devnos.Popover
+
+Worked pretty ok for me. May need to tweak it a bit for your specific use.
+
+Hope this helps
+Chris
+
+
+> http://designspike.com/blog/wp-content/uploads/2012/05/Facebook-Pages-Manager-App-Filter-News-Feed.gif
+
+This is a custom view/controller similar to the iOS' iPad-only
+UIPopoverController.
+
+You may want to search for "UIPopoverController iphone".

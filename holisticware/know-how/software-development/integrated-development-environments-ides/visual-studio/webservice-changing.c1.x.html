@@ -1,0 +1,30 @@
+
+ WebService change namespace in WebService1.asmc.cs from NamespaceOld
+ to Namespace....
+ 
+ Error:
+ 
+ Server Error in '/' Application.
+--------------------------------------------------------------------------------
+
+Parser Error 
+Description: An error occurred during the parsing of a resource required to 
+service this request. Please review the following specific parse error details 
+and modify your source file appropriately. 
+
+Parser Error Message: Could not create type 'NamespaceOld.WebService1'.
+
+Source Error: 
+
+
+
+ 
+View Markups  - opens asmx file
+				edit with notepad
+
+Line 1:  <%@ WebService 
+Line 2:  Language="C#" CodeBehind="WebService1.asmx.cs" 
+Line 3:  Class="NamespaceOld.WebService1" %>
+
+
+Change NamespaceOld to Namespace!

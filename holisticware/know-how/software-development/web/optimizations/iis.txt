@@ -1,0 +1,64 @@
+http://mvolo.com/fix-the-3-high-cpu-performance-problems-for-iis-aspnet-apps/
+
+
+
+If you could double your IIS/ASP.NET application performance by making just a few small tweaks, would you do it?
+Of course you would!
+(UPDATE: If you are looking for specific techniques to troubleshoot common ASP.NET issues like hangs, high CPU, etc, check out our new LeanSentry Production Troubleshooting course. Its a free 5-7 email course that teaches the production troubleshooting techniques we've been using for years.)
+It can’t possibly be that easy, can it? If you’ve ever done a performance investigation in production, you know the drill. Try to catch high CPU in production, then login to the server to capture a CPU profile (if you are lucky to have VS or ANTS profiler installed). Analyze the CPU profile in hopes of catching something interesting. Make code changes, deploy, wait, rinse, repeat.
+Thankfully, that’s not what I am talking about this time.
+In the last 5 years, we’ve helped hundreds of companies address performance problems in their IIS & ASP.NET applications. Many of them had the same common problems when it came to high CPU usage.
+The good news is, several of these problems are very easy to fix. Perhaps even more importantly, they are easy to find.
+1. Handled exceptions & Response.Redirect
+You’ve heard this sage advice before: "don’t use exceptions as flow control in your application". As it turns out, most applications end up breaking this advice here and there. This often happens when dealing with potentially error prone code, which is sometimes wrapped in a try/catch instead of figuring out why its throwing an exception in the first place. This can be a bad idea for many reasons, one of them being excessive CPU usage due to exception handling.
+Detect it
+To determine whether your application is suffering from too many exceptions being thrown, monitor the ".NET CLR Exceptions# of Exceps Thrown / sec" performance counter. If the value is high (50+) on a consistent basis, you may have a problem.
+Fix it
+Here are some common areas that can cause excessive exceptions:
+ASP.NET MVC rethrows exceptions from controller’s actions multiple times before handling them with the [HandleError] attribute or returning an error. It also does this during view compilation and view resolution when using partial view names like:
+return View("MyView");
+To fix it:
+Dont use HandleError for control purposes, only for legitimate error reporting.
+Use fully qualified view paths in View():
+return View("~/Views/MyView.cshtml");
+If you have frequently hit URLs that report errors, restructure your app to write HTTP errors via HttpResponse.StatusCode instead of via exceptions.
+HttpWebRequest throws a WebException for 404s, 401s, and other non-200 responses that are correctly handled by your code. The Windows Azure StorageClient library is guilty of this as well.
+This one is a bit harder to fix because you can’t turn off exceptions for failed status codes. The best thing to do is be aware of it, and restructure your call pattern to avoid error responses if possible.
+HttpResponse.Redirect(). This is the worst offender, because its incredibly common and also because it throws a ThreadAbortException. Besides the usual exception overhead, this also causes the thread on which its thrown to exit, requiring the CLR threadpool to allocate another thread later. This alone can have a huge CPU impact on a busy application.
+To fix it, simply use the Response.Redirect(newUrl, FALSE) overload. Make sure that your code exits your code gracefully afterwards since calling this method will no longer abort it.
+NOTE: ASP.NET MVC already handles Response.Redirect correctly when using the built in RedirectResult in an MVC action, like:
+return Redirect(newUrl);
+2. LINQ to SQL & non-compiled queries
+For web apps that use LINQ to SQL or Entity Framework as their data backend, compiling per-request LINQ queries often has the highest CPU overhead. Every time a LINQ query is executed, it is compiled into a SQL query by the LINQ to SQL provider. This is very CPU intensive, and gets progressively worse with more complicated LINQ expressions.
+Detect it
+While there is no easy way to monitor for this externally, you can assume you have this problem if your application uses LINQ to SQL or EF, and does not explicitly implement query compilation for per-request queries (ask your developer).
+Fix it
+To fix it, compile your LINQ to SQL queries:
+// create compiled query
+public static Func> CustomersByCity =
+    CompiledQuery.Compile(
+    (Northwnd db, string city) => 
+        from c in db.Customers where c.City == city select c
+ );
+
+// invoke compiled query
+var myDb = GetNorthwind();
+return Queries.CustomersByCity(myDb, city);
+You can also compile your Entity Framework queries. Starting with Entity Framework 4.5, queries can be compiled automatically by the framework.
+There has been a lot of discussion of negative performance benefits of compiled queries. The bottom line is if a query is going to be called in the context of a request, compiling it once and reusing it should always be a net win. Especially when you consider the overhead of per-request query compilation on application CPU usage, and not just the execution speed of the query itself.
+3. Memory allocation & "% Time In GC"
+We finally come to the last, and possibly the most important, cause of wasted CPU cycles/bad performance for ASP.NET applications: .NET Garbage Collection.
+The CLR Garbage Collector (GC) automatically cleans up unused objects allocated by your application in the background. This process can be very efficient for well-tuned applications, but for many applications it can take up anywhere from 10% to 50% or more percent of the CPU time. This problem is very easy to detect, and although it can be more difficult to fix, its almost always worth it.
+Detect it
+To determine whether your application is suffering from high CPU overhead due to garbage collection, monitor the ".NET Memory\% Time in GC" performance counter. If this counter exceeds 5% - 10% , you have a garbage collection problem you should investigate.
+This counter is particularly important to monitor after each major deployment of your application, because it can help spot major performance regressions due to changes in memory allocation. In my experience, its always easier to fix memory problems when they are detected right away, rather than hunt for them many code changes later.
+Fix it
+Fixing memory allocation problems that cause high "% Time in GC" can be tricky. It almost always boils down to either a) reducing allocations, or b) making sure to release references to objects to make them short lived. The GC is a lot more efficient at collecting short lived objects (known as Gen0) than it is at collecting objects that live for a few seconds or longer (Gen1, and Gen2). Your developer will need to profile the memory allocations in your application, and determine the right memory strategy for your application.
+I'll blog about effective production memory profiling techniques (hint: without using a memory profiler) in a future post.
+Wrapping up
+Watching for and fixing these 3 low-hanging issues could make a big difference in the performance of your ASP.NET application, with a minimal amount of work. There are many other common wins for increasing IIS/ASP.NET performance, I’ll be sure to blog about these later.
+Having said that, the most direct way to improve performance is to proactively monitor it and periodically load test/profile it to address the actual bottlenecks in your code.
+If you want to learn how to quickly troubleshoot high CPU & memory leaks in production ASP.NET apps, sign up for our new LeanSentry Production Troubleshooting Course. Its a free email course I put together based on our own production troubleshooting techniques.
+Best,
+Mike
+P.S. We are working on automatically spotting these and other problems in ASP.NET apps with LeanSentry. Memory usage diagnostic in particular is coming soon. In the meantime, check the demo to see what problems we already catch.

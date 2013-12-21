@@ -1,0 +1,15 @@
+ScreenShots
+
+Windows native
+
+	PrintScr
+		Fullscreen
+		
+	Alt +/ PrinScr
+	
+	To capture a screen shot of the entire screen to the clipboard, press the PrintScrn key.
+
+To capture a screen shot of the active window or dialog box (for example, the WordPad application 
+window or the File Open dialog box), press ALT+PRINTSCRN.
+
+The SHIFT and the CTRL keys do not affect the full screen capture.

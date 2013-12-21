@@ -1,0 +1,58 @@
+
+
+
+In VS 2012 Macros replaced with addins
+
+
+
+
+
+
+The simplest alternative to macros is creating add-ins. I know, I know, I wasn't excited about it either, but it's actually surprisingly easy.
+
+Let's take a simple macro I wrote to show the Start Page after closing a solution and turn it into an add-in.
+
+Create the macro project
+
+Run VS 2012 and create a new project.
+Go to Templates > Other Project Types > Extensibility and select Visual Studio Add-in.
+Give it a name, such as ShowStartPage.
+Click OK. This brings up the Add-in Wizard.
+Step through the wizard, choosing:
+Programming language: we'll use C#
+Application host: VS 2012 should be selected
+Name and description for your add-in
+On the add-in options page, checkmark only the second option ("I would like my Add-in to load when the host application starts")
+Skip past the About Box stuff for now, and click Finish.
+Now you have an add-in project. Here's what you do with it:
+
+Write the code
+
+Open the Connect.cs file. (It might already be open. Some of the "DTE" stuff should look familiar.)
+
+Add this code at class level:
+
+SolutionEvents solutionEvents;
+Add this code to the OnConnection method, right after the _addInInstance = (AddIn)addInInst; line:
+
+solutionEvents = _applicationObject.Events.SolutionEvents;
+
+solutionEvents.AfterClosing += () =>
+{
+    _applicationObject.ExecuteCommand("View.StartPage");
+};
+Hit the "Run" button to test your code. A new instance of Visual Studio 2012 starts up, with your add-in loaded. Now test the add-in and make sure it works. (Open a solution, then close it; the Start Page should return when you do.)
+
+Deploy it
+
+Once the add-in works, to use it regularly with Visual Studio 2012, you only need to deploy two files:
+
+ShowStartPage.AddIn (from your main project directory)
+ShowStartPage.dll (from your project's build directory; e.g. bin\Debug or bin\Release)
+Put those two files in your VS 2012 add-ins directory, probably located here:
+
+C:\Users\[your user name]\Documents\Visual Studio 2012\Addins
+
+Then exit and restart Visual Studio, and you should see your add-in working. You should also see it listed when you go to Tools > Add-in Manager.
+
+While this is a bit more of a nuisance than just opening the macro editor and sticking your macro code in there, it does have the advantage that you can use any language you want, instead of being stuck with the somewhat flaky VB-like editor in past versions of Visual Studio.

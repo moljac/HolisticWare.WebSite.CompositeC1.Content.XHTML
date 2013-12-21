@@ -1,0 +1,36 @@
+
+
+
+
+Anonymos delegates
+
+
+sme_question.Tapped += delegate() {
+styled_multiline_element_curent_tapped = sme_question.Caption;
+uialertview_technician.Show();
+//sme_HandleTapped;
+} ;
+
+
+// unable to access sme_question members
+sme_question.Tapped += sme_HandleTapped;
+
+
+void sme_HandleTapped ()
+{
+Debug.WriteLine("clicked on sme=" + styled_multiline_element_curent.Caption);
+
+
+styled_multiline_element_curent = styled_multiline_element_curent;
+uialertview_technician.Show();
+
+
+styled_multiline_element_curent.Accessory = UITableViewCellAccessory.Checkmark;
+
+
+//TODO: Moki tu je problem, pokreni pa bus videl kaj se desava
+//sme.Accessory = UITableViewCellAccessory.Checkmark;
+//technician.Reload(sme,UITableViewRowAnimation.Automatic);
+
+
+}

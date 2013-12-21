@@ -1,0 +1,12 @@
+Features
+ +	Copy (nomal) + Paste as Link
+ +	partialize
+ +	Add Solution folder (creates physical folder on Filesystem)
+ + 	setting properties on subtree (all file with pattern let say *.cs build action = None)
+
+
+20130220
+ + 	Web Services copy / paste
+ + 	Web Services copy as link/ paste
+ 
+ 

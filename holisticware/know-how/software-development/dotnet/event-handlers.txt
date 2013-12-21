@@ -1,0 +1,4 @@
+http://www.gavaghan.org/blog/2007/07/25/intercepting-add-and-remove-of-c-event-delegates/
+http://msdn.microsoft.com/en-us/library/8627sbea(v=vs.71).aspx
+http://msdn.microsoft.com/en-us/magazine/cc163533.aspx
+http://www.switchonthecode.com/tutorials/csharp-tutorial-event-accessors

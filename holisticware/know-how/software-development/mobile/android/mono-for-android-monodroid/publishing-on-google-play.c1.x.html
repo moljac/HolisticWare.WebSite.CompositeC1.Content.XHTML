@@ -1,0 +1,85 @@
+created a keystore using the command:
+
+keytool -genkey -v -keystore c:\users\Andy\Android.keystore -alias Android
+-keyalg RSA -keysize 2048 -validity 30000
+
+Then I used Tools->Publish Android Application in VS 2010 Pro, specifying
+the generated keystore file.
+
+When I try to upload the apk
+(<proj>/bin/Release/HelloWorld.HelloWorld-signed.apk) I get the following
+error in the developer console:
+
+Google Play does not accept apks signed with the debug certificate. Create a
+new certificate that is valid for at least 50 years.
+
+
+
+ now understand whats going wrong, and I suspect that something might be
+slightly broken in the Publish wizard. tldr is that the wizard looks for the
+built apk using the wrong name, and the assembly name and package name have
+to be the same otherwise the wizard fails to sign the apk.
+
+First, I verified that I can publish manually (using jarsigner and zipalign)
+using the certificate, and this worked ok after i specified a package name
+in the project properties. (The project is File->New->Project->Android ICS
+Application with the project named 'HelloWorld' and no other changes.)
+
+Then I tried running the Publish wizard again. It still didn't work, but i
+noticed some errors in the VS output window. The are:
+
+Waiting for packaging to complete
+Packaging successfully completed
+Attempting to Sign package with custom key
+Failed to sign package
+jarsigner: unable to open jar file: C:\\Users\\Andy\\Documents\\Visual
+Studio
+2010\\Projects\\HelloWorld\\HelloWorld\\bin\\Release\\HelloWorld-Signed.apk
+Attempting to Align package
+Failed to Align package
+jarsigner: unable to open jar file: C:\\Users\\Andy\\Documents\\Visual
+Studio
+2010\\Projects\\HelloWorld\\HelloWorld\\bin\\Release\\HelloWorld-Signed.apk
+
+(these errors are repeated again)
+
+So jarsigner is failing because (with no package name specified, which is
+the default) the apk being built by VS is named
+HelloWorld.HelloWorld-Signed.apk, but the publish wizard ran jarsigner
+against HelloWorld-Signed.apk, which doesn't exist.
+
+When I specified a java-style package name (as required for publishing) the
+name of the apk file changed to match, but the wizard was still looking for
+<assemblyname>-signed.apk. When I then made the assembly name and the
+package name the same,  the wizard successfully signed the apk.
+
+As I don't come from a java background I didn't understand the significance
+of the package name in the project properties and left it unspecified, which
+is the default.
+
+Is this a bug? If no, should I log it?
+
+
+
+Yes, this is a bug; it's already been filed and will be fixed in a future release. 
+Sorry for the inconvenience.
+
+	https://bugzilla.xamarin.com/show_bug.cgi?id=8781
+
+ - Jon
+ 
+ 
+ 
+ 
+ 
+ ploading The APK file into google play store
+hi friends, can anyone explain me ,how to upload APK file in google play store. and before that, what are all the things to be concentrated while exporting the file.i already visited developer.android. but it is little confused..so please make me clear in simply way.
+
+
+
+purchase google key. create .apk file and upload to play store
+
+
+ First of all you have to register for a Google Play publisher account if you want to publish an app on Google play store. Also you have to make some important changes in your Manifest.xml file before making an APK for release build. For complete tutorial check the android developer blog. 
+http://developer.android.com/distribute/googleplay/publish/register.html
+

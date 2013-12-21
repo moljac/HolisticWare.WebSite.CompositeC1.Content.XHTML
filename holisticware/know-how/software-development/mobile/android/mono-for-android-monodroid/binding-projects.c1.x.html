@@ -1,0 +1,696 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Binding Projects</title>
+Description = all keywords + extra text
+<meta name="Description" content="Binding Projects: project type for binding Java libraries" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url:binding-projects
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="binding, projects" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>Binding Projects</h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+		<a
+			href="http://docs.xamarin.com/android/tutorials/Binding_a_Java_Library_(.jar)">
+			http://docs.xamarin.com/android/tutorials/Binding_a_Java_Library_(.jar)
+		</a>
+		<a
+			href="http://docs.xamarin.com/android/tutorials/Binding_a_Java_Library_(.jar)#Correcting_Enums">
+		</a>
+
+	<!-- ================================================================== -->
+	<h2>Controlling Metadata.xml - renaming Namespaces, Classes, Methods, EventHandlers, Properties</h2>
+
+	<p>
+		Xamarin team defines no real guidelines as such; user can just pick a name 
+		that seems reasonably obvious. 
+	</p>
+	<p>
+		It is possible to rename the class, or event or property.
+	</p>
+	<p>
+		Renaming class:
+	</p>
+	<pre class="hw_code">
+  &lt;attr
+	  path=&quot;/api/package[@name=&#39;org.achartengine.tools&#39;]/class[@name=&#39;Pan&#39;]&quot;
+	  name=&quot;managedName&quot;
+	  &gt;PanWrapper&lt;/attr&gt;
+	</pre>
+	<p>
+		Renaming event by adding eventName attribute:
+	</p>
+	<pre class="hw_code">
+	&lt;attr
+		path=&quot;/api/package[@name=&#39;org.achartengine.tools&#39;]/class[@name=&#39;Pan&#39;]/method[@name=&#39;addPanListener&#39;]&quot;
+		name=&quot;eventName&quot;
+	&gt;Panned&lt;/attr&gt;
+	</pre>
+
+	<p>
+		Renaming property by adding propertyName attribute:
+	</p>
+	<pre class="hw_code">
+	&lt;attr
+		path=&quot;/api/package[@name=&#39;org.achartengine.tools&#39;]/class[@name=&#39;Pan&#39;]/method[@name=&#39;addPanListener&#39;]&quot;
+		name=&quot;propertyName&quot;
+	&gt;Panned&lt;/attr&gt;
+	</pre>
+
+	<p>
+		To prevent binding of property/event - 
+		set the event/property name to the empty string.
+	</p>
+
+
+	<h3>Renaming Parameter names</h3>
+	<p>
+		The problem with parameter names is getting/extracting the method parameter names
+		from jar and class files.
+		Java .class files contain type and member names but they don't contain parameter 
+		names, i.e. the .jar is useless for parameter names.
+	</p>
+	<p>
+		The parameter names are extracted from JavaDoc. 
+		Xamarin's .jar binding tool has support to parse JavaDoc HTML to get decent parameter 
+		names. 
+		Unfortunately, there doesn't appear to be a good way to specify this within the IDE
+		and there is a great deal of variance in javadoc output, all of which we don't support.
+	</p>
+	<p>
+		Consequently, two things need to be done:
+	</p>
+	<ol>
+		<li>
+			Download the JavaDoc for the library to be bound. 
+			(This may or may not be possible.)
+		</li>
+		<li>
+			Edit the .csproj and add (JavaDocPath element):
+			<pre class="hw_code">
+	&lt;PropertyGroup&gt;
+		&lt;JavaDocPaths&gt;Path\To\JavaDocs&lt;/JavaDocPaths&gt;
+	&lt;/PropertyGroup&gt;
+			</pre>
+		</li>
+		<li>
+			Clean and rebuild the project.
+		</li>
+	</ol>
+	<p>
+		Once this is done, assuming the HTML scraper does its job properly, the generated 
+		api.xml should contain useful parameter names.
+	</p>
+
+	<h3>Properties</h3>
+	<p>
+		Properties are methods; the same syntax applies, with the stipulation that the return 
+		type is the "return" parameter:
+	</p>
+	<pre>
+	&lt;!-- Add this to EnumMethods.xml --&gt;
+	&lt;mapping jni-class=&quot;org/kxml2/io/KXmlParserType&quot;&gt;
+		&lt;method jni-name=&quot;getEventType&quot;
+			parameter=&quot;return&quot;
+			clr-enum-type=&quot;Org.XmlPull.V1.XmlPullParserNode&quot;
+		/&gt;
+	&lt;/mapping&gt;
+	</pre>
+	<!-- ================================================================== -->
+	<h2>Errors and troubleshooting</h2>
+
+	<h3>Java exited with error code 1 - Output file "obj\Debug\api.xml" does not exist.</h3>
+	<p>
+		When compiling AdMob v.6.0.0 binding project following error happened:
+	</p>
+	<pre class="hw_code">
+	Error	49	
+"java.exe" exited with code 1.	
+C:\Program Files\MSBuild\Novell\Xamarin.Android.Bindings.targets	
+170	5
+HolisticWare.AdMob.JavaBindingLibrary
+	</pre>
+	<p>
+		In Visual Studio output:
+	</p>
+	<pre class="hw_code">
+Target "ExportJarToXml: (TargetId:193)" in file "C:\Program Files\MSBuild\Novell\Xamarin.Android.Bindings.targets" 
+from project "AdMob.JavaBindingLibrary.csproj" (target "GenerateBindings" depends on it):
+Building target "ExportJarToXml" completely.
+Output file "obj\Debug\api.xml" does not exist.
+Task "JarToXml" (TaskId:238)
+  JarToXml Task (TaskId:238)
+	AndroidSdkDirectory: C:\Program Files\Android\android-sdk-windows\ (TaskId:238)
+	MonoAndroidToolsDirectory: C:\Program Files\MSBuild\Novell (TaskId:238)
+	JavaSdkDirectory: C:\Program Files\Java\jdk1.6.0_32\ (TaskId:238)
+	OutputFile: obj\Debug\api.xml (TaskId:238)
+	DroidDocPaths:  (TaskId:238)
+	JavaDocPaths:  (TaskId:238)
+	AndroidApiLevel: 8 (TaskId:238)
+	SourceJars: (TaskId:238)
+	  Jars\GoogleAdMobAdsSdk-6.0.0.jar (TaskId:238)
+	ReferenceJars: (TaskId:238)
+  C:\Program Files\Java\jdk1.6.0_32\bin\java.exe -jar "C:\Program Files\MSBuild\Novell\jar2xml.jar" 
+	--jar=AdMob.JavaBindingLibrary\Jars\GoogleAdMobAdsSdk-6.0.0.jar 
+	--ref="C:\Program Files\Android\android-sdk-windows\platforms\android-8\android.jar" 
+	--out=AdMob.JavaBindingLibrary\obj\Debug\api.xml  (TaskId:238)
+  Exception in thread "main" java.lang.NoClassDefFoundError: android/webkit/WebResourceResponse (TaskId:238)
+	at java.lang.Class.getDeclaredMethods0(Native Method) (TaskId:238)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2427) (TaskId:238)
+	at java.lang.Class.getDeclaredMethods(Class.java:1791) (TaskId:238)
+	at jar2xml.JavaClass.appendToDocument(JavaClass.java:482) (TaskId:238)
+	at jar2xml.JavaPackage.appendToDocument(JavaPackage.java:66) (TaskId:238)
+	at jar2xml.Start.main(Start.java:157) (TaskId:238)
+  Caused by: java.lang.ClassNotFoundException: android.webkit.WebResourceResponse (TaskId:238)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:202) (TaskId:238)
+	at java.security.AccessController.doPrivileged(Native Method) (TaskId:238)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:190) (TaskId:238)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:306) (TaskId:238)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:247) (TaskId:238)
+	... 6 more (TaskId:238)
+C:\Program Files\MSBuild\Novell\Xamarin.Android.Bindings.targets(170,5): error MSB6006: "java.exe" exited with code 1.
+Done executing task "JarToXml" -- FAILED. (TaskId:238)
+Done building target "ExportJarToXml" in project "HolisticWare.AdMob.JavaBindingLibrary.csproj" -- FAILED.: (TargetId:193)
+	</pre>
+
+	<h3>Solution/workaround</h3>
+	<p>
+		Project properties +/ Android 3.1 - API Level 12
+	</p>
+
+
+
+	<h3>Package does not exist</h3>
+
+	<pre>
+Error   3  
+package com.zubhium.interfaces does not exist 
+		com.zubhium.interfaces.ZubhiumListener 
+obj\Debug\android\src\mono\com\zubhium\interfaces\ZubhiumListenerImplementor.java  
+8   25  
+Projectname
+ 
+ 
+from the generated source: 
+package mono.com.zubhium.interfaces;         
+public class ZubhiumListenerImplementor 
+			extends java.lang.Object 
+			implements 
+				mono.android.IGCUserPeer, 
+				com.zubhium.interfaces.ZubhiumListener 
+	</pre>
+	<p>
+		And that is because when the project is wrapped it automaticaly adds prefix mono.(com.zubhium....) 
+		to the package name.
+	</p>
+	<p>
+	That's for an "Implementor" type; you can ignore it. It's used as part of the implementation of events. If you look at the generated C# code, there should be:	</p>
+	
+	<h3>Solution/workaround</h3>
+	<p>
+		When you bind a .jar library and reference the binding project from another project, 
+		.jar must be added to your Application project and set its Build action to 
+		AndroidJavaLibrary.
+	</p>
+	<p>
+		Failure to do so means that the .jar won't be added to the javac $CLASSPATH, resulting 
+		in javac compilation errors when compiling the Android Callable Wrapper, that the .jar 
+		won't included into final .apk.
+	</p>
+
+
+
+	<!-- ================================================================== -->
+	<h2>Limitations with generics</h2>
+
+	<p>
+		When trying to bind some java libraries  (2012-10 droidtext (http://code.google.com/p/droidtext)),
+		one might have a trouble with classes not implementing Java.Lang.IComparable.CompareTo.  
+		<br />
+		Looking at the java files and see that the functions are implemented and public but bindings aren’t 
+		being generated for them.  In the logs there is no messages about why this function isn’t being 
+		picked up.
+	</p>
+
+	<p>
+	That is a known limitation. The reason is, *generics don't really exist* in compiled java classes 
+	and user needs to explicitly supply which class the Comparable compares.
+	</p>
+	<p>
+	The solution is, to add appropriate instantiated generic interface to Metadata.xml. 
+	<br />
+	This is an example:
+</p>
+	<pre class="hw_code">
+	&lt;
+		attr 
+		path=&quot;/api/package[@name=&#39;android.content&#39;]/class[@name=&#39;ComponentName&#39;]/implements[@name=&#39;java.lang.Comparable&#39;]&quot; 
+		name=&quot;name&quot;
+	&gt;
+		java.lang.Comparable&amp;lt;android.content.ComponentName&amp;gt;
+	&lt;/attr&gt;
+	</pre>
+
+	<p>
+	That doesn't make sense to me.  IComparable.compareTo takes in an  Object not another type so it shouldn't 
+	care about generics.
+	</p>
+	<p>
+	The implemented class doesn't contain compareTo(java.lang.Object) but compareTo(SomeSpecificType), 
+	whose type don't match and hence not regarded as implementation.
+	<br />
+	If that's not about that, it is not likely about Comparable but different issue. 
+	</p>
+
+
+	<p>
+	Oh, OK. I discovered that things are much more complicated than it seemed.
+	<br />
+	First, you were right, Comparable<T> is (actually Comparable<T> and Comarator<T> are) *special* case 
+	that *dropped* compareTo() method from the API description XML. It is to be consistent with the 
+	existing AOSP's API definition.
+	<br />
+
+	That have been special (at least, regarded so) and as a result it becomes *mandatory* to get CompareTo() 
+	method.
+	<br />
+
+	And altering interface <implements> element by <attr> in Metadata.xml doesn't work for this case, 
+	because unlike binding android.jar java.lang.Comparable<T> cannot be looked up (it needs more 
+	investigation to know precise situation, but as a general rule generics don't exist in jar).
+	<br />
+
+	Hence, some Metadata.xml fixup has to be done manually, like:
+	<br />
+	</p>
+	<pre class="hw_code">
+	 &lt;add-node 
+		path=&quot;/api/package[@name=&#39;com.lowagie.text&#39;]/class[@name=&#39;Font&#39;]&quot;
+		&gt;
+			&lt;
+				method name=&quot;compareTo&quot; return=&quot;int&quot; 
+				abstract=&quot;false&quot; native=&quot;false&quot; 
+				synchronized=&quot;false&quot; 
+				static=&quot;false&quot; 
+				final=&quot;false&quot; 
+				deprecated=&quot;not 
+				deprecated&quot; 
+				visibility=&quot;public&quot;
+			&gt;
+				&lt;
+					parameter 
+					name=&quot;o&quot; 
+					type=&quot;java.lang.Object&quot;
+				/&gt;
+		&lt;/method&gt;
+	&lt;/add-node&gt;
+	</pre>
+	<p>
+	It in general falls to "generics only partially supported" category of binding limitations, 
+	but the recipe to deal with is slightly different, which we weren't fully aware. So far please 
+	take this as a normative way. Sorry for the missing information.
+
+	Apart from that, you will have to rename "harmony.java.lang" to something different, because 
+	it brings conflict between "Java.Lang" and "Harmony.Java.Lang" which has never been expected. 
+	This is hopefully fixed in the next release but so far this is a limitation. 	
+	</p>
+<!--
+First up is that the metadata path is intimately tied to the input file, which is 
+obj/Debug/api.xml. You generally need to have api.xml open while writing Metadata.xml.
+
+Secondly is the structure of api.xml:
+
+	<api>
+		<package name="PACKAGE-NAME">
+			<class name="CLASS-NAME" ...>
+				<method name="METHOD-NAME" ...>
+				</method>
+			</class>
+		</package>
+	</api>
+
+For example, consider java.lang.Object.toString():
+
+	http://developer.android.com/reference/java/lang/Object.html#toString()
+
+PACKAGE-NAME will be "java.lang", CLASS-NAME will be "Object", and 
+METHOD-NAME will be "toString".
+
+Now suppose we wanted to rename the toString() method. How would we select it? 
+The XPath to reach the <method/> element is 
+/api/package[@name='java.lang']/class[@name='Object']/method[@name='toString'], 
+so that's what we need to use:
+
+	<attr
+		path="/api/package[@name='java.lang']/class[@name='Object']/method[@name='toString']"
+		name="managedName"
+	>NewMethodName</attr>
+
+Note that ANY XPath is valid; we could have instead done:
+
+	<attr
+		path="//method[@name='toString']"
+		name="managedName"
+	>NewMethodName</attr>
+
+This has the benefit that it would rename ALL toString() methods. This has the 
+disadvantage that it's _slow_, at least when processing gigantic APIs like android.jar.
+(This is why all of our samples use fully qualified XPath expressions, because trying to 
+use XPath abbreviations results in more twiddling of fingers.)
+
+
+Next, what value can we use for managedName? It needs to be a valid C# token for a 
+method name. "NewMethodName" works; "Some.Dotted.Name" will not work, because the 
+resulting C# code will be invalid, akin to:
+
+	public string Some.Dotted.Name () {/* ... */}
+
+With that background out of the way, let's look at your description:
+
+> I have a method called: multiplefloat which takes two floats and multiplies them 
+together and returns a float
+
+So "multiplefloat" is a method.
+
+However, when we look at your path expression:
+
+	<attr
+		path="/api/package[@name='com.scalabledevelopment.math.operations.multiplyfloat']"
+		name="managedName"
+	>Com.Scalabledevelopment.Math.Operations.MultiplyFloat</attr>
+
+The problem is that what you wrote doesn't match what you wrote; you said you have a 
+method, yet your XPath expression will be selecting a package element, not a method. 
+In all likelihood, the above XPath expression doesn't match anything, which should 
+generate a warning that the expression matched no elements.
+
+I would guess that what you actually want is:
+
+	<attr
+		path="/api/package[@name='com.scalabledevelopment.math']/class[@name='operations']/method[@name='multiplyfloat']"
+		name="managedName"
+	>MultiplyFloat</attr>
+
+Note that we separately specify the package name, class name, and method name, as is 
+required in order for XPath to actually match the desired api.xml element. Further 
+note that we're using a valid C# method name of "MultiplyFloat".
+
+-->	
+	
+	
+	
+	
+	
+	<!--
+> ight now I am seeing a lot of warnings like these:  warning CS0108: 
+'Org.Osmdroid.Views.Overlay.ScaleBarOverlay.java_class_handle' hides inherited member 
+'Org.Osmdroid.Views.Overlay.Overlay.java_class_handle'. Use the new keyword if hiding 
+was intended.
+>  
+> Is that a concern?
+
+No. The `generator` doesn't emit `new` for the java_class_handle member; sorry.
+
+> I've also noticed that if I update Metadata.xml or any of the transforms I sometimes 
+have to compile 3 or 4 times before the change I made takes effect.
+
+That's odd; does it only require one rebuild if you clean after updating Metadata.xml?
+
+But that doesn’t seem to work.  Also on http://docs.xamarin.com/android/tutorials/API_Metadata_Reference 
+the link to “http://www.mono-project.com/ GAPI#Metadata” is wrong.
+
+
+
+
+Constructors
+
+How do I change the name of a parameter in a constructor in metadata.xml?  So Far I have:
+
+<attr 
+	path="/api/package[@name='org.osmdroid.util']/class[@name='GeoPoint']/method[@name='.ctor']/signature[@name='(II)V']/parameter[@name='p0']" 
+	name="name"
+	>latitude
+</attr>
+
+ 
+Right idea...
+
+However, the //attr/@path XSLT expressions need to refer to Google AOSP format XML, 
+in which constructors use a <constructor/> element, not a <method/> element with a 
+name of ".ctor":
+
+	http://docs.xamarin.com/android/tutorials/API_Metadata_Reference#Google_AOSP_Format
+
+Furthermore, there is no <signature/> element, so checking for that won't match either.
+
+What I believe you want is:
+
+	<attr
+		path="/api/package[@name='org.osmdroid.util']/class[@name='GeoPoint']/constructor[count(parameter)=2 
+		and 
+		parameter[1][@type='int'] 
+		and 
+		parameter[2][@type='int']]/parameter[@name='p0']"
+		name="name"
+	>latitude
+	</attr>
+
+Which is a bit of a mouthful. Assuming that org.osmdroid.util.GeoPoint is this:
+
+	http://code.google.com/p/osmdroid/source/browse/trunk/osmdroid-android/src/org/osmdroid/util/GeoPoint.java?r=667
+
+We can simplify that and instead say "if the constructor has more than one parameter, 
+the first parameter is named "latitude":
+
+	<attr
+		path="/api/package[@name='org.osmdroid.util']/class[@name='GeoPoint']/constructor[count(parameter)&gt;1]/parameter[@name='p0']"
+		name="name"
+	>latitude
+	</attr>
+
+
+ 
+
+Thanks Jon that worked.  This is tricky stuff.
+
+The link I was referring to is on that page and under the "Metadata.xml Transform File" section.  
+It points to "http://docs.xamarin.com/http%3a%2f%2fwww.mono-project.com/_GAPI#Metadata" 
+which brings me back to the android documentation page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Okay seems we do have a fix for this after all.  The issue is because the Java 
+interface TrackerHandler isn't visible. The fix is to add a metadata fix-up to expose this interface.Add this to your MetaData.xml :
+
+<attr 
+path="/api/package[@name='com.google.analytics.tracking.android']/interface[@name='TrackerHandler']" 
+name="visibility">public</attr>
+
+Then things will compile.  :)
+
+(thanks to Chris Hardy for the tip)
+
+
+On Fri, Nov 16, 2012 at 8:52 AM, Tom Opgenorth <tom@opgenorth.net>
+ wrote:
+
+    Just gave this a try myself and I'm getting the same error.  
+	This is a tricky one, because this is the *only* error we get. Without 
+	looking at the source code it hard to say. My first guess is that this is 
+	that v2 is beta software, so there is indeed something odd with the code that the Java Binding generator doesn't like. 
+
+    Can you wait for next beta of v2?  Or can you use v1 of Google Analytics? I 
+	dropped v1 into a Java Binding project and it compiled first time without 
+	any problems.
+
+
+
+
+
+
+'Com.Nostra13.Universalimageloader.Core.Download.ImageDownloader' in explicit 
+interface declaration is not an interface and 
+'Com.Nostra13.Universalimageloader.Core.Download.URLConnectionImageDownloader'
+does not implement inherited abstract member 
+
+'Com.Nostra13.Universalimageloader.Core.Download.ImageDownloader.GetStreamFromNe‌
+twork(Java.Net.URI)'
+
+I've looked at the Java code and GetStreamFromNe‌​twork is an abstract method in the 
+abstract class ImageDownloader
+
+
+Check that the permissions are the same.  A lot of times you have to change the 
+visibility on either  the base class or the derived class so that they match 
+(public/private/protected).  
+You can do that with an XML transform as well:
+
+  <attr path="/api/package[@name='org.osmdroid.views.overlay']/class[@name='Overlay']/method[@name='draw']" name="visibility">public</attr>
+
+
+I've added this, but I still get the same errors
+
+<attr
+path="/api/package[@name='com.nostra13.universalimageloader.core.download']/class[@name='ImageDownloader']/method[@name='getStreamFromNetwork']"
+name="visibility">protected</attr>
+
+and the method in question is defined here 
+
+
+
+Right... but the method is already protected.  So you need to see what the access is of the method that's hanging off of 'Com.Nostra13.Universalimageloader.Core.Download.URLConnectionImageDownloader' and you need to make them match.  So I would either change what you have below to private or public or change URLConnectionImageDownloader depending on what makes the most sense.
+
+
+
+If I make this change 
+<attr 
+path="/api/package[@name='com.nostra13.universalimageloader.core.download']/class[@name='ImageDownloader']/method[@name='getStreamFromNetwork']" 
+name="visibility">private</attr>
+
+I get an error saying it can't be private. If I use "public" i just get the
+same error as before.
+public partial class URLConnectionImageDownloader :
+global::Com.Nostra13.Universalimageloader.Core.Download.ImageDownloader
+
+must be public
+
+
+
+ImageDownloader: protected abstract InputStream getStreamFromNetwork(URI imageUri) throws IOException;
+URLConnectionImageDownloader: public InputStream getStreamFromNetwork(URI imageUri) throws IOException
+HttpClientImageDownloader: protected InputStream getStreamFromNetwork(URI imageUri) throws IOException
+
+Making URLConnectionImageDownloader's method protected should fix this.  Alternatively just make them all public if you need to actually call the method.
+
+
+
+
+If I try 
+
+protected InputStream
+Com.Nostra13.Universalimageloader.Core.Download.ImageDownloader.GetStreamFromNetwork(Java.Net.URI
+p0)
+        {
+            return null;
+        }
+
+of public or private I get the error 
+
+
+
+
+
+No you need to use a transform like I said:
+
+<attr
+path="/api/package[@name='com.nostra13.universalimageloader.core.download']/class[@name='UrlConnectionImageDownloader']/method[@name='getStreamFromNetwork']" 
+name="visibility">protected</attr>
+
+If you want to make the method protected.  Else if you need to call the getStreamFromNetwork publicly they ALL have to be public.
+
+<attr
+path="/api/package[@name='com.nostra13.universalimageloader.core.download']/class[@name=' ImageDownloader ']/method[@name='getStreamFromNetwork']" 
+name="visibility"> public </attr>
+<attr
+path="/api/package[@name='com.nostra13.universalimageloader.core.download']/class[@name='UrlConnectionImageDownloader']/method[@name='getStreamFromNetwork']" 
+name="visibility"> public </attr>
+<attr
+path="/api/package[@name='com.nostra13.universalimageloader.core.download']/class[@name='HttpClientImageDownloader]/method[@name='getStreamFromNetwork']" 
+name="visibility">public</attr>
+
+
+
+Now all I have to do is figure out how to actually use that code :P. Any
+ideas? I've added a reference to my Java Library project, but when I try
+
+ImageLoader imageLoader = ImageLoader.getInstance();
+
+it can't find ImageLoader
+
+
+
+
+
+1. Add the jar as an input jar to your binding project.
+2. Reference the binding project (or the resulting DLL) in your main project.
+3. Add a copy of the jar to your main project and set it to AndroidJavaLibrary (if running 4.2.8 or later you can skip this step).
+
+Also if you are running resharper you'll need one of the nightly builds in order to get their intellisense working.
+
+
+
+
+Doesn't your binding library contain ImageLoader.Instance property?
+getXXX() methods turn into properties:
+http://docs.xamarin.com/Android/Guides/Advanced_Topics/API_Design#Properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Well, you need to see if it's in the C# as well.  Use the object browser or go to declaration if in VS... I don't know about MonoDevelop.  Also look at the warnings generated when building your binding project and see if it says anything about the missing function.
+
+
+
+
+
+
+
+
+
+
+
+	-->
+	
+	
+	
+	
+	
+	
+	
+	
+	</body>
+</html>

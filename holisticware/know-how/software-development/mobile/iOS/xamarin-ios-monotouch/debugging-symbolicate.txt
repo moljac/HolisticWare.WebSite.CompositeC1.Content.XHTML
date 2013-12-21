@@ -1,0 +1,24 @@
+debugging-symbolicate
+
+My app has been rejected for crashing. I cannot and have not been able to reproduce what the app store review has described crashes my app.
+
+I have symbolicated the crash logs but not all of the symbols from my code are symbolicated...
+
+Looking around online it seems that other people have this problem and there doesn't seem to be a definitive solution. Or maybe this is just normal?..
+
+The steps that I took to symbolicate are:
+
+1. Copy the Application.app, Application.dSYM and crash reports into the same folder.
+2. Open XCode organizer.
+3. Go to Device logs and click import.
+4. Select the crash files and import them.
+
+I have also run dwarfdump --uuid to confirm that the .app and .dSYM files are the same build.
+
+When I say not all of the symbols are symbolicated what I mean is that only one reference to my code has been symbolicated. Here is a link to the symbolicated file https://docs.google.com/file/d/0B5ghoqfnILgZVGJuUElNOGNVQTA
+
+So my questions are:
+
+1. Is this one reference to my code (Thread 0: 17) the problem which is crashing my app?
+2. When building the app for the app store in order to get proper symbolicating do I have to select "Enable debugging"?
+3. Is there anything that I can do with this crash file to resolve the references that have not been symbolicated? 

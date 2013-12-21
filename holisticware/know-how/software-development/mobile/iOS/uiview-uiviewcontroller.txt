@@ -1,0 +1,198 @@
+http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/Introduction/Introduction.html
+http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/AboutViewControllers/AboutViewControllers.html#//apple_ref/doc/uid/TP40007457-CH112-SW10
+http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/BasicViewControllers/BasicViewControllers.html#//apple_ref/doc/uid/TP40007457-CH101-SW1
+
+
+View Controllers 
+	Manage 
+		Resources
+		Views
+			Resize Views
+			Interface Orientation
+			Respond to Display related Notifications
+	Respond to Events
+	Coordinate with Other Controllers
+	Often Work with Containers
+	May Be Presented by Other View Controllers
+	
+	
+
+
+A UIViewController cannot display anything; it simply coordinates the 
+display of a UIView. So the actual pictures are going to need to be done 
+in a UIView. In addition, your UIView is responsible for recognizing 
+touches, gestures, etc. That's where it ends, though; the actual 
+reaction of your program should be up to the UIViewController. 
+
+In other words, you'd teach a UIView subclass how to recognize a swipe 
+to the left or right, and once it had decided that a swipe had taken 
+place, it would notify your UIViewController subclass of that event. The 
+controller would then decide what picture would be displayed next, and 
+tell the view to set it up. 
+
+This is part of the Model-View-Controller pattern. It's a well-known and 
+widely-used pattern in iPhone development, so you'd be well served to 
+read up on it. 
+
+You will use both. Cocoa Touch development follows the MVC (Model, View, 
+Controller) methodology. It is a way of separating code logic and user 
+interface elements. UIView is where you handle what it looks like, 
+UIViewController is the class where you handle events. If you want the 
+easiest way to swipe through many pages of content, look into the 
+UIPageControl. 
+
+The pictures need to be added (via addSubview) to a UIView object or an 
+object subclassed from UIView such as UIControl, UIScrollView, etc. 
+
+You probably do NOT need to create a view class of your own, e.g., 
+MyView. I have found that the only real reason to create a custom view 
+is for efficiency or for highly dynamic content such as text or images 
+that move around within the view. If you don't plan to implement the 
+function drawRect, don't bother with a custom view. 
+
+You will want to subclass the UIViewController. It will manage your 
+view's behavior, and is (usually) the best place to compose the view 
+that it controls. 
+
+UIPageControl is probably the easiest way to implement the swiping 
+behavior, but it can be tricky -- read the documentation carefully. 
+
+I'm trying to wrap my head around the roles of UIViews and 
+UIViewControllers. If I'm creating and inserting subviews 
+programmatically, is it typical to do this from the view or the 
+controller? 
+
+I'm really just wondering if there's a convention/pattern for this. In 
+my sample application, I'm loading 50 images at runtime, adding them as 
+subviews to the main view, then letting the user drag them around the 
+screen. I'm currently doing all the initialization in the view's 
+initWithCoder: 
+
+- (id)initWithCoder:(NSCoder*)coder { if (self = [super 
+initWithCoder:coder]) { // load UIImageViews and add them to the subview 
+} 
+
+return self; } The view also implements touchesBegan/touchesMoved to 
+allow dragging. My problem comes when I try to access [self frame].size 
+in initWithCoder, it doesn't seem to be initialized yet. This makes me 
+think I may be loading the images in the wrong place... 
+
+typically you use a view controller when you want a full-screen view 
+with autorotation, etc, or when you want to insert a full-screen view to 
+something like a tab controller. 
+
+t depends on what you're doing. If the view represents something 
+"packaged", then you create subviews from the view itself. If you're 
+merely aggregating views together, then you should do it from the view 
+controller. 
+
+Think about traditional encapsulation. Is your subview conceptually 
+"part" of its superview, or does it just live there in the drawing 
+hierarchy? 
+
+Suppose you're creating a view that contains some controls, like to edit 
+a record with multiple fields or something. Since you're going to be 
+using those text fields and their data in the view controller, they 
+conceptually "belong" to the view controller, and the parent view exists 
+just for grouping and layout purposes. This is probably the more common 
+scenario. 
+
+If you were creating a view subclass to behave like a new control, for 
+example, then I would say you should create and manage the views 
+entirely within the view class. I imagine this case will happen less 
+frequently in practice. 
+
+t sounds like you may be adding them in the wrong place. If you moved 
+the addition of the subviews into the ViewController, then you could do 
+this work on viewDidLoad and you'd be guaranteed that the main view was 
+already initialized and ready to access. 
+
+Dummy explanation would be like this: 
+
+Subclass UIViewController whenever you plan to display the view as modal 
+(presentModalViewController) or inside UINavigationController 
+(pushViewController) 
+
+Subclass UIView whenever it is a small component inside main view... for 
+example you wish to do custom button or ... 
+
+More specifically in your example ... if you are initializing 
+UIViewControllers you can set view's properties eg. like frame size only 
+after your view is added to superview. Only at that point 
+UIViewController loads and initializes its view. 
+
+I think in your case you should use UIViews ... you can set frame size 
+immediately after allocating&initializing them. 
+
+http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/Introduction/Introduction.html 
+
+recommend reading Apple's UIViewController Programming Guide. 
+
+The main practical reason to use a custom UIViewController, especially 
+in a simple application that doesn't use navigation, is to handle 
+rotation. UIWindow and UIViewController work together to determine 
+whether or not the top-most view can handle rotation, and which 
+orientations it supports. 
+
+If you just used a view, without having that view managed by a 
+UIViewController subclass, then the application window wouldn't consider 
+that view a candidate for rotation. UIViewController is the magic 
+ingredient that makes auto-rotate possible. 
+
+Remember that all UI controls and even the main window itself are all 
+"views", ie they are subclasses of UIView. So you're using views all the 
+time. The idea behind a view is mostly that it takes responsibility for 
+drawing a portion of the screen, so obviously the screen can contain 
+many different views at the same time, and views can contain other views 
+(in the same way the main window does, being a view itself). 
+
+The reason Apple recommends to have a UIViewController manage a whole 
+screenful of space is because of the rotation system. Only one UIVC -- 
+the one attached to the most recently, top-most added subview of window, 
+or a current modal pop-up view -- will ever be asked to verify if 
+orientation changes are possible. And ONLY the view associated with that 
+one UIVC will actually be rotated. That's an important point to 
+remember... If you have two UIVC objects managing the current screen 
+contents then only the newer view could change orientation, potentially 
+leaving the display in a mess. 
+
+So, in a nutshell, if you have a simple window-based app and don't need 
+to worry about rotation, it's fine to just use your regular controls 
+placed directly on the main window and ignore UIViewController 
+altogether. You'll still need to provide a generic "controller" to 
+handle layout changes and behavior, and to mediate data changes between 
+the controls and your model(s), but that controller doesn't need to 
+inherit from UIViewController, it can be a subclass of NSObject. 
+
+
+
+
+ use a view controller when you want a full-screen view with autorotation, etc, or when you want to insert a full-screen view to something like a tab controller.
+ 
+ 
+ 
+ 
+ It depends on what you're doing. If the view represents something "packaged", then you create subviews from the view itself. If you're merely aggregating views together, then you should do it from the view controller.
+
+Think about traditional encapsulation. Is your subview conceptually "part" of its superview, or does it just live there in the drawing hierarchy?
+
+
+
+
+Subclass UIViewController whenever you plan to display the view as modal (presentModalViewController) or inside UINavigationController (pushViewController)
+
+Subclass UIView whenever it is a small component inside main view... for example you wish to do custom button or ...
+
+More specifically in your example ... if you are initializing UIViewControllers you can set view's properties eg. like frame size only after your view is added to superview. Only at that point UIViewController loads and initializes its view.
+
+I think in your case you should use UIViews ... you can set frame size immediately after allocating&initializing them.
+
+
+
+
+
+t sounds like you may be adding them in the wrong place. If you moved the addition of the subviews into the ViewController, then you could do this work on viewDidLoad and you'd be guaranteed that the main view was already initialized and ready to access.
+
+
+
+

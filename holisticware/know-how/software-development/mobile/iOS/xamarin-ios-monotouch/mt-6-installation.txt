@@ -1,0 +1,44 @@
+MT 6 installation
+
+
+sudo /usr/sbin/installer -pkg ~/Library/Caches/XamarinInstaller/MonoTouch/downloads/monotouch-6.0.0.pkg -target / -verboseR
+
+and attach the output? Please inform of any dialogs you're shown too.
+
+Also, does it help to (re)move your license file (~/Library/MonoTouch/License.v2)?
+
+Rolf
+
+On Wed, Sep 19, 2012 at 11:59 PM, MilkyJoe <leigh.bowers@curvenet.co.uk> wrote:
+
+    MonoTouch installation failed with more than one exception (Attempt
+    #MonoTouch)
+	
+	
+	
+    cannot update to monotouch 6 because the installer fails at the end.  I
+    know there are other posts about this but I thought I would alert you as
+    well. It doesn't really tell me anything useful to pass on to you other than
+    the install failed.
+
+
+Contact support@xamarin.com about any installation issues, they can help you.
+
+
+It would not install for me until I was connected to the internet. Hope this
+helps your issue. Mark.
+
+
+his is a little bit ridicules, I have never had a problem updating monotouch
+until this update.  I know i'm not the only one having problems as there are
+many posts out there about this install issue.  I contacted xamarin support
+and was told to download the packages directly (not through mono develop)
+which didn't work any better.  No additional response from them.  Now they
+have release 6.0.1, which fails as well.
+
+Xamarin- please take this serious and fix it. 
+
+
+The release notes for MT 5.4 tell that it is the last version to
+support OS X 10.6, so yes, you will have to upgrade.
+http://docs.xamarin.com/ios/releases/MonoTouch_5/MonoTouch_5.4

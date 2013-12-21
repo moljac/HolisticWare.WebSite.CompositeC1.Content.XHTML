@@ -1,0 +1,364 @@
+Having just spent a week in the RSA conference, I'm a bit more paranoid than before. 
+So, I wanted to take an informal poll here and see how you guys feel about your code. 
+Do you feel confident it's secure enough? do you even care? what percentage of the 
+dev cycle do you spend on security? do you have a separate security team? do you do 
+pen testing? have you ever been hacked? feel free to provide any information you can....
+
+
+Please don't take this the wrong way Inbar, but it shouldn't take a conference to 
+make you paranoid about security in your app. 
+
+This is what is wrong with our industry. Code, App & profits first, security second... 
+usually when the senior guys have either been hacked and learned a hard lesson or have 
+been to conference of some sorts. 
+
+Security in ANY APP should be factored in at design time, you should be thinking about 
+the whats/ifs and where fores before you even start to code. 
+
+Security is not about using "RSA", or for that matter "Blow Fish", "BCrypt" and 
+about a zillion other things... 
+
+It's about surface area, what risk are you (and the business willing to take) , verses 
+what risks are actually out there. 
+
+Let's take the current climate. 
+
+In today's world there are way too many punks going after low hanging fruit, why? 
+Beacuse it's guts and glory and nothing else... 
+
+"Hey look at me, ain't I the mutts nuts.. I just hacked mega corps servers... got 
+me 10,000 names, I'm super man I am" 
+
+But when the authorities knock on their door.... 
+
+"Sorry guv, I didn't know what I was doing, A guy on the internet said it would be 
+fun to run this software, and it would make me popular..." 
+
+Security in applications, is NOT about learning RSA, it's not about having great 
+passwords, it's about plain & simple common sense. 
+
+Don't use database record indexes in query strings, don't expose GUID's in session 
+tokens, filter all your input, if a user enters something in a form, don't trust it 
+AT ALL... 
+
+and all of this needs to be baked in to the app before the first line of code hits 
+the compiler. 
+
+as for pen testing? 
+
+Again, common sense... 
+
+If your only running a web server, then your external IP should only ever have 
+ports 80 & 443 open. 
+
+Patch your servers, regularly, use approved and tested authentication systems. 
+
+But DO IT before you even start to design code. 
+
+If you've already written even one line of code without thinking about security, 
+then you've compromised your apps integrity. 
+
+Iv'e developed systems, for the military, financial institutions and Mobile 
+communication's industries... trust me, I know what it means to be secure.
+
+
+
+
+ Security is relative. My home is pretty secure... for a home. The same security 
+ would be pathetically inadequate for a bank or some business that contained 
+ something even more valuable, like an Apple store. 
+
+My code (and the code for my team) is pretty secure. We don't have "a" separate 
+security team; we have two security teams, and they can never synchronize their 
+efforts. So, we get black box testing early in the year, white box testing late 
+in the year, and paperwork all year long. This is in addition to two other industry 
+based standards review and governance regimens. And ALL of this for a suite of 
+applications for INTERNAL use only! 
+
+Since I started at my current position in 2010, we've only had two security findings 
+against our code. I wouldn't have wasted one minute of a development iteration to 
+fix those findings at previous jobs, but I don't get to make that call. 
+
+So, considering the data we're handling and our level of exposure, I'd say we 
+have a pretty secure application.
+
+
+Carl would probably relate more to this comment than Peter ... I will drop a couple 
+of cents worth re a frequently ignored aspect of security ... the internal self-checked 
+control total. In cases where the system involves the direct or indirect transfer of
+ money, there will sooner or later be an insider who tries to steal it. So sane 
+ system design mandates all kinds of "does this lot add up to that lot?" checking. 
+
+The first time I ever saw this was in TNT way back in 1962. Nobody thought to 
+ask the "stupid" question "are the vehicles being fueled out of the terminals 
+equal in number to the vehicles getting paid next month for trips out of the 
+terminals?" A contingent of ghost trucks driven by ghost contractors carted ghostly 
+goods from one state to another and got paid in real, non-ghostly dollars for doing 
+so ... and nobody spotted it for a long, long time.
+
+After the event wisdom saw the introduction of a slew of double-checks. 
+
+I have taken that experience into every installation I have ever worked in. Independently 
+calculated totals checked against other independently calculated totals works wonders 
+when you are defending yourself from the traitor within. 
+
+It ain't very sexy to an Info Sec techie ... but it is vital nonetheless ... and 
+(swinging back on topic at long last) it underscores Peter Shaw's strong statement ... 
+"think the security through - ALL aspects of it - before cutting even one line of code".
+
+
+My room (app) has a strong door lock, and the front door lock of my house (system) is weak.
+
+
+
+so, let me get what you're saying. If all the hackers of the world decided that YOUR app is 
+the one they target, and they spend a few weeks on it - they'll always be able to crack 
+your application, no matter how you code it. 
+
+So you're saying our best defense is that the are millions of other apps and not enough 
+hackers to break them all? sounds a bit flimsy to me...
+
+
+
+My app is running on Windows and LAN, and interacting with other internal apps and external apps at different trust levels. My app is subject to Windows and network security controls, and is depending on some Windows security API assuming the security policy is properly configured. 
+
+@Inbar, I see your question seems to focus on the encryption components of security, say, RSA. However, security analysis and design is generally at system level, not at app level.
+
+
+@inbar - pretty much. We have a saying here in the UK... "The locks on your house are only there to keep honest people out" If some really truly desperately wants what you have, they WILL get it one way or another. 
+
+It is however a game of trade-off. Are the risks to get the prize, really worth what it's going to take to get the prize? 
+
+The fact of the matter is this, 99% or all external break in's are as a result of sloppy security practices, shoe horned in at the last minute, because some project manager got his / her arse kicked by the stake holders. These sloppy practices lead to stupid easy to fix but hard to spot security holes, that ultimately get found by some skript kiddi3 looking for low hanging fruit with an automated script. 
+
+99% of all internal breaches, are generally because of insecure internal policy's. When I was at orange for example, it wasn't unusual for a manager to let a new starter in a call centre use his / her password to log on to the systems, while I.T where busy creating that new starters account, just so they could get them straight to work, likewise I was regularly shunned by staff for not allowing my passwords and credentials to be used (I was a senior systems engineer, my credentials had the power to shut down large sections of the network!) because the practise was so widely accepted. 
+
+On the flip side as part of my duties, I routinely had to do security sweeps, and would often do these from unprivileged terminals using nothing more than the software and tools that CSR's had access too, it wasn't unusual for me to be able to gain quite a bit of access that I shouldn't have. 
+
+Now, even though these facts are apparent, it did usually take quite some effort to de-fraud the company, usually involving several members of staff, and customers on the outside, in some quite elaborate schemes. In these cases, it was simply a case of to the people commuting them, the reward outwieghed the risks.
+
+
+
+
+
+
+Most people especially business people appreciate UI features which are visible. Architecture features are blur, and Security features are invisible until being broken.
+
+Peter S had nailed it quite well:
+"even though these facts are apparent, it did usually take quite some effort to de-fraud the company, usually involving several members of staff, and customers on the outside, in some quite elaborate schemes. In these cases, it was simply a case of to the people commuting them, the reward outweighed the risks. "
+
+
+
+ In general, on any given modern application, typically some kind of distributed application, there are many quality attributes that may become important to be included as factors or drivers of the architecture of the solution.
+
+On any given app, attributes like performance, security, fault tolerance/availabilty and scalability are and should always be present. As you can see, security is among that short list. No architect or tech lead needs to be reminded by the customer documentation to include any of these attributes as main drivers of any architecture.
+
+This is my take on this subject.
+
+
+
+
+Let's keep in mind that quality attributes do not work in the same direction. 
+
+For instance, security is clearly affected by the effective surface area of the solution, that is, the effective area of exposure that the solution has. 
+
+A distibuted solution, with many server nodes and many components on any given server node offers a large area of exposure in comparison to a monolithic solution hosted in just one single box. 
+
+Availability is clearly enhanced by the generalized use of redundancy, with the main purpose of eliminating single points of failure. So, what is good for availability (more server nodes) is not that good for security (more server nodes means a larger area of exposure). 
+
+Scalability comes in two main flavors: Scale Up and Scale Out. 
+
+Scale Up works in tandem with performance (they both sum in the same direction), but Scale Up does not seat well with availabity (Scale Up in general means single point of failure). 
+
+Scale Out works perfectly for availability (Scale Out plays along with redundancy), and it works very well with performance, even though Scale Out generally means some increase in latency. 
+
+This one of the reasons why we have to find a balance, a trade off in our design decisions when evaluating how to cover both functional reqs and quality attributes, because quality attributes not necessarily add up in the same direction. 
+
+
+
+
+
+
+RSA is not just about encryption, that's just the name of the conference. It deals with all aspects of security including the human element. It's a very interesting topic...
+
+
+
+
+one thing I took away from this conference: https is worthless and is just as insecure as http. Maybe when they finally come out with httpss we can realy be secure :)
+
+
+
+
+most business apps/systems just need to be secured enough against amateur hackers, considering the balance of usual business factors. To have top security against top hackers and CIA/FBI, I would leave the issue to security experts.
+
+
+
+
+The focus on security is depended on the customers requirements. If the customer is concern about the security and put your software through various IV&V testing layers, and concern about the languages/OS, then we need more attention to that area. In my case FIPS 140-2 is a requirement. As the type languages get further iterations and development as F# language the compilers or run-time will check & verify security properties of the implementations of cryptography protocols. It is the poorly written software that causes most of the security problems. But we cannot rule out the next big factor which is inside threat. As all the software vendors do, security come with a price (like motor vehicles these days). Security is a extra feature, specially if it comes with resilience.
+
+
+
+Generally I agree with Susith. However, it is the poor project management that causes the poorly written software. For example, the requirements from your customer, a medical center may not mention significantly about security, nor the customer has the knowledge about the state regulation for protecting patient's data and respective standards. The project management should allow such concern to be raised by anyone who has the knowledge, and the investment on security to be made. Otherwise, a product conforming to all customer requirements is delivered, but ...
+
+
+
+Project management comes with a overhead which the customer should ready to pay as well. When it comes to patient health records (PHR) there is a special regulation called HIPPA. Thanks to that everyone is concern about privacy & security in medical field. According to security expert who trained us on cyber security initiatives told us most big companies do not like bad publicity, so they adapt something. Take a instance for Java security issue which is still on going. Like Microsoft, Adobe, Oracle etc have the luxury to patch bugs on their software every passing day thanks to internet. What they do everyday is alter our computer's environments. Some software vendors cannot patch their systems everyday as Microsoft patch does due to inaccessibility to the customer sites (such as mission critical ship). But you have to understand this constant patching is now out of control. At the RSA conference 2013, everyone stated the same thing - cost/time.
+
+
+
+... re your "out of control" comment. The correct expression of that comment is "out of control using current management techniques". I will explain. 
+
+The global village is now entering an incredibly rapid expansion of corporate offerings and dependencies. SaaS, PaaS etc and constantly expanding infrastructure requirements mean that the corporation's total IT needs will soon require not merely dozens but hundreds of component modules coming from all over the world. Here an Indian encryption service, there a Canadian satellite location service etc and very much etc. 
+
+Will these components stand still ? Nope. They will evolve. Maybe they will evolve more slowly than Windows. Maybe it will be an average of one upgrade per month. But imagine getting a patch per month from 1,000 components ... and, no, that is not fanciful. That is 50 software updates each working day !!! 
+
+Now we really are talking "out of control" 
+
+It is screamingly evident that IT management must devise ways of handling what I have always referred to as "continuous maintenance". The idea of a large suite of components which can and are updated all day every day *must* become a part of what IT departments do ... so much a part of what they do that it is background noise. 
+
+The technology for continuous maintenance exists ... even if there is no successful instance on earth. We know it can be done. What are the difficulties ? 
+
+We are stuck with stone-age management. That is the difficulty. 
+Yep - it is out of control ... and it'll stay that way until we totally re-think it all. 
+So you see ... security driven change is really just a part of an even bigger problem. 
+Bug-fix, enhancement, standards change, legislation change, fix a security hole ... whatever ... it is all beyond our manager's abilities to manage.
+
+
+
+m with Shawty on this one: if a line of code has been written before all aspects of the system's security have been addressed it's already too late ... 
+
+@Inbar: the obligatory xkcd <g> Enjoy ! 
+
+
+
+
+lways think, if I know how to get in, somebody else will.... 
+If people can pick up signals from your cables or keyboard...what the hell can be save/secure. And...people talk. believe me, nothing is save.
+
+
+
+
+ agree with all your comments and specially with Peter. Any tests that we do during factory acceptance tests (FAT) is all deterministic. We have no idea how rapidly the customer's environment change due to patches. Further we have no idea what else the customer will do using the same computer if surf on the internet. Today we have to be more concern about botnets than viruses, worms, Trojan horses, and rookits while surfing on the internet.
+ 
+ 
+ Theory of computation is coming back to me. :-) Security faces its limits and sometimes we forget those fundamentals. Complex algorithms may provide security with the philosophy that cracking them would "take too long" (e.g. exponential time) but it's not absolute. If we had a general program that could see if a particular website or application was "totally secure," then we could modify it slightly to solve the "halting problem" which is an undecidable problem. 
+
+ASP .NET at least plugs up a lot of holes that earlier languages struggled with (like ASP), so how secure you want your app comes down to time, correctness, and money and you likely only have two of those three.
+
+
+Remember 3 words if that's all you ever remember, authenticate, are they the person they say they are, authorise, are they allowed to be here, validate, do they have a valid reason to be here.
+
+
+
+
+ell, yes I had a server Hacked last year, and today (some 8 month later) it still does hurt: it does hurt hurt on my reputation because client are now very itchy about going forward with their projects, although most of them stayed with me, so far ; it still does hurt because the system has remained unstable and caused all sorts of trouble.
+
+The worst part here, the hack occurred because the "Data Center" with which I worked for a few years couldn't care less about resolving an update issue on the server which went subsequently Hacked. Even though, I raised the issue some 5 month earlier, kept re-asking and trying the best I could to point the finger in the correct direction, their support service invariably delude the question, and looked somewhere else, until it was too late and the damage had occurred. 
+
+At this point, I suppose, it wouldn't be wise to name the supplier, nonetheless, I am glad to have finally been able to get ride of them, and hope they will never cross my path again.
+
+Not all was negative during this experiment. It forced me to "invent" (actually with help from a few peers) a way to prevent hardware provider from "keeping me hostage" and putting my clients at risk. It happened to have impacted the e-mail system, the database itself, was never damaged or penetrated, hence my clients data stayed safe all along, which demonstrate all the time I try to dedicate on security was not in vain.
+
+
+@Franck, apparently your apps are secure, but the environments were not. Sometimes you might not have direct controls over the security of the environments you apps depend on, while the overall security is determined by the weakest link. So, make sure your apps be able to switch to different service providers easily, and there are design / architecture patterns for such purpose.
+
+
+
+Rapid migration has become key for my survival, now on first doubt, I move the system. Furthermore, the new system includes a machine running my client's sensitive data where only people I can trust 100% have access, this does disqualify even my new service provider, although there is all the rest for them to handle. 
+
+However, a friend of mine said : "the only true security in IT is to have no plug in the wall, floor, ceiling or airwaves..."
+
+
+If all - and I said all - electronic invasions of any kind whatsoever were punished by a mandatory death penalty, they would cease totally within days. Immediately. 
+For those who may be a little slow at picking basic truth from hyperbole, listen up. 
+The answer to security problems should lie primarily in the criminal and judicial systems ... where they ought to belong. 
+The dead-set wrong answer to burglary - NRA or no NRA - is to have householders armed with grenades and AK47's. 
+And the wrong answer to security criminals - call them by their correct name - is to double the electronic defenses from $7 bill p.a. to $14 bill p.a.
+
+
+
+ security is relative to the value of what you are trying to protect. If my car was a piece of crap I wouldn't put a £10K alarm on it! You are forgetting the other side of the security argument, risk! When implementing security systems (electronic, personnel etc) you evaluate the risk then you make a decision, protect, insure or a combination of both. You cannot understand security if you don't understand risk, risk is determined by loss or gain of something that is valuable to you or others.
+ 
+ 
+ 
+ 
+ Oh, and by the way, we do pen test through a 3rd party, don't pen test your own stuff, you already know where those holes are.
+ 
+ 
+ 
+efer to Phil's comments above re the level (and cost) of defense versus the risk of attack. For a good half of my life, I in fact, did not lock either my car or my house. Now that I live in the city of Sydney, I do lock things up. In other words, no I do not rely on the government ... I assess my environment. 
+
+However, I stand by my statement that the police and judiciary are doing a pathetic job ... just as they did a pathetic job when my wife's phone was stolen off our dining room table. Their mind-set was ... the value is low and nobody got hurt, so don't expect us to do anything. My mindset is that, when my home is invaded, the risk of physical harm to my wife is high and therefore the crime is serious. 
+
+My puzzlement is that people show all the signs of understanding me when I talk of a break-in at my home ... but, like you, seem to have difficulty treating electronic break-ins as being dangerous and deserving of maximum prevention and punishment efforts. 
+
+My level of cynicism is such that I believe the police and the courts will continue to be useless until some hacker's actions result in numerous deaths. Not only is this certain sure to happen, but when it does, the ignorant hordes will collectively wring their hands crying "Oh woe! But how could we have guessed it would come to this?"
+
+
+
+
+
+10-15 years ago we already knew everything there is to know about things like SQL injection. Nothing new was learned about it recently yet the number of issues and hack using this simple yet very effective technique (and the amount of code that has this vulnerability) keeps increasing...
+
+
+re is no difference in IT/Software security than any other form, i.e. physical. If you implement a trans-cash guarding service badly then it will be easier to steel your money then somebody who does it correctly. This doesn't mean that the likelihood changes it just means one person is better equipped to deal with the situation. Security is an evolving practice, the robbers get better, steal the loot, the cops learn and close the hole, the robbers get better and steal the loot, the cops learn and close the hole, the circle continues.
+
+
+That is hardly surprising, Inbar ... ask any burglar how long he has had his favourite lock picks for ... when you find something that works, stay with it. 
+Remember, these guys aren't trying to be creative. The are not trying to be guru of the nerds. They are common criminals trying to hurt you and/or take your money ... and those are the benevolent ones !
+
+
+
+astonished that this simple gimmick ever worked. 
+Every program I have ever written in this environment goes ... 1) the user enters data on the screen 2) it is validated 3) the screen-managing program passes the field's contents to the DAL 4) the DAL assembles SQL and passes it on directly or indirectly to the DBMS. 
+The stuff the user typed was checked for length, maybe for referential integrity, maybe upper-cased, possibly passed to a SaaS function and blah, blah, blah. The DAL surrounded it with quotes (because it is a string) and stuck it in the middle of comma-separated other stuff. 
+
+How an injection remains syntactically valid is beyond my feeble mind ... I have enough trouble getting the thing to work when the data is placid. 
+
+Of course, if the programmer's program never validates the user's input and uses the device that allows SQL to accept variables ... well. what can I say ? If they drive on the wrong side of the road, they are bound to hit something sooner or later.
+
+
+
+lot of time dealing with Security these days due to the nature of my new position. There's many things .NET dev's need to know/be aware of when developing these apps. Some might deem these as common sense, however if you're looking for a place to start here's a good read by Troy Hunt.
+
+http://www.troyhunt.com/2011/12/free-ebook-owasp-top-10-for-net.html 
+OWASP top 10 for .NET developers. This is an amazing read, which scratches the surface pretty hard. These concepts are things I interview for on senior positions, and what I ensure my team follows when i review their code.
+
+Here's some useful links you can use as bathroom reading if you want to learn more about some tests, frameworks, ideas etc. regarding security:
+
+* http://csrc.nist.gov/publications/PubsSPs.html 
+
+* http://vulnerabilityassessment.co.uk/Penetration Test.html
+
+* http://www.isecom.org/ 
+
+* http://www.oissg.org/issaf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

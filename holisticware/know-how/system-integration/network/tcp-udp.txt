@@ -1,0 +1,48 @@
+
+
+believe these requirement have increased since some ISP does not
+allow commercial VoIP and they filter traffic and block RTP over UDP.
+
+
+Sending media (real-time media) via TCP is not a good idea. TCP is
+a protocol that gives some gurantees regading the sequence and some
+other attributes, such as guaranteed delivery. Because TCP sits on
+top of a non-reliable protocol (IP) and thus employs several
+techniques to implement these gurantees.
+
+TCP uses buffering and sliding windows etc (for more details have
+a look into the relevant RFC  ) and this adds to the delivery and
+round-trip time. TCP is not a real-time protocol. TCP is also vulnerable
+to what's called "buffer-bloat" in the Internet. This could lead to a
+large delay of data and this is a "bad thing" for real time data such
+as audio/video.
+
+UDP does not suffer from these delays, also mostly not from buffer-bloat
+and is thus much more suited for RTP. Clients must be prepared to handle
+out-of-order packets and lost data, etc (ordered queues, Jitter buffers etc)
+
+
+
+> Sending media (real-time media) via TCP is not a good idea. TCP is
+> a protocol that gives some gurantees regading the sequence and some
+> other attributes, such as guaranteed delivery. Because TCP sits on
+> top of a non-reliable protocol (IP) and thus employs several
+> techniques to implement these gurantees.
+
+
+It obviously depends on circumstances, probably Mr. Haomiao Huang has a
+fast processor or network so maybe time is not an issue (most popular
+OSes aren't real-time OSes too, we use them nevertheless).  It would be
+not a good idea to discourage him to work on this topic.  
+
+
+> TCP uses buffering and sliding windows etc (for more details have
+> a look into the relevant RFC  ) and this adds to the delivery and
+> round-trip time. TCP is not a real-time protocol. TCP is also vulnerable
+> to what's called "buffer-bloat" in the Internet. This could lead to a
+> large delay of data and this is a "bad thing" for real time data such
+> as audio/video.
+>
+> UDP does not suffer from these delays, also mostly not from buffer-bloat
+> and is thus much more suited for RTP. Clients must be prepared to handle
+> out-of-order packets and lost data, etc (ordered queues, Jitter buffers etc)

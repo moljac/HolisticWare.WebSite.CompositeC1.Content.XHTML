@@ -1,0 +1,7 @@
+# .net overview #
+
+
+http://jinaldesai.net/net-framework-version-comparision-table/?goback=%2Egde_3791501_member_112365835
+
+
+http://referencesource.microsoft.com/

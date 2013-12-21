@@ -1,0 +1,205 @@
+Agent go on 'Unreachable' State
+Hi hope you will be fine. We are running a big inbound call center. We are using asterisk 1.4.42. We
+are also using an agent application through which agents get login and connect our asterisk server
+We are also using AMS (Agent managment system) to check the agent status in queue.
+We are facing problem that after some time agent lose registration. And after it its status is as below
+
+sip show peer 6125
+
+Defaddr->IP : 0.0.0.0 Port 5060
+
+
+asterisk -rx 'queue show Skill301' | grep 6125
+
+Agent/6125 with penalty 10 (realtime) (paused) (Unavailable) has taken no calls yet
+
+First we are using realtime for authenticating agents through sipbuddies
+
+After that we hradcode the users now they are authenticating through sip.conf
+
+But still the same issue. We are also using qualify=5000
+
+
+Is this agent application issue , network issue or asterisk server issue.
+sip.conf
+
+
+
+
+
+
+
+
+
+ Hi, 
+I faced similar issue at one of our customer site. We found "bad networking" as root cause. Look into this part as well I suggest.
+
+
+
+
+
+
+
+
+Our sip buddies final param (Use for reference) 
+
+"INSERT into sip_buddies (`name`, `callerid`, `context`, `canreinvite`, `type`, `host`, `secret`, `extntype`, `nat`, `date_added`, `allow`, `call-limit`, `dtmfmode`, `qualify`) VALUES ('$extn', '$extn', '$context', 'no', 'friend', 'dynamic', '$secret', '$extntype', 'yes', now(), 'alaw;ulaw', '50', 'rfc2833', 'no')"
+
+
+
+
+
+
+
+
+
+loosing registration is almost always a network-level issue. alternately, if you are using "soft" phones for your agents, I've seen this happen when the PC is too bogged down. However, your agents should be complaining about their machines being slow. 
+
+Ensure you have QOS enabled on your network, and ensure that SIP & RTP are given highest priority. In a perfect world, you'd want your VoIP traffic on a different physical LAN than your regular data traffic.
+
+
+
+
+
+
+
+
+
+SIP provider shows Unreachable constantly, Help
+here is the log
+
+Code:
+212*CLI> sip show peer west
+
+
+* Name : west
+Secret : <Not set>
+MD5Secret : <Not set>
+Remote Secret: <Not set>
+Context : trunk_monitor
+Subscr.Cont. : <Not set>
+Language :
+AMA flags : Unknown
+Transfer mode: open
+CallingPres : Presentation Allowed, Not Screened
+Callgroup :
+Pickupgroup :
+MOH Suggest :
+Mailbox :
+VM Extension : *97
+LastMsgsSent : 32767/65535
+Call limit : 0
+Max forwards : 0
+Dynamic : No
+Callerid : "" <>
+MaxCallBR : 384 kbps
+Expire : -1
+Insecure : port,invite
+Force rport : Yes
+ACL : No
+DirectMedACL : No
+T.38 support : No
+T.38 EC mode : Unknown
+T.38 MaxDtgrm: -1
+DirectMedia : Yes
+PromiscRedir : No
+User=Phone : No
+Video Support: No
+Text Support : No
+Ign SDP ver : No
+Trust RPID : No
+Send RPID : No
+Subscriptions: Yes
+Overlap dial : Yes
+DTMFmode : rfc2833
+Timer T1 : 500
+Timer B : 32000
+ToHost : west.callwithus.com
+Addr->IP : XXX.XX.XXX.XX:5061
+Defaddr->IP : (null)
+Prim.Transp. : UDP
+Allowed.Trsp : UDP
+Def. Username:
+SIP Options : (none)
+Codecs : 0xc (ulaw|alaw)
+Codec Order : (ulaw:20,alaw:20)
+Auto-Framing : No
+[color=#FF0040][b] Status : UNREACHABLE[/b][/color]
+Useragent :
+Reg. Contact :
+Qualify Freq : 60000 ms
+Sess-Timers : Accept
+Sess-Refresh : uas
+Sess-Expires : 1800 secs
+Min-Sess : 90 secs
+RTP Engine : asterisk
+Parkinglot :
+Use Reason : No
+Encryption : No
+
+
+Code:
+
+Retransmitting #2 (NAT) to XXX.XX.XXX.XX4:5061:
+OPTIONS sip:XXX.XXX.com SIP/2.0
+Via: SIP/2.0/UDP XXX.XX.XXX.XXX:5060;branch=z9hG4bK46e26d47;rport
+Max-Forwards: 70
+From: "Unknown" <sip:Unknown@XXX.XX.XXX.12>;tag=as3aeadbac
+To: <sip:XXX.XXX.com>
+Contact: <sip:Unknown@XXX.XXX.XXX.XX:5060>
+Call-ID: 23fbe872753b698e32f9039560d3ac09@XXX.XX.XXX.XX:5060
+CSeq: 102 OPTIONS
+User-Agent: FPBX-2.8.1(1.8.11.0)
+Date: Mon, 08 Oct 2012 14:46:38 GMT
+Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, SUBSCRIBE, NOTIFY, INFO, PUBLISH
+Supported: replaces, timer
+Content-Length: 0
+
+
+
+
+
+
+Please post your sip peer definition and registry definition from sip.conf. 
+Also, please confirm you've ensured your firewall is properly configured.
+
+
+
+
+
+Common reasons for unreachable are; 
+- Firewall is blocking the port or provider IP.
+
+- NAT is not required, disable and test to see if retransmit goes away.
+
+- Provider has not authenticated your IP
+
+- DNS does not resolve, change the URL to IP or try to resolve the URL manually from linux.
+
+Also your qualify time is wayyy to long. Change this to 3600. Your firewalls TTL is almost guaranteed to be less than the reg time which will tear down the session constantly. 
+One more thing, based on your Static provider entry , your ACL line says "No", have you tried to put the provider IP there?
+
+
+
+
+
+
+comment out register => 15XXXXX:23XXXXXX@XXX4324322:5060/15XXXX and reload and check
+
+
+
+
+
+Are you absolutely sure the "callwithus" provider wants you to send to port 5061? The port is usually 5060. 
+
+A peer is flagged as unreachable if Asterisk does not get a response to the SIP pings it sends. It only sends SIP pings if you set qualify=yes. It uses an OPTIONS request for the ping and sends them at intervals defined by the value shown as "Qualify Freq". A sensible setting for that interval is 25 seconds (or 25000 ms), but having the wrong value will not give you "unreachable" as a peer status, although it could mean your Asterisk cannot receive inbound calls from that peer.
+
+
+
+
+
+
+
+
+
+Hey John, thats true. How ever his peer has qualify enabled which is why I went the other route. If the route is static without qualify you would see "Unknown" rather than unreachable. The ping interval though is the first thing to look at I agree there.

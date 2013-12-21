@@ -1,0 +1,8 @@
+erviceStack ORMLite for my site, but most of the "micro" ORMs (Dapper, ORMLite, 
+Simple.Data, PetaPoco, etc.) work on Mono. These are good for simple mapping 
+and relatively simple queries.
+
+NHibernate should also work on Mono, although I've never tried it. I'd suggest 
+trying out NHibernate if you need more advanced features. You can use Fluent 
+NHibernate to get a nice fluent syntax for mapping your classes 
+(by default, NHibernate uses XML mapping files).

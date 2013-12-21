@@ -1,0 +1,23 @@
+think one of the mono runtime hackers could better answer your question, but I will try.
+
+See this link for Supported Platforms for Mono
+http://www.mono-project.com/Supported_Platforms?
+
+You will see MIPS on Linux. ?MIPS is only supported by the community.
+http://www.mono-project.com/Mono:MIPS?
+
+Mono Runtime
+http://www.mono-project.com/Mono:Runtime?
+
+Porting Mono to a new Platform
+http://www.mono-project.com/Porting
+
+Mono Runtime Documentation
+http://www.mono-project.com/Mono:Runtime:Documentation
+
+Mono JIT porting guide. by Paolo Molaro and Zoltan Varga?
+http://www.mono-project.com/Mono:Runtime:Documentation:MiniPorting
+
+Compiling Mono
+http://www.mono-project.com/Compiling?
+

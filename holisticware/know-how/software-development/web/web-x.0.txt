@@ -1,0 +1,22 @@
+Web 2.0
+	user generated content
+	applications
+	social networking
+	media
+		xml
+		rss
+		atom
+		JSON
+	web API
+		Web services SOAP
+		REST
+		xml RPC
+
+web 3.0
+	semantic data
+	personalization
+	machine generated data
+	data delivery (sampling) speed
+		augmented reality
+	
+	

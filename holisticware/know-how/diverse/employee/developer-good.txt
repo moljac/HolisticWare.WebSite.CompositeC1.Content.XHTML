@@ -1,0 +1,48 @@
+Technology tips: 5 key traits of good software developers
+More Sharing Services Share on linkedin Share on twitter Share on buffer Share on stumbleupon 
+
+If Hollywood had to choose one actor to represent every software developer character in movies and television shows, they'd no doubt choose the same nondescript guy wearing a solid-colored polo shirt, boring khaki pants, and eyeglasses. Fortunately (and unfortunately), real-life software developers are as different as snowflakes, and their work-ethic, organizational skills, and code vary from one person to the next.
+
+Despite their differences, there are certain things that really good developers have in common, separating them from the amateurs and the poseurs. Here are five key traits you'll find in top-notch developers:
+
+1. They love to learn
+To get better at development, you have to be able to learn. In fact, becoming a good developer has everything to do with learning. Sure, part of this is aptitude, but the rest is having an open mind to see the world full of new things to learn. Good developers are lifelong learners who understand that it takes a continued effort and conscious decision to constantly pursue new knowledge.
+
+2. They are great problem solvers
+More than any other single thing, developing software is about solving problems. A good developer will not just understand 23 languages, they’ll understand the basic principles of problem solving. There are many sub-disciplines of computer science, but whether the developer is into mathematically-complex algorithms or debugging microprocessor boot code, problem solving is always at the center of each and every project.
+
+3. They don't live on search engines
+The availability of information has changed a lot of aspects of software development, but it hasn’t changed the core. It’s easy to Google for solutions to repetitive or simple problems. Relying too much on code from search engines can fragment code, and ultimately provide a pile of spaghetti code reminiscent of the days of COBOL. When this happens, solutions become patchwork and your project can fall prey to constantly-missed deadlines.
+
+4. They are self-disciplined
+Being disciplined in the work environment and schedule can be beneficial, but the multiplication factor is huge when you think about source code with dozens of other developers contributing. If your developer writes code that no one else can read, or doesn’t have well-written documentation, they will grind the other developers to a halt. It doesn’t matter how many developers are on a project if they all spend their time trying to figure out each other’s code. They say, "you can't teach height". Well, it's pretty hard to teach discipline too. Developer's who have the ability to discipline themselves will always rise to the top.
+
+5. They have an acute focus
+Ironically, some of the best code I’ve ever written happened during a 170-hour sprint lasting just eight days (for reference, there are 168 hours in a week). How could a hungry, sleep-deprived developer write better code than their peers? Two words: profound focus.
+
+There’s something amazing that happens when the brain is able to align all of its resources to a singular goal. When all synapses are firing for a common goal, there is an unexplainable clarity that happens. Hours of development seem like minutes, but accomplish weeks of normal workloads.
+
+This is the crux of why outstanding developers can sometimes freak out about the most minor of interruptions. Disrupt a focus like that with a single stray thought and you could lose weeks of work. Countless hours of productivity have gone down the drain because someone didn’t understand the importance of focus to a developer.
+
+With so many developers to choose from, finding the right one can be an intimidating experience for even the most experienced business owner. Improve your chances by checking references, doing your homework, and getting detailed information on the traits listed above.
+
+
+
+
+
+
+
+
+
+
+
+
+Laziness. He's too lazy to keep writing the same components over and over so he makes everything a reusable component with no external dependencies. 
+
+Secrecy, he keeps impentation internals hidden from clients so they don't need know how things work, they just honor the contract. 
+
+Neatness. He doesn't slop out unmaintainable code with formatting fads and early returns or throws, he assumes someone else may have to read it someday. 
+
+Sagacity. He understands what he's doing and doesn't try to shoehorn every Hello World sized project into a design pattern with a class factory. 
+
+Integrity. He doesn't need to be coerced by contract into doing decent reliable work.

@@ -1,0 +1,5 @@
+reset tcp/ip adapter
+	netsh int ip reset resetlog.txt
+	
+	Repair Winsock:
+netsh winsock reset

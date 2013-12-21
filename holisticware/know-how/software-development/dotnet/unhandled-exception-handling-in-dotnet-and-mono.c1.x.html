@@ -1,0 +1,109 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Unhandled Exception Handling in .net and mono</title>
+Description = all keywords + extra text
+<meta name="Description" content="Unhandled Exception Handling in .net and mono - comparison" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: unhandled-exception-handling-in-dotnet-and-mono
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="unhandled, exception, handling, dotnet, mono" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2012-02-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Unhandled Exception Handling in .net and mono</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<ul>
+		<li>
+			Console
+			<pre class="hw_code">
+	AppDomain currentDomain = AppDomain.CurrentDomain;
+	currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
+			</pre>
+		</li>
+		<li>
+			WindowsForms	
+			<pre class="hw_code">
+	// Add the event handler for handling UI thread exceptions to the event.
+	Application.ThreadException += new ThreadExceptionEventHandler(ErrorHandlerForm.Form1_UIThreadException);
+
+	// Set the unhandled exception mode to force all Windows Forms errors to go through
+	// our handler.
+	Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+
+	// Add the event handler for handling non-UI thread exceptions to the event. 
+	AppDomain.CurrentDomain.UnhandledException +=
+		new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+			</pre>
+		</li>
+		<li>
+			WPF
+			<pre class="hw_code">
+	AppDomain.UnhandledException From all threads in the AppDomain.
+	Dispatcher.UnhandledException From a single specific UI dispatcher thread.
+	Application.DispatcherUnhandledException From the main UI dispatcher thread in your WPF application.
+			</pre>
+			<pre class="hw_code">
+	&lt;Application x:Class=&quot;UnhandledExceptionHandler.App&quot;
+		xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+		xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+		StartupUri=&quot;Window1.xaml&quot;
+		Startup=&quot;Application_Startup&quot;
+		DispatcherUnhandledException=&quot;Application_DispatcherUnhandledException&quot;&gt;
+		&lt;Application.Resources&gt;
+		 
+		&lt;/Application.Resources&gt;
+	&lt;/Application&gt;
+			</pre>
+		</li>
+		<li>
+			Silverlight
+			<pre class="hw_code">
+	// using System.Windows;
+	// ApplicationUnhandledExceptionEventArgs;
+	Application.UnhandledException += event_handling_fnc;
+			</pre>
+		</li>
+		<li>
+			WindowsPhone (like RIA Silverlight)
+			<pre class="hw_code">
+	// using System.Windows;
+	// ApplicationUnhandledExceptionEventArgs;
+	Application.UnhandledException += event_handling_fnc;
+			</pre>
+		</li>
+		<li>
+			Mono4Android 
+			<pre class="hw_code">
+	System.AppDomain.CurrentDomain.UnhandledException += ...;
+
+	Android.Runtime.AndroidEnvironment.UnhandledExceptionRaiser += 
+		new EventHandler&lt;RaiseThrowableEventArgs&gt;(AndroidEnvironment_UnhandledExceptionRaiser);
+			</pre>
+		</li>
+		<li>
+			MonoTouch
+			<pre class="hw_code">
+	AppDomain.CurrentDomain.UnhandledException += ...
+			</pre>
+		</li>
+		<li>
+			<pre class="hw_code">
+			</pre>
+		</li>
+	</ul>
+</body>
+</html>

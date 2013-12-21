@@ -1,0 +1,31 @@
+building
+
+> aven't tested the 3.0.6 Mono compile that I managed to create but I
+> managed to get the compile to work. These files seem to be missing
+normally
+> and I wanted to know if I skipped some step.
+>
+> msvc\mono.props
+> mono\metadata\sgen-major-copying.c
+> mono\metadata\sgen-pinned-allocator.c
+>
+> The allocator I assumed was deprecated and wasn't updated in the Visual
+> Studio Solution, excluding those two files from build seemed fine.
+>
+> mono.props however, I had to find from another site. I'm wondering if
+this
+> was intentional?
+>
+>
+
+
+
+Have you run the configuration scripts BEFORE using the VS Solution?
+Lot's of things are created by the scripts to have the Solution in a
+workable status...
+
+
+
+Are you building from source or a tarball? If a tarball I may just have
+forgot to include mono.props in the distribution sources.
+

@@ -1,0 +1,31 @@
+when you assign event handlers, you must release these. So if you have 
+something like : MyViewController.SomeEvent += HandleEvent; in 
+ViewDidLoad, you should release this in ViewDidDisappear by doing 
+something like MyViewController.SomeEvent -= HandleEvent 
+
+My question is, do you need to do this with anonymous methods as well? 
+One I have a lot of are button events. 
+
+Button.TouchUpInside += (obj, eventargs) => { //Do something here } Do I 
+need to release this somehow? And if so, how do I do this? 
+
+
+
+
+
+
+
+That is the exact reason why you shouldn't use Anonymous methods when 
+subscribing to events, cause if you do, then you can't unsubscribe from 
+them. Also if you are subscribing to events and then unsubscribing you 
+should do it on the ViewDidAppear and not on the ViewDidLoad or at least 
+know when to do in one on in another. Imagine that you subscribe to an 
+event on the ViewDidLoad of you MainViewController, i.e. the view 
+controller that gets created when your app starts and that will then 
+navigate to all the other ones, when you now navigate to another 
+ViewController the ViewDidDisappear will run unsubscribing to the events 
+you may have subscribed on the ViewDidLoad, now when you navigate back 
+to your main view controller the ViewDidLoad will not run, what runs is 
+the ViewDidAppear, so now no events are subscribed, and you will be what 
+the heck why doesn't my buttons click fire ;). 
+

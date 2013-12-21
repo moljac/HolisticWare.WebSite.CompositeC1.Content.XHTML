@@ -1,0 +1,328 @@
+Mobile App UX/UI Design Trends: Flat Design is here to stay. Posted by 
+David Sandoval on Mon, Apr 08, 2013 Email Article inShare 2 Trends are 
+changing with the times. Design has always influenced ongoing behavior 
+in all the areas of human interactions. You may have realized by now 
+that Flat Design is all around us. Flat Design has been a technique used 
+for a while now. This trend leads to polygonal curves and geometric 
+shapes which are present in every object and image in which we interact 
+with. 
+
+From cars, to architecture, to advertising and furniture, we see how the 
+Flat Design will influence almost everything and Flat Design will 
+influence almost everything from cars, architecture, advertising, and 
+furniture. 
+
+Therefore, the wonderful area of UX / UI, which includes operating 
+systems, web and mobile apps will incorporate Flat Design. 
+
+Why Flat Design in UX / UI? 
+
+There will always be reasons to justify a design or a design trend. What 
+we can see is that the special characteristics of a UX / UI flat such as 
+having solid colors, shapes, polygonal curves, bright colors, especially 
+in large proportions and a single photograph in some cases, are unified 
+to the Flat Design concept. This is something that is honest, usable and 
+especially popular. 
+
+The concept of Flat Design is focused on usability and it really shows. 
+The design elements and context tells users what to do, where to click, 
+how to play a game, make a phone call and guide them through an 
+interaction funnel. It is based on visual clues, such as color and large 
+fonts with high contrast that help users find their way in an instant 
+and without other competing elements. 
+
+Some may say that Flat Design is simple. However, this doesn't 
+necessarily mean that it is equivalent to minimal design. While both 
+techniques do focus on simplicity, Flat Design relies more frequently on 
+the use of effects. Minimal Design schemes often use many of the 
+"tricks" that are not a part of the flat trend. 
+
+One of the forerunners of this design trend is undoubtedly Microsoft. 
+They make notorious changes in their user interfaces, their corporate 
+image and logos, which have been redesigned to match this trend. The 
+general public has been grateful for the visual distinction in their 
+products. 
+
+This change was not only good for their products. It has added value and 
+directly improved their position in the market. Their rival Apple is 
+keeping a clear advantage in the design area and has always been 
+considered the pioneer in technology design trends. 
+
+Will "Sir Jonathan Ive", the new appointed iOS project and user 
+experience leader, will surprise us with a revolutionary design UI / UX? 
+Affirmed the growing trend? 
+
+It will be a pleasant surprise to see the new design when the new 
+version of iOS release in this July. 
+
+In a few words 
+
+In few words, Flat Design uses solid colors without textures, shades or 
+gradients. Additionally, we would said that the main characteristics are 
+(as well) geometric design, polygonal curves, color contrast, shiny 
+colors, big and bold and background photography. 
+
+The following are some examples of UX/UI Design that we personally love: 
+
+Final Thoughts 
+
+We believe we are just seeing the early days of Flat Design. This is a 
+trend that has slowly permeated their way through the foundations of 
+design and is going to be a front player in the upcoming trends of 
+technology experience design. 
+
+What do you think? Do you believe that these characteristics will help 
+create a better user experience? We say yes. Feel free to leave your 
+comments! 
+
+About the Authors 
+
+Ana Karen Ramirez is an Animation & Digital Art Designer who has worked 
+in User Experience and User Interface design for more than 3 years. You 
+can contact her at her email: akaren@itexico.com 
+
+Christopher Sanchez is a Graphic designer from the University of 
+Guadalajara with 5 years of experience is Design and almost 2 years in 
+UX/UI design you can contact him at his email: csanchez@itexico.net 
+
+
+
+
+
+Form Follows Function
+
+http://genehughson.wordpress.com/2013/07/06/emergence-versus-evolution/?goback=%2Egde_1211647_member_256079472
+
+
+
+ Emergence versus Evolution 
+
+You lookin' at me? 
+
+Hayim Makabee’s recent post, “The Myth of Emergent Design and the Big 
+Ball of Mud”, encountered a relatively critical reception on two of the 
+LinkedIn groups we’re both members of. Much of that resistance seemed to 
+stem from a belief that the choice was between Big Design Up Front 
+(BDUF) and Emergent Design. Hayim’s position, with which I agree, is 
+that there is continuum of design with BDUF and Emergent Design 
+representing the extremes. His position, with which I also agree, is 
+that both extremes are unlikely to produce good results, and that the 
+answer lies in between. 
+
+The Wikipedia definition of Emergent Design cited by Hayim, taken nearly 
+a word for word from the Agile Sherpa site, outlines a No Design Up 
+Front (NDUF) philosophy: 
+
+With Emergent Design, a development organization starts delivering 
+functionality and lets the design emerge. Development will take a piece 
+of functionality A and implement it using best practices and proper test 
+coverage and then move on to delivering functionality B. Once B is 
+built, or while it is being built, the organization will look at what A 
+and B have in common and refactor out the commonality, allowing the 
+design to emerge. This process continues as the organization continually 
+delivers functionality. At the end of an agile or scrum release cycle, 
+Development is left with the smallest set of the design needed, as 
+opposed to the design that could have been anticipated in advance. The 
+end result is a smaller code base, which naturally has less room for 
+defects and a lower cost of maintenance. 
+
+Rather than being an unrealistically extreme statement, this definition 
+meshes with ideas that people hold and even advocate: 
+
+“You need an overarching vision, a “big picture” design or architecture. 
+TDD won’t give you that.” Wrong. TDD will give you precisely that: when 
+you’re working on a large project, TDD allows you to build the code in 
+small steps, where each step is the simplest thing that can possibly 
+work. The architecture follows immediately from that: the architecture 
+is just the accumulation of these small steps. The architecture is a 
+product of TDD, not a pre-designed constraint. 
+
+Portion of a comment to Dan North’s “PUBLISHED: THE ART OF MISDIRECTION” 
+
+Aspects of a design will undoubtedly emerge as it evolves. Differing 
+interpretations of requirements as well as information deficits between 
+the various parties, not to mention changing circumstances all conspire 
+to make it so. However, that does not mean the act of design is wholly 
+emergent. Design connotes activity whereas emergence implies passivity. 
+A passive approach to design is, in my opinion, unlikely to succeed in 
+resolving the conflicts inherent in software development. In my opinion, 
+it is the resolution of those conflicts which allows a system to adapt 
+and evolve. 
+
+I’ve previously posted on the concept of expecting a coherent 
+architecture to emerge from this type of blinkered approach. Both BDUF 
+and NDUF hold out tremendous risk of wasted effort. It is as naive to 
+expect good results from ignoring information (NDUF) as it is to think 
+you possess all the information (BDUF). Assuming a relatively simple 
+system, ignoring obvious commonality and obvious need for flexibility in 
+order to do the “simplest thing that could possibly work, then refactor” 
+guarantees needless rework. As the scale grows, the likelihood of 
+conflicting requirements will grow. Resolving those conflicts after code 
+for one or more features is in place will be more likely to yield 
+unsatisfactory compromises. 
+
+The biggest weakness of relying on refactoring is that there are 
+well-documented limits to what people can process. As the level of 
+abstraction goes down, the number of concerns goes up. This same limit 
+that dooms BDUF to failure limits the ability to refactor large systems 
+into a coherent whole. 
+
+Quality of service issues are yet another problem area for the “simplest 
+thing that could possibly work” method. By definition, that concentrates 
+on functionality to the exclusion of non-functional concerns. Security 
+and scalability are just two concerns that typically fare poorly when 
+bolted on after the fact. Premature optimization is to be avoided, but 
+being aware of the expected performance environment can help you avoid 
+blind alleys. 
+
+One area where I do agree with the TDD advocate quoted above, is that 
+active design imposes constraints. The act of design involves defining 
+structure. As Ruth Malan has said, “negative space is telling; as is 
+what it places emphasis on”. Too little structure poses as much risk as 
+too much. 
+
+An evolutionary design process, such as Hayim’s Adaptable Design Up 
+Front (ADUF), recognizes the futility of predicting the future in minute 
+detail (BDUF) without surrendering to formlessness (NDUF). Experience 
+about what parts of a system are most likely to change is invaluable. 
+Coupled with reasonable planning based on what is known about the big 
+picture of the current release and what’s known about follow-up releases 
+can be used to drive a design that strikes the right balance – flexible, 
+without being over-engineered. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+24 design tips
+
+
+The process of creating a great design is abundant with various nuances, 
+just like every other stage of software development cycle. Great design 
+is always built around the functionality. It serves for a user as a 
+means of getting to a certain feature or content: a) as soon as 
+possible, b) in the most convenient way, c) without any excessive 
+screens or gestures. Then design gains colors and the overall aesthetic 
+filling, which defines the final result. 
+
+These app design tips are based on experience, and have proved useful 
+for software designers. But it's as well worth being read by their 
+clients - software product owners. Knowing these nuances is helpful to 
+better understand the project, the users, and how the application is 
+going to work. Furthermore, it gives a chance to avoid many mistakes, to 
+give the design a good start. 
+
+1) Design itself is not the purpose. The purpose is to provide the user 
+with the best way of solving a peculiar task, with minimum time and 
+attention required. 
+
+2) Minimalistic design is widely appreciated: it doesn't distract, it's 
+easier to understand, it allows users to concentrate on the functional, 
+practical use of the app. 
+
+3) When an average user gets acquainted with an app, the first thing 
+checked is how consistently it works, how easy the navigation is. 
+
+4) Each icon/button has a direct functional meaning. But it's always 
+good when it's beautifully, attractively designed. 
+
+5) If you have, for example, one icon/button on a screen, users will 
+definitely pay attention to its design. If there's an overuse, the 
+design of each icon is likely to be lost in the whole colorful picture. 
+
+6) While smartphone screens are small, crowding buttons for the sake of 
+reducing the number of screens may be lethal. 
+
+7) There is always a main button with main feature, used in the first 
+place, the one most frequently tapped. This button should be placed at 
+the bottom of the screen, where a thumb can easily reach it. 
+
+8) Thumb is the finger that's used for one-handed tapping. Design must 
+mean convenience for that. That's essential for people who use their 
+smartphone with just one hand, while the other holds a cup of coffee, a 
+briefcase, a remote control, whatever. 
+
+9) For many people, there's no time to appreciate pictures on the 
+background or a special shape of buttons. All this, along with color 
+palette, can serve just as a tasty addition by the first impression. 
+
+10) Users tend to spend a small amount of time within the application. 
+Details are often skipped. The same can happen to the features that 
+aren't obviously shown. That's because we use apps on the go, and there 
+are so many things around, that also require our attention, so we take a 
+brief look at the screen, then concentrate on something else, and so on. 
+
+11) Of course, some apps are designed to hold attention for more than 
+several minutes at a time. Tablet games and book readers are the most 
+obvious examples. But still, they have to be catchy and intuitive as 
+well, for the sake of initial interest. 
+
+12) Smartphone games are usually a pastime that rarely lasts longer than 
+several minutes. The abovementioned initial interest must be instantly 
+awoken. 
+
+13) App loyalty is a very unstable thing. Remember that gaining users, 
+which can be hard, is nevertheless much easier than retaining. A user 
+may download 15 apps during a month, but you can't say whether they will 
+be used more than once. 
+
+14) Multitouch gestures reduce convenience, so they shouldn't be used 
+for basic actions. For example, instead of pinching with two fingers for 
+zooming, users would prefer to tap twice with just one. Users always 
+prefer standard, natural gestures, performed with one finger. 
+
+15) Designer will also help you with the ideas for visual hints (such as 
+animations) for users, to show that some control bar requires sliding or 
+scrolling. 
+
+16) Reduce scrolling where possible. Users may simply not pay attention 
+to important features and content. 
+
+17) The app should be usable at an arm-length distance between the eyes 
+and the screen. 
+
+18) Content buttons are usually placed at the top of the screen. 
+
+19) Apps, which demand intensive tapping (for example, productivity 
+apps, such as planners), usually have control bars at the bottom of the 
+screen. 
+
+20) Full-width controls (if possible) are good for both right-handed and 
+left-handed people. 
+
+21) Finger is no stylus. Fingers are way blunter and hits aren't that 
+precise. Minuscule buttons, which are hard to hit, may be the sad reason 
+to reject the whole app. Plan the ergonomics carefully. If your design 
+can't do without a small button, you may make the invisible hit area 
+bigger than the button's visual limits. 
+
+22) Another problem is lack of space between buttons. Don't leave a 
+possibility of hitting the wrong button. It messes things up even more, 
+like accidentally tapping 'delete' instead of 'save'. Users won't like 
+that. 
+
+23) Texts must be concise and precise. 
+
+24) If your app has a default analogue, you obviously take a look at the 
+design. Users always seek for alternatives to the default apps, more 
+sophisticated, functional, or specialized. But what you can safely do, 
+is place the main controls the way they are by default. That's not a bad 
+thing - users won't have to get used to a completely different system of 
+controls. What's also good - nothing will be confused in a hurry. - See 
+more at: 
+http://mobidev.biz/blog/24_app_design_tips_you_should_know.html?goback=% 
+2Egde_69893_member_263700645#sthash.lADsl5Dn.dpuf 
+

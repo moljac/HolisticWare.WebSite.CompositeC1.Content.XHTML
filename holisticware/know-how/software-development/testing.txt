@@ -1,0 +1,87 @@
+http://agile.dzone.com/articles/7-mistakes-software-testing-0 
+
+Quite depend on if you are manager or developer. As developer, the 
+simply way is by example in production, and you need to make sure the 
+time of building test cases does not look like a big overhead. Certainly 
+there will be some education works across your organization. I seem to 
+remember those Extreme Programming books had a few pages about how to 
+introduce unit test / TDD into an organization. 
+
+BTW, if unit test / TDD has become a silver bullet for QA, you 
+(developer, dev manager, or account manager) will be in trouble. 
+
+the designer/architect at my major client. I introduced TDD as a design 
+and development tactic. I did not, ostensibly, introduce it as a Unit 
+Testing/QA tactic. 
+
+The programmers on two projects decided to utilize unit tests in TDD. An 
+isolated programmer on another project decided not to use TDD or unit 
+testing. We'll see how much it matters in the near future. 
+
+All the programmers using TDD and unit testing at the client are 
+enthused with it. It is not forcefully defined, nor are we rigid in our 
+definitions and use. We are allowing it to evolve as a 
+productivity/design tool. 
+
+I can already see the value in better code, easier refactoring, and 
+fewer obvious mistakes. We have also really attempted to avoid 
+over-engineering via TDD and it has already shown benefits. We are 
+getting more done faster and are able to use the testing harnesses as 
+coder's documentation. 
+
+In short, we're still rolling it out and experimenting. We are not 
+religious or rigid about our implementation and are letting things grow 
+where they will. 
+
+If it says anything, we're about to roll out our first UI testing 
+strategy and the devs are all excited. 
+
+We've come a long way since "test" was a four-letter word. 
+
+If you have brand new projects, you can easily do it since you would be 
+building the data layer on up and would insist on unit tests or test 
+cases for each method as you build it. It would be the "standard." 
+Legacy applications make it difficult, as the question becomes, "how low 
+can you go?" To avoid an enormous amount of effort, do you "just trust" 
+some of the data methods and write tests for the business methods or 
+higher up? Do you refactor to use mock or some other framework for 
+testing? Good question and I think the short answer is "it depends on 
+resource availability and current pipelines of work." :-) 
+
+For legacy ones with all sorts of coupling, you may consider integration 
+tests with ms test or nunit as test harness. 
+
+it's important for the Dev lead to define what kind of unit testing (how 
+much or how little) will be used by the team, so you can use TDD or some 
+other methodology that best bits your situation. It really depends on 
+project, scope and timeline. Again, the Dev lead knows the team, and 
+knows how to influence them to appreciate the value of Unit Testing for 
+their own benefit and it will lead to implementation without being rigid 
+about it. All devs should understand that every piece of code should 
+have unit tests to prove that it does what the spec says it will do. 
+This is a subject which we are trying to tackle at the moment. We have a 
+live website which has been in production for several years and we are 
+now looking at the best way to start adding automated testing into our 
+process and we are finding it hard to work out the best place to put 
+testing in which will give us the most value and then how we continue to 
+grow our automated tests from there. 
+
+Anybody who has done this before there advice would be very greatly 
+appreciated. 
+
+One problem which we do have is at present our pages are very code heavy 
+with a lot of the logic on the pages so we are currently in a process 
+off trying to move logic into objects. 
+
+Our website is stand ASP.NET web forms. 
+
+Unity testing is more revolve around the developer , who have written 
+the piece of code. Once Unit testing is Done from Developer side, then 
+it can be integrated with other modules and can be tested by QA. 
+Individual developer has to do Unit testing (either it is code or UI).As 
+per my knowledge completion of the unit testing is completion o 
+development of that unit as per requirements. QA will make sure the all 
+the requirements are developed and ready for use by doing the quality 
+control activity (Testing). Lighter side, if QA is doing unit testing, 
+better QA should write the code ) 
+

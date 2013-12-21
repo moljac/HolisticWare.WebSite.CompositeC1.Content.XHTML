@@ -1,0 +1,36 @@
+x86
+
+
+to inspect the x86 assembly that mono generates from my .exe. Mostly for specific functions. How do I achieve this?
+
+$ mono --help-devel
+
+tells me that I could compile a method and generate assembly for it. How should I be using it? If I do:
+$ mono --ncompile 1 --compile METHODNAME EXENAME EXEOPTIONS
+
+I get an error saying:
+Usage: mini --ncompile num --compile method assembly
+
+How do you guys inspect the generated assembly while developing? Is there some other internal option that enables that?
+
+
+
+
+
+
+
+
+
+
+can use Ahead of Time compilation to generate a .so file with native
+code. Is this what you're looking for?
+
+http://www.mono-project.com/AOT
+
+
+
+
+orgot to cc previous mail to the list and maybe someone will find it
+useful too. mono -v -v can be used to obtain assembly.
+
+Btw, AOT output can not necessarily be the same.

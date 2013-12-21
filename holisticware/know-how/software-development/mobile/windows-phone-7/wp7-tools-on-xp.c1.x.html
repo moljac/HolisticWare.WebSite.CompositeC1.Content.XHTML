@@ -1,0 +1,142 @@
+<!--
+C1 generated!!
+<title>Windows Phone 7  WP7 Tools on Windows XP</title>
+<meta name="Description" content="Windows Phone 7  WP7 Tools on Windows XP tweak, tips and tricks" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+	  <f:param name="KeywordsAdditional" value="Windows Phone 7, WP7, Tools, Windows, XP" />
+	  <f:param name="AuthorsAdditional" value="mcvjetko" />
+	  <f:param name="Date" value="2011-04-18" />
+	  <f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Windows Phone 7  WP7 Tools on Windows XP</a></h1>
+	<p>
+	WP7 tools are supported only on Vista and Windows 7 OS, but with small tweaks it is
+	possible to develop (write apps and build), though testing is possible only on
+	device (emulator cannot be installed and used)!
+	</p>
+	<p>
+	</p>
+	<ul>
+		<li>get iso.... from:
+			<ul>
+				<li>
+					<a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=04704ACF-A63A-4F97-952C-8B51B34B00CE">
+					http://www.microsoft.com/downloads/en/details.aspx?FamilyID=04704ACF-A63A-4F97-952C-8B51B34B00CE</a></li>
+				<li>
+					link to ISO file <a href="http://go.microsoft.com/fwlink/?LinkId=201927">
+					http://go.microsoft.com/fwlink/?LinkId=201927</a></li>
+				<li>
+					update 2011-01
+					<a href="http://www.microsoft.com/downloads/en/details.aspx?FamilyID=49B9D0C5-6597-4313-912A-F0CCA9C7D277">
+					http://www.microsoft.com/downloads/en/details.aspx?FamilyID=49B9D0C5-6597-4313-912A-F0CCA9C7D277</a></li>
+			</ul>
+		</li>
+		<li>Unpack iso/mount it...</li>
+		<li>cd to WCU\</li>
+		<li>install:
+			<ul>
+				<li>Silverlight 4</li>
+				<li>Blend</li>
+				<li>use script (create batch script and start it in WCU folder):</li>
+				<pre class="hw_code">
+echo off
+
+:: http://technet.microsoft.com/en-us/library/cc759262(WS.10).aspx
+:: http://support.microsoft.com/kb/971655
+
+::	/p:passwd
+::	/L:language
+::	/v"ISSCRIPTCMDLINE=\"<Option1> <Option2>\"" 
+::	/v"ALLUSERS=2" ^
+
+:: 	/q ^ 
+:: /q  won't accept /norestart
+:: 
+
+:: http://msdn.microsoft.com/en-us/library/ms994349.aspx
+
+:: .\dotNetFramework\dotNetFx40_Full_x86_x64.exe ^
+::	/qb- /passive ^
+::	/norestart /noreboot ^
+::	 /msioptions "REBOOT='ReallySupress'"  
+
+.\Silverlight4\Silverlight4_Tools_enu.exe ^
+	/qb- /passive ^
+	/norestart /noreboot ^
+	/log %TEMP%\sl4.log 
+
+.\DirectX\vm_directx.exe ^
+	/qb- /passive ^
+	/norestart /noreboot ^
+	/log %TEMP%\directx.log 
+
+
+::MSIEXEC.EXE /I ^
+::	.\MTPack\NetFx_DTP.msi ^
+::	/quiet /passive ^
+::	/qr ^
+::	/norestart ^
+::	%TEMP%\mtpack.log
+
+
+.\WindowsPhone\Blend_WindowsPhone_en.exe ^
+	/qb- /passive ^
+	/norestart /noreboot ^
+	/log %TEMP%\blend.log 
+
+
+.\WindowsPhone\XNAGS40_setup.exe ^
+	/quiet /passive
+
+
+MSIEXEC.EXE /I ^
+	.\WindowsPhone\sde_xde-enu.msi ^
+	/quiet /passive ^
+	/qr ^
+	/norestart ^
+	/lwamoe %TEMP%\sde_xde.log ^
+	ALLuSERS=1
+
+
+MSIEXEC.EXE /I ^
+	.\WindowsPhone\VS_SDEProLightup-enu.msi ^
+	/quiet /passive ^
+	/qr ^
+	/norestart ^
+	%TEMP%\wp7vssedprolightup.log
+
+
+MSIEXEC.EXE /I ^
+	.\WindowsPhone\WindowsPhoneDeveloperResources_en.msi ^
+	/quiet /passive ^
+	/qr ^
+	/norestart ^
+	%TEMP%\wp7res.log
+
+
+MSIEXEC.EXE /I ^
+	.\WindowsPhone\WindowsPhoneExtensions.msi ^
+	/quiet /passive ^
+	/qr ^
+	/norestart ^
+	%TEMP%\wp7ext.log
+
+
+
+dir %TEMP%
+
+pause
+				</pre>
+			</ul>
+		</li>
+		<li>For a target in VS 2010 set Windows Phone 7 Device!!</li>
+		<li>Compilation is now possible, but no emulator!</li>
+	</ul>
+  </body>
+</html>

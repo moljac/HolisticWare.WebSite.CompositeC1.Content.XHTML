@@ -1,0 +1,150 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://www.emailaddressmanager.com/tips/mail-servers.html
+
+POP3 - 						110		pop3:tcp
+IMAP -						143		imap:tcp
+SMTP 						25		smtp:tcp
+HTTP 						80		http:tcp
+Secure SMTP (SSMTP) 		465		smtps:tcp
+Secure IMAP (IMAP4-SSL)		585		imap4-ssl:tcp
+IMAP4 over SSL (IMAPS)		993		imaps:tcp
+Secure POP3 (SSL-POP)		995		pop3s:tcp
+
+Apr 12 12:04:30 mars postfix/smtpd[10540]: connect from mail-fx0-f49.google.com[209.85.161.49]
+Apr 12 12:04:31 mars postfix/smtpd[10540]: 06EE7978E1: client=mail-fx0-f49.google.com[209.85.161.49]
+Apr 12 12:04:31 mars postfix/cleanup[10544]: 06EE7978E1: message-id=<-84952172734689564@unknownmsgid>
+Apr 12 12:04:31 mars postfix/qmgr[4534]: 06EE7978E1: from=<tomislav@digitalnitisak.hr>, size=562358, nrcpt=1 (queue active)
+Apr 12 12:04:31 mars lmtpunix[10279]: accepted connection
+Apr 12 12:04:31 mars lmtpunix[10279]: lmtp connection preauth'd as postman
+Apr 12 12:04:31 mars master[10547]: about to exec /usr/lib/cyrus-imapd/lmtpd
+Apr 12 12:04:31 mars lmtpunix[10547]: executed
+Apr 12 12:04:31 mars lmtpunix[10279]: IOERROR: fstating sieve script /var/lib/imap/sieve/m/mcvjetko/defaultbc: No such file or directory
+Apr 12 12:04:31 mars lmtpunix[10279]: duplicate_check: <-84952172734689564@unknownmsgid>        user.mcvjetko        0
+Apr 12 12:04:31 mars lmtpunix[10279]: duplicate_check: <-84952172734689564@unknownmsgid>        user.mcvjetko        0
+Apr 12 12:04:31 mars lmtpunix[10279]: mystore: starting txn 2147484879
+Apr 12 12:04:31 mars lmtpunix[10279]: mystore: committing txn 2147484879
+Apr 12 12:04:31 mars lmtpunix[10279]: duplicate_mark: <-84952172734689564@unknownmsgid>        user.mcvjetko        1302602671 0
+Apr 12 12:04:31 mars lmtpunix[10279]: Delivered: <-84952172734689564@unknownmsgid> to mailbox: user.mcvjetko
+Apr 12 12:04:31 mars postfix/lmtp[10546]: 06EE7978E1: to=<mcvjetko@holistic.hr>, orig_to=<mcvjetko@holisticware.net>, relay=mars.holistic.hr[/var/lib/imap/socket/lmtp], delay=0.61, delays=0.36/0/0/0.24, dsn=2.1.5, status=sent (250 2.1.5 Ok)
+Apr 12 12:04:31 mars postfix/qmgr[4534]: 06EE7978E1: removed
+
+Apr 12 12:04:52 mars postfix/smtpd[10550]: connect from mail-iy0-f177.google.com[209.85.210.177]
+Apr 12 12:04:52 mars postfix/smtpd[10550]: BEF25978E1: client=mail-iy0-f177.google.com[209.85.210.177]
+Apr 12 12:04:53 mars postfix/cleanup[10544]: BEF25978E1: message-id=<BANLkTi=WBdumNJ8Fi_3-4oG++ea1x6WmEA@mail.gmail.com>
+Apr 12 12:04:53 mars postfix/qmgr[4534]: BEF25978E1: from=<ivan.dikic@gmail.com>, size=1854, nrcpt=1 (queue active)
+Apr 12 12:04:53 mars lmtpunix[10547]: accepted connection
+Apr 12 12:04:53 mars lmtpunix[10547]: lmtp connection preauth'd as postman
+Apr 12 12:04:53 mars lmtpunix[10547]: IOERROR: fstating sieve script /var/lib/imap/sieve/m/mcvjetko/defaultbc: No such file or directory
+Apr 12 12:04:53 mars lmtpunix[10547]: duplicate_check: <BANLkTi=WBdumNJ8Fi_3-4oG++ea1x6WmEA@mail.gmail.com> user.mcvjetko        0
+Apr 12 12:04:53 mars lmtpunix[10547]: duplicate_check: <BANLkTi=WBdumNJ8Fi_3-4oG++ea1x6WmEA@mail.gmail.com> user.mcvjetko        0
+Apr 12 12:04:53 mars lmtpunix[10547]: mystore: starting txn 2147484880
+Apr 12 12:04:53 mars lmtpunix[10547]: mystore: committing txn 2147484880
+Apr 12 12:04:53 mars lmtpunix[10547]: duplicate_mark: <BANLkTi=WBdumNJ8Fi_3-4oG++ea1x6WmEA@mail.gmail.com> user.mcvjetko        1302602693 0
+Apr 12 12:04:53 mars lmtpunix[10547]: Delivered: <BANLkTi=WBdumNJ8Fi_3-4oG++ea1x6WmEA@mail.gmail.com> to mailbox: user.mcvjetko
+Apr 12 12:04:53 mars postfix/lmtp[10546]: BEF25978E1: to=<mcvjetko@holistic.hr>, orig_to=<mcvjetko@holisticware.net>, relay=mars.holistic.hr[/var/lib/imap/socket/lmtp], delay=0.69, delays=0.49/0/0/0.2, dsn=2.1.5, status=sent (250 2.1.5 Ok)
+Apr 12 12:04:53 mars postfix/qmgr[4534]: BEF25978E1: removed
+
+
+
+C:\Users\moljac>nslookup mars.holistic.hr
+Server:  UnKnown
+Address:  192.168.11.1
+
+Non-authoritative answer:
+Name:    mars.holistic.hr
+Address:  83.139.65.230
+
+
+C:\Users\moljac>nslookup deimos.holistic.hr
+Server:  UnKnown
+Address:  192.168.11.1
+
+Non-authoritative answer:
+Name:    deimos.holistic.hr
+Address:  83.139.65.231
+
+
+C:\Users\moljac>
+
+
+
+
+
+
+cat /etc/sysconfig/iptables
+# Firewall configuration written by system-config-securitylevel
+# Manual customization of this file is not recommended.
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:RH-Firewall-1-INPUT - [0:0]
+-A INPUT -j RH-Firewall-1-INPUT
+-A RH-Firewall-1-INPUT -i lo -j ACCEPT
+-A RH-Firewall-1-INPUT -p icmp --icmp-type any -j ACCEPT
+-A RH-Firewall-1-INPUT -p 50 -j ACCEPT
+-A RH-Firewall-1-INPUT -p 51 -j ACCEPT
+-A RH-Firewall-1-INPUT -p udp --dport 5353 -d 224.0.0.251 -j ACCEPT
+-A RH-Firewall-1-INPUT -p udp -m udp --dport 631 -j ACCEPT
+-A RH-Firewall-1-INPUT -p tcp -m tcp --dport 631 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 59025 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+-A RH-Firewall-1-INPUT -j REJECT --reject-with icmp-host-prohibited
+#-A PREROUTING -p tcp -dport 59025 -j REDIRECT --to-port 25
+-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+COMMIT
+
+
+setup > firewall
+
+
+
+
+
+
+easiest way is to enable the firewall and open one port with setup and 
+later modify the /etc/sysconfig/iptables manually. 
+
+
+
+
+http://fedoraunity.org/solved/server-solutions/postfix-mail-server
+
+# Allow new SMTP connections
+PORT=25
+iptables -A INPUT -p tcp --dport $PORT -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp --sport $PORT -m state --state ESTABLISHED -j ACCEPT
+
+
+PORT=59025
+iptables -A INPUT -p tcp --dport $PORT -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -p tcp --sport $PORT -m state --state ESTABLISHED -j ACCEPT
+
+iptables -A PREROUTING -t nat -i eth0 -p tcp --dport $PORT -j DNAT --to 127.0.0.1:$PORT
+iptables -A FORWARD -p tcp -d 127.0.0.1 --dport $PORT -j ACCEPT
+
+iptables -A PREROUTING -i eth0 -p tcp -m tcp --dport 59025 \
+	-j DNAT --to-destination 127.0.0.1:25
+	
+	
+	
+	
+iptables -t nat -A PREROUTING -p tcp --dport 59025 -j REDIRECT --to-ports 25

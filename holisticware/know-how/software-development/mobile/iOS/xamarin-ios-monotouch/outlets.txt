@@ -1,0 +1,11 @@
+his example was taken from one of the MonoTouch books and I had to convert the source code to work on the latest release for MonoTouch.
+
+The original source was referring subView as
+
+this.subView.BackgroundColor = UIColor.LightGray;
+And in the process I failed to create an outlet for the view, i.e subView.
+
+If there is no outlet created, the view can be accessed in the following fashion also
+
+this.View.SubViews[0].BackgroundColor = UIColor.LightGray 
+and it fixed the problem.

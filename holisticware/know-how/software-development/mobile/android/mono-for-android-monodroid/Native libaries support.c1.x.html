@@ -1,0 +1,21 @@
+Native libaries support
+
+is there any performance loss running armeabi rutime over an v7a device? I'm asking 
+this because I have two scenario now:
+
+Potentially lots. :-)
+
+1. The armeabi runtime explicitly disables SMP support (because ARMv5 lacks the 
+needed instructions). Have a multi-core device? Your app is tied to a single core.
+2. The armeabi-v7a runtime adds hardware FPU support.
+
+Want SMP support? You need armeabi-v7a. Want decent floating-point performance? 
+You need armeabi-v7a.
+
+The better question is how long should you support armeabi, given that most (all?) 
+newer devices are armeabi-v7a (and have been for 2+ years). We're considering making 
+armeabi-v7a the default Release ABI in Mono for Android 4.4.
+
+That said, after thinking about this some more we could change our Debug build logic 
+to only add x86/libmonodroid.so and leave the armeabi/armeabi-v7a logic as 4.2.2 had it. 
+We should be able to do this for 4.2.4.

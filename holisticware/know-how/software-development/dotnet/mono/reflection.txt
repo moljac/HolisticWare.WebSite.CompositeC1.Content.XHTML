@@ -1,0 +1,41 @@
+Some reflection methods don't work correctly if they are unable to
+walk managed stack frames. When mono_runtime_invoke () is called
+on such a method, no managed stack frames exist and these methods
+are simply crashing.
+
+You can work around this issue by providing helpers for these
+methods:
+
+[MethodImpl(MethodImplOptions.NoInlining)]
+public static Assembly GetExecutingAssembly ()
+{
+	return Assembly.GetExecutingAssembly ();
+}
+
+[MethodImpl(MethodImplOptions.NoInlining)]
+public static Assembly GetCallingAssembly ()
+{
+	return Assembly.GetCallingAssembly ();
+}
+
+You may want to file a bug, but I believe the issue is by design.
+
+Robert
+
+
+
+> I'm checking that code, at
+> https://github.com/mono/mono/blob/master/mono/metadata/security-core-clr.c.
+>
+> If to "ensure that the specified method can be used with reflection since
+> Transparent code cannot call Critical methods" is fine with me, why does
+> CoreCLR also prevents transparent code to call internal transparent methods
+> or properties through reflection ?
+
+In Silverlight, reflection is as powerful as statically compiled
+code. With other words, if the code does not compile due to member
+access violations, then reflection won't help either.
+
+While this rule doesn't add concrete security, it helps obscuring
+stuff from application code w/out having to decorate members with
+[SecurityCritical].

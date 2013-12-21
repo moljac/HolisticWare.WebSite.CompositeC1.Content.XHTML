@@ -1,0 +1,137 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Cisco SPA5xxG</title>
+Description = all keywords + extra text
+<meta name="Description" content="Cisco SPA5xxG procedure SPA502G SPA504G" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: Title of the page
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="Cisco, SPA5xxG, procedure, SPA502G, SPA504G" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2012-06-23" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>
+		Title of the page</h1>
+	<p>
+		Date created: 2012-06-23
+		<br />
+		Date modified: 2012-06-23
+	</p>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<!-- ================================================================== -->
+	<h2>
+	</h2>
+	<pre class="hw_code">
+# Cisco 5XXG
+# phone example provisioning files included
+
+1. set up tftpd with detailed logging
+
+	vi /etc/xinetd.d/tftp
+	
+	find this line:
+	
+	server_args             = -s /tftpboot
+	
+	and change to this:
+	
+	server_args             = -s /tftpboot -v -v -v
+	
+	save and quit.
+	
+2. restart xinetd
+
+	/etc/init.d/xinetd restart
+	
+3. copy spa5XXG.cfg and spa5XXG_MAC_[mac address of the phone, all lower case, example: ccef485ce288].cfg
+
+4. remove XMLDefault.xml.cnf or SEP_[mac address of the phone].cnf or XMLDefault5XXG.xml.cnf or the phone will use sccp instead of SIP.
+
+5. add phone MAC address to DHCP if using any.
+
+	if you expirience any problems with tftp or dhcp try add this to dhcpd.conf
+	
+	# cisco
+	option option-150 code 150 = ip-address; 
+	option voip-tftp-servers code 150 = ip-address;
+	
+	option option-66 code 66 = ip-address; 
+	option voip-tftp-servers code 66 = ip-address;
+	
+	option option-3 code 3 = ip-address; 
+	option voip-tftp-servers code 3 = ip-address;
+	
+	option voip-tftp-servers [ip address of your PBX (Elastix)];
+
+6. run tail -f /var/log/messages
+
+7. plug in the phone and watch loggs
+	</pre>
+
+</body>
+</html>
+	
+
+
+
+<!--
+# Cisco 5XXG
+# phone example provisioning files included
+
+1. set up tftpd with detailed logging
+
+	vi /etc/xinetd.d/tftp
+	
+	find this line:
+	
+	server_args             = -s /tftpboot
+	
+	and change to this:
+	
+	server_args             = -s /tftpboot -v -v -v
+	
+	save and quit.
+	
+2. restart xinetd
+
+	/etc/init.d/xinetd restart
+	
+3. copy spa5XXG.cfg and spa5XXG_MAC_[mac address of the phone, all lower case, example: ccef485ce288].cfg
+
+4. remove XMLDefault.xml.cnf or SEP_[mac address of the phone].cnf or XMLDefault5XXG.xml.cnf or the phone will use sccp instead of SIP.
+
+5. add phone MAC address to DHCP if using any.
+
+	if you expirience any problems with tftp or dhcp try add this to dhcpd.conf
+	
+	# cisco
+	option option-150 code 150 = ip-address; 
+	option voip-tftp-servers code 150 = ip-address;
+	
+	option option-66 code 66 = ip-address; 
+	option voip-tftp-servers code 66 = ip-address;
+	
+	option option-3 code 3 = ip-address; 
+	option voip-tftp-servers code 3 = ip-address;
+	
+	option voip-tftp-servers [ip address of your PBX (Elastix)];
+
+6. run tail -f /var/log/messages
+
+7. plug in the phone and watch loggs
+	
+-->

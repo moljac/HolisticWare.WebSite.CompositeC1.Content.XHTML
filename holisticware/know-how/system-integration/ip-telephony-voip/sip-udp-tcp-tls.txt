@@ -1,0 +1,4 @@
+AFAIK, SIP works best with UDP, because SIP handles all the handshake itself.
+But TLS is based on TCP, which makes SIP handshake useless.
+
+How to use TLS over UDP ?

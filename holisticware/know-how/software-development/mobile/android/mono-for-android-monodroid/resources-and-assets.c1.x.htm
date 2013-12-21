@@ -1,0 +1,233 @@
+<!--
+C1 generated!!
+url: resources-and-assets
+Title = all keywords, max 65 char
+<title>Resources and Assets</title>
+Description = all keywords + extra text
+<meta name="Description" content="Resources and Assets in Mono For Android" />
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="mono, android, resources, assets" />
+		<f:param name="AuthorsAdditional" value="" />
+		<f:param name="Date" value="2011-04-18" />
+		<f:param name="Language" value="en" />
+	</f:function>
+		<h1><a id="">Resources and Assets</a></h1>
+		<!-- ================================================================== -->
+		<!--
+		<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+		-->
+		<h2><a id="">Naming</a></h2>
+
+		<ul>
+			<li>
+				Resources
+				<ul>
+					casing: doesn't matter (everything is covertet to lowersace)
+				</ul> 
+				<ul>
+					characters: only one '.' allowed (no double extensions!)
+				</ul> 
+			</li>
+		</ul>
+
+		<!-- ================================================================== -->
+		<h2><a id="">Placing multimedia files</a></h2>
+		<p>
+		Multimedia files usually are placed in either:
+		</p>
+		<ul>
+			<li>
+				Resources
+				<br />
+				Resources\raw
+				<br />
+				with the Build Action (in Project Item Properties) set to AndroidResource.
+				<br />
+				Using Resources:
+				<pre class="hw_code">
+				var player = Android.Media.MediaPlayer.Create (this, Resource.Raw.ResourceName);
+				</pre>
+			</li>
+			<li>
+				Assets
+				<br />
+				with the Build Action (in Project Item Properties) set to AndroidAsset.
+				<br />
+				Alternatively you can embed the file as an Asset 
+				(copy into Assets folder, set Build action to AndroidAsset) and 
+				use Asset.Open().
+			</li>
+		</ul>
+
+	<p>
+	The layout resource files are appropriately renamed from activity_athlete_list.xml 
+	to ActivityAthleteList.axml and from activity_athlete_twopane.xml to 
+	ActivityAthleteTwopane.axml.
+
+	Error: No resource found that matches the given name (at 'ActivityAthleteList' 
+	with value '@layout/ActivityAthleteTwopane').
+
+	Does anybody know how to resolve this issue, or if this is even possible in MonoDevelop?
+
+	This is a bug.
+
+	Android doesn't like PascalCased resource names for filename-backed resources and 
+	@layout/ActivityAthleteTwopane is (presumably) file backed as 
+	Resources\layout\ActivityAthleteTwopane.axml.
+
+	Mono for Android adds support for PascalCased resource names by lowercasing all the 
+	resource names + references as part of the build process (see the files in e.g. 
+	obj\Debug\res). Unfortunately I didn't know about the <item/> 
+	element, or that the <item/> element could contain a resource reference. 
+	
+	Result: <item/> isn't fixed, and contains @layout/ActivityAthleteTwopane 
+	instead of @layout/activityathletetwopane.
+
+	The workaround? Use the "internal" name, @layout/activityathletetwopane.
+
+	</p>
+	
+	I use camel-case names (upper and lower)  for most resources (styles/dimens/strings); 
+	but, I've noticed that referring to a Color resource the reference from my .axml 
+	is forced to lower case and results with the error...
+ 
+No resource found that matches the given name (at 'background' with value '@color/gridheadbg'
+ 
+The Color name in this case is GridHeadBG.
+ 
+The work-around is pretty obvious - change all color resource names to lower-case. 
+I'm just a bit curious if this was overlooked somehow.
+
+
+
+
+> The work-around is pretty obvious - change all color resource names to lower-case.
+
+We do, for file-backed resource names. Resource names that come from non-file sources 
+-- e.g. +@id's within .axml files -- are  not altered.
+
+
+
+
+The Color is defined in Resources/Values/Colors.xml...
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="GridHeadBG">#659ccf</color>
+</resources> 
+
+The reference to the Color is in Resources/Layout/ViewReports.axml...
+
+        <LinearLayout
+            android:id="@+id/criteriaLayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="@color/GridHeadBG">
+
+
+
+
+That would be why; we're assuming that the Color is backed by a file, while yours is not.
+
+Could you please file a bug for this issue?
+
+
+
+
+
+loading a
+resource from a file.
+
+Here is my code:
+
+    static public Drawable CreateFromFilename (string stringFilename)
+    {
+        //String pathName = "/path/to/file/xxx.jpg"; 
+        Drawable d = Drawable.CreateFromPath(stringFilename);
+        return d;
+    }
+In my application, I am wishing to check to see if a image is located in a
+folder on the cellphone, and if it is, I wish to load it via the above code.
+If the image is not there, I wish to download it off the WWW, save it to a
+folder, and then load it in via the above code.
+
+My question is this: If I create an Android application, that has a file
+called 'test.png' in the 'Resources/drawable/' folder, what is the correct
+path to use to load this image file via the above function?
+
+
+
+don't reference things in the Resources folder by their path. You would 
+reference the via their resource id.  So, in your case:
+
+Drawable d = Resources.GetDrawable(Resource.Drawable.test);			
+
+
+wanting to download additional Drawable resources off the WWW, save them
+to the appropriate resource folder and then load then in via their filename.
+
+Is this possible? How can I do it?
+
+
+can't save these downloading images into the resource folder. The images in the 
+drawable folder are compiled into the APK and cannot be modified. See the 
+Android documentation on building an APK: 
+http://developer.android.com/tools/building/index.html
+
+To load an image from disk, your best best bet is to probably use 
+BitmapFactory.DecodeFile(string fileName).
+
+
+
+
+Checking types in API
+
+ea where that type comes from. 
+
+	$ jar tf $ANDROID_SDK_PATH/platforms/android-17/android.jar | grep 'R\$sty'
+	android/R$style.class
+
+</body>
+</html>
+
+<!--
+I put an example (very simple) case in our samples repo:
+https://github.com/xamarin/monodroid-samples/tree/master/ManagedAndroidResourceTest
+
+The application references some string resource from the reference library.
+
+The resource IDs work pretty much like those in Android Java libraries and "aapt" does - library resource IDs are *not* constant, and replaced their values later at application build phase.
+
+
+
+
+
+ren't you trying to add files to some existing library project that was created prior to 4.2.8? It won't work, because 4.2.8 adds some project properties that are required for the resource build steps.
+
+If you want to enable resource builds in such old projects, add some project properties in your .csproj like this (line 12 and 13 will do the trick):
+https://github.com/xamarin/monodroid-samples/blob/master/ManagedAndroidResourceTest/ManagedAndroidResourceLibrary/ManagedAndroidResourceLibrary.csproj#L12
+
+Atsushi Eno
+
+mario federici wrote:
+> Thank you, Eno, for your prompt response.
+>
+> I have an other question: I develop my application with VisualStudio; I've not been able to change my source to work like yours (even tampering directly with a text editor in the csproj file).  That because I found no way to generate ResourceDesigner.cs (while your example did).
+> My solution was to copy your library project, rename it, change the namespace and so on. In that way I've got a working solution.
+>
+> So, in VisualStudio, what's the trick to make Resgen working? 
+
+
+
+-->

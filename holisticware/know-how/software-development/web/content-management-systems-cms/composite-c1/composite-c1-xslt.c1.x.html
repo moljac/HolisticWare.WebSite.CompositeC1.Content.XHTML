@@ -1,0 +1,94 @@
+
+
+Error	2	
+	The type or namespace name 'StyleLoaderControl' could not be found in the global namespace 
+	(are you missing an assembly reference?)	
+	MvcApplication1\Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\WarningDialogExecutionContainer.ascx.designer.cs	
+	49	23	MvcApplication1
+Error	3	
+	The type or namespace name 'StyleLoaderControl' could not be found in the global namespace 
+	(are you missing an assembly reference?)	
+	MvcApplication1\Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\ConfirmDialogExecutionContainer.ascx.designer.cs	
+	49	23	MvcApplication1
+
+
+Website\Composite\controls\FormsControls\Helpers
+		all in project		
+Website\Composite\controls
+		all in project
+Website\Frontend\Composite\controls
+		not in project cos Composite is not in project??
+Website\Frontend\Composite\controls\FormsControls\Helpers
+		not in project cos Composite is not in project??
+
+
+2012-04-09
+
+3.2 preview
+	Could not parse the file 'Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\WarningDialogExecutionContainer.ascx'.
+	
+	Unable to convert to Web Application format because the code-behind file 
+	'Composite\controls\FormsControls\FormUiControlTemplates\DateTimeSelectors\DateTimeSelector.cs' 
+	does not exist.
+	
+	Could not parse the file 'Composite\controls\FormsControls\FormUiControlTemplates\DateTimeSelectors\DateSelector.ascx'.
+
+
+2012-03-20
+	
+Web app
+	Conversion
+		Could not parse the file 'Composite\controls\FormsControls\FormUiContainerTemplates\FormUIStandardDialogs\WarningDialogExecutionContainer.ascx'.
+
+		Copy ConfirmDialogExecutionContainer.ascx.cs WarningDialogExecutionContainer.ascx.cs
+		Group ascx and ascx.cs
+		
+
+
+
+
+20120329 08:58:34.2217 2 34 Critical Web Application Error, Exception  System.Web.HttpCompileException (0x80004005): d:\SRC\cms-composite-c1\c1-wsp-wap\3.1\MvcApplication1\Composite\controls\FormsControls\FormUiControlTemplates\DateTimeSelectors\DateSelectorBase.cs(29): error CS0260: Missing partial modifier on declaration of type 'Composite.controls.FormsControls.FormUiControlTemplates.DateTimeSelectors.DateSelectorBase'; another partial declaration of this type exists
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at Composite.Plugins.Forms.WebChannel.UiControlFactories.Base.BaseTemplatedUiControlFactory.get_CachedUserControlType() in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\Plugins\Forms\WebChannel\UiControlFactories\Base\BaseTemplatedUiControlFactory.cs:line 57
+   at Composite.Plugins.Forms.WebChannel.UiControlFactories.Base.BaseTemplatedUiControlFactory.get_UserControlType() in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\Plugins\Forms\WebChannel\UiControlFactories\Base\BaseTemplatedUiControlFactory.cs:line 41
+   at Composite.Plugins.Forms.WebChannel.UiControlFactories.TemplatedDateTimeSelectorUiControlFactory.CreateControl() in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\Plugins\Forms\WebChannel\UiControlFactories\TemplatedDateTimeSelectorUiControlFactory.cs:line 160
+   at Composite.C1Console.Forms.Foundation.PluginFacades.UiControlFactoryPluginFacade.CreateControl(IFormChannelIdentifier channel, String namespaceName, String name) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\C1Console\Forms\Foundation\PluginFacades\UiControlFactoryPluginFacade.cs:line 69
+   at Composite.C1Console.Forms.StandardProducerMediators.UiControlProducerMediator.CreateProducer(IFormChannelIdentifier channel, String namespaceName, String name) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\C1Console\Forms\StandardProducerMediators\UiControlProducerMediator.cs:line 29
+   at Composite.C1Console.Forms.Foundation.PluginFacades.ProducerMediatorPluginFacade.CreateProducer(IFormChannelIdentifier channel, String namespaceName, String name) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\C1Console\Forms\Foundation\PluginFacades\ProducerMediatorPluginFacade.cs:line 40
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\C1Console\Forms\Foundation\FormTreeCompiler\CompilePhases\CreateProducersPhase.cs:line 45
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\C1Console\Forms\Foundation\FormTreeCompiler\CompilePhases\CreateProducersPhase.cs:line 64
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\C1Console\Forms\Foundation\FormTreeCompiler\CompilePhases\CreateProducersPhase.cs:line 64
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\C1Console\Forms\Foundation\FormTreeCompiler\CompilePhases\CreateProducersPhase.cs:line 64
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\C1Console\Forms\Foundation\FormTreeCompiler\CompilePhases\CreateProducersPhase.cs:line 64
+   at Composite.C1Console.Forms.Foundation.FormTreeCompiler.CompilePhases.CreateProducersPhase.CreateProducers(CompileTreeNode node) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\C1Console\Forms\Foundation\FormTreeCompiler\CompilePhases\CreateProducersPhase.cs:line 64
+   at Composite.C1Console.Forms.FormTreeCompiler.Compile(XmlReader reader, IFormChannelIdentifier channel, Dictionary`2 bindingObjects, Boolean withDebug, String customControlIdPrefix, Dictionary`2 bindingsValidationRules) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\C1Console\Forms\FormTreeCompiler.cs:line 102
+   at Composite.C1Console.Forms.FormTreeCompiler.Compile(XmlReader reader, IFormChannelIdentifier channel, Dictionary`2 bindingObjects, Boolean withDebug, Dictionary`2 bindingsValidationRules) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\C1Console\Forms\FormTreeCompiler.cs:line 73
+   at Composite.Core.WebClient.FlowMediators.FormFlowRendering.FormFlowUiDefinitionRenderer.Render(String consoleId, String elementProviderName, FlowToken flowToken, FormFlowUiDefinition formFlowUiCommand, IFormChannelIdentifier channel, Boolean debugMode, FlowControllerServicesContainer servicesContainer) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\Core\WebClient\FlowMediators\FormFlowRendering\FormFlowUiDefinitionRenderer.cs:line 203
+   at Composite.Core.WebClient.FlowMediators.WebFlowUiMediator.GetFlowUi(FlowHandle flowHandle, String elementProviderName, String consoleId, String& uiContainerName) in D:\SRC\cms-composite-c1\c1-wsp-wap\3.1\Composite\Core\WebClient\FlowMediators\WebFlowUiMediator.cs:line 60
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+http://compositec1.codeplex.com/discussions/277037
+
+
+http://aspnetwebstack.codeplex.com
+	System.JSON

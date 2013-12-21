@@ -1,0 +1,105 @@
+http://sharpsnmplib.codeplex.com/discussions/362270
+
+removed/commented out/conditinal compiles
+	System.Security.Cryptography.Rijndael
+		not available in Silverlight
+	System.Net.Sockets.UdpClient
+		not available in Silverlight
+	System.Diagnostics.Stopwatch
+		not in Silverlight - though in XNA framework!
+	log4net 
+
+removed VB stuff
+
+
+Error	27	
+Friend access was granted to 
+	'SharpSnmpLib.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000011000000d9a9ad86f872e646aeb279fc116b6bfb4902fd43b59d044449a0f22fd4a606f35a55784fec360a71472f1af0c35f111ae1678f8d454328c53b31a0a81210c08fa7e22d4f8ad089e4d9985551e864ddda83e0fda733567a5af7f1b5d181a7c141833956073b4cb491684bc2e7150d9a62baf03f71fa9203afb6c4d3bcedceb394', 
+but the output assembly is named 
+	'SharpSnmpLib.Tests, Version=1.0.4598.38959, Culture=neutral, PublicKeyToken=null'. 
+Try adding a reference to 'SharpSnmpLib.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000011000000d9a9ad86f872e646aeb279fc116b6bfb4902fd43b59d044449a0f22fd4a606f35a55784fec360a71472f1af0c35f111ae1678f8d454328c53b31a0a81210c08fa7e22d4f8ad089e4d9985551e864ddda83e0fda733567a5af7f1b5d181a7c141833956073b4cb491684bc2e7150d9a62baf03f71fa9203afb6c4d3bcedceb394' 
+or 
+changing the output assembly name to match.	
+\SharpSNMP\SharpSnmpLibControls\bin\Debug\SharpSnmpLib.Controls.dll	Tests
+
+http://csharpdeveloper.wordpress.com/2011/07/05/apply-your-strong-name-key-to-both-dlls-to-resolve-friend-access-was-granted-compiler-message-in-c/
+
+when you are using Strong Named Keys (snk) files but you only have the .SNK file 
+assigned to one of the two projects you are trying to compile. 
+If you are using InternalsVisibleTo to expose Friend/Internal methods to another 
+DLL, and either one of the DLLs has a strong named key, make sure they both have a 
+strong named key. You can use the same strong name key on both DLLs.
+
+http://rhauert.wordpress.com/2008/04/15/strange-behavior-with-internalsvisibleto/
+http://blog.tylerholmes.com/2008/04/unit-tests-and-internalsvisibleto.html
+
+
+
+
+
+
+
+
+
+
+
+
+Error	6	
+	Cryptographic failure while signing assembly 
+	'\SharpSNMP\honeycell_6.1.1_src\Mono.Options\obj\Debug\Mono.Options.dll' 
+	-- 'Error reading key file '\honeycell_6.1.1_src\SharpSnmpLib\sharpsnmplib.snk' -- 
+	The system cannot find the file specified. '	
+	
+	Mono.Options
+
+removed sharpsnmplib.snk
+removed code signing
+
+Split projects and their projct files
+	SharpSnmpLib
+	SharpSnmpLib.Controls
+	SharpSnmpLib.Mib
+	SharpSnmpLib.Optional
+originally foung in SharpSnmpLib\ folder into appropriate folders:
+	SharpSnmpLib
+	SharpSnmpLibControls
+	SharpSnmpLibMib
+	SharpSnmpLibOptional
+
+This was done according to Holisticware team rules and recommendations (R&Rs) 
+forVisual Studio projects.
+
+Generates folder with project file in it (project files do not share folders) It can be done, but
+decreases readability and maintaiability.
+
+Projects renamed accordingly to folders (again R&Rs):
+	SharpSnmpLib
+	SharpSnmpLibControls
+	SharpSnmpLibMib
+	SharpSnmpLibOptional
+
+Silence errors in WP projects
+	Serializable Attribute
+		quick and dirty: either unload WP project
+		nicer: 
+			for classes (they do support partial keyword):
+			split into partial classes in 2 files (one with Serializable attribute and empty class)
+			moved projects which support Serializable 
+			workflow: move (cut + paste) to Desktop and link-copy to MT and MA (or vice versa)
+			VS Project Lniker workflow: exclude from project, cut, paste, include in project)
+			
+			for enums (they do not support partial keyword):
+			copied to projects which support Serializable
+			workflow: copy to Desktop and link-copy to MT and MA projects (or vice
+			VS Project Lniker workflow: exclude from project, cut, paste, include in project
+		
+		
+Mono
+
+public Integer32 RequestId { get; private set; }
+
+\SharpSNMP\SharpSnmpLib.WP\GetBulkRequestPdu.cs(38,38): 
+Error CS0501: 
+'Lextm.SharpSnmpLib.GetBulkRequestPdu.RequestId.get' must declare a body because it is not 
+marked abstract or extern (CS0501) (SharpSnmpLib)
+

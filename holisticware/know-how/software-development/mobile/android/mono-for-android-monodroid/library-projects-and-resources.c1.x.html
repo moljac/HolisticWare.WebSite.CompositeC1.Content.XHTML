@@ -1,0 +1,24 @@
+In short, library project resources are supported when you zip relevant library 
+project build results (in "bin" directory in the Java project) and embed it as 
+"LibraryProjectZip" in a Java binding library project. 
+
+
+
+The library resource IDs should appear in the Resource.designer.cs like the 
+resources in the pplication's own resources, but with some remarks, which is a 
+bit tricky... Let me explain how it works.
+
+The resources in the library project are embedded in the library project binding 
+dll, and they are expanded when you *build* the application that references the 
+library project.
+In the build step, it collects the resources and generates Resrouce.designer.cs 
+(like we do for usual resources). *At that stage*, you should be able to reference 
+the resource IDs for the library project resources, like other resource IDs. 
+(This "fist-time-missing" issue is somewhat itchy, but not very serious I assume.)
+
+We have a sample for this Android Library Project support, as a Facebook SDK 
+binding sample.
+https://github.com/xamarin/monodroid-samples/tree/monodroid-4.1-preview/Facebook
+
+In this sample ("simple"), you can e.g. reference  "Resource.Drawable.close" 
+image from the library project jar, not in the app project.

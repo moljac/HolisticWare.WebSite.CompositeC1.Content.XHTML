@@ -1,0 +1,164 @@
+Named Pipes
+
+
+There's no native equivalent to Named Pipes in Linux/MacOS, and
+specially no universally accepted open source implementation of Named
+Pipes to talk across to Windows Servers, so Mono can't wrap it to
+offer the functionality. Better to move to TCP and sockets if
+possible, if not, contributions are welcome.
+
+
+ A pipe in mac/mono is just like any file. You set up the pipe, then use
+streams to talk to the pipe. One app writes to the pipe using streams, the
+other app reads from the pipe using streams. Again, as we discussed, you
+need to code up 2 test objectivec apps talking together using NSPipes.
+
+
+
+
+
+
+
+1st post/question:
+
+trying to convert C#.Net project into Mono. NamedPipeServerStream &
+NamedPipeClientStream class are not supporting in Mono and throwing Unhandle
+exception. Could you please help me anyone?
+
+*Code:
+*
+
+class Program
+{
+    static string _PipeName = "testPipe";
+    static void Main(string[] args)
+    {
+
+        ListenForPipeServer();
+    }
+
+    static void ListenForPipeServer()
+    {
+        using (NamedPipeServerStream pipeServer = new NamedPipeServerStream(
+                          _PipeName,
+                          PipeDirection.InOut,
+                          2,
+                          PipeTransmissionMode.Message,
+                          PipeOptions.None
+
+                          ))
+        {
+            StreamReader sr = new StreamReader(pipeServer);
+            StreamWriter sw = new StreamWriter(pipeServer);
+
+
+            do
+            {
+                try
+                {
+                    pipeServer.WaitForConnection();
+                    sw.WriteLine("Testing");
+                    sw.Flush();
+                    pipeServer.WaitForPipeDrain();
+                    Console.WriteLine(sr.ReadLine());
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+
+                    pipeServer.WaitForPipeDrain();
+                    if (pipeServer.IsConnected) pipeServer.Disconnect();
+                }
+
+            } while (true);
+
+        }
+    }
+}
+
+*
+Unhandled Exception: *System.IO.IOException: Error on creating named pipe:
+error code -1 at System.IO.Pipes.UnixNamedPipe.EnsureTargetFile
+(System.String name) [0x0001f] in
+/Users/builder/data/lanes/mono-mac-ui-refresh-2-10/2baeee2f/source/bockbuild/profiles/mono-2-10/build-root/mono-2.10.11/_build/mono-2.10.11.git/mcs/class/System.Core/System.IO.Pipes/PipeUnix.cs:131
+at System.IO.Pipes.UnixNamedPipeServer..ctor
+(System.IO.Pipes.NamedPipeServerStream owner, System.String pipeName, Int32
+maxNumberOfServerInstances, PipeTransmissionMode transmissionMode,
+PipeAccessRights rights, PipeOptions options, Int32 inBufferSize, Int32
+outBufferSize, HandleInheritability inheritability) [0x00012] in
+/Users/builder/data/lanes/mono-mac-ui-refresh-2-10/2baeee2f/source/bockbuild/profiles/mono-2-10/build-root/mono-2.10.11/_build/mono-2.10.11.git/mcs/class/System.Core/System.IO.Pipes/PipeUnix.cs:265
+at System.IO.Pipes.NamedPipeServerStream..ctor (System.String pipeName,
+PipeDirection direction, Int32 maxNumberOfServerInstances,
+PipeTransmissionMode transmissionMode, PipeOptions options, Int32
+inBufferSize, Int32 outBufferSize, System.IO.Pipes.PipeSecurity
+pipeSecurity, HandleInheritability inheritability, PipeAccessRights
+additionalAccessRights) [0x0004b] in
+/Users/builder/data/lanes/mono-mac-ui-refresh-2-10/2baeee2f/source/bockbuild/profiles/mono-2-10/build-root/mono-2.10.11/_build/mono-2.10.11.git/mcs/class/System.Core/System.IO.Pipes/NamedPipeServerStream.cs:100
+at System.IO.Pipes.NamedPipeServerStream..ctor (System.String pipeName,
+PipeDirection direction, Int32 maxNumberOfServerInstances,
+PipeTransmissionMode transmissionMode, PipeOptions options, Int32
+inBufferSize, Int32 outBufferSize, System.IO.Pipes.PipeSecurity
+pipeSecurity, HandleInheritability inheritability) [0x00000] in :0 at
+System.IO.Pipes.NamedPipeServerStream..ctor (System.String pipeName,
+PipeDirection direction, Int32 maxNumberOfServerInstances,
+PipeTransmissionMode transmissionMode, PipeOptions options, Int32
+inBufferSize, Int32 outBufferSize, System.IO.Pipes.PipeSecurity
+pipeSecurity) [0x00000] in :0 at System.IO.Pipes.NamedPipeServerStream..ctor
+(System.String pipeName, PipeDirection direction, Int32
+maxNumberOfServerInstances, PipeTransmissionMode transmissionMode,
+PipeOptions options, Int32 inBufferSize, Int32 outBufferSize) [0x00000] in
+:0 at System.IO.Pipes.NamedPipeServerStream..ctor (System.String pipeName,
+PipeDirection direction, Int32 maxNumberOfServerInstances,
+PipeTransmissionMode transmissionMode, PipeOptions options) [0x00000] in :0
+at (wrapper remoting-invoke-with-check)
+System.IO.Pipes.NamedPipeServerStream:.ctor
+(string,System.IO.Pipes.PipeDirection,int,System.IO.Pipes.PipeTransmissionMode,System.IO.Pipes.PipeOptions)
+at ConsoleTestPipeApp1.Program.ListenForPipeServer () [0x00000] in
+/Users/Vadivelu/Project/Service_Test/ConsoleTestPipeApp1/ConsoleTestPipeApp1/Program.cs:21
+at ConsoleTestPipeApp1.Program.Main (System.String[] args) [0x00000] in
+/Users/Vadivelu/Project/Service_Test/ConsoleTestPipeApp1/ConsoleTestPipeApp1/Program.cs:16
+[ERROR] FATAL UNHANDLED EXCEPTION: System.IO.IOException: Error on creating
+named pipe: error code -1 at System.IO.Pipes.UnixNamedPipe.EnsureTargetFile
+(System.String name) [0x0001f] in
+/Users/builder/data/lanes/mono-mac-ui-refresh-2-10/2baeee2f/source/bockbuild/profiles/mono-2-10/build-root/mono-2.10.11/_build/mono-2.10.11.git/mcs/class/System.Core/System.IO.Pipes/PipeUnix.cs:131
+at System.IO.Pipes.UnixNamedPipeServer..ctor
+(System.IO.Pipes.NamedPipeServerStream owner, System.String pipeName, Int32
+maxNumberOfServerInstances, PipeTransmissionMode transmissionMode,
+PipeAccessRights rights, PipeOptions options, Int32 inBufferSize, Int32
+outBufferSize, HandleInheritability inheritability) [0x00012] in
+/Users/builder/data/lanes/mono-mac-ui-refresh-2-10/2baeee2f/source/bockbuild/profiles/mono-2-10/build-root/mono-2.10.11/_build/mono-2.10.11.git/mcs/class/System.Core/System.IO.Pipes/PipeUnix.cs:265
+at System.IO.Pipes.NamedPipeServerStream..ctor (System.String pipeName,
+PipeDirection direction, Int32 maxNumberOfServerInstances,
+PipeTransmissionMode transmissionMode, PipeOptions options, Int32
+inBufferSize, Int32 outBufferSize, System.IO.Pipes.PipeSecurity
+pipeSecurity, HandleInheritability inheritability, PipeAccessRights
+additionalAccessRights) [0x0004b] in
+/Users/builder/data/lanes/mono-mac-ui-refresh-2-10/2baeee2f/source/bockbuild/profiles/mono-2-10/build-root/mono-2.10.11/_build/mono-2.10.11.git/mcs/class/System.Core/System.IO.Pipes/NamedPipeServerStream.cs:100
+at System.IO.Pipes.NamedPipeServerStream..ctor (System.String pipeName,
+PipeDirection direction, Int32 maxNumberOfServerInstances,
+PipeTransmissionMode transmissionMode, PipeOptions options, Int32
+inBufferSize, Int32 outBufferSize, System.IO.Pipes.PipeSecurity
+pipeSecurity, HandleInheritability inheritability) [0x00000] in :0 at
+System.IO.Pipes.NamedPipeServerStream..ctor (System.String pipeName,
+PipeDirection direction, Int32 maxNumberOfServerInstances,
+PipeTransmissionMode transmissionMode, PipeOptions options, Int32
+inBufferSize, Int32 outBufferSize, System.IO.Pipes.PipeSecurity
+pipeSecurity) [0x00000] in :0 at System.IO.Pipes.NamedPipeServerStream..ctor
+(System.String pipeName, PipeDirection direction, Int32
+maxNumberOfServerInstances, PipeTransmissionMode transmissionMode,
+PipeOptions options, Int32 inBufferSize, Int32 outBufferSize) [0x00000] in
+:0 at System.IO.Pipes.NamedPipeServerStream..ctor (System.String pipeName,
+PipeDirection direction, Int32 maxNumberOfServerInstances,
+PipeTransmissionMode transmissionMode, PipeOptions options) [0x00000] in :0
+at (wrapper remoting-invoke-with-check)
+System.IO.Pipes.NamedPipeServerStream:.ctor
+(string,System.IO.Pipes.PipeDirection,int,System.IO.Pipes.PipeTransmissionMode,System.IO.Pipes.PipeOptions)
+at ConsoleTestPipeApp1.Program.ListenForPipeServer () [0x00000] in
+/Users/Vadivelu/Project/Service_Test/ConsoleTestPipeApp1/ConsoleTestPipeApp1/Program.cs:21
+at ConsoleTestPipeApp1.Program.Main (System.String[] args) [0x00000] in
+/Users/Vadivelu/Project/Service_Test/ConsoleTestPipeApp1/ConsoleTestPipeApp1/Program.cs:16

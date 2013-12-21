@@ -1,0 +1,37 @@
+/**
+ * HolisticWare colors for reveal.js
+ * 
+ */
+
+.reveal section ul
+ {
+	text-align: left;
+ }
+ 
+ .reveal ul
+ {
+	align: left; 
+	/*
+	display: indent;
+	*/
+ }
+ 
+  .reveal h1
+, .reveal h2
+, .reveal h3 
+{
+	color: #CC00FF;
+}
+
+.reveal a:not(.image) 
+{
+	color: #FF6600;
+}
+.reveal a:not(.image):hover {
+  color: #FF6600;
+  text-shadow: none;
+  border: none; }
+
+.reveal .roll span:after {
+  color: #fff;
+  background: #FF6600; }

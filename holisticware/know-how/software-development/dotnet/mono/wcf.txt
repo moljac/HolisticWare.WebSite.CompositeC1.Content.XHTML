@@ -1,0 +1,35 @@
+wcf
+
+Alright, I think Daniel was right. Port 4530 did work, I just had an extra
+Listen directive on that port which was blocking my own program from
+listening on that port.
+
+Port 943 is not working because I don't know how to run a WCF Service as
+root.
+
+
+
+I need to use a port under 1024. How can I enable root access to my WCF
+service (.dll) ?
+
+
+
+Either execute the process as root (not recommended for a public
+service), or set a firewall forwarding rule from your port <= 1024
+to a port > 1024 where your service is listening at.
+
+You may want to ask an admin about how to achieve this with you
+Linux distro, because it's not Mono's job.
+
+
+
+started exploring the possibilities of MONO WCF again. All's well
+when you test in the browser, fast responses in the required style. However:
+Google Chrome's OPTIONS httpmethod, is nowhere to be seen, and Sencha Touch
+wont continue without an response to it.
+
+I have a IDispatchMessageInspector, that handels the
+("Access-Control-Allow-Origin", "*"); header to be added, that works for GET
+methods.
+
+Does anyone know why OPTIONS method requests don't come through ?

@@ -1,0 +1,430 @@
+http://genehughson.wordpress.com/2011/12/07/so-what-exactly-does-an-arch 
+itect-do/ 
+
+Who exactly is a .NET Architect? 
+
+I was looking at the group name and a question popped up in my mind: 
+What does it mean to be a .NET Architect? Who is this guy? 
+
+The architect who only knows .NET? The architect who only chooses .NET 
+for every project no matter what? An architect with a "golden hammer" 
+who compromises making the same one one decision for every possible 
+project under his authority? The architect who answers not to "how to 
+best solve the problem", but to "how to solve the problem in .NET" 
+question? 
+
+Another question left unasked is what level of architecture does the 
+architect in question deal with 
+(http://genehughson.wordpress.com/2011/12/07/so-what-exactly-does-an-arc 
+hitect-do/)? It's very possible, even desirable, that a software 
+architect specialize in a particular technology stack. For solution 
+architects and those responsible for enterprise IT architecture, then 
+knowledge of other stacks depends on the EITA of the organization - 
+knowledge of .Net/Windows will have little or no relevance in a pure 
+Java on Linux shop and vice versa. It's only a "golden hammer" situation 
+if the person is in a position where they're expected to have expertise 
+across a variety of technologies A very important role of .NET Architect 
+is converting the business requirements into a technical specification 
+further broken down into Class modelling , Design Patterns, Technology 
+Stack, also implementing cutting edge technologies like Cloud ,NoSql to 
+further streamline hardware and software architecture of a company and 
+also improving existing software processes of a company for eg. from 
+Waterfall design to Iterative or Agile model. According to me, 
+Architects are the ones who have big books around their desk! Ideally, 
+he is a person with multiple qualities embedded in him. He contributes 
+to various phases of the product life cycle starting from the initial 
+phase of the product till it goes live. I have seen Architects being 
+involved deeply in coding and maintenance phases as well. So there is no 
+clear line of demarcation between these responsibilities. It is ideally 
+and virtually everything that an architect would love to do. 
+
+am partially agree with you..Architect is not just who work with cutting 
+edge technologies but who can give best solution with 'required' 
+technolgies. There is no need to go for 'cutting edge' always when it 
+can be done by most simplest way and fulfils the requirements. 
+
+You, guys, are discussing the role of the Architect, and I partially 
+agree with you here. But my question was not about "the architect", my 
+question was about ".NET Architect". Why the hell. NET? What does it 
+mean? What if. NET is heat for one part of the system, but Java/Scala is 
+the best choice for another one (perhaps it is really beneficial to use, 
+say, Twitter Storm), and yet another part is best to be done in C++ or 
+even in pure C? In my opinion, and I totally agree with you, the 
+architect should make decisions based on risks, cost and should choose 
+the best tool for a job, not to choose .NET by default because he is a 
+".NET Architect". 
+
+An Application Architect , who defines , describes, decides design 
+principles , architectural styles following any delivery suit , approach 
+, but who would have had underlying technology mainly percolating around 
+Microsoft tools and technologies particularly dot net , in general 
+termed as dot net architect, roles of Solution Arch, Application Arch, 
+Software Arch etc ... etc... remains the same. For e.g. Manifestation 
+happen to be the same , SOCs , SRs etc.. principles remains the same , 
+only difference is underlying technology or tools being used, here its 
+Microsoft mainly dot net. I hope I could explain :) 
+
+@Alexey: For complex systems, involving different technologies, why 
+couldn't we have a team of Software Architects (and/or Designers)? Why 
+could a .Net Architect not collaborate with a Java Architect and design 
+a wonderful system? Maybe a .Net Architect is a Software Architect 
+specialized in Microsoft (not only .Net) Technologies, but also knowing 
+a lot about designing Software Systems. For instance, enterprise design 
+patterns and SOLID principles are not related to any specific 
+technology. It's not bad at all to have the capacity to decide that 
+Dependency Inversion should be used in your system, and then, to decide 
+that NInject is the most suitable solution for your project. These are 
+architectural decisions. I would not be able to find the most suitable 
+Java solution for DI ... I think .NET Architect will be a role below the 
+Architect role. Usually, the hierarchy for technical people goes like 
+this: Developer > Senior Developer > Technical lead > Architect > 
+Solution Architect > Enterprise Architect be it java or .Net or PHP. I 
+think between Technical lead and Architect, there is an intermediate 
+position for .NET Architect. Until the position of Technical Lead, 
+usually a person works with only one technology and he is expected to 
+master almost anything possible in that technology. Next level for him 
+will be .NET Architect. This means that once you define that a project 
+has to be done in .NET, he can suggest the best possible solutions using 
+.NET technology. An Architect will be a person who know different 
+technology implementations and their pros and cons. He can actually 
+suggest which technology has to be used for a particular solution. He 
+may not know coding in all the languages. A Solutions Architect is 
+agnostic of the technology. He never takes technology limitations into 
+consideration when he proposes a solution. Once he suggests a solution, 
+an Architect has to decide which is the best suited technology. I want 
+to write so much :) but i guess it is already too big. So I'll stop 
+here. Please let me know your opinions... 
+
+Hahahah :) I think guys are striking it out of context now . @ Hari Das 
+Kumaran , with all respect to you, felt like commenting that, their is 
+no such hierarchy the way you explained. Architect is a role not 
+designation and when it comes to organizational hierarchy , it is driven 
+by designations , whereas Architect is a role to be played by person 
+(once gained some good experience and one who would have chosen not to 
+be on PPM/Line management role) , now when it comes to Architect group , 
+please don't be confused by these terms. Solution Architect - Mainly 
+involved during transitioning / mobilization & even during pre sales , 
+envisioning etc.. one/few among many day2day work. Whereas Application 
+Architects could be or at some places may not be part of Technology 
+Architectural Group(TAG) mainly holding good enough knowledge on systems 
+along with technologies, now software architect is a term , Application 
+Architect could be Software Architect as well, Anyways App,S/w 
+Architects are the one involved from Inception/Scoping Till end of Build 
+phase , although role is more active during 
+Scoping>>Feasibility(Analysis) >>HLDs where HLDs in vicinity of 
+ARchitect role starts from BPMs and following all possible HL Logical 
+collaborations eds just before LLDs. Now when it comes to understanding 
+Application(Funtionally sometimes) , but Architecturally is the crux of 
+the matter for an App/Sw Architect role. Now without even getting into 
+details of all architectural principles, styles,framework across 
+methodologies and release ability of system , I would like to conclude 
+by saying that please don't undermine this Role of an Architect (whether 
+following .net or java or any other technical area) this all depends 
+upon best suitable per requirements and availability and 
+interchangeability/Integration ability across depends on type of system. 
+I some Architect worked majority of his.her lifetime in some technology 
+then its but natural that he/she will have more ideas exploring around 
+that very skill, so what is so outcy about it . Architect is an 
+Architect by role but being a developer at some point in time he/she 
+would have had bit inclination towards particular skill whether Java or 
+Dotnet , so please consider the fact that if you are an ARchitect 
+(Solution) or Application or etc... then why to feel bad being 
+associated with one technology say dot net or java , if you are smart 
+you will be knowing your job rather than discussing on Why .net 
+architect... its silly...:) 
+
+In simple words, .Net architect is person who provides technology 
+solution to a situation using .Net as a technology. This requires good 
+understanding of what .Net as a technology has to offer and also it's 
+limitations. An Architect is a person who breaks down a problem into 
+smaller problems, provides solution which is appropriate, scalable, cost 
+effective, and latest to possible extent. .Net architect provides 
+solution using .Net which may include using other Microsoft products 
+which easily integrates with .Net 
+
+
+
+
+ For business oriented applications, I like to use the "Domain Model" pattern, which is very robust but does require a big investment at the beginning to carefully analyze the needs of whole system and encapsulate all the business concerns (logic) to keep them separate from underlying structure, data access, presentation, etc. 
+
+For data access, I sometimes use a simplified version of the Repository pattern based on Entity Framework, which takes care of your Data Modeling, persistence and so forth.. 
+
+Once your Business Logic, Entities, Data Access and Service layers are in place, from there you could virtually use any kind of Presentation layer technology, whether is a Windows Forms, MVC, WCF or anything else (console application!).. the important part is that your application is properly layered, testable and maintainable.
+
+
+
+
+
+
+
+Almost all "methodologies" you list have been shown, in my experience, to be justifications for over-design, over-engineering, over-management, and over-planning. The assumptions for all of it has been that you can take your specifications and assume a static universe until you deliver. 
+
+This is not just crazy, it's stupid. 
+
+And I think the assumptions for a Java application are entirely different than for a .NET application. While the syntax and grammar are similar, and they both share a "framework" topology, I think all similarities end there. 
+
+As for architecture, I think this is dependent on the end use, the end-points, the available stack and current expectations. There is no magic decision tree to determine whether the application will fit better in two-tier, three-tier, n-tier, distributed, service-tier, or whatever. I think this is the realm of the designer/architect and of the client. 
+
+Any reliance on pre-planning design patterns before you need them is silly, too. Every good developer/designer should be able to identify a design pattern in the wild by it's tracks. Patterns aren't used because they are popular; they get formalized because the designer/developer recognizes that the current task/requirement fits a known pattern and is already exhibiting the look of the pattern. The "pattern" is evident in the solution whether it is formalized and well-derived. Knowing your patterns and implementation will assist in refactoring once you recognize that the pattern is being used. I think there is a great misunderstanding of this point. Far too many poor implementations have resulted from an assumption that this or that pattern is better for this or that problem and the coder blindly implements it without ever challenging the assumptions or the "feel." 
+
+I think you are asking for wisdom without having demonstrated knowledge.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Every approach is a methodology, even if it's not published, accepted, or mimicked by a following. Of course I use a methodology. Everybody does. You will not coax me, herein, to reveal my true disposition toward the engineering methodologies found so popular amongst the academic. 
+
+Suffice to say that a collaborative approach, where the developers and designers are domain experts in the problem domain, and who work closely with the end-users/clients provides a marvelous methodology. It produces very little impressive paper, though. So it is not often adopted. Impressive paper is not my product. 
+
+It's near impossible to find domain experts in the problem domain who can also code, so the experts tell us not to do it and give us "tools" to bridge our ignorance. I wonder who made them experts. 
+
+As far as deciding the proper topology/design/architecture of a solution just because it is BIG or because it is a LoB application or because it has feathers and chirps is a myth I'll leave to the systems engineers. 
+
+The renowned behaviorist, B.F. Skinner, once noted that the human machine is a system with approximately 5 billion dynamic variables in constant communication. An application, especially at the beginning, is nothing less complex. I think to approach a new application because it is like an old application is to fail in the same way our military fails: they always re-fight the last war until they get their butts kicked and learn to fight this one. 
+
+I'd rather not make that mistake too many times as a designer and architect. 
+
+<opinion warning=alert> 
+To be blunt, I'm saying that the question is flawed and the answers will all be wrong. The only way for any answer to be right for this undefined, preliminary problem is to be lucky or a statistical outlier. 
+</opinion>
+
+
+
+
+
+
+
+
+
+
+
+
+Any how based on "criterion' we have different patterns and methodologies. So it will be better to specify with Cases at least the most used ones. 
+Otherwise I too say like: 
+Just like, every approach is a methodology. Defining the problems and listing the algorithm can clear the path. Normally for the collaborative approach, slice all the big chicks. The architecture sets the level of communications. Now comes the business logic, repository, presentation options and the stakeholders or user levels. With the feasible resources, go for the futuristic track of development..;)
+
+
+
+
+
+ello, depends a little on the final goal. 
+If a solution to run on any hardware or operating system then follows the Java and forgets. Net. 
+
+Otherwise C # will head. 
+
+If you want to clarify a little more tell me. 
+
+
+
+
+• To begin you must decide. 
+Specific or Generic Solution. 
+
+Having in mind the market and most used OS. 
+Having in mind the mobility. 
+
+Regards.
+
+
+
+ Hi Hamid, for very large applications i would go with Service Oriented Architecture using WCF and a thin client to just aggregate information from the various services. Reason is if you design your services well i.e separation of concerns is considered ,you will end up with a system that has very little coupling and domain models that just access the data for their domain . This can help in situations where if you have a database that is logically separated in domain models(if services run on one machine using pipes), you can easily split the tables across to separate databases and just change connection strings configurations in host app.config, plus to split services is easier with WCF all you need is to change configuration files and you move from pipes to tcp or msmq or httpWebbinding it open a whole new world of flexibility and separation of concerns making your software extensible and easily maintable.
+
+ 
+ 
+ Hi Hamid, 
+It's just you might have confused yourself with so many patterns and methodologies available. Please note the following points: 
+
+1. Identify Stakeholders (These are all those users and people contributing or affected by the system development/ usage) 
+2. Understand what is then budget for the project 
+3. Understand time line / time limit to finish the project. 
+4. Have clear scope (You can start with a broad level scope and then break it into more precise form as and when information is available) 
+5. Develop your schedule with resources, time, cost and scope in mind. 
+
+for development follow: 
+1. Presentation layer - Keep your web pages (for web application) / forms for desktop application independent to your business logic. 
+
+2. Business layer - Keep all the business logic here, it will work as an interface between your presentation layer and database/ back end 
+
+3. Database layer - keep all database / back end related activities in this layer. 
+
+This methods is known as there tier architecture and generally very common in application development.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Methodologies are not but SDLC's approach , basically we use to follow Waterfall and Agile methodologies for developing the application. 
+
+Architectures : As I am .net developer so we use n-tire or layered architectures. 
+
+For Develop this architectures we follow Design Patterns. and for represent the system and there component we use OOAD (UML). 
+
+About is basic idea based on my experience and work.
+
+
+
+
+
+There's a great list of development philosophies out there (see link below). In the end, the app must work, the customer must be happy and you must be paid for your efforts. I've accomplished this goal many times, but never with the same philosophy twice because, in the end...your time is money and the client manages both.
+
+http://en.wikipedia.org/wiki/List_of_software_development_philosophies
+
+
+
+
+
+I admit to only having skimmed the comments. However I see lots of talk of methodologies and very little .Net Vs. Java. 
+
+Most things can be done in either language. I even have 1 application I've written that is arguably using both. (It's a Java Based Web Service, being connected to by a VB client.) 
+
+Before deciding on a set of "patterns" I would look a little more at the overall picture. 
+- Is it Web Based, Will it run on a Desktop? 
+- Is it Client/Server? 
+- What OS(es) do you expect it to run on. 
+- Is Windows only Okay? 
+- Are the restrictions that come with supporting Mono acceptable? 
+- Are any of your applications planned features going to be significantly easier in one language over the other? 
+
+If there's no technological reason why it should be in one or the other, then look at the human ones. 
+- What language are you/your team more familiar with? 
+- Is there a language that will produce a more natural UI? 
+- How well Documented are the frameworks/framework features you plan to use? 
+- Is there a help/support community? 
+
+As far as "Design Patterns go", usually I just build/refactor systems according to what makes sense in my head. However, If I'm stumped and not sure the best way to design something Or if I'm creating something to be shared across a network (e.g.: .Net Remoting or Web Services) I will look up established patterns and practices and do some research to see which feels like the best fit for whatever it is I'm trying to accomplish. 
+
+I do a lot of Java Web Based Application Programming. For those I do follow a basic 2/3 tier architecture. (Currently some of my applications omit Spring) 
+1. Web Framework(Wicket) 
+2. Service (Spring, it wires up my Data Access Objects and handles session management) 
+3. Data (Hibernate, connects to my Data) 
+
+So when I say I just "Do what makes sense in my head". I should probably clarify that I'm talking about stuff like what code goes in what class, how the classes should be arranged, etc. Also I should probably specify that I'm the only programmer on my projects.
+
+When comes to "Domain Experts." I use them as consultants when I have a question about edge cases or specific features should function. I also use them as QA testers when the project is near completion.
+
+
+
+
+
+
+
+
+
+
+
+
+
+small or medial project---3 tiers. 
+big project--7 tiers. for example: switch different databases. 
+team project: MVC 
+Large large project: sharepoint. lol
+
+
+
+
+
+
+
+
+ I give up. Will someone tell me what the methodology is for deciding on when to or not to capitalize a word ? My Chinese wife thinks that it is some form of western culture randomization ... and I have tried to explain that experts like us capitalize a word like "Stakeholder" as a mark of reverence or respect. She is not 100% satisfied with this answer ... and I must confess that I made it up. 
+
+What are the rules ? I have seldom been so dazzled by capital letters as I am here.
+
+
+
+
+
+
+my answer is that I concentrate on the data. I write down ... "this data <<describe it >> is created, altered, and deleted in this fashion << describe how >> by the described mixture of users and system functions". If the database administrator cannot make sense of it, then I separate his bit out and hand it to him with a pitying look. If the screen designer cannot figure out what the screenery is to look like, I say "well we are totally stuffed or we need a new designer". The developer then has his database and screenery ... so pick up the specification go to it, old son. 
+
+Data is God (capitalized as a mark of respect) in my world. In my world, everything begins and ends with the data. I understand and begrudgingly respect those who start with activities - typically called "use cases" but 1) that is a perversion of English and 2) there are a dozen other terms available - and from a monstrous collection of "things that users do" the data and the procedures can be cobbled together. I don't decry it ... just that it is not my way. 
+
+For what it is worth, Hamid, I have had quite a run of successes doing it my way. 
+It is worth considering as you ponder the responses to your question. 
+
+BTW ... my way is independent of largeness or smallness.
+
+
+
+
+
+
+
+
+
+
+
+
+The design pattern will differ based on the domain .NET or Java are all same if you plan about to provide the solution as a web based one. If all mobile based solution is planned then web is the default solution for that. Java based mobile solutions can be used in the all the mobiles whichever supports the java. Water fall SDLC can be followed if the requirement is fixed or Agile methodology can be followed for the frequently changing requests. 
+If the application is going to interact with different technologies then service based solution will be helpful and can be used to integrate with UI based solutions.
+
+
+
+
+
+
+
+
+
+ I haven't read through all the comments, but I am sure there is fantastic advice here. My personal experience leads me to say, "If you are asking this question, go get a mentor". 
+
+Here's why. You can find some advice here that resonates with you - that you think meets your needs, that follows the way you think. You will do you best to follow that advice, or sets of advice, and you may even be proud of the result. 18 months later you will wonder what you were smoking ... 
+
+In my personal experience it is easy to go read about design patterns and principles - it is another thing altogether to have the experience required to implement them in a pragmatic way on your project. I spent a lot of time wheels spinning, second guessing myself, coming up with what I thought were excellent solutions - and it was crap. It took a long time for me to build enough experience where I can feel very comfortable with the questions I need to ask. 
+
+Most of my learning curve could have been greatly decreased by finding a mentor. Not just someone that says. "Do-Dont use a singleton pattern" - but someone that works on the project with you so that it isn't a hard and fast rule, but an analysis of what you are trying to do, and how a given pattern can hurt or help you reach your goals. 
+
+I realize this doesn't answer your specific question - but I hope it helps just the same.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+We prefer to use DDD. It is easier to understand a business by looking at code and the other way round. We understand the process, for which we are coding, thoroughly (pretty common, eh) and translate important domains mimicking the information on http://msdn.microsoft.com/en-us/magazine/dd419654.aspx for the most part, and stay aware about some gotchas such as the ones described http://agile.dzone.com/news/biggest-mistakes-teams-make.
+
+If we have to work with other teams and if they follow TDD or other methodology, we attempt not to change their methods. It is perfectly okay to have different, large teams follow the methods they prefer as long as the code can come together seamlessly.
+
+We like a hybrid Agile. In cases where we know our client will have several changes after development begins, we reduce the 'agility' of development even when we do Agile. The allows us to just say No to a highly diversified request in the project, essentially leaning more towards Waterfall: these are the specs and that's where the product is heading. In most cases, Agile works wonderfully well as it allows us to realize and discover valid changes that make the software more functional.
+
+We like to have tiers. It is easy to maintain and gives us the opportunity to have consultants or other teams of developers work on just one tier. Data access layer gives us a good start. We build a service layer to serve important validations that can act as helpers to AJAXy code as well as server side validation. For assemblies that need to talk to external entities such as FedEx, Currency Controllers etc., we add a tier that just manages interactions with external systems. It helps in analyzing and controlling security parameters.
+
+Diagramming and documentation is so vital and we have a lot of work to do on that side. Ideally, we would have ER and UML. This not only helps in development but it also helps build confidence in PMs, CxOs that we have done decent planning before coding beings. I like to build database objects first and don't rely on Visual Studio to build database objects. This allows database designers to optimize data store, build appropriate objects (SPs, UDFs, Triggers etc.) and run them through dummy data to evaluate performance. In parallel, application developers can build objects to interact with database, logs, etc.
+
+Often times development managers cringe when teams pitch the technologies that they want to use. I feel it is okay to have moderate diversification in technologies. If web services to interact with external agencies use Java and the rest of the application is .NET, that's fine as long as there is a practical justification and there's a plan to maintain diversity.
+
+Although this question can allow for days of discussion, above are some of the things I keep in mind when working on large projects.

@@ -1,0 +1,30 @@
+ it is possible to get an activation code by emailing
+support@xamarin.com and/or betai@xamarin.com and asking for it. I am going
+to try that.
+
+I'm still curious about the future plans for Mono Tools though, I hope the
+project/product isn't being killed.
+
+That worked for me - I got an activation code.  I also sent them follow-up
+email about the registration form not working and such.  Maybe they can't
+or won't do anything about it, but at least they've been notified...  So we
+can hope for the best...
+
+
+
+As for the future plans of Mono Tools, Xamarin owns the product but
+quit selling it in July 2011. We currently use the Visual Studio add-in
+as the basis for our Mono for Android Visual Studio Add-in, and plan
+to offer similar platform-specific add-ins for targeting iOS and OS X.
+We do not currently offer any products for targeting Linux (servers or
+embedded devices); however, we have been making the tools freely
+available for developers that found them useful.
+
+2012-11
+
+We're not offering Mono Tools for Visual Studio for sale at this time,
+while we reconfigure the offerings to try to make the tools more useful for
+the kinds of scenarios we're capable of supporting. (For instance, we'll
+likely introduce better support for Mac development in an upcoming
+release). Upcoming product offerings will be made available via
+Xamarin.com, and the mono-tools.com will be deprecated in favor of that.

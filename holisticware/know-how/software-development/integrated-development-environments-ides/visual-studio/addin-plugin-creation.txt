@@ -1,0 +1,739 @@
+AddIn PlugIn creation
+
+http://msdn.microsoft.com/en-us/library/90855k9f%28VS.80%29.aspx
+http://weblogs.asp.net/infinitiesloop/archive/2010/05/18/vsnewfile-a-visual-studio-addin-to-more-easily-add-new-items-to-a-project.aspx
+http://github.com/InfinitiesLoop/VSNewFile/downloads
+
+http://msdn.microsoft.com/en-us/library/ff687173
+http://msdn.microsoft.com/en-us/vstudio/ff718165.aspx
+
+http://www.codeproject.com/Articles/42873/Introduction-to-the-Visual-Studio-Extensions-serie
+http://www.codeproject.com/Articles/42876/Boosting-Developer-Productivity-by-Writing-Extensi
+
+http://blogs.msdn.com/b/vsxue/
+http://davedewinter.com/2008/03/14/dynamic-menu-commands-in-visual-studio-packages-part-1/
+
+
+Shell Context Menu
+
+	http://visualstudiogallery.msdn.microsoft.com/5142e8de-6990-4189-afa3-85bdc5ffbb30
+	
+	http://dotneteers.net/blogs/divedeeper/archive/2010/03/02/VisualStudioPackages.aspx
+	
+ant to add a new option in Visual Studio 2010's solution explorer's context menu for 
+a specific file type. So for example, right clicking on a *.cs file will show the existing 
+context menu plus "my new option".
+
+I'm wondering what the code would look like; and would love a pointer to a good 
+reference for developing visual studio plug-ins. The tutorials/references I'm seeing 
+are conspicuously horrid.
+
+Other project Types +/ Extensibility +/ 
+	Visual Studio Add-in
+	Shared Add-in (Office Add-in
+
+	c#, VB.net, mc++, native c++ (ATL)
+	
+options
+	command bar UI
+	loading when application starts
+	usage in comman line tools builds - no modal dialogs
+	
+	
+	in public void Exec!!
+	
+	if
+	(
+		_applicationObject.ACtiveDocument != null
+		&&
+		_applicationObject.ACtiveDocument.Type != "Text"
+	)
+	{
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+It took me about 5 hours to do this.
+
+There are 2 options, Visual studio Add-in (or shared Add-in) vs Visual studio package.
+
+The package is far more complicated to give you far more control, but for a context menu on the solution explorer it is not needed.
+
+So new project-> Other Project Types -> Extensibility -> Visual Studio Add-in.
+
+Here's a walk-through - Link
+
+Also This one I followed some - Link
+
+I recommend you leave on the option for add to tools menu until you have the context menu working, or to provide a place to put a settings dialog (if you don't write a Tool-> options page.
+
+Here's the connection code:
+
+ _applicationObject = (DTE2)application;
+        _addInInstance = (AddIn)addInInst;
+        if (connectMode == ext_ConnectMode.ext_cm_UISetup)
+        {
+            object[] contextGUIDS = new object[] { };
+            Commands2 commands = (Commands2)_applicationObject.Commands;
+            string toolsMenuName = "Tools";
+
+            //Place the command on the tools menu.
+            //Find the MenuBar command bar, which is the top-level command bar holding all the main menu items:
+            Microsoft.VisualStudio.CommandBars.CommandBar menuBarCommandBar = ((Microsoft.VisualStudio.CommandBars.CommandBars)_applicationObject.CommandBars)["MenuBar"];
+
+            //Find the Tools command bar on the MenuBar command bar:
+            CommandBarControl toolsControl = menuBarCommandBar.Controls[toolsMenuName];
+            CommandBarPopup toolsPopup = (CommandBarPopup)toolsControl;
+            // get popUp command bars where commands will be registered.
+            CommandBars cmdBars = (CommandBars)(_applicationObject.CommandBars);
+            CommandBar vsBarItem = cmdBars["Item"]; //the pop up for clicking a project Item
+            CommandBar vsBarWebItem = cmdBars["Web Item"];
+            CommandBar vsBarMultiItem = cmdBars["Cross Project Multi Item"];
+            CommandBar vsBarFolder = cmdBars["Folder"];
+            CommandBar vsBarWebFolder = cmdBars["Web Folder"];
+            CommandBar vsBarProject = cmdBars["Project"]; //the popUpMenu for right clicking a project
+            CommandBar vsBarProjectNode = cmdBars["Project Node"];
+
+            //This try/catch block can be duplicated if you wish to add multiple commands to be handled by your Add-in,
+            //  just make sure you also update the QueryStatus/Exec method to include the new command names.
+            try
+            {
+                //Add a command to the Commands collection:
+                Command command = commands.AddNamedCommand2(_addInInstance, "HintPaths", "HintPaths", "Executes the command for HintPaths", true, 59, ref contextGUIDS, (int)vsCommandStatus.vsCommandStatusSupported + (int)vsCommandStatus.vsCommandStatusEnabled, (int)vsCommandStyle.vsCommandStylePictAndText, vsCommandControlType.vsCommandControlTypeButton);
+
+                //Add a control for the command to the tools menu:
+                if ((command != null) && (toolsPopup != null))
+                {
+                    //command.AddControl(toolsPopup.CommandBar, 1);
+                    command.AddControl(vsBarProject); 
+                }
+            }
+            catch (System.ArgumentException argEx)
+            {
+                System.Diagnostics.Debug.Write("Exception in HintPaths:" + argEx.ToString());
+                //If we are here, then the exception is probably because a command with that name
+                //  already exists. If so there is no need to recreate the command and we can 
+                //  safely ignore the exception.
+            }
+        }
+    }
+	
+	
+This code checks to see if what the user has selected is a project for instance:
+
+  private Project GetProject()
+    {
+        if (_applicationObject.Solution == null || _applicationObject.Solution.Projects == null || _applicationObject.Solution.Projects.Count < 1)
+            return null;
+        if (_applicationObject.SelectedItems.Count == 1 && _applicationObject.SelectedItems.Item(1).Project != null)
+            return _applicationObject.SelectedItems.Item(1).Project;
+        return null;
+    }
+
+Note that certain string names in your code have to match up and I'm not sure which ones they are quite yet as I just did this yesterday
+
+And this ref seemed to have code that is pretty close to your Connection Code example. It helped me when I was looking at your example, msdn.microsoft.com/en-us/library/90855k9f%28VS.80%29.aspx 
+
+	
+
+
+	
+	
+und that the best way to go was to make a Visual Studio Package instead of an Visual Studio Add-in. The vsix deployment experience is so slick - the whole thing was a really easy experience. It only supports Visual Studio 2010, but that was good enough in my case.
+
+<Commands package="guidBingfooPluginPkg">
+    <Groups>
+      <Group guid="guidBingfooPluginCmdSet" id="MyMenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE"/>
+      </Group>
+    </Groups>
+
+    <Buttons>
+      <Button guid="guidBingfooPluginCmdSet" id="cmdidfooLocalBox" priority="0x0100" type="Button">
+        <Parent guid="guidBingfooPluginCmdSet" id="MyMenuGroup" />
+        <!-- <Icon guid="guidImages" id="bmpPic1" /> -->
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <CommandName>cmdidfooLocalBox</CommandName>
+          <ButtonText>View in foo</ButtonText>
+        </Strings>
+      </Button>
+
+      <Button guid="guidBingfooPluginCmdSet" id="cmdidfooTestBed" priority="0x0100" type="Button">
+        <Parent guid="guidBingfooPluginCmdSet" id="MyMenuGroup" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <CommandName>cmdidfooTestBed</CommandName>
+          <ButtonText>View in foo on Test Beds</ButtonText>
+        </Strings>
+      </Button>
+
+    </Buttons>
+
+    <Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\Images_32bit.bmp" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows"/>
+    </Bitmaps>
+  </Commands>
+
+  <Symbols>
+    <GuidSymbol name="guidBingfooPluginPkg" value="{62c4a13c-cc61-44a0-9e47-33111bd323ce}" />
+
+    <GuidSymbol name="guidBingfooPluginCmdSet" value="{59166210-d88c-4259-9809-418bc332b0ab}">
+      <IDSymbol name="MyMenuGroup" value="0x1020" />
+      <IDSymbol name="cmdidfooLocalBox" value="0x0100" />
+      <IDSymbol name="cmdidfooTestBed" value="0x0101" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidImages" value="{2dff8307-a49a-4951-a236-82e047385960}" >
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
+
+
+
+
+
+
+
+
+
+
+
+
+
+This is similar to the following question: Visual Studio 2010 Plug-in - Adding a context-menu 
+to the Solution Explorer, however my query is how to add the item to the context menu item to
+the code editor window for JavaScript files.
+
+I am attempting to add the context menu in with a Visual studio Add-in project (not a Visual 
+studio package).
+
+The code from the above link has been supremely helpful. To summarise, to add an item to the 
+context menu of the Solution Explorer and Project explorer, we do so first by retrieving the 
+items themselves:
+
+CommandBars cmdBars = (CommandBars)(_applicationObject.CommandBars);
+CommandBar vsBarProject = cmdBars["Project"];
+CommandBar vsBarSolution = cmdBars["Solution"];
+And later on, adding them adding them in by augmenting the readily available project template 
+code:
+
+command.AddControl(vsBarProject);
+command.AddControl(vsBarSolution);
+Now my query is regarding which of the cmdBars elements I have to add the command to, in 
+order for my item to appear on the context menu for editing script files
+
+I have already established its not cmdBars["Code Window"]. Is there one item for all files, 
+or do I have to add it for each editor type (e.g. ASPX, Script, HTML, etc)?
+
+
+
+
+
+
+
+
+
+This is the complete list of names and indices. Maybe this can help someone.
+
+Index: 1 Menu Bar
+Index: 2 Standard
+Index: 3 Build
+Index: 4 Class View Multi-select Project references Items
+Index: 5 Class View Multi-select Project references members
+Index: 6 Context Menus
+Index: 7 &Sort By
+Index: 8 Show &Columns
+Index: 9 Project
+Index: 10 Error List
+Index: 11 Docked Window
+Index: 12 Menu Designer
+Index: 13 Properties Window
+Index: 14 Toolbox
+Index: 15 Code Window
+Index: 16 Task List
+Index: 17 Results List
+Index: 18 Stub Project
+Index: 19 Solution
+Index: 20 Solution Folder
+Index: 21 Cross Project Solution Project
+Index: 22 Cross Project Solution Item
+Index: 23 Cross Project Project Item
+Index: 24 Cross Project Multi Project
+Index: 25 Cross Project Multi Item
+Index: 26 No Commands Available
+Index: 27 Misc Files Project
+Index: 28 Cross Project Multi Solution Folder
+Index: 29 Cross Project Multi Project/Folder
+Index: 30 Command Window
+Index: 31 AutoHidden Windows
+Index: 32 Expansion Manager
+Index: 33 Find Regular Expression Builder
+Index: 34 Replace Regular Expression Builder
+Index: 35 Wild Card Expression Builder
+Index: 36 Wild Card Expression Builder
+Index: 37 External Tools Arguments
+Index: 38 External Tools Directories
+Index: 39 Easy MDI Tool Window
+Index: 40 Easy MDI Document Window
+Index: 41 Easy MDI Dragging
+Index: 42 Open Drop Down
+Index: 43 Item
+Index: 44 Folder
+Index: 45 Class View Project
+Index: 46 Class View Item
+Index: 47 Class View Folder
+Index: 48 Class View Grouping Folder
+Index: 49 Class View Multi-select
+Index: 50 Class View Multi-select members
+Index: 51 Class View Member
+Index: 52 Class View Grouping Members
+Index: 53 Class View Project References Folder
+Index: 54 Class View Project Reference
+Index: 55 Class View Project Reference Item
+Index: 56 Class View Project Reference Member
+Index: 57 Object Browser Objects Pane
+Index: 58 Object Browser Members Pane
+Index: 59 Object Browser Description Pane
+Index: 60 Find Symbol
+Index: 61 Reference Root
+Index: 62 Reference Item
+Index: 63 Web Reference Folder
+Index: 64 App Designer Folder
+Index: 65 Drag and Drop
+Index: 66 Web Project Folder
+Index: 67 Web Folder
+Index: 68 Web Item
+Index: 69 Bookmark Window
+Index: 70 Web SubWeb
+Index: 71 Error Correction
+Index: 72 Other Context Menus
+Index: 73 Class View Context Menus
+Index: 74 Project and Solution Context Menus
+Index: 75 Editor Context Menus
+Index: 76 EzMDI Files
+Index: 77 Ca&ll Browser
+Index: 78 Preview Changes
+Index: 79 Team Project
+Index: 80 Team Project &Settings
+Index: 81 &Team Project Collection Settings
+Index: 82 Toolbar List
+Index: 83 Undefined
+Index: 84 SchemaExplorer
+Index: 85 ContentModelView
+Index: 86 GraphView
+Index: 87 FilmstripView
+Index: 88 Test Results Context Menu
+Index: 89 Test List Editor Context Menu
+Index: 90 Test List Context Menu
+Index: 91 Test Run Context Menu
+Index: 92 View Context Menu
+Index: 93 Code Coverage Results Context Menu
+Index: 94 Cr&eate Private Accessor
+Index: 95 Test Results Context Menu
+Index: 96 Test Tools
+Index: 97 Selection
+Index: 98 &Zoom
+Index: 99 Page Layout
+Index: 100 Designer Actions
+Index: 101 &Navigation Tools
+Index: 102 Workflow
+Index: 103 Directed Graph
+Index: 104 Directed Graph Context Menu
+Index: 105 &Group
+Index: 106 &Categorize
+Index: 107 &Selection
+Index: 108 Architecture Explorer Context Menu
+Index: 109 &Generate Dependency Graph
+Index: 110 A&nalyzers
+Index: 111 &Goto
+Index: 112 Architecture Designers
+Index: 113 XAML Editor
+Index: 114 Checkin Dialog Context Menu
+Index: 115 Pending Checkin Window Context Menu
+Index: 116 Standard TreeGrid context menu
+Index: 117 GetVersion Dialog Context Menu
+Index: 118 Check Out Dialog Context Menu
+Index: 119 Source Control
+Index: 120 Text Editor
+Index: 121 Formatting
+Index: 122 Context
+Index: 123 Context
+Index: 124 Basic Context
+Index: 125 HTML Context
+Index: 126 Script Context
+Index: 127 ASPX Context
+Index: 128 ASPX Code Context
+Index: 129 ASPX VB Code Context
+Index: 130 ASMX Code Context
+Index: 131 ASMX VB Code Context
+Index: 132 ASAX Context
+Index: 133 ASAX Code Context
+Index: 134 ASAX VB Code Context
+Index: 135 Context
+Index: 136 Context
+Index: 137 HTML Source Editing
+Index: 138 XML Editor
+Index: 139 Debugger Context Menus
+Index: 140 Step Into Speci&fic
+Index: 141 Debug Location
+Index: 142 Debug
+Index: 143 Watch Window
+Index: 144 Locals Window
+Index: 145 Autos Window
+Index: 146 Threads Window
+Index: 147 Call Stack Window
+Index: 148 Disassembly Window
+Index: 149 Breakpoints Window
+Index: 150 Memory Window
+Index: 151 Registers Window
+Index: 152 Modules Window
+Index: 153 Data Tip Window
+Index: 154 Processes Window
+Index: 155 Breakpoint
+Index: 156 Output Window
+Index: 157 Script Project
+Index: 158 Thread Tip Window
+Index: 159 Thread IP Marker
+Index: 160 Thread IP Markers
+Index: 161 Load Symbols From
+Index: 162 Symbol Include List
+Index: 163 Symbol Exclude List
+Index: 164 TocContext
+Index: 165 ResListContext
+Index: 166 Change &View
+Index: 167 Static Node
+Index: 168 Object Node
+Index: 169 Multiple Static Nodes
+Index: 170 Multiple Homogenous Object Nodes
+Index: 171 Multiple Heterogenous Object Nodes
+Index: 172 Multiple Heterogenous Nodes
+Index: 173 Add &New
+Index: 174 Data Design
+Index: 175 Surface
+Index: 176 DataSourceContext
+Index: 177 DbTableContext
+Index: 178 DataTableContext
+Index: 179 RelationContext
+Index: 180 FunctionContext
+Index: 181 ColumnContext
+Index: 182 QueryContext
+Index: 183 DataAccessorContext
+Index: 184 Server Explorer
+Index: 185 Query Designer
+Index: 186 Query Diagram Pane
+Index: 187 Query Diagram Table
+Index: 188 Query Diagram Table Column
+Index: 189 Query Diagram Join Line
+Index: 190 Query Diagram Multi-select
+Index: 191 Query Grid Pane
+Index: 192 Query SQL Pane
+Index: 193 Query Results Pane
+Index: 194 View Designer
+Index: 195 Database Diagram
+Index: 196 Database Designer
+Index: 197 Database Designer Table
+Index: 198 Database Designer Relationship
+Index: 199 Text Annotation
+Index: 200 Table Designer
+Index: 201 Database Project
+Index: 202 DB Project Connection
+Index: 203 DB Project Folder
+Index: 204 Database References Folder
+Index: 205 Folders
+Index: 206 DB Project File
+Index: 207 Query
+Index: 208 Script
+Index: 209 Database Reference Node
+Index: 210 Files
+Index: 211 Multi-select
+Index: 212 PropertyBrowser
+Index: 213 Selection
+Index: 214 Container
+Index: 215 TraySelection
+Index: 216 Document Outline
+Index: 217 Component Tray
+Index: 218 Layout
+Index: 219 Editor
+Index: 220 Script Outline
+Index: 221 Web Browser
+Index: 222 DefaultContext
+Index: 223 ImageContext
+Index: 224 SelectionContext
+Index: 225 AnchorContext
+Index: 226 Debugger Project Context Menu
+Index: 227 DataTips Context
+Index: 228 Watch Item Context
+Index: 229 Text Box Context
+Index: 230 Call Hierarchy Context Menu
+Index: 231 Parallel Tasks Window Context Menu
+Index: 232 Tasks List Column Header Context Menu
+Index: 233 Stacks Window Context Menu
+Index: 234 Switch To Frame
+Index: 235 Control
+Index: 236 Report
+Index: 237 Report Formatting
+Index: 238 Row/Column
+Index: 239 Cell
+Index: 240 Field Chooser
+Index: 241 Report Borders
+Index: 242 Row/Column
+Index: 243 Chart
+Index: 244 Report
+Index: 245 &Registry
+Index: 246 &New
+Index: 247 &File System
+Index: 248 &File System
+Index: 249 &Add
+Index: 250 &View
+Index: 251 &Add Special Folder
+Index: 252 &File Types
+Index: 253 &User Interface
+Index: 254 &Launch Conditions
+Index: 255 &Custom Actions
+Index: 256 Project Node
+Index: 257 E&ditor
+Index: 258 A&dd
+Index: 259 Cab Project Node
+Index: 260 A&dd
+Index: 261 Vie&w
+Index: 262 File nodes
+Index: 263 Dep. file nodes
+Index: 264 Assembly nodes
+Index: 265 Dep. assembly nodes
+Index: 266 MSM nodes
+Index: 267 Dep. MSM nodes
+Index: 268 Output nodes
+Index: 269 Simple file nodes
+Index: 270 Simple output nodes
+Index: 271 Dependency node
+Index: 272 Multiple selections
+Index: 273 Dep. Multiple selections
+Index: 274 CSSDocOutline
+Index: 275 CSSSource
+Index: 276 Style Sheet
+Index: 277 Dialog Editor
+Index: 278 Resource View
+Index: 279 Resource Editors
+Index: 280 Resource Dialog Editors
+Index: 281 Image Editor
+Index: 282 Ribbon Editor
+Index: 283 Resource Ribbon Editors
+Index: 284 Binary Editor
+Index: 285 ORDesigner Context
+Index: 286 ORDesigner Context
+Index: 287 ORDesigner Context
+Index: 288 Propertysheet
+Index: 289 Configuration
+Index: 290 Project
+Index: 291 Multi-Select
+Index: 292 System Propertysheet
+Index: 293 Exe Project
+Index: 294 Debug
+Index: 295 &Refactor
+Index: 296 Smart Tag
+Index: 297 Re&solve
+Index: 298 &Implement Interface
+Index: 299 &Organize Usings
+Index: 300 G&enerate
+Index: 301 References
+Index: 302 Web Platform Installer
+Index: 303 Web One Click Publish
+Index: 304 Channels
+Index: 305 Call Stack Report
+Index: 306 Process Tree
+Index: 307 Selection Panel
+Index: 308 Binaries
+Index: 309 Binary
+Index: 310 Reports
+Index: 311 Report
+Index: 312 Session
+Index: 313 Binary
+Index: 314 Test Project
+Index: 315 Create Work Item
+Index: 316 Test Project
+Index: 317 Marks
+Index: 318 Summary
+Index: 319 Module
+Index: 320 Function
+Index: 321 Butterfly
+Index: 322 Calltree
+Index: 323 Type
+Index: 324 Lifetime
+Index: 325 ProcessThreads
+Index: 326 Views
+Index: 327 Query
+Index: 328 QueryControl
+Index: 329 Line
+Index: 330 IP
+Index: 331 Marks
+Index: 332 Diff
+Index: 333 Contention
+Index: 334 CounterChart
+Index: 335 Boundary
+Index: 336 IntelliTrace
+Index: 337 Content Pane Context Menu
+Index: 338 Context Pane Context Menu
+Index: 339 Code Metrics Context Menu
+Index: 340 Test Context
+Index: 341 Code Change Context
+Index: 342 Team Explorer - Builds
+Index: 343 Team Explorer - Build Definition
+Index: 344 Team Explorer - All Build Definitions
+Index: 345 Build Explorer
+Index: 346 &Sort By
+Index: 347 Set Priorit&y
+Index: 348 Build Queue Explorer
+Index: 349 Team Explorer Multiple Items
+Index: 350 Team Foundation Context Menus
+Index: 351 Team Foundation Server
+Index: 352 My Favorites
+Index: 353 My Favorites Folder
+Index: 354 Favorite
+Index: 355 Documents
+Index: 356 Documents Folder
+Index: 357 Document File
+Index: 358 Reports
+Index: 359 Report
+Index: 360 Report Folder
+Index: 361 Source Control Explorer
+Index: 362 Source Control Explorer Command Holder
+Index: 363 Pending Changes Command Holder
+Index: 364 Source Control Pending Changes Source Files
+Index: 365 Compare
+Index: 366 Source Control Pending Changes Work Items
+Index: 367 Source Control Pending Changes Policy Warnings
+Index: 368 Source Control History Changesets
+Index: 369 Source Control History Labels
+Index: 370 Annotate
+Index: 371 Annotate
+Index: 372 S&ource Control
+Index: 373 Folder Difference
+Index: 374 ConfigureUserTools
+Index: 375 Online
+Index: 376 Compare
+Index: 377 Source Control Pending Changes Conflicts
+Index: 378 Compare
+Index: 379 Branch Visualizer
+Index: 380 &Branching and Merging
+Index: 381 Hierarchy Visualizer
+Index: 382 Label
+Index: 383 Branch Visualizer Command Holder
+Index: 384 &Branching and Merging
+Index: 385 Mappings
+Index: 386 Checkin Dialog Context Menu
+Index: 387 Pending Checkin Window Context Menu
+Index: 388 Standard TreeGrid context menu
+Index: 389 GetVersion Dialog Context Menu
+Index: 390 Check Out Dialog Context Menu
+Index: 391 Source Control - Team Foundation
+Index: 392 Work Item Tracking
+Index: 393 Work Items
+Index: 394 Query Folder
+Index: 395 Query
+Index: 396 Query Builder
+Index: 397 Results List
+Index: 398 Work Item
+Index: 399 Links Control
+Index: 400 Results List Column Sort
+Index: 401 New Work &Item
+Index: 402 &Clauses
+Index: 403 New Work Item
+Index: 404 Lin&ks
+Index: 405 Attac&hments
+Index: 406 E&xpand/Collapse
+Index: 407 Recorder
+Index: 408 Macro
+Index: 409 Module
+Index: 410 Project
+Index: 411 Root
+Index: 412 SequenceDesigner Context
+Index: 413 UseCaseModel Context
+Index: 414 SmartTag
+Index: 415 LogicalClassDesigner Context
+Index: 416 ActivityDesigner Context
+Index: 417 SmartTag
+Index: 418 ComponentDesigner Context
+Index: 419 LayerDesigner Context
+Index: 420 Layer Explorer Context Menu
+Index: 421 Model Explorer Context Menu
+Index: 422 Data Sources
+Index: 423 Managed Resources Editor Context Menu
+Index: 424 Settings Designer
+Index: 425 My Extensibility
+Index: 426 Discover Service References
+Index: 427 ClassDesignerContextMenu
+Index: 428 ClassDiagramContextMenu
+Index: 429 Class Designer
+Index: 430 ClassDetailsContextMenu
+Index: 431 &Generate Code for Coded UI Test
+Index: 432 Load Test Editor Context Menu
+Index: 433 Web Test Editor Context Menu
+Index: 434 Run Test
+Index: 435 Load Test Monitor Context Menu
+Index: 436 Web Test Result Context Menu
+Index: 437 Test Steps Context Menu
+Index: 438 Test Parameters Context Menu
+Index: 439 Test Data Context Menu
+Index: 440 MicrosoftDataEntityDesign Context
+Index: 441 MicrosoftDataEntityDesign Context
+Index: 442 Web Deploy Project
+Index: 443 &AnkhSVN Context Menus
+Index: 444 Repository Explorer
+Index: 445 Working Copy Explorer
+Index: 446 &Pending Commits
+Index: 447 Pending Commits &Header
+Index: 448 Log Message Editor
+Index: 449 Log Viewer List
+Index: 450 Log Viewer Changed Paths
+Index: 451 Listview Header
+Index: 452 Annotate Context Menu
+Index: 453 Source Control - Subversion
+Index: 454 SqlEditorContextMenu
+Index: 455 SqlEditorResultsContextMenu
+Index: 456 SqlDebuggerContextMenu
+
+
+
+
+The context menu associated specifically with editing of Script files (and by association, JavaScript files) is cmdBars["Script Context"]
+
+In order to find this, I added the new menu item to all (465) menu controls in visual studio with the following loop
+
+foreach (CommandBar cc in cmdBars)
+{
+    if (cc.Index >= 1 && cc.Index <= 465)
+    {
+        command.AddControl(cmdBars[cc.NameLocal]);
+    }
+}
+I then narrowed this using a divide and conquer technique by adjusting the bounds of the loop:
+
+    if (cc.Index >= 1 && cc.Index <= 256)
+    ...
+    if (cc.Index >= 1 && cc.Index <= 128)
+    ...
+    if (cc.Index >= 64 && cc.Index <= 128)
+    ...etc...
+
+

@@ -1,0 +1,14 @@
+.NET has got a few frameworks you can use. ASP.NET WebForms is an older
+framework and it's somewhat similar to JavaServer Pages (JSP) and
+JavaServer Faces (JSF). ASP.NET MVC is a newer framework that's somewhat
+similar to MVC frameworks like Django or many of the PHP MVC frameworks
+(like CodeIgniter, Kohana and FuelPHP). There's also third party frameworks
+like ServiceStack <http://www.servicestack.net/mvc-powerpack/> that you can
+use instead. I personally prefer ASP.NET MVC but some users prefer WebForms
+instead. ASP.NET MVC is very clean and it's pretty easy to get started,
+especially if you have experience with other MVC frameworks.
+
+Mono 3.0 supports ASP.NET MVC 3 and MVC 4 "out-of-the-box" so you shouldn't
+have much trouble getting it running on Mono. Mono has its own web server
+called XSP, but most production environments would use either the Apache
+module (mod_mono) or the Mono FastCGI. On Windows, you'd use IIS.

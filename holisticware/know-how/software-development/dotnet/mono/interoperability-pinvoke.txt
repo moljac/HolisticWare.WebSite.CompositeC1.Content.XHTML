@@ -1,0 +1,125 @@
+> Is there a way to tell mono to look somewhere else for libc.so?
+
+Yes: an .exe.config with a <dllmap/>:
+
+	http://mono-project.com/DllMap
+
+However, this really shouldn't be necessary; mono includes a default dllmap in 
+$prefix/etc/mono/config which _should_ contain an appropriate remapping, e.g. 
+on OS X:
+
+	  <dllmap dll="libc" target="libc.dylib" os="!windows"/>                        
+
+However, for that to work you need to use the same value in your [DllImport], e.g. 
+from mono/mcs/class/corlib/Linux/Linux.cs:
+
+	[DllImport("libc", EntryPoint="getpid")]
+	private unsafe static extern int _getPid(); 
+
+What library are you using in your [DllImport]'s? Could you try using "libc" 
+and see if that fixes things?
+
+
+
+Close; you should prefer [DllImport("shared")], with one exception. On 
+Windows, this will try to load SHARED.DLL, on Linux it will load 
+libshared.so, and on OS X it will load libshared.dylib. 
+
+The exception is that if the library name contains a '.', Windows 
+LoadLibrary() will not automatically append a .DLL extension, so this 
+would always fail: 
+
+[DllImport("gtksharp-2.0")] 
+
+In these cases, you should use the full Windows filename, and provide a 
+.dll.config file so that the file can be found on other platforms: 
+
+[DllImport("libgtksharp-2.0.dll")] 
+
+http://www.mono-project.com/Interop_with_Native_Libraries
+http://www.mono-project.com/DllNotFoundException
+http://www.mono-project.com/Config_DllMap
+
+
+
+
+
+I have to use only .so library file for my project. I have compiled my c#
+code and it works fine but when i try to invoke the api of that .so file, it
+causes DllNotfound exception. After reading all the available answers on
+net, i followed below things, but it not works  Guide in proper direction
+since i m a beginner in mono and mac.
+
+----------------------------------------------------------------
+I created config file as myapp.exe.config and it has
+
+<configuration>
+  <dllmap dll="mylibrary" target="libmylibrary.so" />
+</configuration>
+
+And after going to the location of my exe, i gave below commands
+
+LD_LIBRARY_PATH=`pwd`
+
+mono myapp.exe
+
+----------------------------------------------------------------
+
+Am i on the right way of setting the environment variable on mac. Don't know
+how to resolve this..!
+
+Thanks
+
+
+
+
+ have not shown how you are actually referencing or calling the dll. You
+of course included something like
+
+[DllImport("lib_vig_can.so")]
+private static extern int d_set_params(string CanIF, int pWrtCanDataToMain,
+int pWrtErrDataToMain, int pWrtErrMsgToMain );
+
+You should only need to reference the dlls in a config file if you need to
+map their names, not simply to use them if the name or location does not
+change.
+
+
+
+
+have called like this in my .cs file
+
+[DllImport("mylibrary")] 
+
+private static extern int doOperation(int a, int b);
+
+Please note, i have provided with libmylibrary.so only. Any ideas ?
+
+
+
+I see that you are working with OSX - I only know linux and Windows, but
+from Jonathan Pryor's article :
+
+http://www.mono-project.com/Interop_with_Native_Libraries
+
+It appears that OSX has its own considerations and may be more particular
+about where a library is located and what it is called. 
+
+I don't know if the bug mentioned about GLib in OSX has been fixed, but if
+not, it looks like you may need to leave off the ".so" extension when
+mapping in the config file.
+
+I would also double check all those many search paths that may be used. 
+
+
+
+
+A few things:
+- OS X uses DYLD_LIBRARY_PATH rather than LD_LIBRARY_PATH
+- .dylib is the usual extension for dynamic libraries on OS X so why fight the tools?
+
+You could also check that the rpath in the library is correct; especially if you are relying 
+on external libraries, but that is another can of worms.
+Other than that it's a straight drop-in from Linux/Windows to OS X, no special magic required.
+
+

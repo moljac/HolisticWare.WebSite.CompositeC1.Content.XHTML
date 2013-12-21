@@ -1,0 +1,77 @@
+Silverlight and Uris for multimedia files (images, audio, video)
+
+Question: location of MM files
+	silverlight application
+		MM file properties:
+			content
+			copy to output folder = true
+	web site
+		site origin of Silverlight application - directory where XAP resides
+			ClientBin if automatically added by Visual studio
+			manually added by developer ??? 
+				Silverlight appliation > Add ...????
+				
+Trying to mimic WPF Uri principles...
+			
+<MediaElement Source="" />
+<Image Source="" />
+
+Rulez:
+	include content in SiteOrigin or its subfolders
+		set Type to Content
+		Copy always.... -> found in XAP
+	move XAP to root or whereever
+	paths
+		leading / root of the Site Origin XAP file
+			when not found in XAP fallback to SiteOfOrigin (where XAP resides)
+		no leading prefix (combination of / and ..)
+			compiled into assembly as resource 
+			path is relative to XAML file where file is referenced!!
+			cannot be found in XAP because it is in assembly
+		absolute uris
+
+		
+Multimedia In the code behind or a value converter you can do
+
+  Uri uri = new Uri("http://testsvr.com/hello.jpg");
+  YourImage.Source = new BitmapImage(uri);
+  
+  silverlight app in various circumstances (like if we move the app around in 
+the solution, or are dealing with images and other resources located in a 
+folder on the web site that's not part of the silverlight project). 
+
+
+Obtaining the path easily with:
+
+	App.Current.Host.Source
+
+So to get a uri to an image in the Images folder in the web site that hosts the 
+silverlight app, use:
+
+var uri = new Uri(App.Current.Host.Source, "../Images/somepic.jpg");
+
+
+// create a new image
+Image image = new Image();
+
+// better to keep this in a global config singleton
+string hostName = Application.Current.Host.Source.Host;                   
+if (Application.Current.Host.Source.Port != 80)
+    hostName += ":" + Application.Current.Host.Source.Port;
+
+// set the image source
+Uri uri = new Uri("http://" + hostName + "/cute_kitten112.jpg", UriKind.Absolute);
+image.Source = new BitmapImage();
+
+
+
+
+http://www.silverlightexamples.net/post/How-to-Get-Files-From-Resources-in-Silverlight-20.aspx
+
+using System.Windows.Resources; 
+				// StreamResourceInfo using System.Windows.Media.Imaging; 
+				// BitmapImage ....
+
+Uri uri = new Uri("SilverlightApplication1;component/MyImage.png", UriKind.Relative));
+StreamResourceInfo sr = Application.GetResourceStream(uri); 
+BitmapImage bmp = new BitmapImage(); bmp.SetSource(sr.Stream);

@@ -1,0 +1,118 @@
+Mono* on Debian
+	http://inorton.wordpress.com/
+	
+For a while now, it’s not been easy to install the bleeding
+edge mono and monodevelop, while the stock ubuntu packages are 
+good and the debian experimental ones are very good, they are 
+still both quite old (due to having the requirement that they 
+exist to support a whole chunk of an entire linux installation ) 
+and so do not get fixes very quickly. With this in mind I have 
+decided to create (and try to maintain) packages for a full 
+parallel mono environment of the latest stable/released mono 
+and monodevelop.
+ 
+
+
+These packages will not interfere or interact with your existing 
+binary (deb) installation of mono or monodevelop so it won’t 
+break your package manager nor your existing mono based apps 
+and libraries.
+ 
+Release 5 of the “pmono” ubuntu packages for mono and monodevelop 
+are now complete and uploaded.
+ 
+Installation:
+ 
+Add the following line to your /etc/apt/sources.list
+ deb http://void.printf.net/~bredroll/pmono ./ 
+Then run:
+ $ sudo apt-get update && sudo apt-get install pmono-* 
+Usage:
+ $ pmono bash 
+$ pmono mono ... 
+$ pmono gsharp ... 
+$ pmono monodevelop 
+etc..	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+1. Configure Default route
+
+/etc/sysconfig/network
+
+	NETWORKING=yes
+	HOSTNAME=localhost
+	GATEWAY=192.168.1.251	# DEFAULT ROUTE
+
+2. Configure static routes
+
+/etc/sysconfig/static-routes
+
+#specific interface (eth[0,1,…])
+
+	eth0 host 10.0.0.1 		gw 192.168.1.1	# Only 1 host
+	eth0 net  10.10.0.0/16 	gw 192.168.1.1	# Route whole 10.10.x.x network
+
+
+#any interface (any)
+
+	any host 10.0.0.1 		gw 192.168.1.1	# Only 1 host
+	any net  10.10.0.0/16 	gw 192.168.1.1	# Route whole 10.10.x.x network
+
+3. Restart network and check routing table
+
+	# /etc/init.d/network restart
+	Shutting down interface eth0:                                           [  OK  ]
+	Shutting down loopback interface:                                       [  OK  ]
+	Setting network parameters:                                             [  OK  ]
+	Bringing up loopback interface:                                         [  OK  ]
+	Bringing up interface eth0:                                             [  OK  ]
+
+	# route -n or netstat -rn
+	Kernel IP routing table
+	Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+	10.0.0.1		192.168.1.1     255.255.255.255 UGH       0 0          0 eth0
+	10.10.0.0       192.168.1.1     255.255.0.0     UGH       0 0          0 eth0
+	192.168.1.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
+	127.0.0.0       0.0.0.0         255.0.0.0       U         0 0          0 lo
+	0.0.0.0         192.168.1.251   0.0.0.0         UG        0 0          0 eth0

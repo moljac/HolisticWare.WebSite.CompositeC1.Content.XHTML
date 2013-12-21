@@ -1,0 +1,44 @@
+frameworks
+
+
+Mobile App Development Frameworks
+Posted on March 10, 2013 by admin
+
+
+ 
+
+Mobile Roadie- Full CMS, no coding app builder for iOS and Android.
+Appafolio– 100% native apps, content caching for offline viewing and more.
+AppMakr– Point and click solution for building rich content based apps.
+RareWire– DIY app creation studio. Coming soon.
+GameSalad Creator– Create, test and publish your own game. Drag and drop.
+SwebApps– An easy way to build your app in minutes.
+TapLynx– Create an app from your website in minutes.
+AppBreeder– “The online iPhone app builder.”
+App Press– Build iOS apps without coding.
+PhoneGap– Open source HTML5 framework that supports 7 platforms.
+Kontagent- User analytics for the mobile web.
+Appcelerator– Mobile app platform for building on Android, iOS and mobile web.
+Sencha– HTML5 framework for mobile devies.
+Flow– Build real-time apps faster, better, smarter.
+Game Closure– Offer a JavaScript game SDK. Runs on mobile/tablet devices.
+StackMob– Robust and flexible end-to-end HTML5 platform.
+Claritics– Intelligent analytics for mobile app developers.
+Tiggzi– Cloud-based mobile app builder.
+Rhomobile-Develop applications for the next generation of business
+Kony Solutions– Enterprise mobile app development platform
+Adobe flashbuilder – SDK for building games and applications.
+See some samples apps that were created using some of the tools mentioned above. Here is an app. for iphone created using tiggzi.
+
+Features :
+
+Cloud database to manage leads, accounts and contacts.
+User specific queries, authentication, registration process.
+GPS integration to show directions.
+CRUD screens for leads, accounts and contacts.
+
+
+
+Most of these platform rely on phonegap framework to provide native integration with devices for features such as GPS, contacts and camera.
+
+Got questions or comments? Contact me via this link.

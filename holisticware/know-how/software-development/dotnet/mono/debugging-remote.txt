@@ -1,0 +1,149 @@
+ could use some help getting this going. I have found these two posts:
+
+http://stackoverflow.com/questions/10864548/debugging-mono-applications-directly-on-arm-target
+
+http://mono.1490590.n4.nabble.com/remote-debugging-a-hello-world-application-td4591791.html
+
+I set my magic environment variable on the MonoDevelop PC, but when I enter
+(on the target machine)
+
+mono --debug --debugger-agent=transport=dt_socket,
+address=192.168.20.61:10000, server=y name_of_my_program.exe
+
+I get a usage message, and am immediately thrown back to the command prompt
+with no further clues as to where I've gone wrong. I have tried various
+combinations of enclosing in quotes, as suggested in one of the above links.
+This does look to me like what the help message is asking for.
+
+Of course MonoDevelop does not connect, since there's nothing running yet on
+the other end.
+
+I have tried with both inorton's pmono (mono 3.0.0) and with 2.10.8.1 on the
+MonoDevelop PC. All  I have on the ARM (BeagleBone) is 2.10.8.1. Both are
+running Ubuntu 12.04 LTS.
+
+Is there any more detailed documentation on how to use the debugger, or can
+someone help me with a step by step for this particular case?
+
+
+
+
+
+
+
+
+You need to remove the spaces.
+
+Also, you only want one of your two systems to have "server=y". I 
+usually set monodevelop for that. and omit the "server" option on the 
+debugee
+
+
+
+
+
+
+
+I do have server=y only on the target, not on monodevelop.
+
+I removed the spaces after the commas on my command line, and that did get
+me a bit further. 
+
+Now I get "debugger-agent: Unable to listen on 192.168.20.4:10000" before
+exiting back to the command line. 
+
+192.168.20.4 is the IP address of the monodevelop pc. In the 'Launch soft
+Debugger' input window I have set the IP of the target, and port 10000.
+Anything else I need there?
+
+I should have mentioned that I connect to the target using ssh, in case this
+creates additional complications. Should I be prompted for a password at
+some point, or is this a required argument somewhere?
+
+thanks
+
+
+
+
+
+
+
+server=y means "the debugger agent will listen as a network server"
+
+So, your options are telling the debugee to listen on 192.168.20.4:10000 for
+incoming connections.
+
+On the arm end I would use "server=y,address=0.0.0.0:10000"
+
+The program will start and wait for the debugger to connect to it.
+
+On monodevelop, I'd put the IP of your ARM system into Address box and 10000
+into the Port box and click Connect rather than Listen.
+ 
+> I should have mentioned that I connect to the target using ssh, in case this
+> creates additional complications. Should I be prompted for a password at
+> some point, or is this a required argument somewhere?
+
+The "Command" box in monodevelop is for this, I've never used it. Personally, I
+would use ssh port forwarding like so:
+
+$ ssh inb@armsystem -L 10000:127.0.0.1:10000 
+
+And just leave that running in a terminal.
+
+The above means connections to localhost (-L) on your desktop get tunneled
+through the ssh connection to 127.0.0.1:10000 as seen from the other system.
+
+If you have no firewall on your ARM system and can ping it then there should be
+no need to tunnel the debugger connection.
+
+Best Regards
+
+Ian
+
+
+
+
+
+
+
+
+
+
+
+
+Thanks Ian, I'll try this, but first I'll have to reinstall your pmono. I
+tried running my app without the debugger and got an immediate
+System.TypeLoadException, which I understand to mean that I have mis-matched
+assembly versions. After trying a number of other things to correct it I
+removed pmono to try to go back to the original 2.8.10.1 without any chance
+of mix ups. (Which didn't work anyway...) So I've got to sort that out
+before I proceed with remote debugging.
+
+
+
+
+
+
+
+
+
+
+
+
+
+I have not fixed my assembly version mis-match issue yet, but I went ahead
+and tried as suggested. Now the ARM app does wait for the monodevelop on the
+PC to connect, but immediately on connecting it exits with "illegal
+instruction".
+
+This may simply be the not yet fixed assembly issue. I do have a break point
+first thing in Main(), but I'm guessing the other assemblies are loaded
+before execution even gets that far.
+
+I've built this program previously without the TypeLoadException issue. I'm
+not sure what causes it. It did appear after installing pmono - prior to
+that I had only the version from the regular repository. However, removing
+both versions and re-installing only the regular version did not seem to
+correct it either. Anyone know a simple way to force building with a
+specific version?

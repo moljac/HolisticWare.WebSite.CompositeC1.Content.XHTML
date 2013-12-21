@@ -1,0 +1,38 @@
+How to get the busy tone when third person is calling??????? I have 
+install the asterisk on Linux Debian platform and its completely command 
+based.. i am facing the one problem as follow:- 
+
+When i make a call to another user and start to talk with him then i was 
+able to talk with him but at this moment when third user try to make me 
+call then at that time the third user get the ringtone instead of the 
+busy tone. 
+
+Disable the "call waiting" feature. I don't recall where it is via 
+command line anymore, it has been too long. 
+
+have the Command based asterisk so please tell me how can i do that. 
+
+The another point is that may i use the Busy Lamp Field? 
+
+If i can use then tell me how can i use it and how can i configure it in 
+Asterisk? 
+
+I have the one phone Grandstream GXP2120 that support the Busy Lamp 
+Field. 
+
+Please help me to out this. 
+
+can use call limits to achieve this , simply add call-limit=1 to the 
+account in sip.conf and make sure yout type is set to type=peer. As fas 
+as the Busy Lamp is concerned . you will use HINTS. See this link : 
+http://www.voip-info.org/wiki/view/Asterisk+standard+extensions 
+
+Another option.... just disable the other 5 lines on the grandstream... 
+But I agree with voipmagic, call-limit is the best option. 
+
+Call limit is a poor option because then it means the phone can't make 
+conference calls either. Just disable call waiting on the phone. It's in 
+the Grandstream admin guide. If meetme is set-up in asterisk , 
+call-limit will not affect the conference call because asterisk is doing 
+the conferencing and NOT the phone. 
+

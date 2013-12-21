@@ -1,0 +1,118 @@
+http://toshokelectric.com/blog/2011/12/12/monotouch-paying-the-bills/
+
+
+Any tricks / is it possible to load an image in the Resources folder of a
+bound native library? I have the native library, the bindings project, and
+the application using it. From the application code I've tried various
+things to load a png from the library resources. Is this a case where I
+should be using UIImage.FromAssembly maybe? Can't seem to get
+FromBundle/FromFile to work no matter what image name/path I try.
+
+
+If you build the app, and look inside the .app folder/file, whats in
+there? a folder called "Resources" with your files?
+
+If so, just do UIImage.FromFile("Resources/whatever.png");
+
+
+
+I think they'll be in the 'root' file location of the App Bundle? If the 
+library has them in a folder-structure, then the folder structure 
+will be preserved, based in the App Bundle root...
+
+
+Hanks guys. I was thinking along similar ways and had looked in the bundle
+hoping to find the images in there somewhere. Unfortunately I do not see
+them - I just see the MT bindings dll. The native project has a Resources
+child folder with the images in it. There is no Resources folder in my
+bundle. I have tried:
+
+UIImage.FromFile("filename.png");
+UIImage.FromFile("Resources/filename.png");
+
+And for grins:
+UIImage.FromBundle("filename.png");
+UIImage.FromBundle("Resources/filename.png");
+
+but all return null. Would the images be embedded in the dll somehow? If so,
+maybe can use FromAssembly? (which I have not tried yet). If not embedded in
+the dll, and not visible in the bundle content, I'd assume they are just not
+there.
+
+
+
+I meant FromResource (assembly, ...) not FromAssembly. 
+
+
+
+m a bit confused about your question...
+
+When you build your app bundle, where do the files end up? You can poke around 
+in the appropriate bin directory.
+
+MonoTouch Binding Projects embed files marked as Content or BundleResource into 
+the dll (temporarily) for ease of sharing the resulting assembly, but the main 
+app project extracts them into their appropriate location when generating the 
+app bundle.
+
+Hopefully that clears things up and helps you figure out where they went.
+
+
+
+
+I see what you're saying and that's good information, Jeff, thanks for that.
+So I am concluding that the resources are not even making it into the
+bindings dll since I'm not seeing them in the resulting app bundle. I used
+the lipo command to combine multiple native architecture builds into a
+single lib.a file for the binding project to use. Is there something maybe I
+need to do different in the process of building the native library or using
+'lipo' perhaps?
+
+
+
+Ah. I think I see the misunderstanding.
+
+When you build a native library, the Xcode/gcc/whatever does not (necessarily) 
+embed the library's resources - the resulting .a is just the source code library.
+
+What you'll need to do is add the native library's resource files to your 
+MonoTouch Binding Project and set their BuildAction to BundleResource.
+
+
+
+
+
+
+For the record, the build action I had to set to EmbeddedResource, as
+BundleResource was not available... (it's available for png's in the main
+project but not the bindings project), and then load the resource via its ID
+like:
+
+MyImage =  UIImage.FromResource(typeof(SomeTypeInBindingAssembly).Assembly,
+"MyBindingNamespace.Images.filename.png");
+
+I tried also setting build action to Content to see if I could get the
+resources to show up as just content in the final bundle but did not get
+that to happen. But this will work for me.
+
+Shameless plug, but here is a blog post I wrote about resources in MT:
+
+http://macropus.net/blog/2012/05/12/resources-in-monotouch-assembly/
+
+
+Hi James, its a good suggestion. I've thought about doing something similar
+before because I miss the "Resources.*" or "R.*" strongly typed classes that
+get auto-generated on other platforms. There may be something that folks are
+plugging in for auto-gen already, but at least your point of hiding it
+behind the static  class makes consuming code more readable and easier to
+update and provides flexible options for managing the resource, which I
+like. On this project I actually created a "Res" class to deal with strings
+in a x-platform way (w/o going to the extents of  Vernacular
+<https://github.com/rdio/vernacular>  ) so it wouldn't be a stretch to do
+images (although the image files themselves tend to be created differently
+across platforms of course due to screen sizes etc.).
+
+@Jeff - Not sure about the 3.1.0 of MonoDevelop...am running 3.0.5
+currently. Would be interesting to know.
+
+

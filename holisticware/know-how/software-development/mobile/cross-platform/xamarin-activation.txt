@@ -1,0 +1,15 @@
+Xamarin Activation
+
+Xamarin.iOS in Visual Studio
+
+	to activate create new Xamarin.iOS project
+	
+
+Professional Version
+	MonoTouch 			2 comupters
+	Mono for Android	3 computers
+	
+	Computer vs Seats
+
+	invite developer?!?
+	

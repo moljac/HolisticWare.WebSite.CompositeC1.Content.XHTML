@@ -1,0 +1,53 @@
+XS 4.0.1 build 9 - Crash when adding existing project +/ other projetc +/ sln 
+
+Actions
+
+1. Add Existing Project to solution
+2. choose other projects
+3. pick solution sln file
+
+setup
+
+* 	MacOSX Mountain Lion
+* 	XS 4.0.1 build 9
+* 	
+
+Error has occured dialog
+
+Exception
+
+	System.InvalidOperationException: Unknown file format: /Users/mc/Desktop/src/Core_2013/Core_2013.sln
+	at MonoDevelop.Projects.ProjectService.ReadFile (IProgressMonitor monitor, System.String file, System.Type expectedType, MonoDevelop.Projects.FileFormat& format) [0x0005c] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectService.cs:315 
+	at MonoDevelop.Projects.ProjectService+<ReadSolutionItem>c__AnonStorey65.<>m__30 (IProgressMonitor , System.String ) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectService.cs:208 
+	at MonoDevelop.Projects.DefaultProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName, MonoDevelop.Projects.Extensions.ItemLoadCallback callback) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectService.cs:672 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:103 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName, MonoDevelop.Projects.Extensions.ItemLoadCallback callback) [0x0000c] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:94 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:103 
+	at MonoDevelop.Autotools.MakefileProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/addins/MonoDevelop.Autotools/MakefileProjectServiceExtension.cs:69 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName, MonoDevelop.Projects.Extensions.ItemLoadCallback callback) [0x0000c] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:94 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:103 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName, MonoDevelop.Projects.Extensions.ItemLoadCallback callback) [0x0000c] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:94 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:103 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName, MonoDevelop.Projects.Extensions.ItemLoadCallback callback) [0x0000c] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:94 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:103 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName, MonoDevelop.Projects.Extensions.ItemLoadCallback callback) [0x0000c] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:94 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:103 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName, MonoDevelop.Projects.Extensions.ItemLoadCallback callback) [0x0000c] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:94 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:103 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName, MonoDevelop.Projects.Extensions.ItemLoadCallback callback) [0x0000c] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:94 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:103 
+	at MonoDevelop.Projects.CompiledAssemblyExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName) [0x0003e] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/CompiledAssemblyProject.cs:224 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName, MonoDevelop.Projects.Extensions.ItemLoadCallback callback) [0x0000c] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:94 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:103 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName, MonoDevelop.Projects.Extensions.ItemLoadCallback callback) [0x0000c] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:94 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName) [0x00000] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:103 
+	at MonoDevelop.Projects.ProjectServiceExtension.LoadSolutionItem (IProgressMonitor monitor, System.String fileName, MonoDevelop.Projects.Extensions.ItemLoadCallback callback) [0x0000c] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectServiceExtension.cs:94 
+	at MonoDevelop.Projects.ProjectService.ReadSolutionItem (IProgressMonitor monitor, System.String file) [0x00059] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/ProjectService.cs:206 
+	at MonoDevelop.Projects.SolutionFolder.AddItem (IProgressMonitor monitor, System.String filename, Boolean createSolutionConfigurations) [0x0000d] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Core/MonoDevelop.Projects/SolutionFolder.cs:317 
+	at MonoDevelop.Ide.ProjectOperations.AddSolutionItem (MonoDevelop.Projects.SolutionFolder folder, System.String entryFileName) [0x0003e] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Ide/MonoDevelop.Ide/ProjectOperations.cs:719 
+	at MonoDevelop.Ide.ProjectOperations.AddSolutionItem (MonoDevelop.Projects.SolutionFolder parentFolder) [0x00062] in /Users/builder/data/lanes/monodevelop_private-lion-bigsplash/4d204dd3/source/monodevelop/main/src/core/MonoDevelop.Ide/MonoDevelop.Ide/ProjectOperations.cs:699 
+	
+Posted also
+	
+http://forums.xamarin.com/discussion/2057/xs-4-0-1-build-9-crash-when-adding-existing-project-other-projetc-sln
+	

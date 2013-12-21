@@ -1,0 +1,144 @@
+Why "WCF" is better than "WEB SERVICES"
+Can Any point out the benefits of " WCF" than "WEB SERVICES"
+
+ABC
+Remoting - WCF
+
+
+A Web Service is a service that is exposed via http. 
+Previously, Web Services were aka asmx web services, which were hosted in IIS. 
+Windows Communication Foundation (WCF) is Microsoft's framework for 
+creating services. Services are defined by 
+ServiceContracts/OperationContracts and DataContracts/DataMembers. 
+Services may be hosted as a Windows Service, IIS among others. A WCF 
+service may be exposed via http, netTCP, netMSMQ among others. Obviously 
+IIS hosting only exposes http endpoints. 
+
+
+
+
+http://msdn.microsoft.com/en-us/library/ms735119(VS.90).aspx
+
+
+
+
+
+Depends of the purpose. A web service as in asmx can only be invoked via 
+HTTP. A WCF service or component can be invoked by any protocol like 
+http, tcp, etc. 
+
+WCF is flexible while a web service is not. As far as better? Depends on 
+what you are doing. 
+
+WCF's unofficial nickname is Windows Complication Foundation. The 
+flexibility comes at a cost of a learning curve. 
+
+Simply put, you can do webservices with WCF, but WCF allows you to built 
+any kind of communication between services or applications based on the 
+common protocols. 
+
+Yes, I've found that learning WCF is tough, but if you stick to the main 
+road I think it's OK to deal with, even when you deal with things like 
+message inspectors and service behaviors. 
+
+WCF stands for Windows Crashes Frequently :-D 
+
+Yes dude. If you only want to fetch some records or show a client a 
+simple result,why should you think about WCF?!.There is no different, 
+but think about a case you need to have a reliable chat service or 
+something like that. 
+
+Handeling such that issues also is possible with Webservice , but you 
+should handle many things by yourself and in WCF it's totally different 
+.It is much more flexible and powerful. 
+
+WCF is far superior as web services for all the reasson mentioned 
+previously by my peers , however i found there is only on good reasson 
+to use webservices . 
+
+And that is if you must implement a server WSDL on your side of the line 
+and the connection client was written with a ASMX service , we have 
+projects running like that the only way to get this working is creating 
+manually the excat same service signatures wich is a lot of work and 
+will give you zero benefit in the end . 
+
+I think it depends on how much control you need of your messages - WCF 
+is great if you just want to set up a couple of endpoints with common 
+objects and have them talk to each other - however, if you want/need to 
+get into the guts of the messages and customise things e.g. if you are 
+communicating with non .NET applications which implement services in a 
+slightly different way them things get complicated very quickly. 
+
+I find that an ASMX web service comes in very handy in server to server 
+communication between Facebook's API's and your ASP.NET Facebook App. 
+Facebook returns a JSON string of name - value pairs. It requires 
+significantly less bandwidth than a structured XML SOAP response. 
+Facebook in the past hosted REST services but that has been depreciated 
+if not outright retired. In the Facebook scenario WCF is development and 
+configuration overkill. 
+
+The reason I brought up Facebook is that if you are a Web Developer you 
+will more than likely have to face that evil monster sooner or later :) 
+
+Web services themselves can be written in just about anything, it just 
+depends on what standards you want to follow, SOAP, REST, XML Web 
+Services... 
+
+WCF supports web services, but also offers non HTTP endpoints and 
+formatters. You could say, "If I am going to create a web service, do I 
+want .asmx which is basically SOAP with a basic http binding, not secure 
+unless you use HTTPS, or do you want the other HTTP based protocols that 
+WCF can support. WCF just offers more services. But let's say that you 
+don't want .asmx or WCF, then there is NancyFX (http://nancyfx.org/) , 
+based on the Ruby based Sinatra (http://www.sinatrarb.com/) web service 
+framework. You have a lot of choices. 
+
+I think you have more questions than before... the first part of this 
+article ask your question and more: 
+http://www.codeproject.com/Articles/139787/What-s-the-Difference-between 
+-WCF-and-Web-Services 
+
+Look at ServiceStack.net 
+
+But remember, the type of service you've built is defined by the 
+protocol the client sees. Not the language (C#, VB.NET JavaScript), 
+library(Nancy, node.js, MFC, ATL ), platform(.NET, Win32), OS(Windows, 
+Linux, Solaris) or other technical details of its implementation. 
+
+To get a clear understanding..Please go through 
+http://wcftutorial.net/Difference-between-WCF-and-Webservice.aspx 
+
+This link will help you choose the correct binding for your service. 
+
+http://weblogs.asp.net/spano/archive/2007/10/02/choosing-the-right-wcf-b 
+inding.aspx 
+
+Better binding capabilities.. WS security model.. facility to intercept 
+at any point for validation.. 
+
+http://codemine.net 
+
+It is depend on your client's need if they want only Http then use 
+Webservices otherwise WCF is better to use. Though it is hard to learn 
+and Implement but it provide better security then webservices in .NET 
+
+WCF doesn't require IIS or a web server. You can run it as a windows 
+service, console app, or a forms app for that matter. 
+
+That's called self-hosting. Self-hosting requires the host process to 
+instantiate and manage the ServiceHost's lifetime. IIS does this for 
+you. 
+
+WCF supports various message exchange patterns, such as request 
+response, one-way, and duplex. Peer networking is also supported by 
+leveraging mesh networks and addressing so that clients can find and 
+communicate with each other without a central control mechanism. 
+
+@Jacob - There are places where Self-Hosted WCF is a much better choice 
+such as if you want to have inter-app communication on a PC between two 
+windows apps. You can extend an interactive WinForms app to accept 
+communications via WCF and you can talk to it and pass parms in from 
+other apps. This is invaluable when you want two apps to talk without 
+copy/paste. In the VB5/VB6 days we used COM-interop for this, but WCF is 
+much nicer. 
+

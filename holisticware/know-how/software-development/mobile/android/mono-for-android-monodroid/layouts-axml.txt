@@ -1,0 +1,24 @@
+       I have a class in my project that is a widget. I know I can use it in code as a workaround but can I use it in axml as well? If so, how do I configure it?
+
+The monodroid list [0] or the forums [1] would be a better place to ask.
+
+To refer to a type in a .axml file, you must use either the fully-qualified C# type name (case-sensitive), or the fully-qualified Android Callable Wrapper type name [2, 3]:
+
+    https://github.com/xamarin/monodroid-samples/blob/master/GLCube/Resources/layout/main.xml#L21
+    https://github.com/xamarin/monodroid-samples/blob/master/GLCube/PaintingView.cs#L16
+
+The above sample is old, so it's using the Android Callable Wrapper type name, but it could instead use the fully-qualified C# type name instead:
+
+    <Mono.Samples.GLCube.PaintingView
+            android:id="@+id/paintingview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+    />
+
+- Jon
+
+[0]: http://lists.ximian.com/mailman/listinfo/monodroid
+[1]: http://forums.xamarin.com/categories/android
+[2]: http://forums.xamarin.com/discussion/comment/6912/#Comment_6912
+[3]: http://docs.xamarin.com/guides/android/advanced_topics/java_integration_overview/android_callable_wrappers
+

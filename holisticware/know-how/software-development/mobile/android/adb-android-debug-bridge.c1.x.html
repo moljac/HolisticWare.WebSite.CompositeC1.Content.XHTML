@@ -1,0 +1,202 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>ADB - Android Debug Bridge</title>
+Description = all keywords + extra text
+<meta name="Description" content="ADB - Android Debug Bridge - Maintenance for Android devices and emulator" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: adb-android-debug-bridge
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="adb, android, debug, bridge" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">ADB - Android Debug Bridge</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<a href="http://developer.android.com/guide/developing/tools/adb.html">
+		http://developer.android.com/guide/developing/tools/adb.html
+	</a>
+
+	<!-- ================================================================== -->
+	<h2><a id="">Directory listing</a></h2>
+	<pre class="hw_code">
+	adb shell ls -l /folder1/dir2/
+	</pre>
+
+	<!-- ================================================================== -->
+	<h2><a id="">IP address</a></h2>
+	<pre class="hw_code">
+	adb shell netcfg
+	</pre>
+	<p>
+	Output:
+	</p>
+	<pre class="hw_code">
+C:\Program Files\Android\android-sdk-windows\platform-tools>adb shell netcfg
+lo       UP    127.0.0.1       255.0.0.0       0x00000049
+svnet0   UP    0.0.0.0         0.0.0.0         0x000000d1
+usb0     DOWN  0.0.0.0         0.0.0.0         0x00001002
+sit0     DOWN  0.0.0.0         0.0.0.0         0x00000080
+eth0     UP    192.168.11.107  255.255.255.0   0x00001043
+	</pre>
+	<p>
+		ifconfig
+	</p>
+	<pre>
+C:\Program Files\Android\android-sdk-windows\platform-tools>adb shell ifconfig eth0
+eth0: ip 192.168.11.107 mask 255.255.255.0 flags [up broadcast running multicast]
+	</pre>
+
+	<!-- ================================================================== -->
+	<h2><a id="">Devices</a></h2>
+	<pre class="hw_code">
+	adb devices
+	</pre>
+	<p>
+	Output:
+	</p>
+	<pre class="hw_code">
+c:\Program Files\Android\android-sdk-windows\platform-tools>adb devices
+List of devices attached
+304D19BDBA36148E        device
+	</pre>
+	<p>
+	First columne represents device ID (serial number)
+	</p>
+
+	<!-- ================================================================== -->
+	<h2><a id="">Install package/application (apk)</a></h2>
+	<pre class="hw_code">
+	adb install $path_to_apk
+
+	adb install someapp.apk
+	</pre>
+	<p>
+	Output:
+	</p>
+	<pre class="hw_code">
+	</pre>
+
+	<p>
+		Verifying application instalation
+	</p>
+	<pre class="hw_code">
+	$ adb shell pm list packages | grep -i YourAppPackageName
+	</pre>
+
+	<p>
+		Uninstalling application
+	</p>
+	<pre class="hw_code">
+	$ adb uninstall YourAppPackageName
+	</pre>
+
+	<pre class="hw_code">
+	adb shell getprop dalvik.vm.heapsize
+	</pre>
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Direct commands to specific device</a></h2>
+	<pre class="hw_code">
+	adb -s $device_serial_number $command 
+
+	adb -s 304D19BDBA36148E install someapp.apk
+	</pre>
+	<p>
+	Output:
+	</p>
+	<pre class="hw_code">
+	</pre>
+
+
+
+
+	<!-- ================================================================== -->
+	<h2><a id="">Wireless Deploying and Debugging (rooted device)</a></h2>
+	<a href="http://www.androidcentral.com/android-quick-app-adb-wireless">
+		http://www.androidcentral.com/android-quick-app-adb-wireless
+	</a>
+
+	<ol>
+		<li>
+			ADB over WiFi from the device
+			<ul>
+				<li>
+					Enable (port 5555)
+					<pre class="hw_code">
+setprop service.adb.tcp.port 5555
+stop adbd
+start adbd
+					</pre>
+				</li>
+				<li>
+					Disable (adb will return to listening on USB)
+					<pre class="hw_code">
+setprop service.adb.tcp.port -1
+stop adbd
+start adbd		
+					</pre>		
+				</li>
+			</ul>
+		</li>
+		<li>
+			adb over WiFi if usb connection is active
+			<ul>
+				<li>
+					Enable (port 5555)
+					<pre class="hw_code">
+# usb device
+adb -d tcpip 5555
+# if only usb device is connected -d not necessary
+adb tcpip 5555
+
+adb connect 192.168.11.107:5559
+					</pre>
+					<pre>
+C:\Program Files\Android\android-sdk-windows\platform-tools>adb -d tcpip 5559
+restarting in TCP mode port: 5559
+					</pre>
+				</li>
+				<li>
+					Disable (adb will return to listening on USB)
+					<pre class="hw_code">
+adb usb
+					</pre>
+				</li>
+			</ul>
+		</li>
+	</ol>
+	<pre class="hw_code">
+	</pre>
+	<p>
+	Output:
+	</p>
+	<pre class="hw_code">
+	</pre>
+
+	<!-- ================================================================== -->
+	<h2><a id=""></a></h2>
+	<pre class="hw_code">
+	</pre>
+	<p>
+	Output:
+	</p>
+	<pre class="hw_code">
+	</pre>
+</body>
+</html>

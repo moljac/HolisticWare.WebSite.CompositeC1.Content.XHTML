@@ -1,0 +1,13 @@
+Mocking frameworks
+
+Vote 2013-01
+
+ 1.	Moq				69
+ 2.	Rhino Mocks		21
+ 3.	Nmock3			16
+ 4. Microsoft Fakes	11
+ 5.	Nsubstitute		10
+ 6.	FakeItEasy		8
+ 7.	TypeMocks		8
+ 8.	EasyMock.net	2
+ 9.	JustMock		2

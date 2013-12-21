@@ -1,0 +1,85 @@
+profiler
+
+I am trying to find a memory leak in my code, unfortunately it only 
+happens once or twice every 24 hours. My problem is that its a very busy 
+service that is running with 100+ "worker" threads that is communicating 
+over the network and analysing a lot of data. For instance its 
+continuously receiving about 5-8mbps syslog that is analyses with 
+regex's and that is just a small part of what it does.
+
+I have looked at the http://www.mono-project.com/Profiler page and that 
+was a great help, but my mlpd file is still getting too big
+
+I have tried with the following string:
+
+--profile=log:nocalls,noalloc,heapshot=ondemand,zip,sample=cycles/1,maxframes=1,calldepth=1,time=fast,port=1234
+
+My problem is that even with that I still get a file that is about 2mb 
+every minute or so (and I only have about 1Gig of space).
+
+I can see that the heapshot is only triggered when I want to (sends a 
+"heapshot" to the 1234 port), but there is something else that is being 
+analysed that is taking up space.. Do you have any idea what I can do 
+about it?
+
+Ideally I want to leave the program running for a few hours, then 
+trigger a heapshot every hour to see what objects that is alive at that 
+point am I doing something wrong?
+
+
+
+used mono --profile? in the past with 2.10.x and did not have problems in 
+being able to run.
+
+I was trying to run profiling on an app again, this time with 3.0.x.   
+
+On both osx and linux, I get:
+
+The 'log' profiler wasn't found in the main executable nor could it be loaded from 'mono-profiler-log'.
+
+I am using a standard build of mono 3.0.x on OSX and then my own build on linux.   
+In the linux build configuration I saw that there is an option to remove profiling 
+from the build, but seemed that profiling should be there by default.
+
+Has profiling been removed as a default in the build?  And is there a switch I can 
+use to add this in?
+
+
+
+have used it with a default build (on Linux though), but afaik is only 
+availble with sgen, did you try with mono-sgen or "mono --gc=sgen"
+
+See http://www.mono-project.com/Profiler
+
+
+
+
+I've used it with the Boehm collector successfully.
+
+
+
+
+
+ GC related profiling options, like allocation tracking
+or heap-shot, only work with sgen. The performance related options
+work irrespective of the GC being used.
+
+ did a new build of mono with llvm of the mono-3.0.7 tar ball.   I get the same problem 
+ with mono-sgen:
+
+$ /opt/mono-3.0/bin/mono-sgen --profile=log:calls,output=profile.log,maxframes=10,calldepth=100 EAOutputEvaluator.exe ...
+The 'log' profiler wasn't found in the main executable nor could it be loaded from 'mono-profiler-log'.
+
+I had built mono with:
+
+./autogen.sh --prefix=/opt/mono-3.0 --enable-llvm=yes
+
+It would seem that the 3.0.x builds are excluding the profiler ...
+
+
+must set your dynamic library path.
+
+This works on OSX:
+LD_LIBRARY_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib
+ mono --profile=log:calls hello.exe
+ 

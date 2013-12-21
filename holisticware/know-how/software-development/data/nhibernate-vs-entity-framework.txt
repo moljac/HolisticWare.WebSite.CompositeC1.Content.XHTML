@@ -1,0 +1,8 @@
+ http://weblogs.asp.net/ricardoperes/archive/2012/06/07/differences-between-nhibernate-and-entity-framework.aspx 
+As I told already before NHibernate has bigger learning curve than for EF (I would say that "nHibernate in Action" book is nice "Getting started"), but at the end you have much more control and perfomance than with EF.
+
+
+found NHibernate less friendly with VB.NET. It is excellent with C#. NHibernate is open source. 
+following link worth watching: 
+http://weblogs.asp.net/ricardoperes/archive/2012/06/07/differences-between-nhibernate-and-entity-framework.aspx
+

@@ -1,0 +1,211 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Shell in Terminal</title>
+Description = all keywords + extra text
+<meta name="Description" content="Shell in Terminal notes, tips, tricks" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: shell-in-terminal
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body lang="en-us" xml:lang="en-us">
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="shell, terminal" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1><a id="">Shell in Terminal</a></h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+
+	<!-- ============================================================================================== -->
+	<h2><a id="">Problems when copying from network share (windows SMB, samba) or Cloud storage (Dropbox)</a></h2>
+	<p>
+		Mac OSX puts files from network (internet, shares, cloud storage) into quarantine.
+	</p>
+	<p>
+		When moving files from Windows shared folder
+	</p>
+	<pre class="hw_code">
+#$ ./build-pjsip.sh 
+# -bash: ./build-pjsip.sh: Operation not permitted
+#$  ls -@Oel ./build-pjsip.sh
+-rwx------@ 1 uxer  staff  - 368 Apr 17 12:38 ./build-pjsip.sh
+	com.apple.TextEncoding	 15 
+	com.apple.quarantine	 23 
+	</pre>
+	<p>
+		Remove the quarantine attribute from your files as follows:
+	</p>
+	<pre class="hw_code"> 
+find ~ -exec xattr -d com.apple.quarantine {} 2> /dev/null \;
+sudo find . -name "*.sh" -exec xattr -d com.apple.quarantine {} \;
+
+find . -flags +uchg -print0 | xargs -0 chflags nouchg
+
+xattr -d com.apple.quarantine ./build-pjsip.sh 
+	</pre>
+	<p>
+		Characters '+' and the '@' are indicating extended attributes,
+		which can be managed using the xattr command. 
+		<br />
+		Cause of error was following extended attribute
+	</p>
+	<pre class="hw_code"> 
+com.apple.quarantine
+	</pre> 
+	<p>
+	To get rid of the error and get the script to work again, delete those 
+	attributes using:
+	</p>
+	<pre class="hw_code"> 
+	xattr -d com.apple.quarantine script.sh 
+	</pre>	
+	<p>
+	This attribute was set without any interaction of user. Does anyone know if Apple 
+	has build in some new security stuff with 10.7.3? 
+	Or is this just accidential and some other action, which I am not aware of, 
+	has changed or added the extended attributes?
+
+	scripts are part of an automated process and it took some days till I 
+	noted that this process does not work anymore, which resulted in data loss. 
+	I was happy that those days data was not very important. Now I am afraid 
+	that this may happen again any time :-(
+	</p> 
+ 
+
+	<!-- ============================================================================================== -->
+	<h2><a id="">Changing shell</a></h2>
+	<p>
+		SHELL still pointing at /bin/tcsh. To fix that, you need to explicitly set SHELL in your 
+		.bashrc file. 
+		What you want is a .bash_profile like this:
+	</p>
+	<pre class="hw_code">
+chsh -s /bin/bash
+
+
+. ~/.bashrc
+ENV=$HOME/.bashrc
+export ENV
+
+and .bashrc like this:
+
+PATH=$PATH:$HOME/bin:/usr/local/bin
+alias lc=ls
+alias l="ls -l"
+SHELL=/bin/bash
+	</pre>
+
+	<!-- ============================================================================================== -->
+	<h2><a id="">Open Applications from commandline</a></h2>
+	<pre class="hw_code">
+open http://holisticware.net
+open -a firefox http://holisticware.net
+open -a safari http://holisticware.net
+
+
+----------------------------------------------------------------
+
+ls /Applications/ /Developer/Applications/ $HOME/Applications
+$ ls /Applications/ /Developer/Applications/ ~/
+
+not expanded
+	$HOME ~ 
+
+
+	$ open -a "Google Chrome.app"
+	$ open -a "Google Chrome.app" --new
+	$ open -n -a "Google Chrome.app" --new
+	$ open -n -a "MonoDevelop.app"
+	$ open -n -a "Google Chrome.app" --new
+	$ open -n -a "Google Chrome.app" --new file:///opt/android/ndk/docs/OVERVEW.html
+	The file /opt/android/ndk/docs/OVERVEW.html does not exist.
+	$ open -n -a "Google Chrome.app" --new file:///opt/android/ndk/docs/OVERVIEW.html
+
+	$ open -n -a "Safari.app" --new file:///opt/android/ndk/docs/OVERVIEW.html
+	$ 
+	$ open -n -a "Safari.app" --new file:///opt/android/ndk/docs/OVERVIEW.html file:///opt/android/ndk/docs/OVERVIEW.html
+	NOGO!!!
+	
+	$ open -n -a "Safari.app" --new file:///opt/android/ndk/docs/OVERVIEW.html file:///opt/android/ndk/docs/NDK-BUILD.html
+	NOGO!!!
+	</pre>
+
+
+	<!-- ============================================================================================== -->
+	<h2><a id="">command +/ tab not showing all apps!!!</a></h2>
+	<pre class="hw_code">
+
+	 killall Dock
+	
+	~/Library/Preferences/com.apple.dock.plist
+
+	Drag that plist file to the desktop.
+
+	Reboot, and your problem should be fixed.\
+	
+ me, the issue had to do with the Saved Application State, a new feature of Lion. It seemed to be confused as 
+ to what was open and not open. But going in to the Library and clearing that folder out helped fix the issue. 
+ Hope that helps someone.
+
+
+
+No, but you might try using the Exposé command, F9 (or fn-F9) in these cases. That will show you all of your 
+open apps in the Dock, all of your active windows, as well as all minimized windows. After pressing F9, 
+you can navigate to any window, active or minimized, using the arrow keys.
+
+If you're using Spaces, F9 will only show you the open and active windows in that Space, but it will also 
+show you minimized windows from other Spaces (and it will show the Dock and all open apps).
+
+
+
+http://phatness.com/2007/08/fix-home-and-end-keys-on-mac-os-x/
+http://apple.stackexchange.com/questions/400/please-share-your-hidden-mac-os-x-features-or-tips-and-tricks
+	</pre>
+
+	<!-- ============================================================================================== -->
+	<h2><a id="">Shell scripts double click</a></h2>
+	<pre class="hw_code">
+
+need to be an administrative user to do these things:
+
+- Create your shell script, with an editor that won't include extra characters (eg. pico in Terminal).
+- In Terminal, make that script executable, eg. w/
+chmod a+x [yourscriptname]
+This will all be known to Terminal-savvy users so far.
+But now:
+- In Finder, locate the script and select Get Info (command-I) on it.
+- Select Open With: Other...
+- Change from Recommended Applications to All Applications.
+- Browse to /Applications/Utilities and select Terminal.
+- DO NOT select the Always Open With checkbox (unless you expressly want to associate a certain file 
+  extension with Terminal -- really this would be a Very Bad Thing).
+- After clicking Ok and closing Get Info, you should be able to simply double-click on the file in question 
+from Finder and what will happen is, Terminal will open up and execute that very script.
+If your script is non-interactive, ie. if it will just do something and then exit, the Terminal session 
+will be finished as well (ie. you can't go on and type in further commands at the prompt). By default, 
+the shell window will however stay open, allowing you to review any output from your script. Also, the 
+actual Terminal application will NEVER quit automatically (though this is not much of a problem). 
+There is one potential cosmetic problem:
+If there is any output from your script, that will possibly already start to get written to the window 
+while the initial shell prompt is still being written. This again is only a cosmetic problem in that it 
+can jumble up what effectively gets displayed in the terminal screen. A workaround is to include 
+sleep 1
+clear
+at the beginning of the script (before any output).
+This just makes the thing literally wait a second (so that everything that might still get written 
+to the shell has time to get written) and THEN clears the screen.
+
+	</pre>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>Mono</title>
+Description = all keywords + extra text
+<meta name="Description" content="Mono port of .net for non Windows platforms" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: mono
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+	<f:function name="HolisticWare.Optimizations.SearchEngine.MetaTagsKeywords" xmlns:f="http://www.composite.net/ns/function/1.0">
+		<!--
+		Keywords = 
+		-->
+		<f:param name="KeywordsAdditional" value="mono" />
+		<f:param name="AuthorsAdditional" value="mcvjetko" />
+		<f:param name="Date" value="2011-08-19" />
+		<f:param name="Language" value="en" />
+	</f:function>
+	<h1>Mono</h1>
+	<!-- ================================================================== -->
+	<!--
+	<f:function name="HolisticWare.Content.TableOfContents" xmlns:f="http://www.composite.net/ns/function/1.0" />
+	-->
+	<h2>Memory limit</h2>
+	<p>
+		To limit maximal memory usage of mono (something like -Xmx in Java
+		and/or -memory_limit for PPH):
+	</p>
+	<ol>
+		<li>
+			on Linux set the memory limit with 'ulimit' before running mono
+		</li>
+		<li>
+			use the MONO_GC_PARAMS env var with max-heap-size=xxxx.
+		</li>
+	</ol>
+
+	<!-- ================================================================== -->
+	<h2>Mono.WebBrowser switching layout Engine</h2>
+
+	<p>
+		Some distros removed libgluezilla making necessary to switch from Gecko 
+		to Webkit
+	</p>
+	<!-- ================================================================== -->
+	<h2>Elevating privileges ProcessStartInfo</h2>
+	<p>
+		Mono does not support 
+			ProcessStartInfo.UserName and 
+			ProcessStartInfo.Password.
+			<br />
+		Use 'sudo' or 'su' instead.
+	</p>
+</body>
+</html>
+
+
+<!--
+Instead of changing all the reads and writes to async, I'm just
+modifying the intial message status read to async, so instead of having
+a pile of threads waiting for IO on the server (waiting for clients to
+call or disconnect), there will be only as few threads as running methods.
+
+It works great on Windows even under huge load (I'm testing on a
+100-nodes cluster on EC2).
+
+But, now, trying on Linux simply fails because this call:
+
+networkStream.BeginRead(buffer, 0, 6, callback, null);
+
+where networkStream is System.Net.Sockets.NetworkStream
+
+
+
+Ok: the problem is that I was wrapping the NetworkStream with a
+BufferedStream, and BufferedStream is not async in Mono, while it is
+async in .NET
+-->

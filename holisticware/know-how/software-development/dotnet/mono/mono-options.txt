@@ -1,0 +1,2 @@
+mono options
+Try running it with mono --trace=E:all to see what the actual exception is.

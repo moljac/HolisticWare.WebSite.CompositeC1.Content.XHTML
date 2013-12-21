@@ -1,0 +1,218 @@
+Apps ideas 
+
+http://www.downgraf.com/all-articles/10-types-businesses-digital-signage 
+/?goback=%2Egde_2013391_member_234163515 
+
+10 Types of Businesses That Need Digital Signage Now 
+
+Digital signage is any display that shows a design presentation. 
+
+Examples include digital restaurant menus, digital directories in 
+universities and entertainment monitors in doctor offices. 
+
+Digital signage is one of the most in demand areas of design. Any 
+business or organization that has a physical location has a potential 
+need for digital signage. 
+
+If you’re looking to expand your design business consider digital 
+signage. 
+
+Here are 10 types of businesses that need digital signage right now… 
+
+1. Healthcare 
+
+Communication is a big part of digital signage. In healthcare, 
+communication is necessary to make sure all processes are efficient and 
+easy to understand for all visitors and employees. Digital signage can 
+provide key information to these individuals so they know what is going 
+on and where they need to go once they enter the facility. 
+
+Digital signage can also offer more of an experience in waiting rooms. 
+We’ve all seen television monitors in waiting rooms. Digital signage can 
+offer a more interactive experience complete with Web integration that 
+provides everything from online video to live weather feeds. The 
+experience can cut down on perceived waiting times resulting in happier 
+employees. 
+
+2. Business Offices 
+
+Digital displays in business offices can greet visitors with 
+information. The display can direct the person where they need to go as 
+soon as they enter the office. 
+
+Displays can be used to guide people through the building and they can 
+be used to access any necessary information. For example, as a visitor 
+waits for a meeting to begin they can access information about the 
+company so they are better prepared. 
+
+And once again, perceived waiting times are reduced as a result of the 
+better experience for visitors. 
+
+3. Investment Companies 
+
+Investment companies are in need of the up-to-date information possible. 
+Digital displays are connected directly to the Internet. Feeds can 
+easily be integrated so employees and visitors can see the latest stock 
+feeds and prices as they happen. 
+
+4. Non-Profit Organizations 
+
+Non-profit organizations have many visitors. Sometimes when people visit 
+they may have to wait in the lobby before a meeting. Digital displays 
+can provide the latest news items regarding the industry. They can read 
+more about the non-profit they are visiting. They can also read about 
+upcoming fundraising events. 
+
+5. Event Centers 
+
+Event centers can be very large places. New visitors can easily get 
+lost. Digital displays are great for giving direction to these folks. 
+The displays can also be used as the event is taking place. Schedules 
+and lists of events can be posted along with locations and detailed 
+descriptions. Live social media updates can even be implemented for 
+specific user feeds or hashtag feeds. 
+
+6. Sports Stadiums 
+
+Sports stadiums can be confusing places as well. When you first enter 
+the stadium you’re often looking for information. Digital displays can 
+direct people to their seat or to any location they need to find. 
+
+Displays can stream scores, stats and news as patrons wait in line for a 
+drink. It once again cuts down on perceived wait time. 
+
+Sports stadiums are also big on advertising. Digital displays allow for 
+the ultimate flexibility when it comes to displaying a variety of 
+advertisements. 
+
+7. Places of Worship 
+
+Digital displays can be used for directory information at places of 
+worship. Donors can be recognized on displays encouraging more 
+involvement from others. A list of upcoming events can be displayed to 
+encourage more participation and photo albums and video galleries can be 
+displayed from past events. 
+
+8. Banks and Credit Unions 
+
+As you wait in line at the bank it cuts down on the wait time when your 
+mind is occupied. Digital displays can show basic information like news 
+and weather updates. 
+
+Displays can also be used for advertising or upselling. It is easy to 
+display an ad for a new interest rate on loans or another service being 
+offered. 
+
+9. Education 
+
+University visitors often need information when they arrive at the 
+building. Displays can be used as basic directories. They can also 
+provide event information, announcements and news items. 
+
+Displays can even show the latest social media feeds for the university. 
+It’s a great way to give visitors, students and faculty a better 
+experience. 
+
+10. Restaurants 
+
+More restaurants are going to digital menus. They find it’s easy to make 
+changes to prices and menu items. It’s also easier to create promotions 
+and offer special items that aren’t normally on the menu. Photos of the 
+entrees can also appear in high resolution making them even more 
+appealing to potential customers. 
+
+As you can see there are many industries that need digital signage. The 
+only issue for companies in these industries is they need great 
+designers to create digital signage presentations. 
+
+That’s where you come in. 
+
+Grow your business by offering digital signage as a service. It’s an 
+easy extension of your current service and there is a growing demand 
+from clients in a variety of industries. 
+
+4 Things to Know About Making Your First App The process of building a 
+great smartphone app starts in validating your idea. Then the hard work 
+begins. By Sue Marquette Poremba 
+
+Comments 3 Share 
+
+Getty Images / Justin Sullivan 
+
+August 21, 2013 2:39 PM TEXT SIZE: A . A . A Creating an app for a 
+smartphone or tablet starts with a great idea. But once you have a 
+fabulous idea, the app development process then becomes a matter of 
+weighing a number of options. 
+
+"It's difficult to design a compelling app that's simple and easy to use 
+by a wide variety of people," says Bill Tanaka, mobile application 
+development director for the WeatherBug app from Earth Networks. "The 
+best mobile apps are intuitive, easy, and compelling. To create your 
+app, you'll spend time creating a workflow, then the graphics, then the 
+user interface. You must go through many iterations to make it simpler 
+and simpler. Even designing icons takes a lot of effort, but it's time 
+well spent." 
+
+If you're thinking about making your first app, here are a few things 
+you should know. 
+
+How Tech-Savvy Do You Really Need To Be? 
+
+Someone on your team—be it you or your developer—has to be very tech 
+savvy. Writing code for an app is such a complex, detailed process, says 
+Cody Jarrett, who created the Airsleep app as a way to solve his sleep 
+problems. Airsleep was Jarrett's first attempt at app development. 
+
+"It's like playing ‘connect the dots,' but there are thousands of dots, 
+and they all have to perfectly connect to one another," he says. "Plus, 
+the app graphics are key, so having a graphic designer is important, as 
+well—not to mention music or sound cues. Overall, it's highly technical 
+and highly creative. Both are important factors." 
+
+How Do You Decide What Platform (iOS, Android, Windows, etc.) To Use? 
+
+When Bobby Valentine, a novice app developer, decided to create his 
+running-based app Sociercise, he chose Apple's iOS over Android and 
+other platforms. "We felt that with a complicated app like Sociercise it 
+would be much better to get a stable version on a platform that has only 
+one device versus hundreds. With iOS we are able to test all functions 
+on a single device, make sure we have things right, and then move on to 
+Android devices, which is what we're doing now," he says. 
+
+Tanaka says turning to iOS is a smart move for new app developers. "It's 
+perhaps the easiest interface for new designers to work with. IOS has a 
+smaller set of devices you need to support, namely the iPhone and iPad. 
+iOS provides a nice, integrated development environment to create the 
+user experience you want for your app and bring together all the 
+components you need to design it." This ease of use for beginners is a 
+primary reason you see so many apps available for iPhone before they 
+become available on other platforms. 
+
+What Are the Basic Features Any App Should Have? 
+
+Standard features include user sign-ups, notifications, e-commerce 
+ability, simple gaming, integration with marketing, and notification 
+tools. Most apps these days have some form of social component as well, 
+so keep this in mind as you develop your app. 
+
+What is the Most Surprising Part About Creating an App as an Amateur? 
+
+Underestimating the importance of your user interface is something most 
+amateur developers struggle with, Tanaka says. "We recently completed a 
+total redesign of our apps for both iOS and Android, and we are seeing 
+our page views and user engagement increase dramatically. Give your 
+users a positive experience and they will spend time with your app." 
+
+And you can't build your app and forget about it. "Once you design your 
+app, you've got to keep up with current trends and not overlook what may 
+seem like the smallest details, down to the colors you use," he says. 
+"As an aspiring developer, you should be looking at a number of apps for 
+ideas and inspiration. And keep on top of current trends. For example, 
+when iOS first came out, graphics were designed to look like real 
+objects. Now iOS features a newer flat design. You'll need to be ready 
+to embrace these changes." 
+
+Read more: 4 Things to Know About Making Your First App - Popular 
+Mechanics Follow us: @PopMech on Twitter | popularmechanics on Facebook 
+Visit us at PopularMechanics.com 
+

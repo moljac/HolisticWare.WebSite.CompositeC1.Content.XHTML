@@ -1,0 +1,82 @@
+asp-net-servers
+
+
+http://gwan.com/
+
+
+I don't use mod_mono (I use Nginx + Mono FastCGI) but I think your configuration is missing the settings for the applications (the MonoApplications setting, or auto configuration settings). Without this, Mono doesn't know where your ASP.NET application is.
+
+See http://www.mono-project.com/Mod_mono and http://www.mono-project.com/AutoHosting
+
+
+On Sat, Feb 16, 2013 at 12:43 PM, Gil Dolosa <vdolosa@gmail.com> wrote:
+
+    Here is the mod_mono:
+    <IfModule !mod_mono.c>
+        LoadModule mono_module /usr/lib/apache2/modules/mod_mono.so
+    </IfModule>
+
+    <IfModule mod_mono.c>
+        MonoServerPath /usr/bin/mod-mono-server4
+    </IfModule>
+
+    <IfModule mod_headers.c>
+        Header set X-Powered-By "Mono"
+    </IfModule>
+
+    AddType application/x-asp-net .aspx
+    AddType application/x-asp-net .asmx
+    AddType application/x-asp-net .ashx
+    AddType application/x-asp-net .asax
+    AddType application/x-asp-net .ascx
+    AddType application/x-asp-net .soap
+    AddType application/x-asp-net .rem
+    AddType application/x-asp-net .axd
+    AddType application/x-asp-net .cs
+    AddType application/x-asp-net .vb
+    AddType application/x-asp-net .master
+    AddType application/x-asp-net .sitemap
+    AddType application/x-asp-net .resources
+    AddType application/x-asp-net .skin
+    AddType application/x-asp-net .browser
+    AddType application/x-asp-net .webinfo
+    AddType application/x-asp-net .resx
+    AddType application/x-asp-net .licx
+    AddType application/x-asp-net .csproj
+    AddType application/x-asp-net .vbproj
+    AddType application/x-asp-net .config
+    AddType application/x-asp-net .Config
+    AddType application/x-asp-net .dll
+    AddType application/x-asp-net .cshtml
+
+    DirectoryIndex Default.cshtml
+    DirectoryIndex index.aspx
+    DirectoryIndex Default.aspx
+    DirectoryIndex default.aspx
+
+    I just manually added all of the ".cshtml" details here. Don't know what should I add on this section.
+
+    On the sites-enabled directory, there are no mono-specific configuration installed, aside from the mod-mono-server control panel:
+        <Location /mono>
+          SetHandler mono-ctrl
+          Order deny,allow
+          allow from all     
+        </Location>
+
+    Whenever I try to add 'SetHandler mono' on the default site, it stops to handle any ASP.NET apps I try to deploy there.
+
+    Anyway, I forgot to mention that I compiled mono, xsp4, and mod_mono(3.0.4) from source(git)
+
+
+	
+	
+	Greetings, I'm running a system in Monodevelop on Centos and everything works
+great when I run it from Monodevelop with XSP, but when I publish it under
+Apache, to run it as localhost, there are many things stop working, they
+should this? Mod_Mono not yet 100% compliant with Apache, someone explain to
+me because this problem, everything works with XSP and Apache not.
+
+
+
+In CentOS you must disable SELinux to run mono. If not you will get a lot
+of errors in Apache.

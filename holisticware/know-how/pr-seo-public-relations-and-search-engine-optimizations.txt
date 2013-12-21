@@ -1,0 +1,58 @@
+SEO
+	http://www.frederikvig.com/2010/07/specify-a-canonical-domain-name-for-your-site-with-iis-7/
+	http://www.microsoft.com/technet/prodtechnol/WindowsServer2003/Library/IIS/6b855a7a-0884-4508-ba95-079f38c77017.mspx?mfr=true
+	http://technet.microsoft.com/en-us/library/cc732969(WS.10).aspx
+	http://www.seoimage.com/301-redirects-and-canonical-urls.html
+	
+
+
+
+
+
+Facebook
+	http://csharpsdk.org/
+	https://github.com/facebook-csharp-sdk
+	http://facebooksdk.codeplex.com/
+	https://github.com/assaframan/FacebookLinq2
+
+
+
+
+Twitter
+	https://dev.twitter.com/docs/twitter-libraries#dotnet
+	https://dev.twitter.com/docs/open-source-examples
+	https://github.com/danielcrenna/tweetsharp
+	http://linqtotwitter.codeplex.com/
+	
+	http://stackoverflow.com/questions/685015/what-is-the-best-twitter-api-wrapper-library-for-net
+	http://stackoverflow.com/questions/1259269/whats-the-best-c-sharp-twitter-api-for-a-twitter-bot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

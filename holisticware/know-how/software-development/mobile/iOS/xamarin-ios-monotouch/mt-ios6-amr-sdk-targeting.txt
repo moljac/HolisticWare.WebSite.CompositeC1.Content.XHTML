@@ -1,0 +1,76 @@
+My application currently supports ARM6 and ARM7. From what I can tell I can't build for 
+both anymore if I want to support the iPhone 5.
+
+Will Apple just let me know drop support for ARM6 and update my current app? Do I have to 
+create a new app that is just for the new device? Can anyone tell me my options?
+
+
+
+had to change my project to target iOS 4.3 and higher and ARM7. Mine were just ARM6 
+before. It was approved yesterday. 
+
+Wow, so basically I'm being forced to alienate some people who have already paid my for my app.
+
+
+*think* that as long as you continue to target an iOS older than 6.0 and keep Xcode 4.4 
+(don't upgrade to 4.5), you can continue to build for armv6 and it will still work on iPhone5
+
+You just can't use iOS6 APIs.
+
+
+
+Use XCode 4.4 and target iOS 3+ with ARMv6
+Use XCode 4.5 and target iOS 4.3+ with ARMv7 and drop iPhone 3G support.
+
+HOWEVER, Apple (in the past) have stopped accepting updates which
+don't use the current SDK, so you may be forced out anyway - I don't
+know how long they will accept xcode 4.4/iOS5 SDK-built apps.
+
+
+Check your trash folder, you may have xcode.app in there which is 4.4.
+You can have both - just put 4.4 somewhere else and point MT at it.
+
+Or you can download it again from Apple's dev site (it's well hidden, but it is still available :)
+
+
+> HOWEVER, Apple (in the past) have stopped accepting updates which
+> don't use the current SDK...
+
+Do you have a source for this? I had not heard that, and I am now very 
+concerned. Every time we update to the latest SDK we find new bugs because 
+they change how things behave.
+
+his is very normal for Apple on each release of a new version of SDK. I thought it was in the 
+developer agreements.  can’t look right now. 
+
+
+You can support iPhone 5 (taller screens) by just including a splash 
+screen with the right size. That's how the iPhone 5 decides whether to 
+letterbox your app. You don't actually need to use any particular version 
+of the SDK.
+
+If you want to actually call newer APIs then you have a bigger problem. It 
+is possible with ObjectiveC to check whether a method exists at runtime, 
+and that's often how you detect whether a feature is supported. You could 
+probably link against the old SDK and still use some of those new 
+features. It just might be very tedious.
+
+I am nearly certain that Apple does not reject apps which don't link 
+against the latest SDK. I'm open to being proved wrong, but I have 
+anecdotal evidence to the contrary, and I have been unable to find 
+anything from Apple that says you have to link against the latest SDK. For 
+one thing that would make your situation impossible. Plus it's just 
+annoying as hell to have to upgrade SDKs for no good reason.
+
+
+It's VERY tedious. I have some code to do this:
+
+https://gist.github.com/2311681
+
+But you can also use
+
+if (UIDevice.CurrentDevice.CheckSystemVersion (6,0)) {
+
+(or 5,0, or 5,1 etc). I needed to know if it was 5.0, specifically -
+not 6.0 or 4.0, so I use a more long-winded check (which is also prone
+to bugs  )

@@ -1,0 +1,36 @@
+In addition to the couple of extra certificates (on the apple
+developer provisioning site:
+
+https://developer.apple.com/ios/manage/overview/index.action
+
+(login first), under Certificates -> Development)x
+
+you can also (in xcode) open the organiser (window -> Organiser) and
+if you go into provisioning, and hit the refresh button, it'll ask for
+your login (apple developer id), and download most of what you need -
+team profile, any app-specific certs etc. Also handy if you change a
+profile or update anything in the dev provisioning area.
+
+On Thu, Oct 11, 2012 at 4:40 PM, Jeff Stedfast <jeff@xamarin.com> wrote:
+> Hi Kris,
+>
+> It sounds like you probably haven't installed the Apple Mobile Provisioning
+> profile. To do this, you'll need to log in to Apple's developer site and go
+> to the iOS Provisioning Portal and create a provisioning profile for your
+> app/company and then download/install it (if I recall correctly, just open
+> the downloaded *.mobileprovision file and it will get installed).
+>
+> Hope that helps,
+>
+> Jeff
+>
+>
+> On Thu, Oct 11, 2012 at 11:34 AM, Kris Bloom <kris@ev3d.net> wrote:
+>>
+>> Is it possible to make this process any harder? good heavens.. i just
+>> signed up with Apple developer and paid the $100. Now i am trying to test my
+>> app on my phone and I have done everything apple says to do an i seem to be
+>> missing something.. i am getting this error
+>>
+>> Error: No installed provisioning profiles match the installed iPhone code
+>> signing keys. (StreetSource)

@@ -1,0 +1,31 @@
+monodevelop toolbar
+
+
+Which part are you struggling with?
+
+If you want to create a custom widget then you can right-click on a project or folder, 
+then click Add > New Widget. It'll then prompt you for a name. Once you enter a name, 
+it'll open the file (in source code view by default). Click on the "Designer" button 
+at the bottom of the window and you'll see the designer view, which can be edited in 
+the same way as any other form to create a composite widget.
+
+To get your widget to show up in the MonoDevelop toolbox then you need to add:
+
+        [System.ComponentModel.ToolboxItem(true)]
+
+before the class definition, compile the code, and then click the "+" button at 
+the top of the toolbox and click "Add Assembly". Once you've added your assembly 
+then you can select the controls to see.
+
+If you want something a bit more advanced/customised (which won't necessarily 
+fit in with GTK as well) then follow the same instructions but pick 
+"Custom Drawn Widget" instead and you'll get a Gtk.DrawableArea, which 
+gives you full control over the widget drawing.
+
+Other than that then it depends on what you want the widget to do. Most 
+of my custom widgets are combinations of other widgets in a fixed layout 
+with appropriate hooks in place to keep values in sync between them. 
+There's nothing special in the rendering, but the custom widget keeps 
+consistency when a control is re-used.
+
+Hope that helps a bit.

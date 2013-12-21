@@ -1,0 +1,34 @@
+It's surprising that mono works at all on linux-ARM. Mono doesn't support the 
+hardfp ABI that most modern ARM distros follow which means that it can't even 
+start. 
+
+
+On Tue, Dec 18, 2012 at 2:31 PM, Greg Young <gregoryyoung1@gmail.com> wrote:
+> Using mono on a raspberry pi. Not sure if it has been reported before.
+>
+> The date part of DateTime is off and TimeSpan is a bit quirky eg
+>
+>         var span = TimeSpan.FromMilliseconds(10000);
+>         Console.WriteLine(span.TotalSeconds);
+>
+> Prints 0
+
+
+
+
+And after modern 32-bit ARM ABIs, Mono support for the upcoming 64-bit 
+ARM (AArch64) would also be interesting.
+http://lists.linaro.org/pipermail/linaro-toolchain/2012-November/002923.html
+http://lists.linaro.org/pipermail/cross-distro/2012-November/000400.html
+
+
+
+It's superfluos to say but if normal soft-float debian "wheezy" (
+http://www.raspberrypi.org/downloads ) is used,
+mono works fine for me.
+
+Using raspian version the application seems to start but there are a lots
+of problem with DateTime class , Thread.Sleep and so on.
+
+
+Thanks

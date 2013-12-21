@@ -1,0 +1,39 @@
+can you plz tell me how to use custom control 
+
+I have image button on aspx page on click event on image button I want some image to be 
+displayed using custom control on the same page..…Is it possible to do so?
+
+
+
+
+wouldn't make such functionality into a custom/composite/server control. If you need to 
+be able to reuse a code snippet then perhaps a jquery plugin or user control is the 
+correct answer.
+ 
+Assuming what you want to do is click a button and show a predefined image you could use 
+something like one of the following:
+ 
+== HTML / JavaScript / CSS == 
+
+<button onclick="document.getElementById('myImageId').style.display=''">click to show image</button>
+ <image id="myImageId" src="your image source" style="display:none" /> 
+
+== HTML / JavaScript / CSS / jquery == 
+
+<button id="myButtonId">click to show image</button> 
+<image id="myImageId" src="your image source" style="display:none" /> 
+<script type="text/javascript">
+	$('#myButtonId').click(function () {
+		$('#myImageId').css('display', '');
+	}); 
+</script> 
+
+
+I haven't tested either of these. (may not be bug free) You could recycle the img tag for 
+different images by leaving the src attribute blank and then adding it using JavaScript. 
+
+
+
+
+
+http://techbrij.com/926/anonymous-type-linq-gridview-sorting-asp-net
