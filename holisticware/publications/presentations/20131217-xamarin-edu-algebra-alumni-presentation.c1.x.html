@@ -1,0 +1,477 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>20131217 Xamarin@Edu Algebra alumni presentation</title>
+Description = all keywords + extra text
+<meta name="Description" content="" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: 20131217-xamarin-edu-algebra-alumni-presentation
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<!--
+	<link rel="stylesheet" href="~/css/print/pdf.css" />
+	-->
+	<script>
+		document.write
+		(
+			'<link rel="stylesheet" href="~/css/print/'
+		+ (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper'
+		) + '.css" type="text/css" media="print" />');
+	</script>
+</head>
+<body lang="en-us" xml:lang="en-us">
+
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+
+
+			<section>
+				<section>
+				<h1>
+					Xamarin@EDU
+				</h1>
+				<h2>
+					Xamarin Technologies
+				</h2>
+				<h3>Algebra Alumni 2013-12-17</h3>
+				<p>
+					<a href="http://xamarin.com">http://xamarin.com
+					</a>
+					<br /> 
+					presented by M.Cvjetko
+					<br />
+					<a href="http://holisticware.net">http://holisticware.net</a>
+				</p>
+				</section>
+
+				<section>
+					<h2>Agenda</h2>
+
+					<ol>
+						<li>
+							Historical facts: Mono, Xamarin, HolisticWare, mcvjetko
+						</li>
+						<li>
+							Definitions: native development, open / closed source / commercial
+						</li>
+						<li>
+							Features: Platforms, .net coverage
+						</li>
+						<li>
+							Xamarin@Edu???
+							<br />
+							possibilities and potential risks???
+						</li>
+						<li>
+							Summary
+						</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>History</h2>
+					<h3>Mono</h3>
+
+					<ul>
+						<li>
+							mono: open source implementation of:
+							<ul>
+								<li>
+									ISO / IEC / ECMA standard by Microsoft
+									<ul>
+										<li>
+											CLR (.net VM)
+										</li>
+										<li>
+											CLI (MSIL)
+										</li>
+									</ul>
+								</li>
+								<li>
+									.net Base Class Libraries (System.* assemblies and namespaces)
+								</li>
+								<li>
+									compilers: c#, f#, vb.net
+								</li>
+								<li>
+									various tools used in .net (wsdl, xsd, ...)
+								</li>
+								<li>
+									various tools not available in .net
+								</li>
+							</ul>								
+						</li>
+						<li>
+							timeline
+							<ul>
+								<li>
+									mono start 2001, release 2004
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>History</h2>
+					<h3>Xamarin</h3>
+
+					<ul>
+						<li>
+							timeline:
+							 <ul>
+							 	<li>
+							 		2001 Ximian
+							 	</li>
+							 	<li>
+							 		Novell (2002 ??? - 2010-10)
+							 	</li>
+							 	<li>	
+							 		Attachmate (2010-10 - 2011-05-17??)
+							 	</li>
+							 	<li>
+							 		Xamarin (2011-06)
+							 		<br />
+							 		2011-07 Novell patents rights
+							 	</li>
+
+							 </ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>History</h2>
+					<h3>HolisticWare + personal</h3>
+
+					<ul>
+						<li>
+							Disclaimer: own experience =&gt; personal, biased
+						</li>
+						<li>
+							timeline
+							<ul>
+								<li>
+									2004 - playing with mono (2006 - deeper dive) 
+								</li>
+								<li>
+									2007 - HolisticWare startup
+									<br/>
+									need for website (limes(cash) -&gt; 0) =&gt; linux + ASP.net
+									<br/>
+									1st website on fedora with ASP.net
+									<br /> 
+									wrote bugreport 
+								</li>
+								<li>
+									2010Q3 - invitation for private preview of MonoDroid 
+									(Mono for Android) Xamarin.Android 
+								</li>
+								<li>
+									2011Q1 - MonoTouch Xamarin.iOS
+								</li>
+								<li>
+									2013Q3 - HolisticWare 1st Croatian Xamarin partner (one of few European)
+								</li>
+							</ul>
+						</li>
+						<li>
+							Personal: full c# .net stack developer (giving my best), 
+							c/c++, some java (but cannot be <b>overly productive</b>)
+						</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Definitions</h2>
+					<h3>Native development</h3>
+
+					<ul>
+						<li>
+							definition of native development
+							<br />
+							even better: discussion about definition of native development
+						</li>
+						<li>
+							Is .net (c#) native on Windows or is it win32 (c/c++)?
+						</li>
+						<li>
+							Is java native on Android or is it c/c++ and NDK?
+						</li>
+						<li>
+							java is just vendor chosen implementation language for framework
+						</li>
+						<li>
+							nothing stops c# from being (1st) class citizen
+							<br/>
+							1st class - conditional (app/package [apk] size and performance duplex pInvoke)
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Definitions</h2>
+					<h3>Xamarin concepts</h3>
+
+					<ul>
+						<li>
+							native development for targeted platforms
+						</li>
+						<li>
+							cross platform support
+							<br />
+							c# /  f# as cross platform languages
+						</li>
+						<li>
+							sharing code accros platforms (NOTE: budiness logic code, domain code)
+						</li>
+						<li>
+							UI is written in c#, but API used is "native" (subnative, quasi native)
+							<br/>
+							AppKit/Cocoa in MonoMac/Xamarin.Mac, UIKit CococaTouch in Xamarin.iOS, 
+							Android in Xamarin.iOS, GTK# on Mac, Linux, Windows ...
+						</li>
+						<li>
+							open source mono, monodevelop and some tools/platforms (MonoMac, GTK#)
+						</li>
+						<li>
+							commercial packages (Xamarin.iOS, Xamarin.Android, Xamarin.Mac)
+						</li>
+					</ul>
+					</section>
+				</section>
+
+			<section>
+				<section>
+					<h2>Features</h2>
+					<h3>Core</h3>
+
+					<ul>
+						<li>
+							cross platform .net (CLR, CLI)
+						</li>
+						<li>
+							c#, f#, vb.net (on desktop)
+						</li>
+						<li>
+							web
+							<ul>
+								<li>
+									all platforms (Windows, Linux, Mac OSX)
+									<br/>
+									ASP.net (MVC 4, trying currently MVC5 and WebAPI), 
+									SOAP Web Services, SignalR ...
+
+								</li>
+							</ul>
+						</li>
+						<li>
+							desktop
+							<ul>
+								<li>
+									Windows: (Console, Windows Forms)
+								</li>
+								<li>
+									Linux: GTK#
+								</li>
+								<li>
+									Mac OSX: MonoMac Xamarin.Mac (Cocoa AppKit)
+								</li>
+							</ul>
+						</li>
+						<li>
+							mobile
+							<ul>
+								<li>
+									Android:  Xamarin.Android (Mono for Android, Monodroid)
+								</li>
+								<li>
+									iOS:  Xamarin.iOS (MonoTouch)
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Features</h2>
+					<h3>Extras - Advanced</h3>
+
+					<ul>
+						<li>
+							compiler as a service (similar to Microsoft's Roslyn)
+						</li>
+						<li>
+							XobotOS (Android w/o java)
+						</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h2>Features</h2>
+					<h3>Tools</h3>
+
+					<ul>
+						<li>
+							Monodevelop (open source) / Xamarin Studio (rebranded + commercial plugins)
+						</li>
+						<li>
+							Xamarin Test Cloud
+						</li>
+						<li>
+							other open source tools
+						</li>
+					</ul>
+					</section>
+			</section>
+
+
+			<section>
+
+				<section>
+					<h2>Xamarin@Edu</h2>
+					<h3>Possibilities - personal experience</h3>
+
+					<ul>
+						<li>
+							the era of Business apps on mobile has just begun!!! 
+							<ul>
+								<li>
+									productivity apps / field apps
+								</li>
+								<li>
+									BYOD in enterprises
+								</li>
+								<li>
+									Sensoring, Monitoring, controling
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Xamarin@Edu</h2>
+					<h3>Possibilities</h3>
+
+					<ul>
+						<li>
+							open source
+							<ul>
+								<li>
+									free - 0 initial costs (ideal for 2013 Croatia)
+								</li>
+								<li>
+									can take deep dive into code (compilers, runtimes / VMs, 
+									interoperability c# with c/c++, c# with java, c# with objective-c)
+								</li>
+								<li>
+									learn internals of .net (new stuff async/await)
+								</li>
+								<li>
+									get involved in project[s] (and maybe gin something)
+								</li>
+							</ul>							
+						</li>
+						<li>
+							new technology -  early adoption
+						</li>
+						<li>
+							promising technology
+							<ul>
+								<li>
+									mobile visionary by Gartner in 2013
+								</li>
+								<li>
+									Microsoft partner of the year 2013 (VS 2013 launch in November)
+								</li>
+							</ul>
+						</li>
+						<li>
+							Xamarin is starting Xamarin University in 2014-01 
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Xamarin@Edu</h2>
+					<h3>Potnetial Risks?</h3>
+
+					<ul>
+						<li>
+							patents??
+						</li>
+						<li>
+							Microsoft, Apple, Google????
+						</li>
+					</ul>
+				</section>
+
+			</section>
+
+			<section>
+				<section>
+					<h2>Summary</h2>
+					<h3>Overview</h3>
+
+					<ul>
+						<li>
+							historical overview, definitions - just to understand
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Summary</h2>
+					<h3>Demo</h3>
+
+					<ul>
+						<li>
+							Xamarin Studio / Monodevelop
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Summary</h2>
+					<h3>Questions</h3>
+
+					<p>
+						??????????????
+					</p>
+					<p>
+						<a href="http://xamarin.com">http://xamarin.com</a>
+					</p>
+					<p>
+						<a href="http://www.mono-project.com/">http://www.mono-project.com/</a>
+					</p>
+					<p>
+						<a href="http://holisticware.net">http://holisticware.net</a>
+					</p>
+
+					
+
+				</section>
+			</section>
+			</div>
+
+		</div>
+
+
+
+
+</body>
+</html>

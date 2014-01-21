@@ -1,0 +1,490 @@
+<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>20131209 Xamarin.Android, Mono for Android, Monodroid MS DevUG</title>
+Description = all keywords + extra text
+<meta name="Description" content="" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: 20131209-xamarinandroid-mono-for-android-monodroid-ms-devug-ckvz
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<!--
+	<link rel="stylesheet" href="~/css/print/pdf.css" />
+	-->
+	<script>
+		document.write
+		(
+			'<link rel="stylesheet" href="~/css/print/'
+		+ (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper'
+		) + '.css" type="text/css" media="print" />');
+	</script>
+</head>
+<body lang="en-us" xml:lang="en-us">
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+
+
+				<section>
+					<h1>
+						Xamarin.Android
+						<br />
+						AKA
+						<br />
+						Mono for Android Monodroid
+					</h1>
+					<h2>Android devices for .net/c# developers</h2>
+					<p>
+						<a href="http://xamarin.com">http://xamarin.com
+						</a>
+						<br /> 
+						presented by M.Cvjetko
+						<br />
+						<a href="http://holisticware.net">http://holisticware.net</a>
+					</p>
+				</section>
+
+				<section>
+
+					<section>
+						<h2>Agenda</h2>
+
+						<ol>
+							<li>
+								Mono, Xamarin
+							</li>
+							<li>
+								definition of native development
+								<br />
+								even better: discussion about definition of native development
+							</li>
+							<li>
+								Historical facts
+								<ul>
+									<li>
+										Android
+									</li>
+									<li>
+										Xamarin / mono (mono 2001, Xamarin 2011)
+									</li>
+									<li>
+										HolisticWare (since 2010-08)
+									</li>
+								</ul> 
+							</li>
+							<li>
+								Basic Concepts and Intro
+								<ul>
+									<li>
+										Android
+									</li>
+									<li>
+										Xamarin 
+									</li>
+								</ul> 
+							</li>
+							<li>
+								<ul>
+									<li>
+										reuse of the 2011-06 presentation 
+										<br/>
+										disregard some version numbers and numbers in general
+										<br />
+										presentation reuse / code reuse
+									</li>
+									<li>
+										contemporary facts
+									</li>
+								</ul> 
+							</li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>Historical facts</h2>
+
+						<ul>
+							<li>
+								Android 
+								<ul>
+									<li>
+										beta 2007
+									</li>
+									<li>
+										release 2008
+									</li>
+								</ul>
+							</li>
+							<li>
+								Xamarin / Mono
+								<ul>
+									<li>
+										mono start 2001, release 2004
+									</li>
+									<li>
+										Ximian 2001, Novell 2002-2011, Attachmate 2010-2011
+									</li>
+									<li>
+										Xamarin 2011-07
+									</li>
+								</ul>	
+							</li>
+							<li>
+								HolisticWare
+								<ul>
+									<li>
+										2006 personal interests
+									</li>
+									<li>
+										first web site for team with ASP.net on fedora
+									</li>
+									<li>
+										2010-08 private invitation for test of Monodroid
+									</li>
+									<li>
+										Xamarin.Android 2010+, Xamarin.iOS 2011+, MonoMac 2012+
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Native development definition</h2>
+
+						<ul>
+							<li>
+								Is .net (c#) native on Windows or is it win32 (c/c++)?
+							</li>
+							<li>
+								Is java native on Android or is it c/c++ and NDK?
+							</li>
+							<li>
+								java is just vendor chosen implementation language for framework
+							</li>
+							<li>
+								nothing stops c# from being (1st) class citizen
+								<br/>
+								1st class - conditional (app/package [apk] size and performance duplex pInvoke)
+							</li>
+						</ul>
+					</section>
+
+				</section>
+
+
+				<section>
+
+					<section>
+						<h2>Android</h2>
+						<h3>Basic Concepts </h3>
+
+						<ul>
+							<li>
+								<a href="http://holisticware.net/holisticware/publications/presentations/20110630-mono-for-android-monodroid-android-for-dotnetters#/"
+								>
+								2011-06 presentation
+								</a>
+
+							</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h2>Xamarin.Android</h2>
+						<h3>Basic Concepts </h3>
+
+						<ul>
+							<li>
+								Wrapping / Mapping 
+								<br/>
+								(sample from old presentation)
+								<br/>
+								packages vs namespaces
+								<br />
+								classes
+								<ul>
+									<li>
+										<a href="http://developer.android.com/reference/android/view/package-summary.html">
+											http://developer.android.com/reference/android/view/package-summary.html
+										</a>
+										
+									</li>
+									<li>
+										<a href="http://androidapi.xamarin.com/?link=N%3aAndroid.Views">
+											http://androidapi.xamarin.com/?link=N%3aAndroid.Views
+										</a>
+										
+									</li>
+								</ul>
+							</li>
+							<li>
+								Additional stuff
+								<ul>
+									<li>
+										integer constants - c# Enums
+									</li>
+								</ul>
+							</li>
+						</ul>
+						
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h2>Tools Android </h2>
+
+						<ul>
+							<li>
+								Emulators 
+								<br/>
+								new and very performant
+								<ul>
+									<li>
+										Google emulator - x86 support HAXM intel
+									</li>
+									<li>
+										Genymotion
+										<br/>
+										<a href="http://www.genymotion.com/">
+											http://www.genymotion.com/
+										</a>
+									</li>
+									<li>
+										Manymo
+										<br/>
+										<a href="https://www.manymo.com/">
+											https://www.manymo.com/
+										</a>
+									</li>
+									<li>
+										AndroVM in VirtualBox
+										<!--
+										http://therockncoder.blogspot.com/2013/06/using-virtualbox-android-emulator.html
+										-->
+
+									</li>
+								</ul>
+
+								<!--
+								Bluestacks
+								YouWave
+								WindRoy
+								Jar of Beans
+								-->
+							</li>
+							<li>
+								Runtime concepts
+								<br/>
+								AOT (ahead of time compilation)
+								<br/>
+								ART 
+							</li>
+							<li>
+								Fragments v.3.0+ (possible with 1.6+ with compatibility libraries)
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Tools Xamarin.Android </h2>
+
+						<ul>
+							<li>
+								Designer
+								<br/>
+								Multi edit 2013-12
+							</li>	
+							<li>
+								Java Binding libraries (projects)
+							</li>
+							<li>
+								Resources in assemblies
+								<br />
+								UI can be shared across projects
+							</li>
+						</ul>
+					</section>
+					
+				</section>
+
+				<section>
+
+					<section>
+						<h2>Demos IDEs</h2>
+
+						<ul>
+							<li>
+								Xamarin Studio (Mac / Windows)
+							</li>
+							<li>
+								Visual Studio 2012 / 2010
+							</li>
+							<li>
+								Activity / Intent
+							</li>
+							<li>
+								Productivity (templates)
+								<ul>
+									<li>
+										Code behind 
+										<br />
+										HolisticWare template for View Layout with code behind
+									</li>
+
+								</ul>
+							</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h2>Demos Designer</h2>
+
+						<ul>
+							<li>
+								Multi edit
+							</li>
+							<li>
+								screen sizes
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Demos Emulators</h2>
+
+						<ul>
+							<li>
+								Google SDK emulator (standard)
+								<br/>
+								in virtual machine
+							</li>
+							<li>
+								Genymotion
+								<br/>
+								does not work in virtual machine OpenGL
+							</li>
+						</ul>
+					</section>
+
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Summary / Conclusion</h2>
+						<h3>Android</h3>
+
+						<ul>
+							<li>
+								cons
+								<ul>
+									<li>
+										monetization not the greatest
+									</li>
+									<li>
+										fragmentation
+									</li>
+									<li>
+										user base is not fanatic like in iOS case
+									</li>
+								</ul>
+							</li>
+							<li>
+								pros
+								<ul>
+									<li>
+										market share 2013-12 80%
+										<br />
+										huge number of devices and rising
+									</li>
+									<li>
+										Can be done with Windows Box (no need for extra hardware like iOS)
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h2>Summary / Conclusion</h2>
+						<h3>Xamarin.Android</h3>
+
+						<ul>
+							Xamarin.Android enables .net (C# / F#) to develop Android applications
+							<li>
+								fully native
+							</li>
+							<li>
+								using .net languages C# and F#
+							</li>
+							<li>
+								use .net BCLs and familiar frameworks
+							</li>
+							<li>
+								cons
+								<ul>
+									<li>
+										learning curve for Android required (resources)
+										<br/>
+									</li>
+									<li>
+										complexity (time and space)
+										<br/>
+										application (apk) size
+										<br />
+										marshaling across boundaries (MCWs and ACWs)
+										<br/>
+										both are neglectable 
+									</li>
+								</ul>
+							</li>
+							<li>
+								pros
+								<ul>
+									<li>
+										sharing code / reusing existing code base (libraries)
+									</li>
+									<li>
+										modern .net (LINQ, async/await, lambdas, anon methods)
+									</li>
+								</ul>
+							</li>
+						</ul>
+
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Thanks!!!</h2>
+						<h2>Questions??</h2>
+
+						<ul>
+							<li>
+								<a href="http://holisticware.net">
+									http://holisticware.net
+								</a>
+							</li>
+						</ul>
+					</section>
+				</section>
+			</div>
+
+		</div>
+
+</body>
+</html>
