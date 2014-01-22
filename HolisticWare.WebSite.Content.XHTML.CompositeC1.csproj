@@ -329,11 +329,10 @@
     <Content Include="holisticware\about-us.hr.c1.x.html" />
     <Content Include="holisticware\about-us\bank-stuff.txt" />
     <Content Include="holisticware\about-us\clients-and-portfolio.en.c1.x.html" />
-    <Content Include="holisticware\about-us\contact-us.c1.x.html" />
-    <Content Include="holisticware\about-us\contacts.c1.x.html" />
+    <Content Include="holisticware\about-us\contacts---team-partners-associates.c1.x.html" />
     <Content Include="holisticware\about-us\data-business-and-legal.c1.x.html" />
     <Content Include="holisticware\about-us\location.c1.x.html" />
-    <Content Include="holisticware\about-us\miljenko-cvjetko.txt" />
+    <Content Include="holisticware\about-us\miljenko-cvjetko.c1.x.html" />
     <Content Include="holisticware\about-us\partners-and-references.c1.x.html" />
     <Content Include="holisticware\about-us\sitemap.c1.x.html" />
     <Content Include="holisticware\about-us\sitemap\error-page.c1.x.html" />
@@ -1287,8 +1286,9 @@
     <Content Include="holisticware\publications\blogs\moljac#\mono-for-android-android-manifest-and-visual-studio-weird-problems.c1.x.html" />
     <Content Include="holisticware\publications\blogs\moljac#\windows-phone-past-future.c1.x.html" />
     <Content Include="holisticware\publications\book-reviews.en.c1.x.html" />
-    <Content Include="holisticware\publications\book-reviews\paulf-f-johnson-xamarin-mobile-application-development-for-ios.c1.x.html" />
-    <Content Include="holisticware\publications\book-reviews\dimitri-tavlikos.en.c1.x.html" />
+    <Content Include="holisticware\publications\book-reviews\dimitris-tavlikos-ios-development-using-monotouch-cookbook.en.c1.x.html" />
+    <Content Include="holisticware\publications\book-reviews\dimitris-tavlikos-ios-development-using-monotouch-cookbook.hr.c1.x.html" />
+    <Content Include="holisticware\publications\book-reviews\paul-f-johnson-xamarin-mobile-application-development-for-ios.c1.x.html" />
     <Content Include="holisticware\publications\news-in-sports.en.c1.x.html" />
     <Content Include="holisticware\publications\news.en.c1.x.html" />
     <Content Include="holisticware\publications\news\2010-10-20-holisticware-cisco-sip-glaxo.c1.x.html" />
@@ -1857,6 +1857,7 @@
     <None Include="holisticware\know-how\software-development\web\silverlight\PageWithSilverlight.php" />
     <None Include="holisticware\know-how\system-integration\virtualization\virtualization-macosx\Disable-Enable Virtualization Technology in BIOS.website" />
     <None Include="holisticware\know-how\system-integration\virtualization\virtualization-macosx\Run Mac OS X on PC, Free and Easy with VMware Player 3.website" />
+    <Content Include="holisticware\publications\book-reviews\paul-f-johnson-xamarin-mobile-application-development-for-ios.txt" />
     <None Include="holisticware\publications\presentations\CASE-1\25\2-hours-4 man-hours-8-platforms-with-2-studios\css\theme\source\beige.scss" />
     <None Include="holisticware\publications\presentations\CASE-1\25\2-hours-4 man-hours-8-platforms-with-2-studios\css\theme\source\default.scss" />
     <None Include="holisticware\publications\presentations\CASE-1\25\2-hours-4 man-hours-8-platforms-with-2-studios\css\theme\source\moon.scss" />
