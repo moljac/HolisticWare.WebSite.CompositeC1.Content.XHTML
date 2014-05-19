@@ -1,0 +1,1385 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>20110630 Mono for Android (MonoDroid) Android for dotnetters</title>
+Description = all keywords + extra text
+<meta name="Description" content="20110630 Mono for Android (MonoDroid) Android for dotnetters: Microsoft Zagreb DevUG" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: 20110630-mono-for-android-monodroid-android-for-dotnetters
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<!--
+	<link rel="stylesheet" href="~/css/print/pdf.css" />
+	-->
+	<script>
+		document.write
+		(
+			'<link rel="stylesheet" href="~/css/print/'
+		+ (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper'
+		) + '.css" type="text/css" media="print" />');
+	</script>
+</head>
+<body lang="en-us" xml:lang="en-us">
+
+
+		<!-- ======================================================================================= -->
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+			<!-- ................................................................................... -->
+			<section>
+				<section>
+					<h1>Android</h1>
+
+					<p>
+						Lectures on University College 
+						<br />
+						for Applied Computer Engineering
+						<br />
+						<a href="http://www.racunarstvo.hr/en/">
+							http://www.racunarstvo.hr/en/
+						</a>
+					</p>
+
+					<p>
+						Miljenko Cvjetko
+						<br />
+						<a href="http://holisticware.net">
+							http://holisticware.net
+						</a>
+					</p>
+				</section>
+			</section>
+			<!-- ................................................................................... -->
+
+			<!-- ................................................................................... -->
+			<section>
+				<section>
+					<h2>Android - Introduction</h2>
+					<h3>Goals</h3>
+			
+					<ul>
+						<li>
+							understand fundamentals of developing Android applications
+							<ul>
+								<li>
+									programming tool installation, 
+								</li>
+								<li>
+									project creation and coding, and 
+								</li>
+								<li>
+									running an app on a virtual (emulator) or physical Android device
+								</li>
+							</ul>
+						</li>
+						<li>
+							gain knowledge
+							<ul>
+								<li>
+									how to tools use
+								</li>
+								<li>
+									application fundamentals
+								</li>
+								<li>
+									components
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Android - Introduction</h2>
+					<h3>Requirements</h3>
+
+					<ul>
+						<li>
+							programming (native)
+							<ul>
+								<li>
+									java knowledge
+									<ul>
+										<li>
+											at least reading and comprehension
+										</li>
+									</ul>
+								</li>
+								<li>
+									optional
+									<ul>
+										<li>
+											Xamarin: C# and F#
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Android - Introduction</h2>
+					<h3>Labs (Hands on)</h3>
+
+					<ul>
+						<li>
+							<a href="https://sites.google.com/site/androidappcoursev3/">
+								https://sites.google.com/site/androidappcoursev3/
+							</a>
+						</li>
+						<li>
+							<a href="https://sites.google.com/site/androidappcourse/labs/">
+								https://sites.google.com/site/androidappcourse/labs/
+							</a>
+						</li>
+						<li>
+							<a href="http://androidlabs.org/">
+								http://androidlabs.org/
+							</a>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<!-- ................................................................................... -->
+			<section>
+				<section>
+					<h2>Android - Basics</h2>
+					<h3>Definition</h3>
+
+					<p>
+						<a href="http://www.android.com/">
+							http://www.android.com/
+						</a>
+					</p>
+
+					<ul>
+						<li>
+							Android definition
+							<ul>
+								<li>
+									Linux
+								</li>
+								<li>
+									+
+								</li>
+								<li>
+									Java API
+								</li>
+							</ul>
+						</li>
+						<li>
+							hardware
+								<ul>
+									<li>
+										ARM
+										<ul>
+											ABIs
+											<li>
+												ARM 5
+											</li>
+											<li>
+												ARM 7
+											</li>
+										</ul>
+									</li>
+									<li>
+										x86
+									</li>
+									<li>
+										MIPS
+									</li>
+								</ul>
+						</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h2>Android - Basics</h2>
+					<h3>Market share and Monetization</h3>
+
+					<ul>
+						<li>
+							market share
+							<ul>
+								<li>
+									most popular mobile OS
+								</li>
+								<li>
+									2014-01-29
+									<br />
+									80%
+									<br />
+									<a href="http://www.engadget.com/2014/01/29/strategy-analytics-2013-smartphone-share/">
+										http://www.engadget.com/2014/01/29/strategy-analytics-2013-smartphone-share/
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							Monetization
+							<ul>
+								<li>
+									low
+								</li>
+								<li>
+									competition - huge
+								</li>
+								<li>
+									fragmentation
+								</li>
+								<li>
+									large numbers, but small to none profit
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h2>Android - Basics</h2>
+					<h3>Installation of Development Environment 01</h3>
+
+					<ul>
+						<li>
+							os
+							<br />
+							practically - any
+							<br />
+							Linux, Windows, MacOSX
+						</li>
+						<li>
+							IDE Integrated Development Environment
+							<ul>
+								<li>
+									Java runtime JRE
+								</li>
+								<li>
+									Java Development Kit JDK
+								</li>
+								<li>
+									proper java PATH variables
+								</li>
+								<li>
+									Eclipse
+									<ul>
+										<li>
+											does not run without proper JDK setup
+										</li>
+										<li>
+											4.2 (Juno) +
+										</li>
+									</ul>
+								</li>
+								<li>
+									Android Studio
+									<br />
+									annonced on Google I/O 2013
+								</li>
+								<li>
+									DroidDraw
+								</li>
+								<li>
+									Xamarin Studio
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Android - Basics</h2>
+					<h3>Installation of Development Environment 02</h3>
+
+					<ul>
+						<li>
+							Eclipse ADT Plugin (Android Development Toolkit)
+						</li>
+						<li>
+							Android SDK
+							<ul>
+								<li>
+									SDK Manager
+								</li>
+								<li>
+									AVD Android Virtual Device (Emulator) Manager
+									<br />
+									android virtual machine for emulator
+									<ul>
+										<li>
+											API version (OS)									
+										</li>
+										<li>
+											form factor (size)
+										</li>
+										<li>
+											Memory, SD card...
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h2>Android - Basics</h2>
+					<h3>Installation of Development Environment 03</h3>
+
+					<ul>
+						<li>
+							Device Monitor
+							<br />
+							Dalvik Debug Monitor Server (DDMS)
+							<ul>
+								<li>
+									System Information, FileSystem, Memory, processor, Threads, Network
+								</li>
+								<li>
+									Emulator Manager
+								</li>
+								<li>
+									Call and Message simulation - incomming
+								</li>
+								<li>
+									Location simulation
+								</li>
+								<li>
+									Android Platforms - Versions
+									<ul>
+										<li>
+											<a href="http://developer.android.com/about/index.html">
+												http://developer.android.com/about/index.html
+											</a>
+										</li>
+										<li>
+											<a href="http://developer.android.com/about/dashboards/index.html">
+												http://developer.android.com/about/dashboards/index.html
+											</a>
+										</li>
+									</ul>
+									fragmentation!!!
+								</li>
+								<li>
+									Packages
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h2>Android - Basics</h2>
+					<h3>Installation of Development Environment 04</h3>
+
+					<ul>
+						<li>
+							Emulator
+							<ul>
+								<li>
+									google emulator with SDK
+									<br />
+									Google Intel x86 HAXM driver 
+								</li>
+							</ul>
+						</li>
+						<li>
+							ADB Android Debug Bridge
+							<br />
+							command line utility
+							<br />
+							bridges IDE and device (real or virtual)
+							<br />
+							in ./platform-tools/
+							<br />
+							bridge between Eclipse (user) and Android SDK and device
+						</li>
+						<li>
+							Extras
+							<ul>
+								<li>
+									Emulator: GenyMotion
+										<ul>
+											<li>
+												does not work in Virtual Machines
+											</li>
+										</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+	
+				</section>	
+
+			</section>
+			<!-- ................................................................................... -->
+
+			<!-- ................................................................................... -->
+			<section>
+				<section>
+					<h2>Android - Tools</h2>
+					<h3>Projects 01</h3>
+
+					<ol>
+						<li>
+							Eclipse
+						</li>
+						<li>
+							File +/ New +/ Project
+						</li>
+						<li>
+							+/ Android
+						</li>
+						<li>
+							+/ Android Application project
+						</li>
+						<li>
+							Application Name
+						</li>
+						<li>
+							Project Name
+						</li>
+						<li>
+							Package Name = Namespace
+							<br />
+							tld.company.appname
+						</li>
+					</ol>
+
+				</section>
+
+				<section>
+					<h2>Android - Tools</h2>
+					<h3>Projects 02</h3>
+
+					<ol>
+						<li>
+							Minimum Required SDK
+							<ul>
+								<li>
+									cannot run on lower levels
+								</li>
+								<li>
+									lower levels - more devices
+								</li>
+								<li>
+									default - enables targeting majority of platform versions
+								</li>
+							</ul>
+						</li>
+						<li>
+							Target SDK
+							<ul>
+								<li>
+									default - latest version
+								</li>
+								<li>
+									preferred that user chooses the lowest build number possible
+								</li>
+								<li>
+									compatible with the largest number of existing systems in place
+								</li>
+							</ul>
+						</li>
+						<li>
+							Compile with
+							<ul>
+								<li>
+									set this to be equal as Target SDK
+								</li>
+							</ul>
+						</li>
+						<li>
+							library - reusable component
+						</li>
+					</ol>
+
+				</section>
+			</section>
+			<!-- ................................................................................... -->
+
+			<!-- ................................................................................... -->
+			<section>
+				<section>
+					<h2>Android - Project Structure</h2>
+					<h3>Project structure 01</h3>
+
+					<ul>
+						<li>
+							src/
+							<ul>
+								<li>
+									java sources (Activities, Services ...)
+								</li>
+							</ul>
+							
+						</li>
+						<li>
+							bin/
+							<ul>	
+								<li>
+									files that are automatically generated by the compiler and toolchain
+								</li>
+								<li>
+									code and resources and packaged application itself
+								</li>
+								<li>
+									.apk file
+									<br />
+									zip file
+								</li>
+							</ul>
+						</li>
+						<li>
+							libs/
+							<ul>
+								<li>
+									location of all JAR files for additional features and functionality 
+									support in Android programming
+								</li>
+								<li>
+									for support libraries
+								</li>
+								<li>
+									android-support-v4.jar
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Android - Project Structure</h2>
+					<h3>Project structure 02</h3>
+
+					<ul>
+						<li>
+							gen/
+							<br />
+							files generated by toolchain
+							<ul>
+								<li>
+									R.java
+									<ul>
+										<li>
+											special class that is used for referencing the data contained in resource files 
+											(everything in the res folder). 
+										</li>
+										<li>
+											number of static inner classes for each of the resource types
+										</li>
+										<li>
+											static constant integers within them. 
+										</li>
+										<li>
+											names of the member variables are the same as the names of the 
+											<ul>
+												<li>
+													files or 
+												</li>
+												<li>
+													values in resource files. 
+												</li>
+											</ul>
+										</li>
+										<li>
+											Each value in a resource file is associated with an integer ID, 
+											and that ID is stored in a member variable of the same name, 
+											within a static class named after its data type.
+										</li>
+										<li>
+											if having problems Clean project
+											<br />
+											nuke bin/ obj/ folders in Xamarin
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Android - Project Structure</h2>
+					<h3>Project structure 03</h3>
+					
+					<ul>
+						<li>
+							res/
+							<ul>
+								<li>
+									folder will contains resources
+								</li>
+								<li>
+									external data files
+								</li>
+								<li>
+									naming constraints
+										<ul>
+											<li>
+												lower case letters
+											</li>
+											<li>
+												the numbers 0-9
+											</li>
+											<li>
+												special characters underscores '_', or periods '.' (single!!)
+											</li>
+										</ul>
+								</li>
+								<li>
+									three main types of resources in different subfolders
+									<ul>
+										<li>
+											layout/
+										</li>
+										<li>
+											drawable-*/
+										</li>
+										<li>
+											values-*/
+										</li>
+									</ul>
+								</li>
+							</ul>
+	
+						</li>
+					</ul>
+
+				</section>
+
+
+				<section>
+					<h2>Android - Project Structure</h2>
+					<h3>Project structure 04</h3>
+					
+					<ul>
+						<li>
+							res/
+							<ul>
+								<li>
+									res/drawble-x/
+									<ul>
+										<li>
+											folders contain image and animation files used in application.
+										</li>
+										<li>
+											several of these folders for various screen sizes/densities
+										</li>
+										<li>	
+											each folder contains default files
+											<ul>
+												<li>
+													icon.png
+													<br />
+													application icon after installation
+												</li>
+												<li>
+													 ic_action_search.png
+													 <br />
+													 search features
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+ 
+				<section>
+					<h2>Android - Project Structure</h2>
+					<h3>Project structure 05</h3>
+
+					<ul>
+						<li>
+							res/
+							<ul>
+								<li>
+									res/layout/
+									<ul>
+										<li>
+											XML layouts *.xml (*.axml) files
+										</li>
+										<li>
+											user interfaces
+										</li>
+									</ul>
+								</li>
+								<li>
+									res/menu/
+									<ul>
+										<li>
+											hold XML menu files 
+										</li>
+										<li>
+											menus (Menu button) for various app options when app is 
+											in foreground
+										</li>
+									</ul>
+								</li>
+								<li>
+									res/values/
+									<ul>
+										<li>
+											XML files that contain value type resources (strings, integers)
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+	
+
+				</section>
+
+
+				<section>
+					<h2>Android - Project Structure</h2>
+					<h3>Project structure 06</h3>
+
+					<ul>
+						<li>
+							res/
+							<ul>
+								<li>
+									res/values-*/
+									<ul>
+										<li>
+											additional dimensions and styles for different and usually larger screen sizes
+											<br />
+											files
+											<ul>
+												<li>
+													dimens.xml
+													<br />
+													app dimensions, used to space and pad various elements 
+													<br />
+													three dimension values listed use dp, or 'density-independent pixel', 
+													for measurements. 
+												</li>
+												<li>
+													strings.xml
+													<br />
+													string (text) variables - application themes/styles/skins
+													<br />
+													app_name - from the project creation wizard
+													<br />
+													action_settings - MENU item
+													<!--
+													<br />
+													text that appears on the first (and only) menu item
+													application menu activates on press MENU button when application 
+													is in foreground
+													-->
+												</li>
+												<li>
+													styles.xml
+													<br />
+													application themes/styles/skins
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Android - Project Structure</h2>
+					<h3>Project structure 07</h3>
+
+					<ul>
+						<li>
+							assets/
+							<ul>
+								<li>
+									similar to resources
+								</li>
+								<li>
+									for asset files
+								</li>
+								<li>
+									anything stored is accessed in the classic file manipulation style 
+								</li>
+								<li>
+									AssetManager class is used to open the file, read in a stream of bytes, and process the data
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Android - Project Structure</h2>
+					<h3>Project structure 08</h3>
+
+					<ul>
+						<li>
+							./ (root folder of the project)
+							<ul>
+								<li>
+									AndroidManifest.xml
+									<br />
+									information about application
+									<ul>
+										<li>
+											Package name for identification
+										</li>
+										<li>
+											app name
+										</li>
+										<li>
+											version
+										</li>
+										<li>
+											list of components used
+											<br />
+											(activities, services, broadcast recievers, content providers)
+										</li>
+										<li>
+											permissions app needs to run (internet access, location ...)
+										</li>
+										<li>
+											profiling information
+										</li>
+										<li>	
+											libraries, external components
+										</li>
+										<li>
+											API levels
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Android - Project Structure</h2>
+					<h3>Project structure 09</h3>
+
+					<ul>
+						<li>
+							./ (root folder of the project)
+							<ul>
+								<li>
+									proguard-project.txt
+									<br />
+									obfuscation, shrinking
+								</li>
+								<li>
+									project.properties
+									<ul>
+										<li>
+											project settings
+										</li>
+										<li>
+											targets (build
+										</li>
+										<li>
+											do not edit manually - do it in IDE - eclipse
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<!-- ................................................................................... -->
+
+			<!-- ................................................................................... -->
+			<section>
+				<section>
+					<h2>Android - Concepts</h2>
+					<h3>Application Elements/Components 01</h3>
+
+					<ul>
+						<li>
+							programmatic concepts
+							<br />
+							java classes/objects
+							<ul>
+								<li>
+									Activities + Intents
+									<ul>
+										<li>
+											similar to a web page,
+										</li>
+										<li>
+											basic building blocks
+										</li>
+										<li>
+											usually display (load) a user interface
+										</li>
+										<li>
+											single interactive screen
+										</li>
+										<li>
+											can be w/o UI											
+										</li>
+										<li>
+											Intents - Navigation
+										</li>
+									</ul>
+								</li>
+								<li>
+									Services
+									<ul>
+										<li>
+											run in background and perform task
+										</li>
+										<li>
+											usually have no UI	
+										</li>
+										<li>
+											setup and launched by activities
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Android - Concepts</h2>
+					<h3>Application Elements/Components 02</h3>
+
+					<ul>
+						<li>
+							programmatic concepts
+							<br />
+							java classes/objects
+							<ul>
+								<li>
+									Broadcast Receivers
+									<ul>
+										<li>
+											messaging system (inter-process, inter-application communication)
+										</li>
+										<li>
+											Event listeners (handlers)
+										</li>
+										<li>
+											receive and react to broadcast announcements which are either 
+											initiated by system code or other applications
+											<br />
+											(mail received, incoming call, connectivity lost or established)
+										</li>
+									</ul>
+								</li>
+								<li>
+									Content Providers
+									<ul>
+										<li>
+											provide data between application
+										</li>
+										<li>
+											Contacts, Messages
+										</li>
+										<li>
+											abstraction and unified interfaces for data sharing among apps
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+
+					</ul>
+									   *
+				</section>
+
+
+				<section>
+					<h2>Android - Concepts</h2>
+					<h3>Application Elements/Components 02</h3>
+
+					<ul>
+						<li>
+							programmatic concepts
+							<br />
+							java classes/objects
+							<ul>
+								<li>
+									UI
+									<ul>
+										<li>
+											defined
+											<ul>
+												<li>
+													declarative in XML
+													<br />
+													res/layout/*.xml
+													<br />
+													Xamarin *.axml files
+												</li>
+												<li>
+													programmatically in code
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+
+					</ul>
+				</section>
+
+				<section>
+					<h2>Android - Concepts</h2>
+					<h3>Application Elements/Components 03</h3>
+
+					<ul>
+						<li>
+							programmatic concepts
+							<br />
+							java classes/objects
+							<ul>
+								<li>
+									UI
+									<ul>
+										<li>
+											resource referencing
+											<br />
+											@ /" syntax
+											<br />
+											android:id
+											<br />
+											variable name for referencing elements from code.
+											<br />
+											References are specified with the syntax of @type/handle.
+											<br />
+											@string/some_name
+											<br />
+											ID
+											<br />
+											@+id/some_id
+											<br />
+											+ character denotes they are automatically defined during build and not in resources
+											<br />
+											handles (names) - some_id (after /)
+											<br />
+											identification in R.java - R static class
+											<br />
+											Resource.cs (resource class) in Xamarin
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>						   
+
+				<section>
+					<h2>Android - Concepts</h2>
+					<h3>Application Elements/Components 04</h3>
+
+					<ul>
+						<li>
+							programmatic concepts
+							<br />
+							java classes/objects
+							<ul>
+								<li>
+									UI - 
+									<ul>
+										<li>
+											Views (Widgets, Controls, UIViews)
+											<ul>
+												<li>
+													single (simple)
+													<br />
+													single element (inherits from View)
+													<ul>
+														<li>
+															Button
+														</li>
+														<li>
+															TextView (Label, UILabel)
+														</li>
+														<li>
+															EditText (TextBox, UITextField, UITextView)
+														</li>
+														<li>
+															CheckBox
+														</li>
+														<li>
+															...
+														</li>
+													</ul>
+												</li>
+												<li>
+													complex (groups of views - ViewGroup)
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>						   
+
+				<section>
+					<h2>Android - Concepts</h2>
+					<h3>Application Elements/Components 05</h3>
+
+					<ul>
+						<li>
+							programmatic concepts
+							<br />
+							java classes/objects
+							<ul>
+								<li>
+									UI - 
+									<ul>
+										<li>
+											Views (Widgets, Controls, UIViews)
+											<ul>
+												<li>
+													complex (groups of views - ViewGroup)
+													<br />
+													layouts
+													<ul>
+														<li>
+															AdapterViews (ListView)
+														</li>
+														<li>
+															pickers
+														</li>
+														<li>
+															Layouts - inherit from ViewGroup
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>						   
+
+
+				<section>
+					<h2>Android - Concepts</h2>
+					<h3>Application Elements/Components 06</h3>
+
+					<ul>
+						<li>
+							Layouts 01
+							<ul>
+								<li>
+									AbsoluteLayout
+									<p style="font-size: medium">
+									absolute (x,y) coordinate position for each child view.
+									This is a rigid layout that pins all child views down exactly where they are specified. 
+									Using this does not allow the user interface to adjust for different screen sizes and resolutions.
+									</p>
+								</li>
+								<li>
+									LinearLayout 
+									<br />
+									mostly used
+									<p style="font-size: medium">
+									list of child views and draws them sequentially in a single direction, 
+									either horizontally or vertically. You have the option of assigning a weight 
+									value for each child view which determines how much it is allowed to grow 
+									if there is extra space.
+									</p>
+								</li>
+								<li>
+									FrameLayout
+									<p style="font-size: medium">
+										Takes a single view object and simply pins it to the upper left hand corner of 
+										the screen. Each child view that is added is drawn on top of the previous one, 
+										causing it to be completely or partially obscured without very careful screen 
+										size and view hierarchy arrangement.
+									</p>
+								</li>
+								<li>
+									GridLayout
+									<p style="font-size: medium">
+									</p>
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+				</section>
+
+
+				<section>
+					<h2>Android - Concepts</h2>
+					<h3>Application Elements/Components 07</h3>
+
+					<ul>
+						<li>
+							Layouts 02
+							<ul>
+								<li>
+									RelativeLayout
+									<br />
+									'responsive' design
+									<p style="font-size: medium">
+									Positions its child views relative to other child views or the parent view. 
+									For example, two child views can be left-justified in the parent, or one child 
+									view can be made to be below another. 
+									</p>
+								</li>
+								<li>
+									TableLayout
+									<br />
+									'responsive' design
+									<p style="font-size: medium">
+										Positions its child views in a grid of rows and columns. A row is a child view 
+										specified by the TableRow class. TableRows can have zero or more cells and can 
+										contain empty cells. However, a cell cannot span multiple columns. Each cell is
+										itself another view, like a Button, and can be set to shrink or grow.
+									</p>
+								</li>
+							</ul>
+						</li>
+					</ul>	
+
+				</section>
+
+			</section>
+
+			<!-- ................................................................................... -->
+
+			<!-- ................................................................................... -->
+			<section>
+				<section>
+					<h2>Deploying</h2>
+					<h3></h3>
+
+					<ul>
+						<li>
+							device (real or virtual)
+						</li>
+						<li>
+							app must be digitally signed
+						</li>
+						<li>
+							no need for certificate authority (Verisign)
+						</li>
+						<li>
+							can be self signed for debug builds
+						</li>
+						<li>
+							release and Google play
+						</li>
+						<li>
+							no debug certificate
+						</li>
+					</ul>
+				</section>
+
+			</section>
+			<!-- ................................................................................... -->
+
+			<!-- ................................................................................... -->
+			<section>
+				<section>
+					<h2>Testing Debugging</h2>
+					<h3></h3>
+
+					<ul>
+						<li>
+							log cat
+						</li>
+						<li>
+							DDMS
+						</li>
+					</ul>
+				</section>
+
+			</section>
+			<!-- ................................................................................... -->
+
+
+			<!-- ................................................................................... -->
+			<section>
+				<section>
+					<h2>Projects - Ideas</h2>
+					<h3></h3>
+
+					<p>
+						1 /3  = 33 points
+						<br />
+						8 points
+					</p>
+					<ul>
+						<li>
+							Calendar
+							<ul>
+								<li>
+									 multiple 
+									<br />
+									users calendars / topics / categories
+								</li>
+								<li>
+									chooser
+								</li>
+								<li>
+									day / week / month
+								</li>
+							</ul>
+						</li>
+						<li>
+							Timer / Alarm
+							<br />
+							start, stop, pause. countdown, from file
+						</li>
+						<li>
+							Messaging
+							<br />
+							send SMS, Mail
+							<br />
+							subject, Content / Body, recipients
+						</li>
+						<li>
+							 MultiMedia player
+							 <br />
+							 Images, slideshow, Audio, Video
+						</li>
+						<li>
+							Voice Commander
+						</li>
+					</ul>
+				</section>
+
+			</section>
+			<!-- ................................................................................... -->
+
+
+			</div>
+
+		</div>
+		<!-- ======================================================================================= -->
+
+
+
+</body>
+</html>

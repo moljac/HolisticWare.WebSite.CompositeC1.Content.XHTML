@@ -1,0 +1,1084 @@
+﻿<!--
+C1 generated!!
+Title = all keywords, max 65 chars
+<title>20110630 Mono for Android (MonoDroid) Android for dotnetters</title>
+Description = all keywords + extra text
+<meta name="Description" content="20110630 Mono for Android (MonoDroid) Android for dotnetters: Microsoft Zagreb DevUG" />
+Url = all keywords, whitespace and forbidden characters replaced with - lower case, max 65 chars
+url: 20110630-mono-for-android-monodroid-android-for-dotnetters
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<!--
+	<link rel="stylesheet" href="~/css/print/pdf.css" />
+	-->
+	<script>
+		document.write
+		(
+			'<link rel="stylesheet" href="~/css/print/'
+		+ (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper'
+		) + '.css" type="text/css" media="print" />');
+	</script>
+</head>
+<body lang="en-us" xml:lang="en-us">
+
+		<!-- ======================================================================================= -->
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+			<!-- ................................................................................... -->
+			<section>
+				<section>
+					<h1>Android</h1>
+
+					<p>
+						Lectures on University College
+						<br />
+						for Applied Computer Engineering
+						<br />
+						<a href="http://www.racunarstvo.hr/en/">
+							http://www.racunarstvo.hr/en/
+						</a>
+					</p>
+
+					<p>
+						Miljenko Cvjetko
+						<br />
+						<a href="http://holisticware.net">
+							http://holisticware.net
+						</a>
+					</p>
+				</section>
+			</section>
+			<!-- ................................................................................... -->
+
+			<!-- ................................................................................... -->
+			<section>
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Layouts</h3>
+						<h3>Widgets</h3>
+						<h3>Tools</h3>
+				</section>
+				<!-- ................................................................................... -->
+			</section>
+			<!-- ................................................................................... -->
+
+			<!-- ................................................................................... -->
+			<section>
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Definition</h3>
+
+						<ul>
+							<li>
+								2 possibilities to define UI in Android
+								<ul>
+									<li>
+										programatically - in code
+										<br />
+										classes like LinearLayout, TextView, Button
+									</li>
+									<li>
+										declarative in xml
+										<br />
+										defined in Android xml (axml) files
+										<br />
+										represents serialized object graph (tree of xml elements) 
+									</li>
+								</ul>
+							</li>
+							<li>
+								UI is consisted of
+								<ul>
+									<li>
+										Views - base class for simple UI elements - Widgets
+										<br />
+										TextView, EditText, Button
+									</li>
+									<li>
+										ViewGroups - base class for Layouts
+										<br />
+										offer different types of layout architectures
+									</li>
+								</ul>
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Definition declarative in XML</h3>
+
+					<ul>
+							<li>
+								decalarative xml markup - 
+							</li>
+							<li>
+								based on HTML (web authoring)
+							</li>
+							<li>
+								quick UI desing
+							</li>
+							<li>
+								object graph object graph, xml tree
+								<br />
+								each node represents View class (derived)
+								<br />
+								node can have multiple attributes - properties
+							</li>
+							<li>
+								folder (project folder)
+									<ul>
+										<li>
+											res/layout/
+											<br />
+											java based - eclipse, Android.Studio
+										</li>
+										<li>
+											Resource/layout/
+											<br />
+											Xamarin.Android
+										</li>
+									</ul>
+							</li>
+
+					</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+
+						<h3>Layouts 01</h3>
+
+						<ul>
+							<li>
+								Frame Layout
+							</li>
+							<li>
+								Absolute Layout
+							</li>
+							<li>
+								Relative Layout
+							</li>
+							<li>
+								Linear Layout
+							</li>
+							<li>
+								ListView
+							</li>
+							<li>
+								ScrollView
+							</li>
+							<li>
+								TableView
+							</li>
+							<li>
+								TabHost
+							</li>
+							<li>
+								GridView
+							</li>
+							<li>
+								Gallery
+							</li>
+
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+
+						<h3>Layouts 02</h3>
+
+						<ul>
+							<li>
+								Spinner
+							</li>
+							<li>
+								ViewFilpper/ ViewSwitcher
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+
+						<h3>Layouts 03 - Tags</h3>
+
+						<ul>
+							<li>
+								Linearlayout
+								<ul>
+									<li>
+										Orientation = Horizontal | Vertical
+									</li>
+									<li>
+										Gravity 
+										<br />
+										alignment of all child elements
+									</li>
+								</ul>
+							</li>
+							<li>
+								ListView
+								<ul>
+									<li>
+										divider - between list elements
+									</li>
+									<li>
+										dividerHeight
+									</li>
+									<li>
+										entries - array to populate ListView
+									</li>
+									<li>
+										footerDividersEnabled
+									</li>
+									<li>
+										headerDividersEnabled
+									</li>
+								</ul>
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+
+						<h3>Menus</h3>
+
+						<ul>
+							<li>
+								enable user access application functions and settings
+							</li>
+							<li>
+								3 types
+								<ul>
+									<li>
+										Options Menu - user presses hardware Option menu
+										<br />
+										2 types
+										<ul>
+											<li>
+												IconMenu
+											</li>
+											<li>
+												ExpandedMenu
+											</li>
+										</ul>
+									</li>
+									<li>
+										ContextMenu
+										<br />
+										floating list of items - trigered by long press on a UI widget
+									</li>
+									<li>
+										SubMenu
+										<br />
+										floating list of items - triggered by pressing on a item in a menu in Options men
+										or Context menu
+									</li>
+								</ul>
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+
+						<h3>Events</h3>
+
+						<ul>
+							<li>
+								Listeners
+							</li>
+							<li>
+								Handlers
+							</li>
+							<li>
+								Focus
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+
+						<h3>Notifications</h3>
+
+						<ul>
+							<li>
+								need to notify user about some data or event
+							</li>
+							<li>
+								types
+								<ul>
+									<li>
+										Toast Notifications
+										<br />
+										short messages comming from background
+									</li>
+									<li>
+										StatusBar Notifiactions
+										<br />
+										reminders comming from background and requesting actions
+									</li>
+									<li>
+										Dialog Notifications
+										<br />
+										Activity notifiactions my require user interaction
+									</li>
+								</ul>
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+
+						<h3>Notifications - Dialgos</h3>
+
+						<ul>
+							<li>
+								types
+								<ul>
+									<li>
+										AlertDialog
+									</li>
+									<li>
+										ProgressDialog
+									</li>
+									<li>
+										DatePickerDialog
+									</li>
+									<li>
+										TImePickerDialog
+									</li>
+									<li>
+										Custom Dialogs
+									</li>
+								</ul>
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+			</section>
+			<!-- ................................................................................... -->
+
+			<!-- ................................................................................... -->
+			<section>
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Lifecycle Activity</h3>
+		
+				<ul>
+					<li>
+						States
+						<ul>
+							<li>
+								Created
+							</li>
+							<li>
+								Started (running)
+							</li>
+							<li>
+								Resumed (running)
+							</li>
+							<li>
+								Paused (partially Visible)
+							</li>
+							<li>
+								Stopped (hidden) activity is partially obscured by another activity—the other activity
+								that's in the foreground is semi-transparent or doesn't cover the entire
+								screen. The paused activity does not receive user input and cannot execute
+								any code.
+							</li>
+							<li>
+								Destroyed
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				</section>
+				<!-- ................................................................................... -->
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Lifecycle Activity</h3>
+
+						<ul>
+					<li>
+						Events
+						<ul>
+							<li>
+								Events
+							</li>
+							<li>
+								onCreate
+							</li>
+							<li>
+								onDestroy
+							</li>
+							<li>
+								onStart
+							</li>
+							<li>
+								onStop
+							</li>
+							<li>
+								onPause
+							</li>
+							<li>
+								onResume
+							</li>
+						</ul>
+					</li>
+
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Lifecycle Activity</h3>
+
+				<pre style="font-size:small">
+//=================================================================================
+// Error is just to distinguish it in LogCat 8)
+
+@Override
+protected void onDestroy() {
+	super.onDestroy();
+
+	Log.e("LIFECYCLE = ", this.getClass().toString() + ".onDestroyed");
+	return;
+}
+
+@Override
+protected void onStart() {
+	super.onStart();
+
+	Log.e("LIFECYCLE = ", this.getClass().toString() + ".onStart");
+	return;
+}
+
+@Override
+protected void onStop() {
+	super.onStop();
+
+	Log.e("LIFECYCLE = ", this.getClass().toString() + ".onStop");
+	return;
+}
+
+
+@Override
+protected void onPause() {
+	super.onPause();
+
+	Log.e("LIFECYCLE = ", this.getClass().toString() + ".onPause");
+	return;
+}
+
+@Override
+protected void onResume() {
+	super.onResume();
+
+	Log.e("LIFECYCLE = ", this.getClass().toString() + ".onResume");
+	return;
+}
+//=================================================================================
+				</pre>
+				</section>
+				<!-- ................................................................................... -->
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Lifecycle Activity 03</h3>
+
+						<ul>
+							<li>
+								onCreate: loading layout (UI) and getting Widget objects
+								<pre style="font-size:small">
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		//-----------------------------------------------
+		// loading UI (layouts)
+		setContentView(R.layout.activity_main);
+		//-----------------------------------------------
+
+		/*
+		 * not using fragments!!
+		if (savedInstanceState == null) {
+			getSupportFragmentManager().beginTransaction()
+					.add(R.id.container, new PlaceholderFragment()).commit();
+		}
+		*/
+		
+		//-----------------------------------------------
+		// getting Widget objects
+		buttonNavigationSimple = (Button) findViewById(R.id.buttonNavigateSimple);
+		buttonNavigationComplex = (Button) findViewById(R.id.buttonNavigateComplex);
+		editTextDataToSend = (EditText) findViewById(R.id.editTextDataToSend);
+		//-----------------------------------------------
+		
+
+		// Touch/Click Event programmatically 
+		// not using attribute in xml layout
+		buttonNavigationComplex.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				navigateComplex(v);
+			}
+		});
+		
+		Log.e("LIFECYCLE = ", this.getClass().toString() + ".onCreate");
+
+		return;
+	}
+								</pre>
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Lifecycle Activity 03</h3>
+
+						<ul>
+							<li>
+								each new Activity must be added to AndroidManifest.xml
+								<pre>
+&lt;application
+		android:allowBackup=&quot;true&quot;
+		android:icon=&quot;@drawable/ic_launcher&quot;
+		android:label=&quot;@string/app_name&quot;
+		android:theme=&quot;@style/AppTheme&quot; 
+		android:name=&quot;com.example.demo01.ApplicationCustom&quot;
+		&gt;
+		&lt;activity
+			android:name=&quot;com.example.demo01.MainActivity&quot;
+			android:label=&quot;@string/app_name&quot; &gt;
+			&lt;intent-filter&gt;
+				&lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+
+				&lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+			&lt;/intent-filter&gt;
+		&lt;/activity&gt;
+	   &lt;activity
+			android:name=&quot;com.example.demo01.HelperActivity&quot;&gt;
+		&lt;/activity&gt;
+			
+&lt;/application&gt;
+								</pre>
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Lifecycle Application 01</h3>
+
+						<ul>
+							<li>
+								custom Application object (class derived from Application
+								<ul>
+									<li>
+										used for global (application wide) objects/variables
+									</li>
+								</ul>
+							</li>
+							<li>
+								States
+								<ul>
+									<li>
+										Started (created)
+									</li>
+									<li>
+										Stopped (terminated)
+									</li>
+								</ul>
+							</li>
+							<li>
+								Events
+								<ul>
+									<li>
+										onCreate
+									</li>
+									<li>
+										onTerminate
+									</li>
+									<li>
+										onLowMemory
+									</li>
+									<li>
+										onConfigurationChanged
+									</li>
+								</ul>
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Lifecycle Application 02</h3>
+
+						<pre style="font-size: small">
+	package com.example.demo01;
+
+	import android.app.Application;
+	import android.content.res.Configuration;
+	import android.util.Log;
+
+	public class ApplicationCustom extends Application {
+
+		@Override
+		public void onCreate() {
+			super.onCreate();
+		
+			Log.e("LIFECYCLE = ", this.getClass().toString() + ".onCreate");
+			return;
+		}
+ 
+	
+		@Override
+		public void onTerminate() {
+			// TODO Auto-generated method stub
+			super.onTerminate();
+		
+			Log.e("LIFECYCLE = ", this.getClass().toString() + ".onTerminate");
+			return;
+		}
+	
+		@Override
+		public void onConfigurationChanged(Configuration newConfig) {
+			// TODO Auto-generated method stub
+			super.onConfigurationChanged(newConfig);
+		
+			Log.e("LIFECYCLE = ", this.getClass().toString() + ".onConfigurationChanged");
+			return;
+		}
+	
+		@Override
+		public void onLowMemory() {
+			// TODO Auto-generated method stub
+			super.onLowMemory();
+		}
+	}
+						</pre>
+				</section>
+				<!-- ................................................................................... -->
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Lifecycle Application 03</h3>
+
+						<ul>
+							<li>
+								custom Application object (class derived from Application
+								<ul>
+									<li>
+										must be activated in AcdroidManifest.xml by adding name attribute
+										<pre>
+&lt;application
+		android:allowBackup=&quot;true&quot;
+		android:icon=&quot;@drawable/ic_launcher&quot;
+		android:label=&quot;@string/app_name&quot;
+		android:theme=&quot;@style/AppTheme&quot; 
+		android:name=&quot;com.example.sample01basic01lifecycle.ApplicationCustom&quot; 
+		&gt;
+		...
+	&lt;/application&gt;
+
+										</pre>
+									</li>
+								</ul>
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+			</section>
+			<!-- ................................................................................... -->
+
+
+			<!-- ................................................................................... -->
+			<section>
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Navigation 01 Events</h3>
+
+						<ul>
+							<li>
+								Event Listeners defined
+								<ul>
+									<li>
+										programmatically with Event Listeners
+									</li>
+									<li>
+										declaratively in XML
+										<br />
+										Button.onClick
+									</li>
+								</ul> 
+							</li>
+						</ul>
+
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Navigation 02 Events subscription programmatically</h3>
+
+						<p>
+							after getting widget objects (Button) - subsribe to Event Listener (handler)
+						</p>
+						<pre style="font-size: small">
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		//-----------------------------------------------
+		// loading UI (layouts)
+		setContentView(R.layout.activity_main);
+		//-----------------------------------------------
+		
+		//-----------------------------------------------
+		// getting Widget objects
+		buttonNavigationSimple = (Button) findViewById(R.id.buttonNavigateSimple);
+		buttonNavigationComplex = (Button) findViewById(R.id.buttonNavigateComplex);
+		editTextDataToSend = (EditText) findViewById(R.id.editTextDataToSend);
+		//-----------------------------------------------
+		
+
+		// Touch/Click Event programmatically 
+		// not using attribute in xml layout
+		buttonNavigationComplex.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				navigateComplex(v);
+			}
+		});
+
+		return;
+	}
+						</pre>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Navigation 03 Events declaratively in XML</h3>
+
+						<p>
+							Button - android:onClick attribute
+						</p>
+						<pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+	android:layout_width=&quot;match_parent&quot;
+	android:layout_height=&quot;match_parent&quot; &gt;
+
+	&lt;Button
+		android:id=&quot;@+id/buttonNavigateSimple&quot;
+		android:layout_width=&quot;match_parent&quot;
+		android:layout_height=&quot;wrap_content&quot;
+		android:layout_alignLeft=&quot;@+id/editTextDataToSend&quot;
+		android:layout_below=&quot;@+id/editTextDataToSend&quot;
+		android:layout_marginTop=&quot;16dp&quot;
+		android:text=&quot;Navigation Simple&quot; 
+		android:onClick=&quot;navigateSimple&quot;/&gt;
+	
+&lt;/RelativeLayout&gt;
+						</pre>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Navigation 04 EventHandling</h3>
+
+						<p>
+							basic concept: Intent object + startActivity() method.
+							<br />
+							Intents also used for passing data
+						</p>
+						<pre style="font-size:small">
+	public void navigateSimple(View v)
+	{
+		// data_class_level = "Class";
+		//-----------------------------------------------
+		Intent intent = new Intent(this, HelperActivity.class);    	
+		this.startActivity(intent);
+		//-----------------------------------------------
+	}
+ 
+	// object for passing data on class/object level (public, or with methods)
+	public static String data_class_level = "";
+	
+	public void navigateComplex(View v)
+	{
+		String data = 
+				//"data sent from main activity"
+				this.editTextDataToSend.getText().toString().concat(" - Intent")
+				;
+			
+		//-----------------------------------------------
+		// Intent for passing data
+		Intent intent = new Intent(this, HelperActivity.class);
+		intent.putExtra("Data", data);
+		intent.putExtra("Broj", 1.0);
+		this.startActivity(intent);
+		//-----------------------------------------------
+		
+		//-----------------------------------------------
+		// class object for passing data
+		data_class_level = 
+				// ""
+				this.editTextDataToSend.getText().toString().concat(" - Class")
+				;
+		//-----------------------------------------------
+	}
+						</pre>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Navigation 05 sending/passing data</h3>
+
+						<p>
+						Data can be passed
+						</p>
+						<ul>	
+							<li>
+								through Android Intents
+							</li>
+							<li>
+								through classes and objects (public and/or static objects in Activities)
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Navigation 05 sending/passing data - Intents</h3>
+
+						<pre>
+		//-----------------------------------------------
+		// Intent for passing data
+		Intent intent = new Intent(this, HelperActivity.class);
+		intent.putExtra("Data", data);
+		intent.putExtra("Broj", 1.0);
+		this.startActivity(intent);
+		//-----------------------------------------------
+						</pre>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Navigation 06 sending/passing data - Classes</h3>
+
+						<pre>
+		//-----------------------------------------------
+		// class object for passing data
+		data_class_level = 
+				// ""
+				this.editTextDataToSend.getText().toString().concat(" - Class")
+				;
+		//-----------------------------------------------
+						</pre>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Navigation 07 receiving/extracting data</h3>
+
+						<p>
+						Data from calling Activity can be received / extracted in onCreate ethod of the called Activity
+						<br />
+
+						</p>
+						<ul>	
+							<li>
+								through Android Intents
+							</li>
+							<li>
+								through classes and objects (public and/or static objects in Activities)
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Navigation 08 receiving/extracting data</h3>
+
+						<pre style="font-size: small">
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+
+	//-----------------------------------------------
+	super.onCreate(savedInstanceState);
+	//-----------------------------------------------
+
+	//-----------------------------------------------
+	// loading UI (layouts)
+	setContentView(R.layout.activity_helper);
+	//-----------------------------------------------
+	        
+	//-----------------------------------------------
+	// getting Widget objects
+	Button buttonBack = (Button) findViewById(R.id.buttonBack);
+	TextView textViewDataFromClass = (TextView) findViewById(R.id.textViewDataFromClass);
+	TextView textViewDataFromIntent = (TextView) findViewById(R.id.textViewDataFromIntent);
+	//-----------------------------------------------
+
+	//-----------------------------------------------
+	// extracting data from intent
+	String message1 = this.getIntent().getStringExtra("Data");
+	//-----------------------------------------------
+	        
+	//-----------------------------------------------
+	// extracting data from class
+	String message2 = MainActivity.data_class_level;
+	//-----------------------------------------------
+
+	//-----------------------------------------------
+	// working with Widget objects
+	if (message1 != null)
+	{
+	textViewDataFromClass.setText(message1);
+	}
+	textViewDataFromIntent.setText(message2);
+	//-----------------------------------------------
+	        
+	Log.e("LIFECYCLE = ", this.getClass().toString() + ".onCreate");
+	return;
+}
+						</pre>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Navigation 09 receiving/extracting data - Intents</h3>
+
+						<pre>
+	//-----------------------------------------------
+	// extracting data from intent
+	String message1 = this.getIntent().getStringExtra("Data");
+	//-----------------------------------------------
+						</pre>
+				</section>
+				<!-- ................................................................................... -->
+
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+						<h3>Navigation 10 receiving/extracting data - Classes</h3>
+
+						<pre>
+	//-----------------------------------------------
+	// extracting data from class
+	String message2 = MainActivity.data_class_level;
+	//-----------------------------------------------
+						</pre>
+				</section>
+				<!-- ................................................................................... -->
+
+			</section>
+			<!-- ................................................................................... -->
+
+
+			<!-- ................................................................................... -->
+			<section>
+				<!-- ................................................................................... -->
+				<section>
+						<h2>UI concepts</h2>
+
+						<h3>Links</h3>
+
+						<ul>
+							<li>
+								<a href="http://developer.android.com/guide/topics/ui/index.html">
+								http://developer.android.com/guide/topics/ui/index.html
+								</a>
+							</li>
+							<li>
+								<a href="http://www.androidpatterns.com/">
+								http://www.androidpatterns.com/
+								</a>
+							</li>
+							<li>
+								<a href="http://www.androidviews.net/">
+									http://www.androidviews.net/
+								</a>
+							</li>
+							<li>
+								Sample
+								<br />
+								<a href="https://github.com/moljac/Samples.XamarinAndroid/tree/master/Tools/Eclipse.Workspace/demo01">
+									https://github.com/moljac/Samples.XamarinAndroid/tree/master/Tools/Eclipse.Workspace/demo01
+								</a>
+							</li>
+						</ul>
+				</section>
+				<!-- ................................................................................... -->
+
+
+			</section>
+			<!-- ................................................................................... -->
+
+			</div>
+
+		</div>
+		<!-- ======================================================================================= -->
+
+</body>
+</html>
